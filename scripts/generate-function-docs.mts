@@ -281,7 +281,7 @@ const config = {
       anchors: [
         { anchor: 'Guides', href: 'https://projectreal.gg/docs/guides', icon: 'book-open' },
         { anchor: 'Troubleshooting', href: 'https://projectreal.gg/docs/troubleshooting', icon: 'screwdriver-wrench' },
-        { anchor: 'Release notes', href: 'https://projectreal.gg/docs/releases', icon: 'clock-rotate-left' },
+        { anchor: 'Release notes', href: 'https://projectreal.gg/release-notes', icon: 'clock-rotate-left' },
       ],
     },
   },
