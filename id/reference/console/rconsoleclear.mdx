@@ -1,0 +1,29 @@
+---
+title: "rconsoleclear"
+sidebarTitle: "rconsoleclear"
+description: "Menghapus current Windows console screen buffer saat ada console window. Jika tidak ada console window, call kembali tanpa melakukan apa pun."
+icon: "function"
+keywords: ["rconsoleclear","Console","consoleclear"]
+---
+
+Menghapus current Windows console screen buffer saat ada console window. Jika tidak ada console window, call kembali tanpa melakukan apa pun.
+
+## Sintaks
+
+```lua
+rconsoleclear()
+```
+
+## Alias
+
+- `consoleclear`
+
+## Contoh
+
+Clear the current console screen when a console window exists.
+
+```lua
+rconsolecreate()
+rconsoleprint("Preparing output...")
+rconsoleclear()
+```

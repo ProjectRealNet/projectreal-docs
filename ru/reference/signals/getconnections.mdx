@@ -1,0 +1,44 @@
+---
+title: "getconnections"
+sidebarTitle: "getconnections"
+description: "Возвращает array table из RealConnection closures для RBXScriptSignal. Первый argument должен быть object с Luau type name RBXScriptSignal. Function читает Connect method сигнала, подключает temporary blank callback, читает linked list начиная с next reference временного соединения, отключает временное соединение и оборачивает каждый допустимый connection reference. Если после временного соединения connection reference не найден, возвращает пустую table. Ранее обернутые underlying references могут возвращать ту же cached closure table. getsignals и get_signal_cons являются aliases той же function."
+icon: "function"
+keywords: ["getconnections","Signals","getsignals","get_signal_cons"]
+---
+
+Возвращает array table из RealConnection closures для RBXScriptSignal. Первый argument должен быть object с Luau type name RBXScriptSignal. Function читает Connect method сигнала, подключает temporary blank callback, читает linked list начиная с next reference временного соединения, отключает временное соединение и оборачивает каждый допустимый connection reference. Если после временного соединения connection reference не найден, возвращает пустую table. Ранее обернутые underlying references могут возвращать ту же cached closure table. getsignals и get_signal_cons являются aliases той же function.
+
+## Синтаксис
+
+```lua
+getconnections(signal: RBXScriptSignal): {RealConnection}
+```
+
+## Алиасы
+
+- `getsignals`
+- `get_signal_cons`
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | Signal для проверки. Userdata, не являющийся RBXScriptSignal, вызывает type error, а signal без вызываемого Connect field вызывает "Signal does not have 'Connect' method". |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `connections` | `&#123;RealConnection&#125;` | Array table из connection closure tables. Каждый closure предоставляет fields и methods через свою methods, включая Enabled, Disabled, LuaConnection, ForeignState, Function, Thread, Disconnect, Disable, Enable, Fire и Defer, когда они доступны. |
+
+## Пример
+
+Inspect an RBXScriptSignal and list the wrapped connections Real can expose.
+
+```lua
+local Players = game:GetService("Players")
+
+for _, connection in ipairs(getconnections(Players.PlayerAdded)) do
+    print(connection.Enabled, connection.LuaConnection)
+end
+```

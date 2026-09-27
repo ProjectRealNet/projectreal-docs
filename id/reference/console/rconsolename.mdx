@@ -1,0 +1,36 @@
+---
+title: "rconsolename"
+sidebarTitle: "rconsolename"
+description: "Mengatur title Windows console window saat ini dengan Windows console title update. argument pertama harus berupa string dan diperiksa sebelum console existence check. Jika tidak ada console window setelah string check berhasil, panggilan kembali tanpa melakukan apa pun."
+icon: "function"
+keywords: ["rconsolename","Console","consolename","rconsolesettitle","consolesettitle"]
+---
+
+Mengatur title Windows console window saat ini dengan Windows console title update. argument pertama harus berupa string dan diperiksa sebelum console existence check. Jika tidak ada console window setelah string check berhasil, panggilan kembali tanpa melakukan apa pun.
+
+## Sintaks
+
+```lua
+rconsolename(text: string)
+```
+
+## Alias
+
+- `consolename`
+- `rconsolesettitle`
+- `consolesettitle`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | Nilai teks yang digunakan oleh operasi. |
+
+## Contoh
+
+Set the current Windows console window title.
+
+```lua
+rconsolecreate()
+rconsolename("Real Console")
+```

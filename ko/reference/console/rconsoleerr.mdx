@@ -1,0 +1,35 @@
+---
+title: "rconsoleerr"
+sidebarTitle: "rconsoleerr"
+description: "console text attribute를 error text color로 설정한 뒤 stdout을 통해 현재 Windows console에 0개 이상의 값을 씁니다. 값은 Lua string conversion으로 변환되고 tab 문자로 구분되며, 이후 text attribute는 default console text color로 설정됩니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다."
+icon: "function"
+keywords: ["rconsoleerr","Console","consoleerr"]
+---
+
+console text attribute를 error text color로 설정한 뒤 stdout을 통해 현재 Windows console에 0개 이상의 값을 씁니다. 값은 Lua string conversion으로 변환되고 tab 문자로 구분되며, 이후 text attribute는 default console text color로 설정됩니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다.
+
+## 문법
+
+```lua
+rconsoleerr(...values?: ...any)
+```
+
+## 별칭
+
+- `consoleerr`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `...values` | `...any` | No | 선택적 값입니다. console이 있으면 각 value는 Lua string conversion으로 변환되고 쓰기 전에 tab 문자로 결합됩니다. |
+
+## 예제
+
+Write a bright red message to the current Windows console without throwing a Luau error.
+
+```lua
+rconsolecreate()
+rconsoleerr("Request failed", 500, "
+")
+```

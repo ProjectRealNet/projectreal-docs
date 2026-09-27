@@ -1,0 +1,32 @@
+---
+title: "makefolder"
+sidebarTitle: "makefolder"
+description: "Membuat directory di dalam workspace dengan recursive folder creation, termasuk missing parent directories."
+icon: "function"
+keywords: ["makefolder","Filesystem"]
+---
+
+Membuat directory di dalam workspace dengan recursive folder creation, termasuk missing parent directories.
+
+## Sintaks
+
+```lua
+makefolder(path: string)
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Directory path yang diselesaikan di dalam workspace setelah separator normalization dan workspace-boundary checks. Empty, invalid, atau outside-workspace paths menghasilkan error sebelum pembuatan dicoba. |
+
+## Contoh
+
+Buat workspace directory dan missing parent directories.
+
+```lua
+local path = "examples/generated/nested"
+
+makefolder(path)
+print(isfolder(path))
+```

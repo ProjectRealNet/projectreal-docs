@@ -1,0 +1,40 @@
+---
+title: "Drawing.new"
+sidebarTitle: "Drawing.new"
+description: "Создает новый Drawing object запрошенного типа и добавляет его в Real tracked Drawing object list. type string должен быть одним из точных поддерживаемых имен: \"Line\", \"Text\", \"Circle\", \"Square\", \"Quad\", \"Triangle\", \"Image\". Отсутствующие, non-string или неподдерживаемые type values вызывают Lua error. the Drawing API регистрирует эту API только когда the required rendering environment is active имеет значение true; если эта проверка false, initializer возвращается до создания этих globals."
+icon: "function"
+keywords: ["Drawing.new","Drawing"]
+---
+
+Создает новый Drawing object запрошенного типа и добавляет его в Real tracked Drawing object list. type string должен быть одним из точных поддерживаемых имен: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". Отсутствующие, non-string или неподдерживаемые type values вызывают Lua error. the Drawing API регистрирует эту API только когда the required rendering environment is active имеет значение true; если эта проверка false, initializer возвращается до создания этих globals.
+
+## Синтаксис
+
+```lua
+Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad" | "Triangle"): DrawingObject
+```
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `objectType` | `"Image" \| "Line" \| "Text" \| "Circle" \| "Square" \| "Quad" \| "Triangle"` | Yes | Точное имя Drawing type для создания. Поддерживаемые значения: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `object` | `DrawingObject` | Созданный Drawing object с Drawing object type. |
+
+## Пример
+
+Создайте видимый квадрат и настройте его основные свойства рисования.
+
+```lua
+local square = Drawing.new("Square")
+square.Position = Vector2.new(120, 120)
+square.Size = Vector2.new(220, 120)
+square.Color = Color3.fromRGB(120, 170, 255)
+square.Filled = true
+square.Visible = true
+```

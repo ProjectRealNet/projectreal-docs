@@ -1,0 +1,23 @@
+---
+title: "ImGui"
+description: "نوافذ الوضع الفوري وعناصر التحكم المعتمدة على رد الاتصال."
+icon: "folder-code"
+---
+
+نوافذ الوضع الفوري وعناصر التحكم المعتمدة على رد الاتصال.
+
+| تنقل الدوال | الوصف |
+| --- | --- |
+| [`imgui.create`](./imgui-create) | ينشئ سجل ImGui window متتبعا ويعيد ImGuiWindow object. يستخدم title القيمة "REAL_IM_UI" عندما يتم حذفه أو يكون nil. يجب أن يكون title فريدا بين ImGui windows المتتبعة حاليا؛ إنشاء tracked window آخر بنفس title يرفع Lua error. |
+| [`imgui.setvsync`](./imgui-setvsync) | يحدّث تفضيل vertical synchronization الخاص بـ ImGui renderer. يخزن presentation path الحالي هذا التفضيل لكنه لا يطبقه. |
+| [`ImGuiWindow.Button`](./imguiwindow-button) | يلحق button element بـ ImGuiWindow ويخزن callback. عند النقر على button المعروض، يتم وضع callback في queue ثم استدعاؤه لاحقا بدون arguments. تعيد method نفس ImGuiWindow object. |
+| [`ImGuiWindow.Checkbox`](./imguiwindow-checkbox) | Appends a checkbox element to an ImGuiWindow. The callback is invoked with the new boolean value when the checkbox changes, and the method returns the same ImGuiWindow object. |
+| [`ImGuiWindow.CollapsingHeader`](./imguiwindow-collapsingheader) | يلحق collapsing header start marker، ثم يستدعي content callback فورا مع نفس ImGuiWindow object كي يتمكن من إلحاق nested elements، ثم يلحق header end marker. أثناء rendering، يتم تخطي nested elements بينما header collapsed. يتم التقاط callback errors ولا تعيدها هذه method. |
+| [`ImGuiWindow.ColorPicker`](./imguiwindow-colorpicker) | Appends a RGBA color editor to an ImGuiWindow and stores the callback. Missing or nil color components default to 1.0. When the rendered editor changes, the callback is queued and later invoked with red, green, blue, and alpha. The method returns the same ImGuiWindow object. |
+| [`ImGuiWindow.destroy`](./imguiwindow-destroy) | يدمر ImGuiWindow. إذا كان object لا يزال يشير إلى window، تزيل method هذا window من tracked ImGui window list الخاصة بـ Real، وتعمل unreference لـ stored element callbacks، وتحذف window record، وتضبط Instance reference إلى nil. استدعاء destroy مرة أخرى على نفس object يرجع بدون فعل أي شيء. |
+| [`ImGuiWindow.InputText`](./imguiwindow-inputtext) | يلحق single-line ImGui InputText element بـ ImGuiWindow ويخزن callback. يتم قراءة initial text باستخدام optional string handling ونسخه إلى fixed 256-byte text buffer الخاص بالعنصر. عندما يتغير input المعروض، يتم وضع callback في queue ثم استدعاؤه لاحقا مع current string. تعيد method نفس ImGuiWindow object. |
+| [`ImGuiWindow.SameLine`](./imguiwindow-sameline) | يلحق SameLine layout marker بالنافذة. اثناء rendering، تستدعي Real ‏a same-line layout marker عند ذلك الموضع في element list حتى يتمكن العنصر المرسوم التالي من المتابعة على نفس الصف. |
+| [`ImGuiWindow.Separator`](./imguiwindow-separator) | يلحق Separator marker بالنافذة. اثناء rendering، تستدعي Real ‏a separator عند ذلك الموضع في element list. |
+| [`ImGuiWindow.SliderFloat`](./imguiwindow-sliderfloat) | يلحق SliderFloat element بالنافذة. تتم قراءة label و value و minimum و maximum من الوسائط 2 حتى 5، ويتم فحص الوسائط الرقمية بواسطة number type checking. اثناء rendering، تستدعي Real ‏a floating-point slider بالقيمة والنطاق المخزنين. عندما يبلغ ImGui عن قيمة متغيرة، يتم وضع onChange في queue ثم استدعاؤه لاحقا مع Lua number واحدة. لا تضيف Real فحص minimum &lt;= maximum منفصلا في هذا closure. |
+| [`ImGuiWindow.SliderInt`](./imguiwindow-sliderint) | Adds an integer slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated integer value. |
+| [`ImGuiWindow.Text`](./imguiwindow-text) | يلحق Text element غير تفاعلي بالنافذة. تتم قراءة وسيط text باستخدام string type checking وتخزينه في element. اثناء rendering، تستدعي Real ‏a text element، لذلك يتم استخدام النص المقدم كمحتوى string وليس كـ ImGui format string. |

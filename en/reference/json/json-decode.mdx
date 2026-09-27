@@ -1,0 +1,52 @@
+---
+title: "json.decode"
+sidebarTitle: "json.decode"
+description: "Parses a JSON string with Real's JSON parser and returns the decoded Lua value, marking decoded arrays and objects for the JSON helpers."
+icon: "function"
+keywords: ["json.decode","JSON"]
+---
+
+Parses a JSON string with Real's JSON parser and returns the decoded Lua value, marking decoded arrays and objects for the JSON helpers.
+
+## Syntax
+
+```lua
+json.decode(json: string, options?: DecodeOptions): any
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON text to parse. The parser accepts one JSON value with optional surrounding whitespace and throws when invalid syntax or trailing non-whitespace characters are found. |
+| `options` | `DecodeOptions` | No | Optional decode options. A boolean sets useNull directly. A table can set useNull and maxDepth; maxDepth is clamped from 1 to 4096. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `decoded` | `any` | Decoded value. JSON objects and arrays become tables with JSON type markers, strings become Lua strings, numbers become Lua numbers, booleans become booleans, and null becomes json.null unless useNull is false. |
+
+## Types
+
+### DecodeOptions
+
+Controls JSON parsing behavior.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Represents JSON null with the library's null sentinel instead of nil. |
+| `maxDepth` | `integer` | No | Sets the maximum nesting depth, clamped from 1 to 4096. |
+
+## Example
+
+Decode JSON into Lua values while preserving JSON array, object, and null markers.
+
+```lua
+local value = json.decode('{"name":"Real","tags":["docs"],"missing":null}')
+
+print(value.name)
+print(value.tags[1])
+print(json.type(value))
+print(json.isNull(value.missing))
+```

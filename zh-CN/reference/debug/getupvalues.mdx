@@ -1,0 +1,52 @@
+---
+title: "getupvalues"
+sidebarTitle: "getupvalues"
+description: "Returns all upvalues from a Lua function or stack level as a one-based array table. Invalid stack levels raise \"Level out of range\", and non-Lua functions raise \"Lua function expected\". debug.getupvalues is an alias."
+icon: "function"
+keywords: ["getupvalues","Debug","debug.getupvalues"]
+---
+
+Returns all upvalues from a Lua function or stack level as a one-based array table. Invalid stack levels raise "Level out of range", and non-Lua functions raise "Lua function expected". debug.getupvalues is an alias.
+
+## 语法
+
+```lua
+getupvalues(target: function | number): table
+```
+
+## 别名
+
+- `debug.getupvalues`
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `target` | `function \| number` | Yes | Lua function or stack level whose upvalues are returned. |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `upvalues` | `table` | One-based array table containing the function upvalues. Empty when none are present. |
+
+## 示例
+
+Read all upvalues from a Lua closure or stack level.
+
+```lua
+local first = "one"
+local second = "two"
+
+local function target()
+    return first, second
+end
+
+local upvalues = getupvalues(target)
+
+for index, value in ipairs(upvalues) do
+    print(index, value)
+end
+
+print(#debug.getupvalues(target))
+```

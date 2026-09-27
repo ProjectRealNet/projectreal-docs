@@ -1,0 +1,49 @@
+---
+title: "ImGuiWindow.Button"
+sidebarTitle: "ImGuiWindow.Button"
+description: "向 ImGuiWindow 追加一个 button element 并存储 callback。当渲染出的 button 被点击时，callback 会进入 queue，并稍后在没有 arguments 的情况下调用。该 method 返回相同的 ImGuiWindow object。"
+icon: "function"
+keywords: ["ImGuiWindow.Button","ImGui"]
+---
+
+向 ImGuiWindow 追加一个 button element 并存储 callback。当渲染出的 button 被点击时，callback 会进入 queue，并稍后在没有 arguments 的情况下调用。该 method 返回相同的 ImGuiWindow object。
+
+## 语法
+
+```lua
+ImGuiWindow.Button(window: ImGuiWindow, label: string, onClick: function): ImGuiWindow
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `window` | `ImGuiWindow` | Yes | imgui.create 返回的 ImGuiWindow object。已销毁或无效的 window 会触发 Lua error。 |
+| `label` | `string` | Yes | 传给渲染出的 ImGui button 的 button label string。 |
+| `onClick` | `function` | Yes | 为此 button 存储的 Function，在 click event 被处理后以没有 arguments 的方式调用。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `window` | `ImGuiWindow` | 相同的 ImGuiWindow object，因此可以链式调用 method calls。 |
+
+## 类型
+
+### ImGuiWindow
+
+imgui.create 返回的句柄。控制构建方法返回相同的句柄，因此可以链接调用。
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | 添加一个按钮并在单击后调用回调。 |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | 附加一个初始化为提供状态的复选框。 |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | 对折叠标题下方的内容回调附加的控件进行分组。 |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | 追加RGBA编辑器；省略的颜色分量默认为 1.0。 |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | 追加单行文本输入；省略的初始文本默认为空字符串。 |
+| `SameLine` | `() -> ImGuiWindow` | Yes | 将下一个控件放置在同一行上。 |
+| `Separator` | `() -> ImGuiWindow` | Yes | 添加水平分隔符。 |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | 添加浮点滑块。 |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | 附加一个整数滑块。 |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | 附加非交互式文本。 |
+| `destroy` | `() -> ()` | Yes | 删除窗口并释放其注册的回调。 |

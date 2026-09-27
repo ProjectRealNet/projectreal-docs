@@ -1,0 +1,70 @@
+---
+title: "json.format"
+sidebarTitle: "json.format"
+description: "Mem-parse JSON string lalu meng-encode ulang sebagai readable formatted JSON memakai Real JSON parser dan encoder."
+icon: "function"
+keywords: ["json.format","JSON"]
+---
+
+Mem-parse JSON string lalu meng-encode ulang sebagai readable formatted JSON memakai Real JSON parser dan encoder.
+
+## Sintaks
+
+```lua
+json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string yang di-parse sebelum formatting. Function membaca argument ini dengan string type checking. |
+| `encodeOptions` | `EncodeOptions` | No | Optional encode options yang diteruskan ke re-encode step. json.format membaca encode options yang sama seperti json.encode, lalu memaksa pretty menjadi true. |
+| `decodeOptions` | `DecodeOptions` | No | Optional decode options yang dipakai saat parsing input JSON. boolean mengatur useNull. table dapat mengatur useNull dan maxDepth. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `formatted` | `string` | Readable formatted JSON string yang dibuat setelah parsing dan re-encoding input. |
+
+## Tipe
+
+### EncodeOptions
+
+Mengontrol serialisasi dan pemformatan JSON.
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Mengaktifkan keLua runtime JSON multi-baris yang diformat. |
+| `sortKeys` | `boolean` | No | Mengurutkan kunci objek sebelum pengkodean. |
+| `emptyTableAsArray` | `boolean` | No | Mengkodekan tabel kosong sebagai array, bukan objek. |
+| `errorOnUnsupported` | `boolean` | No | Menimbulkan kesalahan alih-alih mengganti nilai yang tidak didukung. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Mengkodekan NaN dan angka tak terbatas sebagai JSON null. |
+| `maxDepth` | `integer` | No | Menyetel kedalaman sarang maksimum, dijepit dari 1 hingga 4096. |
+| `indent` | `string` | No | Menyetel string indentasi, dibatasi hingga 32 karakter. |
+
+### DecodeOptions
+
+Mengontrol perilaku penguraian JSON.
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Mewakili JSON null dengan penjaga null perpustakaan, bukan nihil. |
+| `maxDepth` | `integer` | No | Menyetel kedalaman sarang maksimum, dijepit dari 1 hingga 4096. |
+
+## Contoh
+
+Parse existing JSON lalu re-encode sebagai readable formatted JSON.
+
+```lua
+local compact = '{"b":2,"a":1}'
+local formatted = json.format(compact, {
+    pretty = true,
+    sortKeys = true,
+}, {
+    useNull = true,
+})
+
+print(formatted)
+```

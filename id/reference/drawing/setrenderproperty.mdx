@@ -1,0 +1,36 @@
+---
+title: "setrenderproperty"
+sidebarTitle: "setrenderproperty"
+description: "Menetapkan value ke object[property]. Untuk Drawing object, ini menggunakan Drawing property assignment yang sama seperti direct property assignment. Unknown Drawing properties diabaikan, dan destroyed Drawing objects tidak diubah. Argumen ketiga harus ada. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini."
+icon: "function"
+keywords: ["setrenderproperty","Drawing"]
+---
+
+Menetapkan value ke object[property]. Untuk Drawing object, ini menggunakan Drawing property assignment yang sama seperti direct property assignment. Unknown Drawing properties diabaikan, dan destroyed Drawing objects tidak diubah. Argumen ketiga harus ada. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini.
+
+## Sintaks
+
+```lua
+setrenderproperty(object: any, property: any, value: any)
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | Nilai yang di-index dan diberi assignment. Dengan Drawing object, RealDrawingObject __newindex handler digunakan. |
+| `property` | `any` | Yes | property key yang digunakan untuk assignment. Drawing object properties berbasis strings. |
+| `value` | `any` | Yes | Nilai yang ditetapkan ke object[property]. Argumen ini harus diberikan; nil tetap merupakan nilai yang diberikan. |
+
+## Contoh
+
+Perbarui properti gambar melalui pembantu properti generik.
+
+```lua
+local line = Drawing.new("Line")
+setrenderproperty(line, "Thickness", 3)
+setrenderproperty(line, "Visible", true)
+
+print(line.Thickness)
+print(line.Visible)
+```

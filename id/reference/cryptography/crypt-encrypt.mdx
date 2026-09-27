@@ -1,0 +1,46 @@
+---
+title: "crypt.encrypt"
+sidebarTitle: "crypt.encrypt"
+description: "Mengenkripsi byte Lua string dengan AES CBC, ECB, atau CTR memakai key yang didekode dari Base64, lalu mengembalikan Base64 ciphertext dan hasil IV."
+icon: "function"
+keywords: ["crypt.encrypt","Cryptography"]
+---
+
+Mengenkripsi byte Lua string dengan AES CBC, ECB, atau CTR memakai key yang didekode dari Base64, lalu mengembalikan Base64 ciphertext dan hasil IV.
+
+## Sintaks
+
+```lua
+crypt.encrypt(data: string, key: string, iv?: string, mode?: "CBC" | "ECB" | "CTR" | "AES-CBC" | "AES-ECB" | "AES-CTR"): string | string | nil
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Byte plaintext yang dibaca dari Lua string. |
+| `key` | `string` | Yes | Base64 key yang didekode sebelum diteruskan ke AES. |
+| `iv` | `string` | No | Base64 IV opsional untuk CBC atau CTR. Jika dihilangkan untuk CBC atau CTR, IV baru sebesar AES block size dibuat. |
+| `mode` | `"CBC" \| "ECB" \| "CTR" \| "AES-CBC" \| "AES-ECB" \| "AES-CTR"` | No | AES mode. Prefix AES- dihapus jika ada. Default-nya AES-CBC. CBC dan ECB memakai crypto library DEFAULT_PADDING; CTR tidak memakai padding. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `ciphertext` | `string` | Base64-encoded ciphertext. |
+| `initializationVector` | `string \| nil` | Base64-encoded IV untuk CBC dan CTR; nil untuk ECB. |
+
+## Contoh
+
+Enkripsi Lua string dan dekripsi ciphertext yang dikembalikan memakai IV yang dikembalikan.
+
+```lua
+local key = crypt.generatekey()
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+local plaintext = crypt.decrypt(ciphertext, key, iv)
+
+print(ciphertext)
+print(iv)
+print(plaintext)
+```

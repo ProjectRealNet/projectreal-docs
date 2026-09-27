@@ -1,0 +1,39 @@
+---
+title: "getscriptfromthread"
+sidebarTitle: "getscriptfromthread"
+description: "Returns the Script Instance associated with a Luau thread, or nil when no valid script reference is available."
+icon: "function"
+keywords: ["getscriptfromthread","Threads"]
+---
+
+Returns the Script Instance associated with a Luau thread, or nil when no valid script reference is available.
+
+## Składnia
+
+```lua
+getscriptfromthread(thread: thread): Instance | nil
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `thread` | `thread` | Yes | Luau thread whose associated Script Instance is returned. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `script` | `Instance \| nil` | Associated Script Instance when available; otherwise nil. |
+
+## Przykład
+
+Read the Script Instance stored on a Luau thread, if one is attached.
+
+```lua
+local thread = coroutine.create(function()
+end)
+
+local scriptInstance = getscriptfromthread(thread)
+print(scriptInstance)
+```

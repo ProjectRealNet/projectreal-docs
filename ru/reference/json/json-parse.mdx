@@ -1,0 +1,53 @@
+---
+title: "json.parse"
+sidebarTitle: "json.parse"
+description: "Parse для JSON string через ту же function, что json.decode."
+icon: "function"
+keywords: ["json.parse","JSON"]
+---
+
+Parse для JSON string через ту же function, что json.decode.
+
+## Синтаксис
+
+```lua
+json.parse(json: string, options?: DecodeOptions): any
+```
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string для parse. Function читает этот argument через string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean задает useNull. table может задавать useNull и maxDepth. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `decoded` | `any` | Decoded value. JSON objects и arrays становятся tables с JSON type markers, strings становятся Lua strings, numbers становятся Lua numbers, booleans становятся booleans, а null становится json.null, если useNull не false. |
+
+## Типы
+
+### DecodeOptions
+
+Управляет поведением анализа JSON.
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Представляет значение JSON null с нулевым контрольным значением библиотеки вместо nil. |
+| `maxDepth` | `integer` | No | Устанавливает максимальную глубину вложенности от 1 до 4096. |
+
+## Пример
+
+Parse JSON через ту же function, которую использует json.decode.
+
+```lua
+local settings = json.parse('{"volume":0.75,"theme":"dark","missing":null}', {
+    useNull = true,
+})
+
+print(settings.volume)
+print(settings.theme)
+print(json.isNull(settings.missing))
+```

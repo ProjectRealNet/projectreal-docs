@@ -1,0 +1,59 @@
+---
+title: "json.tryDecode"
+sidebarTitle: "json.tryDecode"
+description: "Tenta fazer parse de um JSON string usando a mesma function que json.decodeSafe e retorna status values para parse errors."
+icon: "function"
+keywords: ["json.tryDecode","JSON"]
+---
+
+Tenta fazer parse de um JSON string usando a mesma function que json.decodeSafe e retorna status values para parse errors.
+
+## Sintaxe
+
+```lua
+json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string que recebe parse. A function le este argument com string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. Um boolean define useNull. Uma table pode definir useNull e maxDepth. |
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `success` | `boolean` | true quando parsing tem sucesso, false quando parsing falha dentro do protected parse block. |
+| `decoded` | `any \| nil` | Decoded value no success. Em parse failure, este return e nil. |
+| `errorMessage` | `string \| nil` | Error message em parse failure. A message e prefixed com json.decodeSafe e inclui near-position suffix. |
+| `errorPosition` | `number \| nil` | Parser byte position do parser em parse failure. Este return so existe em failure. |
+
+## Tipos
+
+### DecodeOptions
+
+Controla o comportamento de análise JSON.
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Representa JSON nulo com o sentinela nulo da biblioteca em vez de nulo. |
+| `maxDepth` | `integer` | No | Define a profundidade máxima de aninhamento, fixada de 1 a 4096. |
+
+## Exemplo
+
+Decode JSON com status returns usando o json.decodeSafe-compatible alias.
+
+```lua
+local ok, value, message, position = json.tryDecode('{"ready":true,"missing":null}', {
+    useNull = true,
+})
+
+if ok then
+    print(value.ready)
+    print(json.isNull(value.missing))
+else
+    warn(message, position)
+end
+```

@@ -1,0 +1,21 @@
+---
+title: "getcallingscript"
+sidebarTitle: "getcallingscript"
+description: "返回 current Luau thread object 上存储的 script。function 不接受 arguments。它读取 the current thread script，这是一个 stored reference。如果该 stored reference 未 expired，function 会用 Instance cache push script Instance 并返回它。如果 stored reference expired，function 返回 nil。function 不检查 Lua call stack，不搜索 ancestor scripts，也不检查 script ClassName。"
+icon: "function"
+keywords: ["getcallingscript","Scripts"]
+---
+
+返回 current Luau thread object 上存储的 script。function 不接受 arguments。它读取 the current thread script，这是一个 stored reference。如果该 stored reference 未 expired，function 会用 Instance cache push script Instance 并返回它。如果 stored reference expired，function 返回 nil。function 不检查 Lua call stack，不搜索 ancestor scripts，也不检查 script ClassName。
+
+## 语法
+
+```lua
+getcallingscript(): Instance | nil
+```
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `script` | `Instance \| nil` | 来自 current Luau thread object stored reference 的 Script Instance；如果该 stored reference expired，则为 nil。 |

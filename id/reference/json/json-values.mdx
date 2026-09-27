@@ -1,0 +1,39 @@
+---
+title: "json.values"
+sidebarTitle: "json.values"
+description: "Mengembalikan direct values dari table dalam table baru marked as JSON array. JSON kind marker entries dilewati."
+icon: "function"
+keywords: ["json.values","JSON"]
+---
+
+Mengembalikan direct values dari table dalam table baru marked as JSON array. JSON kind marker entries dilewati.
+
+## Sintaks
+
+```lua
+json.values(object: table): table
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | Table yang akan di-enumerate. Function memeriksa argument ini dengan type checking. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `values` | `table` | New array-style table berisi direct values dari input table. Output marked as JSON array. Enumeration memakai table iteration, jadi tidak ada ordering guarantee yang terlihat di function. |
+
+## Contoh
+
+Mengumpulkan direct values dari table ke JSON array-marked table.
+
+```lua
+local list = json.array({ "one", "two" })
+
+for _, value in ipairs(json.values(list)) do
+    print(value)
+end
+```

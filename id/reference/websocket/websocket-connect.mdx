@@ -1,0 +1,52 @@
+---
+title: "WebSocket.connect"
+sidebarTitle: "WebSocket.connect"
+description: "Membuat dua BindableEvents, membuka WebSocket client WebSocket connection ke URL yang diberikan, dan melakukan yield sampai percobaan koneksi selesai. Saat berhasil, fungsi mengembalikan WebSocket table dengan event OnMessage dan OnClose, method Send dan Close dari methods, serta connection state. Incoming message data di-fire melalui OnMessage sebagai string. Saat receive loop selesai, OnClose di-fire tanpa arguments. Saat koneksi gagal, fungsi melempar error string yang diawali dengan \"WebSocket connection failed\"."
+icon: "function"
+keywords: ["WebSocket.connect","WebSocket","WebSocket.Connect","websocket.connect","websocket.Connect"]
+---
+
+Membuat dua BindableEvents, membuka WebSocket client WebSocket connection ke URL yang diberikan, dan melakukan yield sampai percobaan koneksi selesai. Saat berhasil, fungsi mengembalikan WebSocket table dengan event OnMessage dan OnClose, method Send dan Close dari methods, serta connection state. Incoming message data di-fire melalui OnMessage sebagai string. Saat receive loop selesai, OnClose di-fire tanpa arguments. Saat koneksi gagal, fungsi melempar error string yang diawali dengan "WebSocket connection failed".
+
+## Sintaks
+
+```lua
+WebSocket.connect(url: string): WebSocket
+```
+
+## Alias
+
+- `WebSocket.Connect`
+- `websocket.connect`
+- `websocket.Connect`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `url` | `string` | Yes | URL string yang diteruskan ke CURLOPT_URL sebelum WebSocket client menjalankan WebSocket connection attempt. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `socket` | `WebSocket` | WebSocket table yang berisi OnMessage, OnClose, dan connection state. Send dan Close diselesaikan melalui WebSocket object methods. |
+
+## Contoh
+
+Buka WebSocket, hubungkan OnMessage dan OnClose, lalu gunakan socket methods untuk mengirim dan menutup.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket.OnMessage:Connect(function(message)
+    print(message)
+end)
+
+socket.OnClose:Connect(function()
+    print("closed")
+end)
+
+socket:Send("hello")
+socket:Close()
+```

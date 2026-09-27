@@ -1,0 +1,33 @@
+---
+title: "create_comm_channel"
+sidebarTitle: "create_comm_channel"
+description: "สร้าง BindableEvent ใหม่ด้วย Instance.new เก็บ Instance reference ของมันไว้ใน communication channel list ภายใต้ numeric channel ID แล้วคืน ID พร้อม BindableEvent Instance channel ID คำนวณจาก current map size plus one หาก Instance.new(\"BindableEvent\") ไม่เหลือ object value บน stack, function จะ throw \"Failed to make a BindableEvent\""
+icon: "function"
+keywords: ["create_comm_channel","Actors"]
+---
+
+สร้าง BindableEvent ใหม่ด้วย Instance.new เก็บ Instance reference ของมันไว้ใน communication channel list ภายใต้ numeric channel ID แล้วคืน ID พร้อม BindableEvent Instance channel ID คำนวณจาก current map size plus one หาก Instance.new("BindableEvent") ไม่เหลือ object value บน stack, function จะ throw "Failed to make a BindableEvent"
+
+## ไวยากรณ์
+
+```lua
+create_comm_channel(): integer | Instance
+```
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `channelId` | `integer` | Numeric channel ID ที่ถูก insert ใน communication channel list |
+| `event` | `Instance` | BindableEvent Instance ที่เก็บไว้สำหรับ channel และคืนให้ caller |
+
+## ตัวอย่าง
+
+Create a BindableEvent communication channel and keep the returned channel ID for later lookup.
+
+```lua
+local channelId, event = create_comm_channel()
+
+print(channelId)
+print(event)
+```

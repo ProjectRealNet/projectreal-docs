@@ -1,0 +1,37 @@
+---
+title: "getnamecallmethod"
+sidebarTitle: "getnamecallmethod"
+description: "the current namecall method icinde saklanan current Luau namecall atom degerini dondurur. Function arguments almaz ve exactly one value dondurur. the current namecall method varsa, the current namecall method 0'dan buyukse ve the current namecall method non-null ise, bu data string return ile string olarak push edilir. Aksi halde nil push edilir. function arguments incelemez, target object uzerinden method name hesaplamaz ve herhangi bir metamethod cagirmaz. get_namecall_method, getnamecallmethod icin alias olarak kayitlidir."
+icon: "function"
+keywords: ["getnamecallmethod","Metatables","get_namecall_method"]
+---
+
+the current namecall method icinde saklanan current Luau namecall atom degerini dondurur. Function arguments almaz ve exactly one value dondurur. the current namecall method varsa, the current namecall method 0'dan buyukse ve the current namecall method non-null ise, bu data string return ile string olarak push edilir. Aksi halde nil push edilir. function arguments incelemez, target object uzerinden method name hesaplamaz ve herhangi bir metamethod cagirmaz. get_namecall_method, getnamecallmethod icin alias olarak kayitlidir.
+
+## Söz dizimi
+
+```lua
+getnamecallmethod(): string | nil
+```
+
+## Aliaslar
+
+- `get_namecall_method`
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `method` | `string \| nil` | Mevcut ve non-empty oldugunda current the current namecall method data string; aksi halde nil. |
+
+## Örnek
+
+Read the current L->namecall string when Real is inside namecall handling.
+
+```lua
+local method = getnamecallmethod()
+print(method)
+
+local aliasMethod = get_namecall_method()
+print(aliasMethod)
+```

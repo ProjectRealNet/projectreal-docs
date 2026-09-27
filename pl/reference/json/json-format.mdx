@@ -1,0 +1,70 @@
+---
+title: "json.format"
+sidebarTitle: "json.format"
+description: "Parsuje JSON string i ponownie encode'uje go jako readable formatted JSON przy uzyciu Real JSON parser i encoder."
+icon: "function"
+keywords: ["json.format","JSON"]
+---
+
+Parsuje JSON string i ponownie encode'uje go jako readable formatted JSON przy uzyciu Real JSON parser i encoder.
+
+## Składnia
+
+```lua
+json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string parsowany przed formatting. Function czyta ten argument przez string type checking. |
+| `encodeOptions` | `EncodeOptions` | No | Optional encode options przekazywane do re-encode step. json.format czyta te same encode options co json.encode, a potem wymusza pretty na true. |
+| `decodeOptions` | `DecodeOptions` | No | Optional decode options uzywane podczas parsing input JSON. boolean ustawia useNull. table moze ustawic useNull i maxDepth. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `formatted` | `string` | Readable formatted JSON string utworzony po parsing i re-encoding input. |
+
+## Typy
+
+### EncodeOptions
+
+Kontroluje serializację i formatowanie JSON.
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Włącza sformatowane, wielowierszowe wyjście JSON. |
+| `sortKeys` | `boolean` | No | Sortuje klucze obiektów przed kodowaniem. |
+| `emptyTableAsArray` | `boolean` | No | Koduje pustą tabelę jako tablicę zamiast obiektu. |
+| `errorOnUnsupported` | `boolean` | No | Zgłasza błąd zamiast zastępować nieobsługiwane wartości. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Koduje liczby NaN i nieskończone jako JSON null. |
+| `maxDepth` | `integer` | No | Ustawia maksymalną głębokość zagnieżdżenia, zaciśniętą w zakresie od 1 do 4096. |
+| `indent` | `string` | No | Ustawia ciąg wcięcia ograniczony do 32 znaków. |
+
+### DecodeOptions
+
+Kontroluje zachowanie analizy JSON.
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Reprezentuje JSON null ze wskaźnikiem null biblioteki zamiast nil. |
+| `maxDepth` | `integer` | No | Ustawia maksymalną głębokość zagnieżdżenia, zaciśniętą w zakresie od 1 do 4096. |
+
+## Przykład
+
+Parse existing JSON i re-encode jako readable formatted JSON.
+
+```lua
+local compact = '{"b":2,"a":1}'
+local formatted = json.format(compact, {
+    pretty = true,
+    sortKeys = true,
+}, {
+    useNull = true,
+})
+
+print(formatted)
+```

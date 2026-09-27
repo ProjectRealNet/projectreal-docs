@@ -1,0 +1,21 @@
+---
+title: "imgui.setvsync"
+sidebarTitle: "imgui.setvsync"
+description: "Aktualisiert die vertical synchronization preference des ImGui renderer. Der aktuelle presentation path speichert diese preference, wendet sie aber nicht an."
+icon: "function"
+keywords: ["imgui.setvsync","ImGui"]
+---
+
+Aktualisiert die vertical synchronization preference des ImGui renderer. Der aktuelle presentation path speichert diese preference, wendet sie aber nicht an.
+
+## Syntax
+
+```lua
+imgui.setvsync(enabled: boolean)
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `enabled` | `boolean` | Yes | `true`, um vertical synchronization anzufordern; `false`, um uncapped presentation anzufordern. |

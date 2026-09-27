@@ -1,0 +1,33 @@
+---
+title: "cache.invalidate"
+sidebarTitle: "cache.invalidate"
+description: "Удаляет кэшированную запись registry Instance cache для указанной Instance."
+icon: "function"
+keywords: ["cache.invalidate","Cache"]
+---
+
+Удаляет кэшированную запись registry Instance cache для указанной Instance.
+
+## Синтаксис
+
+```lua
+cache.invalidate(instance: Instance)
+```
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance, для которой нужно удалить кэшированную запись registry. |
+
+## Пример
+
+Удалите Instance из cache Real и проверьте, осталась ли запись cache.
+
+```lua
+local Players = game:GetService("Players")
+
+cache.invalidate(Players)
+
+print(cache.iscached(Players))
+```

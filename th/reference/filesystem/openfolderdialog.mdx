@@ -1,0 +1,59 @@
+---
+title: "openfolderdialog"
+sidebarTitle: "openfolderdialog"
+description: "เปิด Windows folder picker ผ่าน Windows file picker พร้อม folder selection mode และคืนโฟลเดอร์ที่เลือกเป็น file item"
+icon: "function"
+keywords: ["openfolderdialog","Filesystem"]
+---
+
+เปิด Windows folder picker ผ่าน Windows file picker พร้อม folder selection mode และคืนโฟลเดอร์ที่เลือกเป็น file item
+
+## ไวยากรณ์
+
+```lua
+openfolderdialog(options?: DialogOptions): FileSystemItem | nil
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. สำหรับ openfolderdialog จะใช้ title และ defaultPath. defaultPath จะถูกใช้เฉพาะเมื่อ resolve เป็น existing directory. extensionFilter ถูกยอมรับโดย shared dialog options parser แต่ folder selection ถูกเปิดด้วย folder selection mode. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `folder` | `FileSystemItem \| nil` | Selected folder item หรือ nil เมื่อ dialog ถูกยกเลิก. Dialog failures จะ throw Failed to open folder dialog. |
+
+## Types
+
+### DialogOptions
+
+กำหนดค่ากล่องโต้ตอบการเลือกไฟล์หรือโฟลเดอร์ดั้งเดิม
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `title` | `string` | No | ตั้งชื่อหน้าต่างข้อความโต้ตอบ |
+| `defaultPath` | `string` | No | เลือกไดเร็กทอรีที่แสดงเมื่อกล่องโต้ตอบเปิดขึ้น |
+| `extensionFilter` | `&#123;string&#125;` | No | จำกัดไฟล์ที่เลือกไว้เฉพาะนามสกุลที่อยู่ในรายการ โดยมีหรือไม่มีจุดนำหน้าก็ได้ |
+| `suggestedName` | `string` | No | ระบุชื่อไฟล์เริ่มต้นในกล่องโต้ตอบบันทึก |
+| `defaultExtension` | `string` | No | ตั้งค่านามสกุลที่ใช้เมื่อชื่อไฟล์ที่ป้อนไม่มี |
+
+## ตัวอย่าง
+
+เปิด folder picker แล้วจัดการ selected folder item หรือ cancellation.
+
+```lua
+local folder = openfolderdialog({
+    title = "Choose a folder",
+    defaultPath = ".",
+})
+
+if folder then
+    print(folder:GetName())
+    print(folder:IsFolder())
+else
+    print("No folder selected")
+end
+```

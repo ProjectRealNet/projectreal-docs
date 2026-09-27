@@ -1,0 +1,34 @@
+---
+title: "getfpscap"
+sidebarTitle: "getfpscap"
+description: "Returns the current FPS cap value represented by Roblox, or 0 when the value cannot be read."
+icon: "function"
+keywords: ["getfpscap","Miscellaneous","get_fps_cap"]
+---
+
+Returns the current FPS cap value represented by Roblox, or 0 when the value cannot be read.
+
+## Cú pháp
+
+```lua
+getfpscap(): number
+```
+
+## Alias
+
+- `get_fps_cap`
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `fpsCap` | `number` | Current FPS cap value, or 0 when unavailable. |
+
+## Ví dụ
+
+Read the FPS cap value currently represented by the TaskScheduler cap field.
+
+```lua
+local fpsCap = getfpscap()
+print(fpsCap)
+```

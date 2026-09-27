@@ -1,0 +1,20 @@
+---
+title: "Actors"
+description: "実行コンテキストとアクターのコミュニケーション。"
+icon: "folder-code"
+---
+
+実行コンテキストとアクターのコミュニケーション。
+
+| 関数ナビゲーション | 説明 |
+| --- | --- |
+| [`create_comm_channel`](./create-comm-channel) | Instance.new で新しい BindableEvent を作成し、その Instance reference を numeric channel ID の下で communication channel list に保存し、ID と BindableEvent Instance を返します。channel ID は current map size plus one から計算されます。Instance.new("BindableEvent") が stack に object value を残さない場合、この function は "Failed to make a BindableEvent" を発生させます。 |
+| [`get_comm_channel`](./get-comm-channel) | communication channel list で channel ID を検索し、保存されている BindableEvent Instance を返します。最初の argument は number である必要があり、lookup の前に integer conversion で変換されます。その ID の entry が存在しない場合、この function は nil を返します。 |
+| [`getactorfromthread`](./getactorfromthread) | Luau thread に関連付けられた Actor Instance を返します。最初の argument は thread である必要があります。function は thread の thread data を読み取り、Actor reference と positive container count を要求し、その後 the associated Actor を読み取ります。actor weak reference が有効な場合は Instance として push され、それ以外の場合は function が nil を返します。 |
+| [`getactors`](./getactors) | ScriptContext actor thread list から解決された live Actor Instances の array table を返します。この function は arguments を取りません。actor thread list を走査し、各 actor Lua state を復号し、valid threads である entries を残してから、各 thread の thread data と the associated Actor weak reference を読み取ります。non-expired actor references だけが Instances として push されます。container がない entries、Actor reference がない entries、reference count &lt;= 0 の entries、expired actor reference の entries はスキップされます。 |
+| [`getactorthreads`](./getactorthreads) | actor thread list から Luau threads の array table を返します。この function は arguments を取りません。ScriptContext から actor list bounds を読み取り、各 actor state entry を走査し、stored global state を Luau thread に復号し、valid threads である entries だけを含めます。 |
+| [`getcurrentactor`](./getcurrentactor) | 現在の Luau thread に関連付けられた Actor Instance を返します。この function は arguments を取りません。getactorfromthread と同じ actor resolver で現在の Luau thread を解決します。thread data が存在し、Actor reference が存在し、reference count が 0 より大きく、the associated Actor が non-expired weak reference を保持している必要があります。valid actor reference がない場合、この function は nil を返します。 |
+| [`getdeletedactors`](./getdeletedactors) | actor list から、thread data に Actor reference があり、reference count が 0 より大きく、the associated Actor が expired weak reference である Luau threads の array table を返します。この function は arguments を取りません。Actor Instance values は返しません。 |
+| [`isparallel`](./isparallel) | 現在の Luau thread の ScriptContext DataModel から boolean を返します。この function は arguments を取りません。parallel execution status を返す the current parallel execution status を読みます。the current DataModel が DataModel を返さない場合、この function は false を返します。checkparallel は同じ function の alias です。 |
+| [`run_on_actor`](./run-on-actor) | Runs Luau source on the thread associated with a target Actor Instance. The first argument must be an Instance whose ClassName is Actor, and the second argument must be a non-empty source string. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonactor is an alias. |
+| [`run_on_thread`](./run-on-thread) | Runs Luau source on a specific Luau thread. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonthread is an alias. |

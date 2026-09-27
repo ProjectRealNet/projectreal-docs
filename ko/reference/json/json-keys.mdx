@@ -1,0 +1,43 @@
+---
+title: "json.keys"
+sidebarTitle: "json.keys"
+description: "Table의 visible keys를 new table marked as a JSON array로 반환합니다."
+icon: "function"
+keywords: ["json.keys","JSON"]
+---
+
+Table의 visible keys를 new table marked as a JSON array로 반환합니다.
+
+## 문법
+
+```lua
+json.keys(object: table): table
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | Inspect할 table입니다. function은 이 argument가 table이어야 합니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `keys` | `table` | Source table keys를 포함하는 new array table입니다. Real JSON type marker는 제외됩니다. Order는 table iteration iteration을 따르며 이 function에서 sorted되지 않습니다. |
+
+## 예제
+
+Table의 visible keys를 new JSON array table로 collect합니다.
+
+```lua
+local record = {
+    name = "Real",
+    enabled = true,
+    [5] = "numeric key",
+}
+
+for _, key in ipairs(json.keys(record)) do
+    print(key)
+end
+```

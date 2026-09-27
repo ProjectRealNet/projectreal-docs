@@ -1,0 +1,38 @@
+---
+title: "json.quote"
+sidebarTitle: "json.quote"
+description: "使用 Real JSON string escaping rules 对 string 执行 escape，并返回 complete quoted JSON string literal。"
+icon: "function"
+keywords: ["json.quote","JSON"]
+---
+
+使用 Real JSON string escaping rules 对 string 执行 escape，并返回 complete quoted JSON string literal。
+
+## 语法
+
+```lua
+json.quote(text: string): string
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | 要 quote 的 string。function 使用 string type checking 读取这个 argument。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `quoted` | `string` | 包含 opening 和 closing quote 的 complete JSON string literal。Quotes、backslashes、common control characters 和 bytes below 0x20 会被 escape。 |
+
+## 示例
+
+将 string convert 为 complete quoted JSON string literal。
+
+```lua
+local source = "Real Docs" .. string.char(10) .. [[Documentation "A"]]
+local quoted = json.quote(source)
+
+print(quoted)
+```

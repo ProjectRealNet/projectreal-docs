@@ -1,0 +1,31 @@
+---
+title: "fireproximityprompt"
+sidebarTitle: "fireproximityprompt"
+description: "เรียกใช้ ProximityPrompt ผ่าน ProximityPrompt trigger ของ Real อาร์กิวเมนต์ prompt ต้องเป็น object ที่มีฟิลด์ ClassName เท่ากับ \"ProximityPrompt\" หากค่าไม่ใช่ object การเรียกจะเกิด type error หาก ClassName หายไปหรือไม่ใช่ string จะเกิด \"Invalid Instance\" หาก ClassName ไม่ใช่ \"ProximityPrompt\" จะเกิด \"ProximityPrompt expected\" function นี้ไม่รับ optional arguments และไม่คืนค่าใดๆ"
+icon: "function"
+keywords: ["fireproximityprompt","Instances"]
+---
+
+เรียกใช้ ProximityPrompt ผ่าน ProximityPrompt trigger ของ Real อาร์กิวเมนต์ prompt ต้องเป็น object ที่มีฟิลด์ ClassName เท่ากับ "ProximityPrompt" หากค่าไม่ใช่ object การเรียกจะเกิด type error หาก ClassName หายไปหรือไม่ใช่ string จะเกิด "Invalid Instance" หาก ClassName ไม่ใช่ "ProximityPrompt" จะเกิด "ProximityPrompt expected" function นี้ไม่รับ optional arguments และไม่คืนค่าใดๆ
+
+## ไวยากรณ์
+
+```lua
+fireproximityprompt(prompt: Instance)
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `prompt` | `Instance` | Yes | Instance ที่ ClassName ต้องเป็น ProximityPrompt |
+
+## ตัวอย่าง
+
+เรียกใช้ ProximityPrompt ด้วยอาร์กิวเมนต์ที่จำเป็นเพียงตัวเดียว
+
+```lua
+local prompt = workspace.InteractivePart.ProximityPrompt
+
+fireproximityprompt(prompt)
+```

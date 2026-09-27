@@ -1,0 +1,21 @@
+---
+title: "getscripts"
+sidebarTitle: "getscripts"
+description: "Instance cache icinde su anda bulunan script object degerlerini dondurur. Function arguments almaz. Instance cache altinda saklanan cache uzerinde gezer ve yalnizca value object olan entries degerlerini inceler. Her value icin ClassName field degerini optional string handling ile okur. LocalScript ve ModuleScript entries dahil edilir. Script entries yalnizca RunContext offset CLIENT veya PLUGIN degerine esit oldugunda dahil edilir. Diger ClassName degerleri, string ClassName olmayan entries ve CoreScript entries atlanir. Sonuc sirali bir Luau table olur. Function DataModel uzerinde gezmez ve sorted order garanti etmez."
+icon: "function"
+keywords: ["getscripts","Scripts"]
+---
+
+Instance cache icinde su anda bulunan script object degerlerini dondurur. Function arguments almaz. Instance cache altinda saklanan cache uzerinde gezer ve yalnizca value object olan entries degerlerini inceler. Her value icin ClassName field degerini optional string handling ile okur. LocalScript ve ModuleScript entries dahil edilir. Script entries yalnizca RunContext offset CLIENT veya PLUGIN degerine esit oldugunda dahil edilir. Diger ClassName degerleri, string ClassName olmayan entries ve CoreScript entries atlanir. Sonuc sirali bir Luau table olur. Function DataModel uzerinde gezmez ve sorted order garanti etmez.
+
+## Söz dizimi
+
+```lua
+getscripts(): { Instance }
+```
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `scripts` | `&#123; Instance &#125;` | Instance cache icinden cached LocalScript, ModuleScript ve uygun Script object degerlerini iceren sirali table. |

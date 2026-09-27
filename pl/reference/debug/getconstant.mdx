@@ -1,0 +1,47 @@
+---
+title: "getconstant"
+sidebarTitle: "getconstant"
+description: "Returns one constant from a Lua function or stack level by one-based index. target must be a function or stack level number. Invalid stack levels raise \"Level out of range\". Non-function and non-number targets raise a type error expecting \"function or number\". C closures raise \"Lua function expected\". Indexes below 1 raise \"Constant index starts at 1\", and indexes past the available constants raise \"Constant index out of range\". Function and table constants are returned as nil. debug.getconstant is an alias."
+icon: "function"
+keywords: ["getconstant","Debug","debug.getconstant"]
+---
+
+Returns one constant from a Lua function or stack level by one-based index. target must be a function or stack level number. Invalid stack levels raise "Level out of range". Non-function and non-number targets raise a type error expecting "function or number". C closures raise "Lua function expected". Indexes below 1 raise "Constant index starts at 1", and indexes past the available constants raise "Constant index out of range". Function and table constants are returned as nil. debug.getconstant is an alias.
+
+## Składnia
+
+```lua
+getconstant(target: function | number, index: number): any | nil
+```
+
+## Aliasy
+
+- `debug.getconstant`
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `target` | `function \| number` | Yes | Lua function or stack level whose constants are inspected. |
+| `index` | `number` | Yes | One-based constant index. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `constant` | `any \| nil` | Constant value at the requested index, or nil when that constant is a function or table. |
+
+## Przykład
+
+Read a one-based Proto constant from a Lua closure.
+
+```lua
+local function target()
+    return "ready"
+end
+
+local value = getconstant(target, 1)
+
+print(value)
+print(debug.getconstant(target, 1))
+```

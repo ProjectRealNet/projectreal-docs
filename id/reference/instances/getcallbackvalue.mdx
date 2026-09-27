@@ -1,0 +1,48 @@
+---
+title: "getcallbackvalue"
+sidebarTitle: "getcallbackvalue"
+description: "Membaca Lua callback function yang tersimpan di callback property pada Instance. Argumen pertama harus Instance object dan argumen kedua harus string property name. instance reference harus valid. property name diselesaikan melalui Roblox property metadata dan harus merujuk ke property dengan tipe LUA_CALLBACK. Jika property descriptor tidak ada, property bukan LUA_CALLBACK, callback field offset tidak ada, tidak ada callback tersimpan, LiveLuaRef tidak ada, callback milik Lua global state lain, atau nilai yang direferensikan bukan function, function mengembalikan nil. Ini juga memeriksa async callback field fallback saat callback slot pertama tidak memiliki callback. Function tidak memperbarui property."
+icon: "function"
+keywords: ["getcallbackvalue","Instances","getcallbackmember"]
+---
+
+Membaca Lua callback function yang tersimpan di callback property pada Instance. Argumen pertama harus Instance object dan argumen kedua harus string property name. instance reference harus valid. property name diselesaikan melalui Roblox property metadata dan harus merujuk ke property dengan tipe LUA_CALLBACK. Jika property descriptor tidak ada, property bukan LUA_CALLBACK, callback field offset tidak ada, tidak ada callback tersimpan, LiveLuaRef tidak ada, callback milik Lua global state lain, atau nilai yang direferensikan bukan function, function mengembalikan nil. Ini juga memeriksa async callback field fallback saat callback slot pertama tidak memiliki callback. Function tidak memperbarui property.
+
+## Sintaks
+
+```lua
+getcallbackvalue(instance: Instance, property: string): function | nil
+```
+
+## Alias
+
+- `getcallbackmember`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object tempat callback property diperiksa. Invalid Instance values menghasilkan argument error. |
+| `property` | `string` | Yes | string property name yang diselesaikan melalui Roblox property metadata. Hanya LUA_CALLBACK properties yang dapat mengembalikan function. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `callback` | `function \| nil` | Lua function yang disimpan oleh callback property, atau nil saat function tidak dapat menyelesaikan function yang dapat dibaca. |
+
+## Contoh
+
+Membaca callback function yang tersimpan di BindableFunction.OnInvoke.
+
+```lua
+local bindable = Instance.new("BindableFunction")
+bindable.OnInvoke = function(value)
+    return value * 2
+end
+
+local callback = getcallbackvalue(bindable, "OnInvoke")
+if callback then
+    print(callback(21))
+end
+```

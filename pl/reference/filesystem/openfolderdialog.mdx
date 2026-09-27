@@ -1,0 +1,59 @@
+---
+title: "openfolderdialog"
+sidebarTitle: "openfolderdialog"
+description: "Otwiera Windows folder picker przez Windows file picker z folder selection mode i zwraca wybrany folder jako file item."
+icon: "function"
+keywords: ["openfolderdialog","Filesystem"]
+---
+
+Otwiera Windows folder picker przez Windows file picker z folder selection mode i zwraca wybrany folder jako file item.
+
+## Składnia
+
+```lua
+openfolderdialog(options?: DialogOptions): FileSystemItem | nil
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. Dla openfolderdialog uzywane sa title i defaultPath. defaultPath jest stosowany tylko wtedy, gdy rozwiazuje sie do existing directory. extensionFilter jest akceptowany przez shared dialog options parser, ale folder selection jest wlaczone przez folder selection mode. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `folder` | `FileSystemItem \| nil` | Selected folder item, albo nil, gdy dialog zostanie anulowany. Dialog failures rzucaja Failed to open folder dialog. |
+
+## Typy
+
+### DialogOptions
+
+Konfiguruje natywne okno dialogowe wyboru pliku lub folderu.
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Ustawia tytuł okna dialogowego. |
+| `defaultPath` | `string` | No | Wybiera katalog wyświetlany po otwarciu okna dialogowego. |
+| `extensionFilter` | `&#123;string&#125;` | No | Ogranicza wybrane pliki do wymienionych rozszerzeń, z kropką wiodącą lub bez niej. |
+| `suggestedName` | `string` | No | Podaje początkową nazwę pliku w oknach dialogowych zapisywania. |
+| `defaultExtension` | `string` | No | Ustawia rozszerzenie używane, gdy wprowadzona nazwa pliku nie ma żadnego. |
+
+## Przykład
+
+Otworz folder picker i obsluz selected folder item albo cancellation.
+
+```lua
+local folder = openfolderdialog({
+    title = "Choose a folder",
+    defaultPath = ".",
+})
+
+if folder then
+    print(folder:GetName())
+    print(folder:IsFolder())
+else
+    print("No folder selected")
+end
+```

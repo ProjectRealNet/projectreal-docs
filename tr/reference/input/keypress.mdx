@@ -1,0 +1,21 @@
+---
+title: "keypress"
+sidebarTitle: "keypress"
+description: "Roblox window active oldugunda bir key down event gonderir. keyCode argumani Lua number olarak kontrol edilir, integer conversion ile donusturulur, Windows key mapping ile Windows virtual-key code degerinden scan code degerine map edilir ve KEYEVENTF_SCANCODE ile keyboard input uzerinden gonderilir. Bu function key up event gondermez. isrbxactive false olacaksa function input gondermeden doner."
+icon: "function"
+keywords: ["keypress","Input"]
+---
+
+Roblox window active oldugunda bir key down event gonderir. keyCode argumani Lua number olarak kontrol edilir, integer conversion ile donusturulur, Windows key mapping ile Windows virtual-key code degerinden scan code degerine map edilir ve KEYEVENTF_SCANCODE ile keyboard input uzerinden gonderilir. Bu function key up event gondermez. isrbxactive false olacaksa function input gondermeden doner.
+
+## Söz dizimi
+
+```lua
+keypress(keyCode: number)
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `keyCode` | `number` | Yes | Windows key mapping cagrilmadan once Lua number olarak okunan ve integer conversion ile donusturulen Windows virtual-key code. |

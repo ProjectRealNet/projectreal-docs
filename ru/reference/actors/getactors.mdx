@@ -1,0 +1,31 @@
+---
+title: "getactors"
+sidebarTitle: "getactors"
+description: "Возвращает array table live Actor Instances, полученных из ScriptContext actor thread list. Function не принимает arguments. Она проходит actor thread list, расшифровывает каждый actor Lua state, оставляет entries, которые являются valid threads, затем читает thread data и the associated Actor weak reference каждого thread. Только non-expired actor references push как Instances. Entries без container, без Actor reference, с reference count <= 0 или с expired actor reference пропускаются."
+icon: "function"
+keywords: ["getactors","Actors"]
+---
+
+Возвращает array table live Actor Instances, полученных из ScriptContext actor thread list. Function не принимает arguments. Она проходит actor thread list, расшифровывает каждый actor Lua state, оставляет entries, которые являются valid threads, затем читает thread data и the associated Actor weak reference каждого thread. Только non-expired actor references push как Instances. Entries без container, без Actor reference, с reference count &lt;= 0 или с expired actor reference пропускаются.
+
+## Синтаксис
+
+```lua
+getactors(): {Instance}
+```
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `actors` | `&#123;Instance&#125;` | Array table Actor Instances, у которых actor weak references все еще valid. |
+
+## Пример
+
+List live Actor Instances resolved from actor threads.
+
+```lua
+for _, actor in ipairs(getactors()) do
+    print(actor)
+end
+```

@@ -1,0 +1,35 @@
+---
+title: "rconsoleinfo"
+sidebarTitle: "rconsoleinfo"
+description: "Menulis nol atau beberapa nilai ke Windows console saat ini melalui stdout setelah mengatur console text attribute ke info text color. Nilai dikonversi dengan Lua string conversion, dipisahkan dengan karakter tab, dan text attribute diatur ke default console text color setelahnya. Jika tidak ada console window, panggilan kembali tanpa mengonversi atau menulis apa pun."
+icon: "function"
+keywords: ["rconsoleinfo","Console","consoleinfo"]
+---
+
+Menulis nol atau beberapa nilai ke Windows console saat ini melalui stdout setelah mengatur console text attribute ke info text color. Nilai dikonversi dengan Lua string conversion, dipisahkan dengan karakter tab, dan text attribute diatur ke default console text color setelahnya. Jika tidak ada console window, panggilan kembali tanpa mengonversi atau menulis apa pun.
+
+## Sintaks
+
+```lua
+rconsoleinfo(...values?: ...any)
+```
+
+## Alias
+
+- `consoleinfo`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `...values` | `...any` | No | Nilai opsional. Jika console ada, setiap value dikonversi dengan Lua string conversion dan digabungkan dengan karakter tab sebelum ditulis. |
+
+## Contoh
+
+Write a bright blue message to the current Windows console.
+
+```lua
+rconsolecreate()
+rconsoleinfo("Connected", "
+")
+```

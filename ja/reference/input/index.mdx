@@ -1,0 +1,23 @@
+---
+title: "Input"
+description: "キーボードとマウスの入力イベント。"
+icon: "folder-code"
+---
+
+キーボードとマウスの入力イベント。
+
+| 関数ナビゲーション | 説明 |
+| --- | --- |
+| [`isrbxactive`](./isrbxactive) | current foreground window が Real によって見つかった Roblox window かどうかを返します。Real は現在のプロセスの windows を enumerating し、class name が Roblox window の window を選択してその window を見つけます。この function は arguments を受け取らず、foreground window または matching Roblox window が利用できない場合は false を返します。 |
+| [`keyclick`](./keyclick) | Roblox window が active のとき、key down event の後に key up event を送信します。keyCode 引数は Lua number として検査され、integer conversion で変換され、Windows key mapping により Windows virtual-key code から scan code にマップされ、KEYEVENTF_SCANCODE 付きの keyboard input で送信されます。isrbxactive が false になる場合、この function は input を送信せずに戻ります。 |
+| [`keypress`](./keypress) | Roblox window が active のとき、key down event を送信します。keyCode 引数は Lua number として検査され、integer conversion で変換され、Windows key mapping により Windows virtual-key code から scan code にマップされ、KEYEVENTF_SCANCODE 付きの keyboard input で送信されます。この function は key up event を送信しません。isrbxactive が false になる場合、この function は input を送信せずに戻ります。 |
+| [`keyrelease`](./keyrelease) | Roblox window が active のとき、key up event を送信します。keyCode 引数は Lua number として検査され、integer conversion で変換され、Windows key mapping により Windows virtual-key code から scan code にマップされ、KEYEVENTF_SCANCODE \| KEYEVENTF_KEYUP 付きの keyboard input で送信されます。この function は key down event を送信しません。isrbxactive が false になる場合、この function は input を送信せずに戻ります。 |
+| [`mouse1click`](./mouse1click) | Roblox window が active のとき、left mouse down event と left mouse up event を送信します。Real は the requested mouse action を指定し、movement や wheel data なしで mouse input を呼び出します。この function は arguments を受け取らず、何も返さず、isrbxactive が false になる場合は input を送信せずに戻ります。 |
+| [`mouse1press`](./mouse1press) | Roblox window が active のとき、left mouse down event を送信します。Real は the requested mouse action を指定し、movement や wheel data なしで mouse input を呼び出します。この function は arguments を受け取らず、何も返さず、対応する left mouse up event を送信せず、isrbxactive が false になる場合は input を送信せずに戻ります。 |
+| [`mouse1release`](./mouse1release) | Roblox window が active のとき、left mouse up event を送信します。Real は the requested mouse action を指定し、movement や wheel data なしで mouse input を呼び出します。この function は arguments を受け取らず、何も返さず、対応する left mouse down event を送信せず、isrbxactive が false になる場合は input を送信せずに戻ります。 |
+| [`mouse2click`](./mouse2click) | Roblox window が active のとき、right mouse down event と right mouse up event を送信します。Real は the requested mouse action を指定し、movement や wheel data なしで mouse input を呼び出します。この function は arguments を受け取らず、何も返さず、isrbxactive が false になる場合は input を送信せずに戻ります。 |
+| [`mouse2press`](./mouse2press) | Roblox window が active のとき、right mouse down event を送信します。Real は the requested mouse action を指定し、movement や wheel data なしで mouse input を呼び出します。この function は arguments を受け取らず、何も返さず、対応する right mouse up event を送信せず、isrbxactive が false になる場合は input を送信せずに戻ります。 |
+| [`mouse2release`](./mouse2release) | Roblox window が active のとき、right mouse up event を送信します。Real は the requested mouse action を指定し、movement や wheel data なしで mouse input を呼び出します。この function は arguments を受け取らず、何も返さず、対応する right mouse down event を送信せず、isrbxactive が false になる場合は input を送信せずに戻ります。 |
+| [`mousemoveabs`](./mousemoveabs) | Roblox window が active のとき、Windows absolute mouse input を使ってマウスを移動します。x と y 引数は Lua numbers として検査され、integer conversion で変換されます。Real はそれらを active foreground window client area に対する座標として扱い、ClientToScreen でその client area の screen position を加算し、GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 と integer math でスケーリングしてから、the requested mouse action 付きの mouse input を呼び出します。isrbxactive が false になる場合、この function は input を送信せずに戻ります。 |
+| [`mousemoverel`](./mousemoverel) | Roblox window が active のとき、relative delta でマウスを移動します。x と y 引数は Lua numbers として検査され、integer conversion で変換された後、the requested mouse action 付きの mouse input に dx と dy として直接渡されます。この function は the requested mouse action を使わず、client-area conversion を行わず、何も返さず、isrbxactive が false になる場合は input を送信せずに戻ります。 |
+| [`mousescroll`](./mousescroll) | Roblox window が active のとき、mouse wheel event を送信します。amount 引数は Lua number として検査され、integer conversion で変換され、the requested mouse action 付きの mouse input に dwData 値として直接渡されます。Real は amount を正規化せず、movement data も追加しません。この function は何も返さず、isrbxactive が false になる場合は input を送信せずに戻ります。 |

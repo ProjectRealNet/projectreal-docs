@@ -1,0 +1,33 @@
+---
+title: "getgenv"
+sidebarTitle: "getgenv"
+description: "يرجع current executor environment table عبر pushing LUA_ENVIRONINDEX. لا تأخذ function أي arguments، وترجع exactly one value، ولا يوجد registered alias. Call-sites في repository تستخدم returned table لقراءة وكتابة shared executor globals مثل __siApiCache و saveinstance."
+icon: "function"
+keywords: ["getgenv","Environment"]
+---
+
+يرجع current executor environment table عبر pushing LUA_ENVIRONINDEX. لا تأخذ function أي arguments، وترجع exactly one value، ولا يوجد registered alias. Call-sites في repository تستخدم returned table لقراءة وكتابة shared executor globals مثل __siApiCache و saveinstance.
+
+## الصيغة
+
+```lua
+getgenv(): table
+```
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `environment` | `table` | Table المخزنة حاليا في LUA_ENVIRONINDEX لهذا state. |
+
+## مثال
+
+Read and write values on the current executor environment table.
+
+```lua
+local env = getgenv()
+
+env.RealDocsValue = "ready"
+
+print(getgenv().RealDocsValue)
+```

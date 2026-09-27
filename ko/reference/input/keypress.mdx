@@ -1,0 +1,21 @@
+---
+title: "keypress"
+sidebarTitle: "keypress"
+description: "Roblox window가 active일 때 key down event를 보냅니다. keyCode 인수는 Lua number로 검사되고 integer conversion로 변환되며 Windows key mapping를 통해 Windows virtual-key code에서 scan code로 매핑된 뒤 KEYEVENTF_SCANCODE와 함께 keyboard input로 전송됩니다. 이 function은 key up event를 보내지 않습니다. isrbxactive가 false라면 function은 input을 보내지 않고 반환합니다."
+icon: "function"
+keywords: ["keypress","Input"]
+---
+
+Roblox window가 active일 때 key down event를 보냅니다. keyCode 인수는 Lua number로 검사되고 integer conversion로 변환되며 Windows key mapping를 통해 Windows virtual-key code에서 scan code로 매핑된 뒤 KEYEVENTF_SCANCODE와 함께 keyboard input로 전송됩니다. 이 function은 key up event를 보내지 않습니다. isrbxactive가 false라면 function은 input을 보내지 않고 반환합니다.
+
+## 문법
+
+```lua
+keypress(keyCode: number)
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `keyCode` | `number` | Yes | Lua number로 읽고 Windows key mapping 호출 전에 integer conversion로 변환되는 Windows virtual-key code입니다. |

@@ -1,0 +1,59 @@
+---
+title: "json.tryDecode"
+sidebarTitle: "json.tryDecode"
+description: "Пытается parse JSON string через ту же function, что json.decodeSafe, и возвращает status values для parse errors."
+icon: "function"
+keywords: ["json.tryDecode","JSON"]
+---
+
+Пытается parse JSON string через ту же function, что json.decodeSafe, и возвращает status values для parse errors.
+
+## Синтаксис
+
+```lua
+json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string для parse. Function читает этот argument через string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean задает useNull. table может задавать useNull и maxDepth. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `success` | `boolean` | true, если parsing успешен, false, если parsing падает внутри protected parse block. |
+| `decoded` | `any \| nil` | Decoded value при success. При parse failure этот return равен nil. |
+| `errorMessage` | `string \| nil` | Error message при parse failure. Message prefixed через json.decodeSafe и содержит near-position suffix. |
+| `errorPosition` | `number \| nil` | Parser byte position из parser при parse failure. Этот return есть только при failure. |
+
+## Типы
+
+### DecodeOptions
+
+Управляет поведением анализа JSON.
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Представляет значение JSON null с нулевым контрольным значением библиотеки вместо nil. |
+| `maxDepth` | `integer` | No | Устанавливает максимальную глубину вложенности от 1 до 4096. |
+
+## Пример
+
+Decode JSON со status returns через json.decodeSafe-compatible alias.
+
+```lua
+local ok, value, message, position = json.tryDecode('{"ready":true,"missing":null}', {
+    useNull = true,
+})
+
+if ok then
+    print(value.ready)
+    print(json.isNull(value.missing))
+else
+    warn(message, position)
+end
+```

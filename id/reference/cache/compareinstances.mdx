@@ -1,0 +1,40 @@
+---
+title: "compareinstances"
+sidebarTitle: "compareinstances"
+description: "Membandingkan nilai reference Instance yang disimpan dalam dua nilai Instance object."
+icon: "function"
+keywords: ["compareinstances","Cache"]
+---
+
+Membandingkan nilai reference Instance yang disimpan dalam dua nilai Instance object.
+
+## Sintaks
+
+```lua
+compareinstances(first: Instance, second: Instance): boolean
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `first` | `Instance` | Yes | Instance object pertama untuk dibandingkan. |
+| `second` | `Instance` | Yes | Instance object kedua untuk dibandingkan. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `equal` | `boolean` | True saat kedua nilai Instance object berisi nilai reference yang sama. |
+
+## Contoh
+
+Bandingkan nilai reference Instance yang disimpan dalam dua nilai Instance object.
+
+```lua
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+print(compareinstances(Players, Players))
+print(compareinstances(Players, ReplicatedStorage))
+```

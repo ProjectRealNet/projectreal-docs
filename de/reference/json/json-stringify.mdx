@@ -1,0 +1,61 @@
+---
+title: "json.stringify"
+sidebarTitle: "json.stringify"
+description: "Serialisiert einen Lua value mit derselben function wie json.encode zu einem JSON string."
+icon: "function"
+keywords: ["json.stringify","JSON"]
+---
+
+Serialisiert einen Lua value mit derselben function wie json.encode zu einem JSON string.
+
+## Syntax
+
+```lua
+json.stringify(value: any, options?: EncodeOptions): string
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value, der encoded wird. nil, booleans, numbers, strings, tables und json.null werden direkt behandelt. Unsupported Lua types werden als null encoded, ausser errorOnUnsupported ist true. |
+| `options` | `EncodeOptions` | No | Optional encode options. Ein boolean toggelt pretty output. Eine number aktiviert pretty output mit so vielen spaces, geclamped auf 0.16. Ein string aktiviert pretty output mit diesem indent. Eine table kann pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth und indent setzen. |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `json` | `string` | Encoded JSON string. Encoding errors werden als Luau errors geworfen. |
+
+## Typen
+
+### EncodeOptions
+
+Steuert die JSON-Serialisierung und -Formatierung.
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Ermöglicht eine formatierte, mehrzeilige JSON-Ausgabe. |
+| `sortKeys` | `boolean` | No | Sortiert Objektschlüssel vor der Codierung. |
+| `emptyTableAsArray` | `boolean` | No | Kodiert eine leere Tabelle als Array statt als Objekt. |
+| `errorOnUnsupported` | `boolean` | No | Löst einen Fehler aus, anstatt nicht unterstützte Werte zu ersetzen. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Kodiert NaN und unendliche Zahlen als JSON-Null. |
+| `maxDepth` | `integer` | No | Legt die maximale Verschachtelungstiefe fest, geklemmt von 1 bis 4096. |
+| `indent` | `string` | No | Legt die Einrückungszeichenfolge fest, begrenzt auf 32 Zeichen. |
+
+## Beispiel
+
+Encode JSON-compatible values mit derselben function wie json.encode.
+
+```lua
+local text = json.stringify({
+    status = "ready",
+    count = 3,
+    tags = json.array({ "stringify", "alias" }),
+    missing = json.null,
+}, {
+    sortKeys = true,
+})
+
+print(text)
+```

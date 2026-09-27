@@ -1,0 +1,50 @@
+---
+title: "hookfunction"
+sidebarTitle: "hookfunction"
+description: "Bir target function değerini replacement function ile hook eder ve original target closure için cloned copy döndürür. İki arguments de functions olmalıdır. Function önce pending C function swaps değerlerini flush eder, target değerini function cloning ile cloning yapar, replacement closure veya onun mapped newcclosure target değerini hidden stack tracking içine ekler, target ve cloned original için FixCallstack çağırır, sonra target closure değerini C closure, Luau closure veya newcclosure-specific path üzerinden patch eder. Target henüz hook records içinde değilse cloned original restorefunction için orada saklanır. Returned function cloned original closure değeridir."
+icon: "function"
+keywords: ["hookfunction","Closures","hookfunc","replaceclosure","detourfunction","detour_function"]
+---
+
+Bir target function değerini replacement function ile hook eder ve original target closure için cloned copy döndürür. İki arguments de functions olmalıdır. Function önce pending C function swaps değerlerini flush eder, target değerini function cloning ile cloning yapar, replacement closure veya onun mapped newcclosure target değerini hidden stack tracking içine ekler, target ve cloned original için FixCallstack çağırır, sonra target closure değerini C closure, Luau closure veya newcclosure-specific path üzerinden patch eder. Target henüz hook records içinde değilse cloned original restorefunction için orada saklanır. Returned function cloned original closure değeridir.
+
+## Söz dizimi
+
+```lua
+hookfunction(target: function, replacement: function): function
+```
+
+## Aliaslar
+
+- `hookfunc`
+- `replaceclosure`
+- `detourfunction`
+- `detour_function`
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `target` | `function` | Yes | Patch edilecek Function. Non-function vermek type error üretir. |
+| `replacement` | `function` | Yes | Function değeri target içine install veya map edilen Function. Non-function vermek type error üretir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `original` | `function` | Hook install edilmeden önce oluşturulan original target closure cloned copy değeri. |
+
+## Örnek
+
+Patch a function closure and keep a cloned original.
+
+```lua
+local function target(value)
+    return value + 1
+end
+
+local original
+original = hookfunction(target, function(value)
+    return original(value) * 2
+end)
+```

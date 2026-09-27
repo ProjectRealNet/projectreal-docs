@@ -1,0 +1,61 @@
+---
+title: "json.stringify"
+sidebarTitle: "json.stringify"
+description: "Serialise un Lua value en JSON string avec la meme function que json.encode."
+icon: "function"
+keywords: ["json.stringify","JSON"]
+---
+
+Serialise un Lua value en JSON string avec la meme function que json.encode.
+
+## Syntaxe
+
+```lua
+json.stringify(value: any, options?: EncodeOptions): string
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value a encode. nil, booleans, numbers, strings, tables et json.null sont traites directement. Unsupported Lua types sont encodes en null sauf si errorOnUnsupported est true. |
+| `options` | `EncodeOptions` | No | Optional encode options. Un boolean bascule pretty output. Un number active pretty output avec ce nombre de spaces clamp a 0.16. Un string active pretty output avec cet indent. Une table peut definir pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth et indent. |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `json` | `string` | Encoded JSON string. Encoding errors sont lancees comme Luau errors. |
+
+## Types
+
+### EncodeOptions
+
+Contrôle la sérialisation et le formatage JSON.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Permet une sortie JSON formatée et multiligne. |
+| `sortKeys` | `boolean` | No | Trie les clés d'objet avant l'encodage. |
+| `emptyTableAsArray` | `boolean` | No | Encode une table vide sous forme de tableau au lieu d'un objet. |
+| `errorOnUnsupported` | `boolean` | No | Génère une erreur au lieu de remplacer des valeurs non prises en charge. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Encode NaN et les nombres infinis en JSON null. |
+| `maxDepth` | `integer` | No | Définit la profondeur d'imbrication maximale, comprise entre 1 et 4 096. |
+| `indent` | `string` | No | Définit la chaîne d'indentation, limitée à 32 caractères. |
+
+## Exemple
+
+Encode JSON-compatible values avec la meme function que json.encode.
+
+```lua
+local text = json.stringify({
+    status = "ready",
+    count = 3,
+    tags = json.array({ "stringify", "alias" }),
+    missing = json.null,
+}, {
+    sortKeys = true,
+})
+
+print(text)
+```

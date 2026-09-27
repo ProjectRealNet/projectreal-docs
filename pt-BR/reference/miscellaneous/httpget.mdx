@@ -1,0 +1,38 @@
+---
+title: "HttpGet"
+sidebarTitle: "HttpGet"
+description: "Performs a GET request for game:HttpGet(url, cache) or game:HttpGetAsync(url, cache) and returns the response body string. The URL must pass Real's URL restrictions."
+icon: "function"
+keywords: ["HttpGet","Miscellaneous"]
+---
+
+Performs a GET request for game:HttpGet(url, cache) or game:HttpGetAsync(url, cache) and returns the response body string. The URL must pass Real's URL restrictions.
+
+## Sintaxe
+
+```lua
+HttpGet(context: DataModel, url: string, cache?: boolean | number): string
+```
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `context` | `DataModel` | Yes | Method-call self value. Use game:HttpGet(url, cache) or game:HttpGetAsync(url, cache). |
+| `url` | `string` | Yes | URL string to request. |
+| `cache` | `boolean \| number` | No | Optional cache control. true or numeric 1 enables the URL cache. |
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `body` | `string` | Downloaded response body string, cached body string, or an empty string when the request cannot be opened. |
+
+## Exemplo
+
+Run a DataModel-style GET request and return the response body string.
+
+```lua
+local body = game:HttpGet("https://example.com", true)
+print(body)
+```

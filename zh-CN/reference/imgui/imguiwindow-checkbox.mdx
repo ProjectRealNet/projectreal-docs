@@ -1,0 +1,50 @@
+---
+title: "ImGuiWindow.Checkbox"
+sidebarTitle: "ImGuiWindow.Checkbox"
+description: "Appends a checkbox element to an ImGuiWindow. The callback is invoked with the new boolean value when the checkbox changes, and the method returns the same ImGuiWindow object."
+icon: "function"
+keywords: ["ImGuiWindow.Checkbox","ImGui"]
+---
+
+Appends a checkbox element to an ImGuiWindow. The callback is invoked with the new boolean value when the checkbox changes, and the method returns the same ImGuiWindow object.
+
+## 语法
+
+```lua
+ImGuiWindow.Checkbox(window: ImGuiWindow, label: string, checked: any, onChange: function): ImGuiWindow
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `window` | `ImGuiWindow` | Yes | ImGuiWindow object returned by imgui.create. A destroyed or invalid window raises a Lua error. |
+| `label` | `string` | Yes | Checkbox label string passed to the rendered ImGui checkbox. |
+| `checked` | `any` | Yes | Initial checked value. nil and false are treated as false; other values are treated as true. |
+| `onChange` | `function` | Yes | Function stored for this checkbox and invoked with the new boolean state after a change event is processed. |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `window` | `ImGuiWindow` | The same ImGuiWindow object, allowing chained method calls. |
+
+## 类型
+
+### ImGuiWindow
+
+imgui.create 返回的句柄。控制构建方法返回相同的句柄，因此可以链接调用。
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | 添加一个按钮并在单击后调用回调。 |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | 附加一个初始化为提供状态的复选框。 |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | 对折叠标题下方的内容回调附加的控件进行分组。 |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | 追加RGBA编辑器；省略的颜色分量默认为 1.0。 |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | 追加单行文本输入；省略的初始文本默认为空字符串。 |
+| `SameLine` | `() -> ImGuiWindow` | Yes | 将下一个控件放置在同一行上。 |
+| `Separator` | `() -> ImGuiWindow` | Yes | 添加水平分隔符。 |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | 添加浮点滑块。 |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | 附加一个整数滑块。 |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | 附加非交互式文本。 |
+| `destroy` | `() -> ()` | Yes | 删除窗口并释放其注册的回调。 |

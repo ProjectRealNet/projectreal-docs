@@ -1,0 +1,47 @@
+---
+title: "restorefunction"
+sidebarTitle: "restorefunction"
+description: "Восстанавливает или заменяет function, внутренне вызывая function hook operation, и не возвращает values. First argument должен быть function. С одним function argument function ищет the saved original function; если entry отсутствует, вызывает \"Function is not hooked\". Затем вызывает function hook operation с hooked closure и stored original closure, очищает Lua stack и удаляет restored closure из hook records, когда использовалась stored original. Если second argument тоже является function, function вместо этого рассматривает firstFunction как original function для установки, а secondFunction как closure для patch. В этой форме missing-original check по сохраненному значению hook records не выполняется; сохраненное значение только сравнивается во время final remove check. Non-function second arguments игнорируются branch condition. restorefunc и restoreclosure являются aliases той же function."
+icon: "function"
+keywords: ["restorefunction","Closures","restorefunc","restoreclosure"]
+---
+
+Восстанавливает или заменяет function, внутренне вызывая function hook operation, и не возвращает values. First argument должен быть function. С одним function argument function ищет the saved original function; если entry отсутствует, вызывает "Function is not hooked". Затем вызывает function hook operation с hooked closure и stored original closure, очищает Lua stack и удаляет restored closure из hook records, когда использовалась stored original. Если second argument тоже является function, function вместо этого рассматривает firstFunction как original function для установки, а secondFunction как closure для patch. В этой форме missing-original check по сохраненному значению hook records не выполняется; сохраненное значение только сравнивается во время final remove check. Non-function second arguments игнорируются branch condition. restorefunc и restoreclosure являются aliases той же function.
+
+## Синтаксис
+
+```lua
+restorefunction(firstFunction: function, secondFunction?: function)
+```
+
+## Алиасы
+
+- `restorefunc`
+- `restoreclosure`
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `firstFunction` | `function` | Yes | С одним argument это hooked closure для восстановления из hook records. С function second argument это function для установки в secondFunction. |
+| `secondFunction` | `function` | No | Optional closure для patch с firstFunction. Этот branch используется только когда second argument является function. |
+
+## Пример
+
+Restore a hooked closure to its original function.
+
+```lua
+local function target()
+    return "original"
+end
+
+hookfunction(target, function()
+    return "hooked"
+end)
+
+print(target())
+
+restorefunction(target)
+
+print(target())
+```

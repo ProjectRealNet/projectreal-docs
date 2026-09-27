@@ -1,0 +1,21 @@
+---
+title: "getsignalwhitelist"
+sidebarTitle: "getsignalwhitelist"
+description: "function에 정의된 6개의 정적 whitelist entry를 포함하는 새 array table을 반환합니다: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. 각 entry는 Event 및 Parent string field가 있는 table입니다. 이 function은 arguments를 받지 않으며 현재 game state를 검사하지 않습니다."
+icon: "function"
+keywords: ["getsignalwhitelist","Signals"]
+---
+
+function에 정의된 6개의 정적 whitelist entry를 포함하는 새 array table을 반환합니다: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. 각 entry는 Event 및 Parent string field가 있는 table입니다. 이 function은 arguments를 받지 않으며 현재 game state를 검사하지 않습니다.
+
+## 문법
+
+```lua
+getsignalwhitelist(): table
+```
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `signals` | `table` | 정적 whitelist entry의 array table입니다. 각 entry에는 Event 및 Parent string field가 있습니다. |

@@ -1,0 +1,29 @@
+---
+title: "rconsoleclear"
+sidebarTitle: "rconsoleclear"
+description: "Efface le current Windows console screen buffer lorsqu une console window existe. Si aucune console window n existe, le call retourne sans rien faire."
+icon: "function"
+keywords: ["rconsoleclear","Console","consoleclear"]
+---
+
+Efface le current Windows console screen buffer lorsqu une console window existe. Si aucune console window n existe, le call retourne sans rien faire.
+
+## Syntaxe
+
+```lua
+rconsoleclear()
+```
+
+## Alias
+
+- `consoleclear`
+
+## Exemple
+
+Clear the current console screen when a console window exists.
+
+```lua
+rconsolecreate()
+rconsoleprint("Preparing output...")
+rconsoleclear()
+```

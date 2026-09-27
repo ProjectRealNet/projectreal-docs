@@ -1,0 +1,38 @@
+---
+title: "get_comm_channel"
+sidebarTitle: "get_comm_channel"
+description: "Busca un channel ID en el communication channel list y devuelve la BindableEvent Instance almacenada. El primer argument debe ser number y se convierte con integer conversion antes del lookup. Si no existe entry para ese ID, la function devuelve nil."
+icon: "function"
+keywords: ["get_comm_channel","Actors"]
+---
+
+Busca un channel ID en el communication channel list y devuelve la BindableEvent Instance almacenada. El primer argument debe ser number y se convierte con integer conversion antes del lookup. Si no existe entry para ese ID, la function devuelve nil.
+
+## Sintaxis
+
+```lua
+get_comm_channel(channelId: number): Instance | nil
+```
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `channelId` | `number` | Yes | Channel ID que se convierte con integer conversion y se busca en el communication channel list. |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `event` | `Instance \| nil` | BindableEvent Instance almacenada para el channel ID, o nil cuando el ID no está presente en communication channels. |
+
+## Ejemplo
+
+Look up the BindableEvent Instance stored for a communication channel ID.
+
+```lua
+local channelId = create_comm_channel()
+local event = get_comm_channel(channelId)
+
+print(event)
+```

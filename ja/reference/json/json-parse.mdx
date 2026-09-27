@@ -1,0 +1,53 @@
+---
+title: "json.parse"
+sidebarTitle: "json.parse"
+description: "json.decode と同じ function で JSON string を parse します。"
+icon: "function"
+keywords: ["json.parse","JSON"]
+---
+
+json.decode と同じ function で JSON string を parse します。
+
+## 構文
+
+```lua
+json.parse(json: string, options?: DecodeOptions): any
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | Parse する JSON string。function はこの argument を string type checking で読みます。 |
+| `options` | `DecodeOptions` | No | Optional decode options。boolean は useNull を設定します。table は useNull と maxDepth を設定できます。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `decoded` | `any` | Decoded value。JSON objects と arrays は JSON type markers を持つ tables になります。strings は Lua strings、numbers は Lua numbers、booleans は booleans になり、null は useNull が false でない限り json.null になります。 |
+
+## 型
+
+### DecodeOptions
+
+JSON 解析動作を制御します。
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | nil の代わりにライブラリの null センチネルを使用して JSON null を表します。 |
+| `maxDepth` | `integer` | No | ネストの最大の深さを 1 ～ 4096 の範囲で設定します。 |
+
+## 例
+
+json.decode が使うものと同じ function で JSON を parse します。
+
+```lua
+local settings = json.parse('{"volume":0.75,"theme":"dark","missing":null}', {
+    useNull = true,
+})
+
+print(settings.volume)
+print(settings.theme)
+print(json.isNull(settings.missing))
+```

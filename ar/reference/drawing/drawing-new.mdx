@@ -1,0 +1,40 @@
+---
+title: "Drawing.new"
+sidebarTitle: "Drawing.new"
+description: "ينشئ Drawing object جديدا من النوع المطلوب ويضيفه إلى Real tracked Drawing object list. يجب أن تكون type string أحد الاسماء المدعومة بالضبط: \"Line\", \"Text\", \"Circle\", \"Square\", \"Quad\", \"Triangle\", \"Image\". القيم المفقودة أو non-string أو type غير مدعوم ترفع Lua error. يسجل the Drawing API هذه API فقط عندما تكون the required rendering environment is active true؛ عندما يكون هذا الفحص false، يرجع initializer قبل إنشاء هذه globals."
+icon: "function"
+keywords: ["Drawing.new","Drawing"]
+---
+
+ينشئ Drawing object جديدا من النوع المطلوب ويضيفه إلى Real tracked Drawing object list. يجب أن تكون type string أحد الاسماء المدعومة بالضبط: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". القيم المفقودة أو non-string أو type غير مدعوم ترفع Lua error. يسجل the Drawing API هذه API فقط عندما تكون the required rendering environment is active true؛ عندما يكون هذا الفحص false، يرجع initializer قبل إنشاء هذه globals.
+
+## الصيغة
+
+```lua
+Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad" | "Triangle"): DrawingObject
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `objectType` | `"Image" \| "Line" \| "Text" \| "Circle" \| "Square" \| "Quad" \| "Triangle"` | Yes | اسم Drawing type الدقيق المراد إنشاؤه. القيم المدعومة هي "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `object` | `DrawingObject` | Drawing object الذي تم إنشاؤه مع Drawing object type. |
+
+## مثال
+
+قم بإنشاء مربع مرئي وقم بتكوين خصائص الرسم الأساسية الخاصة به.
+
+```lua
+local square = Drawing.new("Square")
+square.Position = Vector2.new(120, 120)
+square.Size = Vector2.new(220, 120)
+square.Color = Color3.fromRGB(120, 170, 255)
+square.Filled = true
+square.Visible = true
+```

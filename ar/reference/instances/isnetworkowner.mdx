@@ -1,0 +1,40 @@
+---
+title: "isnetworkowner"
+sidebarTitle: "isnetworkowner"
+description: "ترجع نتيجة قراءة hidden property \"NetworkOwnerV3\" من Instance والتحقق مما إذا كانت أول قيمة مرجعة، بعد تحويلها باستخدام integer conversion، أكبر من 2. يجب أن يكون الوسيط Instance object. تستدعي function داخليا the hidden property reader ولا تلتقط الأخطاء من ذلك الاستدعاء، لذلك يمكن أن تطلق Invalid Instance values أو missing properties أو non-property metadata نفس أخطاء gethiddenproperty. ترجع boolean واحدا. ما إذا كان peer_id > 2 يعني بالضبط local network ownership هو: Nicht aus der Codebasis verifizierbar."
+icon: "function"
+keywords: ["isnetworkowner","Instances"]
+---
+
+ترجع نتيجة قراءة hidden property "NetworkOwnerV3" من Instance والتحقق مما إذا كانت أول قيمة مرجعة، بعد تحويلها باستخدام integer conversion، أكبر من 2. يجب أن يكون الوسيط Instance object. تستدعي function داخليا the hidden property reader ولا تلتقط الأخطاء من ذلك الاستدعاء، لذلك يمكن أن تطلق Invalid Instance values أو missing properties أو non-property metadata نفس أخطاء gethiddenproperty. ترجع boolean واحدا. ما إذا كان peer_id > 2 يعني بالضبط local network ownership هو: Nicht aus der Codebasis verifizierbar.
+
+## الصيغة
+
+```lua
+isnetworkowner(instance: Instance): boolean
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object يتم تمريرها إلى the hidden property reader مع property name "NetworkOwnerV3". |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `isOwner` | `boolean` | true عندما يكون integer conversion على أول قيمة مرجعة من "NetworkOwnerV3" أكبر من 2؛ وإلا false. |
+
+## مثال
+
+Check network ownership for a BasePart Instance.
+
+```lua
+local part = workspace:FindFirstChildWhichIsA("BasePart", true)
+
+if part then
+    local ownsNetwork = isnetworkowner(part)
+    print(ownsNetwork)
+end
+```

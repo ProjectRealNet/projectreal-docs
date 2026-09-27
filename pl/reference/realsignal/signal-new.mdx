@@ -1,0 +1,48 @@
+---
+title: "Signal.new"
+sidebarTitle: "Signal.new"
+description: "Creates a new RealSignal object. The returned signal exposes Connect, Once, Wait, and Fire methods."
+icon: "function"
+keywords: ["Signal.new","RealSignal"]
+---
+
+Creates a new RealSignal object. The returned signal exposes Connect, Once, Wait, and Fire methods.
+
+## Składnia
+
+```lua
+Signal.new(): RealSignal
+```
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `signal` | `RealSignal` | New signal object with its own connection and waiter lists. |
+
+## Typy
+
+### RealSignal
+
+Signal object returned by Signal.new.
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `Connect` | `(callback: (...any) -> ()) -> RealSignalConnection` | Yes | Adds a callback that runs when Fire is called. |
+| `Once` | `(callback: (...any) -> ()) -> RealSignalConnection` | Yes | Adds a callback that is disconnected before its first callback invocation. |
+| `Wait` | `() -> ...any` | Yes | Yields until Fire resumes the waiter with the fired values. |
+| `Fire` | `(...values: any) -> ()` | Yes | Runs connected callbacks and resumes waiters with the provided values. |
+
+## Przykład
+
+Create an independent RealSignal and fire it with values.
+
+```lua
+local signal = Signal.new()
+
+signal:Connect(function(value)
+    print(value)
+end)
+
+signal:Fire("ready")
+```

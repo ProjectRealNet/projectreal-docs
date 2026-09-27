@@ -1,0 +1,33 @@
+---
+title: "cache.invalidate"
+sidebarTitle: "cache.invalidate"
+description: "ลบรายการ registry ของ Instance cache ที่แคชไว้สำหรับ Instance ที่กำหนด"
+icon: "function"
+keywords: ["cache.invalidate","Cache"]
+---
+
+ลบรายการ registry ของ Instance cache ที่แคชไว้สำหรับ Instance ที่กำหนด
+
+## ไวยากรณ์
+
+```lua
+cache.invalidate(instance: Instance)
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance ที่ต้องลบรายการ registry ที่แคชไว้ |
+
+## ตัวอย่าง
+
+ลบ Instance ออกจาก cache ของ Real แล้วตรวจสอบว่ารายการ cache ยังมีอยู่หรือไม่
+
+```lua
+local Players = game:GetService("Players")
+
+cache.invalidate(Players)
+
+print(cache.iscached(Players))
+```

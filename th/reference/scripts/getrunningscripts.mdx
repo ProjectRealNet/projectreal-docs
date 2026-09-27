@@ -1,0 +1,21 @@
+---
+title: "getrunningscripts"
+sidebarTitle: "getrunningscripts"
+description: "ส่งคืน array table ใหม่ของ unique script Instances ที่มาจาก live Lua threads function นี้ไม่รับ arguments โดยเดินผ่าน the live Luau thread list อ่านแต่ละ thread node และข้าม entries ที่ไม่มี thread node, ไม่มี weak thread ref, ไม่มี LiveLuaRef, ไม่มี Lua state, ไม่มี object หรือมี expired Script stored reference สำหรับ thread ที่เหลือแต่ละรายการ จะ lock scriptThread->object->Script(), deduplicate ด้วย script reference, push Instance ด้วย Instance cache และใส่ใน array indexes ต่อเนื่องเริ่มที่ 1 function ไม่สแกน DataModel ไม่ตรวจ ClassName และไม่ sort result"
+icon: "function"
+keywords: ["getrunningscripts","Scripts"]
+---
+
+ส่งคืน array table ใหม่ของ unique script Instances ที่มาจาก live Lua threads function นี้ไม่รับ arguments โดยเดินผ่าน the live Luau thread list อ่านแต่ละ thread node และข้าม entries ที่ไม่มี thread node, ไม่มี weak thread ref, ไม่มี LiveLuaRef, ไม่มี Lua state, ไม่มี object หรือมี expired Script stored reference สำหรับ thread ที่เหลือแต่ละรายการ จะ lock scriptThread->object->Script(), deduplicate ด้วย script reference, push Instance ด้วย Instance cache และใส่ใน array indexes ต่อเนื่องเริ่มที่ 1 function ไม่สแกน DataModel ไม่ตรวจ ClassName และไม่ sort result
+
+## ไวยากรณ์
+
+```lua
+getrunningscripts(): table
+```
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `scripts` | `table` | array table ใหม่ของ unique script Instance object values ที่เกี่ยวข้องกับ live Lua threads |

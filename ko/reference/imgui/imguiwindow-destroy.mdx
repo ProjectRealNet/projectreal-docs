@@ -1,0 +1,41 @@
+---
+title: "ImGuiWindow.destroy"
+sidebarTitle: "ImGuiWindow.destroy"
+description: "ImGuiWindow를 파괴합니다. object가 아직 window를 가리키고 있으면 이 method는 해당 window를 Real의 tracked ImGui window list에서 제거하고 stored element callbacks를 unreference하며 window record를 삭제하고 Instance reference를 nil로 설정합니다. 같은 object에서 destroy를 다시 호출하면 아무 작업도 하지 않고 반환됩니다."
+icon: "function"
+keywords: ["ImGuiWindow.destroy","ImGui"]
+---
+
+ImGuiWindow를 파괴합니다. object가 아직 window를 가리키고 있으면 이 method는 해당 window를 Real의 tracked ImGui window list에서 제거하고 stored element callbacks를 unreference하며 window record를 삭제하고 Instance reference를 nil로 설정합니다. 같은 object에서 destroy를 다시 호출하면 아무 작업도 하지 않고 반환됩니다.
+
+## 문법
+
+```lua
+ImGuiWindow.destroy(window: ImGuiWindow)
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `window` | `ImGuiWindow` | Yes | imgui.create가 반환한 ImGuiWindow object입니다. ImGuiWindow가 아닌 값은 Lua error를 발생시킵니다. |
+
+## 타입
+
+### ImGuiWindow
+
+imgui.create에서 반환된 핸들입니다. 컨트롤 구축 메서드는 동일한 핸들을 반환하므로 호출을 연결할 수 있습니다.
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | 버튼을 추가하고 클릭 후 콜백을 호출합니다. |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | 제공된 상태에 초기화된 체크박스를 추가합니다. |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | 접는 헤더 아래에 콘텐츠 콜백이 추가된 그룹 컨트롤입니다. |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | RGBA 편집기를 추가합니다. 생략된 색상 구성 요소의 기본값은 1.0입니다. |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | 한 줄 텍스트 입력을 추가합니다. 생략된 초기 텍스트의 기본값은 빈 문자열입니다. |
+| `SameLine` | `() -> ImGuiWindow` | Yes | 같은 줄에 다음 컨트롤을 배치합니다. |
+| `Separator` | `() -> ImGuiWindow` | Yes | 가로 구분 기호를 추가합니다. |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | 부동 소수점 슬라이더를 추가합니다. |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | 정수 슬라이더를 추가합니다. |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | 비대화형 텍스트를 추가합니다. |
+| `destroy` | `() -> ()` | Yes | 창을 제거하고 등록된 콜백을 해제합니다. |

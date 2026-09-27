@@ -1,0 +1,44 @@
+---
+title: "isvalidlevel"
+sidebarTitle: "isvalidlevel"
+description: "ตรวจว่า numeric stack level อยู่ใน current call stack range หรือไม่. level จำเป็นและต้องเป็น number เพราะ function เรียก requires a number. value ถูกแปลงด้วย integer conversion. function คืน false เมื่อ level < 0 หรือ level >= the current call stack depth ไม่เช่นนั้นคืน true. ไม่ตรวจ frame closure และไม่ throw \"Level out of range\" สำหรับ invalid numeric levels. validlevel เป็น global alias และ debug.isvalidlevel กับ debug.validlevel ถูก expose ผ่าน debug table aliases."
+icon: "function"
+keywords: ["isvalidlevel","Debug","validlevel","debug.isvalidlevel","debug.validlevel"]
+---
+
+ตรวจว่า numeric stack level อยู่ใน current call stack range หรือไม่. level จำเป็นและต้องเป็น number เพราะ function เรียก requires a number. value ถูกแปลงด้วย integer conversion. function คืน false เมื่อ level &lt; 0 หรือ level >= the current call stack depth ไม่เช่นนั้นคืน true. ไม่ตรวจ frame closure และไม่ throw "Level out of range" สำหรับ invalid numeric levels. validlevel เป็น global alias และ debug.isvalidlevel กับ debug.validlevel ถูก expose ผ่าน debug table aliases.
+
+## ไวยากรณ์
+
+```lua
+isvalidlevel(level: number): boolean
+```
+
+## Aliases
+
+- `validlevel`
+- `debug.isvalidlevel`
+- `debug.validlevel`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `level` | `number` | Yes | Stack level number ที่ถูกแปลงด้วย integer conversion และตรวจเทียบกับ 0 &lt;= level &lt; the current call stack depth. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `valid` | `boolean` | true เมื่อ numeric level อยู่ใน current call stack range ไม่เช่นนั้น false. |
+
+## ตัวอย่าง
+
+Check whether a numeric stack level is inside the current call stack range.
+
+```lua
+print(isvalidlevel(0))
+print(validlevel(0))
+print(debug.isvalidlevel(0))
+print(debug.validlevel(0))
+```

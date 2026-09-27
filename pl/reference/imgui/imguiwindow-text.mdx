@@ -1,0 +1,48 @@
+---
+title: "ImGuiWindow.Text"
+sidebarTitle: "ImGuiWindow.Text"
+description: "Dodaje nieinteraktywny Text element do okna. Argument text jest czytany przez string type checking i zapisywany w element. Podczas rendering Real wywoluje a text element, wiec podany text jest uzywany jako string content, a nie jako ImGui format string."
+icon: "function"
+keywords: ["ImGuiWindow.Text","ImGui"]
+---
+
+Dodaje nieinteraktywny Text element do okna. Argument text jest czytany przez string type checking i zapisywany w element. Podczas rendering Real wywoluje a text element, wiec podany text jest uzywany jako string content, a nie jako ImGui format string.
+
+## Składnia
+
+```lua
+ImGuiWindow.Text(window: ImGuiWindow, text: string): ImGuiWindow
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `window` | `ImGuiWindow` | Yes | ImGuiWindow zwrocone przez imgui.create. Jesli object jest nieprawidlowa albo zostala juz zniszczona, method rzuca Lua error. |
+| `text` | `string` | Yes | Text content czytany przez string type checking i wyswietlany przez Text element. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `window` | `ImGuiWindow` | Ta sama ImGuiWindow object, co pozwala lancuchowo wywolywac method. |
+
+## Typy
+
+### ImGuiWindow
+
+Uchwyt zwrócony przez imgui.create. Metody budowania kontroli zwracają ten sam uchwyt, dzięki czemu można łączyć wywołania.
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | Dołącza przycisk i wywołuje wywołanie zwrotne po kliknięciu. |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | Dołącza pole wyboru zainicjowane do podanego stanu. |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | Grupuje kontrolki dołączone przez wywołanie zwrotne zawartości pod zwijanym nagłówkiem. |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | Dołącza edytor RGBA; pominięte komponenty kolorów mają domyślnie wartość 1.0. |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | Dołącza jednowierszowy tekst; pominięty tekst początkowy domyślnie jest pustym ciągiem znaków. |
+| `SameLine` | `() -> ImGuiWindow` | Yes | Umieszcza następną kontrolkę w tej samej linii. |
+| `Separator` | `() -> ImGuiWindow` | Yes | Dołącza separator poziomy. |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Dołącza suwak zmiennoprzecinkowy. |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Dołącza suwak liczb całkowitych. |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | Dołącza tekst nieinteraktywny. |
+| `destroy` | `() -> ()` | Yes | Usuwa okno i zwalnia zarejestrowane wywołania zwrotne. |

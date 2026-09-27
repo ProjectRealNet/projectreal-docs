@@ -1,0 +1,50 @@
+---
+title: "hookfunction"
+sidebarTitle: "hookfunction"
+description: "Replaces the behavior of a target function with a replacement function and returns a callable copy of the original behavior. Both arguments must be functions."
+icon: "function"
+keywords: ["hookfunction","Closures","hookfunc","replaceclosure","detourfunction","detour_function"]
+---
+
+Replaces the behavior of a target function with a replacement function and returns a callable copy of the original behavior. Both arguments must be functions.
+
+## Syntax
+
+```lua
+hookfunction(target: function, replacement: function): function
+```
+
+## Aliases
+
+- `hookfunc`
+- `replaceclosure`
+- `detourfunction`
+- `detour_function`
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `target` | `function` | Yes | Function to patch. Passing a non-function raises a type error. |
+| `replacement` | `function` | Yes | Function whose function is installed into or mapped onto target. Passing a non-function raises a type error. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `original` | `function` | Callable copy of the original target behavior before the hook was installed. |
+
+## Example
+
+Patch a function closure and keep a cloned original.
+
+```lua
+local function target(value)
+    return value + 1
+end
+
+local original
+original = hookfunction(target, function(value)
+    return original(value) * 2
+end)
+```

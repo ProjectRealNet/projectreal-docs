@@ -1,0 +1,50 @@
+---
+title: "hookmetamethod"
+sidebarTitle: "hookmetamethod"
+description: "Finds the named metamethod on a value and replaces that metamethod function with the provided replacement. The metamethod name must be a string and the replacement must be a function."
+icon: "function"
+keywords: ["hookmetamethod","Closures"]
+---
+
+Finds the named metamethod on a value and replaces that metamethod function with the provided replacement. The metamethod name must be a string and the replacement must be a function.
+
+## Syntax
+
+```lua
+hookmetamethod(object: any, metamethod: string, replacement: function): function
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | Value whose methods is inspected with raw metafield lookup. |
+| `metamethod` | `string` | Yes | Metafield name passed to raw metafield lookup. |
+| `replacement` | `function` | Yes | Function passed to hookfunction as the replacement for the found metamethod function. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `original` | `function` | Cloned original metamethod closure returned by hookfunction. |
+
+## Example
+
+Hook an existing metamethod function.
+
+```lua
+local object = setmetatable({}, {
+    __index = function(_, key)
+        return key
+    end,
+})
+
+local original
+original = hookmetamethod(object, "__index", function(self, key)
+    if key == "Name" then
+        return "Real"
+    end
+
+    return original(self, key)
+end)
+```

@@ -1,0 +1,46 @@
+---
+title: "gettenv"
+sidebarTitle: "gettenv"
+description: "Returns the environment table stored on a Luau thread. getstateenv is an alias."
+icon: "function"
+keywords: ["gettenv","Environment","getstateenv"]
+---
+
+Returns the environment table stored on a Luau thread. getstateenv is an alias.
+
+## 문법
+
+```lua
+gettenv(thread: thread): table
+```
+
+## 별칭
+
+- `getstateenv`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `thread` | `thread` | Yes | Luau thread whose environment table is returned. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `environment` | `table` | Environment table for the supplied thread. |
+
+## 예제
+
+Read the environment table stored on a Luau thread.
+
+```lua
+local thread = coroutine.create(function()
+end)
+
+local env = gettenv(thread)
+print(type(env))
+
+local aliasEnv = getstateenv(thread)
+print(type(aliasEnv))
+```

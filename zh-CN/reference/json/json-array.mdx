@@ -1,0 +1,40 @@
+---
+title: "json.array"
+sidebarTitle: "json.array"
+description: "为 json.encode 创建一个标记为 JSON array 的 new table，并在提供 source table 时复制 1.#source sequence。"
+icon: "function"
+keywords: ["json.array","JSON"]
+---
+
+为 json.encode 创建一个标记为 JSON array 的 new table，并在提供 source table 时复制 1.#source sequence。
+
+## 语法
+
+```lua
+json.array(source?: table): table
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `source` | `table` | No | Optional source table。省略或为 nil 时，json.array 返回 new empty array-marked table。提供时，只会把 1 with #source 的 numeric sequence entries 复制到 new table。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `array` | `table` | 带有 JSON array marker 的 new table。json.encode 会将其 serializes 为 JSON array；不会返回 original source table。 |
+
+## 示例
+
+创建 array-marked copy，让 json.encode 将该值 serializes 为 JSON array。
+
+```lua
+local tags = json.array({ "api", "docs", "luau" })
+local empty = json.array()
+
+print(json.encode(tags))
+print(json.encode(empty))
+print(json.type(empty))
+```

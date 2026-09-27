@@ -1,0 +1,21 @@
+---
+title: "getinstances"
+sidebarTitle: "getinstances"
+description: "Возвращает новую array table, содержащую каждый object value, сейчас сохраненный в Instance cache. Function не принимает arguments. Она не фильтрует по Parent, ClassName, DataModel fieldship, nil-parent state или Instance validity, кроме проверки, что каждый registry value является object. Entries копируются в возвращаемую таблицу по sequential numeric indexes, начиная с 1. iteration order берется из table iteration по cache и не сортируется function."
+icon: "function"
+keywords: ["getinstances","Instances"]
+---
+
+Возвращает новую array table, содержащую каждый object value, сейчас сохраненный в Instance cache. Function не принимает arguments. Она не фильтрует по Parent, ClassName, DataModel fieldship, nil-parent state или Instance validity, кроме проверки, что каждый registry value является object. Entries копируются в возвращаемую таблицу по sequential numeric indexes, начиная с 1. iteration order берется из table iteration по cache и не сортируется function.
+
+## Синтаксис
+
+```lua
+getinstances(): { Instance }
+```
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `instances` | `&#123; Instance &#125;` | Array table значений object values, скопированных из Instance cache table. |

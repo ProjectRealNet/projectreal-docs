@@ -1,0 +1,13 @@
+---
+title: "WebSocket"
+description: "Двунаправленные соединения WebSocket."
+icon: "folder-code"
+---
+
+Двунаправленные соединения WebSocket.
+
+| Навигация по функциям | Описание |
+| --- | --- |
+| [`WebSocket.Close`](./websocket-close) | Закрывает WebSocket object, возвращенный WebSocket.connect. Первый argument должен быть table. Функция читает field connection state объекта. Если live state существует и еще не destroyed или closed, она устанавливает isClosed в true и отправляет пустой close frame frame через сохраненный WebSocket connection. Она не принимает close code или reason и не возвращает values. |
+| [`WebSocket.connect`](./websocket-connect) | Создает два BindableEvents, открывает WebSocket client WebSocket connection к переданному URL и выполняет yield до завершения попытки подключения. При успехе возвращает WebSocket table с events OnMessage и OnClose, methods Send и Close из methods, а также connection state. Incoming message data вызывается через OnMessage как string. Когда receive loop завершается, OnClose вызывается без arguments. При ошибке подключения функция выбрасывает error string, начинающийся с "WebSocket connection failed". |
+| [`WebSocket.Send`](./websocket-send) | Отправляет Lua string через WebSocket object, возвращенный WebSocket.connect. Method ожидает WebSocket table первым argument и message string вторым argument. Она читает connection state объекта, выбрасывает "WebSocket state is missing", если это object отсутствует, возвращается без отправки, когда state destroyed или closed, и вызывает curl_ws_send с CURLWS_TEXT по умолчанию или CURLWS_BINARY, когда необязательный третий argument является boolean true. Она не возвращает values и не сообщает количество отправленных bytes. |

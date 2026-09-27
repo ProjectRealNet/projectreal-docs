@@ -1,0 +1,38 @@
+---
+title: "json.quote"
+sidebarTitle: "json.quote"
+description: "Meng-escape string memakai Real JSON string escaping rules dan mengembalikan complete quoted JSON string literal."
+icon: "function"
+keywords: ["json.quote","JSON"]
+---
+
+Meng-escape string memakai Real JSON string escaping rules dan mengembalikan complete quoted JSON string literal.
+
+## Sintaks
+
+```lua
+json.quote(text: string): string
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | String yang akan di-quote. Function membaca argument ini dengan string type checking. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `quoted` | `string` | Complete JSON string literal termasuk opening dan closing quote. Quotes, backslashes, common control characters, dan bytes below 0x20 di-escape. |
+
+## Contoh
+
+Convert string menjadi complete quoted JSON string literal.
+
+```lua
+local source = "Real Docs" .. string.char(10) .. [[Documentation "A"]]
+local quoted = json.quote(source)
+
+print(quoted)
+```

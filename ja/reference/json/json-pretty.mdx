@@ -1,0 +1,60 @@
+---
+title: "json.pretty"
+sidebarTitle: "json.pretty"
+description: "json.encodePretty と同じ function を使って Lua value を readable formatted JSON string に serializes します。"
+icon: "function"
+keywords: ["json.pretty","JSON"]
+---
+
+json.encodePretty と同じ function を使って Lua value を readable formatted JSON string に serializes します。
+
+## 構文
+
+```lua
+json.pretty(value: any, options?: EncodeOptions): string
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Encoded する value。nil、booleans、numbers、strings、tables、json.null は直接処理されます。Unsupported Lua types は errorOnUnsupported が true でない限り null として encoded されます。 |
+| `options` | `EncodeOptions` | No | Optional encode options。json.pretty は json.encodePretty と同じ options を読み、その後 pretty を true に強制します。options がない場合は two-space indent を使います。number は 0.16 に clamp された indent width を設定し、string は indent text を設定し、table は sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth、indent を設定できます。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `json` | `string` | Readable formatted JSON string。Encoding errors は Luau errors として throw されます。 |
+
+## 型
+
+### EncodeOptions
+
+JSON のシリアル化とフォーマットを制御します。
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | フォーマットされた複数行の JSON 出力を有効にします。 |
+| `sortKeys` | `boolean` | No | エンコード前にオブジェクトキーをソートします。 |
+| `emptyTableAsArray` | `boolean` | No | 空のテーブルをオブジェクトではなく配列としてエンコードします。 |
+| `errorOnUnsupported` | `boolean` | No | サポートされていない値を置き換えるのではなく、エラーを発生させます。 |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | NaN と無限数を JSON null としてエンコードします。 |
+| `maxDepth` | `integer` | No | ネストの最大の深さを 1 ～ 4096 の範囲で設定します。 |
+| `indent` | `string` | No | インデント文字列を設定します。32 文字に制限されます。 |
+
+## 例
+
+json.encodePretty alias を使って JSON-compatible values を readable formatted JSON として encode します。
+
+```lua
+local text = json.pretty({
+    category = "JSON",
+    tags = json.array({ "pretty", "alias" }),
+    missing = json.null,
+}, {
+    sortKeys = true,
+})
+
+print(text)
+```

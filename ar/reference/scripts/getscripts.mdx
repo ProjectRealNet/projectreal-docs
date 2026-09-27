@@ -1,0 +1,21 @@
+---
+title: "getscripts"
+sidebarTitle: "getscripts"
+description: "يعيد قيم script object الموجودة حاليا في Instance cache. لا تأخذ function أي arguments. تمر عبر cache المخزنة تحت مفتاح Instance cache lightobject وتفحص فقط entries التي تكون قيمتها object. تقرأ حقل ClassName لكل قيمة باستخدام optional string handling. يتم تضمين LocalScript و ModuleScript. يتم تضمين Script فقط عندما تكون قيمة RunContext offset مساوية لـ CLIENT أو PLUGIN. يتم تخطي قيم ClassName الأخرى، و entries بدون string ClassName، و CoreScript. النتيجة هي Luau table متسلسلة. لا تجتاز function الـ DataModel ولا تضمن sorted order."
+icon: "function"
+keywords: ["getscripts","Scripts"]
+---
+
+يعيد قيم script object الموجودة حاليا في Instance cache. لا تأخذ function أي arguments. تمر عبر cache المخزنة تحت مفتاح Instance cache lightobject وتفحص فقط entries التي تكون قيمتها object. تقرأ حقل ClassName لكل قيمة باستخدام optional string handling. يتم تضمين LocalScript و ModuleScript. يتم تضمين Script فقط عندما تكون قيمة RunContext offset مساوية لـ CLIENT أو PLUGIN. يتم تخطي قيم ClassName الأخرى، و entries بدون string ClassName، و CoreScript. النتيجة هي Luau table متسلسلة. لا تجتاز function الـ DataModel ولا تضمن sorted order.
+
+## الصيغة
+
+```lua
+getscripts(): { Instance }
+```
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `scripts` | `&#123; Instance &#125;` | Sequential table تحتوي على cached LocalScript و ModuleScript و Script object المؤهلة من Instance cache. |

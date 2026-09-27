@@ -1,0 +1,45 @@
+---
+title: "lz4compress"
+sidebarTitle: "lz4compress"
+description: "Compresse les octets d une chaine Lua avec LZ4 block compression et renvoie les raw compressed bytes sous forme de chaine Lua."
+icon: "function"
+keywords: ["lz4compress","Cryptography","crypt.lz4compress","crypt.lz4.compress","lz4.compress"]
+---
+
+Compresse les octets d une chaine Lua avec LZ4 block compression et renvoie les raw compressed bytes sous forme de chaine Lua.
+
+## Syntaxe
+
+```lua
+lz4compress(data: string): string
+```
+
+## Alias
+
+- `crypt.lz4compress`
+- `crypt.lz4.compress`
+- `lz4.compress`
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Octets de chaine Lua transmis a LZ4 block compression. |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `compressed` | `string` | Raw compressed bytes renvoyes sous forme de chaine Lua. L original size n est pas stocke dans la sortie. |
+
+## Exemple
+
+Compresse les octets d une chaine Lua et restaure-les en passant l original size.
+
+```lua
+local source = string.rep("Real Docs ", 100)
+local compressed = lz4compress(source)
+local restored = lz4decompress(compressed, #source)
+
+print(#source, #compressed, restored == source)
+```

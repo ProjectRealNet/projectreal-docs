@@ -1,0 +1,45 @@
+---
+title: "lz4compress"
+sidebarTitle: "lz4compress"
+description: "Lua string byte degerlerini LZ4 block compression ile sikistirir ve raw compressed bytes degerlerini Lua string olarak dondurur."
+icon: "function"
+keywords: ["lz4compress","Cryptography","crypt.lz4compress","crypt.lz4.compress","lz4.compress"]
+---
+
+Lua string byte degerlerini LZ4 block compression ile sikistirir ve raw compressed bytes degerlerini Lua string olarak dondurur.
+
+## Söz dizimi
+
+```lua
+lz4compress(data: string): string
+```
+
+## Aliaslar
+
+- `crypt.lz4compress`
+- `crypt.lz4.compress`
+- `lz4.compress`
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | LZ4 block compression icine aktarilan Lua string byte degerleri. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `compressed` | `string` | Lua string olarak dondurulen raw compressed bytes. original size output icinde saklanmaz. |
+
+## Örnek
+
+Lua string byte degerlerini sikistir ve original size vererek geri yukle.
+
+```lua
+local source = string.rep("Real Docs ", 100)
+local compressed = lz4compress(source)
+local restored = lz4decompress(compressed, #source)
+
+print(#source, #compressed, restored == source)
+```

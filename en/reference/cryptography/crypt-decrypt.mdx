@@ -1,0 +1,43 @@
+---
+title: "crypt.decrypt"
+sidebarTitle: "crypt.decrypt"
+description: "Decrypts Base64 ciphertext with a Base64-decoded key and required Base64 IV using AES CBC or ECB."
+icon: "function"
+keywords: ["crypt.decrypt","Cryptography"]
+---
+
+Decrypts Base64 ciphertext with a Base64-decoded key and required Base64 IV using AES CBC or ECB.
+
+## Syntax
+
+```lua
+crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES-CBC" | "AES-ECB"): string
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Base64 ciphertext decoded before decryption. |
+| `key` | `string` | Yes | Base64 key decoded before it is passed to AES. |
+| `iv` | `string` | Yes | Base64 IV decoded before mode handling. This argument is required, including for ECB. |
+| `mode` | `"CBC" \| "ECB" \| "AES-CBC" \| "AES-ECB"` | No | AES mode. The AES- prefix is removed when present. Defaults to AES-CBC. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `plaintext` | `string` | Plaintext bytes returned as a Lua string. |
+
+## Example
+
+Decrypt ciphertext returned by crypt.encrypt using the returned IV.
+
+```lua
+local key = crypt.generatekey()
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+local plaintext = crypt.decrypt(ciphertext, key, iv)
+
+print(plaintext)
+```

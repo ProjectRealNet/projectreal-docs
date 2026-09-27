@@ -1,0 +1,40 @@
+---
+title: "crypt.hash"
+sidebarTitle: "crypt.hash"
+description: "Hashea bytes de una cadena Lua con un algoritmo crypto library hash compatible y devuelve un lowercase hexadecimal digest."
+icon: "function"
+keywords: ["crypt.hash","Cryptography"]
+---
+
+Hashea bytes de una cadena Lua con un algoritmo crypto library hash compatible y devuelve un lowercase hexadecimal digest.
+
+## Sintaxis
+
+```lua
+crypt.hash(data: string, algorithm?: "sha256" | "sha1" | "sha224" | "sha384" | "sha512" | "md5" | "sha3-224" | "sha3-256" | "sha3-384" | "sha3-512"): string
+```
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Bytes de cadena Lua que se pasan a crypto library HashFilter. |
+| `algorithm` | `"sha256" \| "sha1" \| "sha224" \| "sha384" \| "sha512" \| "md5" \| "sha3-224" \| "sha3-256" \| "sha3-384" \| "sha3-512"` | No | Nombre de algoritmo hash case-sensitive. El valor predeterminado es sha256. |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `digest` | `string` | Lowercase hexadecimal digest sin prefix ni separators. |
+
+## Ejemplo
+
+Hashea bytes de una cadena Lua con el algoritmo predeterminado o un nombre compatible explicito.
+
+```lua
+local defaultDigest = crypt.hash("hello world")
+local sha3Digest = crypt.hash("hello world", "sha3-256")
+
+print(defaultDigest)
+print(sha3Digest)
+```

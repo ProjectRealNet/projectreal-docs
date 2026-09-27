@@ -1,0 +1,28 @@
+---
+title: "rconsolehide"
+sidebarTitle: "rconsolehide"
+description: "Windows console visibility update와 hide mode를 사용해 현재 Windows console window를 숨깁니다. 이 function은 console detachment을 호출하지 않으므로 console에서 분리하거나 console을 파괴하지 않습니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다."
+icon: "function"
+keywords: ["rconsolehide","Console","consolehide"]
+---
+
+Windows console visibility update와 hide mode를 사용해 현재 Windows console window를 숨깁니다. 이 function은 console detachment을 호출하지 않으므로 console에서 분리하거나 console을 파괴하지 않습니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다.
+
+## 문법
+
+```lua
+rconsolehide()
+```
+
+## 별칭
+
+- `consolehide`
+
+## 예제
+
+Hide the current Windows console without detaching from it.
+
+```lua
+rconsolecreate()
+rconsolehide()
+```

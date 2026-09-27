@@ -1,0 +1,36 @@
+---
+title: "iscclosure"
+sidebarTitle: "iscclosure"
+description: "Returns whether the provided function is a C closure. The argument must be a function; passing any other type raises a type error. The function does not inspect executor ownership, source, bytecode, or upvalues."
+icon: "function"
+keywords: ["iscclosure","Closures"]
+---
+
+Returns whether the provided function is a C closure. The argument must be a function; passing any other type raises a type error. The function does not inspect executor ownership, source, bytecode, or upvalues.
+
+## Cú pháp
+
+```lua
+iscclosure(func: function): boolean
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `func` | `function` | Yes | Function value passed to C closure check. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `isCClosure` | `boolean` | true when C closure check returns true for the function; otherwise false. |
+
+## Ví dụ
+
+Check whether a function is a C closure.
+
+```lua
+local result = iscclosure(print)
+print(result)
+```

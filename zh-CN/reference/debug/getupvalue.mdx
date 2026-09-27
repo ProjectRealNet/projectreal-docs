@@ -1,0 +1,47 @@
+---
+title: "getupvalue"
+sidebarTitle: "getupvalue"
+description: "Returns one upvalue from a Lua function or stack level by one-based index. Invalid stack levels raise \"Level out of range\", non-Lua functions raise \"Lua Function expected\", indexes below 1 raise \"Upvalue index starts at 1\", and indexes past the available upvalues raise \"Upvalue index out of range\". debug.getupvalue is an alias."
+icon: "function"
+keywords: ["getupvalue","Debug","debug.getupvalue"]
+---
+
+Returns one upvalue from a Lua function or stack level by one-based index. Invalid stack levels raise "Level out of range", non-Lua functions raise "Lua Function expected", indexes below 1 raise "Upvalue index starts at 1", and indexes past the available upvalues raise "Upvalue index out of range". debug.getupvalue is an alias.
+
+## 语法
+
+```lua
+getupvalue(target: function | number, index: number): any
+```
+
+## 别名
+
+- `debug.getupvalue`
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `target` | `function \| number` | Yes | Lua function or stack level whose upvalue is read. |
+| `index` | `number` | Yes | One-based upvalue index. |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `upvalue` | `any` | Value stored in the requested upvalue slot. |
+
+## 示例
+
+Read one upvalue from a Lua closure or stack level.
+
+```lua
+local captured = "ready"
+
+local function target()
+    return captured
+end
+
+print(getupvalue(target, 1))
+print(debug.getupvalue(target, 1))
+```

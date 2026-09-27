@@ -1,0 +1,31 @@
+---
+title: "WebSocket.Close"
+sidebarTitle: "WebSocket.Close"
+description: "关闭 WebSocket.connect 返回的 WebSocket object。第一个 argument 必须是 table。该函数读取 object 的 connection state。当存在 live state 且尚未 destroyed 或 closed 时，它会将 isClosed 设置为 true，并通过保存的 WebSocket connection 发送一个空的 close frame frame。它不接受 close code 或 reason，也不返回 values。"
+icon: "function"
+keywords: ["WebSocket.Close","WebSocket"]
+---
+
+关闭 WebSocket.connect 返回的 WebSocket object。第一个 argument 必须是 table。该函数读取 object 的 connection state。当存在 live state 且尚未 destroyed 或 closed 时，它会将 isClosed 设置为 true，并通过保存的 WebSocket connection 发送一个空的 close frame frame。它不接受 close code 或 reason，也不返回 values。
+
+## 语法
+
+```lua
+WebSocket.Close(socket: WebSocket)
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `socket` | `WebSocket` | Yes | WebSocket.connect 返回的 WebSocket table。function 期望这个 table 包含 connection state。 |
+
+## 示例
+
+Close a WebSocket object returned by WebSocket.connect.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket:Close()
+```

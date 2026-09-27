@@ -1,0 +1,13 @@
+---
+title: "WebSocket"
+description: "การเชื่อมต่อ WebSocket แบบสองทิศทาง"
+icon: "folder-code"
+---
+
+การเชื่อมต่อ WebSocket แบบสองทิศทาง
+
+| การนำทางฟังก์ชัน | คำอธิบาย |
+| --- | --- |
+| [`WebSocket.Close`](./websocket-close) | ปิด WebSocket object ที่ส่งคืนจาก WebSocket.connect argument แรกต้องเป็น table ฟังก์ชันอ่าน field connection state ของ object เมื่อมี live state และยังไม่ destroyed หรือ closed ฟังก์ชันจะตั้ง isClosed เป็น true และส่ง close frame frame ว่างผ่าน WebSocket connection ที่เก็บไว้ ฟังก์ชันไม่รับ close code หรือ reason และไม่คืน values |
+| [`WebSocket.connect`](./websocket-connect) | สร้าง BindableEvents สองรายการ เปิด WebSocket client WebSocket connection ไปยัง URL ที่ให้มา และ yield จนกว่าการพยายามเชื่อมต่อจะเสร็จ เมื่อสำเร็จจะคืน WebSocket table ที่มี OnMessage และ OnClose events, Send และ Close methods จาก methods และ connection state incoming message data จะถูก Fire ผ่าน OnMessage เป็น string เมื่อ receive loop จบ OnClose จะถูก Fire โดยไม่มี arguments หากเชื่อมต่อล้มเหลว ฟังก์ชันจะ throw error string ที่ขึ้นต้นด้วย "WebSocket connection failed" |
+| [`WebSocket.Send`](./websocket-send) | ส่ง Lua string ผ่าน WebSocket object ที่ส่งคืนจาก WebSocket.connect method คาดว่า WebSocket table เป็น argument แรก และ message string เป็น argument ที่สอง ฟังก์ชันอ่าน connection state ของ object, throw "WebSocket state is missing" หากไม่มี object นั้น, กลับโดยไม่ส่งเมื่อ state เป็น destroyed หรือ closed, และเรียก curl_ws_send ด้วย CURLWS_TEXT เป็นค่าเริ่มต้น หรือ CURLWS_BINARY เมื่อ argument ที่สามแบบ optional เป็น boolean true ไม่คืน values และไม่รายงานจำนวน bytes ที่ส่ง |

@@ -1,0 +1,20 @@
+---
+title: "Actors"
+description: "Uygulama bağlamları ve aktör iletişimi."
+icon: "folder-code"
+---
+
+Uygulama bağlamları ve aktör iletişimi.
+
+| Fonksiyon gezinmesi | Açıklama |
+| --- | --- |
+| [`create_comm_channel`](./create-comm-channel) | Instance.new ile yeni bir BindableEvent oluşturur, Instance reference değerini numeric channel ID altında communication channel list içine kaydeder ve ID ile BindableEvent Instance değerini döndürür. channel ID, current map size plus one ile hesaplanır. Instance.new("BindableEvent") stack üzerinde object value bırakmazsa function "Failed to make a BindableEvent" fırlatır. |
+| [`get_comm_channel`](./get-comm-channel) | Bir channel ID değerini communication channel list içinde arar ve saklanan BindableEvent Instance değerini döndürür. İlk argument number olmalıdır ve lookup öncesinde integer conversion ile dönüştürülür. Bu ID için entry yoksa function nil döndürür. |
+| [`getactorfromthread`](./getactorfromthread) | Bir Luau thread ile ilişkili Actor Instance değerini döndürür. İlk argument thread olmalıdır. Function thread thread data değerini okur, Actor reference ve positive container count gerektirir, sonra the associated Actor değerini okur. actor weak reference geçerliyse Instance olarak push edilir; aksi halde function nil döndürür. |
+| [`getactors`](./getactors) | ScriptContext actor thread list içinden çözümlenen live Actor Instances değerlerinin array table halini döndürür. Function arguments almaz. actor thread list üzerinde yürür, her actor Lua state değerini decrypt eder, valid threads olan entries değerlerini tutar, sonra her thread için thread data ve the associated Actor weak reference değerini okur. Yalnızca non-expired actor references, Instances olarak push edilir. container olmayan, Actor reference olmayan, reference count &lt;= 0 olan veya expired actor reference içeren entries atlanır. |
+| [`getactorthreads`](./getactorthreads) | actor thread list içinden Luau threads değerlerinin array table halini döndürür. Function arguments almaz. ScriptContext içinden actor list bounds değerlerini okur, her actor state entry üzerinden geçer, stored global state değerini Luau thread değerine decrypt eder ve yalnızca valid threads olan entries değerlerini dahil eder. |
+| [`getcurrentactor`](./getcurrentactor) | Geçerli Luau thread ile ilişkili Actor Instance değerini döndürür. Function arguments almaz. Geçerli Luau thread değerini getactorfromthread tarafından kullanılan aynı actor resolver ile çözümler: thread data var olmalı, Actor reference var olmalı, reference count 0 değerinden büyük olmalı ve the associated Actor non-expired weak reference içermelidir. valid actor reference yoksa function nil döndürür. |
+| [`getdeletedactors`](./getdeletedactors) | thread data değeri Actor reference içeren, reference count değeri 0 değerinden büyük olan ve the associated Actor değeri expired weak reference olan actor list içindeki Luau threads için bir array table döndürür. Function arguments almaz. Actor Instance values döndürmez. |
+| [`isparallel`](./isparallel) | Geçerli Luau thread değerinin ScriptContext DataModel değerinden bir boolean döndürür. Function arguments almaz. parallel execution status değerini döndüren the current parallel execution status değerini okur. the current DataModel bir DataModel döndürmezse function false döndürür. checkparallel aynı function için alias değeridir. |
+| [`run_on_actor`](./run-on-actor) | Runs Luau source on the thread associated with a target Actor Instance. The first argument must be an Instance whose ClassName is Actor, and the second argument must be a non-empty source string. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonactor is an alias. |
+| [`run_on_thread`](./run-on-thread) | Runs Luau source on a specific Luau thread. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonthread is an alias. |

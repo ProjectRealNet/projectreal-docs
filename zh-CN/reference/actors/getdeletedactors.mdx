@@ -1,0 +1,33 @@
+---
+title: "getdeletedactors"
+sidebarTitle: "getdeletedactors"
+description: "返回 actor list 中 Luau threads 的 array table，这些条目的 thread data 具有 Actor reference，reference count 大于 0，并且 the associated Actor 是 expired weak reference。该 function 不接受 arguments。它不返回 Actor Instance values。"
+icon: "function"
+keywords: ["getdeletedactors","Actors"]
+---
+
+返回 actor list 中 Luau threads 的 array table，这些条目的 thread data 具有 Actor reference，reference count 大于 0，并且 the associated Actor 是 expired weak reference。该 function 不接受 arguments。它不返回 Actor Instance values。
+
+## 语法
+
+```lua
+getdeletedactors(): table
+```
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `threads` | `table` | Array table，包含 Actor weak reference 为 expired 的 actor entries 对应的 Luau thread values。 |
+
+## 示例
+
+List actor threads whose Actor weak reference is expired.
+
+```lua
+local deletedActorThreads = getdeletedactors()
+
+for _, thread in ipairs(deletedActorThreads) do
+    print(thread)
+end
+```

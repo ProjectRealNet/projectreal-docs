@@ -1,0 +1,41 @@
+---
+title: "json.isNull"
+sidebarTitle: "json.isNull"
+description: "คืนว่า value เป็น Real JSON null sentinel คือ json.null หรือไม่."
+icon: "function"
+keywords: ["json.isNull","JSON"]
+---
+
+คืนว่า value เป็น Real JSON null sentinel คือ json.null หรือไม่.
+
+## ไวยากรณ์
+
+```lua
+json.isNull(value: any): boolean
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value ที่จะ inspect. เฉพาะ json.null value เท่านั้นที่คืน true; Lua nil และ other values คืน false. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `isNull` | `boolean` | true เมื่อ value เป็น exact json.null sentinel, otherwise false. |
+
+## ตัวอย่าง
+
+Check ว่า value เป็น json.null sentinel แทน Lua nil หรือไม่.
+
+```lua
+local value = json.decode("null")
+
+if json.isNull(value) then
+    print("The value is JSON null")
+end
+
+print(json.isNull(nil))
+```

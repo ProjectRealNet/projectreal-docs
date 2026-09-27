@@ -1,0 +1,52 @@
+---
+title: "ImGuiWindow.SliderInt"
+sidebarTitle: "ImGuiWindow.SliderInt"
+description: "Adds an integer slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated integer value."
+icon: "function"
+keywords: ["ImGuiWindow.SliderInt","ImGui"]
+---
+
+Adds an integer slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated integer value.
+
+## Syntax
+
+```lua
+ImGuiWindow.SliderInt(window: ImGuiWindow, label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()): ImGuiWindow
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `window` | `ImGuiWindow` | Yes | ImGuiWindow returned by imgui.create. If the object is invalid or has already been destroyed, the method raises a Lua error. |
+| `label` | `string` | Yes | Slider label required to be a string. |
+| `value` | `integer` | Yes | Initial slider value required to be an integer and stored as the current int value. |
+| `minimum` | `integer` | Yes | Minimum value required to be an integer and passed to an integer slider. |
+| `maximum` | `integer` | Yes | Maximum value required to be an integer and passed to an integer slider. |
+| `onChange` | `(number) -> ()` | Yes | Callback called with the updated integer value when the slider changes. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `window` | `ImGuiWindow` | The same ImGuiWindow object, allowing chained method calls. |
+
+## Types
+
+### ImGuiWindow
+
+Handle returned by imgui.create. Control-building methods return the same handle so calls can be chained.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | Appends a button and queues the callback with no arguments after a click. |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | Appends a checkbox initialized from the checked value. |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | Immediately runs content to append elements that render under a collapsible header. |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | Appends a ColorEdit4-backed RGBA editor; onChange is read from argument 7. |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | Appends a single-line InputText using a fixed 256-byte buffer; onChange is argument 4. |
+| `SameLine` | `() -> ImGuiWindow` | Yes | Appends a SameLine layout marker that calls same-line layout during rendering. |
+| `Separator` | `() -> ImGuiWindow` | Yes | Appends a Separator marker that calls a separator during rendering. |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Appends a SliderFloat element and queues onChange with one Lua number when the value changes. |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Appends a SliderInt element and queues onChange with one Lua number when the integer value changes. |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | Appends a non-interactive text element. |
+| `destroy` | `() -> ()` | Yes | Removes the window and releases its registered callbacks. |

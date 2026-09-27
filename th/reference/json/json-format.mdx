@@ -1,0 +1,70 @@
+---
+title: "json.format"
+sidebarTitle: "json.format"
+description: "Parse JSON string แล้ว re-encode เป็น readable formatted JSON ด้วย Real JSON parser และ encoder."
+icon: "function"
+keywords: ["json.format","JSON"]
+---
+
+Parse JSON string แล้ว re-encode เป็น readable formatted JSON ด้วย Real JSON parser และ encoder.
+
+## ไวยากรณ์
+
+```lua
+json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string ที่ถูก parse ก่อน formatting. function อ่าน argument นี้ด้วย string type checking. |
+| `encodeOptions` | `EncodeOptions` | No | Optional encode options ที่ส่งเข้า re-encode step. json.format อ่าน encode options เดียวกับ json.encode แล้วบังคับ pretty เป็น true. |
+| `decodeOptions` | `DecodeOptions` | No | Optional decode options ที่ใช้ระหว่าง parsing input JSON. boolean ตั้งค่า useNull. table ตั้งค่า useNull และ maxDepth ได้. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `formatted` | `string` | Readable formatted JSON string ที่สร้างหลัง parsing และ re-encoding input. |
+
+## Types
+
+### EncodeOptions
+
+ควบคุมการทำให้เป็นอนุกรมและการจัดรูปแบบ JSON
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | เปิดใช้งานเอาต์พุต JSON แบบหลายบรรทัดที่จัดรูปแบบแล้ว |
+| `sortKeys` | `boolean` | No | เรียงลำดับออบเจ็กต์คีย์ก่อนการเข้ารหัส |
+| `emptyTableAsArray` | `boolean` | No | เข้ารหัสตารางว่างเป็นอาร์เรย์แทนที่จะเป็นวัตถุ |
+| `errorOnUnsupported` | `boolean` | No | ทำให้เกิดข้อผิดพลาดแทนที่จะแทนที่ค่าที่ไม่รองรับ |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | เข้ารหัส NaN และจำนวนอนันต์เป็น JSON null |
+| `maxDepth` | `integer` | No | ตั้งค่าความลึกของการซ้อนสูงสุด โดยยึดไว้ตั้งแต่ 1 ถึง 4096 |
+| `indent` | `string` | No | ตั้งค่าสตริงการเยื้อง โดยจำกัดไว้ที่ 32 อักขระ |
+
+### DecodeOptions
+
+ควบคุมพฤติกรรมการแยกวิเคราะห์ JSON
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | แสดงถึง JSON null ด้วย null sentinel ของไลบรารีแทนที่จะเป็น nil |
+| `maxDepth` | `integer` | No | ตั้งค่าความลึกของการซ้อนสูงสุด โดยยึดไว้ตั้งแต่ 1 ถึง 4096 |
+
+## ตัวอย่าง
+
+Parse existing JSON แล้ว re-encode เป็น readable formatted JSON.
+
+```lua
+local compact = '{"b":2,"a":1}'
+local formatted = json.format(compact, {
+    pretty = true,
+    sortKeys = true,
+}, {
+    useNull = true,
+})
+
+print(formatted)
+```

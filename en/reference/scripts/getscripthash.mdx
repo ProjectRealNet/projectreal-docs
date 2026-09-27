@@ -1,0 +1,47 @@
+---
+title: "getscripthash"
+sidebarTitle: "getscripthash"
+description: "Returns an uppercase SHA384 hex digest for the stored bytecode string of a Roblox script object. The argument must be object. The bytecode behavior accepts ClassName values ModuleScript, LocalScript, CoreScript, and Script. For Script, RunContext must be Client. If ClassName is missing, the function raises \"Invalid Instance\". If ClassName is not one of the supported script classes, it raises \"Script expected\". If the value is a Script with another RunContext, it raises \"Expected a Script with RunContext set to Client\". If the embedded bytecode reference is invalid or the stored bytecode length is 8 bytes or less, the function returns nil. Otherwise it hashes the exact stored bytecode bytes with SHA384 and returns the uppercase hex string. The function does not call DecompressBytecode and does not hash decompressed bytecode."
+icon: "function"
+keywords: ["getscripthash","Scripts"]
+---
+
+Returns an uppercase SHA384 hex digest for the stored bytecode string of a Roblox script object. The argument must be object. The bytecode behavior accepts ClassName values ModuleScript, LocalScript, CoreScript, and Script. For Script, RunContext must be Client. If ClassName is missing, the function raises "Invalid Instance". If ClassName is not one of the supported script classes, it raises "Script expected". If the value is a Script with another RunContext, it raises "Expected a Script with RunContext set to Client". If the embedded bytecode reference is invalid or the stored bytecode length is 8 bytes or less, the function returns nil. Otherwise it hashes the exact stored bytecode bytes with SHA384 and returns the uppercase hex string. The function does not call DecompressBytecode and does not hash decompressed bytecode.
+
+## Syntax
+
+```lua
+getscripthash(script: userdata): string | nil
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | Script object to hash. Supported ClassName values are ModuleScript, LocalScript, CoreScript, and Script with RunContext Client. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `hash` | `string \| nil` | Uppercase SHA384 hex digest of the stored bytecode bytes, or nil when no usable embedded bytecode is available. |
+
+## Example
+
+Hash the bytecode of a supported Roblox script Instance when bytecode is available.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local hash = getscripthash(targetScript)
+    print(hash)
+end
+```

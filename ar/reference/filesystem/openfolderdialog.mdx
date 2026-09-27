@@ -1,0 +1,59 @@
+---
+title: "openfolderdialog"
+sidebarTitle: "openfolderdialog"
+description: "يفتح Windows folder picker عبر Windows file picker مع folder selection mode ويعيد المجلد المحدد كـ file item."
+icon: "function"
+keywords: ["openfolderdialog","Filesystem"]
+---
+
+يفتح Windows folder picker عبر Windows file picker مع folder selection mode ويعيد المجلد المحدد كـ file item.
+
+## الصيغة
+
+```lua
+openfolderdialog(options?: DialogOptions): FileSystemItem | nil
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. في openfolderdialog يتم استخدام title و defaultPath. يتم تطبيق defaultPath فقط عندما يتحول إلى existing directory. extensionFilter يقبله shared dialog options parser، لكن folder selection مفعلة عبر folder selection mode. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `folder` | `FileSystemItem \| nil` | Selected folder item، أو nil عند إلغاء dialog. Dialog failures ترمي Failed to open folder dialog. |
+
+## الأنواع
+
+### DialogOptions
+
+تكوين مربع حوار اختيار الملف أو المجلد الأصلي.
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `title` | `string` | No | يضبط عنوان نافذة الحوار. |
+| `defaultPath` | `string` | No | يحدد الدليل الذي يظهر عند فتح مربع الحوار. |
+| `extensionFilter` | `&#123;string&#125;` | No | يحد الملفات القابلة للتحديد من الامتدادات المدرجة، مع أو بدون نقطة بادئة. |
+| `suggestedName` | `string` | No | يوفر اسم الملف الأولي في مربعات حوار الحفظ. |
+| `defaultExtension` | `string` | No | يضبط الامتداد المستخدم عندما لا يكون اسم الملف الذي تم إدخاله خاليًا. |
+
+## مثال
+
+افتح folder picker وتعامل مع selected folder item أو cancellation.
+
+```lua
+local folder = openfolderdialog({
+    title = "Choose a folder",
+    defaultPath = ".",
+})
+
+if folder then
+    print(folder:GetName())
+    print(folder:IsFolder())
+else
+    print("No folder selected")
+end
+```

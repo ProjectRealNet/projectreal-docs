@@ -1,0 +1,46 @@
+---
+title: "getgc"
+sidebarTitle: "getgc"
+description: "Returns an array table of live Luau garbage-collected objects visible to the API. Functions and userdata-like objects are included by default. Tables are included only when includeTables is true. get_gc_objects is an alias."
+icon: "function"
+keywords: ["getgc","Environment","get_gc_objects"]
+---
+
+Returns an array table of live Luau garbage-collected objects visible to the API. Functions and userdata-like objects are included by default. Tables are included only when includeTables is true. get_gc_objects is an alias.
+
+## Синтаксис
+
+```lua
+getgc(includeTables?: boolean): table
+```
+
+## Алиасы
+
+- `get_gc_objects`
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `includeTables` | `boolean` | No | Optional boolean. When true, live tables are included in addition to functions and userdata-like objects. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `objects` | `table` | Array table containing matching live objects, plus live tables when includeTables is true. |
+
+## Пример
+
+Read the current GC object list, optionally including tables.
+
+```lua
+local objects = getgc()
+print(type(objects))
+
+local withTables = getgc(true)
+print(type(withTables))
+
+local aliasResult = get_gc_objects()
+print(type(aliasResult))
+```

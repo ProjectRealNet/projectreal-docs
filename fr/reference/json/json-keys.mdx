@@ -1,0 +1,43 @@
+---
+title: "json.keys"
+sidebarTitle: "json.keys"
+description: "Renvoie les visible keys d'une table dans une new table marked as a JSON array."
+icon: "function"
+keywords: ["json.keys","JSON"]
+---
+
+Renvoie les visible keys d'une table dans une new table marked as a JSON array.
+
+## Syntaxe
+
+```lua
+json.keys(object: table): table
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | Table a inspect. L'function exige que cet argument soit une table. |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `keys` | `table` | New array table contenant les source table keys, sauf Real JSON type marker. L'order suit table iteration iteration et n'est pas sorted par cette function. |
+
+## Exemple
+
+Collect les visible keys d'une table dans une new JSON array table.
+
+```lua
+local record = {
+    name = "Real",
+    enabled = true,
+    [5] = "numeric key",
+}
+
+for _, key in ipairs(json.keys(record)) do
+    print(key)
+end
+```

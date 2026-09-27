@@ -1,0 +1,34 @@
+---
+title: "setfpscap"
+sidebarTitle: "setfpscap"
+description: "Sets the FPS cap value and returns no values. Values that are non-finite, less than or equal to 0, or greater than 2000 are treated as 2000."
+icon: "function"
+keywords: ["setfpscap","Miscellaneous","set_fps_cap"]
+---
+
+Sets the FPS cap value and returns no values. Values that are non-finite, less than or equal to 0, or greater than 2000 are treated as 2000.
+
+## ไวยากรณ์
+
+```lua
+setfpscap(value: number)
+```
+
+## Aliases
+
+- `set_fps_cap`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `value` | `number` | Yes | Requested FPS cap. |
+
+## ตัวอย่าง
+
+Set the TaskScheduler FPS cap field and read it back with getfpscap.
+
+```lua
+setfpscap(240)
+print(getfpscap())
+```

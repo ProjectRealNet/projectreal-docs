@@ -1,0 +1,40 @@
+---
+title: "isnetworkowner"
+sidebarTitle: "isnetworkowner"
+description: "Retourne le resultat de la lecture de la hidden property \"NetworkOwnerV3\" depuis une Instance et verifie si la premiere valeur retournee, convertie avec integer conversion, est superieure a 2. L argument doit etre Instance object. La function appelle the hidden property reader en interne et ne capture pas les erreurs de cet appel, donc Invalid Instance values, missing properties ou non-property metadata peuvent lever les memes erreurs que gethiddenproperty. Elle retourne un boolean. Savoir si peer_id > 2 signifie exactement local network ownership est: Nicht aus der Codebasis verifizierbar."
+icon: "function"
+keywords: ["isnetworkowner","Instances"]
+---
+
+Retourne le resultat de la lecture de la hidden property "NetworkOwnerV3" depuis une Instance et verifie si la premiere valeur retournee, convertie avec integer conversion, est superieure a 2. L argument doit etre Instance object. La function appelle the hidden property reader en interne et ne capture pas les erreurs de cet appel, donc Invalid Instance values, missing properties ou non-property metadata peuvent lever les memes erreurs que gethiddenproperty. Elle retourne un boolean. Savoir si peer_id > 2 signifie exactement local network ownership est: Nicht aus der Codebasis verifizierbar.
+
+## Syntaxe
+
+```lua
+isnetworkowner(instance: Instance): boolean
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object transmise a the hidden property reader avec le property name "NetworkOwnerV3". |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `isOwner` | `boolean` | true lorsque integer conversion sur la premiere valeur retournee de "NetworkOwnerV3" est superieur a 2; sinon false. |
+
+## Exemple
+
+Check network ownership for a BasePart Instance.
+
+```lua
+local part = workspace:FindFirstChildWhichIsA("BasePart", true)
+
+if part then
+    local ownsNetwork = isnetworkowner(part)
+    print(ownsNetwork)
+end
+```

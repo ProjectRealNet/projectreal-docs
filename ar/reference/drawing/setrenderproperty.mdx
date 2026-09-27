@@ -1,0 +1,36 @@
+---
+title: "setrenderproperty"
+sidebarTitle: "setrenderproperty"
+description: "يسند value إلى object[property]. بالنسبة إلى Drawing object، يستخدم نفس Drawing property assignment مثل direct property assignment. يتم تجاهل unknown Drawing properties، ولا يتم تغيير destroyed Drawing objects. يجب أن يكون الوسيط الثالث موجودا. يسجل the Drawing API هذه API فقط عندما تكون the required rendering environment is active true؛ عندما يكون هذا الفحص false، يرجع initializer قبل إنشاء هذه globals."
+icon: "function"
+keywords: ["setrenderproperty","Drawing"]
+---
+
+يسند value إلى object[property]. بالنسبة إلى Drawing object، يستخدم نفس Drawing property assignment مثل direct property assignment. يتم تجاهل unknown Drawing properties، ولا يتم تغيير destroyed Drawing objects. يجب أن يكون الوسيط الثالث موجودا. يسجل the Drawing API هذه API فقط عندما تكون the required rendering environment is active true؛ عندما يكون هذا الفحص false، يرجع initializer قبل إنشاء هذه globals.
+
+## الصيغة
+
+```lua
+setrenderproperty(object: any, property: any, value: any)
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | القيمة التي سيتم فهرستها والإسناد إليها. مع Drawing object، يتم استخدام RealDrawingObject __newindex handler. |
+| `property` | `any` | Yes | property key المستخدم للإسناد. خصائص Drawing object تعتمد على strings. |
+| `value` | `any` | Yes | القيمة التي يتم إسنادها إلى object[property]. يجب تمرير هذا الوسيط؛ nil ما زالت قيمة ممررة. |
+
+## مثال
+
+قم بتحديث خاصية الرسم من خلال مساعد الخاصية العامة.
+
+```lua
+local line = Drawing.new("Line")
+setrenderproperty(line, "Thickness", 3)
+setrenderproperty(line, "Visible", true)
+
+print(line.Thickness)
+print(line.Visible)
+```

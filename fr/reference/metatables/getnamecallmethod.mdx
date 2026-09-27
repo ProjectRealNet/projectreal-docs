@@ -1,0 +1,37 @@
+---
+title: "getnamecallmethod"
+sidebarTitle: "getnamecallmethod"
+description: "Retourne le current Luau namecall atom stocke dans the current namecall method. La function ne prend aucun arguments et retourne exactly one value. Si the current namecall method existe, que the current namecall method est superieur a 0 et que the current namecall method est non-null, elle pousse ces data comme string avec string return. Sinon, elle pousse nil. L function n inspecte pas les arguments, ne calcule pas un method name depuis un target object, et n appelle aucune metamethod. get_namecall_method est un alias de getnamecallmethod."
+icon: "function"
+keywords: ["getnamecallmethod","Metatables","get_namecall_method"]
+---
+
+Retourne le current Luau namecall atom stocke dans the current namecall method. La function ne prend aucun arguments et retourne exactly one value. Si the current namecall method existe, que the current namecall method est superieur a 0 et que the current namecall method est non-null, elle pousse ces data comme string avec string return. Sinon, elle pousse nil. L function n inspecte pas les arguments, ne calcule pas un method name depuis un target object, et n appelle aucune metamethod. get_namecall_method est un alias de getnamecallmethod.
+
+## Syntaxe
+
+```lua
+getnamecallmethod(): string | nil
+```
+
+## Alias
+
+- `get_namecall_method`
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `method` | `string \| nil` | Current the current namecall method data string quand il est present et non-empty; sinon nil. |
+
+## Exemple
+
+Read the current L->namecall string when Real is inside namecall handling.
+
+```lua
+local method = getnamecallmethod()
+print(method)
+
+local aliasMethod = get_namecall_method()
+print(aliasMethod)
+```

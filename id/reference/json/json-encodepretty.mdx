@@ -1,0 +1,61 @@
+---
+title: "json.encodePretty"
+sidebarTitle: "json.encodePretty"
+description: "Menserialisasi Lua value menjadi JSON string yang readable formatted memakai Real JSON encoder. json.pretty terdaftar ke function yang sama."
+icon: "function"
+keywords: ["json.encodePretty","JSON"]
+---
+
+Menserialisasi Lua value menjadi JSON string yang readable formatted memakai Real JSON encoder. json.pretty terdaftar ke function yang sama.
+
+## Sintaks
+
+```lua
+json.encodePretty(value: any, options?: EncodeOptions): string
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value yang di-encoded. nil, booleans, numbers, strings, tables, dan json.null ditangani langsung. Unsupported Lua types di-encoded sebagai null kecuali errorOnUnsupported bernilai true. |
+| `options` | `EncodeOptions` | No | Optional encode options. json.encodePretty membaca options yang sama seperti json.encode, lalu memaksa pretty menjadi true. Tanpa options, fungsi memakai two-space indent. number mengatur indent width dengan clamp ke 0.16, string mengatur indent text, dan table dapat mengatur sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, dan indent. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `json` | `string` | Readable formatted JSON string. Encoding errors dilempar sebagai Luau errors. |
+
+## Tipe
+
+### EncodeOptions
+
+Mengontrol serialisasi dan pemformatan JSON.
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Mengaktifkan keLua runtime JSON multi-baris yang diformat. |
+| `sortKeys` | `boolean` | No | Mengurutkan kunci objek sebelum pengkodean. |
+| `emptyTableAsArray` | `boolean` | No | Mengkodekan tabel kosong sebagai array, bukan objek. |
+| `errorOnUnsupported` | `boolean` | No | Menimbulkan kesalahan alih-alih mengganti nilai yang tidak didukung. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Mengkodekan NaN dan angka tak terbatas sebagai JSON null. |
+| `maxDepth` | `integer` | No | Menyetel kedalaman sarang maksimum, dijepit dari 1 hingga 4096. |
+| `indent` | `string` | No | Menyetel string indentasi, dibatasi hingga 32 karakter. |
+
+## Contoh
+
+Encode JSON-compatible values sebagai readable formatted JSON dengan pretty output forced on.
+
+```lua
+local text = json.encodePretty({
+    name = "Real",
+    version = 1,
+    features = json.array({ "docs", "examples" }),
+    missing = json.null,
+}, {
+    sortKeys = true,
+})
+
+print(text)
+```

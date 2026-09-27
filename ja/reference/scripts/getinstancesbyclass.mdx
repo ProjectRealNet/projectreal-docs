@@ -1,0 +1,31 @@
+---
+title: "getinstancesbyclass"
+sidebarTitle: "getinstancesbyclass"
+description: "Instance cache table から、ClassName field が要求された string と完全一致する instances を返します。最初の引数は string type checking で読み取られます。empty string は \"ClassName required\" を発生させます。この function は新しい array table を作成し、Instance cache の下に保存された cache を反復し、Lua type が object の values のみを残し、各 object value の ClassName field を読み取り、要求された className と strcmp で比較します。matches は index 1 から sequential に挿入されます。一致は exact かつ case-sensitive です。function は IsA を使用せず、subclasses を含めず、walk descendants を行わず、Parent で filter せず、result を sort しません。getinstancesofclass は同じ function の alias です。"
+icon: "function"
+keywords: ["getinstancesbyclass","Scripts","getinstancesofclass"]
+---
+
+Instance cache table から、ClassName field が要求された string と完全一致する instances を返します。最初の引数は string type checking で読み取られます。empty string は "ClassName required" を発生させます。この function は新しい array table を作成し、Instance cache の下に保存された cache を反復し、Lua type が object の values のみを残し、各 object value の ClassName field を読み取り、要求された className と strcmp で比較します。matches は index 1 から sequential に挿入されます。一致は exact かつ case-sensitive です。function は IsA を使用せず、subclasses を含めず、walk descendants を行わず、Parent で filter せず、result を sort しません。getinstancesofclass は同じ function の alias です。
+
+## 構文
+
+```lua
+getinstancesbyclass(className: string): table
+```
+
+## エイリアス
+
+- `getinstancesofclass`
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `className` | `string` | Yes | 照合する exact ClassName string。empty strings は "ClassName required" を発生させます。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `instances` | `table` | Instance cache table からの matching object values を含む new array table。 |

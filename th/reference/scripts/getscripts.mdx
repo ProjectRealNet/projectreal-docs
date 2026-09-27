@@ -1,0 +1,21 @@
+---
+title: "getscripts"
+sidebarTitle: "getscripts"
+description: "ส่งคืนค่า script object ที่มีอยู่ใน Instance cache ในตอนนี้ function นี้ไม่รับ arguments โดยวนผ่าน cache ที่เก็บไว้ใต้ key Instance cache lightobject และพิจารณาเฉพาะ entries ที่ value เป็น object อ่าน field ClassName ของแต่ละ value ด้วย optional string handling entries แบบ LocalScript และ ModuleScript จะถูกใส่ในผลลัพธ์ entries แบบ Script จะถูกใส่เฉพาะเมื่อ RunContext offset เท่ากับ CLIENT หรือ PLUGIN ค่า ClassName อื่น entries ที่ไม่มี string ClassName และ CoreScript จะถูกข้าม ผลลัพธ์เป็น sequential Luau table function ไม่ traverse DataModel และไม่รับประกัน sorted order"
+icon: "function"
+keywords: ["getscripts","Scripts"]
+---
+
+ส่งคืนค่า script object ที่มีอยู่ใน Instance cache ในตอนนี้ function นี้ไม่รับ arguments โดยวนผ่าน cache ที่เก็บไว้ใต้ key Instance cache lightobject และพิจารณาเฉพาะ entries ที่ value เป็น object อ่าน field ClassName ของแต่ละ value ด้วย optional string handling entries แบบ LocalScript และ ModuleScript จะถูกใส่ในผลลัพธ์ entries แบบ Script จะถูกใส่เฉพาะเมื่อ RunContext offset เท่ากับ CLIENT หรือ PLUGIN ค่า ClassName อื่น entries ที่ไม่มี string ClassName และ CoreScript จะถูกข้าม ผลลัพธ์เป็น sequential Luau table function ไม่ traverse DataModel และไม่รับประกัน sorted order
+
+## ไวยากรณ์
+
+```lua
+getscripts(): { Instance }
+```
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `scripts` | `&#123; Instance &#125;` | Sequential table ของ cached LocalScript, ModuleScript และ Script object ที่เข้าเงื่อนไขจาก Instance cache |

@@ -1,0 +1,38 @@
+---
+title: "json.quote"
+sidebarTitle: "json.quote"
+description: "Escapet einen string mit Real JSON string escaping rules und gibt ein complete quoted JSON string literal zurueck."
+icon: "function"
+keywords: ["json.quote","JSON"]
+---
+
+Escapet einen string mit Real JSON string escaping rules und gibt ein complete quoted JSON string literal zurueck.
+
+## Syntax
+
+```lua
+json.quote(text: string): string
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | String, der quoted wird. Die function liest dieses argument mit string type checking. |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `quoted` | `string` | Complete JSON string literal inklusive opening und closing quote. Quotes, backslashes, common control characters und bytes below 0x20 werden escaped. |
+
+## Beispiel
+
+Convert einen string in ein complete quoted JSON string literal.
+
+```lua
+local source = "Real Docs" .. string.char(10) .. [[Documentation "A"]]
+local quoted = json.quote(source)
+
+print(quoted)
+```

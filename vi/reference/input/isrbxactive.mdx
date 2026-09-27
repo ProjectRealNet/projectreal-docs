@@ -1,0 +1,26 @@
+---
+title: "isrbxactive"
+sidebarTitle: "isrbxactive"
+description: "Tra ve viec current foreground window co phai Roblox window ma Real tim thay hay khong. Real tim window do bang cach enumerating windows cho process hien tai va chon window co class name la Roblox window. Function nay khong nhan arguments va tra ve false khi khong co foreground window hoac matching Roblox window."
+icon: "function"
+keywords: ["isrbxactive","Input","isgameactive","iswindowactive"]
+---
+
+Tra ve viec current foreground window co phai Roblox window ma Real tim thay hay khong. Real tim window do bang cach enumerating windows cho process hien tai va chon window co class name la Roblox window. Function nay khong nhan arguments va tra ve false khi khong co foreground window hoac matching Roblox window.
+
+## Cú pháp
+
+```lua
+isrbxactive(): boolean
+```
+
+## Alias
+
+- `isgameactive`
+- `iswindowactive`
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `active` | `boolean` | True khi GetForegroundWindow() tra ve cung HWND voi cached hoac newly found Roblox window window cho process hien tai. |

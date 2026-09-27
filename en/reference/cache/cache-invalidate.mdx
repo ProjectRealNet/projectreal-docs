@@ -1,0 +1,33 @@
+---
+title: "cache.invalidate"
+sidebarTitle: "cache.invalidate"
+description: "Removes the cached Instance entry for the given Instance."
+icon: "function"
+keywords: ["cache.invalidate","Cache"]
+---
+
+Removes the cached Instance entry for the given Instance.
+
+## Syntax
+
+```lua
+cache.invalidate(instance: Instance)
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance whose cache entry should be removed. |
+
+## Example
+
+Remove an Instance from Real's cache and check whether the cache entry is still present.
+
+```lua
+local Players = game:GetService("Players")
+
+cache.invalidate(Players)
+
+print(cache.iscached(Players))
+```

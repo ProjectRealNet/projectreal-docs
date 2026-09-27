@@ -1,0 +1,47 @@
+---
+title: "lz4decompress"
+sidebarTitle: "lz4decompress"
+description: "Raw LZ4 block bytes degerini LZ4 block decompression ile acar ve raw decompressed bytes degerini Lua string olarak dondurur."
+icon: "function"
+keywords: ["lz4decompress","Cryptography","crypt.lz4decompress","crypt.lz4.decompress","lz4.decompress"]
+---
+
+Raw LZ4 block bytes degerini LZ4 block decompression ile acar ve raw decompressed bytes degerini Lua string olarak dondurur.
+
+## Söz dizimi
+
+```lua
+lz4decompress(data: string, originalSize?: number): string
+```
+
+## Aliaslar
+
+- `crypt.lz4decompress`
+- `crypt.lz4.decompress`
+- `lz4.decompress`
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | LZ4 block decompression fonksiyonuna verilen raw compressed bytes. |
+| `originalSize` | `number` | No | dstCapacity olarak verilen output buffer size. lz4compress output icin orijinal sikistirilmamis byte uzunlugunu verin; atlanirsa sikistirilmis input uzunlugu kullanilir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `decompressed` | `string` | Lua string olarak dondurulen raw decompressed bytes. Output, originalSize degerinden daha kisa olabilir. |
+
+## Örnek
+
+Orijinal sikistirilmamis boyutu vererek LZ4 bytes degerini acin.
+
+```lua
+local source = "Real Docs"
+local compressed = lz4compress(source)
+local decompressed = lz4decompress(compressed, #source)
+
+print(decompressed)
+print(decompressed == source)
+```

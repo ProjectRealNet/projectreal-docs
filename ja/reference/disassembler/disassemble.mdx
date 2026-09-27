@@ -1,0 +1,57 @@
+---
+title: "disassemble"
+sidebarTitle: "disassemble"
+description: "Disassembles a Luau function and returns a formatted bytecode listing string. Argument 1 must be a function; otherwise a type error reports expected function. The closure must be valid and must not be a C closure; invalid closures raise \"invalid closure\" and C closures raise \"cannot disassemble C closure\". When an optional second argument is present, the function reads Recursive, ShowLines, ShowConstants, and StringPreviewMax from it. Boolean option fields override the matching defaults, and a numeric StringPreviewMax overrides the default string preview length. Indata structureions are decoded with the bytecode decoder before formatting. The output always has one trailing newline and the function has no registered alias."
+icon: "function"
+keywords: ["disassemble","Disassembler"]
+---
+
+Disassembles a Luau function and returns a formatted bytecode listing string. Argument 1 must be a function; otherwise a type error reports expected function. The closure must be valid and must not be a C closure; invalid closures raise "invalid closure" and C closures raise "cannot disassemble C closure". When an optional second argument is present, the function reads Recursive, ShowLines, ShowConstants, and StringPreviewMax from it. Boolean option fields override the matching defaults, and a numeric StringPreviewMax overrides the default string preview length. Indata structureions are decoded with the bytecode decoder before formatting. The output always has one trailing newline and the function has no registered alias.
+
+## 構文
+
+```lua
+disassemble(callback: function, options?: DisassembleOptions): string
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `callback` | `function` | Yes | Luau function to disassemble. C closures are rejected. |
+| `options` | `DisassembleOptions` | No | Optional table read for Recursive, ShowLines, ShowConstants, and StringPreviewMax. Missing fields or fields with the wrong type leave the default value unchanged. |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `assembly` | `string` | Formatted disassembly text with a trailing newline. |
+
+## 型
+
+### DisassembleOptions
+
+逆アセンブリ出力で Luau バイトコードがどのようにレンダリングされるかを制御します。
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `Recursive` | `boolean` | No | 出力にはネストされた子プロトタイプが含まれます。 |
+| `ShowLines` | `boolean` | No | 行データが利用可能な場合、命令の横にソース行番号を表示します。 |
+| `ShowConstants` | `boolean` | No | 各プロトタイプの定数テーブルをリストします。 |
+| `StringPreviewMax` | `integer` | No | 文字列定数をプレビューするときに表示される文字数を制限します。 |
+
+## 例
+
+Disassemble a callback with selected output options.
+
+```lua
+local assembly = disassemble(function(value)
+    return value * 2
+end, {
+    Recursive = false,
+    ShowLines = true,
+    ShowConstants = true,
+})
+
+print(assembly)
+```

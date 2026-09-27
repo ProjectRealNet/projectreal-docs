@@ -1,0 +1,33 @@
+---
+title: "fireclickdetector"
+sidebarTitle: "fireclickdetector"
+description: "เรียกใช้ interaction ของ ClickDetector สำหรับผู้เล่น local อาร์กิวเมนต์แรกต้องเป็น Instance ที่มี ClassName เป็น ClickDetector distance เป็นค่าเสริมและค่าเริ่มต้นคือ 0 clickOption เป็นค่าเสริม เปรียบเทียบแบบไม่สนตัวพิมพ์ใหญ่เล็ก และค่าเริ่มต้นคือ \"mouseclick\" option ที่รองรับคือ \"mouseclick\", \"rightmouseclick\", \"mousehoverenter\" และ \"mousehoverleave\" option แบบ click จะส่ง distance เป็น float ไปยัง Roblox click helper ส่วน option แบบ hover จะไม่ใช้ distance หาก Players หรือ Players.LocalPlayer ไม่พร้อมใช้งาน function จะกลับโดยไม่เรียกใช้อะไร clickOption ที่ไม่รู้จักก็จะไม่สร้าง interaction เช่นกัน function นี้ไม่คืนค่าใดๆ"
+icon: "function"
+keywords: ["fireclickdetector","Instances"]
+---
+
+เรียกใช้ interaction ของ ClickDetector สำหรับผู้เล่น local อาร์กิวเมนต์แรกต้องเป็น Instance ที่มี ClassName เป็น ClickDetector distance เป็นค่าเสริมและค่าเริ่มต้นคือ 0 clickOption เป็นค่าเสริม เปรียบเทียบแบบไม่สนตัวพิมพ์ใหญ่เล็ก และค่าเริ่มต้นคือ "mouseclick" option ที่รองรับคือ "mouseclick", "rightmouseclick", "mousehoverenter" และ "mousehoverleave" option แบบ click จะส่ง distance เป็น float ไปยัง Roblox click helper ส่วน option แบบ hover จะไม่ใช้ distance หาก Players หรือ Players.LocalPlayer ไม่พร้อมใช้งาน function จะกลับโดยไม่เรียกใช้อะไร clickOption ที่ไม่รู้จักก็จะไม่สร้าง interaction เช่นกัน function นี้ไม่คืนค่าใดๆ
+
+## ไวยากรณ์
+
+```lua
+fireclickdetector(detector: Instance, distance?: number, clickOption?: "mouseclick" | "rightmouseclick" | "mousehoverenter" | "mousehoverleave")
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `detector` | `Instance` | Yes | Instance ที่ ClassName ต้องเป็น ClickDetector |
+| `distance` | `number` | No | ค่า distance เสริม ค่าเริ่มต้นคือ 0 และถูกส่งเป็น float สำหรับ "mouseclick" และ "rightmouseclick" |
+| `clickOption` | `"mouseclick" \| "rightmouseclick" \| "mousehoverenter" \| "mousehoverleave"` | No | ตัวเลือก interaction เสริม อ่านเป็น string เปรียบเทียบแบบไม่สนตัวพิมพ์ใหญ่เล็ก และค่าเริ่มต้นคือ "mouseclick" |
+
+## ตัวอย่าง
+
+เรียกใช้ interaction "mouseclick" ค่าเริ่มต้นบน ClickDetector
+
+```lua
+local detector = workspace.InteractivePart.ClickDetector
+
+fireclickdetector(detector)
+```

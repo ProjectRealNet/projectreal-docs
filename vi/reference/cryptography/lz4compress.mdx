@@ -1,0 +1,45 @@
+---
+title: "lz4compress"
+sidebarTitle: "lz4compress"
+description: "Nen cac byte cua Lua string bang LZ4 block compression va tra ve raw compressed bytes duoi dang Lua string."
+icon: "function"
+keywords: ["lz4compress","Cryptography","crypt.lz4compress","crypt.lz4.compress","lz4.compress"]
+---
+
+Nen cac byte cua Lua string bang LZ4 block compression va tra ve raw compressed bytes duoi dang Lua string.
+
+## Cú pháp
+
+```lua
+lz4compress(data: string): string
+```
+
+## Alias
+
+- `crypt.lz4compress`
+- `crypt.lz4.compress`
+- `lz4.compress`
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Cac byte Lua string duoc truyen vao LZ4 block compression. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `compressed` | `string` | Raw compressed bytes duoc tra ve duoi dang Lua string. original size khong duoc luu trong output. |
+
+## Ví dụ
+
+Nen cac byte Lua string va khoi phuc chung bang cach truyen original size.
+
+```lua
+local source = string.rep("Real Docs ", 100)
+local compressed = lz4compress(source)
+local restored = lz4decompress(compressed, #source)
+
+print(#source, #compressed, restored == source)
+```

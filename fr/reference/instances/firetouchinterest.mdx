@@ -1,0 +1,40 @@
+---
+title: "firetouchinterest"
+sidebarTitle: "firetouchinterest"
+description: "Declenche le Real touch interest event pour deux BasePart instances. Les deux premiers arguments doivent etre Instance object et les deux valeurs doivent passer IsA(\"BasePart\"). L argument state est requis et doit etre number ou boolean. Quand state est number, seul 1 devient true et tout autre number devient false. Quand state est boolean, sa valeur boolean est transmise directement. Si une des deux parties n a pas de touch data, ou si la premiere partie n a pas de overlap reference, la function retourne sans rien declencher. La function ne retourne rien. La signification exacte begin/end du boolean transmis au helper est: Nicht aus der Codebasis verifizierbar."
+icon: "function"
+keywords: ["firetouchinterest","Instances","firetouchtransmitter"]
+---
+
+Declenche le Real touch interest event pour deux BasePart instances. Les deux premiers arguments doivent etre Instance object et les deux valeurs doivent passer IsA("BasePart"). L argument state est requis et doit etre number ou boolean. Quand state est number, seul 1 devient true et tout autre number devient false. Quand state est boolean, sa valeur boolean est transmise directement. Si une des deux parties n a pas de touch data, ou si la premiere partie n a pas de overlap reference, la function retourne sans rien declencher. La function ne retourne rien. La signification exacte begin/end du boolean transmis au helper est: Nicht aus der Codebasis verifizierbar.
+
+## Syntaxe
+
+```lua
+firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
+```
+
+## Alias
+
+- `firetouchtransmitter`
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `partA` | `Instance` | Yes | Premiere Instance object. Doit passer IsA("BasePart"). Son touch data et son overlap reference sont utilises pour le call. |
+| `partB` | `Instance` | Yes | Deuxieme Instance object. Doit passer IsA("BasePart"). Son touch data est utilise pour le call. |
+| `state` | `number \| boolean` | Yes | Valeur state requise. Les numbers sont convertis avec state == 1; les booleans sont transmis directement. |
+
+## Exemple
+
+Transmet deux valeurs BasePart et une valeur state explicite a firetouchinterest.
+
+```lua
+local players = game:GetService("Players")
+local character = players.LocalPlayer.Character or players.LocalPlayer.CharacterAdded:Wait()
+local rootPart = character:WaitForChild("HumanoidRootPart")
+local targetPart = workspace.TouchTarget
+
+firetouchinterest(rootPart, targetPart, true)
+```

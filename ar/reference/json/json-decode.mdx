@@ -1,0 +1,52 @@
+---
+title: "json.decode"
+sidebarTitle: "json.decode"
+description: "يفسر JSON string باستخدام Real JSON parser ويعيد decoded Lua value، مع تعليم decoded arrays و objects من أجل JSON helpers."
+icon: "function"
+keywords: ["json.decode","JSON"]
+---
+
+يفسر JSON string باستخدام Real JSON parser ويعيد decoded Lua value، مع تعليم decoded arrays و objects من أجل JSON helpers.
+
+## الصيغة
+
+```lua
+json.decode(json: string, options?: DecodeOptions): any
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON text للتفسير. يقبل parser قيمة JSON واحدة مع optional surrounding whitespace ويرمي عند invalid syntax أو trailing non-whitespace characters. |
+| `options` | `DecodeOptions` | No | Optional decode options. قيمة boolean تضبط useNull مباشرة. table يمكن أن تضبط useNull و maxDepth؛ يتم clamp لـ maxDepth من 1 إلى 4096. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `decoded` | `any` | Decoded value. JSON objects و arrays تصبح tables مع JSON type markers، strings تصبح Lua strings، numbers تصبح Lua numbers، booleans تصبح booleans، و null يصبح json.null إلا إذا كان useNull false. |
+
+## الأنواع
+
+### DecodeOptions
+
+يتحكم في سلوك تحليل JSON.
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | يمثل JSON null مع الحارس الفارغ للمكتبة بدلاً من صفر. |
+| `maxDepth` | `integer` | No | يضبط الحد الأقصى لعمق التعشيش، المثبت من 1 إلى 4096. |
+
+## مثال
+
+Decode JSON إلى Lua values مع الحفاظ على JSON array و object و null markers.
+
+```lua
+local value = json.decode('{"name":"Real","tags":["docs"],"missing":null}')
+
+print(value.name)
+print(value.tags[1])
+print(json.type(value))
+print(json.isNull(value.missing))
+```

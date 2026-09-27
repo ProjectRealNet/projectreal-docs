@@ -1,0 +1,44 @@
+---
+title: "getconnections"
+sidebarTitle: "getconnections"
+description: "Mengembalikan array table berisi RealConnection closures untuk RBXScriptSignal. Argument pertama harus berupa object dengan Luau type name RBXScriptSignal. Function membaca Connect method milik signal, menghubungkan temporary blank callback, membaca linked list mulai dari next reference koneksi sementara, memutus koneksi sementara, lalu membungkus setiap connection reference yang valid. Jika tidak ada connection reference yang ditemukan setelah koneksi sementara, function mengembalikan table kosong. references yang sebelumnya sudah dibungkus dapat mengembalikan cached closure table yang sama. getsignals dan get_signal_cons adalah aliases untuk function yang sama."
+icon: "function"
+keywords: ["getconnections","Signals","getsignals","get_signal_cons"]
+---
+
+Mengembalikan array table berisi RealConnection closures untuk RBXScriptSignal. Argument pertama harus berupa object dengan Luau type name RBXScriptSignal. Function membaca Connect method milik signal, menghubungkan temporary blank callback, membaca linked list mulai dari next reference koneksi sementara, memutus koneksi sementara, lalu membungkus setiap connection reference yang valid. Jika tidak ada connection reference yang ditemukan setelah koneksi sementara, function mengembalikan table kosong. references yang sebelumnya sudah dibungkus dapat mengembalikan cached closure table yang sama. getsignals dan get_signal_cons adalah aliases untuk function yang sama.
+
+## Sintaks
+
+```lua
+getconnections(signal: RBXScriptSignal): {RealConnection}
+```
+
+## Alias
+
+- `getsignals`
+- `get_signal_cons`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | Signal yang akan diperiksa. Userdata non-RBXScriptSignal memunculkan type error, dan signal tanpa Connect field yang dapat dipanggil memunculkan "Signal does not have 'Connect' method". |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `connections` | `&#123;RealConnection&#125;` | Array table berisi connection closure tables. Setiap closure mengekspos fields dan methods melalui methods-nya, termasuk Enabled, Disabled, LuaConnection, ForeignState, Function, Thread, Disconnect, Disable, Enable, Fire, dan Defer jika tersedia. |
+
+## Contoh
+
+Inspect an RBXScriptSignal and list the wrapped connections Real can expose.
+
+```lua
+local Players = game:GetService("Players")
+
+for _, connection in ipairs(getconnections(Players.PlayerAdded)) do
+    print(connection.Enabled, connection.LuaConnection)
+end
+```

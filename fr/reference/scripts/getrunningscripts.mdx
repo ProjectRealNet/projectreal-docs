@@ -1,0 +1,21 @@
+---
+title: "getrunningscripts"
+sidebarTitle: "getrunningscripts"
+description: "Renvoie une nouvelle array table de unique script Instances issues de live Lua threads. La function ne prend aucun arguments. Elle parcourt the live Luau thread list, lit chaque thread node et ignore les entries sans thread node, sans weak thread ref, sans LiveLuaRef, sans Lua state, sans object, ou avec un expired Script stored reference. Pour chaque thread restant, elle verrouille scriptThread->object->Script(), deduplique par script reference, pousse l Instance avec Instance cache et l insere dans des array indexes sequentiels a partir de 1. L function ne scanne pas le DataModel, ne verifie pas ClassName et ne trie pas le result."
+icon: "function"
+keywords: ["getrunningscripts","Scripts"]
+---
+
+Renvoie une nouvelle array table de unique script Instances issues de live Lua threads. La function ne prend aucun arguments. Elle parcourt the live Luau thread list, lit chaque thread node et ignore les entries sans thread node, sans weak thread ref, sans LiveLuaRef, sans Lua state, sans object, ou avec un expired Script stored reference. Pour chaque thread restant, elle verrouille scriptThread->object->Script(), deduplique par script reference, pousse l Instance avec Instance cache et l insere dans des array indexes sequentiels a partir de 1. L function ne scanne pas le DataModel, ne verifie pas ClassName et ne trie pas le result.
+
+## Syntaxe
+
+```lua
+getrunningscripts(): table
+```
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `scripts` | `table` | Nouvelle array table de unique script Instance object values associees a des live Lua threads. |

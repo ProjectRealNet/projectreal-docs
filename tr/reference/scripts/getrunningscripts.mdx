@@ -1,0 +1,21 @@
+---
+title: "getrunningscripts"
+sidebarTitle: "getrunningscripts"
+description: "Live Lua threads icinden alinan unique script Instances iceren yeni bir array table dondurur. Function arguments almaz. the live Luau thread list uzerinden gecer, her thread node degerini okur ve thread node, weak thread ref, LiveLuaRef, Lua state, object olmayan ya da expired Script stored reference iceren entries degerlerini atlar. Kalan her thread icin scriptThread->object->Script() lock edilir, script reference ile deduplicate edilir, Instance Instance cache ile push edilir ve 1 den baslayan sirali array indexes icine eklenir. Function DataModel taramaz, ClassName kontrol etmez ve result siralamaz."
+icon: "function"
+keywords: ["getrunningscripts","Scripts"]
+---
+
+Live Lua threads icinden alinan unique script Instances iceren yeni bir array table dondurur. Function arguments almaz. the live Luau thread list uzerinden gecer, her thread node degerini okur ve thread node, weak thread ref, LiveLuaRef, Lua state, object olmayan ya da expired Script stored reference iceren entries degerlerini atlar. Kalan her thread icin scriptThread->object->Script() lock edilir, script reference ile deduplicate edilir, Instance Instance cache ile push edilir ve 1 den baslayan sirali array indexes icine eklenir. Function DataModel taramaz, ClassName kontrol etmez ve result siralamaz.
+
+## Söz dizimi
+
+```lua
+getrunningscripts(): table
+```
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `scripts` | `table` | Live Lua threads ile iliskili unique script Instance object values iceren yeni array table. |

@@ -1,0 +1,60 @@
+---
+title: "openfiledialog"
+sidebarTitle: "openfiledialog"
+description: "Otwiera Windows file-open dialog przez Windows file picker i zwraca wybrany plik jako file item."
+icon: "function"
+keywords: ["openfiledialog","Filesystem"]
+---
+
+Otwiera Windows file-open dialog przez Windows file picker i zwraca wybrany plik jako file item.
+
+## Składnia
+
+```lua
+openfiledialog(options?: DialogOptions): FileSystemItem | nil
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. Dla openfiledialog uzywane sa title, defaultPath i extensionFilter. extensionFilter to table z extension strings; poczatkowe . albo *. jest usuwane, zanim kazdy filter stanie sie *.&lt;extension>. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Selected file item albo nil, gdy dialog zostanie anulowany lub nie zostanie zwrocony selected filesystem path. Dialog failures rzucaja Failed to open file dialog. |
+
+## Typy
+
+### DialogOptions
+
+Konfiguruje natywne okno dialogowe wyboru pliku lub folderu.
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Ustawia tytuł okna dialogowego. |
+| `defaultPath` | `string` | No | Wybiera katalog wyświetlany po otwarciu okna dialogowego. |
+| `extensionFilter` | `&#123;string&#125;` | No | Ogranicza wybrane pliki do wymienionych rozszerzeń, z kropką wiodącą lub bez niej. |
+| `suggestedName` | `string` | No | Podaje początkową nazwę pliku w oknach dialogowych zapisywania. |
+| `defaultExtension` | `string` | No | Ustawia rozszerzenie używane, gdy wprowadzona nazwa pliku nie ma żadnego. |
+
+## Przykład
+
+Otworz file picker i obsluz selected file item albo cancellation.
+
+```lua
+local file = openfiledialog({
+    title = "Choose a configuration",
+    defaultPath = ".",
+    extensionFilter = { "json", "txt" },
+})
+
+if file then
+    print(file:GetName())
+    print(file:IsFile())
+else
+    print("No file selected")
+end
+```

@@ -1,0 +1,43 @@
+---
+title: "setthreadidentity"
+sidebarTitle: "setthreadidentity"
+description: "Sets the identity for the current Luau thread, or for a provided Luau thread. Identity values are converted to integers and clamped to the supported range 0 through 12."
+icon: "function"
+keywords: ["setthreadidentity","Threads","set_thread_identity","setidentity","setthreadcaps","setthreadcontext","set_thread_context"]
+---
+
+Sets the identity for the current Luau thread, or for a provided Luau thread. Identity values are converted to integers and clamped to the supported range 0 through 12.
+
+## Syntax
+
+```lua
+setthreadidentity(thread?: thread, identity: number)
+```
+
+## Aliases
+
+- `set_thread_identity`
+- `setidentity`
+- `setthreadcaps`
+- `setthreadcontext`
+- `set_thread_context`
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `thread` | `thread` | No | Optional Luau thread to update. When provided as argument 1, identity must be passed as argument 2. If argument 1 is not a thread, it is treated as identity instead and the current thread is updated. |
+| `identity` | `number` | Yes | Identity value to apply. It is converted to an integer, clamped to the range 0 with 12, and then applied. |
+
+## Example
+
+Set the identity on the current Luau thread, or on a thread argument when one is provided.
+
+```lua
+local previous = getthreadidentity()
+
+setthreadidentity(8)
+print(getthreadidentity())
+
+setthreadidentity(previous)
+```

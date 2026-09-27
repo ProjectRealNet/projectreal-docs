@@ -1,0 +1,41 @@
+---
+title: "json.isArray"
+sidebarTitle: "json.isArray"
+description: "Value が Real JSON table detection により treated as a JSON array されるかを返します。"
+icon: "function"
+keywords: ["json.isArray","JSON"]
+---
+
+Value が Real JSON table detection により treated as a JSON array されるかを返します。
+
+## 構文
+
+```lua
+json.isArray(value: any): boolean
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Inspect する value。Non-table values は false を返します。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `isArray` | `boolean` | Value が table marked as a JSON array、または 1 から maximum index まで contiguous positive integer keys を持つ unmarked table の場合 true。Empty unmarked tables は false を返します。 |
+
+## 例
+
+Table が Real JSON encoder により treated as a JSON array されるかを check します。
+
+```lua
+local items = json.array({ "one", "two" })
+local record = json.object({ name = "Real" })
+local inferred = { "one", "two" }
+
+print(json.isArray(items))
+print(json.isArray(record))
+print(json.isArray(inferred))
+```

@@ -1,0 +1,36 @@
+---
+title: "isparallel"
+sidebarTitle: "isparallel"
+description: "คืน boolean จาก ScriptContext DataModel ของ Luau thread ปัจจุบัน function นี้ไม่รับ arguments อ่าน the current parallel execution status ซึ่งคืน parallel execution status หาก the current DataModel ไม่คืน DataModel function จะคืน false checkparallel เป็น alias ของ function เดียวกัน"
+icon: "function"
+keywords: ["isparallel","Actors","checkparallel"]
+---
+
+คืน boolean จาก ScriptContext DataModel ของ Luau thread ปัจจุบัน function นี้ไม่รับ arguments อ่าน the current parallel execution status ซึ่งคืน parallel execution status หาก the current DataModel ไม่คืน DataModel function จะคืน false checkparallel เป็น alias ของ function เดียวกัน
+
+## ไวยากรณ์
+
+```lua
+isparallel(): boolean
+```
+
+## Aliases
+
+- `checkparallel`
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `parallel` | `boolean` | true เมื่อ current DataModel parallel execution status ถูกตั้งค่า; false เมื่อ flag ไม่ถูกตั้งค่าหรือไม่มี DataModel |
+
+## ตัวอย่าง
+
+Read whether the current DataModel is in the parallel phase.
+
+```lua
+local parallel = isparallel()
+print(parallel)
+
+print(checkparallel())
+```

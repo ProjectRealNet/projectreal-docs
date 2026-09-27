@@ -1,0 +1,17 @@
+---
+title: "Signals"
+description: "การเชื่อมต่อสัญญาณและการส่งต่อเหตุการณ์"
+icon: "folder-code"
+---
+
+การเชื่อมต่อสัญญาณและการส่งต่อเหตุการณ์
+
+| การนำทางฟังก์ชัน | คำอธิบาย |
+| --- | --- |
+| [`cansignalreplicate`](./cansignalreplicate) | ตรวจสอบว่า RBXScriptSignal ส่งผ่าน NetworkClient replication layer ปัจจุบันได้อย่างถูกต้องหรือไม่ function ตรวจสอบ argument แรกว่าเป็น RBXScriptSignal อ่าน source instance และ event descriptor ของ signal แล้วคืนค่า boolean จาก replication layer signal replication validation หากค่า reference ของ replication layer ที่ resolve ได้เป็น 0 จะคืน false arguments เพิ่มเติมจะไม่ถูกอ่าน function นี้ตรวจสอบ signal เท่านั้น และไม่ fire หรือ replicate signal นั้น ตาราง whitelist ที่ getsignalwhitelist คืนค่าไม่ได้ถูกใช้ใน code path นี้ |
+| [`firesignal`](./firesignal) | Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error. |
+| [`getconnections`](./getconnections) | คืน array table ของ RealConnection closures สำหรับ RBXScriptSignal argument แรกต้องเป็น object ที่มี Luau type name เป็น RBXScriptSignal function อ่าน Connect method ของ signal เชื่อม temporary blank callback อ่าน linked list จาก next reference ของ connection ชั่วคราว ตัดการเชื่อมต่อ connection ชั่วคราว แล้ว wrap connection reference ที่ถูกต้องแต่ละรายการ หากไม่พบ connection reference หลัง connection ชั่วคราว จะคืน table ว่าง underlying references ที่เคย wrap แล้วอาจคืน cached closure table เดิม getsignals และ get_signal_cons เป็น aliases ของ function เดียวกัน |
+| [`getsignalarguments`](./getsignalarguments) | คืน array table ของ type names ที่อ่านจาก event descriptor signature ของ RBXScriptSignal argument แรกต้องเป็น object ที่มี Luau type name เป็น RBXScriptSignal function อ่าน event descriptor ของ signal เดินผ่าน signature slots ด้วย argument stride ของ function อ่าน argument type reference แต่ละรายการ แล้ว push type name string ที่ resolve ได้สำหรับแต่ละ slot ไม่คืน captured runtime argument values หากอ่าน signature ไม่ได้หรือไม่มี entries ถูก push table ที่คืนมาจะมี fallback entry หนึ่งรายการคือ "Variant" |
+| [`getsignalargumentsinfo`](./getsignalargumentsinfo) | ส่งคืน array table ของข้อมูลอาร์กิวเมนต์จาก signature ของ RBXScriptSignal ฟังก์ชันนี้ไม่ส่งคืนค่าอาร์กิวเมนต์ runtime ที่ถูกจับไว้ |
+| [`getsignalwhitelist`](./getsignalwhitelist) | คืนค่า array table ใหม่ที่มี whitelist entry แบบคงที่ 6 รายการตามที่กำหนดใน function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent แต่ละ entry เป็น table ที่มี string field ชื่อ Event และ Parent function นี้ไม่รับ arguments และไม่ตรวจสอบ game state ปัจจุบัน |
+| [`replicatesignal`](./replicatesignal) | เรียก replication path สำหรับ RBXScriptSignal ฟังก์ชันอ่าน signal signature แปลง Lua arguments ที่ส่งมาเป็น Roblox signal values สำหรับแต่ละ signature type ตัด Lua arguments ส่วนเกินที่เกิน signature length แล้วเรียก owning instance event invocation function |

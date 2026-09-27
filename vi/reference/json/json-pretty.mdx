@@ -1,0 +1,60 @@
+---
+title: "json.pretty"
+sidebarTitle: "json.pretty"
+description: "Serializes Lua value thanh readable formatted JSON string bang cung function nhu json.encodePretty."
+icon: "function"
+keywords: ["json.pretty","JSON"]
+---
+
+Serializes Lua value thanh readable formatted JSON string bang cung function nhu json.encodePretty.
+
+## Cú pháp
+
+```lua
+json.pretty(value: any, options?: EncodeOptions): string
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value duoc encoded. nil, booleans, numbers, strings, tables va json.null duoc xu ly truc tiep. Unsupported Lua types duoc encoded thanh null tru khi errorOnUnsupported la true. |
+| `options` | `EncodeOptions` | No | Optional encode options. json.pretty doc cung options nhu json.encodePretty, sau do ep pretty thanh true. Khong co options thi dung two-space indent. number dat indent width duoc clamp ve 0.16, string dat indent text, va table co the dat sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth va indent. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `json` | `string` | Readable formatted JSON string. Encoding errors duoc throw nhu Luau errors. |
+
+## Kiểu
+
+### EncodeOptions
+
+Kiểm soát việc tuần tự hóa và định dạng JSON.
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Cho phép xuất JSON nhiều dòng, được định dạng. |
+| `sortKeys` | `boolean` | No | Sắp xếp các khóa đối tượng trước khi mã hóa. |
+| `emptyTableAsArray` | `boolean` | No | Mã hóa một bảng trống thành một mảng thay vì một đối tượng. |
+| `errorOnUnsupported` | `boolean` | No | Phát sinh lỗi thay vì thay thế các giá trị không được hỗ trợ. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Mã hóa NaN và số vô hạn dưới dạng JSON null. |
+| `maxDepth` | `integer` | No | Đặt độ sâu lồng tối đa, được kẹp từ 1 đến 4096. |
+| `indent` | `string` | No | Đặt chuỗi thụt lề, giới hạn ở 32 ký tự. |
+
+## Ví dụ
+
+Encode JSON-compatible values thanh readable formatted JSON bang json.encodePretty alias.
+
+```lua
+local text = json.pretty({
+    category = "JSON",
+    tags = json.array({ "pretty", "alias" }),
+    missing = json.null,
+}, {
+    sortKeys = true,
+})
+
+print(text)
+```

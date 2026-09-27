@@ -1,0 +1,43 @@
+---
+title: "getreferencedby"
+sidebarTitle: "getreferencedby"
+description: "Returns cached Instance values whose supported reference properties point to the provided Instance. The argument must be an Instance."
+icon: "function"
+keywords: ["getreferencedby","Scripts","getreferences"]
+---
+
+Returns cached Instance values whose supported reference properties point to the provided Instance. The argument must be an Instance.
+
+## الصيغة
+
+```lua
+getreferencedby(instance: userdata): table
+```
+
+## أسماء بديلة
+
+- `getreferences`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `instance` | `userdata` | Yes | Target Instance to search references for. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `instances` | `table` | New array table of matching registered Instance object values. |
+
+## مثال
+
+Find values that reference a specific Instance.
+
+```lua
+local references = getreferencedby(workspace)
+
+for _, value in ipairs(references) do
+    print(value)
+end
+```

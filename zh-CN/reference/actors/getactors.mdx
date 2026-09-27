@@ -1,0 +1,31 @@
+---
+title: "getactors"
+sidebarTitle: "getactors"
+description: "返回从 ScriptContext actor thread list 解析出的 live Actor Instances 的 array table。该 function 不接受 arguments。它遍历 actor thread list，解密每个 actor Lua state，保留 valid threads 的 entries，然后读取每个 thread 的 thread data 和 the associated Actor weak reference。只有 non-expired actor references 会作为 Instances push。没有 container、没有 Actor reference、reference count <= 0 或带 expired actor reference 的 entries 会被跳过。"
+icon: "function"
+keywords: ["getactors","Actors"]
+---
+
+返回从 ScriptContext actor thread list 解析出的 live Actor Instances 的 array table。该 function 不接受 arguments。它遍历 actor thread list，解密每个 actor Lua state，保留 valid threads 的 entries，然后读取每个 thread 的 thread data 和 the associated Actor weak reference。只有 non-expired actor references 会作为 Instances push。没有 container、没有 Actor reference、reference count &lt;= 0 或带 expired actor reference 的 entries 会被跳过。
+
+## 语法
+
+```lua
+getactors(): {Instance}
+```
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `actors` | `&#123;Instance&#125;` | actor weak references 仍然 valid 的 Actor Instances 的 array table。 |
+
+## 示例
+
+List live Actor Instances resolved from actor threads.
+
+```lua
+for _, actor in ipairs(getactors()) do
+    print(actor)
+end
+```

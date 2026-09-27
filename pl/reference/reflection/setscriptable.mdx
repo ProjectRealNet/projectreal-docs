@@ -1,0 +1,42 @@
+---
+title: "setscriptable"
+sidebarTitle: "setscriptable"
+description: "Zapisuje scriptable override dla Roblox property w scriptable override cache i zwraca previous scriptable state. Pierwszy argument musi byc Instance object, drugi argument musi byc string property name, a trzeci argument musi byc boolean. Jesli cache entry istnieje juz dla tego samego instance reference i property name, cached scriptable value jest zastepowana i zwracana jest stara wartosc z cache. Przy cache miss property name jest rozwiazywana przez Roblox property metadata i Instance class descriptor. Jesli descriptor nie istnieje albo rozwiazany field nie istnieje lub nie jest property entry, function zwraca nil. Gdy property entry zostanie znaleziona, function odczytuje scriptable state, zapisuje zadany boolean oraz property reference w scriptable override cache i zwraca previous scriptable state value. GameIndexHook i GameNewIndexHook pozniej uzywaja tego cache, tymczasowo ustawiajac property field scriptable flag dla jednego indexed read lub write, a potem przywracaja previous field flag."
+icon: "function"
+keywords: ["setscriptable","Reflection"]
+---
+
+Zapisuje scriptable override dla Roblox property w scriptable override cache i zwraca previous scriptable state. Pierwszy argument musi byc Instance object, drugi argument musi byc string property name, a trzeci argument musi byc boolean. Jesli cache entry istnieje juz dla tego samego instance reference i property name, cached scriptable value jest zastepowana i zwracana jest stara wartosc z cache. Przy cache miss property name jest rozwiazywana przez Roblox property metadata i Instance class descriptor. Jesli descriptor nie istnieje albo rozwiazany field nie istnieje lub nie jest property entry, function zwraca nil. Gdy property entry zostanie znaleziona, function odczytuje scriptable state, zapisuje zadany boolean oraz property reference w scriptable override cache i zwraca previous scriptable state value. GameIndexHook i GameNewIndexHook pozniej uzywaja tego cache, tymczasowo ustawiajac property field scriptable flag dla jednego indexed read lub write, a potem przywracaja previous field flag.
+
+## Składnia
+
+```lua
+setscriptable(instance: Instance, property: string, value: boolean): boolean | nil
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object uzywana jako czesc scriptable override cache key. |
+| `property` | `string` | Yes | Property name rozwiazywana przez Roblox property metadata i Instance class descriptor przy cache miss. |
+| `value` | `boolean` | Yes | Scriptable override value zapisywany w scriptable override cache. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `previousState` | `boolean \| nil` | Previous cached scriptable value, previous scriptable state value, lub nil, gdy property nie moze zostac rozwiazana do property entry. |
+
+## Przykład
+
+Temporarily change whether a property is scriptable, then restore the previous state when available.
+
+```lua
+local previous = setscriptable(workspace, "Name", true)
+print(previous)
+
+if previous ~= nil then
+    setscriptable(workspace, "Name", previous)
+end
+```

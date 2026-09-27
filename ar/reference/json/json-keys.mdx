@@ -1,0 +1,43 @@
+---
+title: "json.keys"
+sidebarTitle: "json.keys"
+description: "يرجع visible keys من table في new table marked as a JSON array."
+icon: "function"
+keywords: ["json.keys","JSON"]
+---
+
+يرجع visible keys من table في new table marked as a JSON array.
+
+## الصيغة
+
+```lua
+json.keys(object: table): table
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | Table التي يتم inspect لها. Function تتطلب ان يكون هذا argument من نوع table. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `keys` | `table` | New array table تحتوي source table keys، مع استثناء Real JSON type marker. Order يتبع table iteration iteration وليس sorted بواسطة هذه function. |
+
+## مثال
+
+Collect visible keys من table داخل new JSON array table.
+
+```lua
+local record = {
+    name = "Real",
+    enabled = true,
+    [5] = "numeric key",
+}
+
+for _, key in ipairs(json.keys(record)) do
+    print(key)
+end
+```

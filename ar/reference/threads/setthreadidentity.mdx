@@ -1,0 +1,43 @@
+---
+title: "setthreadidentity"
+sidebarTitle: "setthreadidentity"
+description: "Sets the identity for a Luau thread and returns no values. If argument 1 is a thread, argument 2 is required and must be a number; that thread is targeted. Otherwise argument 1 is required and must be a number, and the current thread is targeted. The number is read with integer conversion, clamped below 0 to 0 and above 12 to 12, then passed to Real. Real stores the identity and the matching IdentityToCapabilities result on the thread object, and also updates the TLS identity data structureure when one is available. Aliases call the same function."
+icon: "function"
+keywords: ["setthreadidentity","Threads","set_thread_identity","setidentity","setthreadcaps","setthreadcontext","set_thread_context"]
+---
+
+Sets the identity for a Luau thread and returns no values. If argument 1 is a thread, argument 2 is required and must be a number; that thread is targeted. Otherwise argument 1 is required and must be a number, and the current thread is targeted. The number is read with integer conversion, clamped below 0 to 0 and above 12 to 12, then passed to Real. Real stores the identity and the matching IdentityToCapabilities result on the thread object, and also updates the TLS identity data structureure when one is available. Aliases call the same function.
+
+## الصيغة
+
+```lua
+setthreadidentity(thread?: thread, identity: number)
+```
+
+## أسماء بديلة
+
+- `set_thread_identity`
+- `setidentity`
+- `setthreadcaps`
+- `setthreadcontext`
+- `set_thread_context`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `thread` | `thread` | No | Optional Luau thread to update. When provided as argument 1, identity must be passed as argument 2. If argument 1 is not a thread, it is treated as identity instead and the current thread is updated. |
+| `identity` | `number` | Yes | Identity value to apply. It is converted to an integer, clamped to the range 0 with 12, and then applied. |
+
+## مثال
+
+Set the identity on the current Luau thread, or on a thread argument when one is provided.
+
+```lua
+local previous = getthreadidentity()
+
+setthreadidentity(8)
+print(getthreadidentity())
+
+setthreadidentity(previous)
+```

@@ -1,0 +1,52 @@
+---
+title: "json.decode"
+sidebarTitle: "json.decode"
+description: "parse JSON string ด้วย Real JSON parser และคืน decoded Lua value พร้อม mark decoded arrays และ objects สำหรับ JSON helpers"
+icon: "function"
+keywords: ["json.decode","JSON"]
+---
+
+parse JSON string ด้วย Real JSON parser และคืน decoded Lua value พร้อม mark decoded arrays และ objects สำหรับ JSON helpers
+
+## ไวยากรณ์
+
+```lua
+json.decode(json: string, options?: DecodeOptions): any
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON text สำหรับ parse. parser ยอมรับ JSON value หนึ่งค่าพร้อม optional surrounding whitespace และ throw เมื่อพบ invalid syntax หรือ trailing non-whitespace characters. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean ตั้งค่า useNull โดยตรง. table สามารถตั้ง useNull และ maxDepth; maxDepth ถูก clamp จาก 1 ถึง 4096. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `decoded` | `any` | Decoded value. JSON objects และ arrays กลายเป็น tables พร้อม JSON type markers, strings กลายเป็น Lua strings, numbers กลายเป็น Lua numbers, booleans กลายเป็น booleans, และ null กลายเป็น json.null เว้นแต่ useNull เป็น false. |
+
+## Types
+
+### DecodeOptions
+
+ควบคุมพฤติกรรมการแยกวิเคราะห์ JSON
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | แสดงถึง JSON null ด้วย null sentinel ของไลบรารีแทนที่จะเป็น nil |
+| `maxDepth` | `integer` | No | ตั้งค่าความลึกของการซ้อนสูงสุด โดยยึดไว้ตั้งแต่ 1 ถึง 4096 |
+
+## ตัวอย่าง
+
+Decode JSON เป็น Lua values โดยคง JSON array, object และ null markers.
+
+```lua
+local value = json.decode('{"name":"Real","tags":["docs"],"missing":null}')
+
+print(value.name)
+print(value.tags[1])
+print(json.type(value))
+print(json.isNull(value.missing))
+```

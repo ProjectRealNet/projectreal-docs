@@ -1,0 +1,43 @@
+---
+title: "isfolder"
+sidebarTitle: "isfolder"
+description: "Returns whether a path resolved inside the workspace exists and is a directory."
+icon: "function"
+keywords: ["isfolder","Filesystem"]
+---
+
+Returns whether a path resolved inside the workspace exists and is a directory.
+
+## 문법
+
+```lua
+isfolder(path: string): boolean
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path resolved inside the workspace after separator normalization and workspace-boundary checks. Invalid or outside-workspace paths error before a boolean is returned. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `isFolder` | `boolean` | True only when the resolved path exists and is a directory; files and missing paths return false. |
+
+## 예제
+
+workspace path가 존재하는 directory로 해석되는지 확인합니다.
+
+```lua
+local folderPath = "examples"
+local filePath = "examples/config.json"
+
+makefolder(folderPath)
+writefile(filePath, "{}")
+
+print(isfolder(folderPath))
+print(isfolder(filePath))
+print(isfolder("examples/missing"))
+```

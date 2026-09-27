@@ -1,0 +1,55 @@
+---
+title: "json.minify"
+sidebarTitle: "json.minify"
+description: "يعمل parse لـ JSON string ثم يعيد encode له باستخدام Real default non-pretty JSON encoder output."
+icon: "function"
+keywords: ["json.minify","JSON"]
+---
+
+يعمل parse لـ JSON string ثم يعيد encode له باستخدام Real default non-pretty JSON encoder output.
+
+## الصيغة
+
+```lua
+json.minify(json: string, options?: DecodeOptions): string
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string يتم parse له قبل minifying. Function تقرأ هذا argument باستخدام string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options تستخدم اثناء parsing للـ input JSON. boolean يضبط useNull. table يمكنها ضبط useNull و maxDepth. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `minified` | `string` | JSON string يتم انتاجه بعد parsing و re-encoding للـ input باستخدام default encode options. |
+
+## الأنواع
+
+### DecodeOptions
+
+يتحكم في سلوك تحليل JSON.
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | يمثل JSON null مع الحارس الفارغ للمكتبة بدلاً من صفر. |
+| `maxDepth` | `integer` | No | يضبط الحد الأقصى لعمق التعشيش، المثبت من 1 إلى 4096. |
+
+## مثال
+
+Parse valid JSON ثم re-encode له باستخدام default compact JSON output.
+
+```lua
+local formatted = [[{
+    "name": "Real",
+    "enabled": true,
+    "missing": null
+}]]
+
+print(json.minify(formatted, {
+    useNull = true,
+}))
+```

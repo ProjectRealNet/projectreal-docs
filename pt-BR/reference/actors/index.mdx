@@ -1,0 +1,20 @@
+---
+title: "Actors"
+description: "Contextos de execução e comunicação entre atores."
+icon: "folder-code"
+---
+
+Contextos de execução e comunicação entre atores.
+
+| Navegação de funções | Descrição |
+| --- | --- |
+| [`create_comm_channel`](./create-comm-channel) | Cria um novo BindableEvent com Instance.new, armazena seu Instance reference no communication channel list sob um numeric channel ID e retorna o ID mais a BindableEvent Instance. O channel ID é calculado a partir de current map size plus one. Se Instance.new("BindableEvent") não deixar um object value na stack, a function lança "Failed to make a BindableEvent". |
+| [`get_comm_channel`](./get-comm-channel) | Procura um channel ID no communication channel list e retorna a BindableEvent Instance armazenada. O primeiro argument deve ser number e é convertido com integer conversion antes do lookup. Se não existir entry para esse ID, a function retorna nil. |
+| [`getactorfromthread`](./getactorfromthread) | Retorna a Actor Instance associada a um Luau thread. O primeiro argument deve ser thread. A function lê o thread data do thread, exige Actor reference e um positive container count, então lê the associated Actor. Se a actor weak reference for válida, ela é enviada como Instance; caso contrário a function retorna nil. |
+| [`getactors`](./getactors) | Retorna uma array table de live Actor Instances resolvidas a partir da ScriptContext actor thread list. A function não recebe arguments. Ela percorre a actor thread list, descriptografa cada actor Lua state, mantém entries que são valid threads e então lê o thread data e a the associated Actor weak reference de cada thread. Apenas non-expired actor references são enviadas como Instances. Entries sem container, sem Actor reference, com reference count &lt;= 0 ou com expired actor reference são ignoradas. |
+| [`getactorthreads`](./getactorthreads) | Retorna uma array table de Luau threads a partir da actor thread list. A function não recebe arguments. Ela lê os actor list bounds de ScriptContext, percorre cada actor state entry, descriptografa o stored global state para um Luau thread e inclui apenas entries que são valid threads. |
+| [`getcurrentactor`](./getcurrentactor) | Retorna a Actor Instance associada ao Luau thread atual. A function não recebe arguments. Ela resolve o Luau thread atual pelo mesmo actor resolver usado por getactorfromthread: o thread data deve existir, Actor reference deve existir, reference count deve ser maior que 0 e the associated Actor deve conter uma non-expired weak reference. Se não houver valid actor reference, a function retorna nil. |
+| [`getdeletedactors`](./getdeletedactors) | Retorna uma array table de Luau threads da actor list cujo thread data tem Actor reference, reference count é maior que 0 e the associated Actor é uma expired weak reference. A function não recebe arguments. Ela não retorna Actor Instance values. |
+| [`isparallel`](./isparallel) | Retorna um boolean do ScriptContext DataModel do Luau thread atual. A function não recebe arguments. Ela lê the current parallel execution status, que retorna o parallel execution status. Se the current DataModel não retornar um DataModel, a function retorna false. checkparallel é um alias da mesma function. |
+| [`run_on_actor`](./run-on-actor) | Runs Luau source on the thread associated with a target Actor Instance. The first argument must be an Instance whose ClassName is Actor, and the second argument must be a non-empty source string. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonactor is an alias. |
+| [`run_on_thread`](./run-on-thread) | Runs Luau source on a specific Luau thread. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonthread is an alias. |

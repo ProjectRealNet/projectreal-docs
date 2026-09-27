@@ -1,0 +1,38 @@
+---
+title: "json.quote"
+sidebarTitle: "json.quote"
+description: "Bir string'i Real JSON string escaping rules ile escape eder ve complete quoted JSON string literal dondurur."
+icon: "function"
+keywords: ["json.quote","JSON"]
+---
+
+Bir string'i Real JSON string escaping rules ile escape eder ve complete quoted JSON string literal dondurur.
+
+## Söz dizimi
+
+```lua
+json.quote(text: string): string
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | Quote edilecek string. Function bu argument degerini string type checking ile okur. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `quoted` | `string` | Opening ve closing quote iceren complete JSON string literal. Quotes, backslashes, common control characters ve bytes below 0x20 escape edilir. |
+
+## Örnek
+
+String degerini complete quoted JSON string literal haline convert et.
+
+```lua
+local source = "Real Docs" .. string.char(10) .. [[Documentation "A"]]
+local quoted = json.quote(source)
+
+print(quoted)
+```

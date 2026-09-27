@@ -1,0 +1,42 @@
+---
+title: "isexecutorclosure"
+sidebarTitle: "isexecutorclosure"
+description: "Returns whether the provided function is classified as executor-owned. The argument must be a function. The function does not inspect source text, debug names, bytecode hashes, or call stack ownership."
+icon: "function"
+keywords: ["isexecutorclosure","Closures","isexploitfunction","isourclosure","checkclosure"]
+---
+
+Returns whether the provided function is classified as executor-owned. The argument must be a function. The function does not inspect source text, debug names, bytecode hashes, or call stack ownership.
+
+## Składnia
+
+```lua
+isexecutorclosure(func: function): boolean
+```
+
+## Aliasy
+
+- `isexploitfunction`
+- `isourclosure`
+- `checkclosure`
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `func` | `function` | Yes | Function to classify. Passing a non-function raises a type error. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `isExecutorClosure` | `boolean` | true when the function is classified as executor-owned; otherwise false. |
+
+## Przykład
+
+Classify a closure with Real's executor-closure checks.
+
+```lua
+local result = isexecutorclosure(print)
+print(result)
+```

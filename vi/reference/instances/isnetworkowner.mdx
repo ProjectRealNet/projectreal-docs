@@ -1,0 +1,40 @@
+---
+title: "isnetworkowner"
+sidebarTitle: "isnetworkowner"
+description: "Tra ve ket qua doc hidden property \"NetworkOwnerV3\" tu Instance va kiem tra gia tri tra ve dau tien, duoc chuyen doi bang integer conversion, co lon hon 2 hay khong. Doi so phai la Instance object. Function goi the hidden property reader noi bo va khong bat errors tu loi goi do, vi vay Invalid Instance values, missing properties, hoac non-property metadata co the tao cung errors nhu gethiddenproperty. Function tra ve mot boolean. Viec peer_id > 2 co chinh xac nghia la local network ownership hay khong la: Nicht aus der Codebasis verifizierbar."
+icon: "function"
+keywords: ["isnetworkowner","Instances"]
+---
+
+Tra ve ket qua doc hidden property "NetworkOwnerV3" tu Instance va kiem tra gia tri tra ve dau tien, duoc chuyen doi bang integer conversion, co lon hon 2 hay khong. Doi so phai la Instance object. Function goi the hidden property reader noi bo va khong bat errors tu loi goi do, vi vay Invalid Instance values, missing properties, hoac non-property metadata co the tao cung errors nhu gethiddenproperty. Function tra ve mot boolean. Viec peer_id > 2 co chinh xac nghia la local network ownership hay khong la: Nicht aus der Codebasis verifizierbar.
+
+## Cú pháp
+
+```lua
+isnetworkowner(instance: Instance): boolean
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object duoc truyen vao the hidden property reader voi property name "NetworkOwnerV3". |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `isOwner` | `boolean` | true khi integer conversion tren gia tri tra ve dau tien cua "NetworkOwnerV3" lon hon 2; nguoc lai false. |
+
+## Ví dụ
+
+Check network ownership for a BasePart Instance.
+
+```lua
+local part = workspace:FindFirstChildWhichIsA("BasePart", true)
+
+if part then
+    local ownsNetwork = isnetworkowner(part)
+    print(ownsNetwork)
+end
+```

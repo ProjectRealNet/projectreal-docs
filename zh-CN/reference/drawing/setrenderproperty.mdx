@@ -1,0 +1,36 @@
+---
+title: "setrenderproperty"
+sidebarTitle: "setrenderproperty"
+description: "将 value 赋给 object[property]。对于 Drawing object，这会使用与 direct property assignment 相同的 Drawing property assignment。unknown Drawing properties 会被忽略，destroyed Drawing objects 不会被更改。第三个参数必须存在。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。"
+icon: "function"
+keywords: ["setrenderproperty","Drawing"]
+---
+
+将 value 赋给 object[property]。对于 Drawing object，这会使用与 direct property assignment 相同的 Drawing property assignment。unknown Drawing properties 会被忽略，destroyed Drawing objects 不会被更改。第三个参数必须存在。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。
+
+## 语法
+
+```lua
+setrenderproperty(object: any, property: any, value: any)
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | 要索引并赋值的值。对于 Drawing object，会使用 RealDrawingObject __newindex handler。 |
+| `property` | `any` | Yes | 用于赋值的 property key。Drawing object properties 基于 strings。 |
+| `value` | `any` | Yes | 赋给 object[property] 的值。该参数必须提供；nil 仍然是已提供的值。 |
+
+## 示例
+
+通过通用属性助手更新绘图属性。
+
+```lua
+local line = Drawing.new("Line")
+setrenderproperty(line, "Thickness", 3)
+setrenderproperty(line, "Visible", true)
+
+print(line.Thickness)
+print(line.Visible)
+```

@@ -1,0 +1,37 @@
+---
+title: "rconsoleinput"
+sidebarTitle: "rconsoleinput"
+description: "Wykonuje yield podczas odczytu jednej line ze stdin przez console input po wyczyszczeniu stanu console input i zignorowaniu input do następnego newline. Zwracany string jest pushowany przez string return i nie zawiera kończącego newline. Jeśli nie istnieje żadna console window, wywołanie wraca bez values."
+icon: "function"
+keywords: ["rconsoleinput","Console","consoleinput"]
+---
+
+Wykonuje yield podczas odczytu jednej line ze stdin przez console input po wyczyszczeniu stanu console input i zignorowaniu input do następnego newline. Zwracany string jest pushowany przez string return i nie zawiera kończącego newline. Jeśli nie istnieje żadna console window, wywołanie wraca bez values.
+
+## Składnia
+
+```lua
+rconsoleinput(): string
+```
+
+## Aliasy
+
+- `consoleinput`
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `input` | `string` | Linia tekstu odczytana z konsoli. |
+
+## Przykład
+
+Read one submitted line from the current Windows console.
+
+```lua
+rconsolecreate()
+rconsoleprint("Name: ")
+local name = rconsoleinput()
+rconsoleprint("Hello, ", name, "
+")
+```

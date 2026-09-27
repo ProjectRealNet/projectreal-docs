@@ -1,0 +1,33 @@
+---
+title: "create_comm_channel"
+sidebarTitle: "create_comm_channel"
+description: "Erstellt mit Instance.new ein neues BindableEvent, speichert dessen Instance reference in der internen communication channel list unter einer numeric channel ID und gibt die ID plus die BindableEvent Instance zurück. Die channel ID wird aus current map size plus one berechnet. Wenn Instance.new(\"BindableEvent\") keinen object value auf dem stack hinterlässt, wirft die function \"Failed to make a BindableEvent\"."
+icon: "function"
+keywords: ["create_comm_channel","Actors"]
+---
+
+Erstellt mit Instance.new ein neues BindableEvent, speichert dessen Instance reference in der internen communication channel list unter einer numeric channel ID und gibt die ID plus die BindableEvent Instance zurück. Die channel ID wird aus current map size plus one berechnet. Wenn Instance.new("BindableEvent") keinen object value auf dem stack hinterlässt, wirft die function "Failed to make a BindableEvent".
+
+## Syntax
+
+```lua
+create_comm_channel(): integer | Instance
+```
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `channelId` | `integer` | Numeric channel ID, die in die interne communication channel list eingefügt wird. |
+| `event` | `Instance` | BindableEvent Instance, die für den channel gespeichert und an den caller zurückgegeben wird. |
+
+## Beispiel
+
+Create a BindableEvent communication channel and keep the returned channel ID for later lookup.
+
+```lua
+local channelId, event = create_comm_channel()
+
+print(channelId)
+print(event)
+```

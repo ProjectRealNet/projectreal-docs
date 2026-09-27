@@ -1,0 +1,33 @@
+---
+title: "delfile"
+sidebarTitle: "delfile"
+description: "Exclui um regular file existente dentro do workspace."
+icon: "function"
+keywords: ["delfile","Filesystem"]
+---
+
+Exclui um regular file existente dentro do workspace.
+
+## Sintaxe
+
+```lua
+delfile(path: string)
+```
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path resolvido dentro do workspace apos separator normalization e workspace-boundary checks. O destino deve existir e ser um regular file; folders nao sao aceitos. |
+
+## Exemplo
+
+Exclua um workspace file existente.
+
+```lua
+local path = "examples/temporary.txt"
+writefile(path, "temporary")
+
+delfile(path)
+print(isfile(path))
+```

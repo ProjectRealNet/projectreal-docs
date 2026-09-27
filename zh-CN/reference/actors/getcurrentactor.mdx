@@ -1,0 +1,35 @@
+---
+title: "getcurrentactor"
+sidebarTitle: "getcurrentactor"
+description: "返回与当前 Luau thread 关联的 Actor Instance。该 function 不接受 arguments。它通过 getactorfromthread 使用的同一个 actor resolver 解析当前 Luau thread：thread data 必须存在，Actor reference 必须存在，reference count 必须大于 0，并且 the associated Actor 必须保存 non-expired weak reference。如果没有 valid actor reference，该 function 返回 nil。"
+icon: "function"
+keywords: ["getcurrentactor","Actors","get_current_actor"]
+---
+
+返回与当前 Luau thread 关联的 Actor Instance。该 function 不接受 arguments。它通过 getactorfromthread 使用的同一个 actor resolver 解析当前 Luau thread：thread data 必须存在，Actor reference 必须存在，reference count 必须大于 0，并且 the associated Actor 必须保存 non-expired weak reference。如果没有 valid actor reference，该 function 返回 nil。
+
+## 语法
+
+```lua
+getcurrentactor(): Instance | nil
+```
+
+## 别名
+
+- `get_current_actor`
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `actor` | `Instance \| nil` | 从当前 thread 的 the associated Actor weak reference 解析出的 Actor Instance，或在没有 valid actor reference 时返回 nil。 |
+
+## 示例
+
+Resolve the Actor Instance associated with the current Luau thread.
+
+```lua
+local actor = getcurrentactor()
+
+print(actor)
+```

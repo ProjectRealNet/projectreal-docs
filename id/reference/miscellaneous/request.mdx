@@ -1,0 +1,81 @@
+---
+title: "request"
+sidebarTitle: "request"
+description: "Sends an HTTP or HTTPS request and yields until it completes. options must include Url. Method defaults to GET and must be GET, POST, PUT, PATCH, or DELETE. Headers, Cookies, and Body are optional. Request errors return an error string; completed requests return a response table."
+icon: "function"
+keywords: ["request","Miscellaneous","http_request","http.request"]
+---
+
+Sends an HTTP or HTTPS request and yields until it completes. options must include Url. Method defaults to GET and must be GET, POST, PUT, PATCH, or DELETE. Headers, Cookies, and Body are optional. Request errors return an error string; completed requests return a response table.
+
+## Sintaks
+
+```lua
+request(options: RequestOptions): Response | string
+```
+
+## Alias
+
+- `http_request`
+- `http.request`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `options` | `RequestOptions` | Yes | Request options table. Url is required; Method, Headers, Cookies, and Body are optional. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `response` | `Response \| string` | On request error, an error string. Otherwise a response table. |
+
+## Tipe
+
+### RequestOptions
+
+Mendefinisikan tabel options yang dibaca oleh request.
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `Url` | `string` | Yes | Required HTTP or HTTPS URL. The value must start with http:// or https:// and must not match the blocked URL list. |
+| `Method` | `"GET" \| "POST" \| "PUT" \| "PATCH" \| "DELETE"` | No | Optional method. Defaults to GET. Accepted values after ASCII lowercase normalization are GET, POST, PUT, PATCH, and DELETE. |
+| `Headers` | `&#123;[string]: string&#125;` | No | Optional table of request headers. Keys and values are checked with Lua runtime and rejected if they contain CR or LF. Host, Connection, Content-Length, and Cookie are not forwarded directly. |
+| `Cookies` | `&#123;[string]: string&#125;` | No | Optional table of cookies. Keys and values are checked with Lua runtime and rejected if they contain CR or LF, then merged into the outgoing Cookie header. |
+| `Body` | `string` | No | Optional request body copied with string conversion. The body is only passed to HTTP request client when it is not empty. |
+
+### Response
+
+Mendefinisikan tabel response yang dikembalikan request saat tidak ada request error.
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `Success` | `boolean` | Yes | Boolean set to true when StatusCode is between 200 and 299 inclusive. |
+| `StatusCode` | `integer` | Yes | Integer HTTP status code from HTTP status code. |
+| `Body` | `string` | Yes | Response body string from HTTP response body. |
+| `StatusMessage` | `string` | Yes | Status reason string from HTTP status message. |
+| `RawHeaders` | `string` | Yes | Raw header text recondata structureed by the function from the status line, response headers, and Set-Cookie values. |
+| `Headers` | `&#123;[string]: string&#125;` | Yes | Table parsed from RawHeaders by splitting lines on the first colon. Later duplicate names overwrite earlier values. |
+| `Cookies` | `&#123;[string]: string&#125;` | Yes | Table parsed from Set-Cookie lines.ROBLOSECURITY is skipped. |
+
+## Contoh
+
+Send a GET request and handle either the response table or the request error string.
+
+```lua
+local response = request({
+    Url = "https://example.com/api/status",
+    Method = "GET",
+})
+
+if type(response) == "table" then
+    if response.Success then
+        print(response.StatusCode, response.Body)
+    else
+        warn(response.StatusMessage)
+    end
+else
+    warn(response)
+end
+```

@@ -1,0 +1,42 @@
+---
+title: "getactorfromthread"
+sidebarTitle: "getactorfromthread"
+description: "Mengembalikan Actor Instance yang terkait dengan Luau thread. Argument pertama harus thread. Function membaca thread data milik thread, membutuhkan Actor reference dan positive container count, lalu membaca the associated Actor. Jika actor weak reference valid, nilainya di-push sebagai Instance; jika tidak, function mengembalikan nil."
+icon: "function"
+keywords: ["getactorfromthread","Actors","getactorfromstate"]
+---
+
+Mengembalikan Actor Instance yang terkait dengan Luau thread. Argument pertama harus thread. Function membaca thread data milik thread, membutuhkan Actor reference dan positive container count, lalu membaca the associated Actor. Jika actor weak reference valid, nilainya di-push sebagai Instance; jika tidak, function mengembalikan nil.
+
+## Sintaks
+
+```lua
+getactorfromthread(thread: thread): Instance | nil
+```
+
+## Alias
+
+- `getactorfromstate`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `thread` | `thread` | Yes | Luau thread yang thread data-nya harus diperiksa untuk associated Actor weak reference. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `actor` | `Instance \| nil` | Actor Instance yang di-resolve dari the associated Actor weak reference milik thread, atau nil saat tidak ada valid actor reference. |
+
+## Contoh
+
+Resolve the Actor Instance associated with a Luau thread, when that thread has a valid actor reference.
+
+```lua
+for _, thread in ipairs(getactorthreads()) do
+    local actor = getactorfromthread(thread)
+    print(actor)
+end
+```

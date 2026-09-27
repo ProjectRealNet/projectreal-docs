@@ -1,0 +1,43 @@
+---
+title: "json.keys"
+sidebarTitle: "json.keys"
+description: "Mengembalikan visible keys dari table dalam new table marked as a JSON array."
+icon: "function"
+keywords: ["json.keys","JSON"]
+---
+
+Mengembalikan visible keys dari table dalam new table marked as a JSON array.
+
+## Sintaks
+
+```lua
+json.keys(object: table): table
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | Table yang di-inspect. Function mewajibkan argument ini berupa table. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `keys` | `table` | New array table berisi source table keys, kecuali Real JSON type marker. Order mengikuti table iteration iteration dan tidak sorted oleh function ini. |
+
+## Contoh
+
+Collect visible keys dari table ke new JSON array table.
+
+```lua
+local record = {
+    name = "Real",
+    enabled = true,
+    [5] = "numeric key",
+}
+
+for _, key in ipairs(json.keys(record)) do
+    print(key)
+end
+```

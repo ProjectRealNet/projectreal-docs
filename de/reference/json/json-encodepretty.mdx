@@ -1,0 +1,61 @@
+---
+title: "json.encodePretty"
+sidebarTitle: "json.encodePretty"
+description: "Serialisiert einen Lua value mit Real JSON encoder zu einem lesbar formatierten JSON string. json.pretty ist auf dieselbe function registriert."
+icon: "function"
+keywords: ["json.encodePretty","JSON"]
+---
+
+Serialisiert einen Lua value mit Real JSON encoder zu einem lesbar formatierten JSON string. json.pretty ist auf dieselbe function registriert.
+
+## Syntax
+
+```lua
+json.encodePretty(value: any, options?: EncodeOptions): string
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value, der encoded wird. nil, booleans, numbers, strings, tables und json.null werden direkt behandelt. Unsupported Lua types werden als null encoded, ausser errorOnUnsupported ist true. |
+| `options` | `EncodeOptions` | No | Optional encode options. json.encodePretty liest dieselben options wie json.encode und setzt danach pretty auf true. Ohne options nutzt es einen two-space indent. Eine number setzt die indent width, geclamped auf 0.16, ein string setzt den indent text, und eine table kann sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth und indent setzen. |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `json` | `string` | Lesbar formatierter JSON string. Encoding errors werden als Luau errors geworfen. |
+
+## Typen
+
+### EncodeOptions
+
+Steuert die JSON-Serialisierung und -Formatierung.
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Ermöglicht eine formatierte, mehrzeilige JSON-Ausgabe. |
+| `sortKeys` | `boolean` | No | Sortiert Objektschlüssel vor der Codierung. |
+| `emptyTableAsArray` | `boolean` | No | Kodiert eine leere Tabelle als Array statt als Objekt. |
+| `errorOnUnsupported` | `boolean` | No | Löst einen Fehler aus, anstatt nicht unterstützte Werte zu ersetzen. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Kodiert NaN und unendliche Zahlen als JSON-Null. |
+| `maxDepth` | `integer` | No | Legt die maximale Verschachtelungstiefe fest, geklemmt von 1 bis 4096. |
+| `indent` | `string` | No | Legt die Einrückungszeichenfolge fest, begrenzt auf 32 Zeichen. |
+
+## Beispiel
+
+Encode JSON-compatible values als readable formatted JSON mit erzwungenem pretty output.
+
+```lua
+local text = json.encodePretty({
+    name = "Real",
+    version = 1,
+    features = json.array({ "docs", "examples" }),
+    missing = json.null,
+}, {
+    sortKeys = true,
+})
+
+print(text)
+```

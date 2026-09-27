@@ -1,0 +1,45 @@
+---
+title: "lz4compress"
+sidebarTitle: "lz4compress"
+description: "Lua string 바이트를 LZ4 block compression로 압축하고 raw compressed bytes를 Lua string으로 반환합니다."
+icon: "function"
+keywords: ["lz4compress","Cryptography","crypt.lz4compress","crypt.lz4.compress","lz4.compress"]
+---
+
+Lua string 바이트를 LZ4 block compression로 압축하고 raw compressed bytes를 Lua string으로 반환합니다.
+
+## 문법
+
+```lua
+lz4compress(data: string): string
+```
+
+## 별칭
+
+- `crypt.lz4compress`
+- `crypt.lz4.compress`
+- `lz4.compress`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | LZ4 block compression에 전달되는 Lua string 바이트입니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `compressed` | `string` | Lua string으로 반환되는 raw compressed bytes입니다. original size는 출력에 저장되지 않습니다. |
+
+## 예제
+
+Lua string 바이트를 압축하고 original size를 전달해 복원합니다.
+
+```lua
+local source = string.rep("Real Docs ", 100)
+local compressed = lz4compress(source)
+local restored = lz4decompress(compressed, #source)
+
+print(#source, #compressed, restored == source)
+```

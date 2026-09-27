@@ -1,0 +1,42 @@
+---
+title: "islclosure"
+sidebarTitle: "islclosure"
+description: "Returns whether the provided function is a Lua closure. The argument must be a function; passing a non-function raises a type error. isluaclosure is an alias."
+icon: "function"
+keywords: ["islclosure","Closures","isluaclosure"]
+---
+
+Returns whether the provided function is a Lua closure. The argument must be a function; passing a non-function raises a type error. isluaclosure is an alias.
+
+## Sintaxis
+
+```lua
+islclosure(func: function): boolean
+```
+
+## Alias
+
+- `isluaclosure`
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `func` | `function` | Yes | Function to test. |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `isLClosure` | `boolean` | true when the function is a Lua closure; otherwise false. |
+
+## Ejemplo
+
+Check whether a function is an L closure.
+
+```lua
+local function target()
+end
+
+print(islclosure(target))
+```

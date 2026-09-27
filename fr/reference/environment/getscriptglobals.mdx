@@ -1,0 +1,32 @@
+---
+title: "getscriptglobals"
+sidebarTitle: "getscriptglobals"
+description: "Retourne une new table contenant les current LUA_GLOBALSINDEX values pour _G et shared. La function ne prend aucun arguments, cree une fresh table, assigne _G depuis LUA_GLOBALSINDEX._G et shared depuis LUA_GLOBALSINDEX.shared, puis retourne exactly one value. Elle ne retourne pas la full global table, et aucun alias n est enregistre pour getscriptglobals."
+icon: "function"
+keywords: ["getscriptglobals","Environment"]
+---
+
+Retourne une new table contenant les current LUA_GLOBALSINDEX values pour _G et shared. La function ne prend aucun arguments, cree une fresh table, assigne _G depuis LUA_GLOBALSINDEX._G et shared depuis LUA_GLOBALSINDEX.shared, puis retourne exactly one value. Elle ne retourne pas la full global table, et aucun alias n est enregistre pour getscriptglobals.
+
+## Syntaxe
+
+```lua
+getscriptglobals(): table
+```
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `globals` | `table` | Fresh table avec les _G et shared fields copies depuis LUA_GLOBALSINDEX. |
+
+## Exemple
+
+Read the _G and shared values copied from LUA_GLOBALSINDEX.
+
+```lua
+local globals = getscriptglobals()
+
+print(globals._G)
+print(globals.shared)
+```

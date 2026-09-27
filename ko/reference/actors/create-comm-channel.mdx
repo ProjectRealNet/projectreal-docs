@@ -1,0 +1,33 @@
+---
+title: "create_comm_channel"
+sidebarTitle: "create_comm_channel"
+description: "Instance.new로 새 BindableEvent를 만들고, 해당 Instance reference를 numeric channel ID 아래 communication channel list에 저장한 뒤 ID와 BindableEvent Instance를 반환합니다. channel ID는 current map size plus one으로 계산됩니다. Instance.new(\"BindableEvent\")가 stack에 object value를 남기지 않으면 function은 \"Failed to make a BindableEvent\"를 발생시킵니다."
+icon: "function"
+keywords: ["create_comm_channel","Actors"]
+---
+
+Instance.new로 새 BindableEvent를 만들고, 해당 Instance reference를 numeric channel ID 아래 communication channel list에 저장한 뒤 ID와 BindableEvent Instance를 반환합니다. channel ID는 current map size plus one으로 계산됩니다. Instance.new("BindableEvent")가 stack에 object value를 남기지 않으면 function은 "Failed to make a BindableEvent"를 발생시킵니다.
+
+## 문법
+
+```lua
+create_comm_channel(): integer | Instance
+```
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `channelId` | `integer` | communication channel list에 삽입되는 numeric channel ID입니다. |
+| `event` | `Instance` | channel용으로 저장되고 caller에게 반환되는 BindableEvent Instance입니다. |
+
+## 예제
+
+Create a BindableEvent communication channel and keep the returned channel ID for later lookup.
+
+```lua
+local channelId, event = create_comm_channel()
+
+print(channelId)
+print(event)
+```

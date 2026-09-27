@@ -1,0 +1,50 @@
+---
+title: "hookfunction"
+sidebarTitle: "hookfunction"
+description: "Hookuje target function przez replacement function i zwraca cloned copy original target closure. Oba arguments muszą być functions. Function najpierw flushuje pending C function swaps, robi cloning target przez function cloning, dodaje replacement closure albo jej mapped newcclosure target do hidden stack tracking, wywołuje FixCallstack dla target i cloned original, a potem patchuje target closure przez C closure, Luau closure albo newcclosure-specific path. Jeśli target nie jest jeszcze w hook records, cloned original jest tam zapisywany dla restorefunction. Returned function to cloned original closure."
+icon: "function"
+keywords: ["hookfunction","Closures","hookfunc","replaceclosure","detourfunction","detour_function"]
+---
+
+Hookuje target function przez replacement function i zwraca cloned copy original target closure. Oba arguments muszą być functions. Function najpierw flushuje pending C function swaps, robi cloning target przez function cloning, dodaje replacement closure albo jej mapped newcclosure target do hidden stack tracking, wywołuje FixCallstack dla target i cloned original, a potem patchuje target closure przez C closure, Luau closure albo newcclosure-specific path. Jeśli target nie jest jeszcze w hook records, cloned original jest tam zapisywany dla restorefunction. Returned function to cloned original closure.
+
+## Składnia
+
+```lua
+hookfunction(target: function, replacement: function): function
+```
+
+## Aliasy
+
+- `hookfunc`
+- `replaceclosure`
+- `detourfunction`
+- `detour_function`
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `target` | `function` | Yes | Function do patch. Przekazanie non-function powoduje type error. |
+| `replacement` | `function` | Yes | Function, której function jest install albo map na target. Przekazanie non-function powoduje type error. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `original` | `function` | Cloned copy original target closure utworzona przed zainstalowaniem hook. |
+
+## Przykład
+
+Patch a function closure and keep a cloned original.
+
+```lua
+local function target(value)
+    return value + 1
+end
+
+local original
+original = hookfunction(target, function(value)
+    return original(value) * 2
+end)
+```

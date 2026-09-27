@@ -1,0 +1,17 @@
+---
+title: "Signals"
+description: "신호 연결 및 이벤트 전달."
+icon: "folder-code"
+---
+
+신호 연결 및 이벤트 전달.
+
+| 함수 탐색 | 설명 |
+| --- | --- |
+| [`cansignalreplicate`](./cansignalreplicate) | RBXScriptSignal이 현재 NetworkClient replication layer를 통해 전송하기에 legal한지 확인합니다. 이 function은 첫 번째 argument를 RBXScriptSignal로 검증하고, signal의 source instance와 event descriptor를 읽은 다음 replication layer signal replication validation의 boolean 결과를 반환합니다. 확인된 replication layer reference 값이 0이면 false를 반환합니다. 추가 arguments는 읽지 않습니다. 이 function은 signal만 확인하며 fire하거나 replicate하지 않습니다. getsignalwhitelist가 반환하는 whitelist table은 이 코드 경로에서 사용되지 않습니다. |
+| [`firesignal`](./firesignal) | Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error. |
+| [`getconnections`](./getconnections) | RBXScriptSignal에 대한 RealConnection closures의 array table을 반환합니다. 첫 번째 argument는 Luau type name이 RBXScriptSignal인 object여야 합니다. function은 signal의 Connect method를 읽고, temporary blank callback을 연결한 뒤, 임시 connection의 next reference에서 시작하는 linked list를 읽고, 임시 connection을 끊은 다음 유효한 각 connection reference를 closure로 감쌉니다. 임시 connection 뒤에 connection reference가 없으면 빈 table을 반환합니다. 이전에 감싼 underlying references는 같은 cached closure table을 반환할 수 있습니다. getsignals와 get_signal_cons는 같은 function의 aliases입니다. |
+| [`getsignalarguments`](./getsignalarguments) | RBXScriptSignal event descriptor signature에서 읽은 type names의 array table을 반환합니다. 첫 번째 argument는 Luau type name이 RBXScriptSignal인 object여야 합니다. 이 function은 signal의 event descriptor를 읽고, function의 argument stride로 signature slots를 순회하며, 각 argument type reference를 읽은 다음 각 slot에 대해 확인된 type name string을 push합니다. captured runtime argument values는 반환하지 않습니다. signature를 읽을 수 없거나 entries가 push되지 않으면 반환된 table에는 fallback entry 하나인 "Variant"가 포함됩니다. |
+| [`getsignalargumentsinfo`](./getsignalargumentsinfo) | RBXScriptSignal 시그니처에서 인수 정보의 array table을 반환합니다. 캡처된 런타임 인수 값은 반환하지 않습니다. |
+| [`getsignalwhitelist`](./getsignalwhitelist) | function에 정의된 6개의 정적 whitelist entry를 포함하는 새 array table을 반환합니다: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. 각 entry는 Event 및 Parent string field가 있는 table입니다. 이 function은 arguments를 받지 않으며 현재 game state를 검사하지 않습니다. |
+| [`replicatesignal`](./replicatesignal) | RBXScriptSignal의 replication path를 호출합니다. 함수는 signal signature를 읽고 제공된 Lua arguments를 각 signature type의 Roblox signal values로 변환하며, signature length를 넘는 추가 Lua arguments를 잘라낸 다음 owning instance event invocation function을 호출합니다. |

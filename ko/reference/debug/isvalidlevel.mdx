@@ -1,0 +1,44 @@
+---
+title: "isvalidlevel"
+sidebarTitle: "isvalidlevel"
+description: "numeric stack level이 current call stack range 안에 있는지 확인합니다. function이 requires a number를 호출하므로 level은 필수이며 number여야 합니다. value는 integer conversion로 변환됩니다. function은 level < 0 또는 level >= the current call stack depth이면 false를 반환하고, 그렇지 않으면 true를 반환합니다. frame closure를 검사하지 않으며 invalid numeric levels에 대해 \"Level out of range\"를 발생시키지 않습니다. validlevel은 global alias이며 debug.isvalidlevel 및 debug.validlevel은 debug table aliases를 통해 노출됩니다."
+icon: "function"
+keywords: ["isvalidlevel","Debug","validlevel","debug.isvalidlevel","debug.validlevel"]
+---
+
+numeric stack level이 current call stack range 안에 있는지 확인합니다. function이 requires a number를 호출하므로 level은 필수이며 number여야 합니다. value는 integer conversion로 변환됩니다. function은 level &lt; 0 또는 level >= the current call stack depth이면 false를 반환하고, 그렇지 않으면 true를 반환합니다. frame closure를 검사하지 않으며 invalid numeric levels에 대해 "Level out of range"를 발생시키지 않습니다. validlevel은 global alias이며 debug.isvalidlevel 및 debug.validlevel은 debug table aliases를 통해 노출됩니다.
+
+## 문법
+
+```lua
+isvalidlevel(level: number): boolean
+```
+
+## 별칭
+
+- `validlevel`
+- `debug.isvalidlevel`
+- `debug.validlevel`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `level` | `number` | Yes | integer conversion로 변환되고 0 &lt;= level &lt; the current call stack depth에 대해 검사되는 Stack level number. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `valid` | `boolean` | numeric level이 current call stack range 안에 있으면 true, 아니면 false. |
+
+## 예제
+
+Check whether a numeric stack level is inside the current call stack range.
+
+```lua
+print(isvalidlevel(0))
+print(validlevel(0))
+print(debug.isvalidlevel(0))
+print(debug.validlevel(0))
+```

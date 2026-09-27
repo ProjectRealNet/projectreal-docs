@@ -1,0 +1,41 @@
+---
+title: "crypt.hmac"
+sidebarTitle: "crypt.hmac"
+description: "使用 raw Lua string key 对 Lua string 字节计算 crypto library HMAC，并返回 Base64 digest。"
+icon: "function"
+keywords: ["crypt.hmac","Cryptography"]
+---
+
+使用 raw Lua string key 对 Lua string 字节计算 crypto library HMAC，并返回 Base64 digest。
+
+## 语法
+
+```lua
+crypt.hmac(key: string, data: string, algorithm?: "sha256" | "sha1" | "sha224" | "sha384" | "sha512" | "md5"): string
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `key` | `string` | Yes | 作为 HMAC key 使用的 raw Lua string 字节。key 不会 Base64-decode。 |
+| `data` | `string` | Yes | 传入 HMAC calculation 的 Lua string 字节。 |
+| `algorithm` | `"sha256" \| "sha1" \| "sha224" \| "sha384" \| "sha512" \| "md5"` | No | Case-sensitive HMAC algorithm 名称。默认值是 sha256。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `digest` | `string` | 没有 line breaks 的 Base64-encoded HMAC output。 |
+
+## 示例
+
+从 raw Lua string key 和 data 计算 Base64 HMAC output。
+
+```lua
+local key = "shared secret"
+local data = "payload"
+local digest = crypt.hmac(key, data, "sha256")
+
+print(digest)
+```

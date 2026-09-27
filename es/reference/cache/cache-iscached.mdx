@@ -1,0 +1,41 @@
+---
+title: "cache.iscached"
+sidebarTitle: "cache.iscached"
+description: "Devuelve si la Instance indicada tiene una entrada no nil en el Instance cache."
+icon: "function"
+keywords: ["cache.iscached","Cache"]
+---
+
+Devuelve si la Instance indicada tiene una entrada no nil en el Instance cache.
+
+## Sintaxis
+
+```lua
+cache.iscached(instance: Instance): boolean
+```
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance cuya entrada de Instance cache debe comprobarse. |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `cached` | `boolean` | True cuando el cache contiene una entrada no nil para la Instance. |
+
+## Ejemplo
+
+Comprueba si una Instance tiene actualmente una entrada en el Instance cache de Real.
+
+```lua
+local Players = game:GetService("Players")
+
+local cached = cache.iscached(Players)
+print(cached)
+
+cache.invalidate(Players)
+print(cache.iscached(Players))
+```

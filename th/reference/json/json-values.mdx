@@ -1,0 +1,39 @@
+---
+title: "json.values"
+sidebarTitle: "json.values"
+description: "คืน direct values จาก table ใน table ใหม่ที่ marked as JSON array. JSON type marker entries จะถูกข้าม"
+icon: "function"
+keywords: ["json.values","JSON"]
+---
+
+คืน direct values จาก table ใน table ใหม่ที่ marked as JSON array. JSON type marker entries จะถูกข้าม
+
+## ไวยากรณ์
+
+```lua
+json.values(object: table): table
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | Table ที่จะ enumerate. function ตรวจ argument นี้ด้วย type checking |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `values` | `table` | New array-style table ที่มี direct values จาก input table. output ถูก marked as JSON array. Enumeration ใช้ table iteration ดังนั้นไม่มี ordering guarantee ที่เห็นได้ใน function |
+
+## ตัวอย่าง
+
+รวบรวม direct values จาก table เข้า JSON array-marked table
+
+```lua
+local list = json.array({ "one", "two" })
+
+for _, value in ipairs(json.values(list)) do
+    print(value)
+end
+```

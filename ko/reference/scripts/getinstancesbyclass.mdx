@@ -1,0 +1,31 @@
+---
+title: "getinstancesbyclass"
+sidebarTitle: "getinstancesbyclass"
+description: "Instance cache table에서 ClassName field가 요청된 string과 정확히 일치하는 instances를 반환합니다. 첫 번째 인수는 string type checking으로 읽습니다. Empty string은 \"ClassName required\"를 발생시킵니다. function은 새 array table을 만들고, Instance cache 아래에 저장된 cache을 반복하며, Lua type이 object인 values만 유지하고, 각 object value의 ClassName field를 읽은 뒤 요청된 className과 strcmp로 비교합니다. matches는 index 1부터 sequential로 삽입됩니다. 매칭은 exact이며 case-sensitive입니다. function은 IsA를 사용하지 않고, subclasses를 포함하지 않으며, walk descendants를 하지 않고, Parent로 filter하지 않으며, result를 sort하지 않습니다. getinstancesofclass는 같은 function의 alias입니다."
+icon: "function"
+keywords: ["getinstancesbyclass","Scripts","getinstancesofclass"]
+---
+
+Instance cache table에서 ClassName field가 요청된 string과 정확히 일치하는 instances를 반환합니다. 첫 번째 인수는 string type checking으로 읽습니다. Empty string은 "ClassName required"를 발생시킵니다. function은 새 array table을 만들고, Instance cache 아래에 저장된 cache을 반복하며, Lua type이 object인 values만 유지하고, 각 object value의 ClassName field를 읽은 뒤 요청된 className과 strcmp로 비교합니다. matches는 index 1부터 sequential로 삽입됩니다. 매칭은 exact이며 case-sensitive입니다. function은 IsA를 사용하지 않고, subclasses를 포함하지 않으며, walk descendants를 하지 않고, Parent로 filter하지 않으며, result를 sort하지 않습니다. getinstancesofclass는 같은 function의 alias입니다.
+
+## 문법
+
+```lua
+getinstancesbyclass(className: string): table
+```
+
+## 별칭
+
+- `getinstancesofclass`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `className` | `string` | Yes | 매칭할 exact ClassName string입니다. Empty strings는 "ClassName required"를 발생시킵니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `instances` | `table` | Instance cache table의 matching object values를 포함하는 new array table입니다. |

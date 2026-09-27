@@ -1,0 +1,40 @@
+---
+title: "clonefunction"
+sidebarTitle: "clonefunction"
+description: "Creates and returns a separate function value for the function passed as the first argument. The argument must be a function."
+icon: "function"
+keywords: ["clonefunction","Closures"]
+---
+
+Creates and returns a separate function value for the function passed as the first argument. The argument must be a function.
+
+## Składnia
+
+```lua
+clonefunction(func: function): function
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `func` | `function` | Yes | Function to clone. Passing a non-function raises a type error. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `clone` | `function` | New function produced by the newcclosure, C closure, or Luau closure clone path. |
+
+## Przykład
+
+Create a cloned closure from a function.
+
+```lua
+local function greet(name)
+    return "Hello, " .. name
+end
+
+local cloned = clonefunction(greet)
+print(cloned("Real"))
+```

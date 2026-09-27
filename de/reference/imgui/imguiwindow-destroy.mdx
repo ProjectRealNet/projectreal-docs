@@ -1,0 +1,41 @@
+---
+title: "ImGuiWindow.destroy"
+sidebarTitle: "ImGuiWindow.destroy"
+description: "Zerstört ein ImGuiWindow. Wenn das object noch auf ein window zeigt, entfernt die method dieses window aus Reals tracked ImGui window list, führt unreference für stored element callbacks aus, löscht den window record und setzt den Instance reference auf nil. Ein weiterer destroy-Aufruf auf demselben object kehrt zurück, ohne etwas zu tun."
+icon: "function"
+keywords: ["ImGuiWindow.destroy","ImGui"]
+---
+
+Zerstört ein ImGuiWindow. Wenn das object noch auf ein window zeigt, entfernt die method dieses window aus Reals tracked ImGui window list, führt unreference für stored element callbacks aus, löscht den window record und setzt den Instance reference auf nil. Ein weiterer destroy-Aufruf auf demselben object kehrt zurück, ohne etwas zu tun.
+
+## Syntax
+
+```lua
+ImGuiWindow.destroy(window: ImGuiWindow)
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `window` | `ImGuiWindow` | Yes | ImGuiWindow object, das von imgui.create zurückgegeben wurde. Nicht-ImGuiWindow-Werte lösen einen Lua error aus. |
+
+## Typen
+
+### ImGuiWindow
+
+Von imgui.create zurückgegebener Handle. Methoden zur Steuerungserstellung geben dasselbe Handle zurück, sodass Aufrufe verkettet werden können.
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | Fügt eine Schaltfläche hinzu und ruft den Rückruf nach einem Klick auf. |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | Fügt ein initialisiertes Kontrollkästchen an den bereitgestellten Status an. |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | Gruppiert Steuerelemente, die durch den Inhaltsrückruf unter einem zusammenklappbaren Header angehängt werden. |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | Fügt einen RGBA-Editor hinzu; Ausgelassene Farbkomponenten sind standardmäßig auf 1,0 eingestellt. |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | Fügt eine einzeilige Texteingabe hinzu; Der weggelassene Anfangstext ist standardmäßig eine leere Zeichenfolge. |
+| `SameLine` | `() -> ImGuiWindow` | Yes | Platziert das nächste Steuerelement in derselben Zeile. |
+| `Separator` | `() -> ImGuiWindow` | Yes | Fügt ein horizontales Trennzeichen hinzu. |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Fügt einen Gleitkomma-Schieberegler hinzu. |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Fügt einen ganzzahligen Schieberegler hinzu. |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | Fügt nicht interaktiven Text hinzu. |
+| `destroy` | `() -> ()` | Yes | Entfernt das Fenster und gibt seine registrierten Rückrufe frei. |

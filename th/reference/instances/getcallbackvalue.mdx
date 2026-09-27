@@ -1,0 +1,48 @@
+---
+title: "getcallbackvalue"
+sidebarTitle: "getcallbackvalue"
+description: "อ่าน Lua callback function ที่เก็บอยู่ใน callback property บน Instance อาร์กิวเมนต์แรกต้องเป็น Instance object และอาร์กิวเมนต์ที่สองต้องเป็น string property name instance reference ต้องถูกต้อง property name จะถูก resolve ผ่าน Roblox property metadata และต้องอ้างถึง property ที่มีชนิดเป็น LUA_CALLBACK หากไม่มี property descriptor, property ไม่ใช่ LUA_CALLBACK, ไม่มี callback field offset, ไม่มี callback ที่เก็บไว้, ไม่มี LiveLuaRef, callback อยู่ใน Lua global state อื่น หรือค่าที่อ้างถึงไม่ใช่ function function จะคืน nil และยังตรวจ async callback field fallback เมื่อ callback slot แรกไม่มี callback function นี้ไม่อัปเดต property"
+icon: "function"
+keywords: ["getcallbackvalue","Instances","getcallbackmember"]
+---
+
+อ่าน Lua callback function ที่เก็บอยู่ใน callback property บน Instance อาร์กิวเมนต์แรกต้องเป็น Instance object และอาร์กิวเมนต์ที่สองต้องเป็น string property name instance reference ต้องถูกต้อง property name จะถูก resolve ผ่าน Roblox property metadata และต้องอ้างถึง property ที่มีชนิดเป็น LUA_CALLBACK หากไม่มี property descriptor, property ไม่ใช่ LUA_CALLBACK, ไม่มี callback field offset, ไม่มี callback ที่เก็บไว้, ไม่มี LiveLuaRef, callback อยู่ใน Lua global state อื่น หรือค่าที่อ้างถึงไม่ใช่ function function จะคืน nil และยังตรวจ async callback field fallback เมื่อ callback slot แรกไม่มี callback function นี้ไม่อัปเดต property
+
+## ไวยากรณ์
+
+```lua
+getcallbackvalue(instance: Instance, property: string): function | nil
+```
+
+## Aliases
+
+- `getcallbackmember`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object ที่จะตรวจ callback property Invalid Instance values จะเกิด argument error |
+| `property` | `string` | Yes | string property name ที่ resolve ผ่าน Roblox property metadata เฉพาะ LUA_CALLBACK properties เท่านั้นที่คืน function ได้ |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `callback` | `function \| nil` | Lua function ที่ callback property เก็บไว้ หรือ nil เมื่อ function ไม่สามารถ resolve function ที่อ่านได้ |
+
+## ตัวอย่าง
+
+อ่าน callback function ที่เก็บอยู่ใน BindableFunction.OnInvoke
+
+```lua
+local bindable = Instance.new("BindableFunction")
+bindable.OnInvoke = function(value)
+    return value * 2
+end
+
+local callback = getcallbackvalue(bindable, "OnInvoke")
+if callback then
+    print(callback(21))
+end
+```

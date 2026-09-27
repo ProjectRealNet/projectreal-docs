@@ -1,0 +1,26 @@
+---
+title: "isrbxactive"
+sidebarTitle: "isrbxactive"
+description: "Gibt zurück, ob das aktuelle foreground window das von Real gefundene Roblox window ist. Real findet dieses Fenster, indem es windows für den aktuellen Prozess enumeriert und ein window mit dem class name Roblox window auswählt. Die function nimmt keine arguments und gibt false zurück, wenn kein foreground window oder kein passendes Roblox window verfügbar ist."
+icon: "function"
+keywords: ["isrbxactive","Input","isgameactive","iswindowactive"]
+---
+
+Gibt zurück, ob das aktuelle foreground window das von Real gefundene Roblox window ist. Real findet dieses Fenster, indem es windows für den aktuellen Prozess enumeriert und ein window mit dem class name Roblox window auswählt. Die function nimmt keine arguments und gibt false zurück, wenn kein foreground window oder kein passendes Roblox window verfügbar ist.
+
+## Syntax
+
+```lua
+isrbxactive(): boolean
+```
+
+## Aliase
+
+- `isgameactive`
+- `iswindowactive`
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `active` | `boolean` | True, wenn GetForegroundWindow() dasselbe HWND zurückgibt wie das gecachte oder neu gefundene Roblox window window des aktuellen Prozesses. |

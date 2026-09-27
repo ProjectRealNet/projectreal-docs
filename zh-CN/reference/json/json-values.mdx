@@ -1,0 +1,39 @@
+---
+title: "json.values"
+sidebarTitle: "json.values"
+description: "返回 table 的 direct values，放入一个 marked as JSON array 的新 table。JSON type marker entries 会被跳过。"
+icon: "function"
+keywords: ["json.values","JSON"]
+---
+
+返回 table 的 direct values，放入一个 marked as JSON array 的新 table。JSON type marker entries 会被跳过。
+
+## 语法
+
+```lua
+json.values(object: table): table
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | 要 enumerate 的 table。function 使用 type checking 检查此 argument。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `values` | `table` | 包含 input table 的 direct values 的 new array-style table。output 会 marked as JSON array。Enumeration 使用 table iteration，因此 function 中看不到 ordering guarantee。 |
+
+## 示例
+
+将 table 的 direct values 收集到 JSON array-marked table。
+
+```lua
+local list = json.array({ "one", "two" })
+
+for _, value in ipairs(json.values(list)) do
+    print(value)
+end
+```

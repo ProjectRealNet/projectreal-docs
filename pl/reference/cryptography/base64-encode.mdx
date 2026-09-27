@@ -1,0 +1,47 @@
+---
+title: "base64_encode"
+sidebarTitle: "base64_encode"
+description: "Koduje bajty Lua string za pomoca Base64 encoder, uzywajac = padding i bez znakow nowej linii."
+icon: "function"
+keywords: ["base64_encode","Cryptography","base64encode","base64.encode","crypt.base64.encode","crypt.base64_encode","crypt.base64encode"]
+---
+
+Koduje bajty Lua string za pomoca Base64 encoder, uzywajac = padding i bez znakow nowej linii.
+
+## Składnia
+
+```lua
+base64_encode(data: string): string
+```
+
+## Aliasy
+
+- `base64encode`
+- `base64.encode`
+- `crypt.base64.encode`
+- `crypt.base64_encode`
+- `crypt.base64encode`
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Bajty Lua string przekazywane do Base64 encoder. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `encoded` | `string` | Wynik Base64 zwracany jako Lua string. |
+
+## Przykład
+
+Zakoduj Lua string i wypisz wynik Base64.
+
+```lua
+local encoded = base64_encode("hello world")
+
+print(encoded)
+print(base64encode("hello world"))
+print(base64.encode("hello world"))
+```

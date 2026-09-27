@@ -1,0 +1,41 @@
+---
+title: "crypt.hmac"
+sidebarTitle: "crypt.hmac"
+description: "Menghitung crypto library HMAC atas byte Lua string memakai raw Lua string key dan mengembalikan Base64 digest."
+icon: "function"
+keywords: ["crypt.hmac","Cryptography"]
+---
+
+Menghitung crypto library HMAC atas byte Lua string memakai raw Lua string key dan mengembalikan Base64 digest.
+
+## Sintaks
+
+```lua
+crypt.hmac(key: string, data: string, algorithm?: "sha256" | "sha1" | "sha224" | "sha384" | "sha512" | "md5"): string
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `key` | `string` | Yes | Byte raw Lua string yang dipakai sebagai HMAC key. key tidak di-Base64-decode. |
+| `data` | `string` | Yes | Byte Lua string yang diteruskan ke HMAC calculation. |
+| `algorithm` | `"sha256" \| "sha1" \| "sha224" \| "sha384" \| "sha512" \| "md5"` | No | Nama HMAC algorithm case-sensitive. Default-nya sha256. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `digest` | `string` | Base64-encoded HMAC output tanpa line breaks. |
+
+## Contoh
+
+Hitung Base64 HMAC output dari raw Lua string key dan data.
+
+```lua
+local key = "shared secret"
+local data = "payload"
+local digest = crypt.hmac(key, data, "sha256")
+
+print(digest)
+```

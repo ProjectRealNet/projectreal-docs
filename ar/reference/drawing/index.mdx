@@ -1,0 +1,15 @@
+---
+title: "Drawing"
+description: "رسم الكائنات وخصائصها."
+icon: "folder-code"
+---
+
+رسم الكائنات وخصائصها.
+
+| تنقل الدوال | الوصف |
+| --- | --- |
+| [`cleardrawcache`](./cleardrawcache) | يمسح Real global Drawing object list. يتم وضع علامة destroyed على كل Drawing object متتبع، ويتم تحرير image resources عند وجودها، ويتم تفريغ object list. قد تبقى Lua references الحالية إلى Drawing objects التي تم مسحها موجودة، لكن objects لم تعد active Drawing objects. يسجل the Drawing API هذه API فقط عندما تكون the required rendering environment is active true؛ عندما يكون هذا الفحص false، يرجع initializer قبل إنشاء هذه globals. |
+| [`Drawing.new`](./drawing-new) | ينشئ Drawing object جديدا من النوع المطلوب ويضيفه إلى Real tracked Drawing object list. يجب أن تكون type string أحد الاسماء المدعومة بالضبط: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". القيم المفقودة أو non-string أو type غير مدعوم ترفع Lua error. يسجل the Drawing API هذه API فقط عندما تكون the required rendering environment is active true؛ عندما يكون هذا الفحص false، يرجع initializer قبل إنشاء هذه globals. |
+| [`getrenderproperty`](./getrenderproperty) | يعيد نتيجة فهرسة الوسيط الأول باستخدام property key المعطى. بالنسبة إلى Drawing object، يستخدم نفس Drawing property lookup مثل object[property]، لذلك ترجع unknown properties و destroyed Drawing objects القيمة nil. يسجل the Drawing API هذه API فقط عندما تكون the required rendering environment is active true؛ عندما يكون هذا الفحص false، يرجع initializer قبل إنشاء هذه globals. |
+| [`isrenderobj`](./isrenderobj) | يعيد ما إذا كانت القيمة object مع Drawing object type. هذا methods check فقط؛ لا يتحقق مما إذا كان Drawing object الداخلي لا يزال active أو tracked أو destroyed. يسجل the Drawing API هذه API فقط عندما تكون the required rendering environment is active true؛ عندما يكون هذا الفحص false، يرجع initializer قبل إنشاء هذه globals. |
+| [`setrenderproperty`](./setrenderproperty) | يسند value إلى object[property]. بالنسبة إلى Drawing object، يستخدم نفس Drawing property assignment مثل direct property assignment. يتم تجاهل unknown Drawing properties، ولا يتم تغيير destroyed Drawing objects. يجب أن يكون الوسيط الثالث موجودا. يسجل the Drawing API هذه API فقط عندما تكون the required rendering environment is active true؛ عندما يكون هذا الفحص false، يرجع initializer قبل إنشاء هذه globals. |

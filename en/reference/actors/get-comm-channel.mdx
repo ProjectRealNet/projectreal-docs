@@ -1,0 +1,38 @@
+---
+title: "get_comm_channel"
+sidebarTitle: "get_comm_channel"
+description: "Returns the BindableEvent for a communication channel ID, or nil when no channel exists for that ID."
+icon: "function"
+keywords: ["get_comm_channel","Actors"]
+---
+
+Returns the BindableEvent for a communication channel ID, or nil when no channel exists for that ID.
+
+## Syntax
+
+```lua
+get_comm_channel(channelId: number): Instance | nil
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `channelId` | `number` | Yes | Communication channel ID to look up. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `event` | `Instance \| nil` | BindableEvent Instance for the channel ID, or nil when the ID is not present. |
+
+## Example
+
+Look up the BindableEvent Instance stored for a communication channel ID.
+
+```lua
+local channelId = create_comm_channel()
+local event = get_comm_channel(channelId)
+
+print(event)
+```

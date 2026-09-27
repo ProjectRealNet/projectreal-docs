@@ -1,0 +1,42 @@
+---
+title: "isreadonly"
+sidebarTitle: "isreadonly"
+description: "Returns whether a table is readonly. The argument must be a table, and the function does not change it."
+icon: "function"
+keywords: ["isreadonly","Metatables"]
+---
+
+Returns whether a table is readonly. The argument must be a table, and the function does not change it.
+
+## 構文
+
+```lua
+isreadonly(target: table): boolean
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `target` | `table` | Yes | Table whose readonly status is checked. |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `readOnly` | `boolean` | true when the table is readonly; otherwise false. |
+
+## 例
+
+Read the readonly flag stored on a table.
+
+```lua
+local target = {}
+
+print(isreadonly(target))
+
+setreadonly(target, true)
+print(isreadonly(target))
+
+setreadonly(target, false)
+```

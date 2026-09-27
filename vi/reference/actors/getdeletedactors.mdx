@@ -1,0 +1,33 @@
+---
+title: "getdeletedactors"
+sidebarTitle: "getdeletedactors"
+description: "Trả về array table của Luau threads từ actor list có thread data chứa Actor reference, reference count lớn hơn 0, và the associated Actor là expired weak reference. Function không nhận arguments. Function không trả về Actor Instance values."
+icon: "function"
+keywords: ["getdeletedactors","Actors"]
+---
+
+Trả về array table của Luau threads từ actor list có thread data chứa Actor reference, reference count lớn hơn 0, và the associated Actor là expired weak reference. Function không nhận arguments. Function không trả về Actor Instance values.
+
+## Cú pháp
+
+```lua
+getdeletedactors(): table
+```
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `threads` | `table` | Array table chứa Luau thread values cho actor entries có Actor weak reference là expired. |
+
+## Ví dụ
+
+List actor threads whose Actor weak reference is expired.
+
+```lua
+local deletedActorThreads = getdeletedactors()
+
+for _, thread in ipairs(deletedActorThreads) do
+    print(thread)
+end
+```

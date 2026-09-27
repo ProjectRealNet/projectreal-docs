@@ -1,0 +1,37 @@
+---
+title: "isscriptable"
+sidebarTitle: "isscriptable"
+description: "Проверяет scriptable flag для Roblox property у Instance. Function сначала возвращает cached scriptable value, если он есть для того же instance reference и property name. При cache miss property name разрешается через Roblox property metadata и Instance class descriptor. Если descriptor отсутствует, либо найденный field отсутствует или не является property entry, function возвращает nil. Когда property entry найдена, function читает scriptable state, сохраняет это значение в scriptable override cache для instance и property, затем возвращает boolean. Function не изменяет scriptable flag."
+icon: "function"
+keywords: ["isscriptable","Reflection"]
+---
+
+Проверяет scriptable flag для Roblox property у Instance. Function сначала возвращает cached scriptable value, если он есть для того же instance reference и property name. При cache miss property name разрешается через Roblox property metadata и Instance class descriptor. Если descriptor отсутствует, либо найденный field отсутствует или не является property entry, function возвращает nil. Когда property entry найдена, function читает scriptable state, сохраняет это значение в scriptable override cache для instance и property, затем возвращает boolean. Function не изменяет scriptable flag.
+
+## Синтаксис
+
+```lua
+isscriptable(instance: Instance, property: string): boolean | nil
+```
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object, у которой нужно проверить property scriptable state. |
+| `property` | `string` | Yes | Property name, разрешаемый через Roblox property metadata и Instance class descriptor. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `scriptable` | `boolean \| nil` | Cached или текущее значение scriptable state, либо nil, если property descriptor/field отсутствует или не является property entry. |
+
+## Пример
+
+Check whether a property is scriptable on an Instance.
+
+```lua
+local scriptable = isscriptable(workspace, "Name")
+print(scriptable)
+```

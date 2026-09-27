@@ -1,0 +1,34 @@
+---
+title: "delfolder"
+sidebarTitle: "delfolder"
+description: "Exclui um folder existente dentro do workspace recursivamente com recursive folder deletion."
+icon: "function"
+keywords: ["delfolder","Filesystem"]
+---
+
+Exclui um folder existente dentro do workspace recursivamente com recursive folder deletion.
+
+## Sintaxe
+
+```lua
+delfolder(path: string)
+```
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path resolvido dentro do workspace apos separator normalization e workspace-boundary checks. O destino deve existir e ser um directory; files nao sao aceitos. |
+
+## Exemplo
+
+Exclua um workspace folder existente e seu conteudo.
+
+```lua
+local path = "examples/temporary"
+makefolder(path)
+writefile(path .. "/note.txt", "temporary")
+
+delfolder(path)
+print(isfolder(path))
+```

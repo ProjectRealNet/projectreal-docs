@@ -1,0 +1,45 @@
+---
+title: "lz4compress"
+sidebarTitle: "lz4compress"
+description: "يضغط بايتات Lua string باستخدام LZ4 block compression ويعيد raw compressed bytes كسلسلة Lua."
+icon: "function"
+keywords: ["lz4compress","Cryptography","crypt.lz4compress","crypt.lz4.compress","lz4.compress"]
+---
+
+يضغط بايتات Lua string باستخدام LZ4 block compression ويعيد raw compressed bytes كسلسلة Lua.
+
+## الصيغة
+
+```lua
+lz4compress(data: string): string
+```
+
+## أسماء بديلة
+
+- `crypt.lz4compress`
+- `crypt.lz4.compress`
+- `lz4.compress`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | بايتات Lua string التي تمرر إلى LZ4 block compression. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `compressed` | `string` | Raw compressed bytes تعاد كسلسلة Lua. لا يتم تخزين original size في الناتج. |
+
+## مثال
+
+اضغط بايتات Lua string واستعدها بتمرير original size.
+
+```lua
+local source = string.rep("Real Docs ", 100)
+local compressed = lz4compress(source)
+local restored = lz4decompress(compressed, #source)
+
+print(#source, #compressed, restored == source)
+```

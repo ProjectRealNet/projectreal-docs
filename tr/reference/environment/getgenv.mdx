@@ -1,0 +1,33 @@
+---
+title: "getgenv"
+sidebarTitle: "getgenv"
+description: "LUA_ENVIRONINDEX push ederek current executor environment table dondurur. Function arguments almaz, exactly one value dondurur ve registered alias yoktur. Repository icindeki call-sites returned table kullanarak __siApiCache ve saveinstance gibi shared executor globals degerlerini okur ve yazar."
+icon: "function"
+keywords: ["getgenv","Environment"]
+---
+
+LUA_ENVIRONINDEX push ederek current executor environment table dondurur. Function arguments almaz, exactly one value dondurur ve registered alias yoktur. Repository icindeki call-sites returned table kullanarak __siApiCache ve saveinstance gibi shared executor globals degerlerini okur ve yazar.
+
+## Söz dizimi
+
+```lua
+getgenv(): table
+```
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `environment` | `table` | Bu state icin su anda LUA_ENVIRONINDEX konumunda saklanan table. |
+
+## Örnek
+
+Read and write values on the current executor environment table.
+
+```lua
+local env = getgenv()
+
+env.RealDocsValue = "ready"
+
+print(getgenv().RealDocsValue)
+```

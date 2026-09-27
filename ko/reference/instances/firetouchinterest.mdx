@@ -1,0 +1,40 @@
+---
+title: "firetouchinterest"
+sidebarTitle: "firetouchinterest"
+description: "두 BasePart instances에 대해 Real touch interest event를 발생시킵니다. 처음 두 인수는 Instance object여야 하며 두 값 모두 IsA(\"BasePart\")를 통과해야 합니다. state 인수는 필수이며 number 또는 boolean이어야 합니다. state가 number이면 1만 true가 되고 다른 모든 number는 false가 됩니다. state가 boolean이면 해당 boolean 값이 그대로 전달됩니다. 두 part 중 하나에 touch data가 없거나 첫 번째 part에 overlap reference가 없으면 function은 아무것도 발생시키지 않고 반환합니다. 이 function은 아무것도 반환하지 않습니다. helper에 전달되는 boolean의 정확한 begin/end 의미는: Nicht aus der Codebasis verifizierbar."
+icon: "function"
+keywords: ["firetouchinterest","Instances","firetouchtransmitter"]
+---
+
+두 BasePart instances에 대해 Real touch interest event를 발생시킵니다. 처음 두 인수는 Instance object여야 하며 두 값 모두 IsA("BasePart")를 통과해야 합니다. state 인수는 필수이며 number 또는 boolean이어야 합니다. state가 number이면 1만 true가 되고 다른 모든 number는 false가 됩니다. state가 boolean이면 해당 boolean 값이 그대로 전달됩니다. 두 part 중 하나에 touch data가 없거나 첫 번째 part에 overlap reference가 없으면 function은 아무것도 발생시키지 않고 반환합니다. 이 function은 아무것도 반환하지 않습니다. helper에 전달되는 boolean의 정확한 begin/end 의미는: Nicht aus der Codebasis verifizierbar.
+
+## 문법
+
+```lua
+firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
+```
+
+## 별칭
+
+- `firetouchtransmitter`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `partA` | `Instance` | Yes | 첫 번째 Instance object입니다. IsA("BasePart")를 통과해야 합니다. touch data와 overlap reference가 call에 사용됩니다. |
+| `partB` | `Instance` | Yes | 두 번째 Instance object입니다. IsA("BasePart")를 통과해야 합니다. touch data가 call에 사용됩니다. |
+| `state` | `number \| boolean` | Yes | 필수 state 값입니다. numbers는 state == 1로 변환되고 booleans는 그대로 전달됩니다. |
+
+## 예제
+
+두 BasePart 값과 명시적인 state 값을 firetouchinterest에 전달합니다.
+
+```lua
+local players = game:GetService("Players")
+local character = players.LocalPlayer.Character or players.LocalPlayer.CharacterAdded:Wait()
+local rootPart = character:WaitForChild("HumanoidRootPart")
+local targetPart = workspace.TouchTarget
+
+firetouchinterest(rootPart, targetPart, true)
+```

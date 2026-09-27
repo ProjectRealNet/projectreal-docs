@@ -1,0 +1,50 @@
+---
+title: "hookfunction"
+sidebarTitle: "hookfunction"
+description: "target function를 replacement function로 hook하고 original target closure의 cloned copy를 반환합니다. 두 arguments는 모두 functions여야 합니다. function은 먼저 pending C function swaps를 flush하고, function cloning으로 target을 cloning하고, replacement closure 또는 mapped newcclosure target을 hidden stack tracking에 추가하고, target 및 cloned original에 대해 FixCallstack을 호출한 다음, C closure, Luau closure 또는 newcclosure-specific path를 통해 target closure를 patch합니다. target이 아직 hook records에 없으면 restorefunction을 위해 cloned original이 거기에 저장됩니다. returned function은 cloned original closure입니다."
+icon: "function"
+keywords: ["hookfunction","Closures","hookfunc","replaceclosure","detourfunction","detour_function"]
+---
+
+target function를 replacement function로 hook하고 original target closure의 cloned copy를 반환합니다. 두 arguments는 모두 functions여야 합니다. function은 먼저 pending C function swaps를 flush하고, function cloning으로 target을 cloning하고, replacement closure 또는 mapped newcclosure target을 hidden stack tracking에 추가하고, target 및 cloned original에 대해 FixCallstack을 호출한 다음, C closure, Luau closure 또는 newcclosure-specific path를 통해 target closure를 patch합니다. target이 아직 hook records에 없으면 restorefunction을 위해 cloned original이 거기에 저장됩니다. returned function은 cloned original closure입니다.
+
+## 문법
+
+```lua
+hookfunction(target: function, replacement: function): function
+```
+
+## 별칭
+
+- `hookfunc`
+- `replaceclosure`
+- `detourfunction`
+- `detour_function`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `target` | `function` | Yes | patch할 Function입니다. non-function을 전달하면 type error가 발생합니다. |
+| `replacement` | `function` | Yes | function이 target에 install되거나 map되는 Function입니다. non-function을 전달하면 type error가 발생합니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `original` | `function` | hook이 install되기 전에 생성된 original target closure의 cloned copy입니다. |
+
+## 예제
+
+Patch a function closure and keep a cloned original.
+
+```lua
+local function target(value)
+    return value + 1
+end
+
+local original
+original = hookfunction(target, function(value)
+    return original(value) * 2
+end)
+```

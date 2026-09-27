@@ -1,0 +1,47 @@
+---
+title: "base64_encode"
+sidebarTitle: "base64_encode"
+description: "Lua string のバイトを Base64 encoder でエンコードし、= padding を使い、改行は入れません。"
+icon: "function"
+keywords: ["base64_encode","Cryptography","base64encode","base64.encode","crypt.base64.encode","crypt.base64_encode","crypt.base64encode"]
+---
+
+Lua string のバイトを Base64 encoder でエンコードし、= padding を使い、改行は入れません。
+
+## 構文
+
+```lua
+base64_encode(data: string): string
+```
+
+## エイリアス
+
+- `base64encode`
+- `base64.encode`
+- `crypt.base64.encode`
+- `crypt.base64_encode`
+- `crypt.base64encode`
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Base64 encoder に渡される Lua string のバイト。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `encoded` | `string` | Lua string として返される Base64 出力。 |
+
+## 例
+
+Lua string をエンコードし、Base64 出力を表示します。
+
+```lua
+local encoded = base64_encode("hello world")
+
+print(encoded)
+print(base64encode("hello world"))
+print(base64.encode("hello world"))
+```

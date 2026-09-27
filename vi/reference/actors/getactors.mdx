@@ -1,0 +1,31 @@
+---
+title: "getactors"
+sidebarTitle: "getactors"
+description: "Trả về array table gồm live Actor Instances được resolve từ ScriptContext actor thread list. Function không nhận arguments. Nó đi qua actor thread list, decrypt từng actor Lua state, giữ entries là valid threads, rồi đọc thread data và the associated Actor weak reference của từng thread. Chỉ non-expired actor references được push dưới dạng Instances. Entries không có container, không có Actor reference, có reference count <= 0 hoặc có expired actor reference sẽ bị bỏ qua."
+icon: "function"
+keywords: ["getactors","Actors"]
+---
+
+Trả về array table gồm live Actor Instances được resolve từ ScriptContext actor thread list. Function không nhận arguments. Nó đi qua actor thread list, decrypt từng actor Lua state, giữ entries là valid threads, rồi đọc thread data và the associated Actor weak reference của từng thread. Chỉ non-expired actor references được push dưới dạng Instances. Entries không có container, không có Actor reference, có reference count &lt;= 0 hoặc có expired actor reference sẽ bị bỏ qua.
+
+## Cú pháp
+
+```lua
+getactors(): {Instance}
+```
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `actors` | `&#123;Instance&#125;` | Array table gồm Actor Instances có actor weak references vẫn valid. |
+
+## Ví dụ
+
+List live Actor Instances resolved from actor threads.
+
+```lua
+for _, actor in ipairs(getactors()) do
+    print(actor)
+end
+```

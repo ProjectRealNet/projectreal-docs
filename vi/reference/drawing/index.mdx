@@ -1,0 +1,15 @@
+---
+title: "Drawing"
+description: "Vẽ các đối tượng và thuộc tính của chúng."
+icon: "folder-code"
+---
+
+Vẽ các đối tượng và thuộc tính của chúng.
+
+| Điều hướng hàm | Mô tả |
+| --- | --- |
+| [`cleardrawcache`](./cleardrawcache) | Xoa Real global Drawing object list. Moi Drawing object duoc theo doi duoc danh dau la destroyed, image resources duoc giai phong khi co, va object list duoc lam rong. Lua references hien co toi Drawing objects da bi xoa co the van ton tai, nhung objects khong con duoc xem la active Drawing objects. the Drawing API chi dang ky API nay khi the required rendering environment is active la true; khi kiem tra do la false, initializer quay lai truoc khi tao cac globals nay. |
+| [`Drawing.new`](./drawing-new) | Tao Drawing object moi cua loai duoc yeu cau va them vao Real tracked Drawing object list. type string phai la mot trong cac ten duoc ho tro chinh xac: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". Gia tri bi thieu, non-string hoac type values khong duoc ho tro se tao Lua error. the Drawing API chi dang ky API nay khi the required rendering environment is active la true; khi kiem tra do la false, initializer quay lai truoc khi tao cac globals nay. |
+| [`getrenderproperty`](./getrenderproperty) | Tra ve ket qua index doi so dau tien bang property key da cho. Voi Drawing object, ham dung cung Drawing property lookup nhu object[property], nen unknown properties va destroyed Drawing objects tra ve nil. the Drawing API chi dang ky API nay khi the required rendering environment is active la true; khi kiem tra do la false, initializer quay lai truoc khi tao cac globals nay. |
+| [`isrenderobj`](./isrenderobj) | Tra ve lieu gia tri co phai object voi Drawing object type hay khong. Day chi la methods check; no khong kiem tra Drawing object ben trong con active, tracked hay destroyed hay khong. the Drawing API chi dang ky API nay khi the required rendering environment is active la true; khi kiem tra do la false, initializer quay lai truoc khi tao cac globals nay. |
+| [`setrenderproperty`](./setrenderproperty) | Gan value vao object[property]. Voi Drawing object, ham dung cung Drawing property assignment nhu direct property assignment. Unknown Drawing properties bi bo qua va destroyed Drawing objects khong bi thay doi. Doi so thu ba phai duoc cung cap. the Drawing API chi dang ky API nay khi the required rendering environment is active la true; khi kiem tra do la false, initializer quay lai truoc khi tao cac globals nay. |

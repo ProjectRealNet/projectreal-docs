@@ -1,0 +1,70 @@
+---
+title: "json.format"
+sidebarTitle: "json.format"
+description: "JSON string を parse し、Real JSON parser と encoder で readable formatted JSON として re-encode します。"
+icon: "function"
+keywords: ["json.format","JSON"]
+---
+
+JSON string を parse し、Real JSON parser と encoder で readable formatted JSON として re-encode します。
+
+## 構文
+
+```lua
+json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | Formatting の前に parse される JSON string。function はこの argument を string type checking で読みます。 |
+| `encodeOptions` | `EncodeOptions` | No | Re-encode step に渡される optional encode options。json.format は json.encode と同じ encode options を読み、その後 pretty を true に強制します。 |
+| `decodeOptions` | `DecodeOptions` | No | Input JSON の parsing 中に使われる optional decode options。boolean は useNull を設定します。table は useNull と maxDepth を設定できます。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `formatted` | `string` | Input の parsing と re-encoding 後に生成される readable formatted JSON string。 |
+
+## 型
+
+### EncodeOptions
+
+JSON のシリアル化とフォーマットを制御します。
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | フォーマットされた複数行の JSON 出力を有効にします。 |
+| `sortKeys` | `boolean` | No | エンコード前にオブジェクトキーをソートします。 |
+| `emptyTableAsArray` | `boolean` | No | 空のテーブルをオブジェクトではなく配列としてエンコードします。 |
+| `errorOnUnsupported` | `boolean` | No | サポートされていない値を置き換えるのではなく、エラーを発生させます。 |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | NaN と無限数を JSON null としてエンコードします。 |
+| `maxDepth` | `integer` | No | ネストの最大の深さを 1 ～ 4096 の範囲で設定します。 |
+| `indent` | `string` | No | インデント文字列を設定します。32 文字に制限されます。 |
+
+### DecodeOptions
+
+JSON 解析動作を制御します。
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | nil の代わりにライブラリの null センチネルを使用して JSON null を表します。 |
+| `maxDepth` | `integer` | No | ネストの最大の深さを 1 ～ 4096 の範囲で設定します。 |
+
+## 例
+
+Existing JSON を parse し、readable formatted JSON として re-encode します。
+
+```lua
+local compact = '{"b":2,"a":1}'
+local formatted = json.format(compact, {
+    pretty = true,
+    sortKeys = true,
+}, {
+    useNull = true,
+})
+
+print(formatted)
+```

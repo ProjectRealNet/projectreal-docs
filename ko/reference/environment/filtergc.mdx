@@ -1,0 +1,56 @@
+---
+title: "filtergc"
+sidebarTitle: "filtergc"
+description: "제공된 filters와 일치하는 live garbage-collected tables 또는 functions를 검색합니다. filterType은 \"table\" 또는 \"function\"이어야 합니다. options는 table이어야 합니다."
+icon: "function"
+keywords: ["filtergc","Environment"]
+---
+
+제공된 filters와 일치하는 live garbage-collected tables 또는 functions를 검색합니다. filterType은 "table" 또는 "function"이어야 합니다. options는 table이어야 합니다.
+
+## 문법
+
+```lua
+filtergc(filterType: string, options: table, returnOne?: boolean): table | function | nil
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `filterType` | `string` | Yes | 검색할 GC object type. 값은 lowercase로 변환되며 "table" 또는 "function"이어야 합니다. |
+| `options` | `table` | Yes | Filter table. function searches는 Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants, Upvalues를 읽습니다. table searches는 Metatable, Keys, Values, KeyValuePairs를 읽습니다. |
+| `returnOne` | `boolean` | No | Optional optional boolean handling flag. true이면 array table 대신 첫 matching object 또는 nil을 반환합니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `result` | `table \| function \| nil` | returnOne이 false이거나 omitted이면 array table of matches. returnOne이 true이면 첫 matching table/function object 또는 nil. |
+
+## 예제
+
+Find GC tables by key filters without relying on result order.
+
+```lua
+local marker = {
+    RealDocsMarker = true,
+}
+
+local matches = filtergc("table", {
+    Keys = { "RealDocsMarker" },
+})
+
+for _, value in ipairs(matches) do
+    if value == marker then
+        print("found marker")
+        break
+    end
+end
+
+local first = filtergc("table", {
+    Keys = { "RealDocsMarker" },
+}, true)
+
+print(first ~= nil)
+```

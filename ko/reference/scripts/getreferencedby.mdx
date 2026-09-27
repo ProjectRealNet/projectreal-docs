@@ -1,0 +1,43 @@
+---
+title: "getreferencedby"
+sidebarTitle: "getreferencedby"
+description: "Returns cached Instance values whose supported reference properties point to the provided Instance. The argument must be an Instance."
+icon: "function"
+keywords: ["getreferencedby","Scripts","getreferences"]
+---
+
+Returns cached Instance values whose supported reference properties point to the provided Instance. The argument must be an Instance.
+
+## 문법
+
+```lua
+getreferencedby(instance: userdata): table
+```
+
+## 별칭
+
+- `getreferences`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `instance` | `userdata` | Yes | Target Instance to search references for. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `instances` | `table` | New array table of matching registered Instance object values. |
+
+## 예제
+
+Find values that reference a specific Instance.
+
+```lua
+local references = getreferencedby(workspace)
+
+for _, value in ipairs(references) do
+    print(value)
+end
+```

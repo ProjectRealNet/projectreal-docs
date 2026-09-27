@@ -1,0 +1,36 @@
+---
+title: "setrenderproperty"
+sidebarTitle: "setrenderproperty"
+description: "กำหนด value ให้กับ object[property] สำหรับ Drawing object จะใช้ Drawing property assignment เดียวกับ direct property assignment โดย unknown Drawing properties จะถูกละเว้น และ destroyed Drawing objects จะไม่ถูกเปลี่ยนแปลง ต้องมีอาร์กิวเมนต์ที่สาม the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้"
+icon: "function"
+keywords: ["setrenderproperty","Drawing"]
+---
+
+กำหนด value ให้กับ object[property] สำหรับ Drawing object จะใช้ Drawing property assignment เดียวกับ direct property assignment โดย unknown Drawing properties จะถูกละเว้น และ destroyed Drawing objects จะไม่ถูกเปลี่ยนแปลง ต้องมีอาร์กิวเมนต์ที่สาม the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้
+
+## ไวยากรณ์
+
+```lua
+setrenderproperty(object: any, property: any, value: any)
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | ค่าที่จะถูก index และกำหนดค่า เมื่อใช้ Drawing object จะใช้ RealDrawingObject __newindex handler |
+| `property` | `any` | Yes | property key ที่ใช้สำหรับ assignment โดย Drawing object properties ใช้ strings |
+| `value` | `any` | Yes | ค่าที่กำหนดให้ object[property] ต้องส่งอาร์กิวเมนต์นี้; nil ยังถือว่าเป็นค่าที่ถูกส่งมา |
+
+## ตัวอย่าง
+
+อัปเดตคุณสมบัติการวาดผ่านตัวช่วยคุณสมบัติทั่วไป
+
+```lua
+local line = Drawing.new("Line")
+setrenderproperty(line, "Thickness", 3)
+setrenderproperty(line, "Visible", true)
+
+print(line.Thickness)
+print(line.Visible)
+```

@@ -1,0 +1,42 @@
+---
+title: "getactorfromthread"
+sidebarTitle: "getactorfromthread"
+description: "คืน Actor Instance ที่เชื่อมกับ Luau thread argument แรกต้องเป็น thread function อ่าน thread data ของ thread ต้องมี Actor reference และ positive container count จากนั้นอ่าน the associated Actor หาก actor weak reference valid จะ push เป็น Instance มิฉะนั้น function คืน nil"
+icon: "function"
+keywords: ["getactorfromthread","Actors","getactorfromstate"]
+---
+
+คืน Actor Instance ที่เชื่อมกับ Luau thread argument แรกต้องเป็น thread function อ่าน thread data ของ thread ต้องมี Actor reference และ positive container count จากนั้นอ่าน the associated Actor หาก actor weak reference valid จะ push เป็น Instance มิฉะนั้น function คืน nil
+
+## ไวยากรณ์
+
+```lua
+getactorfromthread(thread: thread): Instance | nil
+```
+
+## Aliases
+
+- `getactorfromstate`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `thread` | `thread` | Yes | Luau thread ที่ต้องตรวจ thread data เพื่อหา associated Actor weak reference |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `actor` | `Instance \| nil` | Actor Instance ที่ resolve จาก the associated Actor weak reference ของ thread หรือ nil เมื่อไม่มี valid actor reference |
+
+## ตัวอย่าง
+
+Resolve the Actor Instance associated with a Luau thread, when that thread has a valid actor reference.
+
+```lua
+for _, thread in ipairs(getactorthreads()) do
+    local actor = getactorfromthread(thread)
+    print(actor)
+end
+```

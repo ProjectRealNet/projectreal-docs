@@ -1,0 +1,38 @@
+---
+title: "json.unescape"
+sidebarTitle: "json.unescape"
+description: "从 escaped string content 或 complete quoted JSON string literal 解码 JSON string escape sequences。输入会用 JSON string parser parse，而不是作为 full JSON document。"
+icon: "function"
+keywords: ["json.unescape","JSON"]
+---
+
+从 escaped string content 或 complete quoted JSON string literal 解码 JSON string escape sequences。输入会用 JSON string parser parse，而不是作为 full JSON document。
+
+## 语法
+
+```lua
+json.unescape(text: string): string
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | Escaped JSON string content，或 first and last bytes 为 quotes 的 complete quoted JSON string literal。function 使用 string type checking 读取此 argument。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `text` | `string` | Decoded string。Supported escapes 包括 \"、\\、\/、\b、\f、\n、\r、\t，以及带 surrogate-pair handling 的 \uXXXX。Invalid escapes、unescaped control characters、unterminated strings，以及 quoted literal 后的 trailing characters 会抛出带 near-position suffix 的 Luau error。 |
+
+## 示例
+
+从 escaped content 或 quoted JSON string literal 解码 JSON string escapes。
+
+```lua
+local escaped = json.escape("Real Docs" .. string.char(10) .. "Docs")
+local restored = json.unescape(escaped)
+
+print(restored)
+```

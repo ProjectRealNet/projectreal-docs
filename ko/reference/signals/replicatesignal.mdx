@@ -1,0 +1,39 @@
+---
+title: "replicatesignal"
+sidebarTitle: "replicatesignal"
+description: "RBXScriptSignal의 replication path를 호출합니다. 함수는 signal signature를 읽고 제공된 Lua arguments를 각 signature type의 Roblox signal values로 변환하며, signature length를 넘는 추가 Lua arguments를 잘라낸 다음 owning instance event invocation function을 호출합니다."
+icon: "function"
+keywords: ["replicatesignal","Signals","replicateevent"]
+---
+
+RBXScriptSignal의 replication path를 호출합니다. 함수는 signal signature를 읽고 제공된 Lua arguments를 각 signature type의 Roblox signal values로 변환하며, signature length를 넘는 추가 Lua arguments를 잘라낸 다음 owning instance event invocation function을 호출합니다.
+
+## 문법
+
+```lua
+replicatesignal(signal: RBXScriptSignal, ...arguments?: ...any)
+```
+
+## 별칭
+
+- `replicateevent`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | owning instance event invocation function을 호출할 RBXScriptSignal입니다. |
+| `...arguments` | `...any` | No | signal signature에 따라 변환되는 Lua arguments입니다. signature length를 넘는 extra arguments는 무시됩니다. |
+
+## 예제
+
+Replicate for a RemoteEvent signal with values that match the signal signature.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote and remote:IsA("RemoteEvent") then
+    replicatesignal(remote.OnClientEvent, "hello")
+end
+```

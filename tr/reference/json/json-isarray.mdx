@@ -1,0 +1,41 @@
+---
+title: "json.isArray"
+sidebarTitle: "json.isArray"
+description: "Bir value degerinin Real JSON table detection tarafindan treated as a JSON array olup olmadigini dondurur."
+icon: "function"
+keywords: ["json.isArray","JSON"]
+---
+
+Bir value degerinin Real JSON table detection tarafindan treated as a JSON array olup olmadigini dondurur.
+
+## Söz dizimi
+
+```lua
+json.isArray(value: any): boolean
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Inspect edilecek value. Non-table values false dondurur. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `isArray` | `boolean` | value, table marked as a JSON array ise veya 1'den maximum index'e kadar contiguous positive integer keys iceren unmarked table ise true. Empty unmarked tables false dondurur. |
+
+## Örnek
+
+Bir table degerinin Real JSON encoder tarafindan treated as a JSON array olup olmadigini check et.
+
+```lua
+local items = json.array({ "one", "two" })
+local record = json.object({ name = "Real" })
+local inferred = { "one", "two" }
+
+print(json.isArray(items))
+print(json.isArray(record))
+print(json.isArray(inferred))
+```

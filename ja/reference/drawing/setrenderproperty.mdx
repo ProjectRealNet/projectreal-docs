@@ -1,0 +1,36 @@
+---
+title: "setrenderproperty"
+sidebarTitle: "setrenderproperty"
+description: "value を object[property] に代入します。Drawing object では direct property assignment と同じ Drawing property assignment を使用します。unknown Drawing properties は無視され、destroyed Drawing objects は変更されません。3 番目の引数は存在する必要があります。 the Drawing API は the required rendering environment is active が true の場合だけこの API を登録します。このチェックが false の場合、initializer はこれらの globals を作成する前に戻ります。"
+icon: "function"
+keywords: ["setrenderproperty","Drawing"]
+---
+
+value を object[property] に代入します。Drawing object では direct property assignment と同じ Drawing property assignment を使用します。unknown Drawing properties は無視され、destroyed Drawing objects は変更されません。3 番目の引数は存在する必要があります。 the Drawing API は the required rendering environment is active が true の場合だけこの API を登録します。このチェックが false の場合、initializer はこれらの globals を作成する前に戻ります。
+
+## 構文
+
+```lua
+setrenderproperty(object: any, property: any, value: any)
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | インデックスされ、代入される値。Drawing object では RealDrawingObject __newindex handler が使用されます。 |
+| `property` | `any` | Yes | 代入に使用される property key。Drawing object properties は strings ベースです。 |
+| `value` | `any` | Yes | object[property] に代入される値。この引数は渡す必要があります。nil も渡された値です。 |
+
+## 例
+
+汎用プロパティ ヘルパーを使用して図面プロパティを更新します。
+
+```lua
+local line = Drawing.new("Line")
+setrenderproperty(line, "Thickness", 3)
+setrenderproperty(line, "Visible", true)
+
+print(line.Thickness)
+print(line.Visible)
+```

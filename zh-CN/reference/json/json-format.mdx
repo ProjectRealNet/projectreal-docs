@@ -1,0 +1,70 @@
+---
+title: "json.format"
+sidebarTitle: "json.format"
+description: "Parse 一个 JSON string，并使用 Real JSON parser 和 encoder 将其 re-encode 为 readable formatted JSON。"
+icon: "function"
+keywords: ["json.format","JSON"]
+---
+
+Parse 一个 JSON string，并使用 Real JSON parser 和 encoder 将其 re-encode 为 readable formatted JSON。
+
+## 语法
+
+```lua
+json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | Formatting 前要 parse 的 JSON string。function 使用 string type checking 读取这个 argument。 |
+| `encodeOptions` | `EncodeOptions` | No | 传给 re-encode step 的 optional encode options。json.format 读取与 json.encode 相同的 encode options，然后强制 pretty 为 true。 |
+| `decodeOptions` | `DecodeOptions` | No | Parsing input JSON 时使用的 optional decode options。boolean 设置 useNull。table 可以设置 useNull 和 maxDepth。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `formatted` | `string` | Parsing 并 re-encoding input 后产生的 readable formatted JSON string。 |
+
+## 类型
+
+### EncodeOptions
+
+控制 JSON 序列化和格式设置。
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | 启用格式化的多行 JSON 输出。 |
+| `sortKeys` | `boolean` | No | 在编码之前对对象键进行排序。 |
+| `emptyTableAsArray` | `boolean` | No | 将空表编码为数组而不是对象。 |
+| `errorOnUnsupported` | `boolean` | No | 引发错误而不是替换不受支持的值。 |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | 将 NaN 和无限数编码为 JSON null。 |
+| `maxDepth` | `integer` | No | 设置最大嵌套深度，范围为 1 到 4096。 |
+| `indent` | `string` | No | 设置缩进字符串，限制为 32 个字符。 |
+
+### DecodeOptions
+
+控制 JSON 解析行为。
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | 使用库的 null 标记而不是 nil 来表示 JSON null。 |
+| `maxDepth` | `integer` | No | 设置最大嵌套深度，范围为 1 到 4096。 |
+
+## 示例
+
+Parse existing JSON，并 re-encode 为 readable formatted JSON。
+
+```lua
+local compact = '{"b":2,"a":1}'
+local formatted = json.format(compact, {
+    pretty = true,
+    sortKeys = true,
+}, {
+    useNull = true,
+})
+
+print(formatted)
+```

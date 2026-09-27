@@ -1,0 +1,46 @@
+---
+title: "crypt.encrypt"
+sidebarTitle: "crypt.encrypt"
+description: "Lua string 바이트를 Base64로 디코드된 key로 AES CBC, ECB 또는 CTR을 사용해 암호화한 뒤 Base64 ciphertext와 IV 결과를 반환합니다."
+icon: "function"
+keywords: ["crypt.encrypt","Cryptography"]
+---
+
+Lua string 바이트를 Base64로 디코드된 key로 AES CBC, ECB 또는 CTR을 사용해 암호화한 뒤 Base64 ciphertext와 IV 결과를 반환합니다.
+
+## 문법
+
+```lua
+crypt.encrypt(data: string, key: string, iv?: string, mode?: "CBC" | "ECB" | "CTR" | "AES-CBC" | "AES-ECB" | "AES-CTR"): string | string | nil
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Lua string에서 읽은 plaintext 바이트입니다. |
+| `key` | `string` | Yes | AES에 전달되기 전에 디코드되는 Base64 key입니다. |
+| `iv` | `string` | No | CBC 또는 CTR용 선택적 Base64 IV입니다. CBC 또는 CTR에서 생략하면 새 AES block size IV가 생성됩니다. |
+| `mode` | `"CBC" \| "ECB" \| "CTR" \| "AES-CBC" \| "AES-ECB" \| "AES-CTR"` | No | AES mode입니다. AES- prefix가 있으면 제거됩니다. 기본값은 AES-CBC입니다. CBC와 ECB는 crypto library DEFAULT_PADDING을 사용하고 CTR은 padding을 사용하지 않습니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `ciphertext` | `string` | Base64-encoded ciphertext입니다. |
+| `initializationVector` | `string \| nil` | CBC와 CTR의 Base64-encoded IV입니다. ECB에서는 nil입니다. |
+
+## 예제
+
+Lua string을 암호화하고 반환된 IV로 반환된 ciphertext를 복호화합니다.
+
+```lua
+local key = crypt.generatekey()
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+local plaintext = crypt.decrypt(ciphertext, key, iv)
+
+print(ciphertext)
+print(iv)
+print(plaintext)
+```

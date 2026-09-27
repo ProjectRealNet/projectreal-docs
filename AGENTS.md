@@ -2,10 +2,14 @@
 > For Mintlify product knowledge (components, configuration, writing standards),
 > install the Mintlify skill: `npx skills add https://mintlify.com/docs`
 
-# Documentation project instructions
+# Project Real function documentation
 
-## About this project
+## Scope
 
+- This repository contains only the public Real function reference.
+- Guides, troubleshooting articles, and release notes remain on `projectreal.gg`.
+- Source function data and translations live in the adjacent local `real-website` repository and are imported by `scripts/generate-function-docs.mts`.
+- Run `npm run generate` after changing the source function data.
 - This is a documentation site built on [Mintlify](https://mintlify.com)
 - Pages are MDX files with YAML frontmatter
 - Configuration lives in `docs.json`

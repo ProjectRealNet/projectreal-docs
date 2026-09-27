@@ -1,0 +1,42 @@
+---
+title: "getsignalarguments"
+sidebarTitle: "getsignalarguments"
+description: "Возвращает array table из type names, прочитанных из event descriptor signature для RBXScriptSignal. Первый argument должен быть object с Luau type name RBXScriptSignal. Function читает event descriptor сигнала, проходит signature slots с argument stride из function, читает каждый argument type reference и помещает разрешенный type name string для каждого slot. Она не возвращает captured runtime argument values. Если signature не удается прочитать или entries не добавлены, возвращаемая table содержит один fallback entry: \"Variant\"."
+icon: "function"
+keywords: ["getsignalarguments","Signals"]
+---
+
+Возвращает array table из type names, прочитанных из event descriptor signature для RBXScriptSignal. Первый argument должен быть object с Luau type name RBXScriptSignal. Function читает event descriptor сигнала, проходит signature slots с argument stride из function, читает каждый argument type reference и помещает разрешенный type name string для каждого slot. Она не возвращает captured runtime argument values. Если signature не удается прочитать или entries не добавлены, возвращаемая table содержит один fallback entry: "Variant".
+
+## Синтаксис
+
+```lua
+getsignalarguments(signal: RBXScriptSignal): {string}
+```
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | Signal, чей event descriptor signature нужно проверить. Userdata, не являющийся RBXScriptSignal, вызывает type error. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `arguments` | `&#123;string&#125;` | Array table из argument type name strings. Fallback table с "Variant" возвращается, когда signature data не удается прочитать или argument entries не создаются. |
+
+## Пример
+
+Inspect an RBXScriptSignal signature and print the argument type names Real can read.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote then
+    for _, typeName in ipairs(getsignalarguments(remote.OnClientEvent)) do
+        print(typeName)
+    end
+end
+```

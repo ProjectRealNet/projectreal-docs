@@ -1,0 +1,30 @@
+---
+title: "checkcaller"
+sidebarTitle: "checkcaller"
+description: "current Luau thread が Real caller context に存在するかを返します。この function は arguments を取らず、the current caller context の boolean result を push します。function は Lua call stack や function object を検査しません。"
+icon: "function"
+keywords: ["checkcaller","Closures"]
+---
+
+current Luau thread が Real caller context に存在するかを返します。この function は arguments を取らず、the current caller context の boolean result を push します。function は Lua call stack や function object を検査しません。
+
+## 構文
+
+```lua
+checkcaller(): boolean
+```
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `isCaller` | `boolean` | current Luau thread が Real caller context で tracked されている場合は true。それ以外は false。 |
+
+## 例
+
+Check whether the current thread is tracked by Real.
+
+```lua
+local tracked = checkcaller()
+print(tracked)
+```

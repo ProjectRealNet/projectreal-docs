@@ -1,0 +1,29 @@
+---
+title: "rconsoleclear"
+sidebarTitle: "rconsoleclear"
+description: "当存在 console window 时清除 current Windows console screen buffer。如果不存在 console window，call 会直接返回且不执行任何操作。"
+icon: "function"
+keywords: ["rconsoleclear","Console","consoleclear"]
+---
+
+当存在 console window 时清除 current Windows console screen buffer。如果不存在 console window，call 会直接返回且不执行任何操作。
+
+## 语法
+
+```lua
+rconsoleclear()
+```
+
+## 别名
+
+- `consoleclear`
+
+## 示例
+
+Clear the current console screen when a console window exists.
+
+```lua
+rconsolecreate()
+rconsoleprint("Preparing output...")
+rconsoleclear()
+```

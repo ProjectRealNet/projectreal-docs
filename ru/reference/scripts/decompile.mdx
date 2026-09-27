@@ -1,0 +1,50 @@
+---
+title: "decompile"
+sidebarTitle: "decompile"
+description: "Декомпилирует Roblox script и возвращает сгенерированный source text, когда bytecode доступен. argument должен быть поддерживаемой script Instance. Если usable bytecode недоступен, function возвращает nil."
+icon: "function"
+keywords: ["decompile","Scripts"]
+---
+
+Декомпилирует Roblox script и возвращает сгенерированный source text, когда bytecode доступен. argument должен быть поддерживаемой script Instance. Если usable bytecode недоступен, function возвращает nil.
+
+## Синтаксис
+
+```lua
+decompile(script: userdata): string | nil
+```
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | Script object для decompile. Поддерживаемые значения ClassName: ModuleScript, LocalScript, CoreScript и Script с RunContext Client. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `source` | `string \| nil` | Decompiler output string, caught decompiler exception text или nil, если usable embedded bytecode недоступен. |
+
+## Пример
+
+Decompile a supported Roblox script Instance. To decompile a whole game, iterate its descendants or use a saveinstance workflow.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local source = decompile(targetScript)
+
+    if source then
+        print(source)
+    end
+end
+```

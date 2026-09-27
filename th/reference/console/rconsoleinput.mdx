@@ -1,0 +1,37 @@
+---
+title: "rconsoleinput"
+sidebarTitle: "rconsoleinput"
+description: "yield ระหว่างอ่าน line หนึ่งจาก stdin ด้วย console input หลังจาก clear state ของ console input และ ignore input จนถึง newline ถัดไป string ที่คืนค่าถูก push ด้วย string return และไม่มี newline ปิดท้าย หากไม่มี console window การเรียกจะกลับโดยไม่มี values"
+icon: "function"
+keywords: ["rconsoleinput","Console","consoleinput"]
+---
+
+yield ระหว่างอ่าน line หนึ่งจาก stdin ด้วย console input หลังจาก clear state ของ console input และ ignore input จนถึง newline ถัดไป string ที่คืนค่าถูก push ด้วย string return และไม่มี newline ปิดท้าย หากไม่มี console window การเรียกจะกลับโดยไม่มี values
+
+## ไวยากรณ์
+
+```lua
+rconsoleinput(): string
+```
+
+## Aliases
+
+- `consoleinput`
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `input` | `string` | บรรทัดข้อความที่อ่านจากคอนโซล |
+
+## ตัวอย่าง
+
+Read one submitted line from the current Windows console.
+
+```lua
+rconsolecreate()
+rconsoleprint("Name: ")
+local name = rconsoleinput()
+rconsoleprint("Hello, ", name, "
+")
+```

@@ -1,0 +1,40 @@
+---
+title: "getrenderproperty"
+sidebarTitle: "getrenderproperty"
+description: "Mengembalikan hasil indexing argumen pertama dengan property key yang diberikan. Untuk Drawing object, ini menggunakan Drawing property lookup yang sama seperti object[property], sehingga unknown properties dan destroyed Drawing objects mengembalikan nil. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini."
+icon: "function"
+keywords: ["getrenderproperty","Drawing"]
+---
+
+Mengembalikan hasil indexing argumen pertama dengan property key yang diberikan. Untuk Drawing object, ini menggunakan Drawing property lookup yang sama seperti object[property], sehingga unknown properties dan destroyed Drawing objects mengembalikan nil. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini.
+
+## Sintaks
+
+```lua
+getrenderproperty(object: any, property: any): any
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | Nilai yang akan di-index. Dengan Drawing object, RealDrawingObject __index handler digunakan. |
+| `property` | `any` | Yes | property key yang digunakan untuk indexing. Drawing object properties berbasis strings. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `propertyValue` | `any` | Nilai yang dikembalikan dari indexing object dengan property, atau nil ketika Drawing __index handler tidak memiliki nilai untuk property tersebut. |
+
+## Contoh
+
+Read a Drawing property like direct indexing.
+
+```lua
+local line = Drawing.new("Line")
+line.Thickness = 3
+
+print(getrenderproperty(line, "Thickness"))
+print(getrenderproperty(line, "MissingProperty"))
+```

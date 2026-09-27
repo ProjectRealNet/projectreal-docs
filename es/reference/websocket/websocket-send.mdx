@@ -1,0 +1,34 @@
+---
+title: "WebSocket.Send"
+sidebarTitle: "WebSocket.Send"
+description: "Envía un Lua string mediante un WebSocket object devuelto por WebSocket.connect. La method espera la WebSocket table como primer argument y el message string como segundo argument. Lee el connection state del object, lanza \"WebSocket state is missing\" si esa object no existe, vuelve sin enviar cuando el state está destroyed o closed, y llama a curl_ws_send con CURLWS_TEXT por defecto o con CURLWS_BINARY cuando el tercer argument opcional es boolean true. No devuelve values ni informa la cantidad de bytes enviados."
+icon: "function"
+keywords: ["WebSocket.Send","WebSocket"]
+---
+
+Envía un Lua string mediante un WebSocket object devuelto por WebSocket.connect. La method espera la WebSocket table como primer argument y el message string como segundo argument. Lee el connection state del object, lanza "WebSocket state is missing" si esa object no existe, vuelve sin enviar cuando el state está destroyed o closed, y llama a curl_ws_send con CURLWS_TEXT por defecto o con CURLWS_BINARY cuando el tercer argument opcional es boolean true. No devuelve values ni informa la cantidad de bytes enviados.
+
+## Sintaxis
+
+```lua
+WebSocket.Send(socket: WebSocket, message: string, isBinary?: boolean)
+```
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `socket` | `WebSocket` | Yes | WebSocket table devuelta por WebSocket.connect. Send se resuelve desde la WebSocket object methods, por eso la forma documentada de llamada es socket:Send(..). |
+| `message` | `string` | Yes | Lua string payload que se pasa a curl_ws_send con su explicit byte length. |
+| `isBinary` | `boolean` | No | Cuando este argument está presente y es true, Send usa CURLWS_BINARY. De lo contrario usa CURLWS_TEXT. |
+
+## Ejemplo
+
+Send text or binary data through a WebSocket object returned by WebSocket.connect.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket:Send("hello")
+socket:Send(string.char(0, 1, 2, 3), true)
+```

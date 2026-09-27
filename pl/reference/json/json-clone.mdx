@@ -1,0 +1,61 @@
+---
+title: "json.clone"
+sidebarTitle: "json.clone"
+description: "Klonuje value przez encoding z json.encode semantics i decoding generated JSON z powrotem do Lua values."
+icon: "function"
+keywords: ["json.clone","JSON"]
+---
+
+Klonuje value przez encoding z json.encode semantics i decoding generated JSON z powrotem do Lua values.
+
+## Składnia
+
+```lua
+json.clone(value: any, options?: EncodeOptions): any
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value do encode i decode. Supported JSON values przechodza round-trip przez JSON; unsupported types sa kodowane jako null, chyba ze encode options zazadaja bledu. |
+| `options` | `EncodeOptions` | No | Optional encode options przekazywane do encode step, takie jak sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty i indent. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `clone` | `any` | Decoded value utworzony z encoded JSON. Objects i arrays sa new tables z JSON kind markers z decoder; JSON null values staja sie json.null. |
+
+## Typy
+
+### EncodeOptions
+
+Kontroluje serializację i formatowanie JSON.
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Włącza sformatowane, wielowierszowe wyjście JSON. |
+| `sortKeys` | `boolean` | No | Sortuje klucze obiektów przed kodowaniem. |
+| `emptyTableAsArray` | `boolean` | No | Koduje pustą tabelę jako tablicę zamiast obiektu. |
+| `errorOnUnsupported` | `boolean` | No | Zgłasza błąd zamiast zastępować nieobsługiwane wartości. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Koduje liczby NaN i nieskończone jako JSON null. |
+| `maxDepth` | `integer` | No | Ustawia maksymalną głębokość zagnieżdżenia, zaciśniętą w zakresie od 1 do 4096. |
+| `indent` | `string` | No | Ustawia ciąg wcięcia ograniczony do 32 znaków. |
+
+## Przykład
+
+Wykonaj round-trip JSON-compatible value przez json.encode i json.decode przed zmiana nested values.
+
+```lua
+local original = {
+    profile = { name = "Guest" },
+}
+
+local copy = json.clone(original)
+copy.profile.name = "Developer"
+
+print(original.profile.name)
+print(copy.profile.name)
+print(json.type(copy))
+```

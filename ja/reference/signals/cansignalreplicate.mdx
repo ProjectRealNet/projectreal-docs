@@ -1,0 +1,40 @@
+---
+title: "cansignalreplicate"
+sidebarTitle: "cansignalreplicate"
+description: "RBXScriptSignal が現在の NetworkClient replication layer から送信可能として合法かどうかを確認します。この function は最初の argument を RBXScriptSignal として検証し、signal の source instance と event descriptor を読み取り、replication layer signal replication validation の boolean 結果を返します。解決された replication layer reference 値が 0 の場合は false を返します。追加の arguments は読み取りません。この function は signal を確認するだけで、fire や replicate は行いません。getsignalwhitelist が返す whitelist table は、このコードパスでは使われません。"
+icon: "function"
+keywords: ["cansignalreplicate","Signals"]
+---
+
+RBXScriptSignal が現在の NetworkClient replication layer から送信可能として合法かどうかを確認します。この function は最初の argument を RBXScriptSignal として検証し、signal の source instance と event descriptor を読み取り、replication layer signal replication validation の boolean 結果を返します。解決された replication layer reference 値が 0 の場合は false を返します。追加の arguments は読み取りません。この function は signal を確認するだけで、fire や replicate は行いません。getsignalwhitelist が返す whitelist table は、このコードパスでは使われません。
+
+## 構文
+
+```lua
+cansignalreplicate(signal: RBXScriptSignal): boolean
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | 確認する signal。最初の argument は、Luau type name が RBXScriptSignal の object である必要があります。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `canReplicate` | `boolean` | replication layer signal replication validation チェックが返す boolean、または解決された replication layer reference 値が 0 の場合は false。 |
+
+## 例
+
+Check whether an RBXScriptSignal is legal to send before attempting to replicate it.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote then
+    print(cansignalreplicate(remote.OnClientEvent))
+end
+```

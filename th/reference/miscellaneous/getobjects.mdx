@@ -1,0 +1,41 @@
+---
+title: "GetObjects"
+sidebarTitle: "GetObjects"
+description: "Loads a local Roblox asset and returns a one-item table containing the loaded Instance. Use the method-call form game:GetObjects(asset)."
+icon: "function"
+keywords: ["GetObjects","Miscellaneous"]
+---
+
+Loads a local Roblox asset and returns a one-item table containing the loaded Instance. Use the method-call form game:GetObjects(asset).
+
+## ไวยากรณ์
+
+```lua
+GetObjects(context: DataModel, asset: string): { Instance }
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `context` | `DataModel` | Yes | Method-call self value. Use game:GetObjects(asset). |
+| `asset` | `string` | Yes | Asset string passed to Roblox local asset loading. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `objects` | `&#123; Instance &#125;` | Table whose first element is the loaded Instance. |
+
+## ตัวอย่าง
+
+Load a local asset through Roblox local asset loading and return it in a one-item table.
+
+```lua
+local objects = game:GetObjects("rbxassetid://123456789")
+local object = objects[1]
+
+if object then
+    print(object.Name)
+end
+```

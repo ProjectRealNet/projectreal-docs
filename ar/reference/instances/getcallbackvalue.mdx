@@ -1,0 +1,48 @@
+---
+title: "getcallbackvalue"
+sidebarTitle: "getcallbackvalue"
+description: "يقرأ Lua callback function مخزنة في callback property على Instance. يجب أن يكون الوسيط الأول Instance object ويجب أن يكون الوسيط الثاني string property name. يجب أن يكون instance reference صالحا. يتم حل property name عبر Roblox property metadata ويجب أن يشير إلى property نوعها LUA_CALLBACK. إذا كان property descriptor مفقودا، أو لم تكن property هي LUA_CALLBACK، أو كان callback field offset مفقودا، أو لم يتم تخزين callback، أو كان LiveLuaRef مفقودا، أو كان callback ينتمي إلى Lua global state مختلف، أو لم تكن القيمة المشار إليها function، ترجع function nil. كما تفحص async callback field fallback عندما لا يحتوي callback slot الأول على callback. لا تقوم function بتحديث property."
+icon: "function"
+keywords: ["getcallbackvalue","Instances","getcallbackmember"]
+---
+
+يقرأ Lua callback function مخزنة في callback property على Instance. يجب أن يكون الوسيط الأول Instance object ويجب أن يكون الوسيط الثاني string property name. يجب أن يكون instance reference صالحا. يتم حل property name عبر Roblox property metadata ويجب أن يشير إلى property نوعها LUA_CALLBACK. إذا كان property descriptor مفقودا، أو لم تكن property هي LUA_CALLBACK، أو كان callback field offset مفقودا، أو لم يتم تخزين callback، أو كان LiveLuaRef مفقودا، أو كان callback ينتمي إلى Lua global state مختلف، أو لم تكن القيمة المشار إليها function، ترجع function nil. كما تفحص async callback field fallback عندما لا يحتوي callback slot الأول على callback. لا تقوم function بتحديث property.
+
+## الصيغة
+
+```lua
+getcallbackvalue(instance: Instance, property: string): function | nil
+```
+
+## أسماء بديلة
+
+- `getcallbackmember`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object التي سيتم فحص callback property عليها. Invalid Instance values تطلق argument error. |
+| `property` | `string` | Yes | string property name يتم حله عبر Roblox property metadata. فقط LUA_CALLBACK properties يمكن أن ترجع function. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `callback` | `function \| nil` | Lua function المخزنة بواسطة callback property، أو nil عندما لا تستطيع function حل function قابلة للقراءة. |
+
+## مثال
+
+يقرأ callback function المخزنة في BindableFunction.OnInvoke.
+
+```lua
+local bindable = Instance.new("BindableFunction")
+bindable.OnInvoke = function(value)
+    return value * 2
+end
+
+local callback = getcallbackvalue(bindable, "OnInvoke")
+if callback then
+    print(callback(21))
+end
+```

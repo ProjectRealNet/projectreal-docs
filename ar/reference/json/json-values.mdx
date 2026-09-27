@@ -1,0 +1,39 @@
+---
+title: "json.values"
+sidebarTitle: "json.values"
+description: "يرجع direct values من table في table جديدة marked as JSON array. يتم تخطي JSON type marker entries."
+icon: "function"
+keywords: ["json.values","JSON"]
+---
+
+يرجع direct values من table في table جديدة marked as JSON array. يتم تخطي JSON type marker entries.
+
+## الصيغة
+
+```lua
+json.values(object: table): table
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | Table يتم enumerate لها. Function تتحقق من هذا argument باستخدام type checking. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `values` | `table` | New array-style table تحتوي direct values من input table. Output يكون marked as JSON array. Enumeration تستخدم table iteration، لذلك لا يوجد ordering guarantee ظاهر في function. |
+
+## مثال
+
+اجمع direct values من table داخل JSON array-marked table.
+
+```lua
+local list = json.array({ "one", "two" })
+
+for _, value in ipairs(json.values(list)) do
+    print(value)
+end
+```

@@ -1,0 +1,40 @@
+---
+title: "getrenderproperty"
+sidebarTitle: "getrenderproperty"
+description: "Gibt das Ergebnis zurück, wenn der erste Parameter mit dem gegebenen property key indiziert wird. Für Drawing object nutzt das dasselbe Drawing property lookup wie object[property], daher geben unknown properties und destroyed Drawing objects nil zurück. the Drawing API registriert diese API nur, wenn the required rendering environment is active true ist; wenn diese Prüfung false ist, kehrt der initializer zurück, bevor diese globals erstellt werden."
+icon: "function"
+keywords: ["getrenderproperty","Drawing"]
+---
+
+Gibt das Ergebnis zurück, wenn der erste Parameter mit dem gegebenen property key indiziert wird. Für Drawing object nutzt das dasselbe Drawing property lookup wie object[property], daher geben unknown properties und destroyed Drawing objects nil zurück. the Drawing API registriert diese API nur, wenn the required rendering environment is active true ist; wenn diese Prüfung false ist, kehrt der initializer zurück, bevor diese globals erstellt werden.
+
+## Syntax
+
+```lua
+getrenderproperty(object: any, property: any): any
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | Wert, der indiziert wird. Bei Drawing object wird der RealDrawingObject __index handler verwendet. |
+| `property` | `any` | Yes | property key für die Indizierung. Drawing object properties sind string-basiert. |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `propertyValue` | `any` | Wert, der durch Indizieren von object mit property zurückgegeben wird, oder nil, wenn der Drawing __index handler keinen Wert für diese property hat. |
+
+## Beispiel
+
+Read a Drawing property like direct indexing.
+
+```lua
+local line = Drawing.new("Line")
+line.Thickness = 3
+
+print(getrenderproperty(line, "Thickness"))
+print(getrenderproperty(line, "MissingProperty"))
+```

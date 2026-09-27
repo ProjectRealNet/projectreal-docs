@@ -1,0 +1,59 @@
+---
+title: "openfolderdialog"
+sidebarTitle: "openfolderdialog"
+description: "Windows file picker 와 folder selection mode 를 통해 Windows folder picker 를 열고 선택된 폴더를 file item 으로 반환합니다."
+icon: "function"
+keywords: ["openfolderdialog","Filesystem"]
+---
+
+Windows file picker 와 folder selection mode 를 통해 Windows folder picker 를 열고 선택된 폴더를 file item 으로 반환합니다.
+
+## 문법
+
+```lua
+openfolderdialog(options?: DialogOptions): FileSystemItem | nil
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. openfolderdialog 에서는 title 과 defaultPath 가 사용됩니다. defaultPath 는 existing directory 로 resolve 될 때만 적용됩니다. extensionFilter 는 shared dialog options parser 가 받지만, folder selection 은 folder selection mode 로 활성화됩니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `folder` | `FileSystemItem \| nil` | Selected folder item 이거나 dialog 가 취소되면 nil 입니다. Dialog failures 는 Failed to open folder dialog 를 throw 합니다. |
+
+## 타입
+
+### DialogOptions
+
+기본 파일 또는 폴더 선택 대화 상자를 구성합니다.
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `title` | `string` | No | 대화 상자 창 제목을 설정합니다. |
+| `defaultPath` | `string` | No | 대화 상자가 열릴 때 표시되는 디렉터리를 선택합니다. |
+| `extensionFilter` | `&#123;string&#125;` | No | 선택 가능한 파일을 앞에 점이 있거나 없이 나열된 확장자로 제한합니다. |
+| `suggestedName` | `string` | No | 저장 대화 상자에 초기 파일 이름을 제공합니다. |
+| `defaultExtension` | `string` | No | 입력한 파일 이름이 없을 때 사용되는 확장자를 설정합니다. |
+
+## 예제
+
+folder picker 를 열고 selected folder item 또는 cancellation 을 처리합니다.
+
+```lua
+local folder = openfolderdialog({
+    title = "Choose a folder",
+    defaultPath = ".",
+})
+
+if folder then
+    print(folder:GetName())
+    print(folder:IsFolder())
+else
+    print("No folder selected")
+end
+```

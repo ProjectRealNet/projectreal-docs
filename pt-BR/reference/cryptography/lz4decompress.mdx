@@ -1,0 +1,47 @@
+---
+title: "lz4decompress"
+sidebarTitle: "lz4decompress"
+description: "Descompacta raw LZ4 block bytes com LZ4 block decompression e retorna raw decompressed bytes como uma string Lua."
+icon: "function"
+keywords: ["lz4decompress","Cryptography","crypt.lz4decompress","crypt.lz4.decompress","lz4.decompress"]
+---
+
+Descompacta raw LZ4 block bytes com LZ4 block decompression e retorna raw decompressed bytes como uma string Lua.
+
+## Sintaxe
+
+```lua
+lz4decompress(data: string, originalSize?: number): string
+```
+
+## Aliases
+
+- `crypt.lz4decompress`
+- `crypt.lz4.decompress`
+- `lz4.decompress`
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Raw compressed bytes passados para LZ4 block decompression. |
+| `originalSize` | `number` | No | Output buffer size passado como dstCapacity. Para a saida de lz4compress, passe o tamanho original descompactado em bytes; quando omitido, o tamanho da entrada compactada e usado. |
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `decompressed` | `string` | Raw decompressed bytes retornados como uma string Lua. A saida pode ser menor que originalSize. |
+
+## Exemplo
+
+Descompacte LZ4 bytes passando o tamanho original descompactado.
+
+```lua
+local source = "Real Docs"
+local compressed = lz4compress(source)
+local decompressed = lz4decompress(compressed, #source)
+
+print(decompressed)
+print(decompressed == source)
+```

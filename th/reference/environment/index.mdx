@@ -1,0 +1,18 @@
+---
+title: "Environment"
+description: "เข้าถึงสภาพแวดล้อมรันไทม์และออบเจ็กต์ที่รวบรวมขยะ"
+icon: "folder-code"
+---
+
+เข้าถึงสภาพแวดล้อมรันไทม์และออบเจ็กต์ที่รวบรวมขยะ
+
+| การนำทางฟังก์ชัน | คำอธิบาย |
+| --- | --- |
+| [`filtergc`](./filtergc) | ค้นหา live garbage-collected tables หรือ functions ที่ตรงกับ filters ที่ให้มา filterType ต้องเป็น "table" หรือ "function" และ options ต้องเป็น table |
+| [`getgc`](./getgc) | Returns an array table of live Luau garbage-collected objects visible to the API. Functions and userdata-like objects are included by default. Tables are included only when includeTables is true. get_gc_objects is an alias. |
+| [`getgenv`](./getgenv) | คืน current executor environment table โดย pushing LUA_ENVIRONINDEX. function ไม่รับ arguments, คืน exactly one value, และไม่มี registered alias. call-sites ใน repository ใช้ returned table เพื่ออ่านและเขียน shared executor globals เช่น __siApiCache และ saveinstance. |
+| [`getrenv`](./getrenv) | Returns the Roblox global environment table. The function takes no arguments and returns exactly one value. |
+| [`getscriptglobals`](./getscriptglobals) | คืน new table ที่มี current LUA_GLOBALSINDEX values สำหรับ _G และ shared. function ไม่รับ arguments, สร้าง fresh table, กำหนด _G จาก LUA_GLOBALSINDEX._G และ shared จาก LUA_GLOBALSINDEX.shared, แล้วคืน exactly one value. ไม่ได้คืน full global table และไม่มี alias ที่ register สำหรับ getscriptglobals. |
+| [`gettenv`](./gettenv) | Returns the environment table stored on a Luau thread. getstateenv is an alias. |
+| [`setclipboard`](./setclipboard) | Writes one value to the Windows system clipboard as text. The value is converted to a string. The function returns no status value, whether the clipboard write succeeds or fails. toclipboard is an alias. |
+| [`setrbxclipboard`](./setrbxclipboard) | Writes a required string to the Windows clipboard using Roblox Studio clipboard data format. The function returns no status value, whether the clipboard write succeeds or fails. |

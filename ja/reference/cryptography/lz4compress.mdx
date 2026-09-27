@@ -1,0 +1,45 @@
+---
+title: "lz4compress"
+sidebarTitle: "lz4compress"
+description: "Lua string のバイトを LZ4 block compression で圧縮し、raw compressed bytes を Lua string として返します。"
+icon: "function"
+keywords: ["lz4compress","Cryptography","crypt.lz4compress","crypt.lz4.compress","lz4.compress"]
+---
+
+Lua string のバイトを LZ4 block compression で圧縮し、raw compressed bytes を Lua string として返します。
+
+## 構文
+
+```lua
+lz4compress(data: string): string
+```
+
+## エイリアス
+
+- `crypt.lz4compress`
+- `crypt.lz4.compress`
+- `lz4.compress`
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | LZ4 block compression に渡される Lua string のバイト。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `compressed` | `string` | Lua string として返される raw compressed bytes。original size は出力に保存されません。 |
+
+## 例
+
+Lua string のバイトを圧縮し、original size を渡して復元します。
+
+```lua
+local source = string.rep("Real Docs ", 100)
+local compressed = lz4compress(source)
+local restored = lz4decompress(compressed, #source)
+
+print(#source, #compressed, restored == source)
+```

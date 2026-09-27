@@ -1,0 +1,60 @@
+---
+title: "json.pretty"
+sidebarTitle: "json.pretty"
+description: "يسلسل Lua value إلى readable formatted JSON string باستخدام نفس function مثل json.encodePretty."
+icon: "function"
+keywords: ["json.pretty","JSON"]
+---
+
+يسلسل Lua value إلى readable formatted JSON string باستخدام نفس function مثل json.encodePretty.
+
+## الصيغة
+
+```lua
+json.pretty(value: any, options?: EncodeOptions): string
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value الذي يتم encode له. nil و booleans و numbers و strings و tables و json.null يتم التعامل معها مباشرة. Unsupported Lua types يتم encode لها كـ null إلا إذا كان errorOnUnsupported true. |
+| `options` | `EncodeOptions` | No | Optional encode options. json.pretty يقرأ نفس options مثل json.encodePretty، ثم يفرض pretty على true. بدون options يستخدم two-space indent. number تضبط indent width مع clamp إلى 0.16، و string تضبط indent text، و table يمكنها ضبط sortKeys و emptyTableAsArray و errorOnUnsupported و encodeInvalidNumbersAsNull و maxDepth و indent. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `json` | `string` | Readable formatted JSON string. Encoding errors يتم رميها كـ Luau errors. |
+
+## الأنواع
+
+### EncodeOptions
+
+يتحكم في تسلسل JSON وتنسيقه.
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | لتمكين إخراج JSON المنسق والمتعدد الأسطر. |
+| `sortKeys` | `boolean` | No | فرز مفاتيح الكائنات قبل الترميز. |
+| `emptyTableAsArray` | `boolean` | No | ترميز جدول فارغ كمصفوفة بدلاً من كائن. |
+| `errorOnUnsupported` | `boolean` | No | يثير خطأ بدلاً من استبدال قيم غير مدعومة. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | يشفر NaN والأرقام اللانهائية كـ JSON null. |
+| `maxDepth` | `integer` | No | يضبط الحد الأقصى لعمق التعشيش، المثبت من 1 إلى 4096. |
+| `indent` | `string` | No | يضبط سلسلة المسافة البادئة، والتي تقتصر على 32 حرفًا. |
+
+## مثال
+
+Encode JSON-compatible values كـ readable formatted JSON باستخدام json.encodePretty alias.
+
+```lua
+local text = json.pretty({
+    category = "JSON",
+    tags = json.array({ "pretty", "alias" }),
+    missing = json.null,
+}, {
+    sortKeys = true,
+})
+
+print(text)
+```

@@ -1,0 +1,28 @@
+---
+title: "rconsolehide"
+sidebarTitle: "rconsolehide"
+description: "يخفي Windows console window الحالية باستخدام Windows console visibility update مع hide mode. لا تستدعي function ‏console detachment، لذلك لا تفصل عن console ولا تدمرها. إذا لم تكن هناك console window، يرجع الاستدعاء بدون أي إجراء."
+icon: "function"
+keywords: ["rconsolehide","Console","consolehide"]
+---
+
+يخفي Windows console window الحالية باستخدام Windows console visibility update مع hide mode. لا تستدعي function ‏console detachment، لذلك لا تفصل عن console ولا تدمرها. إذا لم تكن هناك console window، يرجع الاستدعاء بدون أي إجراء.
+
+## الصيغة
+
+```lua
+rconsolehide()
+```
+
+## أسماء بديلة
+
+- `consolehide`
+
+## مثال
+
+Hide the current Windows console without detaching from it.
+
+```lua
+rconsolecreate()
+rconsolehide()
+```

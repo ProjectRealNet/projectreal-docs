@@ -1,0 +1,31 @@
+---
+title: "WebSocket.Close"
+sidebarTitle: "WebSocket.Close"
+description: "Ferme un WebSocket object renvoyé par WebSocket.connect. Le premier argument doit être une table. La fonction lit le field connection state de l'object. Lorsqu'un live state existe et n'est pas déjà destroyed ou closed, elle met isClosed à true et envoie un frame close frame vide with le WebSocket connection stocké. Elle n'accepte pas de close code ni de reason et ne renvoie aucune value."
+icon: "function"
+keywords: ["WebSocket.Close","WebSocket"]
+---
+
+Ferme un WebSocket object renvoyé par WebSocket.connect. Le premier argument doit être une table. La fonction lit le field connection state de l'object. Lorsqu'un live state existe et n'est pas déjà destroyed ou closed, elle met isClosed à true et envoie un frame close frame vide with le WebSocket connection stocké. Elle n'accepte pas de close code ni de reason et ne renvoie aucune value.
+
+## Syntaxe
+
+```lua
+WebSocket.Close(socket: WebSocket)
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `socket` | `WebSocket` | Yes | WebSocket table renvoyée par WebSocket.connect. L'function attend que cette table contienne le connection state. |
+
+## Exemple
+
+Close a WebSocket object returned by WebSocket.connect.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket:Close()
+```

@@ -1,0 +1,54 @@
+---
+title: "getproto"
+sidebarTitle: "getproto"
+description: "Returns a nested Lua function by one-based index. target must be a Lua function or stack level number. Invalid stack levels raise \"Level out of range\", non-Lua functions raise \"Lua function expected\", and indexes outside the nested function range raise \"index out of bounds\". When active is true, returns currently live closures for that nested function instead. debug.getproto is an alias."
+icon: "function"
+keywords: ["getproto","Debug","debug.getproto"]
+---
+
+Returns a nested Lua function by one-based index. target must be a Lua function or stack level number. Invalid stack levels raise "Level out of range", non-Lua functions raise "Lua function expected", and indexes outside the nested function range raise "index out of bounds". When active is true, returns currently live closures for that nested function instead. debug.getproto is an alias.
+
+## Синтаксис
+
+```lua
+getproto(target: function | number, index: number, active?: boolean): function | table
+```
+
+## Алиасы
+
+- `debug.getproto`
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `target` | `function \| number` | Yes | Lua function or stack level whose nested functions are inspected. |
+| `index` | `number` | Yes | One-based nested function index. |
+| `active` | `boolean` | No | When true, returns live closures for the selected nested function instead of a standalone function. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `proto` | `function \| table` | Nested function when active is false or omitted, or a table of live closures when active is true. |
+
+## Пример
+
+Read a nested Proto as a cloned closure, or list live closures for that nested Proto.
+
+```lua
+local function outer()
+    local function inner()
+        return "ready"
+    end
+
+    return inner
+end
+
+local proto = getproto(outer, 1)
+local active = getproto(outer, 1, true)
+
+print(type(proto))
+print(#active)
+print(type(debug.getproto(outer, 1)))
+```

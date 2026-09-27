@@ -1,0 +1,59 @@
+---
+title: "json.decodeSafe"
+sidebarTitle: "json.decodeSafe"
+description: "使用与 json.decode 相同的 parser 解析 JSON，并在 parse errors 时返回 success flag，而不是抛出错误。"
+icon: "function"
+keywords: ["json.decodeSafe","JSON"]
+---
+
+使用与 json.decode 相同的 parser 解析 JSON，并在 parse errors 时返回 success flag，而不是抛出错误。
+
+## 语法
+
+```lua
+json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | 要 parse 的 JSON text。这个 argument 会在 parse errors 被 catch 之前检查为 string。 |
+| `options` | `DecodeOptions` | No | Optional decode options。boolean 会直接设置 useNull。table 可以设置 useNull 和 maxDepth；maxDepth 会 clamp 到 1 到 4096。Invalid option argument types 会在 parse errors 被 catch 之前检查。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `success` | `boolean` | parsing 成功时为 True，parser 报告 error 时为 false。 |
+| `decoded` | `any \| nil` | 成功时的 Decoded value，parse failure 时为 nil。有效的 JSON false 会返回 success 为 true 且 decoded 为 false，因此请检查 success return value。 |
+| `errorMessage` | `string \| nil` | parse failure 时的 Error message，否则为 nil。message 包含 json.decodeSafe prefix 和 parser position。 |
+| `errorPosition` | `number \| nil` | parse failure 时的 Parser byte position，否则为 nil。 |
+
+## 类型
+
+### DecodeOptions
+
+控制 JSON 解析行为。
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | 使用库的 null 标记而不是 nil 来表示 JSON null。 |
+| `maxDepth` | `integer` | No | 设置最大嵌套深度，范围为 1 到 4096。 |
+
+## 示例
+
+Parse JSON，并使用 success return value 区分 valid false 或 nil results 与 parse failures。
+
+```lua
+local ok, value = json.decodeSafe("false")
+
+if ok then
+    print(value == false)
+end
+
+local parsed, _, message, position = json.decodeSafe("{")
+if not parsed then
+    warn(message, position)
+end
+```

@@ -1,0 +1,78 @@
+---
+title: "imgui.create"
+sidebarTitle: "imgui.create"
+description: "Membuat ImGui window record yang dilacak dan mengembalikan ImGuiWindow object. Argumen title memakai \"REAL_IM_UI\" saat dihilangkan atau nil. Title harus unik di antara ImGui windows yang sedang dilacak; membuat tracked window lain dengan title yang sama menimbulkan Lua error."
+icon: "function"
+keywords: ["imgui.create","ImGui"]
+---
+
+Membuat ImGui window record yang dilacak dan mengembalikan ImGuiWindow object. Argumen title memakai "REAL_IM_UI" saat dihilangkan atau nil. Title harus unik di antara ImGui windows yang sedang dilacak; membuat tracked window lain dengan title yang sama menimbulkan Lua error.
+
+## Sintaks
+
+```lua
+imgui.create(title?: string): ImGuiWindow
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Optional window title. Saat dihilangkan atau nil, "REAL_IM_UI" digunakan. Title duplikat di antara ImGui windows yang sedang dilacak menimbulkan Lua error. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `window` | `ImGuiWindow` | ImGuiWindow object dengan window methods yang terdaftar pada methods-nya. |
+
+## Tipe
+
+### ImGuiWindow
+
+Pegangan dikembalikan oleh imgui.create. Metode pembuatan kontrol mengembalikan pegangan yang sama sehingga panggilan dapat dirangkai.
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | Menambahkan tombol dan memanggil panggilan balik setelah klik. |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | Menambahkan kotak centang yang diinisialisasi ke status yang disediakan. |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | Kontrol grup ditambahkan oleh callback konten di bawah header yang diciutkan. |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | Menambahkan editor RGBA; menghilangkan komponen warna default ke 1.0. |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | Menambahkan input teks satu baris; menghilangkan default teks awal ke string kosong. |
+| `SameLine` | `() -> ImGuiWindow` | Yes | Tempatkan kontrol berikutnya pada baris yang sama. |
+| `Separator` | `() -> ImGuiWindow` | Yes | Menambahkan pemisah horizontal. |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Menambahkan penggeser titik mengambang. |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Menambahkan penggeser bilangan bulat. |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | Menambahkan teks non-interaktif. |
+| `destroy` | `() -> ()` | Yes | Menghapus jendela dan melepaskan panggilan balik terdaftarnya. |
+
+## Contoh
+
+Buat ImGui window dan tambahkan controls ke ImGuiWindow object yang dikembalikan.
+
+```lua
+local window = imgui.create("Runtime settings")
+
+window:Text("Controls")
+window:Separator()
+
+window:Checkbox("Enabled", true, function(enabled)
+    print("Enabled:", enabled)
+end)
+
+window:SliderFloat("Opacity", 0.8, 0, 1, function(value)
+    print("Opacity:", value)
+end)
+
+window:InputText("Label", "Real", function(text)
+    print("Label:", text)
+end)
+
+window:ColorPicker("Accent", 0.3, 0.6, 1, 1, function(red, green, blue, alpha)
+    print(red, green, blue, alpha)
+end)
+
+window:CollapsingHeader("Advanced", function(section)
+    section:Text("Advanced controls go here")
+end)
+```

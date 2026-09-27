@@ -1,0 +1,45 @@
+---
+title: "cloneref"
+sidebarTitle: "cloneref"
+description: "Помещает новую ссылку Instance для того же базового указателя Instance и возвращает ее."
+icon: "function"
+keywords: ["cloneref","Cache","clonereference"]
+---
+
+Помещает новую ссылку Instance для того же базового указателя Instance и возвращает ее.
+
+## Синтаксис
+
+```lua
+cloneref(instance: Instance): Instance
+```
+
+## Алиасы
+
+- `clonereference`
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object, используемая как источник для новой ссылки. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `reference` | `Instance` | Ссылка Instance, возвращенная после выполнения Instance cache с исходным указателем object. |
+
+## Пример
+
+Создайте другую ссылку Instance из существующей Instance object.
+
+```lua
+local Players = game:GetService("Players")
+
+local reference = cloneref(Players)
+print(reference)
+
+local sameAlias = clonereference(Players)
+print(sameAlias)
+```

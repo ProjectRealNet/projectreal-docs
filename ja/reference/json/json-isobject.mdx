@@ -1,0 +1,41 @@
+---
+title: "json.isObject"
+sidebarTitle: "json.isObject"
+description: "Value が Real JSON table detection により treated as a JSON object されるかを返します。"
+icon: "function"
+keywords: ["json.isObject","JSON"]
+---
+
+Value が Real JSON table detection により treated as a JSON object されるかを返します。
+
+## 構文
+
+```lua
+json.isObject(value: any): boolean
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Inspect する value。Non-table values は false を返します。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `isObject` | `boolean` | Value が table marked as a JSON object、または Real JSON table detection が table を array として分類しない場合 true。Empty unmarked tables は true を返します。 |
+
+## 例
+
+Table が Real JSON encoder により treated as a JSON object されるかを check します。
+
+```lua
+local record = json.object({ name = "Real" })
+local items = json.array({ "one", "two" })
+local empty = {}
+
+print(json.isObject(record))
+print(json.isObject(items))
+print(json.isObject(empty))
+```

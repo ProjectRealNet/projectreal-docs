@@ -1,0 +1,47 @@
+---
+title: "setupvalue"
+sidebarTitle: "setupvalue"
+description: "Replaces one upvalue in a Lua function or stack level by one-based index. Invalid stack levels raise \"Level out of range\", non-Lua functions raise \"Lua function expected\", indexes below 1 raise \"Upvalue index starts at 1\", and indexes past the available upvalues raise \"Upvalue index is out of range\". debug.setupvalue is an alias."
+icon: "function"
+keywords: ["setupvalue","Debug","debug.setupvalue"]
+---
+
+Replaces one upvalue in a Lua function or stack level by one-based index. Invalid stack levels raise "Level out of range", non-Lua functions raise "Lua function expected", indexes below 1 raise "Upvalue index starts at 1", and indexes past the available upvalues raise "Upvalue index is out of range". debug.setupvalue is an alias.
+
+## الصيغة
+
+```lua
+setupvalue(target: function | number, index: number, value: any)
+```
+
+## أسماء بديلة
+
+- `debug.setupvalue`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `target` | `function \| number` | Yes | Lua function or stack level whose upvalue is modified. |
+| `index` | `number` | Yes | One-based upvalue index. |
+| `value` | `any` | Yes | New value for the upvalue. |
+
+## مثال
+
+Replace one upvalue in a Lua closure or stack level.
+
+```lua
+local captured = "before"
+
+local function target()
+    return captured
+end
+
+print(target())
+
+setupvalue(target, 1, "after")
+print(target())
+
+debug.setupvalue(target, 1, "done")
+print(target())
+```

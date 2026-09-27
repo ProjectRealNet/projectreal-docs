@@ -1,0 +1,46 @@
+---
+title: "crypt.encrypt"
+sidebarTitle: "crypt.encrypt"
+description: "Lua string のバイトを Base64 からデコードされた key で AES CBC、ECB、または CTR を使って暗号化し、Base64 ciphertext と IV 結果を返します。"
+icon: "function"
+keywords: ["crypt.encrypt","Cryptography"]
+---
+
+Lua string のバイトを Base64 からデコードされた key で AES CBC、ECB、または CTR を使って暗号化し、Base64 ciphertext と IV 結果を返します。
+
+## 構文
+
+```lua
+crypt.encrypt(data: string, key: string, iv?: string, mode?: "CBC" | "ECB" | "CTR" | "AES-CBC" | "AES-ECB" | "AES-CTR"): string | string | nil
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Lua string から読み取られる plaintext バイト。 |
+| `key` | `string` | Yes | AES に渡される前にデコードされる Base64 key。 |
+| `iv` | `string` | No | CBC または CTR 用の任意の Base64 IV。CBC または CTR で省略した場合、新しい AES block size の IV が生成されます。 |
+| `mode` | `"CBC" \| "ECB" \| "CTR" \| "AES-CBC" \| "AES-ECB" \| "AES-CTR"` | No | AES mode。存在する場合は AES- prefix が削除されます。デフォルトは AES-CBC です。CBC と ECB は crypto library DEFAULT_PADDING を使い、CTR は padding を使いません。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `ciphertext` | `string` | Base64-encoded ciphertext。 |
+| `initializationVector` | `string \| nil` | CBC と CTR では Base64-encoded IV、ECB では nil。 |
+
+## 例
+
+Lua string を暗号化し、返された ciphertext を返された IV で復号します。
+
+```lua
+local key = crypt.generatekey()
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+local plaintext = crypt.decrypt(ciphertext, key, iv)
+
+print(ciphertext)
+print(iv)
+print(plaintext)
+```

@@ -1,0 +1,32 @@
+---
+title: "getscriptglobals"
+sidebarTitle: "getscriptglobals"
+description: "คืน new table ที่มี current LUA_GLOBALSINDEX values สำหรับ _G และ shared. function ไม่รับ arguments, สร้าง fresh table, กำหนด _G จาก LUA_GLOBALSINDEX._G และ shared จาก LUA_GLOBALSINDEX.shared, แล้วคืน exactly one value. ไม่ได้คืน full global table และไม่มี alias ที่ register สำหรับ getscriptglobals."
+icon: "function"
+keywords: ["getscriptglobals","Environment"]
+---
+
+คืน new table ที่มี current LUA_GLOBALSINDEX values สำหรับ _G และ shared. function ไม่รับ arguments, สร้าง fresh table, กำหนด _G จาก LUA_GLOBALSINDEX._G และ shared จาก LUA_GLOBALSINDEX.shared, แล้วคืน exactly one value. ไม่ได้คืน full global table และไม่มี alias ที่ register สำหรับ getscriptglobals.
+
+## ไวยากรณ์
+
+```lua
+getscriptglobals(): table
+```
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `globals` | `table` | Fresh table ที่มี _G และ shared fields คัดลอกจาก LUA_GLOBALSINDEX. |
+
+## ตัวอย่าง
+
+Read the _G and shared values copied from LUA_GLOBALSINDEX.
+
+```lua
+local globals = getscriptglobals()
+
+print(globals._G)
+print(globals.shared)
+```

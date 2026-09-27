@@ -1,0 +1,43 @@
+---
+title: "json.keys"
+sidebarTitle: "json.keys"
+description: "返回 table 的 visible keys，放入 new table marked as a JSON array。"
+icon: "function"
+keywords: ["json.keys","JSON"]
+---
+
+返回 table 的 visible keys，放入 new table marked as a JSON array。
+
+## 语法
+
+```lua
+json.keys(object: table): table
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | 要 inspect 的 table。function 要求这个 argument 是 table。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `keys` | `table` | 包含 source table keys 的 new array table，不包含 Real JSON type marker。Order 遵循 table iteration iteration，此 function 不会 sorted。 |
+
+## 示例
+
+将 table 的 visible keys collect 到 new JSON array table。
+
+```lua
+local record = {
+    name = "Real",
+    enabled = true,
+    [5] = "numeric key",
+}
+
+for _, key in ipairs(json.keys(record)) do
+    print(key)
+end
+```

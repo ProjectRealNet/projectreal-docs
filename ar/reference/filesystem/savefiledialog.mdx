@@ -1,0 +1,62 @@
+---
+title: "savefiledialog"
+sidebarTitle: "savefiledialog"
+description: "يفتح Windows save dialog عبر Windows save dialog، يكتب Lua string bytes المقدمة إلى selected path، ويعيد saved file كـ file item."
+icon: "function"
+keywords: ["savefiledialog","Filesystem"]
+---
+
+يفتح Windows save dialog عبر Windows save dialog، يكتب Lua string bytes المقدمة إلى selected path، ويعيد saved file كـ file item.
+
+## الصيغة
+
+```lua
+savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `content` | `string` | Yes | Lua string bytes التي ستكتب إلى selected file. يتم فتح الملف في binary truncate mode بعد أن يؤكد المستخدم path. |
+| `options` | `DialogOptions` | No | Optional table. savefiledialog يستخدم title و defaultPath و extensionFilter و suggestedName و defaultExtension. extensionFilter هي table من extension strings؛ تتم إزالة . أو *. من البداية قبل أن يصبح كل filter بصيغة *.&lt;extension>. defaultExtension يزيل leading . characters قبل تمريره إلى SetDefaultExtension. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Saved file item، أو nil عند إلغاء dialog. Dialog or write failures ترمي Failed to save file. |
+
+## الأنواع
+
+### DialogOptions
+
+تكوين مربع حوار اختيار الملف أو المجلد الأصلي.
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `title` | `string` | No | يضبط عنوان نافذة الحوار. |
+| `defaultPath` | `string` | No | يحدد الدليل الذي يظهر عند فتح مربع الحوار. |
+| `extensionFilter` | `&#123;string&#125;` | No | يحد الملفات القابلة للتحديد من الامتدادات المدرجة، مع أو بدون نقطة بادئة. |
+| `suggestedName` | `string` | No | يوفر اسم الملف الأولي في مربعات حوار الحفظ. |
+| `defaultExtension` | `string` | No | يضبط الامتداد المستخدم عندما لا يكون اسم الملف الذي تم إدخاله خاليًا. |
+
+## مثال
+
+اكتب generated content إلى path يختاره المستخدم وتعامل مع saved file item.
+
+```lua
+local saved = savefiledialog("Example output", {
+    title = "Save output",
+    suggestedName = "output.txt",
+    defaultExtension = "txt",
+    extensionFilter = { "txt" },
+})
+
+if saved then
+    print(saved:GetName())
+    print(saved:IsFile())
+else
+    print("No file saved")
+end
+```

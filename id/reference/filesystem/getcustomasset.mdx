@@ -1,0 +1,44 @@
+---
+title: "getcustomasset"
+sidebarTitle: "getcustomasset"
+description: "Menyalin regular workspace file yang ada ke ExtraContent/<hwid>/ dan mengembalikan rbxasset:// string untuk asset path yang disalin."
+icon: "function"
+keywords: ["getcustomasset","Filesystem","getsynasset"]
+---
+
+Menyalin regular workspace file yang ada ke ExtraContent/&lt;hwid>/ dan mengembalikan rbxasset:// string untuk asset path yang disalin.
+
+## Sintaks
+
+```lua
+getcustomasset(path: string): string
+```
+
+## Alias
+
+- `getsynasset`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path yang diselesaikan di dalam workspace setelah separator normalization dan workspace-boundary checks. Target harus ada dan berupa regular file; folders, invalid filenames, DOS device names, dan blocked extensions tidak diterima. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `assetId` | `string` | String dengan bentuk rbxasset://&lt;hwid>/&lt;workspace-relative-path>, memakai forward slashes untuk relative path. |
+
+## Contoh
+
+Salin workspace file yang ada ke asset folder dan cetak rbxasset path yang dikembalikan.
+
+```lua
+local path = "assets/example.txt"
+writefile(path, "asset bytes")
+
+local assetId = getcustomasset(path)
+print(assetId)
+print(getsynasset(path))
+```

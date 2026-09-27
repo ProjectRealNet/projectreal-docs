@@ -1,0 +1,39 @@
+---
+title: "getfflag"
+sidebarTitle: "getfflag"
+description: "Reads a Roblox fast flag by exact name and returns its value as a string. Missing or unsupported flags return nil."
+icon: "function"
+keywords: ["getfflag","Miscellaneous"]
+---
+
+Reads a Roblox fast flag by exact name and returns its value as a string. Missing or unsupported flags return nil.
+
+## 構文
+
+```lua
+getfflag(name: string): string | nil
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `name` | `string` | Yes | Exact fast flag name to read. |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `flagValue` | `string \| nil` | String form of the flag value, or nil when the flag is missing or unsupported. |
+
+## 例
+
+Read a Roblox fast flag by exact name. Known bool and int flags are returned as strings.
+
+```lua
+local value = getfflag("SomeFFlagName")
+
+if value ~= nil then
+    print(value)
+end
+```

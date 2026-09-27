@@ -1,0 +1,61 @@
+---
+title: "json.clone"
+sidebarTitle: "json.clone"
+description: "Clone value bang cach encoding voi json.encode semantics roi decoding generated JSON tro lai thanh Lua values."
+icon: "function"
+keywords: ["json.clone","JSON"]
+---
+
+Clone value bang cach encoding voi json.encode semantics roi decoding generated JSON tro lai thanh Lua values.
+
+## Cú pháp
+
+```lua
+json.clone(value: any, options?: EncodeOptions): any
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value de encode va decode. Supported JSON values round-trip qua JSON; unsupported types duoc encode thanh null tru khi encode options yeu cau error. |
+| `options` | `EncodeOptions` | No | Optional encode options duoc truyen vao encode step, nhu sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty va indent. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `clone` | `any` | Decoded value duoc tao tu encoded JSON. Objects va arrays la new tables voi JSON kind markers tu decoder; JSON null values tro thanh json.null. |
+
+## Kiểu
+
+### EncodeOptions
+
+Kiểm soát việc tuần tự hóa và định dạng JSON.
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Cho phép xuất JSON nhiều dòng, được định dạng. |
+| `sortKeys` | `boolean` | No | Sắp xếp các khóa đối tượng trước khi mã hóa. |
+| `emptyTableAsArray` | `boolean` | No | Mã hóa một bảng trống thành một mảng thay vì một đối tượng. |
+| `errorOnUnsupported` | `boolean` | No | Phát sinh lỗi thay vì thay thế các giá trị không được hỗ trợ. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Mã hóa NaN và số vô hạn dưới dạng JSON null. |
+| `maxDepth` | `integer` | No | Đặt độ sâu lồng tối đa, được kẹp từ 1 đến 4096. |
+| `indent` | `string` | No | Đặt chuỗi thụt lề, giới hạn ở 32 ký tự. |
+
+## Ví dụ
+
+Round-trip JSON-compatible value qua json.encode va json.decode truoc khi thay doi nested values.
+
+```lua
+local original = {
+    profile = { name = "Guest" },
+}
+
+local copy = json.clone(original)
+copy.profile.name = "Developer"
+
+print(original.profile.name)
+print(copy.profile.name)
+print(json.type(copy))
+```

@@ -1,0 +1,21 @@
+---
+title: "Cryptography"
+description: "การเข้ารหัส การแฮช การเข้ารหัส และการบีบอัด"
+icon: "folder-code"
+---
+
+การเข้ารหัส การแฮช การเข้ารหัส และการบีบอัด
+
+| การนำทางฟังก์ชัน | คำอธิบาย |
+| --- | --- |
+| [`base64_decode`](./base64-decode) | ถอดรหัสอินพุต Base64 ด้วย Base64 decoder และคืนค่า byte ที่ถอดรหัสแล้วเป็น Lua string |
+| [`base64_encode`](./base64-encode) | เข้ารหัส byte ของ Lua string ด้วย Base64 encoder โดยใช้ = padding และไม่มี line break |
+| [`crypt.decrypt`](./crypt-decrypt) | ถอดรหัส Base64 ciphertext ด้วย key ที่ decode จาก Base64 และ Base64 IV ที่ต้องมี โดยใช้ AES CBC หรือ ECB |
+| [`crypt.encrypt`](./crypt-encrypt) | เข้ารหัส byte ของ Lua string ด้วย AES CBC, ECB หรือ CTR โดยใช้ key ที่ decode จาก Base64 แล้วคืนค่า Base64 ciphertext และผลลัพธ์ IV |
+| [`crypt.generatebytes`](./crypt-generatebytes) | สร้าง byte แบบสุ่มด้วย random byte generator และคืนค่าเป็น Base64-encoded ในรูปแบบ Lua string |
+| [`crypt.generatekey`](./crypt-generatekey) | สร้าง raw bytes แบบสุ่ม 32 byte ด้วย random byte generator และคืนค่าเป็น Base64-encoded ในรูปแบบ Lua string |
+| [`crypt.hash`](./crypt-hash) | hash byte ของ Lua string ด้วยอัลกอริทึม crypto library hash ที่รองรับ และคืนค่า lowercase hexadecimal digest |
+| [`crypt.hmac`](./crypt-hmac) | คำนวณ crypto library HMAC บน byte ของ Lua string โดยใช้ raw Lua string key และคืนค่า Base64 digest |
+| [`crypt.random`](./crypt-random) | สร้าง raw random bytes ด้วย random byte generator และคืนค่าเป็น Lua string |
+| [`lz4compress`](./lz4compress) | บีบอัด byte ของ Lua string ด้วย LZ4 block compression และคืนค่า raw compressed bytes เป็น Lua string |
+| [`lz4decompress`](./lz4decompress) | แตก raw LZ4 block bytes ด้วย LZ4 block decompression และคืน raw decompressed bytes เป็นสตริง Lua |

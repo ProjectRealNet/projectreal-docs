@@ -1,0 +1,38 @@
+---
+title: "json.unescape"
+sidebarTitle: "json.unescape"
+description: "escaped string content または complete quoted JSON string literal から JSON string escape sequences をデコードします。入力は full JSON document ではなく JSON string parser で parse されます。"
+icon: "function"
+keywords: ["json.unescape","JSON"]
+---
+
+escaped string content または complete quoted JSON string literal から JSON string escape sequences をデコードします。入力は full JSON document ではなく JSON string parser で parse されます。
+
+## 構文
+
+```lua
+json.unescape(text: string): string
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | Escaped JSON string content、または first and last bytes が quotes の complete quoted JSON string literal。function はこの argument を string type checking で読みます。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `text` | `string` | Decoded string。Supported escapes は \"、\\、\/、\b、\f、\n、\r、\t、surrogate-pair handling 付きの \uXXXX です。Invalid escapes、unescaped control characters、unterminated strings、quoted literal 後の trailing characters は near-position suffix 付きの Luau error を投げます。 |
+
+## 例
+
+escaped content または quoted JSON string literal から JSON string escapes をデコードします。
+
+```lua
+local escaped = json.escape("Real Docs" .. string.char(10) .. "Docs")
+local restored = json.unescape(escaped)
+
+print(restored)
+```

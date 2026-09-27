@@ -1,0 +1,31 @@
+---
+title: "getactors"
+sidebarTitle: "getactors"
+description: "คืน array table ของ live Actor Instances ที่ resolve จาก ScriptContext actor thread list function นี้ไม่รับ arguments เดินผ่าน actor thread list, decrypt แต่ละ actor Lua state, เก็บ entries ที่เป็น valid threads จากนั้นอ่าน thread data และ the associated Actor weak reference ของแต่ละ thread เฉพาะ non-expired actor references เท่านั้นที่ถูก push เป็น Instances entries ที่ไม่มี container, ไม่มี Actor reference, มี reference count <= 0 หรือมี expired actor reference จะถูกข้าม"
+icon: "function"
+keywords: ["getactors","Actors"]
+---
+
+คืน array table ของ live Actor Instances ที่ resolve จาก ScriptContext actor thread list function นี้ไม่รับ arguments เดินผ่าน actor thread list, decrypt แต่ละ actor Lua state, เก็บ entries ที่เป็น valid threads จากนั้นอ่าน thread data และ the associated Actor weak reference ของแต่ละ thread เฉพาะ non-expired actor references เท่านั้นที่ถูก push เป็น Instances entries ที่ไม่มี container, ไม่มี Actor reference, มี reference count &lt;= 0 หรือมี expired actor reference จะถูกข้าม
+
+## ไวยากรณ์
+
+```lua
+getactors(): {Instance}
+```
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `actors` | `&#123;Instance&#125;` | Array table ของ Actor Instances ที่ actor weak references ยัง valid. |
+
+## ตัวอย่าง
+
+List live Actor Instances resolved from actor threads.
+
+```lua
+for _, actor in ipairs(getactors()) do
+    print(actor)
+end
+```

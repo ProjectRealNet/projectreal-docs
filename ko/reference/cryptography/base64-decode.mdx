@@ -1,0 +1,48 @@
+---
+title: "base64_decode"
+sidebarTitle: "base64_decode"
+description: "Base64 decoder로 Base64 입력을 디코드하고 디코드된 바이트를 Lua string으로 반환합니다."
+icon: "function"
+keywords: ["base64_decode","Cryptography","base64decode","base64.decode","crypt.base64.decode","crypt.base64_decode","crypt.base64decode"]
+---
+
+Base64 decoder로 Base64 입력을 디코드하고 디코드된 바이트를 Lua string으로 반환합니다.
+
+## 문법
+
+```lua
+base64_decode(data: string): string
+```
+
+## 별칭
+
+- `base64decode`
+- `base64.decode`
+- `crypt.base64.decode`
+- `crypt.base64_decode`
+- `crypt.base64decode`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Base64 decoder에 전달되는 Base64 입력입니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `decoded` | `string` | 명시적인 길이를 가진 Lua string으로 반환되는 디코드된 바이트입니다. |
+
+## 예제
+
+Base64 데이터를 디코드하고 반환된 Lua string을 읽습니다.
+
+```lua
+local encoded = base64_encode("hello world")
+local decoded = base64_decode(encoded)
+
+print(decoded)
+print(base64decode(encoded))
+print(base64.decode(encoded))
+```

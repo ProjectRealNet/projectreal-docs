@@ -1,0 +1,38 @@
+---
+title: "gethiddenproperty"
+sidebarTitle: "gethiddenproperty"
+description: "Membaca Roblox property melalui reflection metadata, termasuk non-scriptable properties. Argumen pertama harus Instance object dan argumen kedua harus string property name. instance reference harus valid. Jika property descriptor tidak ada di Roblox property metadata, function hanya mengembalikan nil. Jika descriptor ada tetapi tidak resolve menjadi property entry, function menghasilkan \"Not a property\". Untuk reflection types Bool, Int, Float, Double, String, SystemAddress, SharedString, dan Vector3, function memanggil getter dan mengembalikan value plus boolean yang sama dengan !IsScriptable(). SystemAddress mengembalikan RemoteId.PeerId sebagai integer. SharedString mengembalikan Content sebagai string. Vector3 membaca dari instance primitive Size offset dan menghasilkan \"can't get value\" jika touch data tidak ada. property types lain dibaca melalui normal Lua field access setelah property scriptable flag sementara disetel ke true; BinaryString sementara diperlakukan sebagai String untuk pembacaan itu. original scriptable flag dan BinaryString type dipulihkan sebelum return."
+icon: "function"
+keywords: ["gethiddenproperty","Reflection"]
+---
+
+Membaca Roblox property melalui reflection metadata, termasuk non-scriptable properties. Argumen pertama harus Instance object dan argumen kedua harus string property name. instance reference harus valid. Jika property descriptor tidak ada di Roblox property metadata, function hanya mengembalikan nil. Jika descriptor ada tetapi tidak resolve menjadi property entry, function menghasilkan "Not a property". Untuk reflection types Bool, Int, Float, Double, String, SystemAddress, SharedString, dan Vector3, function memanggil getter dan mengembalikan value plus boolean yang sama dengan !IsScriptable(). SystemAddress mengembalikan RemoteId.PeerId sebagai integer. SharedString mengembalikan Content sebagai string. Vector3 membaca dari instance primitive Size offset dan menghasilkan "can't get value" jika touch data tidak ada. property types lain dibaca melalui normal Lua field access setelah property scriptable flag sementara disetel ke true; BinaryString sementara diperlakukan sebagai String untuk pembacaan itu. original scriptable flag dan BinaryString type dipulihkan sebelum return.
+
+## Sintaks
+
+```lua
+gethiddenproperty(instance: Instance, property: string): any | boolean
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object whose property should be read. Invalid Instance values raise an argument error. |
+| `property` | `string` | Yes | string property name resolved with Roblox property metadata. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `propertyValue` | `any` | Property value, or nil as the only return value when no property descriptor exists. |
+| `wasHidden` | `boolean` | Second return value equal to !IsScriptable() when a property value is read. |
+
+## Contoh
+
+Read a property value even when normal script access is limited.
+
+```lua
+local value, wasHidden = gethiddenproperty(workspace, "ClassName")
+print(value, wasHidden)
+```

@@ -1,0 +1,30 @@
+---
+title: "checkcaller"
+sidebarTitle: "checkcaller"
+description: "Возвращает, присутствует ли current Luau thread в Real caller context. Function не принимает arguments и push-ит boolean result от the current caller context. Function не проверяет Lua call stack или function object."
+icon: "function"
+keywords: ["checkcaller","Closures"]
+---
+
+Возвращает, присутствует ли current Luau thread в Real caller context. Function не принимает arguments и push-ит boolean result от the current caller context. Function не проверяет Lua call stack или function object.
+
+## Синтаксис
+
+```lua
+checkcaller(): boolean
+```
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `isCaller` | `boolean` | true, когда current Luau thread tracked в Real caller context; иначе false. |
+
+## Пример
+
+Check whether the current thread is tracked by Real.
+
+```lua
+local tracked = checkcaller()
+print(tracked)
+```

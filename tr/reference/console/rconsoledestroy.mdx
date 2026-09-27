@@ -1,0 +1,29 @@
+---
+title: "rconsoledestroy"
+sidebarTitle: "rconsoledestroy"
+description: "Geçerli Windows console screen buffer alanını temizler, console window öğesini gizler ve işlemi console detachment ile console öğesinden ayırır. console window yoksa çağrı hiçbir şey yapmadan döner."
+icon: "function"
+keywords: ["rconsoledestroy","Console","consoledestroy"]
+---
+
+Geçerli Windows console screen buffer alanını temizler, console window öğesini gizler ve işlemi console detachment ile console öğesinden ayırır. console window yoksa çağrı hiçbir şey yapmadan döner.
+
+## Söz dizimi
+
+```lua
+rconsoledestroy()
+```
+
+## Aliaslar
+
+- `consoledestroy`
+
+## Örnek
+
+Clear and hide the current console, then detach from it.
+
+```lua
+rconsolecreate()
+rconsoleprint("Console closing")
+rconsoledestroy()
+```

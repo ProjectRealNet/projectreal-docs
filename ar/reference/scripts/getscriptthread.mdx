@@ -1,0 +1,47 @@
+---
+title: "getscriptthread"
+sidebarTitle: "getscriptthread"
+description: "يعيد Lua thread المرتبط بـ script object عندما تستطيع Real العثور عليه. يجب أن يكون argument من نوع object. تقرأ function حقل ClassName في القيمة وترفع \"not a valid Instance\" إذا لم يكن هذا الحقل string. قيم ClassName المقبولة هي Script و LocalScript و ModuleScript؛ أي قيمة أخرى ترفع \"Script expected\". تتحقق أولا من ScriptThreadCache في Real باستخدام script reference. عند cache hit، تعيد Luau thread المخزن كـ thread. عند cache miss، يجب أن تكون قيم Script ذات RunContext Client وإلا ترفع function \"Expected a Script with RunContext set to Client\". بعد ذلك تمشي عبر the live Luau thread list، وتتبع first weak thread reference لكل thread node إلى LiveLuaRef، وتتخطى missing thread data أو expired Script stored references، وتقارن كل script reference مع script المطلوب. إذا وجدت match، تعيد Luau thread ذلك كـ thread. إذا لم تجد match، تعيد nil."
+icon: "function"
+keywords: ["getscriptthread","Scripts"]
+---
+
+يعيد Lua thread المرتبط بـ script object عندما تستطيع Real العثور عليه. يجب أن يكون argument من نوع object. تقرأ function حقل ClassName في القيمة وترفع "not a valid Instance" إذا لم يكن هذا الحقل string. قيم ClassName المقبولة هي Script و LocalScript و ModuleScript؛ أي قيمة أخرى ترفع "Script expected". تتحقق أولا من ScriptThreadCache في Real باستخدام script reference. عند cache hit، تعيد Luau thread المخزن كـ thread. عند cache miss، يجب أن تكون قيم Script ذات RunContext Client وإلا ترفع function "Expected a Script with RunContext set to Client". بعد ذلك تمشي عبر the live Luau thread list، وتتبع first weak thread reference لكل thread node إلى LiveLuaRef، وتتخطى missing thread data أو expired Script stored references، وتقارن كل script reference مع script المطلوب. إذا وجدت match، تعيد Luau thread ذلك كـ thread. إذا لم تجد match، تعيد nil.
+
+## الصيغة
+
+```lua
+getscriptthread(script: userdata): thread | nil
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | Script object المطلوب البحث عنها. قيم ClassName المقبولة هي Script و LocalScript و ModuleScript. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `thread` | `thread \| nil` | Lua thread المرتبط، أو nil عندما لا يتم العثور على matching live thread. |
+
+## مثال
+
+Read the Luau thread associated with a supported script Instance when one is available.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local thread = getscriptthread(targetScript)
+    print(thread)
+end
+```

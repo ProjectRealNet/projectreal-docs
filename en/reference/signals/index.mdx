@@ -1,0 +1,17 @@
+---
+title: "Signals"
+description: "Signal connections and event forwarding."
+icon: "folder-code"
+---
+
+Signal connections and event forwarding.
+
+| Function navigation | Description |
+| --- | --- |
+| [`cansignalreplicate`](./cansignalreplicate) | Checks whether an RBXScriptSignal is legal to send with the current NetworkClient replication layer. The function validates the first argument as RBXScriptSignal, reads the signal's source instance and event descriptor, then returns the boolean result of replication layer signal replication validation. If the resolved replication layer reference is 0, it returns false. Extra arguments are not read. This function only checks the signal and does not fire or replicate it. The whitelist table returned by getsignalwhitelist is not used by this code path. |
+| [`firesignal`](./firesignal) | Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error. |
+| [`getconnections`](./getconnections) | Returns connection objects for an RBXScriptSignal. The first argument must be a valid RBXScriptSignal. |
+| [`getsignalarguments`](./getsignalarguments) | Returns an array table of type names read from an RBXScriptSignal event descriptor signature. The first argument must be object whose Luau type name is RBXScriptSignal. The function reads the signal's event descriptor, walks the signature slots with the Real's argument stride, reads each argument type reference, and pushes the resolved type name string for each slot. It does not return captured runtime argument values. If the signature cannot be read or no entries are pushed, the returned table contains one fallback entry: "Variant". |
+| [`getsignalargumentsinfo`](./getsignalargumentsinfo) | Returns an array table of argument info from an RBXScriptSignal signature. It does not return captured runtime argument values. |
+| [`getsignalwhitelist`](./getsignalwhitelist) | Returns a new array table with the six static whitelist entries defined by the function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Each entry is a table with Event and Parent string fields. The function takes no arguments and does not inspect the current game state. |
+| [`replicatesignal`](./replicatesignal) | Invokes the replication path for an RBXScriptSignal. The function reads the signal signature, converts provided Lua arguments into Roblox signal values for each signature type, truncates extra Lua arguments beyond the signature length, then calls the owning instance event invocation function. |

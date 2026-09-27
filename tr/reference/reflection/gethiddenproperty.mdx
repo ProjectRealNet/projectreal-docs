@@ -1,0 +1,38 @@
+---
+title: "gethiddenproperty"
+sidebarTitle: "gethiddenproperty"
+description: "non-scriptable properties dahil Roblox property degerini reflection metadata uzerinden okur. Ilk arguman Instance object olmalidir ve ikinci arguman string property name olmalidir. instance reference gecerli olmalidir. property descriptor Roblox property metadata icinde yoksa function yalnizca nil dondurur. descriptor varsa ama property entry olarak cozumlenmezse \"Not a property\" uretir. Bool, Int, Float, Double, String, SystemAddress, SharedString ve Vector3 reflection types icin function getter cagirir ve value ile !IsScriptable() degerine esit bir boolean dondurur. SystemAddress RemoteId.PeerId degerini integer olarak dondurur. SharedString Content degerini string olarak dondurur. Vector3 instance primitive Size offset uzerinden okur ve touch data yoksa \"can't get value\" uretir. Diger property types, property scriptable flag gecici olarak true yapildiktan sonra normal Lua field access ile okunur; BinaryString bu okuma icin gecici olarak String gibi islenir. original scriptable flag ve BinaryString type return oncesinde geri yuklenir."
+icon: "function"
+keywords: ["gethiddenproperty","Reflection"]
+---
+
+non-scriptable properties dahil Roblox property degerini reflection metadata uzerinden okur. Ilk arguman Instance object olmalidir ve ikinci arguman string property name olmalidir. instance reference gecerli olmalidir. property descriptor Roblox property metadata icinde yoksa function yalnizca nil dondurur. descriptor varsa ama property entry olarak cozumlenmezse "Not a property" uretir. Bool, Int, Float, Double, String, SystemAddress, SharedString ve Vector3 reflection types icin function getter cagirir ve value ile !IsScriptable() degerine esit bir boolean dondurur. SystemAddress RemoteId.PeerId degerini integer olarak dondurur. SharedString Content degerini string olarak dondurur. Vector3 instance primitive Size offset uzerinden okur ve touch data yoksa "can't get value" uretir. Diger property types, property scriptable flag gecici olarak true yapildiktan sonra normal Lua field access ile okunur; BinaryString bu okuma icin gecici olarak String gibi islenir. original scriptable flag ve BinaryString type return oncesinde geri yuklenir.
+
+## Söz dizimi
+
+```lua
+gethiddenproperty(instance: Instance, property: string): any | boolean
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object whose property should be read. Invalid Instance values raise an argument error. |
+| `property` | `string` | Yes | string property name resolved with Roblox property metadata. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `propertyValue` | `any` | Property value, or nil as the only return value when no property descriptor exists. |
+| `wasHidden` | `boolean` | Second return value equal to !IsScriptable() when a property value is read. |
+
+## Örnek
+
+Read a property value even when normal script access is limited.
+
+```lua
+local value, wasHidden = gethiddenproperty(workspace, "ClassName")
+print(value, wasHidden)
+```

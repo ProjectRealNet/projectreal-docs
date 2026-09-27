@@ -1,0 +1,73 @@
+---
+title: "RakNet.add_receive_hook"
+sidebarTitle: "RakNet.add_receive_hook"
+description: "Registers a callback for observed incoming RakNet packets. The callback receives one RakNetPacket while the packet is valid. Registering the same closure again replaces its stored reference. The function returns the callback it was given."
+icon: "function"
+keywords: ["RakNet.add_receive_hook","RakNet","raknet.add_receive_hook"]
+---
+
+Registers a callback for observed incoming RakNet packets. The callback receives one RakNetPacket while the packet is valid. Registering the same closure again replaces its stored reference. The function returns the callback it was given.
+
+## Sintaks
+
+```lua
+RakNet.add_receive_hook(callback: (packet: RakNetPacket) -> ()): function
+```
+
+## Alias
+
+- `raknet.add_receive_hook`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `callback` | `(packet: RakNetPacket) -> ()` | Yes | Function called with each observed incoming RakNetPacket. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `callback` | `function` | The same callback function that was passed in. |
+
+## Tipe
+
+### RakNetPacket
+
+Live packet object passed to RakNet hooks and packet signal callbacks. It is only valid during the callback that receives it.
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `SetData` | `(data: string \| buffer \| &#123;number&#125;) -> ()` | Yes | Replaces packet bytes and updates the packet id from the first byte, or 0 for empty data. |
+| `Block` | `() -> ()` | Yes | Marks the packet as blocked. |
+| `Ignore` | `() -> ()` | Yes | Alias that resolves to Block. |
+| `AsString` | `string` | Yes | Packet bytes as a Lua string. |
+| `AsArray` | `&#123;number&#125;` | Yes | Packet bytes as a 1-based array of numbers. |
+| `AsBuffer` | `buffer` | Yes | Packet bytes as a buffer. |
+| `Data` | `buffer` | Yes | Packet bytes as a buffer. |
+| `ID` | `number` | Yes | Packet id value. PacketId, PacketID, and Id resolve to the same value. |
+| `Priority` | `number` | Yes | Packet priority value. |
+| `Reliability` | `number` | Yes | Packet reliability value. |
+| `OrderingChannel` | `number` | Yes | Packet ordering channel value. |
+| `SystemIdentifier` | `string` | Yes | Packet system identifier as decimal string. |
+| `Broadcast` | `boolean` | Yes | Packet broadcast flag. |
+| `ForceReceiptNumber` | `number` | Yes | Packet receipt number. |
+| `Size` | `number` | Yes | Number of bytes in the packet data. |
+
+## Contoh
+
+Observe incoming packets with a callback and remove the same callback later.
+
+```lua
+if not raknet.is_enabled then
+    return
+end
+
+local function onReceive(packet)
+    print(packet.ID, packet.Size)
+end
+
+raknet.add_receive_hook(onReceive)
+task.wait(1)
+raknet.remove_receive_hook(onReceive)
+```

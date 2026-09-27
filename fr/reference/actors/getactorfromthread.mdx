@@ -1,0 +1,42 @@
+---
+title: "getactorfromthread"
+sidebarTitle: "getactorfromthread"
+description: "Renvoie l'Actor Instance associée à un Luau thread. Le premier argument doit être un thread. L'function lit le thread data du thread, exige Actor reference et un positive container count, puis lit the associated Actor. Si l'actor weak reference est valide, elle est poussée comme Instance; sinon la function renvoie nil."
+icon: "function"
+keywords: ["getactorfromthread","Actors","getactorfromstate"]
+---
+
+Renvoie l'Actor Instance associée à un Luau thread. Le premier argument doit être un thread. L'function lit le thread data du thread, exige Actor reference et un positive container count, puis lit the associated Actor. Si l'actor weak reference est valide, elle est poussée comme Instance; sinon la function renvoie nil.
+
+## Syntaxe
+
+```lua
+getactorfromthread(thread: thread): Instance | nil
+```
+
+## Alias
+
+- `getactorfromstate`
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `thread` | `thread` | Yes | Luau thread dont le thread data doit être vérifié pour une associated Actor weak reference. |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `actor` | `Instance \| nil` | Actor Instance résolue depuis la the associated Actor weak reference du thread, ou nil lorsqu'aucune valid actor reference n'est présente. |
+
+## Exemple
+
+Resolve the Actor Instance associated with a Luau thread, when that thread has a valid actor reference.
+
+```lua
+for _, thread in ipairs(getactorthreads()) do
+    local actor = getactorfromthread(thread)
+    print(actor)
+end
+```

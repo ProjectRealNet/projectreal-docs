@@ -1,0 +1,21 @@
+---
+title: "getscripts"
+sidebarTitle: "getscripts"
+description: "Instance cache に現在存在する script object 値を返します。この function は arguments を取りません。Instance cache に保存された cache を反復し、value が object の entries だけを対象にします。各 value の ClassName field を optional string handling で読みます。LocalScript と ModuleScript entries は含まれます。Script entries は RunContext offset が CLIENT または PLUGIN に等しい場合だけ含まれます。他の ClassName 値、string ClassName を持たない entries、CoreScript entries はスキップされます。結果は sequential Luau table です。function は DataModel を走査せず、sorted order も保証しません。"
+icon: "function"
+keywords: ["getscripts","Scripts"]
+---
+
+Instance cache に現在存在する script object 値を返します。この function は arguments を取りません。Instance cache に保存された cache を反復し、value が object の entries だけを対象にします。各 value の ClassName field を optional string handling で読みます。LocalScript と ModuleScript entries は含まれます。Script entries は RunContext offset が CLIENT または PLUGIN に等しい場合だけ含まれます。他の ClassName 値、string ClassName を持たない entries、CoreScript entries はスキップされます。結果は sequential Luau table です。function は DataModel を走査せず、sorted order も保証しません。
+
+## 構文
+
+```lua
+getscripts(): { Instance }
+```
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `scripts` | `&#123; Instance &#125;` | Instance cache から取得した cached LocalScript、ModuleScript、条件に合う Script object 値の sequential table。 |

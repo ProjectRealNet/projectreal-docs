@@ -1,0 +1,59 @@
+---
+title: "json.tryDecode"
+sidebarTitle: "json.tryDecode"
+description: "Probuje parse JSON string ta sama function co json.decodeSafe i zwraca status values dla parse errors."
+icon: "function"
+keywords: ["json.tryDecode","JSON"]
+---
+
+Probuje parse JSON string ta sama function co json.decodeSafe i zwraca status values dla parse errors.
+
+## Składnia
+
+```lua
+json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string do parse. Function czyta ten argument przez string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean ustawia useNull. table moze ustawic useNull i maxDepth. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `success` | `boolean` | true, gdy parsing sie powiedzie, false, gdy parsing zawiedzie w protected parse block. |
+| `decoded` | `any \| nil` | Decoded value przy success. Przy parse failure ten return to nil. |
+| `errorMessage` | `string \| nil` | Error message przy parse failure. Message jest prefixed przez json.decodeSafe i zawiera near-position suffix. |
+| `errorPosition` | `number \| nil` | Parser byte position z parser przy parse failure. Ten return wystepuje tylko przy failure. |
+
+## Typy
+
+### DecodeOptions
+
+Kontroluje zachowanie analizy JSON.
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Reprezentuje JSON null ze wskaźnikiem null biblioteki zamiast nil. |
+| `maxDepth` | `integer` | No | Ustawia maksymalną głębokość zagnieżdżenia, zaciśniętą w zakresie od 1 do 4096. |
+
+## Przykład
+
+Decode JSON ze status returns przez json.decodeSafe-compatible alias.
+
+```lua
+local ok, value, message, position = json.tryDecode('{"ready":true,"missing":null}', {
+    useNull = true,
+})
+
+if ok then
+    print(value.ready)
+    print(json.isNull(value.missing))
+else
+    warn(message, position)
+end
+```

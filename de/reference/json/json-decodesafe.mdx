@@ -1,0 +1,59 @@
+---
+title: "json.decodeSafe"
+sidebarTitle: "json.decodeSafe"
+description: "Parst JSON mit demselben parser wie json.decode und gibt bei parse errors einen success flag zurueck, statt zu werfen."
+icon: "function"
+keywords: ["json.decodeSafe","JSON"]
+---
+
+Parst JSON mit demselben parser wie json.decode und gibt bei parse errors einen success flag zurueck, statt zu werfen.
+
+## Syntax
+
+```lua
+json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON text zum Parsen. Dieses argument wird als string geprueft, bevor parse errors abgefangen werden. |
+| `options` | `DecodeOptions` | No | Optional decode options. Ein boolean setzt useNull direkt. Eine table kann useNull und maxDepth setzen; maxDepth wird von 1 bis 4096 geclamped. Invalid option argument types werden geprueft, bevor parse errors abgefangen werden. |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `success` | `boolean` | True, wenn parsing erfolgreich ist, false, wenn der parser einen error meldet. |
+| `decoded` | `any \| nil` | Decoded value bei Erfolg, nil bei parse failure. Gueltiges JSON false gibt success als true und decoded als false zurueck, daher den success return value pruefen. |
+| `errorMessage` | `string \| nil` | Error message bei parse failure, sonst nil. Die message enthaelt den json.decodeSafe prefix und parser position. |
+| `errorPosition` | `number \| nil` | Parser byte position bei parse failure, sonst nil. |
+
+## Typen
+
+### DecodeOptions
+
+Steuert das JSON-Parsing-Verhalten.
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Stellt JSON Null mit dem Null-Sentinel der Bibliothek anstelle von Null dar. |
+| `maxDepth` | `integer` | No | Legt die maximale Verschachtelungstiefe fest, geklemmt von 1 bis 4096. |
+
+## Beispiel
+
+Parse JSON und nutze den success return value, um valid false oder nil results von parse failures zu trennen.
+
+```lua
+local ok, value = json.decodeSafe("false")
+
+if ok then
+    print(value == false)
+end
+
+local parsed, _, message, position = json.decodeSafe("{")
+if not parsed then
+    warn(message, position)
+end
+```

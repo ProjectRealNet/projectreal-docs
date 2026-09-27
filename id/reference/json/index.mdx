@@ -1,0 +1,34 @@
+---
+title: "JSON"
+description: "Parsing, enkode, periksa, dan ubah JSON."
+icon: "folder-code"
+---
+
+Parsing, enkode, periksa, dan ubah JSON.
+
+| Navigasi fungsi | Deskripsi |
+| --- | --- |
+| [`json.array`](./json-array) | Membuat new table yang ditandai sebagai JSON array untuk json.encode, menyalin sequence 1.#source saat source table diberikan. |
+| [`json.clone`](./json-clone) | Meng-clone value dengan encoding memakai json.encode semantics lalu decoding generated JSON kembali menjadi Lua values. |
+| [`json.decode`](./json-decode) | Mem-parse JSON string dengan Real JSON parser dan mengembalikan decoded Lua value, menandai decoded arrays dan objects untuk JSON helpers. |
+| [`json.decodeSafe`](./json-decodesafe) | Mem-parse JSON dengan parser yang sama seperti json.decode dan mengembalikan success flag alih-alih melempar untuk parse errors. |
+| [`json.encode`](./json-encode) | Melakukan serialize Lua value menjadi JSON string memakai Real JSON encoder. json.stringify didaftarkan ke function yang sama. |
+| [`json.encodePretty`](./json-encodepretty) | Menserialisasi Lua value menjadi JSON string yang readable formatted memakai Real JSON encoder. json.pretty terdaftar ke function yang sama. |
+| [`json.escape`](./json-escape) | Meng-escape string memakai Real JSON string escaping rules dan mengembalikan escaped content tanpa surrounding quotes. |
+| [`json.format`](./json-format) | Mem-parse JSON string lalu meng-encode ulang sebagai readable formatted JSON memakai Real JSON parser dan encoder. |
+| [`json.getPath`](./json-getpath) | Membaca nested value dari table memakai dotted string path atau array table of keys. |
+| [`json.isArray`](./json-isarray) | Mengembalikan apakah value treated as a JSON array oleh Real JSON table detection. |
+| [`json.isNull`](./json-isnull) | Mengembalikan apakah value adalah Real JSON null sentinel, json.null. |
+| [`json.isObject`](./json-isobject) | Mengembalikan apakah value treated as a JSON object oleh Real JSON table detection. |
+| [`json.keys`](./json-keys) | Mengembalikan visible keys dari table dalam new table marked as a JSON array. |
+| [`json.minify`](./json-minify) | Mem-parse JSON string lalu meng-encode ulang dengan Real default non-pretty JSON encoder output. |
+| [`json.object`](./json-object) | Membuat new table marked as a JSON object agar Real JSON encoder memperlakukannya sebagai object. |
+| [`json.parse`](./json-parse) | Mem-parse JSON string memakai function yang sama seperti json.decode. |
+| [`json.pretty`](./json-pretty) | Menserialisasi Lua value menjadi readable formatted JSON string memakai function yang sama seperti json.encodePretty. |
+| [`json.quote`](./json-quote) | Meng-escape string memakai Real JSON string escaping rules dan mengembalikan complete quoted JSON string literal. |
+| [`json.stringify`](./json-stringify) | Menserialisasi Lua value menjadi JSON string memakai function yang sama seperti json.encode. |
+| [`json.tryDecode`](./json-trydecode) | Mencoba parse JSON string memakai function yang sama seperti json.decodeSafe dan mengembalikan status values untuk parse errors. |
+| [`json.type`](./json-type) | Mengembalikan string type name untuk sebuah nilai. json.null mengembalikan "null". Table mengembalikan "array" atau "object" memakai table classification yang sama seperti json.isArray dan json.isObject. Nilai lain mengembalikan runtime Lua type name result. |
+| [`json.unescape`](./json-unescape) | Mendecode JSON string escape sequences dari escaped string content atau dari complete quoted JSON string literal. Input di-parse dengan JSON string parser, bukan sebagai full JSON document. |
+| [`json.validate`](./json-validate) | Memvalidasi JSON string dengan parse satu complete JSON value. Saat success fungsi hanya mengembalikan true. Saat parse failure fungsi mengembalikan false plus parser error details. |
+| [`json.values`](./json-values) | Mengembalikan direct values dari table dalam table baru marked as JSON array. JSON kind marker entries dilewati. |

@@ -1,0 +1,61 @@
+---
+title: "json.stringify"
+sidebarTitle: "json.stringify"
+description: "使用与 json.encode 相同的 function 将 Lua value serialize 为 JSON string。"
+icon: "function"
+keywords: ["json.stringify","JSON"]
+---
+
+使用与 json.encode 相同的 function 将 Lua value serialize 为 JSON string。
+
+## 语法
+
+```lua
+json.stringify(value: any, options?: EncodeOptions): string
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | 要 encode 的 Value。nil、booleans、numbers、strings、tables 和 json.null 会直接处理。Unsupported Lua types 默认 encode 为 null，除非 errorOnUnsupported 为 true。 |
+| `options` | `EncodeOptions` | No | Optional encode options。boolean 切换 pretty output。number 用 clamp 到 0.16 的 spaces 数启用 pretty output。string 用该 indent 启用 pretty output。table 可以设置 pretty、sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth 和 indent。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `json` | `string` | Encoded JSON string。Encoding errors 会作为 Luau errors 抛出。 |
+
+## 类型
+
+### EncodeOptions
+
+控制 JSON 序列化和格式设置。
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | 启用格式化的多行 JSON 输出。 |
+| `sortKeys` | `boolean` | No | 在编码之前对对象键进行排序。 |
+| `emptyTableAsArray` | `boolean` | No | 将空表编码为数组而不是对象。 |
+| `errorOnUnsupported` | `boolean` | No | 引发错误而不是替换不受支持的值。 |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | 将 NaN 和无限数编码为 JSON null。 |
+| `maxDepth` | `integer` | No | 设置最大嵌套深度，范围为 1 到 4096。 |
+| `indent` | `string` | No | 设置缩进字符串，限制为 32 个字符。 |
+
+## 示例
+
+使用与 json.encode 相同的 function encode JSON-compatible values。
+
+```lua
+local text = json.stringify({
+    status = "ready",
+    count = 3,
+    tags = json.array({ "stringify", "alias" }),
+    missing = json.null,
+}, {
+    sortKeys = true,
+})
+
+print(text)
+```

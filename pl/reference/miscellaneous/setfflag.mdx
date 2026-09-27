@@ -1,0 +1,47 @@
+---
+title: "setfflag"
+sidebarTitle: "setfflag"
+description: "Sets a Roblox fast flag by exact name. Accepted value types depend on the detected flag type. The function returns true after a supported write and false when the flag is missing, unsupported, or the value is not accepted."
+icon: "function"
+keywords: ["setfflag","Miscellaneous"]
+---
+
+Sets a Roblox fast flag by exact name. Accepted value types depend on the detected flag type. The function returns true after a supported write and false when the flag is missing, unsupported, or the value is not accepted.
+
+## Składnia
+
+```lua
+setfflag(name: string, value: any): boolean
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `name` | `string` | Yes | Exact fast flag name to set. |
+| `value` | `any` | Yes | Value to write. Accepted types depend on the detected flag type. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `updated` | `boolean` | true when a supported flag value was written, otherwise false. |
+
+## Przykład
+
+Write a fast flag only after checking the flag type that Real detected for the exact name.
+
+```lua
+local flagName = "SomeFFlagName"
+local flagType = getfflagtype(flagName)
+
+if flagType == "bool" then
+    print(setfflag(flagName, true))
+elseif flagType == "int" then
+    print(setfflag(flagName, 60))
+elseif flagType == "string" then
+    print(setfflag(flagName, "Enabled"))
+else
+    print(false)
+end
+```

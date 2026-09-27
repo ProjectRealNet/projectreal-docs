@@ -1,0 +1,45 @@
+---
+title: "cloneref"
+sidebarTitle: "cloneref"
+description: "push การอ้างอิง Instance ใหม่สำหรับ reference ของ Instance เดิม แล้วส่งค่านั้นกลับ"
+icon: "function"
+keywords: ["cloneref","Cache","clonereference"]
+---
+
+push การอ้างอิง Instance ใหม่สำหรับ reference ของ Instance เดิม แล้วส่งค่านั้นกลับ
+
+## ไวยากรณ์
+
+```lua
+cloneref(instance: Instance): Instance
+```
+
+## Aliases
+
+- `clonereference`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object ที่ใช้เป็นแหล่งสำหรับการอ้างอิงใหม่ |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `reference` | `Instance` | การอ้างอิง Instance ที่ส่งกลับหลังจาก Instance cache ทำงานด้วย reference object เดิม |
+
+## ตัวอย่าง
+
+สร้างการอ้างอิง Instance อีกค่า จาก Instance object ที่มีอยู่
+
+```lua
+local Players = game:GetService("Players")
+
+local reference = cloneref(Players)
+print(reference)
+
+local sameAlias = clonereference(Players)
+print(sameAlias)
+```

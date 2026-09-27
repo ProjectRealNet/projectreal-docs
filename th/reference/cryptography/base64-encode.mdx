@@ -1,0 +1,47 @@
+---
+title: "base64_encode"
+sidebarTitle: "base64_encode"
+description: "เข้ารหัส byte ของ Lua string ด้วย Base64 encoder โดยใช้ = padding และไม่มี line break"
+icon: "function"
+keywords: ["base64_encode","Cryptography","base64encode","base64.encode","crypt.base64.encode","crypt.base64_encode","crypt.base64encode"]
+---
+
+เข้ารหัส byte ของ Lua string ด้วย Base64 encoder โดยใช้ = padding และไม่มี line break
+
+## ไวยากรณ์
+
+```lua
+base64_encode(data: string): string
+```
+
+## Aliases
+
+- `base64encode`
+- `base64.encode`
+- `crypt.base64.encode`
+- `crypt.base64_encode`
+- `crypt.base64encode`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | byte ของ Lua string ที่ส่งให้ Base64 encoder |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `encoded` | `string` | เอาต์พุต Base64 ที่คืนค่าเป็น Lua string |
+
+## ตัวอย่าง
+
+เข้ารหัส Lua string และพิมพ์เอาต์พุต Base64
+
+```lua
+local encoded = base64_encode("hello world")
+
+print(encoded)
+print(base64encode("hello world"))
+print(base64.encode("hello world"))
+```

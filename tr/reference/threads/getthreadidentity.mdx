@@ -1,0 +1,49 @@
+---
+title: "getthreadidentity"
+sidebarTitle: "getthreadidentity"
+description: "Returns the identity for the current Luau thread, or for the first argument when that argument is a thread. Returned identities are 1 through 12; other stored values return 0."
+icon: "function"
+keywords: ["getthreadidentity","Threads","get_thread_identity","getidentity","getthreadcaps","getthreadcontext","get_thread_context"]
+---
+
+Returns the identity for the current Luau thread, or for the first argument when that argument is a thread. Returned identities are 1 through 12; other stored values return 0.
+
+## Söz dizimi
+
+```lua
+getthreadidentity(thread?: thread): integer
+```
+
+## Aliaslar
+
+- `get_thread_identity`
+- `getidentity`
+- `getthreadcaps`
+- `getthreadcontext`
+- `get_thread_context`
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `thread` | `thread` | No | Optional Luau thread to inspect. If omitted, or if the first argument is not a thread, the current thread is inspected. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `identity` | `integer` | Thread identity from 1 through 12, or 0 for other stored values. |
+
+## Örnek
+
+Read the identity from the current Luau thread, or from a thread argument when one is provided.
+
+```lua
+local currentIdentity = getthreadidentity()
+print(currentIdentity)
+
+local thread = coroutine.create(function()
+end)
+
+print(getthreadidentity(thread))
+```

@@ -1,0 +1,35 @@
+---
+title: "getcurrentactor"
+sidebarTitle: "getcurrentactor"
+description: "Zwraca Actor Instance powiązaną z bieżącym Luau thread. Function nie przyjmuje arguments. Rozwiązuje bieżący Luau thread przez ten sam actor resolver, którego używa getactorfromthread: thread data musi istnieć, Actor reference musi istnieć, reference count musi być większe od 0, a the associated Actor musi zawierać non-expired weak reference. Jeśli nie ma valid actor reference, function zwraca nil."
+icon: "function"
+keywords: ["getcurrentactor","Actors","get_current_actor"]
+---
+
+Zwraca Actor Instance powiązaną z bieżącym Luau thread. Function nie przyjmuje arguments. Rozwiązuje bieżący Luau thread przez ten sam actor resolver, którego używa getactorfromthread: thread data musi istnieć, Actor reference musi istnieć, reference count musi być większe od 0, a the associated Actor musi zawierać non-expired weak reference. Jeśli nie ma valid actor reference, function zwraca nil.
+
+## Składnia
+
+```lua
+getcurrentactor(): Instance | nil
+```
+
+## Aliasy
+
+- `get_current_actor`
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `actor` | `Instance \| nil` | Actor Instance rozwiązana z the associated Actor weak reference bieżącego thread, albo nil, gdy nie ma valid actor reference. |
+
+## Przykład
+
+Resolve the Actor Instance associated with the current Luau thread.
+
+```lua
+local actor = getcurrentactor()
+
+print(actor)
+```

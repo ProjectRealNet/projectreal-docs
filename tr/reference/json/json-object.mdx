@@ -1,0 +1,42 @@
+---
+title: "json.object"
+sidebarTitle: "json.object"
+description: "Real JSON encoder tarafindan object olarak ele alinmasi icin new table marked as a JSON object olusturur."
+icon: "function"
+keywords: ["json.object","JSON"]
+---
+
+Real JSON encoder tarafindan object olarak ele alinmasi icin new table marked as a JSON object olusturur.
+
+## Söz dizimi
+
+```lua
+json.object(source?: table): table
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `source` | `table` | No | New object table icine copy edilecek optional source table. omitted veya nil ise empty object table dondurulur. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `object` | `table` | Real JSON object marker ile marked new table. Source entries copy edilir, Real JSON type marker haric tutulur. |
+
+## Örnek
+
+Empty object dahil new table marked as a JSON object create et.
+
+```lua
+local profile = json.object({
+    name = "Guest",
+    active = true,
+})
+local empty = json.object()
+
+print(json.encode(profile))
+print(json.encode(empty))
+```

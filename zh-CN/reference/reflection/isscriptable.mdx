@@ -1,0 +1,37 @@
+---
+title: "isscriptable"
+sidebarTitle: "isscriptable"
+description: "检查 Instance 上 Roblox property 的 scriptable flag。function 会先返回同一 instance reference 和 property name 的 cached scriptable value。如果 cache miss，则通过 Roblox property metadata 和 Instance class descriptor 解析 property name。如果 descriptor 不存在，或解析到的 field 缺失，或不是 property entry，function 返回 nil。找到 property entry 时，function 读取 scriptable state，把该值保存到该 instance 和 property 的 scriptable override cache，然后返回 boolean。function 不会更改 scriptable flag。"
+icon: "function"
+keywords: ["isscriptable","Reflection"]
+---
+
+检查 Instance 上 Roblox property 的 scriptable flag。function 会先返回同一 instance reference 和 property name 的 cached scriptable value。如果 cache miss，则通过 Roblox property metadata 和 Instance class descriptor 解析 property name。如果 descriptor 不存在，或解析到的 field 缺失，或不是 property entry，function 返回 nil。找到 property entry 时，function 读取 scriptable state，把该值保存到该 instance 和 property 的 scriptable override cache，然后返回 boolean。function 不会更改 scriptable flag。
+
+## 语法
+
+```lua
+isscriptable(instance: Instance, property: string): boolean | nil
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | 要检查 property scriptable state 的 Instance object。 |
+| `property` | `string` | Yes | 通过 Roblox property metadata 和 Instance class descriptor 解析的 property name。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `scriptable` | `boolean \| nil` | cached 或当前的 scriptable state 值；如果 property descriptor/field 缺失或不是 property entry，则为 nil。 |
+
+## 示例
+
+Check whether a property is scriptable on an Instance.
+
+```lua
+local scriptable = isscriptable(workspace, "Name")
+print(scriptable)
+```

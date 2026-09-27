@@ -1,0 +1,21 @@
+---
+title: "Cryptography"
+description: "Kodowanie, hashowanie, szyfrowanie i kompresja."
+icon: "folder-code"
+---
+
+Kodowanie, hashowanie, szyfrowanie i kompresja.
+
+| Nawigacja funkcji | Opis |
+| --- | --- |
+| [`base64_decode`](./base64-decode) | Dekoduje wejscie Base64 za pomoca Base64 decoder i zwraca zdekodowane bajty jako Lua string. |
+| [`base64_encode`](./base64-encode) | Koduje bajty Lua string za pomoca Base64 encoder, uzywajac = padding i bez znakow nowej linii. |
+| [`crypt.decrypt`](./crypt-decrypt) | Odszyfrowuje Base64 ciphertext za pomoca key zdekodowanego z Base64 i wymaganego Base64 IV, uzywajac AES CBC albo ECB. |
+| [`crypt.encrypt`](./crypt-encrypt) | Szyfruje bajty Lua string za pomoca AES CBC, ECB albo CTR z key zdekodowanym z Base64, a nastepnie zwraca Base64 ciphertext i wynik IV. |
+| [`crypt.generatebytes`](./crypt-generatebytes) | Generuje losowe bajty za pomoca random byte generator i zwraca je Base64-encoded jako Lua string. |
+| [`crypt.generatekey`](./crypt-generatekey) | Generuje 32 losowe raw bytes za pomoca random byte generator i zwraca je Base64-encoded jako Lua string. |
+| [`crypt.hash`](./crypt-hash) | Hashuje bajty Lua string obslugiwanym algorytmem crypto library hash i zwraca lowercase hexadecimal digest. |
+| [`crypt.hmac`](./crypt-hmac) | Oblicza crypto library HMAC dla bajtow Lua string z raw Lua string key i zwraca Base64 digest. |
+| [`crypt.random`](./crypt-random) | Generuje raw random bytes za pomoca random byte generator i zwraca je jako Lua string. |
+| [`lz4compress`](./lz4compress) | Kompresuje bajty Lua string za pomoca LZ4 block compression i zwraca raw compressed bytes jako Lua string. |
+| [`lz4decompress`](./lz4decompress) | Dekompresuje raw LZ4 block bytes za pomoca LZ4 block decompression i zwraca raw decompressed bytes jako lancuch Lua. |

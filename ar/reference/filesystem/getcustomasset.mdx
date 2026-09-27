@@ -1,0 +1,44 @@
+---
+title: "getcustomasset"
+sidebarTitle: "getcustomasset"
+description: "ينسخ regular workspace file موجودا إلى ExtraContent/<hwid>/ ويعيد rbxasset:// string لمسار asset المنسوخ."
+icon: "function"
+keywords: ["getcustomasset","Filesystem","getsynasset"]
+---
+
+ينسخ regular workspace file موجودا إلى ExtraContent/&lt;hwid>/ ويعيد rbxasset:// string لمسار asset المنسوخ.
+
+## الصيغة
+
+```lua
+getcustomasset(path: string): string
+```
+
+## أسماء بديلة
+
+- `getsynasset`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path يتم حله داخل workspace بعد separator normalization وفحص workspace-boundary. يجب ان يكون الهدف موجودا وان يكون regular file؛ folders و invalid filenames و DOS device names و blocked extensions غير مقبولة. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `assetId` | `string` | String بالشكل rbxasset://&lt;hwid>/&lt;workspace-relative-path> مع استخدام forward slashes في relative path. |
+
+## مثال
+
+انسخ workspace file موجودا إلى asset folder واطبع rbxasset path المعاد.
+
+```lua
+local path = "assets/example.txt"
+writefile(path, "asset bytes")
+
+local assetId = getcustomasset(path)
+print(assetId)
+print(getsynasset(path))
+```

@@ -1,0 +1,53 @@
+---
+title: "json.parse"
+sidebarTitle: "json.parse"
+description: "يعمل parse لـ JSON string باستخدام نفس function مثل json.decode."
+icon: "function"
+keywords: ["json.parse","JSON"]
+---
+
+يعمل parse لـ JSON string باستخدام نفس function مثل json.decode.
+
+## الصيغة
+
+```lua
+json.parse(json: string, options?: DecodeOptions): any
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string يتم parse له. Function تقرأ هذا argument باستخدام string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean يضبط useNull. table يمكنها ضبط useNull و maxDepth. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `decoded` | `any` | Decoded value. JSON objects و arrays تصبح tables مع JSON type markers، strings تصبح Lua strings، numbers تصبح Lua numbers، booleans تصبح booleans، و null يصبح json.null إلا إذا كان useNull false. |
+
+## الأنواع
+
+### DecodeOptions
+
+يتحكم في سلوك تحليل JSON.
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | يمثل JSON null مع الحارس الفارغ للمكتبة بدلاً من صفر. |
+| `maxDepth` | `integer` | No | يضبط الحد الأقصى لعمق التعشيش، المثبت من 1 إلى 4096. |
+
+## مثال
+
+Parse JSON بنفس function المستخدمة بواسطة json.decode.
+
+```lua
+local settings = json.parse('{"volume":0.75,"theme":"dark","missing":null}', {
+    useNull = true,
+})
+
+print(settings.volume)
+print(settings.theme)
+print(json.isNull(settings.missing))
+```

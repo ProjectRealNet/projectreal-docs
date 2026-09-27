@@ -1,0 +1,41 @@
+---
+title: "listfiles"
+sidebarTitle: "listfiles"
+description: "Returns an array table of the direct children of an existing workspace directory."
+icon: "function"
+keywords: ["listfiles","Filesystem"]
+---
+
+Returns an array table of the direct children of an existing workspace directory.
+
+## Söz dizimi
+
+```lua
+listfiles(path: string): table
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Directory path resolved inside the workspace after separator normalization and workspace-boundary checks. Empty path or / is treated as ./; invalid or outside-workspace paths error. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `paths` | `table` | Array table of workspace-relative path strings for direct child entries. Files and folders can both be included; entries are not sorted by this function. |
+
+## Örnek
+
+Mevcut bir workspace directory icindeki direct child paths degerlerini listeleyin.
+
+```lua
+makefolder("examples/listing")
+writefile("examples/listing/config.json", "{}")
+makefolder("examples/listing/nested")
+
+for _, path in ipairs(listfiles("examples/listing")) do
+    print(path)
+end
+```

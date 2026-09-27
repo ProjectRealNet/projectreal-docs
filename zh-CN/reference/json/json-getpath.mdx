@@ -1,0 +1,52 @@
+---
+title: "json.getPath"
+sidebarTitle: "json.getPath"
+description: "使用 dotted string path 或 array table of keys 从 table 读取 nested value。"
+icon: "function"
+keywords: ["json.getPath","JSON","json.getpath"]
+---
+
+使用 dotted string path 或 array table of keys 从 table 读取 nested value。
+
+## 语法
+
+```lua
+json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
+```
+
+## 别名
+
+- `json.getpath`
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | 要读取的 root table。function 要求这个 argument 是 table。 |
+| `path` | `string \| table` | Yes | 要跟随的 path。string 会按 dots split；integer string tokens 使用 raw array indexing 读取。table path 使用从 1 到 #path 的 array entries 作为 keys。 |
+| `defaultValue` | `any` | No | 当 traversal 在 path 完成前到达 nil 或 non-table 时返回的 fallback value。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `pathValue` | `any \| nil` | Requested path 处的 value。如果 path missing，提供了 defaultValue 就返回它，否则返回 nil。 |
+
+## 示例
+
+从 dotted string path 或 array table of keys 读取 nested table value。
+
+```lua
+local document = {
+    user = {
+        profile = { name = "Guest" },
+        items = { "first", "second" },
+    },
+}
+
+local name = json.getPath(document, { "user", "profile", "name" }, "Unknown")
+local second = json.getPath(document, "user.items.2")
+
+print(name)
+print(second)
+```

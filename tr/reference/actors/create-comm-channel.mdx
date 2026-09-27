@@ -1,0 +1,33 @@
+---
+title: "create_comm_channel"
+sidebarTitle: "create_comm_channel"
+description: "Instance.new ile yeni bir BindableEvent oluşturur, Instance reference değerini numeric channel ID altında communication channel list içine kaydeder ve ID ile BindableEvent Instance değerini döndürür. channel ID, current map size plus one ile hesaplanır. Instance.new(\"BindableEvent\") stack üzerinde object value bırakmazsa function \"Failed to make a BindableEvent\" fırlatır."
+icon: "function"
+keywords: ["create_comm_channel","Actors"]
+---
+
+Instance.new ile yeni bir BindableEvent oluşturur, Instance reference değerini numeric channel ID altında communication channel list içine kaydeder ve ID ile BindableEvent Instance değerini döndürür. channel ID, current map size plus one ile hesaplanır. Instance.new("BindableEvent") stack üzerinde object value bırakmazsa function "Failed to make a BindableEvent" fırlatır.
+
+## Söz dizimi
+
+```lua
+create_comm_channel(): integer | Instance
+```
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `channelId` | `integer` | communication channel list içine eklenen numeric channel ID. |
+| `event` | `Instance` | channel için saklanan ve caller değerine döndürülen BindableEvent Instance. |
+
+## Örnek
+
+Create a BindableEvent communication channel and keep the returned channel ID for later lookup.
+
+```lua
+local channelId, event = create_comm_channel()
+
+print(channelId)
+print(event)
+```

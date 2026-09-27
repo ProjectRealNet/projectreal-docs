@@ -1,0 +1,38 @@
+---
+title: "json.quote"
+sidebarTitle: "json.quote"
+description: "Escape string ด้วย Real JSON string escaping rules และคืน complete quoted JSON string literal."
+icon: "function"
+keywords: ["json.quote","JSON"]
+---
+
+Escape string ด้วย Real JSON string escaping rules และคืน complete quoted JSON string literal.
+
+## ไวยากรณ์
+
+```lua
+json.quote(text: string): string
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | String ที่จะ quote. function อ่าน argument นี้ด้วย string type checking. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `quoted` | `string` | Complete JSON string literal ที่รวม opening และ closing quote. Quotes, backslashes, common control characters และ bytes below 0x20 จะถูก escape. |
+
+## ตัวอย่าง
+
+Convert string เป็น complete quoted JSON string literal.
+
+```lua
+local source = "Real Docs" .. string.char(10) .. [[Documentation "A"]]
+local quoted = json.quote(source)
+
+print(quoted)
+```

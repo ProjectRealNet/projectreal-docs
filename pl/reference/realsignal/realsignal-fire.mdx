@@ -1,0 +1,51 @@
+---
+title: "RealSignal.Fire"
+sidebarTitle: "RealSignal.Fire"
+description: "Fires the RealSignal with zero or more values. Connected callbacks receive those values, once connections are disconnected before invocation, and waiting threads are resumed with the same values. The method returns no values."
+icon: "function"
+keywords: ["RealSignal.Fire","RealSignal"]
+---
+
+Fires the RealSignal with zero or more values. Connected callbacks receive those values, once connections are disconnected before invocation, and waiting threads are resumed with the same values. The method returns no values.
+
+## Składnia
+
+```lua
+RealSignal.Fire(signal: RealSignal, ...values?: ....any)
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `signal` | `RealSignal` | Yes | Signal object returned by Signal.new. |
+| `...values` | `....any` | No | Values forwarded to connected callbacks and waiting threads. |
+
+## Typy
+
+### RealSignal
+
+Signal object returned by Signal.new.
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `Connect` | `(callback: (...any) -> ()) -> RealSignalConnection` | Yes | Adds a callback that runs when Fire is called. |
+| `Once` | `(callback: (...any) -> ()) -> RealSignalConnection` | Yes | Adds a callback that is disconnected before its first callback invocation. |
+| `Wait` | `() -> ...any` | Yes | Yields until Fire resumes the waiter with the fired values. |
+| `Fire` | `(...values: any) -> ()` | Yes | Runs connected callbacks and resumes waiters with the provided values. |
+
+## Przykład
+
+Forward values to connected callbacks and waiting threads.
+
+```lua
+local signal = Signal.new()
+local total = 0
+
+signal:Connect(function(value)
+    total += value
+end)
+
+signal:Fire(5)
+print(total)
+```

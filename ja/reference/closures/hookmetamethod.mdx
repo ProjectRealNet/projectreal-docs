@@ -1,0 +1,50 @@
+---
+title: "hookmetamethod"
+sidebarTitle: "hookmetamethod"
+description: "value 上の metamethod function を検索し、その function を hookfunction で hook します。first argument は raw metafield lookup が受け付ける任意の value です。second argument は string metamethod name、third argument は function replacement である必要があります。raw metafield lookup が named metafield を見つけられない場合、この function は argument 2 に対して \"Metamethod doesn't exist\" を発生させます。metafield が存在しても function でない場合、argument 2 に対して \"Metamethod isn't a function\" を発生させます。metafield が function の場合、hookmetamethod は found metamethod function を target として hookfunction を呼び、hookfunction の cloned original closure を返します。"
+icon: "function"
+keywords: ["hookmetamethod","Closures"]
+---
+
+value 上の metamethod function を検索し、その function を hookfunction で hook します。first argument は raw metafield lookup が受け付ける任意の value です。second argument は string metamethod name、third argument は function replacement である必要があります。raw metafield lookup が named metafield を見つけられない場合、この function は argument 2 に対して "Metamethod doesn't exist" を発生させます。metafield が存在しても function でない場合、argument 2 に対して "Metamethod isn't a function" を発生させます。metafield が function の場合、hookmetamethod は found metamethod function を target として hookfunction を呼び、hookfunction の cloned original closure を返します。
+
+## 構文
+
+```lua
+hookmetamethod(object: any, metamethod: string, replacement: function): function
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | raw metafield lookup で methods を検査する value。 |
+| `metamethod` | `string` | Yes | raw metafield lookup に渡される Metafield name。 |
+| `replacement` | `function` | Yes | found metamethod function の replacement として hookfunction に渡される Function。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `original` | `function` | hookfunction から返される cloned original metamethod closure。 |
+
+## 例
+
+Hook an existing metamethod function.
+
+```lua
+local object = setmetatable({}, {
+    __index = function(_, key)
+        return key
+    end,
+})
+
+local original
+original = hookmetamethod(object, "__index", function(self, key)
+    if key == "Name" then
+        return "Real"
+    end
+
+    return original(self, key)
+end)
+```

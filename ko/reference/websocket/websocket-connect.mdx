@@ -1,0 +1,52 @@
+---
+title: "WebSocket.connect"
+sidebarTitle: "WebSocket.connect"
+description: "두 개의 BindableEvents를 만들고, 제공된 URL로 WebSocket client WebSocket connection을 열며, 연결 시도가 끝날 때까지 yield합니다. 성공하면 OnMessage 및 OnClose events, methods에서 제공되는 Send 및 Close methods, connection state가 있는 WebSocket table을 반환합니다. incoming message data는 string으로 OnMessage를 통해 Fire됩니다. receive loop가 끝나면 OnClose가 arguments 없이 Fire됩니다. 연결 실패 시 함수는 \"WebSocket connection failed\"로 시작하는 error string을 발생시킵니다."
+icon: "function"
+keywords: ["WebSocket.connect","WebSocket","WebSocket.Connect","websocket.connect","websocket.Connect"]
+---
+
+두 개의 BindableEvents를 만들고, 제공된 URL로 WebSocket client WebSocket connection을 열며, 연결 시도가 끝날 때까지 yield합니다. 성공하면 OnMessage 및 OnClose events, methods에서 제공되는 Send 및 Close methods, connection state가 있는 WebSocket table을 반환합니다. incoming message data는 string으로 OnMessage를 통해 Fire됩니다. receive loop가 끝나면 OnClose가 arguments 없이 Fire됩니다. 연결 실패 시 함수는 "WebSocket connection failed"로 시작하는 error string을 발생시킵니다.
+
+## 문법
+
+```lua
+WebSocket.connect(url: string): WebSocket
+```
+
+## 별칭
+
+- `WebSocket.Connect`
+- `websocket.connect`
+- `websocket.Connect`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `url` | `string` | Yes | WebSocket client이 WebSocket connection attempt를 수행하기 전에 CURLOPT_URL에 전달되는 URL string입니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `socket` | `WebSocket` | OnMessage, OnClose, connection state를 포함하는 WebSocket table입니다. Send와 Close는 WebSocket object methods을 통해 resolve됩니다. |
+
+## 예제
+
+WebSocket을 열고 OnMessage 및 OnClose를 연결한 다음 socket methods로 보내고 닫습니다.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket.OnMessage:Connect(function(message)
+    print(message)
+end)
+
+socket.OnClose:Connect(function()
+    print("closed")
+end)
+
+socket:Send("hello")
+socket:Close()
+```

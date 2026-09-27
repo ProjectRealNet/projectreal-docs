@@ -1,0 +1,45 @@
+---
+title: "comparefunctions"
+sidebarTitle: "comparefunctions"
+description: "2 つの function values を function identity で比較します。両方の arguments は functions である必要があります。この function は function identity(L, 1) == function identity(L, 2) の boolean result を返します。function bytecode, source, behavior, hashes, upvalues, newcclosure mappings は比較しません。comparefunction は同じ function の alias です。"
+icon: "function"
+keywords: ["comparefunctions","Closures","comparefunction"]
+---
+
+2 つの function values を function identity で比較します。両方の arguments は functions である必要があります。この function は function identity(L, 1) == function identity(L, 2) の boolean result を返します。function bytecode, source, behavior, hashes, upvalues, newcclosure mappings は比較しません。comparefunction は同じ function の alias です。
+
+## 構文
+
+```lua
+comparefunctions(func1: function, func2: function): boolean
+```
+
+## エイリアス
+
+- `comparefunction`
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `func1` | `function` | Yes | function identity で変換される first function value。 |
+| `func2` | `function` | Yes | function identity で変換される second function value。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `equal` | `boolean` | 両方の function values が同じ function identity に解決される場合は true。それ以外は false。 |
+
+## 例
+
+Compare two functions by their function identity.
+
+```lua
+local function sample()
+    return "ok"
+end
+
+local same = comparefunctions(sample, sample)
+print(same)
+```

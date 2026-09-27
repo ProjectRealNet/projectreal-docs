@@ -1,0 +1,35 @@
+---
+title: "rconsolewarn"
+sidebarTitle: "rconsolewarn"
+description: "使用 warning console text attribute，通过 stdout 向当前 Windows console 写入零个或多个值。如果不存在 console window，调用会直接返回，不会转换或写入任何内容。存在 console 时，每个 argument 会用 Lua string conversion 转换，用 tab 字符连接，然后通过 runtime value 写入。如果 Lua string conversion 抛出 error，rconsolewarn 不会捕获它。该 function 会在写入前将 console text attribute 设置为 FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY，之后设置为 default console text color。它不会添加 newline，不会添加 warning prefix，不会创建或显示 console，也不会调用 Luau warn 或 Roblox Output。consolewarn 是同一个 function 的 alias。"
+icon: "function"
+keywords: ["rconsolewarn","Console","consolewarn"]
+---
+
+使用 warning console text attribute，通过 stdout 向当前 Windows console 写入零个或多个值。如果不存在 console window，调用会直接返回，不会转换或写入任何内容。存在 console 时，每个 argument 会用 Lua string conversion 转换，用 tab 字符连接，然后通过 runtime value 写入。如果 Lua string conversion 抛出 error，rconsolewarn 不会捕获它。该 function 会在写入前将 console text attribute 设置为 FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY，之后设置为 default console text color。它不会添加 newline，不会添加 warning prefix，不会创建或显示 console，也不会调用 Luau warn 或 Roblox Output。consolewarn 是同一个 function 的 alias。
+
+## 语法
+
+```lua
+rconsolewarn(...values?: ...any)
+```
+
+## 别名
+
+- `consolewarn`
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `...values` | `...any` | No | 可选值。如果存在 console，每个 value 会用 Lua string conversion 转换，并在写入前用 tab 字符连接。 |
+
+## 示例
+
+Write values to the current Windows console with the warning console text attribute. Values are tab-separated, no newline or warning prefix is added, and consolewarn is the same function.
+
+```lua
+rconsolecreate()
+rconsolewarn("Retrying request", 3)
+rconsolewarn("\n")
+```

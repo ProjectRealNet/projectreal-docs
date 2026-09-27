@@ -1,0 +1,47 @@
+---
+title: "lz4decompress"
+sidebarTitle: "lz4decompress"
+description: "แตก raw LZ4 block bytes ด้วย LZ4 block decompression และคืน raw decompressed bytes เป็นสตริง Lua"
+icon: "function"
+keywords: ["lz4decompress","Cryptography","crypt.lz4decompress","crypt.lz4.decompress","lz4.decompress"]
+---
+
+แตก raw LZ4 block bytes ด้วย LZ4 block decompression และคืน raw decompressed bytes เป็นสตริง Lua
+
+## ไวยากรณ์
+
+```lua
+lz4decompress(data: string, originalSize?: number): string
+```
+
+## Aliases
+
+- `crypt.lz4decompress`
+- `crypt.lz4.decompress`
+- `lz4.decompress`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Raw compressed bytes ที่ส่งให้ LZ4 block decompression |
+| `originalSize` | `number` | No | Output buffer size ที่ส่งเป็น dstCapacity สำหรับ output จาก lz4compress ให้ส่งความยาว bytes เดิมก่อนบีบอัด หากไม่ระบุ จะใช้ความยาวของ input ที่ถูกบีบอัด |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `decompressed` | `string` | Raw decompressed bytes ที่คืนเป็นสตริง Lua output อาจสั้นกว่า originalSize ได้ |
+
+## ตัวอย่าง
+
+แตก LZ4 bytes โดยส่งขนาดเดิมก่อนบีบอัด
+
+```lua
+local source = "Real Docs"
+local compressed = lz4compress(source)
+local decompressed = lz4decompress(compressed, #source)
+
+print(decompressed)
+print(decompressed == source)
+```

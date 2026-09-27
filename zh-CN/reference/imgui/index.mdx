@@ -1,0 +1,23 @@
+---
+title: "ImGui"
+description: "立即模式窗口和回调驱动的控件。"
+icon: "folder-code"
+---
+
+立即模式窗口和回调驱动的控件。
+
+| 函数导航 | 说明 |
+| --- | --- |
+| [`imgui.create`](./imgui-create) | 创建一个被跟踪的 ImGui window record，并返回 ImGuiWindow object。当 title 参数省略或为 nil 时使用 "REAL_IM_UI"。title 在当前被跟踪的 ImGui windows 中必须唯一；使用相同 title 创建另一个 tracked window 会触发 Lua error。 |
+| [`imgui.setvsync`](./imgui-setvsync) | 更新 ImGui renderer 的 vertical synchronization preference。当前 presentation path 会存储此 preference，但不会应用它。 |
+| [`ImGuiWindow.Button`](./imguiwindow-button) | 向 ImGuiWindow 追加一个 button element 并存储 callback。当渲染出的 button 被点击时，callback 会进入 queue，并稍后在没有 arguments 的情况下调用。该 method 返回相同的 ImGuiWindow object。 |
+| [`ImGuiWindow.Checkbox`](./imguiwindow-checkbox) | Appends a checkbox element to an ImGuiWindow. The callback is invoked with the new boolean value when the checkbox changes, and the method returns the same ImGuiWindow object. |
+| [`ImGuiWindow.CollapsingHeader`](./imguiwindow-collapsingheader) | 追加一个 collapsing header start marker，立即以相同的 ImGuiWindow object 调用 content callback，让它可以追加 nested elements，然后追加 header end marker。在 rendering 期间，当 header 处于 collapsed 状态时会跳过 nested elements。Callback errors 会被捕获，并且不会由此 method 返回。 |
+| [`ImGuiWindow.ColorPicker`](./imguiwindow-colorpicker) | Appends a RGBA color editor to an ImGuiWindow and stores the callback. Missing or nil color components default to 1.0. When the rendered editor changes, the callback is queued and later invoked with red, green, blue, and alpha. The method returns the same ImGuiWindow object. |
+| [`ImGuiWindow.destroy`](./imguiwindow-destroy) | 销毁一个 ImGuiWindow。如果 object 仍然指向 window，该 method 会从 Real 的 tracked ImGui window list 中移除该 window，对 stored element callbacks 执行 unreference，删除 window record，并将 Instance reference 设为 nil。在同一个 object 上再次调用 destroy 会直接返回，不执行任何操作。 |
+| [`ImGuiWindow.InputText`](./imguiwindow-inputtext) | 向 ImGuiWindow 追加一个 single-line ImGui InputText element 并存储 callback。initial text 会用 optional string handling 读取，并复制到该元素的 fixed 256-byte text buffer。当渲染出的 input 发生变化时，callback 会进入 queue，并稍后以 current string 调用。该 method 返回相同的 ImGuiWindow object。 |
+| [`ImGuiWindow.SameLine`](./imguiwindow-sameline) | 向 window 追加 SameLine layout marker。rendering 期间，Real 会在 element list 的该位置调用 a same-line layout marker，让下一个被渲染的 item 可以继续位于同一行。 |
+| [`ImGuiWindow.Separator`](./imguiwindow-separator) | 向 window 追加 Separator marker。rendering 期间，Real 会在 element list 的该位置调用 a separator。 |
+| [`ImGuiWindow.SliderFloat`](./imguiwindow-sliderfloat) | 向 window 追加 SliderFloat element。label、value、minimum 和 maximum 从第 2 到第 5 个参数读取，数字参数由 number type checking 检查。rendering 期间，Real 使用存储的值和范围调用 a floating-point slider。当 ImGui 报告值已更改时，onChange 会进入 queue，稍后以一个 Lua number 调用。Real 在此 closure 中不会额外验证 minimum &lt;= maximum。 |
+| [`ImGuiWindow.SliderInt`](./imguiwindow-sliderint) | Adds an integer slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated integer value. |
+| [`ImGuiWindow.Text`](./imguiwindow-text) | 向 window 追加非交互式 Text element。text 参数使用 string type checking 读取并存储在 element 上。rendering 期间，Real 调用 a text element，所以提供的 text 会作为 string content 使用，而不是作为 ImGui format string。 |

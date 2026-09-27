@@ -1,0 +1,42 @@
+---
+title: "getsignalargumentsinfo"
+sidebarTitle: "getsignalargumentsinfo"
+description: "ส่งคืน array table ของข้อมูลอาร์กิวเมนต์จาก signature ของ RBXScriptSignal ฟังก์ชันนี้ไม่ส่งคืนค่าอาร์กิวเมนต์ runtime ที่ถูกจับไว้"
+icon: "function"
+keywords: ["getsignalargumentsinfo","Signals"]
+---
+
+ส่งคืน array table ของข้อมูลอาร์กิวเมนต์จาก signature ของ RBXScriptSignal ฟังก์ชันนี้ไม่ส่งคืนค่าอาร์กิวเมนต์ runtime ที่ถูกจับไว้
+
+## ไวยากรณ์
+
+```lua
+getsignalargumentsinfo(signal: RBXScriptSignal): {{Name: string, Type: string}}
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | RBXScriptSignal ที่ต้องตรวจสอบ event descriptor signature |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `argumentInfo` | `&#123;&#123;Name: string, Type: string&#125;&#125;` | array table ที่แต่ละรายการมี strings Name และ Type หากอ่าน signature ไม่ได้หรือไม่มีรายการ ฟังก์ชันจะส่งคืน fallback entry หนึ่งรายการ โดยตั้ง Name เป็น arg1 และ Type เป็น Variant |
+
+## ตัวอย่าง
+
+Inspect an RBXScriptSignal signature and print each argument name with its type name.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote then
+    for _, argument in ipairs(getsignalargumentsinfo(remote.OnClientEvent)) do
+        print(argument.Name, argument.Type)
+    end
+end
+```

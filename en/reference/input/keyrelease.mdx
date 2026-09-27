@@ -1,0 +1,21 @@
+---
+title: "keyrelease"
+sidebarTitle: "keyrelease"
+description: "Sends a key up event when the Roblox window is active. The keyCode argument is checked as a Lua number, and sent with keyboard input with KEYEVENTF_SCANCODE | KEYEVENTF_KEYUP. This function does not send a key down event. If isrbxactive would be false, the function returns without sending input."
+icon: "function"
+keywords: ["keyrelease","Input"]
+---
+
+Sends a key up event when the Roblox window is active. The keyCode argument is checked as a Lua number, and sent with keyboard input with KEYEVENTF_SCANCODE | KEYEVENTF_KEYUP. This function does not send a key down event. If isrbxactive would be false, the function returns without sending input.
+
+## Syntax
+
+```lua
+keyrelease(keyCode: number)
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `keyCode` | `number` | Yes | Windows virtual-key code read as a Lua number and converted to an integer before Windows key mapping is called. |

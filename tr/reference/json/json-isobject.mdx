@@ -1,0 +1,41 @@
+---
+title: "json.isObject"
+sidebarTitle: "json.isObject"
+description: "Bir value degerinin Real JSON table detection tarafindan treated as a JSON object olup olmadigini dondurur."
+icon: "function"
+keywords: ["json.isObject","JSON"]
+---
+
+Bir value degerinin Real JSON table detection tarafindan treated as a JSON object olup olmadigini dondurur.
+
+## Söz dizimi
+
+```lua
+json.isObject(value: any): boolean
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Inspect edilecek value. Non-table values false dondurur. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `isObject` | `boolean` | value, table marked as a JSON object ise veya Real JSON table detection table degerini array olarak siniflandirmiyorsa true. Empty unmarked tables true dondurur. |
+
+## Örnek
+
+Bir table degerinin Real JSON encoder tarafindan treated as a JSON object olup olmadigini check et.
+
+```lua
+local record = json.object({ name = "Real" })
+local items = json.array({ "one", "two" })
+local empty = {}
+
+print(json.isObject(record))
+print(json.isObject(items))
+print(json.isObject(empty))
+```

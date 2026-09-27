@@ -1,0 +1,28 @@
+---
+title: "gethui"
+sidebarTitle: "gethui"
+description: "Tra ve game:CoreGui lookup.RobloxGui. Function khong nhan arguments. Neu CoreGui lookup tra ve nil, hoac neu RobloxGui tren gia tri do la nil, function tra ve nil. Function khong tao container va khong dung gia tri cached CoreGui."
+icon: "function"
+keywords: ["gethui","Instances","gethiddenui","gethiddengui","get_hidden_ui","get_hidden_gui"]
+---
+
+Tra ve game:CoreGui lookup.RobloxGui. Function khong nhan arguments. Neu CoreGui lookup tra ve nil, hoac neu RobloxGui tren gia tri do la nil, function tra ve nil. Function khong tao container va khong dung gia tri cached CoreGui.
+
+## Cú pháp
+
+```lua
+gethui(): Instance | nil
+```
+
+## Alias
+
+- `gethiddenui`
+- `gethiddengui`
+- `get_hidden_ui`
+- `get_hidden_gui`
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `robloxGui` | `Instance \| nil` | Gia tri RobloxGui doc tu CoreGui, hoac nil khi CoreGui hoac RobloxGui khong kha dung. |

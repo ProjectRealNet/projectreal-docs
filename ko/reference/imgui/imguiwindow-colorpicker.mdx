@@ -1,0 +1,53 @@
+---
+title: "ImGuiWindow.ColorPicker"
+sidebarTitle: "ImGuiWindow.ColorPicker"
+description: "Appends a RGBA color editor to an ImGuiWindow and stores the callback. Missing or nil color components default to 1.0. When the rendered editor changes, the callback is queued and later invoked with red, green, blue, and alpha. The method returns the same ImGuiWindow object."
+icon: "function"
+keywords: ["ImGuiWindow.ColorPicker","ImGui"]
+---
+
+Appends a RGBA color editor to an ImGuiWindow and stores the callback. Missing or nil color components default to 1.0. When the rendered editor changes, the callback is queued and later invoked with red, green, blue, and alpha. The method returns the same ImGuiWindow object.
+
+## 문법
+
+```lua
+ImGuiWindow.ColorPicker(window: ImGuiWindow, label: string, red?: number, green?: number, blue?: number, alpha?: number, onChange: function): ImGuiWindow
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `window` | `ImGuiWindow` | Yes | ImGuiWindow object returned by imgui.create. A destroyed or invalid window raises a Lua error. |
+| `label` | `string` | Yes | Color editor label string passed to the rendered ImGui ColorEdit4 widget. |
+| `red` | `number` | No | Initial red component read with luaL_optnumber; defaults to 1.0 when omitted or nil. |
+| `green` | `number` | No | Initial green component read with luaL_optnumber; defaults to 1.0 when omitted or nil. |
+| `blue` | `number` | No | Initial blue component read with luaL_optnumber; defaults to 1.0 when omitted or nil. |
+| `alpha` | `number` | No | Initial alpha component read with luaL_optnumber; defaults to 1.0 when omitted or nil. |
+| `onChange` | `function` | Yes | Function stored for this color editor and invoked with red, green, blue, and alpha after a change event is processed. It must be supplied as argument 7. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `window` | `ImGuiWindow` | The same ImGuiWindow object, allowing chained method calls. |
+
+## 타입
+
+### ImGuiWindow
+
+imgui.create에서 반환된 핸들입니다. 컨트롤 구축 메서드는 동일한 핸들을 반환하므로 호출을 연결할 수 있습니다.
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | 버튼을 추가하고 클릭 후 콜백을 호출합니다. |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | 제공된 상태에 초기화된 체크박스를 추가합니다. |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | 접는 헤더 아래에 콘텐츠 콜백이 추가된 그룹 컨트롤입니다. |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | RGBA 편집기를 추가합니다. 생략된 색상 구성 요소의 기본값은 1.0입니다. |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | 한 줄 텍스트 입력을 추가합니다. 생략된 초기 텍스트의 기본값은 빈 문자열입니다. |
+| `SameLine` | `() -> ImGuiWindow` | Yes | 같은 줄에 다음 컨트롤을 배치합니다. |
+| `Separator` | `() -> ImGuiWindow` | Yes | 가로 구분 기호를 추가합니다. |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | 부동 소수점 슬라이더를 추가합니다. |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | 정수 슬라이더를 추가합니다. |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | 비대화형 텍스트를 추가합니다. |
+| `destroy` | `() -> ()` | Yes | 창을 제거하고 등록된 콜백을 해제합니다. |

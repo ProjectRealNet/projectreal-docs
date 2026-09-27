@@ -1,0 +1,51 @@
+---
+title: "getscriptclosure"
+sidebarTitle: "getscriptclosure"
+description: "Loads the stored bytecode for a supported Roblox script Instance and returns it as a Lua closure. Returns nil when usable bytecode is not available."
+icon: "function"
+keywords: ["getscriptclosure","Scripts","getscriptfunction"]
+---
+
+Loads the stored bytecode for a supported Roblox script Instance and returns it as a Lua closure. Returns nil when usable bytecode is not available.
+
+## Söz dizimi
+
+```lua
+getscriptclosure(script: userdata): function | nil
+```
+
+## Aliaslar
+
+- `getscriptfunction`
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | Script object to load. Supported ClassName values are ModuleScript, LocalScript, CoreScript, and Script with RunContext Client. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `closure` | `function \| nil` | Loaded Lua closure, or nil when no usable bytecode is available or the Luau loader fails. |
+
+## Örnek
+
+Load a function from a supported Roblox script Instance when bytecode is available.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local closure = getscriptclosure(targetScript)
+    print(closure)
+end
+```

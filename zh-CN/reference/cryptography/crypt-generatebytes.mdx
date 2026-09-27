@@ -1,0 +1,40 @@
+---
+title: "crypt.generatebytes"
+sidebarTitle: "crypt.generatebytes"
+description: "使用 random byte generator 生成随机字节，并以 Base64-encoded Lua string 返回。"
+icon: "function"
+keywords: ["crypt.generatebytes","Cryptography"]
+---
+
+使用 random byte generator 生成随机字节，并以 Base64-encoded Lua string 返回。
+
+## 语法
+
+```lua
+crypt.generatebytes(size: number): string
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `size` | `number` | Yes | allocation 前传入 integer conversion 的数字。小于或等于 0 的值会改为 1。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `encoded` | `string` | 生成的 raw bytes 的 Base64 encoding。返回的 string 长度不是请求的字节数。 |
+
+## 示例
+
+生成 bytes，并在需要 raw bytes 时解码 Base64 结果。
+
+```lua
+local encoded = crypt.generatebytes(16)
+local raw = base64_decode(encoded)
+
+print(encoded)
+print(#encoded)
+print(#raw)
+```

@@ -1,0 +1,36 @@
+---
+title: "crypt.generatekey"
+sidebarTitle: "crypt.generatekey"
+description: "使用 random byte generator 生成 32 个随机 raw bytes，并以 Base64-encoded Lua string 返回。"
+icon: "function"
+keywords: ["crypt.generatekey","Cryptography"]
+---
+
+使用 random byte generator 生成 32 个随机 raw bytes，并以 Base64-encoded Lua string 返回。
+
+## 语法
+
+```lua
+crypt.generatekey(): string
+```
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `key` | `string` | 生成的 32 个 raw bytes 的 Base64 encoding。返回的 string 不是 32 个字符长。 |
+
+## 示例
+
+生成 Base64 key，并解码它以检查 raw bytes 数量。
+
+```lua
+local key = crypt.generatekey()
+local raw = base64_decode(key)
+
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+print(key)
+print(#raw)
+print(ciphertext, iv)
+```

@@ -1,0 +1,41 @@
+---
+title: "cache.iscached"
+sidebarTitle: "cache.iscached"
+description: "지정한 Instance가 Instance cache에 non-nil 항목을 가지고 있는지 반환합니다."
+icon: "function"
+keywords: ["cache.iscached","Cache"]
+---
+
+지정한 Instance가 Instance cache에 non-nil 항목을 가지고 있는지 반환합니다.
+
+## 문법
+
+```lua
+cache.iscached(instance: Instance): boolean
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance cache 항목을 확인할 Instance입니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `cached` | `boolean` | cache에 해당 Instance의 non-nil 항목이 있으면 True입니다. |
+
+## 예제
+
+Instance가 현재 Real의 Instance cache에 항목을 가지고 있는지 확인합니다.
+
+```lua
+local Players = game:GetService("Players")
+
+local cached = cache.iscached(Players)
+print(cached)
+
+cache.invalidate(Players)
+print(cache.iscached(Players))
+```

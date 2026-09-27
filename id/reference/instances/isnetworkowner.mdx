@@ -1,0 +1,40 @@
+---
+title: "isnetworkowner"
+sidebarTitle: "isnetworkowner"
+description: "Mengembalikan hasil membaca hidden property \"NetworkOwnerV3\" dari Instance dan memeriksa apakah nilai pertama yang dikembalikan, dikonversi dengan integer conversion, lebih besar dari 2. Argumen harus Instance object. Function memanggil the hidden property reader secara dan tidak menangkap error dari pemanggilan itu, sehingga Invalid Instance values, missing properties, atau non-property metadata dapat menghasilkan error yang sama seperti gethiddenproperty. Function mengembalikan satu boolean. Apakah peer_id > 2 secara tepat berarti local network ownership adalah: Nicht aus der Codebasis verifizierbar."
+icon: "function"
+keywords: ["isnetworkowner","Instances"]
+---
+
+Mengembalikan hasil membaca hidden property "NetworkOwnerV3" dari Instance dan memeriksa apakah nilai pertama yang dikembalikan, dikonversi dengan integer conversion, lebih besar dari 2. Argumen harus Instance object. Function memanggil the hidden property reader secara dan tidak menangkap error dari pemanggilan itu, sehingga Invalid Instance values, missing properties, atau non-property metadata dapat menghasilkan error yang sama seperti gethiddenproperty. Function mengembalikan satu boolean. Apakah peer_id > 2 secara tepat berarti local network ownership adalah: Nicht aus der Codebasis verifizierbar.
+
+## Sintaks
+
+```lua
+isnetworkowner(instance: Instance): boolean
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object yang diteruskan ke the hidden property reader dengan property name "NetworkOwnerV3". |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `isOwner` | `boolean` | true saat integer conversion pada nilai pertama yang dikembalikan dari "NetworkOwnerV3" lebih besar dari 2; jika tidak false. |
+
+## Contoh
+
+Check network ownership for a BasePart Instance.
+
+```lua
+local part = workspace:FindFirstChildWhichIsA("BasePart", true)
+
+if part then
+    local ownsNetwork = isnetworkowner(part)
+    print(ownsNetwork)
+end
+```

@@ -1,0 +1,36 @@
+---
+title: "rconsolename"
+sidebarTitle: "rconsolename"
+description: "Sets the current Windows console window title . The first argument must be a string and is checked before the console existence check. If no console window exists after the string check succeeds, the call returns without doing anything."
+icon: "function"
+keywords: ["rconsolename","Console","consolename","rconsolesettitle","consolesettitle"]
+---
+
+Sets the current Windows console window title . The first argument must be a string and is checked before the console existence check. If no console window exists after the string check succeeds, the call returns without doing anything.
+
+## Syntax
+
+```lua
+rconsolename(text: string)
+```
+
+## Aliases
+
+- `consolename`
+- `rconsolesettitle`
+- `consolesettitle`
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | String passed to Windows console title update as the console window title. |
+
+## Example
+
+Set the current Windows console window title.
+
+```lua
+rconsolecreate()
+rconsolename("Real Console")
+```

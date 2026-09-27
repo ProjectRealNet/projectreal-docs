@@ -1,0 +1,35 @@
+---
+title: "rconsoleerr"
+sidebarTitle: "rconsoleerr"
+description: "Ghi khong hoac nhieu gia tri vào Windows console hiện tại qua stdout sau khi đặt console text attribute thành error text color. Giá trị được chuyển đổi bằng Lua string conversion, phân tách bằng ký tự tab, và text attribute duoc dat thanh default console text color sau do. Nếu không có console window, lời gọi sẽ trả về ma khong chuyen doi hoac ghi gi."
+icon: "function"
+keywords: ["rconsoleerr","Console","consoleerr"]
+---
+
+Ghi khong hoac nhieu gia tri vào Windows console hiện tại qua stdout sau khi đặt console text attribute thành error text color. Giá trị được chuyển đổi bằng Lua string conversion, phân tách bằng ký tự tab, và text attribute duoc dat thanh default console text color sau do. Nếu không có console window, lời gọi sẽ trả về ma khong chuyen doi hoac ghi gi.
+
+## Cú pháp
+
+```lua
+rconsoleerr(...values?: ...any)
+```
+
+## Alias
+
+- `consoleerr`
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `...values` | `...any` | No | Cac gia tri tuy chon. Neu co console, moi value duoc chuyen doi bang Lua string conversion va noi bang ky tu tab truoc khi ghi. |
+
+## Ví dụ
+
+Write a bright red message to the current Windows console without throwing a Luau error.
+
+```lua
+rconsolecreate()
+rconsoleerr("Request failed", 500, "
+")
+```

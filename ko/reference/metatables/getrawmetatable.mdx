@@ -1,0 +1,47 @@
+---
+title: "getrawmetatable"
+sidebarTitle: "getrawmetatable"
+description: "Returns the metatable currently attached to a target value, or nil when none is present. The function returns exactly one value and does not change the target. debug.getmethods is an alias for getrawmethods."
+icon: "function"
+keywords: ["getrawmetatable","Metatables","debug.getmetatable"]
+---
+
+Returns the metatable currently attached to a target value, or nil when none is present. The function returns exactly one value and does not change the target. debug.getmethods is an alias for getrawmethods.
+
+## 문법
+
+```lua
+getrawmetatable(target: any): table | nil
+```
+
+## 별칭
+
+- `debug.getmetatable`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `target` | `any` | Yes | Value whose metatable is returned. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `metatable` | `table \| nil` | Target metatable when present; otherwise nil. |
+
+## 예제
+
+Return the metatable currently attached to a value.
+
+```lua
+local target = {}
+local meta = {
+    label = "Real",
+}
+
+setrawmetatable(target, meta)
+
+print(getrawmetatable(target) == meta)
+print(debug.getmetatable(target) == meta)
+```

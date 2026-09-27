@@ -1,0 +1,34 @@
+---
+title: "delfolder"
+sidebarTitle: "delfolder"
+description: "Loescht einen vorhandenen folder innerhalb des workspace rekursiv mit recursive folder deletion."
+icon: "function"
+keywords: ["delfolder","Filesystem"]
+---
+
+Loescht einen vorhandenen folder innerhalb des workspace rekursiv mit recursive folder deletion.
+
+## Syntax
+
+```lua
+delfolder(path: string)
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path, der nach separator normalization und workspace-boundary checks im workspace aufgeloest wird. Das Ziel muss existieren und ein directory sein; files werden nicht akzeptiert. |
+
+## Beispiel
+
+Loesche einen vorhandenen workspace folder und seine Inhalte.
+
+```lua
+local path = "examples/temporary"
+makefolder(path)
+writefile(path .. "/note.txt", "temporary")
+
+delfolder(path)
+print(isfolder(path))
+```

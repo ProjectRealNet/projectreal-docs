@@ -1,0 +1,43 @@
+---
+title: "json.keys"
+sidebarTitle: "json.keys"
+description: "Table の visible keys を new table marked as a JSON array で返します。"
+icon: "function"
+keywords: ["json.keys","JSON"]
+---
+
+Table の visible keys を new table marked as a JSON array で返します。
+
+## 構文
+
+```lua
+json.keys(object: table): table
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | Inspect する table。function はこの argument が table であることを要求します。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `keys` | `table` | Source table keys を含む new array table。Real JSON type marker は除外されます。Order は table iteration iteration に従い、この function では sorted されません。 |
+
+## 例
+
+Table の visible keys を new JSON array table に collect します。
+
+```lua
+local record = {
+    name = "Real",
+    enabled = true,
+    [5] = "numeric key",
+}
+
+for _, key in ipairs(json.keys(record)) do
+    print(key)
+end
+```

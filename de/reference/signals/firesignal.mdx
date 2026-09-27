@@ -1,0 +1,32 @@
+---
+title: "firesignal"
+sidebarTitle: "firesignal"
+description: "Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error."
+icon: "function"
+keywords: ["firesignal","Signals"]
+---
+
+Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error.
+
+## Syntax
+
+```lua
+firesignal(signal: RBXScriptSignal, ...arguments?: ...any)
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | Signal passed to getconnections. Missing or nil values raise "firesignal expects a valid connection". |
+| `...arguments` | `...any` | No | Values passed to each local signal connection. |
+
+## Beispiel
+
+Run local Lua connections attached to an RBXScriptSignal and pass extra values to each eligible connection.
+
+```lua
+local button = script.Parent
+
+firesignal(button.Activated, "manual")
+```

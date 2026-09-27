@@ -1,0 +1,35 @@
+---
+title: "makewriteable"
+sidebarTitle: "makewriteable"
+description: "Marks a table as writable and returns no values."
+icon: "function"
+keywords: ["makewriteable","Metatables"]
+---
+
+Marks a table as writable and returns no values.
+
+## 문법
+
+```lua
+makewriteable(target: table)
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `target` | `table` | Yes | Table to mark as writable. |
+
+## 예제
+
+Set a table's readonly flag to false.
+
+```lua
+local target = {}
+
+makereadonly(target)
+print(isreadonly(target))
+
+makewriteable(target)
+print(isreadonly(target))
+```

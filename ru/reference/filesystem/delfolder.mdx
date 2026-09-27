@@ -1,0 +1,34 @@
+---
+title: "delfolder"
+sidebarTitle: "delfolder"
+description: "Удаляет существующий folder внутри workspace рекурсивно через recursive folder deletion."
+icon: "function"
+keywords: ["delfolder","Filesystem"]
+---
+
+Удаляет существующий folder внутри workspace рекурсивно через recursive folder deletion.
+
+## Синтаксис
+
+```lua
+delfolder(path: string)
+```
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path, который разрешается внутри workspace после separator normalization и workspace-boundary checks. Цель должна существовать и быть directory; files не принимаются. |
+
+## Пример
+
+Удалите существующий workspace folder и его содержимое.
+
+```lua
+local path = "examples/temporary"
+makefolder(path)
+writefile(path .. "/note.txt", "temporary")
+
+delfolder(path)
+print(isfolder(path))
+```

@@ -1,0 +1,43 @@
+---
+title: "crypt.decrypt"
+sidebarTitle: "crypt.decrypt"
+description: "Base64 ciphertext を、Base64 からデコードされた key と必須の Base64 IV で AES CBC または ECB を使って復号します。"
+icon: "function"
+keywords: ["crypt.decrypt","Cryptography"]
+---
+
+Base64 ciphertext を、Base64 からデコードされた key と必須の Base64 IV で AES CBC または ECB を使って復号します。
+
+## 構文
+
+```lua
+crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES-CBC" | "AES-ECB"): string
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | 復号前にデコードされる Base64 ciphertext。 |
+| `key` | `string` | Yes | AES に渡される前にデコードされる Base64 key。 |
+| `iv` | `string` | Yes | mode 処理前にデコードされる Base64 IV。この引数は ECB でも必須です。 |
+| `mode` | `"CBC" \| "ECB" \| "AES-CBC" \| "AES-ECB"` | No | AES mode。存在する場合は AES- prefix が削除されます。デフォルトは AES-CBC です。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `plaintext` | `string` | Lua string として返される plaintext バイト。 |
+
+## 例
+
+crypt.encrypt が返した ciphertext を、返された IV で復号します。
+
+```lua
+local key = crypt.generatekey()
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+local plaintext = crypt.decrypt(ciphertext, key, iv)
+
+print(plaintext)
+```

@@ -1,0 +1,52 @@
+---
+title: "ImGuiWindow.SliderInt"
+sidebarTitle: "ImGuiWindow.SliderInt"
+description: "Adds an integer slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated integer value."
+icon: "function"
+keywords: ["ImGuiWindow.SliderInt","ImGui"]
+---
+
+Adds an integer slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated integer value.
+
+## 構文
+
+```lua
+ImGuiWindow.SliderInt(window: ImGuiWindow, label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()): ImGuiWindow
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `window` | `ImGuiWindow` | Yes | ImGuiWindow returned by imgui.create. If the object is invalid or has already been destroyed, the method raises a Lua error. |
+| `label` | `string` | Yes | Slider label required to be a string. |
+| `value` | `integer` | Yes | Initial slider value required to be an integer and stored as the current int value. |
+| `minimum` | `integer` | Yes | Minimum value required to be an integer and passed to an integer slider. |
+| `maximum` | `integer` | Yes | Maximum value required to be an integer and passed to an integer slider. |
+| `onChange` | `(number) -> ()` | Yes | Callback called with the updated integer value when the slider changes. |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `window` | `ImGuiWindow` | The same ImGuiWindow object, allowing chained method calls. |
+
+## 型
+
+### ImGuiWindow
+
+imgui.create によって返されるハンドル。コントロール構築メソッドは同じハンドルを返すため、呼び出しを連鎖させることができます。
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | ボタンを追加し、クリック後にコールバックを呼び出します。 |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | 指定された状態に初期化されたチェックボックスを追加します。 |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | 折りたたみヘッダーの下にコンテンツ コールバックによって追加されるコントロールをグループ化します。 |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | RGBA エディタを追加します。省略された色コンポーネントのデフォルトは 1.0 です。 |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | 単一行のテキスト入力を追加します。省略された初期テキストはデフォルトで空の文字列になります。 |
+| `SameLine` | `() -> ImGuiWindow` | Yes | 次のコントロールを同じ行に配置します。 |
+| `Separator` | `() -> ImGuiWindow` | Yes | 水平方向の区切り文字を追加します。 |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | 浮動小数点スライダーを追加します。 |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | 整数スライダーを追加します。 |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | 非対話型テキストを追加します。 |
+| `destroy` | `() -> ()` | Yes | ウィンドウを削除し、登録されているコールバックを解放します。 |

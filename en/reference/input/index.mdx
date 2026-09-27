@@ -1,0 +1,23 @@
+---
+title: "Input"
+description: "Keyboard and mouse input events."
+icon: "folder-code"
+---
+
+Keyboard and mouse input events.
+
+| Function navigation | Description |
+| --- | --- |
+| [`isrbxactive`](./isrbxactive) | Returns whether the current foreground window is the Roblox window found by Real. Real finds that window by enumerating windows for the current process and selecting a window whose class name is Roblox window. The function takes no arguments and returns false when no foreground window or matching Roblox window is available. |
+| [`keyclick`](./keyclick) | Sends a key down event followed by a key up event when the Roblox window is active. The keyCode argument is checked as a Lua number, and sent with keyboard input with KEYEVENTF_SCANCODE. If isrbxactive would be false, the function returns without sending input. |
+| [`keypress`](./keypress) | Sends a key down event when the Roblox window is active. The keyCode argument is checked as a Lua number, and sent with keyboard input with KEYEVENTF_SCANCODE. This function does not send a key up event. If isrbxactive would be false, the function returns without sending input. |
+| [`keyrelease`](./keyrelease) | Sends a key up event when the Roblox window is active. The keyCode argument is checked as a Lua number, and sent with keyboard input with KEYEVENTF_SCANCODE \| KEYEVENTF_KEYUP. This function does not send a key down event. If isrbxactive would be false, the function returns without sending input. |
+| [`mouse1click`](./mouse1click) | Sends a left mouse down and left mouse up event when the Roblox window is active. The function takes no arguments, returns nothing, and returns without sending input when isrbxactive would be false. |
+| [`mouse1press`](./mouse1press) | Sends a left mouse down event when the Roblox window is active. The function takes no arguments, returns nothing, does not send a matching left mouse up event, and returns without sending input when isrbxactive would be false. |
+| [`mouse1release`](./mouse1release) | Sends a left mouse up event when the Roblox window is active. The function takes no arguments, returns nothing, does not send a matching left mouse down event, and returns without sending input when isrbxactive would be false. |
+| [`mouse2click`](./mouse2click) | Sends a right mouse down and right mouse up event when the Roblox window is active. The function takes no arguments, returns nothing, and returns without sending input when isrbxactive would be false. |
+| [`mouse2press`](./mouse2press) | Sends a right mouse down event when the Roblox window is active. The function takes no arguments, returns nothing, does not send a matching right mouse up event, and returns without sending input when isrbxactive would be false. |
+| [`mouse2release`](./mouse2release) | Sends a right mouse up event when the Roblox window is active. The function takes no arguments, returns nothing, does not send a matching right mouse down event, and returns without sending input when isrbxactive would be false. |
+| [`mousemoveabs`](./mousemoveabs) | Moves the mouse using Windows absolute mouse input when the Roblox window is active. The x and y arguments are checked as Lua numbers and converted to an integer. Real treats them as coordinates relative to the active foreground window client area, adds that client area screen position with ClientToScreen, scales them using GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 and integer math, then calls mouse input with the requested mouse action. If isrbxactive would be false, the function returns without sending input. |
+| [`mousemoverel`](./mousemoverel) | Moves the mouse by a relative delta when the Roblox window is active. The x and y arguments are checked as Lua numbers and converted to an integer, then passed directly to mouse input with the requested mouse action as dx and dy. The function does not use the requested mouse action, does not perform client-area conversion, returns nothing, and returns without sending input when isrbxactive would be false. |
+| [`mousescroll`](./mousescroll) | Sends a mouse wheel event when the Roblox window is active. The amount argument is checked as a Lua number, and passed directly as the dwData value to mouse input with the requested mouse action. Real does not normalize the amount or add movement data. The function returns nothing and returns without sending input when isrbxactive would be false. |

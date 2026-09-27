@@ -1,0 +1,43 @@
+---
+title: "json.keys"
+sidebarTitle: "json.keys"
+description: "Tra ve visible keys cua table trong new table marked as a JSON array."
+icon: "function"
+keywords: ["json.keys","JSON"]
+---
+
+Tra ve visible keys cua table trong new table marked as a JSON array.
+
+## Cú pháp
+
+```lua
+json.keys(object: table): table
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | Table de inspect. Function yeu cau argument nay la table. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `keys` | `table` | New array table chua source table keys, loai tru Real JSON type marker. Order theo table iteration iteration va khong duoc sorted boi function nay. |
+
+## Ví dụ
+
+Collect visible keys cua table vao new JSON array table.
+
+```lua
+local record = {
+    name = "Real",
+    enabled = true,
+    [5] = "numeric key",
+}
+
+for _, key in ipairs(json.keys(record)) do
+    print(key)
+end
+```

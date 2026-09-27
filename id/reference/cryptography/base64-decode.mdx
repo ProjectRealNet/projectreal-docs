@@ -1,0 +1,48 @@
+---
+title: "base64_decode"
+sidebarTitle: "base64_decode"
+description: "Mendekode input Base64 dengan Base64 decoder dan mengembalikan byte yang didekodekan sebagai string Lua."
+icon: "function"
+keywords: ["base64_decode","Cryptography","base64decode","base64.decode","crypt.base64.decode","crypt.base64_decode","crypt.base64decode"]
+---
+
+Mendekode input Base64 dengan Base64 decoder dan mengembalikan byte yang didekodekan sebagai string Lua.
+
+## Sintaks
+
+```lua
+base64_decode(data: string): string
+```
+
+## Alias
+
+- `base64decode`
+- `base64.decode`
+- `crypt.base64.decode`
+- `crypt.base64_decode`
+- `crypt.base64decode`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Input Base64 yang diteruskan ke Base64 decoder. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `decoded` | `string` | Byte yang didekodekan dikembalikan sebagai string Lua dengan panjang eksplisit. |
+
+## Contoh
+
+Dekode data Base64 dan baca string Lua yang dikembalikan.
+
+```lua
+local encoded = base64_encode("hello world")
+local decoded = base64_decode(encoded)
+
+print(decoded)
+print(base64decode(encoded))
+print(base64.decode(encoded))
+```

@@ -1,0 +1,33 @@
+---
+title: "getrenv"
+sidebarTitle: "getrenv"
+description: "Returns the Roblox global environment table. The function takes no arguments and returns exactly one value."
+icon: "function"
+keywords: ["getrenv","Environment"]
+---
+
+Returns the Roblox global environment table. The function takes no arguments and returns exactly one value.
+
+## 문법
+
+```lua
+getrenv(): table
+```
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `environment` | `table` | The Roblox global environment table. |
+
+## 예제
+
+Read the Roblox global environment table returned by Real.
+
+```lua
+local robloxEnv = getrenv()
+
+print(type(robloxEnv))
+print(rawget(robloxEnv, "_G"))
+print(rawget(robloxEnv, "shared"))
+```

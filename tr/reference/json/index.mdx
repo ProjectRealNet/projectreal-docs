@@ -1,0 +1,34 @@
+---
+title: "JSON"
+description: "JSON'u ayrıştırın, kodlayın, inceleyin ve dönüştürün."
+icon: "folder-code"
+---
+
+JSON'u ayrıştırın, kodlayın, inceleyin ve dönüştürün.
+
+| Fonksiyon gezinmesi | Açıklama |
+| --- | --- |
+| [`json.array`](./json-array) | json.encode icin JSON array olarak isaretlenmis new table olusturur ve source table verildiginde 1.#source sequence degerini kopyalar. |
+| [`json.clone`](./json-clone) | Bir value degerini json.encode semantics ile encoding yapip generated JSON degerini tekrar Lua values olarak decoding ederek clone eder. |
+| [`json.decode`](./json-decode) | JSON string degerini Real JSON parser ile parse eder ve decoded arrays ile objects degerlerini JSON helpers icin isaretleyerek decoded Lua value dondurur. |
+| [`json.decodeSafe`](./json-decodesafe) | JSON degerini json.decode ile ayni parser kullanarak parse eder ve parse errors icin throw etmek yerine success flag dondurur. |
+| [`json.encode`](./json-encode) | Lua value degerini Real JSON encoder kullanarak JSON string olarak serialize eder. json.stringify ayni function icin kayitlidir. |
+| [`json.encodePretty`](./json-encodepretty) | Lua value, Real JSON encoder kullanilarak readable formatted JSON string olarak serializes edilir. json.pretty ayni function'a kayitlidir. |
+| [`json.escape`](./json-escape) | Bir string'i Real JSON string escaping rules ile escape eder ve surrounding quotes olmadan escaped content dondurur. |
+| [`json.format`](./json-format) | Bir JSON string degerini parse eder ve Real JSON parser ve encoder ile readable formatted JSON olarak tekrar encode eder. |
+| [`json.getPath`](./json-getpath) | Dotted string path veya array table of keys kullanarak table icinden nested value okur. |
+| [`json.isArray`](./json-isarray) | Bir value degerinin Real JSON table detection tarafindan treated as a JSON array olup olmadigini dondurur. |
+| [`json.isNull`](./json-isnull) | Bir value degerinin Real JSON null sentinel olan json.null olup olmadigini dondurur. |
+| [`json.isObject`](./json-isobject) | Bir value degerinin Real JSON table detection tarafindan treated as a JSON object olup olmadigini dondurur. |
+| [`json.keys`](./json-keys) | Bir table icindeki visible keys degerlerini new table marked as a JSON array olarak dondurur. |
+| [`json.minify`](./json-minify) | Bir JSON string degerini parse eder ve Real default non-pretty JSON encoder output ile tekrar encode eder. |
+| [`json.object`](./json-object) | Real JSON encoder tarafindan object olarak ele alinmasi icin new table marked as a JSON object olusturur. |
+| [`json.parse`](./json-parse) | JSON string degerini json.decode ile ayni function kullanarak parse eder. |
+| [`json.pretty`](./json-pretty) | Lua value, json.encodePretty ile ayni function kullanilarak readable formatted JSON string olarak serializes edilir. |
+| [`json.quote`](./json-quote) | Bir string'i Real JSON string escaping rules ile escape eder ve complete quoted JSON string literal dondurur. |
+| [`json.stringify`](./json-stringify) | Lua value degerini json.encode ile ayni function kullanarak JSON string olarak serialize eder. |
+| [`json.tryDecode`](./json-trydecode) | JSON string degerini json.decodeSafe ile ayni function kullanarak parse etmeyi dener ve parse errors icin status values dondurur. |
+| [`json.type`](./json-type) | Bir deger icin string type name dondurur. json.null "null" dondurur. Tablolar json.isArray ve json.isObject ile ayni table classification kullanarak "array" veya "object" dondurur. Diger degerler runtime Lua type name result dondurur. |
+| [`json.unescape`](./json-unescape) | Escaped string content veya complete quoted JSON string literal icinden JSON string escape sequences decode eder. Girdi full JSON document olarak degil, JSON string parser ile parse edilir. |
+| [`json.validate`](./json-validate) | Bir JSON string degerini tek bir complete JSON value parse ederek validate eder. Success durumunda yalnizca true dondurur. Parse failure durumunda false ve parser error details dondurur. |
+| [`json.values`](./json-values) | Bir table icindeki direct values degerlerini JSON array olarak marked yeni bir table icinde dondurur. JSON kind marker entries atlanir. |

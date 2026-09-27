@@ -1,0 +1,16 @@
+---
+title: "RealSignal"
+description: "Standalone signal objects with callbacks, one-shot handlers, and waiters."
+icon: "folder-code"
+---
+
+Standalone signal objects with callbacks, one-shot handlers, and waiters.
+
+| Function navigation | Description |
+| --- | --- |
+| [`RealSignal.Connect`](./realsignal-connect) | Connects a callback to a RealSignal and returns a RealSignalConnection. The callback receives the arguments passed to Fire. |
+| [`RealSignal.Fire`](./realsignal-fire) | Fires the RealSignal with zero or more values. Connected callbacks receive those values, once connections are disconnected before invocation, and waiting threads are resumed with the same values. The method returns no values. |
+| [`RealSignal.Once`](./realsignal-once) | Connects a callback that is disconnected before its first callback invocation. The callback receives the arguments passed to Fire. |
+| [`RealSignal.Wait`](./realsignal-wait) | Yields the current thread until the RealSignal is fired, then resumes with the arguments passed to Fire. It errors when called from a context that cannot yield. |
+| [`RealSignalConnection.Disconnect`](./realsignalconnection-disconnect) | Disconnects a RealSignalConnection returned by Connect or Once. The method returns no values. |
+| [`Signal.new`](./signal-new) | Creates a new RealSignal object. The returned signal exposes Connect, Once, Wait, and Fire methods. |

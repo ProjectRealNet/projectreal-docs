@@ -1,0 +1,36 @@
+---
+title: "setrenderproperty"
+sidebarTitle: "setrenderproperty"
+description: "Przypisuje value do object[property]. Dla Drawing object uzywa tego samego Drawing property assignment co direct property assignment. Unknown Drawing properties sa ignorowane, a destroyed Drawing objects nie sa zmieniane. Trzeci argument musi byc podany. the Drawing API rejestruje te API tylko wtedy, gdy the required rendering environment is active ma wartosc true; gdy ten check ma wartosc false, initializer wraca przed utworzeniem tych globals."
+icon: "function"
+keywords: ["setrenderproperty","Drawing"]
+---
+
+Przypisuje value do object[property]. Dla Drawing object uzywa tego samego Drawing property assignment co direct property assignment. Unknown Drawing properties sa ignorowane, a destroyed Drawing objects nie sa zmieniane. Trzeci argument musi byc podany. the Drawing API rejestruje te API tylko wtedy, gdy the required rendering environment is active ma wartosc true; gdy ten check ma wartosc false, initializer wraca przed utworzeniem tych globals.
+
+## Składnia
+
+```lua
+setrenderproperty(object: any, property: any, value: any)
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | Wartosc do indeksowania i przypisania. Z Drawing object uzywany jest RealDrawingObject __newindex handler. |
+| `property` | `any` | Yes | property key uzywany do przypisania. Drawing object properties sa oparte na strings. |
+| `value` | `any` | Yes | Wartosc przypisywana do object[property]. Ten argument musi byc dostarczony; nil nadal jest dostarczona wartoscia. |
+
+## Przykład
+
+Zaktualizuj właściwość rysunku za pomocą pomocnika właściwości ogólnych.
+
+```lua
+local line = Drawing.new("Line")
+setrenderproperty(line, "Thickness", 3)
+setrenderproperty(line, "Visible", true)
+
+print(line.Thickness)
+print(line.Visible)
+```

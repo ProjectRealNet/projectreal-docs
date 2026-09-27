@@ -1,0 +1,40 @@
+---
+title: "Drawing.new"
+sidebarTitle: "Drawing.new"
+description: "Creates a new Drawing object of the requested type and adds it to Real's tracked Drawing object list. The type string must be one of the exact supported names: \"Line\", \"Text\", \"Circle\", \"Square\", \"Quad\", \"Triangle\", or \"Image\". Missing, non-string, or unsupported type values raise a Lua error. the Drawing API registers this API only when the required rendering environment is active is true; when that check is false, the initializer returns before creating these globals."
+icon: "function"
+keywords: ["Drawing.new","Drawing"]
+---
+
+Creates a new Drawing object of the requested type and adds it to Real's tracked Drawing object list. The type string must be one of the exact supported names: "Line", "Text", "Circle", "Square", "Quad", "Triangle", or "Image". Missing, non-string, or unsupported type values raise a Lua error. the Drawing API registers this API only when the required rendering environment is active is true; when that check is false, the initializer returns before creating these globals.
+
+## Syntax
+
+```lua
+Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad" | "Triangle"): DrawingObject
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `objectType` | `"Image" \| "Line" \| "Text" \| "Circle" \| "Square" \| "Quad" \| "Triangle"` | Yes | Exact Drawing type name to create. Supported values are "Line", "Text", "Circle", "Square", "Quad", "Triangle", and "Image". |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `object` | `DrawingObject` | Created Drawing object with the Drawing object type. |
+
+## Example
+
+Create a visible square and configure its basic drawing properties.
+
+```lua
+local square = Drawing.new("Square")
+square.Position = Vector2.new(120, 120)
+square.Size = Vector2.new(220, 120)
+square.Color = Color3.fromRGB(120, 170, 255)
+square.Filled = true
+square.Visible = true
+```

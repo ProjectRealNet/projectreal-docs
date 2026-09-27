@@ -1,0 +1,45 @@
+---
+title: "comparefunctions"
+sidebarTitle: "comparefunctions"
+description: "通过 function identity 比较两个 function values。两个 arguments 都必须是 functions。该 function 返回 function identity(L, 1) == function identity(L, 2) 的 boolean result。它不比较 function bytecode, source, behavior, hashes, upvalues 或 newcclosure mappings。comparefunction 是同一个 function 的 alias。"
+icon: "function"
+keywords: ["comparefunctions","Closures","comparefunction"]
+---
+
+通过 function identity 比较两个 function values。两个 arguments 都必须是 functions。该 function 返回 function identity(L, 1) == function identity(L, 2) 的 boolean result。它不比较 function bytecode, source, behavior, hashes, upvalues 或 newcclosure mappings。comparefunction 是同一个 function 的 alias。
+
+## 语法
+
+```lua
+comparefunctions(func1: function, func2: function): boolean
+```
+
+## 别名
+
+- `comparefunction`
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `func1` | `function` | Yes | 使用 function identity 转换的 first function value。 |
+| `func2` | `function` | Yes | 使用 function identity 转换的 second function value。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `equal` | `boolean` | 当两个 function values resolve 到同一个 function identity 时为 true；否则为 false。 |
+
+## 示例
+
+Compare two functions by their function identity.
+
+```lua
+local function sample()
+    return "ok"
+end
+
+local same = comparefunctions(sample, sample)
+print(same)
+```

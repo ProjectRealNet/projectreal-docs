@@ -1,0 +1,42 @@
+---
+title: "getactorfromthread"
+sidebarTitle: "getactorfromthread"
+description: "Luau thread に関連付けられた Actor Instance を返します。最初の argument は thread である必要があります。function は thread の thread data を読み取り、Actor reference と positive container count を要求し、その後 the associated Actor を読み取ります。actor weak reference が有効な場合は Instance として push され、それ以外の場合は function が nil を返します。"
+icon: "function"
+keywords: ["getactorfromthread","Actors","getactorfromstate"]
+---
+
+Luau thread に関連付けられた Actor Instance を返します。最初の argument は thread である必要があります。function は thread の thread data を読み取り、Actor reference と positive container count を要求し、その後 the associated Actor を読み取ります。actor weak reference が有効な場合は Instance として push され、それ以外の場合は function が nil を返します。
+
+## 構文
+
+```lua
+getactorfromthread(thread: thread): Instance | nil
+```
+
+## エイリアス
+
+- `getactorfromstate`
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `thread` | `thread` | Yes | associated Actor weak reference を確認する thread data を持つ Luau thread。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `actor` | `Instance \| nil` | thread の the associated Actor weak reference から解決された Actor Instance、または valid actor reference がない場合は nil。 |
+
+## 例
+
+Resolve the Actor Instance associated with a Luau thread, when that thread has a valid actor reference.
+
+```lua
+for _, thread in ipairs(getactorthreads()) do
+    local actor = getactorfromthread(thread)
+    print(actor)
+end
+```

@@ -1,0 +1,59 @@
+---
+title: "json.tryDecode"
+sidebarTitle: "json.tryDecode"
+description: "Thu parse JSON string bang cung function nhu json.decodeSafe va tra ve status values cho parse errors."
+icon: "function"
+keywords: ["json.tryDecode","JSON"]
+---
+
+Thu parse JSON string bang cung function nhu json.decodeSafe va tra ve status values cho parse errors.
+
+## Cú pháp
+
+```lua
+json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string de parse. Function doc argument nay bang string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean dat useNull. table co the dat useNull va maxDepth. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `success` | `boolean` | true khi parsing thanh cong, false khi parsing that bai trong protected parse block. |
+| `decoded` | `any \| nil` | Decoded value khi success. Khi parse failure, return nay la nil. |
+| `errorMessage` | `string \| nil` | Error message khi parse failure. Message duoc prefixed bang json.decodeSafe va co near-position suffix. |
+| `errorPosition` | `number \| nil` | Parser byte position tu parser khi parse failure. Return nay chi co khi failure. |
+
+## Kiểu
+
+### DecodeOptions
+
+Kiểm soát hành vi phân tích cú pháp JSON.
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Biểu thị JSON null bằng giá trị null của thư viện thay vì con số không. |
+| `maxDepth` | `integer` | No | Đặt độ sâu lồng tối đa, được kẹp từ 1 đến 4096. |
+
+## Ví dụ
+
+Decode JSON voi status returns bang json.decodeSafe-compatible alias.
+
+```lua
+local ok, value, message, position = json.tryDecode('{"ready":true,"missing":null}', {
+    useNull = true,
+})
+
+if ok then
+    print(value.ready)
+    print(json.isNull(value.missing))
+else
+    warn(message, position)
+end
+```

@@ -1,0 +1,21 @@
+---
+title: "Cryptography"
+description: "Pengkodean, hashing, enkripsi, dan kompresi."
+icon: "folder-code"
+---
+
+Pengkodean, hashing, enkripsi, dan kompresi.
+
+| Navigasi fungsi | Deskripsi |
+| --- | --- |
+| [`base64_decode`](./base64-decode) | Mendekode input Base64 dengan Base64 decoder dan mengembalikan byte yang didekodekan sebagai string Lua. |
+| [`base64_encode`](./base64-encode) | Mengenkode byte Lua string dengan Base64 encoder, memakai = padding dan tanpa line break. |
+| [`crypt.decrypt`](./crypt-decrypt) | Mendekripsi Base64 ciphertext dengan key yang didekode dari Base64 dan Base64 IV wajib memakai AES CBC atau ECB. |
+| [`crypt.encrypt`](./crypt-encrypt) | Mengenkripsi byte Lua string dengan AES CBC, ECB, atau CTR memakai key yang didekode dari Base64, lalu mengembalikan Base64 ciphertext dan hasil IV. |
+| [`crypt.generatebytes`](./crypt-generatebytes) | Menghasilkan byte acak dengan random byte generator dan mengembalikannya Base64-encoded sebagai string Lua. |
+| [`crypt.generatekey`](./crypt-generatekey) | Menghasilkan 32 raw bytes acak dengan random byte generator dan mengembalikannya Base64-encoded sebagai string Lua. |
+| [`crypt.hash`](./crypt-hash) | Meng-hash byte Lua string dengan algoritma crypto library hash yang didukung dan mengembalikan lowercase hexadecimal digest. |
+| [`crypt.hmac`](./crypt-hmac) | Menghitung crypto library HMAC atas byte Lua string memakai raw Lua string key dan mengembalikan Base64 digest. |
+| [`crypt.random`](./crypt-random) | Menghasilkan raw random bytes dengan random byte generator dan mengembalikannya sebagai string Lua. |
+| [`lz4compress`](./lz4compress) | Mengompresi byte Lua string dengan LZ4 block compression dan mengembalikan raw compressed bytes sebagai string Lua. |
+| [`lz4decompress`](./lz4decompress) | Mendekompresi raw LZ4 block bytes dengan LZ4 block decompression dan mengembalikan raw decompressed bytes sebagai string Lua. |

@@ -1,0 +1,59 @@
+---
+title: "json.decodeSafe"
+sidebarTitle: "json.decodeSafe"
+description: "JSON degerini json.decode ile ayni parser kullanarak parse eder ve parse errors icin throw etmek yerine success flag dondurur."
+icon: "function"
+keywords: ["json.decodeSafe","JSON"]
+---
+
+JSON degerini json.decode ile ayni parser kullanarak parse eder ve parse errors icin throw etmek yerine success flag dondurur.
+
+## Söz dizimi
+
+```lua
+json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | Parse edilecek JSON text. Bu argument parse errors catch edilmeden once string olarak kontrol edilir. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean useNull degerini dogrudan ayarlar. table useNull ve maxDepth ayarlayabilir; maxDepth 1 ile 4096 arasinda clamp edilir. Invalid option argument types parse errors catch edilmeden once kontrol edilir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `success` | `boolean` | parsing basariliysa True, parser error bildirirse false. |
+| `decoded` | `any \| nil` | Basarida Decoded value, parse failure durumunda nil. Gecerli JSON false, success degerini true ve decoded degerini false olarak dondurur, bu yuzden success return value kontrol edin. |
+| `errorMessage` | `string \| nil` | parse failure durumunda Error message, aksi halde nil. message json.decodeSafe prefix ve parser position icerir. |
+| `errorPosition` | `number \| nil` | parse failure durumunda Parser byte position, aksi halde nil. |
+
+## Tipler
+
+### DecodeOptions
+
+JSON ayrıştırma davranışını kontrol eder.
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Nil yerine kütüphanenin null sentinel'i ile JSON null'u temsil eder. |
+| `maxDepth` | `integer` | No | 1'den 4096'ya kadar kenetlenmiş maksimum yuvalama derinliğini ayarlar. |
+
+## Örnek
+
+JSON parse edin ve valid false veya nil results ile parse failures durumlarini ayirmak icin success return value kullanin.
+
+```lua
+local ok, value = json.decodeSafe("false")
+
+if ok then
+    print(value == false)
+end
+
+local parsed, _, message, position = json.decodeSafe("{")
+if not parsed then
+    warn(message, position)
+end
+```

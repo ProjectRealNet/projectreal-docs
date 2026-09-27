@@ -1,0 +1,38 @@
+---
+title: "get_comm_channel"
+sidebarTitle: "get_comm_channel"
+description: "يبحث عن channel ID في communication channel list ويعيد BindableEvent Instance المخزنة. يجب أن يكون الوسيط الأول number ويتم تحويله باستخدام integer conversion قبل lookup. إذا لم يوجد entry لذلك ID، تعيد function nil."
+icon: "function"
+keywords: ["get_comm_channel","Actors"]
+---
+
+يبحث عن channel ID في communication channel list ويعيد BindableEvent Instance المخزنة. يجب أن يكون الوسيط الأول number ويتم تحويله باستخدام integer conversion قبل lookup. إذا لم يوجد entry لذلك ID، تعيد function nil.
+
+## الصيغة
+
+```lua
+get_comm_channel(channelId: number): Instance | nil
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `channelId` | `number` | Yes | Channel ID يتم تحويله باستخدام integer conversion والبحث عنه في communication channel list. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `event` | `Instance \| nil` | BindableEvent Instance المخزنة لذلك channel ID، أو nil عندما لا يكون ID موجودا في communication channels. |
+
+## مثال
+
+Look up the BindableEvent Instance stored for a communication channel ID.
+
+```lua
+local channelId = create_comm_channel()
+local event = get_comm_channel(channelId)
+
+print(event)
+```

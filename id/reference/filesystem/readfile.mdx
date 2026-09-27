@@ -1,0 +1,44 @@
+---
+title: "readfile"
+sidebarTitle: "readfile"
+description: "Membaca existing regular file di dalam workspace dalam binary mode dan mengembalikan bytes sebagai Lua string."
+icon: "function"
+keywords: ["readfile","Filesystem","readfileasync"]
+---
+
+Membaca existing regular file di dalam workspace dalam binary mode dan mengembalikan bytes sebagai Lua string.
+
+## Sintaks
+
+```lua
+readfile(path: string): string
+```
+
+## Alias
+
+- `readfileasync`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | File path yang di-resolve di dalam workspace setelah separator normalization, workspace-boundary checks, dan filename/extension checks. Absolute paths hanya diterima jika resolve di dalam workspace. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `content` | `string` | File contents dikembalikan sebagai Lua string dengan panjang eksplisit. Bytes seperti null bytes, line endings, dan BOM bytes tidak diubah oleh readfile. |
+
+## Contoh
+
+Baca bytes dari existing workspace file.
+
+```lua
+local path = "examples/config.json"
+writefile(path, '{"enabled":true}')
+
+local content = readfile(path)
+print(content)
+print(#content)
+```

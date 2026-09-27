@@ -1,0 +1,43 @@
+---
+title: "crypt.decrypt"
+sidebarTitle: "crypt.decrypt"
+description: "Mendekripsi Base64 ciphertext dengan key yang didekode dari Base64 dan Base64 IV wajib memakai AES CBC atau ECB."
+icon: "function"
+keywords: ["crypt.decrypt","Cryptography"]
+---
+
+Mendekripsi Base64 ciphertext dengan key yang didekode dari Base64 dan Base64 IV wajib memakai AES CBC atau ECB.
+
+## Sintaks
+
+```lua
+crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES-CBC" | "AES-ECB"): string
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Base64 ciphertext yang didekode sebelum dekripsi. |
+| `key` | `string` | Yes | Key Base64 yang didekode sebelum diteruskan ke AES. |
+| `iv` | `string` | Yes | Base64 IV yang didekode sebelum pemrosesan mode. Argumen ini wajib, termasuk untuk ECB. |
+| `mode` | `"CBC" \| "ECB" \| "AES-CBC" \| "AES-ECB"` | No | AES mode. Prefix AES- dihapus jika ada. Default-nya AES-CBC. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `plaintext` | `string` | Byte plaintext yang dikembalikan sebagai string Lua. |
+
+## Contoh
+
+Dekripsi ciphertext yang dikembalikan oleh crypt.encrypt memakai IV yang dikembalikan.
+
+```lua
+local key = crypt.generatekey()
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+local plaintext = crypt.decrypt(ciphertext, key, iv)
+
+print(plaintext)
+```

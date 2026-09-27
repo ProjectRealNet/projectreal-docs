@@ -1,0 +1,21 @@
+---
+title: "mousescroll"
+sidebarTitle: "mousescroll"
+description: "Sends a mouse wheel event when the Roblox window is active. The amount argument is checked as a Lua number, and passed directly as the dwData value to mouse input with the requested mouse action. Real does not normalize the amount or add movement data. The function returns nothing and returns without sending input when isrbxactive would be false."
+icon: "function"
+keywords: ["mousescroll","Input"]
+---
+
+Sends a mouse wheel event when the Roblox window is active. The amount argument is checked as a Lua number, and passed directly as the dwData value to mouse input with the requested mouse action. Real does not normalize the amount or add movement data. The function returns nothing and returns without sending input when isrbxactive would be false.
+
+## Syntax
+
+```lua
+mousescroll(amount: number)
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `amount` | `number` | Yes | Wheel dwData value read as a Lua number and converted to an integer before being passed to mouse input. |

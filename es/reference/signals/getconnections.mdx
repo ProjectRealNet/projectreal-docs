@@ -1,0 +1,44 @@
+---
+title: "getconnections"
+sidebarTitle: "getconnections"
+description: "Devuelve una array table de RealConnection closures para un RBXScriptSignal. El primer argument debe ser object cuyo Luau type name sea RBXScriptSignal. La function lee el Connect method del signal, conecta un temporary blank callback, lee la linked list desde el next reference de la conexion temporal, desconecta la conexion temporal y envuelve cada connection reference valido. Si no se encuentra ningun connection reference despues de la conexion temporal, devuelve una table vacia. Los underlying references envueltos previamente pueden devolver la misma cached closure table. getsignals y get_signal_cons son aliases de la misma function."
+icon: "function"
+keywords: ["getconnections","Signals","getsignals","get_signal_cons"]
+---
+
+Devuelve una array table de RealConnection closures para un RBXScriptSignal. El primer argument debe ser object cuyo Luau type name sea RBXScriptSignal. La function lee el Connect method del signal, conecta un temporary blank callback, lee la linked list desde el next reference de la conexion temporal, desconecta la conexion temporal y envuelve cada connection reference valido. Si no se encuentra ningun connection reference despues de la conexion temporal, devuelve una table vacia. Los underlying references envueltos previamente pueden devolver la misma cached closure table. getsignals y get_signal_cons son aliases de la misma function.
+
+## Sintaxis
+
+```lua
+getconnections(signal: RBXScriptSignal): {RealConnection}
+```
+
+## Alias
+
+- `getsignals`
+- `get_signal_cons`
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | Signal que se va a inspeccionar. Un object que no sea RBXScriptSignal genera un type error, y un signal sin Connect field invocable genera "Signal does not have 'Connect' method". |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `connections` | `&#123;RealConnection&#125;` | Array table de connection closure tables. Cada closure expone fields y methods mediante su methods, incluidos Enabled, Disabled, LuaConnection, ForeignState, Function, Thread, Disconnect, Disable, Enable, Fire y Defer cuando estan disponibles. |
+
+## Ejemplo
+
+Inspect an RBXScriptSignal and list the wrapped connections Real can expose.
+
+```lua
+local Players = game:GetService("Players")
+
+for _, connection in ipairs(getconnections(Players.PlayerAdded)) do
+    print(connection.Enabled, connection.LuaConnection)
+end
+```

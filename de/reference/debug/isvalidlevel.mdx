@@ -1,0 +1,44 @@
+---
+title: "isvalidlevel"
+sidebarTitle: "isvalidlevel"
+description: "Prüft, ob ein numeric stack level im current call stack range liegt. level ist erforderlich und muss eine number sein, weil die function requires a number aufruft. Der value wird mit integer conversion konvertiert. Die function gibt false zurück, wenn level < 0 oder level >= the current call stack depth ist, sonst true. Sie prüft die frame closure nicht und löst für invalid numeric levels nicht \"Level out of range\" aus. validlevel ist ein global alias, und debug.isvalidlevel sowie debug.validlevel sind über die debug table aliases verfügbar."
+icon: "function"
+keywords: ["isvalidlevel","Debug","validlevel","debug.isvalidlevel","debug.validlevel"]
+---
+
+Prüft, ob ein numeric stack level im current call stack range liegt. level ist erforderlich und muss eine number sein, weil die function requires a number aufruft. Der value wird mit integer conversion konvertiert. Die function gibt false zurück, wenn level &lt; 0 oder level >= the current call stack depth ist, sonst true. Sie prüft die frame closure nicht und löst für invalid numeric levels nicht "Level out of range" aus. validlevel ist ein global alias, und debug.isvalidlevel sowie debug.validlevel sind über die debug table aliases verfügbar.
+
+## Syntax
+
+```lua
+isvalidlevel(level: number): boolean
+```
+
+## Aliase
+
+- `validlevel`
+- `debug.isvalidlevel`
+- `debug.validlevel`
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `level` | `number` | Yes | Stack level number, die mit integer conversion konvertiert und gegen 0 &lt;= level &lt; the current call stack depth geprüft wird. |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `valid` | `boolean` | true, wenn das numeric level im current call stack range liegt, sonst false. |
+
+## Beispiel
+
+Check whether a numeric stack level is inside the current call stack range.
+
+```lua
+print(isvalidlevel(0))
+print(validlevel(0))
+print(debug.isvalidlevel(0))
+print(debug.validlevel(0))
+```

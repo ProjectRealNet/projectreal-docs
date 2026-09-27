@@ -1,0 +1,31 @@
+---
+title: "getactors"
+sidebarTitle: "getactors"
+description: "تعيد array table من live Actor Instances المحلولة من ScriptContext actor thread list. لا تأخذ function أي arguments. تمشي عبر actor thread list، وتفك تشفير كل actor Lua state، وتبقي entries التي تكون valid threads، ثم تقرأ thread data و the associated Actor weak reference لكل thread. يتم push فقط للـ non-expired actor references كـ Instances. يتم تخطي entries بدون container، أو بدون Actor reference، أو مع reference count <= 0، أو مع expired actor reference."
+icon: "function"
+keywords: ["getactors","Actors"]
+---
+
+تعيد array table من live Actor Instances المحلولة من ScriptContext actor thread list. لا تأخذ function أي arguments. تمشي عبر actor thread list، وتفك تشفير كل actor Lua state، وتبقي entries التي تكون valid threads، ثم تقرأ thread data و the associated Actor weak reference لكل thread. يتم push فقط للـ non-expired actor references كـ Instances. يتم تخطي entries بدون container، أو بدون Actor reference، أو مع reference count &lt;= 0، أو مع expired actor reference.
+
+## الصيغة
+
+```lua
+getactors(): {Instance}
+```
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `actors` | `&#123;Instance&#125;` | Array table من Actor Instances التي لا تزال actor weak references الخاصة بها valid. |
+
+## مثال
+
+List live Actor Instances resolved from actor threads.
+
+```lua
+for _, actor in ipairs(getactors()) do
+    print(actor)
+end
+```

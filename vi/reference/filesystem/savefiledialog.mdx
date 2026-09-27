@@ -1,0 +1,62 @@
+---
+title: "savefiledialog"
+sidebarTitle: "savefiledialog"
+description: "Mo Windows save dialog thong qua Windows save dialog, ghi Lua string bytes duoc cung cap vao selected path va tra ve saved file duoi dang file item."
+icon: "function"
+keywords: ["savefiledialog","Filesystem"]
+---
+
+Mo Windows save dialog thong qua Windows save dialog, ghi Lua string bytes duoc cung cap vao selected path va tra ve saved file duoi dang file item.
+
+## Cú pháp
+
+```lua
+savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `content` | `string` | Yes | Lua string bytes de ghi vao selected file. Tep duoc mo o binary truncate mode sau khi nguoi dung xac nhan path. |
+| `options` | `DialogOptions` | No | Optional table. savefiledialog dung title, defaultPath, extensionFilter, suggestedName va defaultExtension. extensionFilter la table gom extension strings; dau . hoac *. o dau se bi loai bo truoc khi moi filter thanh *.&lt;extension>. defaultExtension loai bo leading . characters truoc khi duoc truyen vao SetDefaultExtension. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Saved file item, hoac nil khi dialog bi huy. Dialog or write failures se throw Failed to save file. |
+
+## Kiểu
+
+### DialogOptions
+
+Định cấu hình hộp thoại chọn tệp hoặc thư mục gốc.
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Đặt tiêu đề cửa sổ hộp thoại. |
+| `defaultPath` | `string` | No | Chọn thư mục hiển thị khi hộp thoại mở ra. |
+| `extensionFilter` | `&#123;string&#125;` | No | Giới hạn các tệp có thể chọn ở các tiện ích mở rộng được liệt kê, có hoặc không có dấu chấm ở đầu. |
+| `suggestedName` | `string` | No | Cung cấp tên tệp ban đầu trong hộp thoại lưu. |
+| `defaultExtension` | `string` | No | Đặt phần mở rộng được sử dụng khi tên tệp đã nhập không có. |
+
+## Ví dụ
+
+Ghi generated content vao path do nguoi dung chon va xu ly saved file item.
+
+```lua
+local saved = savefiledialog("Example output", {
+    title = "Save output",
+    suggestedName = "output.txt",
+    defaultExtension = "txt",
+    extensionFilter = { "txt" },
+})
+
+if saved then
+    print(saved:GetName())
+    print(saved:IsFile())
+else
+    print("No file saved")
+end
+```

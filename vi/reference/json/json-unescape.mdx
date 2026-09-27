@@ -1,0 +1,38 @@
+---
+title: "json.unescape"
+sidebarTitle: "json.unescape"
+description: "Decode JSON string escape sequences tu escaped string content hoac tu complete quoted JSON string literal. Input duoc parse bang JSON string parser, khong phai full JSON document."
+icon: "function"
+keywords: ["json.unescape","JSON"]
+---
+
+Decode JSON string escape sequences tu escaped string content hoac tu complete quoted JSON string literal. Input duoc parse bang JSON string parser, khong phai full JSON document.
+
+## Cú pháp
+
+```lua
+json.unescape(text: string): string
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | Escaped JSON string content, hoac complete quoted JSON string literal co first and last bytes la quotes. Function doc argument nay bang string type checking. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `text` | `string` | Decoded string. Supported escapes gom \", \\, \/, \b, \f, \n, \r, \t va \uXXXX voi surrogate-pair handling. Invalid escapes, unescaped control characters, unterminated strings va trailing characters sau quoted literal se throw Luau error voi near-position suffix. |
+
+## Ví dụ
+
+Decode JSON string escapes tu escaped content hoac quoted JSON string literal.
+
+```lua
+local escaped = json.escape("Real Docs" .. string.char(10) .. "Docs")
+local restored = json.unescape(escaped)
+
+print(restored)
+```

@@ -1,0 +1,33 @@
+---
+title: "fireclickdetector"
+sidebarTitle: "fireclickdetector"
+description: "Loest eine ClickDetector-Interaktion fuer den lokalen Spieler aus. Das erste Argument muss eine Instance sein, deren ClassName ClickDetector ist. distance ist optional und standardmaessig 0. clickOption ist optional, wird case-insensitive verglichen und ist standardmaessig \"mouseclick\". Unterstuetzte Optionen sind \"mouseclick\", \"rightmouseclick\", \"mousehoverenter\" und \"mousehoverleave\". Klick-Optionen geben distance als float an den Roblox click helper weiter, Hover-Optionen ignorieren distance. Wenn Players oder Players.LocalPlayer nicht verfuegbar ist, kehrt die function zurueck, ohne etwas auszuloesen. Ein unbekannter clickOption-Wert loest ebenfalls keine Interaktion aus. Die function gibt nichts zurueck."
+icon: "function"
+keywords: ["fireclickdetector","Instances"]
+---
+
+Loest eine ClickDetector-Interaktion fuer den lokalen Spieler aus. Das erste Argument muss eine Instance sein, deren ClassName ClickDetector ist. distance ist optional und standardmaessig 0. clickOption ist optional, wird case-insensitive verglichen und ist standardmaessig "mouseclick". Unterstuetzte Optionen sind "mouseclick", "rightmouseclick", "mousehoverenter" und "mousehoverleave". Klick-Optionen geben distance als float an den Roblox click helper weiter, Hover-Optionen ignorieren distance. Wenn Players oder Players.LocalPlayer nicht verfuegbar ist, kehrt die function zurueck, ohne etwas auszuloesen. Ein unbekannter clickOption-Wert loest ebenfalls keine Interaktion aus. Die function gibt nichts zurueck.
+
+## Syntax
+
+```lua
+fireclickdetector(detector: Instance, distance?: number, clickOption?: "mouseclick" | "rightmouseclick" | "mousehoverenter" | "mousehoverleave")
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `detector` | `Instance` | Yes | Instance, deren ClassName ClickDetector sein muss. |
+| `distance` | `number` | No | Optionaler distance-Wert. Standardmaessig 0 und wird fuer "mouseclick" und "rightmouseclick" als float weitergegeben. |
+| `clickOption` | `"mouseclick" \| "rightmouseclick" \| "mousehoverenter" \| "mousehoverleave"` | No | Optionaler Interaktionsselektor. Wird als string gelesen, case-insensitive verglichen und ist standardmaessig "mouseclick". |
+
+## Beispiel
+
+Loest die standardmaessige "mouseclick"-Interaktion auf einem ClickDetector aus.
+
+```lua
+local detector = workspace.InteractivePart.ClickDetector
+
+fireclickdetector(detector)
+```

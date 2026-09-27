@@ -1,0 +1,43 @@
+---
+title: "isfile"
+sidebarTitle: "isfile"
+description: "Returns whether a path resolved inside the workspace exists and is a regular file."
+icon: "function"
+keywords: ["isfile","Filesystem"]
+---
+
+Returns whether a path resolved inside the workspace exists and is a regular file.
+
+## 構文
+
+```lua
+isfile(path: string): boolean
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path resolved inside the workspace after separator normalization and workspace-boundary checks. Invalid or outside-workspace paths error before a boolean is returned. |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `isFile` | `boolean` | True only when the resolved path exists and is a regular file; folders and missing paths return false. |
+
+## 例
+
+workspace path が存在する regular file に解決されるか確認します。
+
+```lua
+local folderPath = "examples"
+local filePath = "examples/config.json"
+
+makefolder(folderPath)
+writefile(filePath, "{}")
+
+print(isfile(filePath))
+print(isfile(folderPath))
+print(isfile("examples/missing.json"))
+```

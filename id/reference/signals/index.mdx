@@ -1,0 +1,17 @@
+---
+title: "Signals"
+description: "Koneksi sinyal dan penerusan acara."
+icon: "folder-code"
+---
+
+Koneksi sinyal dan penerusan acara.
+
+| Navigasi fungsi | Deskripsi |
+| --- | --- |
+| [`cansignalreplicate`](./cansignalreplicate) | Memeriksa apakah RBXScriptSignal legal untuk dikirim melalui NetworkClient replication layer saat ini. Function ini memvalidasi argument pertama sebagai RBXScriptSignal, membaca source instance dan event descriptor milik signal, lalu mengembalikan hasil boolean dari replication layer signal replication validation. Jika nilai reference replication layer yang diselesaikan adalah 0, function mengembalikan false. Arguments tambahan tidak dibaca. Function ini hanya memeriksa signal dan tidak menembakkan atau mereplikasinya. Tabel whitelist yang dikembalikan oleh getsignalwhitelist tidak digunakan oleh jalur kode ini. |
+| [`firesignal`](./firesignal) | Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error. |
+| [`getconnections`](./getconnections) | Mengembalikan array table berisi RealConnection closures untuk RBXScriptSignal. Argument pertama harus berupa object dengan Luau type name RBXScriptSignal. Function membaca Connect method milik signal, menghubungkan temporary blank callback, membaca linked list mulai dari next reference koneksi sementara, memutus koneksi sementara, lalu membungkus setiap connection reference yang valid. Jika tidak ada connection reference yang ditemukan setelah koneksi sementara, function mengembalikan table kosong. references yang sebelumnya sudah dibungkus dapat mengembalikan cached closure table yang sama. getsignals dan get_signal_cons adalah aliases untuk function yang sama. |
+| [`getsignalarguments`](./getsignalarguments) | Mengembalikan array table berisi type names yang dibaca dari event descriptor signature milik RBXScriptSignal. Argument pertama harus berupa object dengan Luau type name RBXScriptSignal. Function membaca event descriptor milik signal, menelusuri signature slots dengan argument stride milik function, membaca setiap argument type reference, lalu mendorong type name string yang diselesaikan untuk setiap slot. Function ini tidak mengembalikan captured runtime argument values. Jika signature tidak dapat dibaca atau tidak ada entries yang didorong, table yang dikembalikan berisi satu fallback entry: "Variant". |
+| [`getsignalargumentsinfo`](./getsignalargumentsinfo) | Mengembalikan array table berisi info argumen dari signature RBXScriptSignal. Fungsi ini tidak mengembalikan nilai argumen runtime yang tertangkap. |
+| [`getsignalwhitelist`](./getsignalwhitelist) | Mengembalikan array table baru dengan enam entry whitelist statis yang ditentukan oleh function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Setiap entry adalah table dengan field string Event dan Parent. Function ini tidak menerima arguments dan tidak memeriksa state game saat ini. |
+| [`replicatesignal`](./replicatesignal) | Memanggil replication path untuk RBXScriptSignal. Fungsi membaca signal signature, mengonversi Lua arguments yang diberikan menjadi Roblox signal values untuk setiap signature type, memotong Lua arguments ekstra setelah signature length, lalu memanggil owning instance event invocation function. |

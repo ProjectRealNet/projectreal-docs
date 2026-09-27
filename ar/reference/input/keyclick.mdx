@@ -1,0 +1,25 @@
+---
+title: "keyclick"
+sidebarTitle: "keyclick"
+description: "يرسل key down event يتبعه key up event عندما تكون Roblox window نشطة. يتم فحص وسيط keyCode كـ Lua number، وتحويله باستخدام integer conversion، ثم تحويله من Windows virtual-key code إلى scan code بواسطة Windows key mapping، وإرساله عبر keyboard input مع KEYEVENTF_SCANCODE. اذا كانت isrbxactive ستعيد false، تعود function بدون ارسال input."
+icon: "function"
+keywords: ["keyclick","Input","keytap"]
+---
+
+يرسل key down event يتبعه key up event عندما تكون Roblox window نشطة. يتم فحص وسيط keyCode كـ Lua number، وتحويله باستخدام integer conversion، ثم تحويله من Windows virtual-key code إلى scan code بواسطة Windows key mapping، وإرساله عبر keyboard input مع KEYEVENTF_SCANCODE. اذا كانت isrbxactive ستعيد false، تعود function بدون ارسال input.
+
+## الصيغة
+
+```lua
+keyclick(keyCode: number)
+```
+
+## أسماء بديلة
+
+- `keytap`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `keyCode` | `number` | Yes | Windows virtual-key code يقرأ كـ Lua number ويتم تحويله باستخدام integer conversion قبل استدعاء Windows key mapping. |

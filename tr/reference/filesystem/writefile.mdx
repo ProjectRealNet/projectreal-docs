@@ -1,0 +1,40 @@
+---
+title: "writefile"
+sidebarTitle: "writefile"
+description: "workspace icindeki bir dosyaya Lua string bytes yazar, missing parent directories olusturur ve dosya zaten varsa file contents degerini degistirir."
+icon: "function"
+keywords: ["writefile","Filesystem","writefileasync"]
+---
+
+workspace icindeki bir dosyaya Lua string bytes yazar, missing parent directories olusturur ve dosya zaten varsa file contents degerini degistirir.
+
+## Söz dizimi
+
+```lua
+writefile(path: string, content: string)
+```
+
+## Aliaslar
+
+- `writefileasync`
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | separator normalization, workspace-boundary checks ve filename/extension checks sonrasinda workspace icinde cozulun File path. Absolute paths yalnizca workspace icinde resolve olursa kabul edilir. |
+| `content` | `string` | Yes | Yazilacak Lua string bytes. Veri binary truncate mode ile yazilir; writefile newlines, BOM bytes, null terminators veya baska extra bytes eklemez. |
+
+## Örnek
+
+Bir workspace file icine bytes yazin ve existing contents degerlerini degistirin.
+
+```lua
+local path = "examples/config.json"
+
+writefile(path, '{"enabled":true}')
+print(readfile(path))
+
+writefile(path, "")
+print(#readfile(path))
+```

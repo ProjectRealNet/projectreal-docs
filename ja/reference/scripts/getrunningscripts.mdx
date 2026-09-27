@@ -1,0 +1,21 @@
+---
+title: "getrunningscripts"
+sidebarTitle: "getrunningscripts"
+description: "live Lua threads から取得した unique script Instances の新しい array table を返します。この function は arguments を取りません。the live Luau thread list をたどり、各 thread node を読み取り、thread node、weak thread ref、LiveLuaRef、Lua state、object がない entries、または expired Script stored reference を持つ entries をスキップします。残った各 thread について scriptThread->object->Script() をロックし、script reference で重複排除し、Instance cache で Instance を push して、1 から始まる連続した array indexes に挿入します。function は DataModel をスキャンせず、ClassName を確認せず、result をソートしません。"
+icon: "function"
+keywords: ["getrunningscripts","Scripts"]
+---
+
+live Lua threads から取得した unique script Instances の新しい array table を返します。この function は arguments を取りません。the live Luau thread list をたどり、各 thread node を読み取り、thread node、weak thread ref、LiveLuaRef、Lua state、object がない entries、または expired Script stored reference を持つ entries をスキップします。残った各 thread について scriptThread->object->Script() をロックし、script reference で重複排除し、Instance cache で Instance を push して、1 から始まる連続した array indexes に挿入します。function は DataModel をスキャンせず、ClassName を確認せず、result をソートしません。
+
+## 構文
+
+```lua
+getrunningscripts(): table
+```
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `scripts` | `table` | live Lua threads に関連付けられた unique script Instance object values の新しい array table。 |

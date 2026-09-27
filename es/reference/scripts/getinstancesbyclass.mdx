@@ -1,0 +1,31 @@
+---
+title: "getinstancesbyclass"
+sidebarTitle: "getinstancesbyclass"
+description: "Devuelve instances de la Instance cache table cuyo ClassName field coincide exactamente con el string solicitado. El primer argumento se lee con string type checking. Un empty string lanza \"ClassName required\". La function crea una nueva array table, recorre la cache guardada bajo Instance cache, conserva solo values cuyo Lua type es object, lee el ClassName field de cada object value y lo compara con strcmp contra el className solicitado. Las matches se insertan sequential desde index 1. La coincidencia es exact y case-sensitive. La function no usa IsA, no incluye subclasses, no hace walk descendants, no filtra por Parent y no ordena el result. getinstancesofclass es un alias de la misma function."
+icon: "function"
+keywords: ["getinstancesbyclass","Scripts","getinstancesofclass"]
+---
+
+Devuelve instances de la Instance cache table cuyo ClassName field coincide exactamente con el string solicitado. El primer argumento se lee con string type checking. Un empty string lanza "ClassName required". La function crea una nueva array table, recorre la cache guardada bajo Instance cache, conserva solo values cuyo Lua type es object, lee el ClassName field de cada object value y lo compara con strcmp contra el className solicitado. Las matches se insertan sequential desde index 1. La coincidencia es exact y case-sensitive. La function no usa IsA, no incluye subclasses, no hace walk descendants, no filtra por Parent y no ordena el result. getinstancesofclass es un alias de la misma function.
+
+## Sintaxis
+
+```lua
+getinstancesbyclass(className: string): table
+```
+
+## Alias
+
+- `getinstancesofclass`
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `className` | `string` | Yes | Exact ClassName string para comparar. Empty strings lanzan "ClassName required". |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `instances` | `table` | New array table que contiene matching object values de la Instance cache table. |

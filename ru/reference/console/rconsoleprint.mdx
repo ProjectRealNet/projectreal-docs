@@ -1,0 +1,39 @@
+---
+title: "rconsoleprint"
+sidebarTitle: "rconsoleprint"
+description: "Записывает одно или несколько значений в текущую Windows console через stdout без изменения console text attribute. Значения преобразуются через Lua string conversion и разделяются символами tab. function не добавляет newline. Если console window не существует, вызов возвращается без действий."
+icon: "function"
+keywords: ["rconsoleprint","Console","consoleprint","rconsolewrite","consolewrite"]
+---
+
+Записывает одно или несколько значений в текущую Windows console через stdout без изменения console text attribute. Значения преобразуются через Lua string conversion и разделяются символами tab. function не добавляет newline. Если console window не существует, вызов возвращается без действий.
+
+## Синтаксис
+
+```lua
+rconsoleprint(...values?: ...any)
+```
+
+## Алиасы
+
+- `consoleprint`
+- `rconsolewrite`
+- `consolewrite`
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `...values` | `...any` | No | Необязательные значения. Если console существует, каждый value преобразуется через Lua string conversion и объединяется символами tab перед записью. |
+
+## Пример
+
+Write values to the current Windows console without adding a newline.
+
+```lua
+rconsolecreate()
+rconsoleprint("Loading", "
+")
+rconsoleprint("User", "	", 42, "
+")
+```

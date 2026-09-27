@@ -1,0 +1,64 @@
+---
+title: "RealSignal.Once"
+sidebarTitle: "RealSignal.Once"
+description: "Connects a callback that is disconnected before its first callback invocation. The callback receives the arguments passed to Fire."
+icon: "function"
+keywords: ["RealSignal.Once","RealSignal"]
+---
+
+Connects a callback that is disconnected before its first callback invocation. The callback receives the arguments passed to Fire.
+
+## Syntaxe
+
+```lua
+RealSignal.Once(signal: RealSignal, callback: (....any) -> ()): RealSignalConnection
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `signal` | `RealSignal` | Yes | Signal object returned by Signal.new. |
+| `callback` | `(....any) -> ()` | Yes | Function called at most once for this connection. |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `connection` | `RealSignalConnection` | Connection object with Disconnect. |
+
+## Types
+
+### RealSignal
+
+Signal object returned by Signal.new.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `Connect` | `(callback: (...any) -> ()) -> RealSignalConnection` | Yes | Adds a callback that runs when Fire is called. |
+| `Once` | `(callback: (...any) -> ()) -> RealSignalConnection` | Yes | Adds a callback that is disconnected before its first callback invocation. |
+| `Wait` | `() -> ...any` | Yes | Yields until Fire resumes the waiter with the fired values. |
+| `Fire` | `(...values: any) -> ()` | Yes | Runs connected callbacks and resumes waiters with the provided values. |
+
+### RealSignalConnection
+
+Connection object returned by RealSignal.Connect and RealSignal.Once.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `Disconnect` | `() -> ()` | Yes | Disconnects the connection. |
+
+## Exemple
+
+Connect a callback that runs at most once.
+
+```lua
+local signal = Signal.new()
+
+signal:Once(function(value)
+    print(value)
+end)
+
+signal:Fire("first")
+signal:Fire("second")
+```

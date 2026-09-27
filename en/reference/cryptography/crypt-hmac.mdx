@@ -1,0 +1,41 @@
+---
+title: "crypt.hmac"
+sidebarTitle: "crypt.hmac"
+description: "Computes a crypto library HMAC over Lua string bytes using a raw Lua string key and returns a Base64 digest."
+icon: "function"
+keywords: ["crypt.hmac","Cryptography"]
+---
+
+Computes a crypto library HMAC over Lua string bytes using a raw Lua string key and returns a Base64 digest.
+
+## Syntax
+
+```lua
+crypt.hmac(key: string, data: string, algorithm?: "sha256" | "sha1" | "sha224" | "sha384" | "sha512" | "md5"): string
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `key` | `string` | Yes | Raw Lua string bytes used as the HMAC key. The key is not Base64-decoded. |
+| `data` | `string` | Yes | Lua string bytes passed into the HMAC calculation. |
+| `algorithm` | `"sha256" \| "sha1" \| "sha224" \| "sha384" \| "sha512" \| "md5"` | No | Case-sensitive HMAC algorithm name. Defaults to sha256. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `digest` | `string` | Base64-encoded HMAC output with no line breaks. |
+
+## Example
+
+Compute a Base64 HMAC output from a raw Lua string key and data.
+
+```lua
+local key = "shared secret"
+local data = "payload"
+local digest = crypt.hmac(key, data, "sha256")
+
+print(digest)
+```

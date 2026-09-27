@@ -1,0 +1,21 @@
+---
+title: "keyrelease"
+sidebarTitle: "keyrelease"
+description: "Mengirim key up event saat Roblox window aktif. Argumen keyCode diperiksa sebagai Lua number, dikonversi dengan integer conversion, dipetakan dari Windows virtual-key code ke scan code dengan Windows key mapping, lalu dikirim melalui keyboard input dengan KEYEVENTF_SCANCODE | KEYEVENTF_KEYUP. Function ini tidak mengirim key down event. Jika isrbxactive bernilai false, function kembali tanpa mengirim input."
+icon: "function"
+keywords: ["keyrelease","Input"]
+---
+
+Mengirim key up event saat Roblox window aktif. Argumen keyCode diperiksa sebagai Lua number, dikonversi dengan integer conversion, dipetakan dari Windows virtual-key code ke scan code dengan Windows key mapping, lalu dikirim melalui keyboard input dengan KEYEVENTF_SCANCODE | KEYEVENTF_KEYUP. Function ini tidak mengirim key down event. Jika isrbxactive bernilai false, function kembali tanpa mengirim input.
+
+## Sintaks
+
+```lua
+keyrelease(keyCode: number)
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `keyCode` | `number` | Yes | Windows virtual-key code yang dibaca sebagai Lua number dan dikonversi dengan integer conversion sebelum Windows key mapping dipanggil. |

@@ -1,0 +1,44 @@
+---
+title: "readfile"
+sidebarTitle: "readfile"
+description: "Liest ein existing regular file innerhalb des workspace im binary mode und gibt seine bytes als Lua string zurueck."
+icon: "function"
+keywords: ["readfile","Filesystem","readfileasync"]
+---
+
+Liest ein existing regular file innerhalb des workspace im binary mode und gibt seine bytes als Lua string zurueck.
+
+## Syntax
+
+```lua
+readfile(path: string): string
+```
+
+## Aliase
+
+- `readfileasync`
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | File path, der nach separator normalization, workspace-boundary checks und filename/extension checks innerhalb des workspace aufgeloest wird. Absolute paths werden nur akzeptiert, wenn sie innerhalb des workspace aufgeloest werden. |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `content` | `string` | File contents werden als Lua string mit expliziter Laenge zurueckgegeben. Bytes wie null bytes, line endings und BOM bytes werden von readfile nicht transformiert. |
+
+## Beispiel
+
+Lies bytes aus einem existing workspace file.
+
+```lua
+local path = "examples/config.json"
+writefile(path, '{"enabled":true}')
+
+local content = readfile(path)
+print(content)
+print(#content)
+```

@@ -1,0 +1,42 @@
+---
+title: "json.object"
+sidebarTitle: "json.object"
+description: "Membuat new table marked as a JSON object agar Real JSON encoder memperlakukannya sebagai object."
+icon: "function"
+keywords: ["json.object","JSON"]
+---
+
+Membuat new table marked as a JSON object agar Real JSON encoder memperlakukannya sebagai object.
+
+## Sintaks
+
+```lua
+json.object(source?: table): table
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `source` | `table` | No | Optional source table untuk di-copy ke new object table. Jika omitted atau nil, empty object table dikembalikan. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `object` | `table` | New table marked dengan Real JSON object marker. Source entries di-copy, kecuali Real JSON type marker. |
+
+## Contoh
+
+Create new table marked as a JSON object, termasuk empty object.
+
+```lua
+local profile = json.object({
+    name = "Guest",
+    active = true,
+})
+local empty = json.object()
+
+print(json.encode(profile))
+print(json.encode(empty))
+```

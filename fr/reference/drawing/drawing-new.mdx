@@ -1,0 +1,40 @@
+---
+title: "Drawing.new"
+sidebarTitle: "Drawing.new"
+description: "Cree un nouveau Drawing object du type demande et l ajoute a Real tracked Drawing object list. Le type string doit etre l un des noms exacts pris en charge: \"Line\", \"Text\", \"Circle\", \"Square\", \"Quad\", \"Triangle\", \"Image\". Les valeurs manquantes, non-string ou type values non prises en charge declenchent une Lua error. the Drawing API enregistre cette API uniquement quand the required rendering environment is active vaut true; quand cette verification vaut false, l initializer retourne avant de creer ces globals."
+icon: "function"
+keywords: ["Drawing.new","Drawing"]
+---
+
+Cree un nouveau Drawing object du type demande et l ajoute a Real tracked Drawing object list. Le type string doit etre l un des noms exacts pris en charge: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". Les valeurs manquantes, non-string ou type values non prises en charge declenchent une Lua error. the Drawing API enregistre cette API uniquement quand the required rendering environment is active vaut true; quand cette verification vaut false, l initializer retourne avant de creer ces globals.
+
+## Syntaxe
+
+```lua
+Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad" | "Triangle"): DrawingObject
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `objectType` | `"Image" \| "Line" \| "Text" \| "Circle" \| "Square" \| "Quad" \| "Triangle"` | Yes | Nom exact du Drawing type a creer. Les valeurs prises en charge sont "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `object` | `DrawingObject` | Drawing object cree avec la Drawing object type. |
+
+## Exemple
+
+Créez un carré visible et configurez ses propriétés de dessin de base.
+
+```lua
+local square = Drawing.new("Square")
+square.Position = Vector2.new(120, 120)
+square.Size = Vector2.new(220, 120)
+square.Color = Color3.fromRGB(120, 170, 255)
+square.Filled = true
+square.Visible = true
+```

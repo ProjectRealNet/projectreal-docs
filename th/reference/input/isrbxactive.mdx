@@ -1,0 +1,26 @@
+---
+title: "isrbxactive"
+sidebarTitle: "isrbxactive"
+description: "คืนค่าว่า current foreground window เป็น Roblox window ที่ Real พบหรือไม่ Real หา window นั้นโดย enumerating windows ของ process ปัจจุบันและเลือก window ที่มี class name เป็น Roblox window function นี้ไม่รับ arguments และคืน false เมื่อไม่มี foreground window หรือ matching Roblox window"
+icon: "function"
+keywords: ["isrbxactive","Input","isgameactive","iswindowactive"]
+---
+
+คืนค่าว่า current foreground window เป็น Roblox window ที่ Real พบหรือไม่ Real หา window นั้นโดย enumerating windows ของ process ปัจจุบันและเลือก window ที่มี class name เป็น Roblox window function นี้ไม่รับ arguments และคืน false เมื่อไม่มี foreground window หรือ matching Roblox window
+
+## ไวยากรณ์
+
+```lua
+isrbxactive(): boolean
+```
+
+## Aliases
+
+- `isgameactive`
+- `iswindowactive`
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `active` | `boolean` | True เมื่อ GetForegroundWindow() คืน HWND เดียวกันกับ cached หรือ newly found Roblox window window สำหรับ process ปัจจุบัน |

@@ -1,0 +1,50 @@
+---
+title: "ImGuiWindow.InputText"
+sidebarTitle: "ImGuiWindow.InputText"
+description: "Hängt ein single-line ImGui InputText element an ein ImGuiWindow an und speichert den callback. Der initial text wird mit optional string handling gelesen und in den fixed 256-byte text buffer des Elements kopiert. Wenn sich der gerenderte input ändert, wird der callback in eine queue gelegt und später mit dem current string aufgerufen. Die method gibt dasselbe ImGuiWindow object zurück."
+icon: "function"
+keywords: ["ImGuiWindow.InputText","ImGui"]
+---
+
+Hängt ein single-line ImGui InputText element an ein ImGuiWindow an und speichert den callback. Der initial text wird mit optional string handling gelesen und in den fixed 256-byte text buffer des Elements kopiert. Wenn sich der gerenderte input ändert, wird der callback in eine queue gelegt und später mit dem current string aufgerufen. Die method gibt dasselbe ImGuiWindow object zurück.
+
+## Syntax
+
+```lua
+ImGuiWindow.InputText(window: ImGuiWindow, label: string, text?: string, onChange: function): ImGuiWindow
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `window` | `ImGuiWindow` | Yes | ImGuiWindow object, das von imgui.create zurückgegeben wurde. Ein zerstörtes oder ungültiges window löst einen Lua error aus. |
+| `label` | `string` | Yes | Input label string, der an das gerenderte ImGui InputText widget übergeben wird. |
+| `text` | `string` | No | Initial text, gelesen mit optional string handling. Übergib hier nil, wenn du den default empty string willst und trotzdem onChange als argument 4 übergibst. |
+| `onChange` | `function` | Yes | Function, die für diesen input gespeichert und mit dem current string aufgerufen wird, nachdem ein edit event verarbeitet wurde. Sie muss als argument 4 übergeben werden. |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `window` | `ImGuiWindow` | Dasselbe ImGuiWindow object, wodurch method calls verkettet werden können. |
+
+## Typen
+
+### ImGuiWindow
+
+Von imgui.create zurückgegebener Handle. Methoden zur Steuerungserstellung geben dasselbe Handle zurück, sodass Aufrufe verkettet werden können.
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | Fügt eine Schaltfläche hinzu und ruft den Rückruf nach einem Klick auf. |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | Fügt ein initialisiertes Kontrollkästchen an den bereitgestellten Status an. |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | Gruppiert Steuerelemente, die durch den Inhaltsrückruf unter einem zusammenklappbaren Header angehängt werden. |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | Fügt einen RGBA-Editor hinzu; Ausgelassene Farbkomponenten sind standardmäßig auf 1,0 eingestellt. |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | Fügt eine einzeilige Texteingabe hinzu; Der weggelassene Anfangstext ist standardmäßig eine leere Zeichenfolge. |
+| `SameLine` | `() -> ImGuiWindow` | Yes | Platziert das nächste Steuerelement in derselben Zeile. |
+| `Separator` | `() -> ImGuiWindow` | Yes | Fügt ein horizontales Trennzeichen hinzu. |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Fügt einen Gleitkomma-Schieberegler hinzu. |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Fügt einen ganzzahligen Schieberegler hinzu. |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | Fügt nicht interaktiven Text hinzu. |
+| `destroy` | `() -> ()` | Yes | Entfernt das Fenster und gibt seine registrierten Rückrufe frei. |

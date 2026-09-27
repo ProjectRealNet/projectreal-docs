@@ -1,0 +1,13 @@
+---
+title: "WebSocket"
+description: "双向 WebSocket 连接。"
+icon: "folder-code"
+---
+
+双向 WebSocket 连接。
+
+| 函数导航 | 说明 |
+| --- | --- |
+| [`WebSocket.Close`](./websocket-close) | 关闭 WebSocket.connect 返回的 WebSocket object。第一个 argument 必须是 table。该函数读取 object 的 connection state。当存在 live state 且尚未 destroyed 或 closed 时，它会将 isClosed 设置为 true，并通过保存的 WebSocket connection 发送一个空的 close frame frame。它不接受 close code 或 reason，也不返回 values。 |
+| [`WebSocket.connect`](./websocket-connect) | 创建两个 BindableEvents，打开到给定 URL 的 WebSocket client WebSocket connection，并 yield 直到连接尝试完成。成功时，它返回一个 WebSocket table，其中包含 OnMessage 和 OnClose events、由 methods 提供的 Send 和 Close methods，以及 connection state。incoming message data 会作为 string 通过 OnMessage 触发。receive loop 结束时，OnClose 会在没有 arguments 的情况下触发。连接失败时，该函数会抛出以 "WebSocket connection failed" 开头的 error string。 |
+| [`WebSocket.Send`](./websocket-send) | 通过 WebSocket.connect 返回的 WebSocket object 发送 Lua string。该 method 期望第一个 argument 是 WebSocket table，第二个 argument 是 message string。它读取 object 的 connection state；如果该 object 不存在，则抛出 "WebSocket state is missing"；当 state 已 destroyed 或 closed 时不发送并返回；默认使用 CURLWS_TEXT 调用 curl_ws_send，或者当可选第三个 argument 是 boolean true 时使用 CURLWS_BINARY。它不返回 values，也不报告已发送的 bytes 数。 |

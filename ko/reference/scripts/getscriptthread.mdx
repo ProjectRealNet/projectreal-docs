@@ -1,0 +1,47 @@
+---
+title: "getscriptthread"
+sidebarTitle: "getscriptthread"
+description: "Real이 찾을 수 있을 때 script object와 연결된 Lua thread를 반환합니다. argument는 object여야 합니다. 이 function은 값의 ClassName field를 읽고 그 field가 string이 아니면 \"not a valid Instance\"를 발생시킵니다. 허용되는 ClassName 값은 Script, LocalScript, ModuleScript입니다. 다른 값은 \"Script expected\"를 발생시킵니다. 먼저 script reference로 Real의 ScriptThreadCache를 확인합니다. cache hit이면 캐시된 Luau thread를 thread로 반환합니다. cache miss이면 Script 값은 RunContext Client여야 하며, 그렇지 않으면 function은 \"Expected a Script with RunContext set to Client\"를 발생시킵니다. 그런 다음 the live Luau thread list를 순회하고 각 thread node의 first weak thread reference를 LiveLuaRef로 따라가며, missing thread data 또는 expired Script stored references를 건너뛰고 각 script reference를 요청한 script와 비교합니다. match를 찾으면 해당 Luau thread를 thread로 반환합니다. match가 없으면 nil을 반환합니다."
+icon: "function"
+keywords: ["getscriptthread","Scripts"]
+---
+
+Real이 찾을 수 있을 때 script object와 연결된 Lua thread를 반환합니다. argument는 object여야 합니다. 이 function은 값의 ClassName field를 읽고 그 field가 string이 아니면 "not a valid Instance"를 발생시킵니다. 허용되는 ClassName 값은 Script, LocalScript, ModuleScript입니다. 다른 값은 "Script expected"를 발생시킵니다. 먼저 script reference로 Real의 ScriptThreadCache를 확인합니다. cache hit이면 캐시된 Luau thread를 thread로 반환합니다. cache miss이면 Script 값은 RunContext Client여야 하며, 그렇지 않으면 function은 "Expected a Script with RunContext set to Client"를 발생시킵니다. 그런 다음 the live Luau thread list를 순회하고 각 thread node의 first weak thread reference를 LiveLuaRef로 따라가며, missing thread data 또는 expired Script stored references를 건너뛰고 각 script reference를 요청한 script와 비교합니다. match를 찾으면 해당 Luau thread를 thread로 반환합니다. match가 없으면 nil을 반환합니다.
+
+## 문법
+
+```lua
+getscriptthread(script: userdata): thread | nil
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | 조회할 Script object입니다. 허용되는 ClassName 값은 Script, LocalScript, ModuleScript입니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `thread` | `thread \| nil` | 연결된 Lua thread 또는 matching live thread를 찾지 못하면 nil입니다. |
+
+## 예제
+
+Read the Luau thread associated with a supported script Instance when one is available.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local thread = getscriptthread(targetScript)
+    print(thread)
+end
+```

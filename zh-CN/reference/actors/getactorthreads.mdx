@@ -1,0 +1,35 @@
+---
+title: "getactorthreads"
+sidebarTitle: "getactorthreads"
+description: "返回来自 actor thread list 的 Luau threads array table。该 function 不接受 arguments。它从 ScriptContext 读取 actor list bounds，遍历每个 actor state entry，将 stored global state 解密为 Luau thread，并且只包含 valid threads 的 entries。"
+icon: "function"
+keywords: ["getactorthreads","Actors","getactorstates"]
+---
+
+返回来自 actor thread list 的 Luau threads array table。该 function 不接受 arguments。它从 ScriptContext 读取 actor list bounds，遍历每个 actor state entry，将 stored global state 解密为 Luau thread，并且只包含 valid threads 的 entries。
+
+## 语法
+
+```lua
+getactorthreads(): {thread}
+```
+
+## 别名
+
+- `getactorstates`
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `threads` | `&#123;thread&#125;` | 作为 Luau threads push 的 actor Luau thread values 的 array table。 |
+
+## 示例
+
+List Luau threads from the ScriptContext actor state list.
+
+```lua
+for _, thread in ipairs(getactorthreads()) do
+    print(thread)
+end
+```

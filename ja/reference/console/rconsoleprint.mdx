@@ -1,0 +1,39 @@
+---
+title: "rconsoleprint"
+sidebarTitle: "rconsoleprint"
+description: "console text attribute を変更せず、stdout を通して現在の Windows console に 1 つ以上の値を書き込みます。値は Lua string conversion で変換され、tab 文字で区切られます。この function は newline を追加しません。console window が存在しない場合、この呼び出しは何も変換せず、何も書き込まずに戻ります。"
+icon: "function"
+keywords: ["rconsoleprint","Console","consoleprint","rconsolewrite","consolewrite"]
+---
+
+console text attribute を変更せず、stdout を通して現在の Windows console に 1 つ以上の値を書き込みます。値は Lua string conversion で変換され、tab 文字で区切られます。この function は newline を追加しません。console window が存在しない場合、この呼び出しは何も変換せず、何も書き込まずに戻ります。
+
+## 構文
+
+```lua
+rconsoleprint(...values?: ...any)
+```
+
+## エイリアス
+
+- `consoleprint`
+- `rconsolewrite`
+- `consolewrite`
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `...values` | `...any` | No | 任意の値。console が存在する場合、各 value は Lua string conversion で変換され、書き込み前に tab 文字で結合されます。 |
+
+## 例
+
+Write values to the current Windows console without adding a newline.
+
+```lua
+rconsolecreate()
+rconsoleprint("Loading", "
+")
+rconsoleprint("User", "	", 42, "
+")
+```

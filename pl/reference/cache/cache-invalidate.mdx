@@ -1,0 +1,33 @@
+---
+title: "cache.invalidate"
+sidebarTitle: "cache.invalidate"
+description: "Usuwa zapisany w cache wpis registry Instance cache dla podanej Instance."
+icon: "function"
+keywords: ["cache.invalidate","Cache"]
+---
+
+Usuwa zapisany w cache wpis registry Instance cache dla podanej Instance.
+
+## Składnia
+
+```lua
+cache.invalidate(instance: Instance)
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance, dla ktorej zapisany w cache wpis registry ma zostac usuniety. |
+
+## Przykład
+
+Usun Instance z cache Real i sprawdz, czy wpis cache nadal istnieje.
+
+```lua
+local Players = game:GetService("Players")
+
+cache.invalidate(Players)
+
+print(cache.iscached(Players))
+```

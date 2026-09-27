@@ -1,0 +1,40 @@
+---
+title: "crypt.generatebytes"
+sidebarTitle: "crypt.generatebytes"
+description: "Menghasilkan byte acak dengan random byte generator dan mengembalikannya Base64-encoded sebagai string Lua."
+icon: "function"
+keywords: ["crypt.generatebytes","Cryptography"]
+---
+
+Menghasilkan byte acak dengan random byte generator dan mengembalikannya Base64-encoded sebagai string Lua.
+
+## Sintaks
+
+```lua
+crypt.generatebytes(size: number): string
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `size` | `number` | Yes | Angka yang melewati integer conversion sebelum alokasi. Nilai kurang dari atau sama dengan 0 diubah menjadi 1. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `encoded` | `string` | Base64 encoding dari raw bytes yang dihasilkan. Panjang string yang dikembalikan bukan jumlah byte yang diminta. |
+
+## Contoh
+
+Hasilkan byte dan dekode hasil Base64 saat raw bytes dibutuhkan.
+
+```lua
+local encoded = crypt.generatebytes(16)
+local raw = base64_decode(encoded)
+
+print(encoded)
+print(#encoded)
+print(#raw)
+```

@@ -1,0 +1,40 @@
+---
+title: "json.array"
+sidebarTitle: "json.array"
+description: "json.encode 를 위해 JSON array 로 표시된 new table 을 만들고, source table 이 제공되면 1.#source sequence 를 복사합니다."
+icon: "function"
+keywords: ["json.array","JSON"]
+---
+
+json.encode 를 위해 JSON array 로 표시된 new table 을 만들고, source table 이 제공되면 1.#source sequence 를 복사합니다.
+
+## 문법
+
+```lua
+json.array(source?: table): table
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `source` | `table` | No | Optional source table. 생략되거나 nil 이면 json.array 는 new empty array-marked table 을 반환합니다. 제공되면 1 with #source 의 numeric sequence entries 만 new table 로 복사됩니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `array` | `table` | JSON array marker 가 있는 new table 입니다. json.encode 는 이를 JSON array 로 serializes 합니다. original source table 은 반환되지 않습니다. |
+
+## 예제
+
+json.encode 가 값을 JSON array 로 serializes 하도록 array-marked copy 를 만듭니다.
+
+```lua
+local tags = json.array({ "api", "docs", "luau" })
+local empty = json.array()
+
+print(json.encode(tags))
+print(json.encode(empty))
+print(json.type(empty))
+```

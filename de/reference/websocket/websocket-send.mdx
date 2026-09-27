@@ -1,0 +1,34 @@
+---
+title: "WebSocket.Send"
+sidebarTitle: "WebSocket.Send"
+description: "Sendet einen Lua string über ein WebSocket object, das von WebSocket.connect zurückgegeben wurde. Die method erwartet die WebSocket table als erstes argument und den message string als zweites argument. Sie liest das connection state des object, wirft \"WebSocket state is missing\", wenn diese object fehlt, kehrt ohne Senden zurück, wenn der state destroyed oder closed ist, und ruft curl_ws_send standardmäßig mit CURLWS_TEXT oder mit CURLWS_BINARY auf, wenn das optionale dritte argument boolean true ist. Sie gibt keine values zurück und meldet nicht, wie viele bytes gesendet wurden."
+icon: "function"
+keywords: ["WebSocket.Send","WebSocket"]
+---
+
+Sendet einen Lua string über ein WebSocket object, das von WebSocket.connect zurückgegeben wurde. Die method erwartet die WebSocket table als erstes argument und den message string als zweites argument. Sie liest das connection state des object, wirft "WebSocket state is missing", wenn diese object fehlt, kehrt ohne Senden zurück, wenn der state destroyed oder closed ist, und ruft curl_ws_send standardmäßig mit CURLWS_TEXT oder mit CURLWS_BINARY auf, wenn das optionale dritte argument boolean true ist. Sie gibt keine values zurück und meldet nicht, wie viele bytes gesendet wurden.
+
+## Syntax
+
+```lua
+WebSocket.Send(socket: WebSocket, message: string, isBinary?: boolean)
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `socket` | `WebSocket` | Yes | WebSocket table, die von WebSocket.connect zurückgegeben wurde. Send wird über die WebSocket object methods aufgelöst, daher ist die dokumentierte Aufrufform socket:Send(..). |
+| `message` | `string` | Yes | Lua string payload, die mit ihrer explicit byte length an curl_ws_send übergeben wird. |
+| `isBinary` | `boolean` | No | Wenn dieses argument vorhanden und true ist, verwendet Send CURLWS_BINARY. Andernfalls verwendet sie CURLWS_TEXT. |
+
+## Beispiel
+
+Send text or binary data through a WebSocket object returned by WebSocket.connect.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket:Send("hello")
+socket:Send(string.char(0, 1, 2, 3), true)
+```

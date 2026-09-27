@@ -1,0 +1,47 @@
+---
+title: "dumpstring"
+sidebarTitle: "dumpstring"
+description: "Roblox script object icin decompressed bytecode string dondurur. dumpstring, getscriptbytecode ile ayni C++ function uzerine register edilir, bu nedenle davranisi aynidir. argument object olmalidir. Ortak bytecode reader ModuleScript, LocalScript, CoreScript ve Script ClassName degerlerini kabul eder. Script icin RunContext Client olmalidir. ClassName eksikse function \"Invalid Instance\" uretir. ClassName desteklenen script class degilse \"Script expected\" uretir. Deger baska bir RunContext kullanan Script ise \"Expected a Script with RunContext set to Client\" uretir. embedded bytecode reference gecersizse veya stored bytecode uzunlugu 8 bytes ya da daha azsa function nil dondurur. Aksi halde stored bytecode DecompressBytecode ile decompress edilir ve resulting bytes Luau string olarak dondurulur. Hash mismatch, too-short compressed data veya ZSTD decompression errors burada throw edilmek yerine DecompressBytecode tarafindan error text bytes olarak dondurulur."
+icon: "function"
+keywords: ["dumpstring","Scripts"]
+---
+
+Roblox script object icin decompressed bytecode string dondurur. dumpstring, getscriptbytecode ile ayni C++ function uzerine register edilir, bu nedenle davranisi aynidir. argument object olmalidir. Ortak bytecode reader ModuleScript, LocalScript, CoreScript ve Script ClassName degerlerini kabul eder. Script icin RunContext Client olmalidir. ClassName eksikse function "Invalid Instance" uretir. ClassName desteklenen script class degilse "Script expected" uretir. Deger baska bir RunContext kullanan Script ise "Expected a Script with RunContext set to Client" uretir. embedded bytecode reference gecersizse veya stored bytecode uzunlugu 8 bytes ya da daha azsa function nil dondurur. Aksi halde stored bytecode DecompressBytecode ile decompress edilir ve resulting bytes Luau string olarak dondurulur. Hash mismatch, too-short compressed data veya ZSTD decompression errors burada throw edilmek yerine DecompressBytecode tarafindan error text bytes olarak dondurulur.
+
+## Söz dizimi
+
+```lua
+dumpstring(script: userdata): string | nil
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | Okunacak Script object. Desteklenen ClassName degerleri ModuleScript, LocalScript, CoreScript ve RunContext Client olan Script degeridir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `bytecode` | `string \| nil` | Luau string olarak decompressed bytecode bytes, DecompressBytecode error text bytes, veya usable embedded bytecode yoksa nil. |
+
+## Örnek
+
+Read decompressed bytecode from a supported Roblox script Instance. dumpstring is an alias for getscriptbytecode.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local bytecode = dumpstring(targetScript)
+    print(bytecode)
+end
+```

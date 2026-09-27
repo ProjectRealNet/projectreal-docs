@@ -1,0 +1,21 @@
+---
+title: "keypress"
+sidebarTitle: "keypress"
+description: "يرسل key down event عندما تكون Roblox window نشطة. يتم فحص وسيط keyCode كـ Lua number، وتحويله باستخدام integer conversion، ثم تحويله من Windows virtual-key code إلى scan code بواسطة Windows key mapping، وإرساله عبر keyboard input مع KEYEVENTF_SCANCODE. هذه function لا ترسل key up event. اذا كانت isrbxactive ستعيد false، تعود function بدون ارسال input."
+icon: "function"
+keywords: ["keypress","Input"]
+---
+
+يرسل key down event عندما تكون Roblox window نشطة. يتم فحص وسيط keyCode كـ Lua number، وتحويله باستخدام integer conversion، ثم تحويله من Windows virtual-key code إلى scan code بواسطة Windows key mapping، وإرساله عبر keyboard input مع KEYEVENTF_SCANCODE. هذه function لا ترسل key up event. اذا كانت isrbxactive ستعيد false، تعود function بدون ارسال input.
+
+## الصيغة
+
+```lua
+keypress(keyCode: number)
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `keyCode` | `number` | Yes | Windows virtual-key code يقرأ كـ Lua number ويتم تحويله باستخدام integer conversion قبل استدعاء Windows key mapping. |

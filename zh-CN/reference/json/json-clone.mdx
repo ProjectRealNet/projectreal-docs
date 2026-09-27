@@ -1,0 +1,61 @@
+---
+title: "json.clone"
+sidebarTitle: "json.clone"
+description: "通过 json.encode semantics 对 value 进行 encoding，再把 generated JSON decoding 回 Lua values 来 clone。"
+icon: "function"
+keywords: ["json.clone","JSON"]
+---
+
+通过 json.encode semantics 对 value 进行 encoding，再把 generated JSON decoding 回 Lua values 来 clone。
+
+## 语法
+
+```lua
+json.clone(value: any, options?: EncodeOptions): any
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | 要 encode 和 decode 的 Value。Supported JSON values 会通过 JSON round-trip；unsupported types 默认 encode 为 null，除非 encode options 要求 error。 |
+| `options` | `EncodeOptions` | No | 传给 encode step 的 Optional encode options，例如 sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth、pretty 和 indent。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `clone` | `any` | 由 encoded JSON 生成的 Decoded value。Objects 和 arrays 是带有 decoder 生成的 JSON kind markers 的 new tables；JSON null values 会变成 json.null。 |
+
+## 类型
+
+### EncodeOptions
+
+控制 JSON 序列化和格式设置。
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | 启用格式化的多行 JSON 输出。 |
+| `sortKeys` | `boolean` | No | 在编码之前对对象键进行排序。 |
+| `emptyTableAsArray` | `boolean` | No | 将空表编码为数组而不是对象。 |
+| `errorOnUnsupported` | `boolean` | No | 引发错误而不是替换不受支持的值。 |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | 将 NaN 和无限数编码为 JSON null。 |
+| `maxDepth` | `integer` | No | 设置最大嵌套深度，范围为 1 到 4096。 |
+| `indent` | `string` | No | 设置缩进字符串，限制为 32 个字符。 |
+
+## 示例
+
+在更改 nested values 之前，让 JSON-compatible value 通过 json.encode 和 json.decode round-trip。
+
+```lua
+local original = {
+    profile = { name = "Guest" },
+}
+
+local copy = json.clone(original)
+copy.profile.name = "Developer"
+
+print(original.profile.name)
+print(copy.profile.name)
+print(json.type(copy))
+```

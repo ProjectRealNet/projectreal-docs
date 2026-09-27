@@ -1,0 +1,31 @@
+---
+title: "getinstancesbyclass"
+sidebarTitle: "getinstancesbyclass"
+description: "Zwraca instances z Instance cache table, ktorych ClassName field dokladnie pasuje do zadanego string. Pierwszy argument jest odczytywany przez string type checking. Empty string wyrzuca \"ClassName required\". Function tworzy nowa array table, iteruje cache zapisana pod Instance cache, zachowuje tylko values, ktorych Lua type to object, odczytuje ClassName field kazdego object value i porownuje go przez strcmp z zadanym className. Matches sa wstawiane sequential od index 1. Dopasowanie jest exact i case-sensitive. Function nie uzywa IsA, nie obejmuje subclasses, nie wykonuje walk descendants, nie filtruje po Parent i nie sortuje result. getinstancesofclass jest alias tej samej function."
+icon: "function"
+keywords: ["getinstancesbyclass","Scripts","getinstancesofclass"]
+---
+
+Zwraca instances z Instance cache table, ktorych ClassName field dokladnie pasuje do zadanego string. Pierwszy argument jest odczytywany przez string type checking. Empty string wyrzuca "ClassName required". Function tworzy nowa array table, iteruje cache zapisana pod Instance cache, zachowuje tylko values, ktorych Lua type to object, odczytuje ClassName field kazdego object value i porownuje go przez strcmp z zadanym className. Matches sa wstawiane sequential od index 1. Dopasowanie jest exact i case-sensitive. Function nie uzywa IsA, nie obejmuje subclasses, nie wykonuje walk descendants, nie filtruje po Parent i nie sortuje result. getinstancesofclass jest alias tej samej function.
+
+## Składnia
+
+```lua
+getinstancesbyclass(className: string): table
+```
+
+## Aliasy
+
+- `getinstancesofclass`
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `className` | `string` | Yes | Exact ClassName string do dopasowania. Empty strings wyrzucaja "ClassName required". |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `instances` | `table` | New array table zawierajaca matching object values z Instance cache table. |

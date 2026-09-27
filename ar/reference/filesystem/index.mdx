@@ -1,0 +1,25 @@
+---
+title: "Filesystem"
+description: "قراءة وكتابة وإدارة الملفات والمجلدات."
+icon: "folder-code"
+---
+
+قراءة وكتابة وإدارة الملفات والمجلدات.
+
+| تنقل الدوال | الوصف |
+| --- | --- |
+| [`appendfile`](./appendfile) | Appends raw Lua string bytes to a workspace file using binary append mode. The file may be created if its parent folder exists. |
+| [`delfile`](./delfile) | يحذف regular file موجودا داخل workspace. |
+| [`delfolder`](./delfolder) | يحذف folder موجودا داخل workspace بشكل recursive باستخدام recursive folder deletion. |
+| [`getcustomasset`](./getcustomasset) | ينسخ regular workspace file موجودا إلى ExtraContent/&lt;hwid>/ ويعيد rbxasset:// string لمسار asset المنسوخ. |
+| [`isfile`](./isfile) | Returns whether a path resolved inside the workspace exists and is a regular file. |
+| [`isfolder`](./isfolder) | Returns whether a path resolved inside the workspace exists and is a directory. |
+| [`listfiles`](./listfiles) | Returns an array table of the direct children of an existing workspace directory. |
+| [`loadfile`](./loadfile) | Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it. |
+| [`makefolder`](./makefolder) | ينشئ directory داخل workspace باستخدام recursive folder creation، بما في ذلك missing parent directories. |
+| [`openfiledialog`](./openfiledialog) | يفتح Windows file-open dialog عبر Windows file picker ويعيد الملف المحدد كـ file item. |
+| [`openfilesdialog`](./openfilesdialog) | يفتح Windows file-open dialog عبر Windows file picker مع تفعيل multi-select ويعيد الملفات المحددة كقيم file item. |
+| [`openfolderdialog`](./openfolderdialog) | يفتح Windows folder picker عبر Windows file picker مع folder selection mode ويعيد المجلد المحدد كـ file item. |
+| [`readfile`](./readfile) | يقرأ existing regular file داخل workspace في binary mode ويعيد bytes الخاصة بها كسلسلة Lua. |
+| [`savefiledialog`](./savefiledialog) | يفتح Windows save dialog عبر Windows save dialog، يكتب Lua string bytes المقدمة إلى selected path، ويعيد saved file كـ file item. |
+| [`writefile`](./writefile) | يكتب Lua string bytes إلى ملف داخل workspace، ينشئ missing parent directories ويستبدل file contents إذا كان الملف موجودا بالفعل. |

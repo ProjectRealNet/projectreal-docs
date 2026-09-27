@@ -1,0 +1,60 @@
+---
+title: "json.pretty"
+sidebarTitle: "json.pretty"
+description: "Lua value, json.encodePretty ile ayni function kullanilarak readable formatted JSON string olarak serializes edilir."
+icon: "function"
+keywords: ["json.pretty","JSON"]
+---
+
+Lua value, json.encodePretty ile ayni function kullanilarak readable formatted JSON string olarak serializes edilir.
+
+## Söz dizimi
+
+```lua
+json.pretty(value: any, options?: EncodeOptions): string
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Encoded edilecek value. nil, booleans, numbers, strings, tables ve json.null dogrudan islenir. Unsupported Lua types, errorOnUnsupported true degilse null olarak encoded edilir. |
+| `options` | `EncodeOptions` | No | Optional encode options. json.pretty, json.encodePretty ile ayni options degerlerini okur, sonra pretty degerini true yapar. options yoksa two-space indent kullanir. number, 0.16 araligina clamp edilen indent width ayarlar, string indent text ayarlar, table ise sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth ve indent ayarlayabilir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `json` | `string` | Readable formatted JSON string. Encoding errors Luau errors olarak throw edilir. |
+
+## Tipler
+
+### EncodeOptions
+
+JSON serileştirmesini ve biçimlendirmesini kontrol eder.
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Biçimlendirilmiş, çok satırlı JSON çıkışını etkinleştirir. |
+| `sortKeys` | `boolean` | No | Kodlamadan önce nesne anahtarlarını sıralar. |
+| `emptyTableAsArray` | `boolean` | No | Boş bir tabloyu nesne yerine dizi olarak kodlar. |
+| `errorOnUnsupported` | `boolean` | No | Desteklenmeyen değerleri değiştirmek yerine hata oluşturur. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | NaN'yi ve sonsuz sayıları JSON null olarak kodlar. |
+| `maxDepth` | `integer` | No | 1'den 4096'ya kadar kenetlenmiş maksimum yuvalama derinliğini ayarlar. |
+| `indent` | `string` | No | 32 karakterle sınırlı girinti dizesini ayarlar. |
+
+## Örnek
+
+JSON-compatible values degerlerini json.encodePretty alias kullanarak readable formatted JSON olarak encode eder.
+
+```lua
+local text = json.pretty({
+    category = "JSON",
+    tags = json.array({ "pretty", "alias" }),
+    missing = json.null,
+}, {
+    sortKeys = true,
+})
+
+print(text)
+```

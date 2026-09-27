@@ -1,0 +1,47 @@
+---
+title: "restorefunction"
+sidebarTitle: "restorefunction"
+description: "คืนค่าหรือแทนที่ function โดยเรียก function hook operation ภายใน และไม่คืน values first argument ต้องเป็น function เมื่อมี function argument เดียว function จะหา the saved original function; หากไม่มี entry จะเกิด \"Function is not hooked\" จากนั้นเรียก function hook operation ด้วย hooked closure และ stored original closure ล้าง Lua stack และลบ restored closure ออกจาก hook records เมื่อใช้ stored original หาก second argument เป็น function ด้วย function จะถือว่า firstFunction เป็น original function ที่จะติดตั้ง และ secondFunction เป็น closure ที่จะ patch ในรูปแบบนี้จะไม่มี missing-original check กับค่า hook records ที่เก็บไว้ ค่าที่เก็บไว้จะถูกเปรียบเทียบเฉพาะระหว่าง final remove check เท่านั้น เท่านั้น non-function second arguments ถูกละเว้นโดย branch condition restorefunc และ restoreclosure เป็น aliases ของ function เดียวกัน"
+icon: "function"
+keywords: ["restorefunction","Closures","restorefunc","restoreclosure"]
+---
+
+คืนค่าหรือแทนที่ function โดยเรียก function hook operation ภายใน และไม่คืน values first argument ต้องเป็น function เมื่อมี function argument เดียว function จะหา the saved original function; หากไม่มี entry จะเกิด "Function is not hooked" จากนั้นเรียก function hook operation ด้วย hooked closure และ stored original closure ล้าง Lua stack และลบ restored closure ออกจาก hook records เมื่อใช้ stored original หาก second argument เป็น function ด้วย function จะถือว่า firstFunction เป็น original function ที่จะติดตั้ง และ secondFunction เป็น closure ที่จะ patch ในรูปแบบนี้จะไม่มี missing-original check กับค่า hook records ที่เก็บไว้ ค่าที่เก็บไว้จะถูกเปรียบเทียบเฉพาะระหว่าง final remove check เท่านั้น เท่านั้น non-function second arguments ถูกละเว้นโดย branch condition restorefunc และ restoreclosure เป็น aliases ของ function เดียวกัน
+
+## ไวยากรณ์
+
+```lua
+restorefunction(firstFunction: function, secondFunction?: function)
+```
+
+## Aliases
+
+- `restorefunc`
+- `restoreclosure`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `firstFunction` | `function` | Yes | เมื่อมี argument เดียว คือ hooked closure ที่จะ restore จาก hook records เมื่อมี function second argument คือ function ที่จะติดตั้งใน secondFunction |
+| `secondFunction` | `function` | No | Optional closure ที่จะ patch ด้วย firstFunction branch นี้ใช้เฉพาะเมื่อ second argument เป็น function |
+
+## ตัวอย่าง
+
+Restore a hooked closure to its original function.
+
+```lua
+local function target()
+    return "original"
+end
+
+hookfunction(target, function()
+    return "hooked"
+end)
+
+print(target())
+
+restorefunction(target)
+
+print(target())
+```

@@ -1,0 +1,25 @@
+---
+title: "keyclick"
+sidebarTitle: "keyclick"
+description: "Roblox window が active のとき、key down event の後に key up event を送信します。keyCode 引数は Lua number として検査され、integer conversion で変換され、Windows key mapping により Windows virtual-key code から scan code にマップされ、KEYEVENTF_SCANCODE 付きの keyboard input で送信されます。isrbxactive が false になる場合、この function は input を送信せずに戻ります。"
+icon: "function"
+keywords: ["keyclick","Input","keytap"]
+---
+
+Roblox window が active のとき、key down event の後に key up event を送信します。keyCode 引数は Lua number として検査され、integer conversion で変換され、Windows key mapping により Windows virtual-key code から scan code にマップされ、KEYEVENTF_SCANCODE 付きの keyboard input で送信されます。isrbxactive が false になる場合、この function は input を送信せずに戻ります。
+
+## 構文
+
+```lua
+keyclick(keyCode: number)
+```
+
+## エイリアス
+
+- `keytap`
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `keyCode` | `number` | Yes | Lua number として読み取られ、Windows key mapping が呼ばれる前に integer conversion で変換される Windows virtual-key code。 |

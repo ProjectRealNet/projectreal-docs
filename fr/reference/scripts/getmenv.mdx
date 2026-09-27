@@ -1,0 +1,47 @@
+---
+title: "getmenv"
+sidebarTitle: "getmenv"
+description: "Returns the environment table associated with a ModuleScript. The argument must be a ModuleScript object. Invalid objects raise \"Invalid Instance\", non-ModuleScript objects raise \"ModuleScript expected\", and ModuleScripts without an available thread raise \"invalid thread\". The function does not accept Script or LocalScript; use getsenv for those cases."
+icon: "function"
+keywords: ["getmenv","Scripts"]
+---
+
+Returns the environment table associated with a ModuleScript. The argument must be a ModuleScript object. Invalid objects raise "Invalid Instance", non-ModuleScript objects raise "ModuleScript expected", and ModuleScripts without an available thread raise "invalid thread". The function does not accept Script or LocalScript; use getsenv for those cases.
+
+## Syntaxe
+
+```lua
+getmenv(moduleScript: userdata): table
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `moduleScript` | `userdata` | Yes | ModuleScript object whose environment table should be returned. |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `environment` | `table` | Environment table associated with the ModuleScript. |
+
+## Exemple
+
+Read the environment table associated with a ModuleScript.
+
+```lua
+local moduleScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("ModuleScript") then
+        moduleScript = descendant
+        break
+    end
+end
+
+if moduleScript then
+    local environment = getmenv(moduleScript)
+    print(environment)
+end
+```

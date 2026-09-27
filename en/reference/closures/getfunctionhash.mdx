@@ -1,0 +1,40 @@
+---
+title: "getfunctionhash"
+sidebarTitle: "getfunctionhash"
+description: "Returns an uppercase SHA384 hex digest derived from a Luau function. The argument must be a function, and C closures raise \"Lua function expected\". If no hashable function content is available, the function returns nil."
+icon: "function"
+keywords: ["getfunctionhash","Closures"]
+---
+
+Returns an uppercase SHA384 hex digest derived from a Luau function. The argument must be a function, and C closures raise "Lua function expected". If no hashable function content is available, the function returns nil.
+
+## Syntax
+
+```lua
+getfunctionhash(func: function): string | nil
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `func` | `function` | Yes | Luau function to hash. Passing a C closure raises "Lua function expected". |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `hash` | `string \| nil` | Uppercase SHA384 hex digest string, or nil if no hashable function content is available. |
+
+## Example
+
+Hash the Proto bytes for a Luau function closure.
+
+```lua
+local function sample(value)
+    return value + 1
+end
+
+local hash = getfunctionhash(sample)
+print(hash)
+```

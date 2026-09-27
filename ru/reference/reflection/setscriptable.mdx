@@ -1,0 +1,42 @@
+---
+title: "setscriptable"
+sidebarTitle: "setscriptable"
+description: "Сохраняет scriptable override для Roblox property в scriptable override cache и возвращает previous scriptable state. Первый аргумент должен быть Instance object, второй аргумент должен быть string property name, а третий аргумент должен быть boolean. Если cache entry уже существует для того же instance reference и property name, cached scriptable value заменяется, а старая cached value возвращается. При cache miss property name разрешается через Roblox property metadata и Instance class descriptor. Если descriptor отсутствует, либо найденный field отсутствует или не является property entry, function возвращает nil. Когда property entry найдена, function читает scriptable state, сохраняет запрошенный boolean и property reference в scriptable override cache, затем возвращает previous scriptable state value. GameIndexHook и GameNewIndexHook позже используют этот cache, временно устанавливая property field scriptable flag для одного indexed read или write, а затем восстанавливая previous field flag."
+icon: "function"
+keywords: ["setscriptable","Reflection"]
+---
+
+Сохраняет scriptable override для Roblox property в scriptable override cache и возвращает previous scriptable state. Первый аргумент должен быть Instance object, второй аргумент должен быть string property name, а третий аргумент должен быть boolean. Если cache entry уже существует для того же instance reference и property name, cached scriptable value заменяется, а старая cached value возвращается. При cache miss property name разрешается через Roblox property metadata и Instance class descriptor. Если descriptor отсутствует, либо найденный field отсутствует или не является property entry, function возвращает nil. Когда property entry найдена, function читает scriptable state, сохраняет запрошенный boolean и property reference в scriptable override cache, затем возвращает previous scriptable state value. GameIndexHook и GameNewIndexHook позже используют этот cache, временно устанавливая property field scriptable flag для одного indexed read или write, а затем восстанавливая previous field flag.
+
+## Синтаксис
+
+```lua
+setscriptable(instance: Instance, property: string, value: boolean): boolean | nil
+```
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object, используемый как часть scriptable override cache key. |
+| `property` | `string` | Yes | Property name, разрешаемый через Roblox property metadata и Instance class descriptor при cache miss. |
+| `value` | `boolean` | Yes | Scriptable override value для сохранения в scriptable override cache. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `previousState` | `boolean \| nil` | Previous cached scriptable value, previous scriptable state value, или nil, если property не удается разрешить в property entry. |
+
+## Пример
+
+Temporarily change whether a property is scriptable, then restore the previous state when available.
+
+```lua
+local previous = setscriptable(workspace, "Name", true)
+print(previous)
+
+if previous ~= nil then
+    setscriptable(workspace, "Name", previous)
+end
+```

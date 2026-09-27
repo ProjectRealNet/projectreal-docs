@@ -1,0 +1,47 @@
+---
+title: "restorefunction"
+sidebarTitle: "restorefunction"
+description: "Khôi phục hoặc thay thế function bằng cách gọi function hook operation bên trong và không trả về values. First argument phải là function. Với một function argument, function tìm the saved original function; nếu không có entry thì tạo \"Function is not hooked\". Sau đó gọi function hook operation với hooked closure và stored original closure, xóa Lua stack, và xóa restored closure khỏi hook records khi stored original đã được dùng. Nếu second argument cũng là function, function thay vào đó coi firstFunction là original function cần cài đặt và secondFunction là closure cần patch. O dang nay, khong thuc hien missing-original check voi gia tri hook records da luu; gia tri da luu chi duoc so sanh trong final remove check. Non-function second arguments bị branch condition bỏ qua. restorefunc và restoreclosure là aliases cho cùng function."
+icon: "function"
+keywords: ["restorefunction","Closures","restorefunc","restoreclosure"]
+---
+
+Khôi phục hoặc thay thế function bằng cách gọi function hook operation bên trong và không trả về values. First argument phải là function. Với một function argument, function tìm the saved original function; nếu không có entry thì tạo "Function is not hooked". Sau đó gọi function hook operation với hooked closure và stored original closure, xóa Lua stack, và xóa restored closure khỏi hook records khi stored original đã được dùng. Nếu second argument cũng là function, function thay vào đó coi firstFunction là original function cần cài đặt và secondFunction là closure cần patch. O dang nay, khong thuc hien missing-original check voi gia tri hook records da luu; gia tri da luu chi duoc so sanh trong final remove check. Non-function second arguments bị branch condition bỏ qua. restorefunc và restoreclosure là aliases cho cùng function.
+
+## Cú pháp
+
+```lua
+restorefunction(firstFunction: function, secondFunction?: function)
+```
+
+## Alias
+
+- `restorefunc`
+- `restoreclosure`
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `firstFunction` | `function` | Yes | Với một argument, hooked closure cần restore từ hook records. Với function second argument, function cần cài đặt vào secondFunction. |
+| `secondFunction` | `function` | No | Optional closure cần patch bằng firstFunction. Branch này chỉ dùng khi second argument là function. |
+
+## Ví dụ
+
+Restore a hooked closure to its original function.
+
+```lua
+local function target()
+    return "original"
+end
+
+hookfunction(target, function()
+    return "hooked"
+end)
+
+print(target())
+
+restorefunction(target)
+
+print(target())
+```

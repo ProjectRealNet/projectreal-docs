@@ -1,0 +1,38 @@
+---
+title: "json.escape"
+sidebarTitle: "json.escape"
+description: "Meng-escape string memakai Real JSON string escaping rules dan mengembalikan escaped content tanpa surrounding quotes."
+icon: "function"
+keywords: ["json.escape","JSON"]
+---
+
+Meng-escape string memakai Real JSON string escaping rules dan mengembalikan escaped content tanpa surrounding quotes.
+
+## Sintaks
+
+```lua
+json.escape(text: string): string
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | String yang akan di-escape. Function membaca argument ini dengan string type checking. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `escaped` | `string` | Escaped JSON string content tanpa opening dan closing quote. Quotes, backslashes, common control characters, dan bytes below 0x20 di-escape. |
+
+## Contoh
+
+Escape string untuk bagian dalam JSON string tanpa menambahkan surrounding quotes.
+
+```lua
+local source = "line 1" .. string.char(10) .. [[line "2"]]
+local escaped = json.escape(source)
+
+print(escaped)
+```

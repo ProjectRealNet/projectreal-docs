@@ -1,0 +1,44 @@
+---
+title: "readfile"
+sidebarTitle: "readfile"
+description: "Doc existing regular file ben trong workspace o binary mode va tra ve bytes cua no duoi dang Lua string."
+icon: "function"
+keywords: ["readfile","Filesystem","readfileasync"]
+---
+
+Doc existing regular file ben trong workspace o binary mode va tra ve bytes cua no duoi dang Lua string.
+
+## Cú pháp
+
+```lua
+readfile(path: string): string
+```
+
+## Alias
+
+- `readfileasync`
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | File path duoc resolve ben trong workspace sau separator normalization, workspace-boundary checks va filename/extension checks. Absolute paths chi duoc chap nhan neu resolve ben trong workspace. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `content` | `string` | File contents duoc tra ve duoi dang Lua string voi do dai ro rang. Bytes nhu null bytes, line endings va BOM bytes khong bi transform boi readfile. |
+
+## Ví dụ
+
+Doc bytes tu existing workspace file.
+
+```lua
+local path = "examples/config.json"
+writefile(path, '{"enabled":true}')
+
+local content = readfile(path)
+print(content)
+print(#content)
+```

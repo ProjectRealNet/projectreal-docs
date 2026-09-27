@@ -1,0 +1,48 @@
+---
+title: "getcallbackvalue"
+sidebarTitle: "getcallbackvalue"
+description: "Bir Instance uzerindeki callback property icinde saklanan Lua callback function degerini okur. Ilk arguman Instance object olmalidir ve ikinci arguman string property name olmalidir. instance reference gecerli olmalidir. property name Roblox property metadata uzerinden cozulur ve tipi LUA_CALLBACK olan bir property degerine isaret etmelidir. property descriptor yoksa, property LUA_CALLBACK degilse, callback field offset yoksa, saklanan callback yoksa, LiveLuaRef yoksa, callback farkli bir Lua global state icine aitse veya referans verilen deger function degilse function nil dondurur. Ilk callback slot callback icermediginde async callback field fallback de kontrol edilir. Function property degerini guncellemez."
+icon: "function"
+keywords: ["getcallbackvalue","Instances","getcallbackmember"]
+---
+
+Bir Instance uzerindeki callback property icinde saklanan Lua callback function degerini okur. Ilk arguman Instance object olmalidir ve ikinci arguman string property name olmalidir. instance reference gecerli olmalidir. property name Roblox property metadata uzerinden cozulur ve tipi LUA_CALLBACK olan bir property degerine isaret etmelidir. property descriptor yoksa, property LUA_CALLBACK degilse, callback field offset yoksa, saklanan callback yoksa, LiveLuaRef yoksa, callback farkli bir Lua global state icine aitse veya referans verilen deger function degilse function nil dondurur. Ilk callback slot callback icermediginde async callback field fallback de kontrol edilir. Function property degerini guncellemez.
+
+## Söz dizimi
+
+```lua
+getcallbackvalue(instance: Instance, property: string): function | nil
+```
+
+## Aliaslar
+
+- `getcallbackmember`
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | callback property incelenecek Instance object. Invalid Instance values argument error uretir. |
+| `property` | `string` | Yes | Roblox property metadata ile cozumlenen string property name. Yalnizca LUA_CALLBACK properties function dondurebilir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `callback` | `function \| nil` | callback property tarafindan saklanan Lua function veya function okunabilir bir function cozumleyemediginde nil. |
+
+## Örnek
+
+BindableFunction.OnInvoke icinde saklanan callback function degerini okur.
+
+```lua
+local bindable = Instance.new("BindableFunction")
+bindable.OnInvoke = function(value)
+    return value * 2
+end
+
+local callback = getcallbackvalue(bindable, "OnInvoke")
+if callback then
+    print(callback(21))
+end
+```

@@ -1,0 +1,31 @@
+---
+title: "fireproximityprompt"
+sidebarTitle: "fireproximityprompt"
+description: "Real の ProximityPrompt trigger を通して ProximityPrompt を発火します。prompt 引数は ClassName field が \"ProximityPrompt\" の object である必要があります。値が object でない場合、この呼び出しは type error を発生させます。ClassName がない、または string でない場合は \"Invalid Instance\" を発生させます。ClassName が \"ProximityPrompt\" でない場合は \"ProximityPrompt expected\" を発生させます。この function は optional arguments を受け取らず、何も返しません。"
+icon: "function"
+keywords: ["fireproximityprompt","Instances"]
+---
+
+Real の ProximityPrompt trigger を通して ProximityPrompt を発火します。prompt 引数は ClassName field が "ProximityPrompt" の object である必要があります。値が object でない場合、この呼び出しは type error を発生させます。ClassName がない、または string でない場合は "Invalid Instance" を発生させます。ClassName が "ProximityPrompt" でない場合は "ProximityPrompt expected" を発生させます。この function は optional arguments を受け取らず、何も返しません。
+
+## 構文
+
+```lua
+fireproximityprompt(prompt: Instance)
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `prompt` | `Instance` | Yes | ClassName が ProximityPrompt である必要がある Instance。 |
+
+## 例
+
+唯一必要な引数で ProximityPrompt を発火します。
+
+```lua
+local prompt = workspace.InteractivePart.ProximityPrompt
+
+fireproximityprompt(prompt)
+```

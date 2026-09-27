@@ -1,0 +1,48 @@
+---
+title: "base64_decode"
+sidebarTitle: "base64_decode"
+description: "Base64 girdisini Base64 decoder ile decode eder ve decode edilen byte degerlerini Lua string olarak dondurur."
+icon: "function"
+keywords: ["base64_decode","Cryptography","base64decode","base64.decode","crypt.base64.decode","crypt.base64_decode","crypt.base64decode"]
+---
+
+Base64 girdisini Base64 decoder ile decode eder ve decode edilen byte degerlerini Lua string olarak dondurur.
+
+## Söz dizimi
+
+```lua
+base64_decode(data: string): string
+```
+
+## Aliaslar
+
+- `base64decode`
+- `base64.decode`
+- `crypt.base64.decode`
+- `crypt.base64_decode`
+- `crypt.base64decode`
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Base64 decoder icine aktarilan Base64 girdisi. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `decoded` | `string` | Acik uzunlukla Lua string olarak dondurulen decode edilmis byte degerleri. |
+
+## Örnek
+
+Base64 verisini decode et ve dondurulen Lua string degerini oku.
+
+```lua
+local encoded = base64_encode("hello world")
+local decoded = base64_decode(encoded)
+
+print(decoded)
+print(base64decode(encoded))
+print(base64.decode(encoded))
+```

@@ -1,0 +1,47 @@
+---
+title: "restorefunction"
+sidebarTitle: "restorefunction"
+description: "通过内部调用 function hook operation 来恢复或替换 function，并且不返回 values。first argument 必须是 function。只有一个 function argument 时，function 查找 the saved original function；如果不存在 entry，则抛出 \"Function is not hooked\"。然后用 hooked closure 和 stored original closure 调用 function hook operation，清空 Lua stack，并在使用 stored original 时从 hook records 移除 restored closure。如果 second argument 也是 function，function 会改为将 firstFunction 视为要安装的 original function，将 secondFunction 视为要 patch 的 closure。在这种形式中，不会针对存储的 hook records 值执行 missing-original check；存储的值只会在 final remove check 期间比较。。non-function second arguments 会被 branch condition 忽略。restorefunc 和 restoreclosure 是同一个 function 的 aliases。"
+icon: "function"
+keywords: ["restorefunction","Closures","restorefunc","restoreclosure"]
+---
+
+通过内部调用 function hook operation 来恢复或替换 function，并且不返回 values。first argument 必须是 function。只有一个 function argument 时，function 查找 the saved original function；如果不存在 entry，则抛出 "Function is not hooked"。然后用 hooked closure 和 stored original closure 调用 function hook operation，清空 Lua stack，并在使用 stored original 时从 hook records 移除 restored closure。如果 second argument 也是 function，function 会改为将 firstFunction 视为要安装的 original function，将 secondFunction 视为要 patch 的 closure。在这种形式中，不会针对存储的 hook records 值执行 missing-original check；存储的值只会在 final remove check 期间比较。。non-function second arguments 会被 branch condition 忽略。restorefunc 和 restoreclosure 是同一个 function 的 aliases。
+
+## 语法
+
+```lua
+restorefunction(firstFunction: function, secondFunction?: function)
+```
+
+## 别名
+
+- `restorefunc`
+- `restoreclosure`
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `firstFunction` | `function` | Yes | 只有一个 argument 时，是要从 hook records 恢复的 hooked closure。存在 function second argument 时，是要安装到 secondFunction 的 function。 |
+| `secondFunction` | `function` | No | 要用 firstFunction patch 的 optional closure。此 branch 仅在 second argument 是 function 时使用。 |
+
+## 示例
+
+Restore a hooked closure to its original function.
+
+```lua
+local function target()
+    return "original"
+end
+
+hookfunction(target, function()
+    return "hooked"
+end)
+
+print(target())
+
+restorefunction(target)
+
+print(target())
+```

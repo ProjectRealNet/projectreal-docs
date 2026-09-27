@@ -1,0 +1,35 @@
+---
+title: "makewriteable"
+sidebarTitle: "makewriteable"
+description: "Marks a table as writable and returns no values."
+icon: "function"
+keywords: ["makewriteable","Metatables"]
+---
+
+Marks a table as writable and returns no values.
+
+## Sintaxis
+
+```lua
+makewriteable(target: table)
+```
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `target` | `table` | Yes | Table to mark as writable. |
+
+## Ejemplo
+
+Set a table's readonly flag to false.
+
+```lua
+local target = {}
+
+makereadonly(target)
+print(isreadonly(target))
+
+makewriteable(target)
+print(isreadonly(target))
+```

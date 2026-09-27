@@ -1,0 +1,70 @@
+---
+title: "json.format"
+sidebarTitle: "json.format"
+description: "يعمل parse لـ JSON string ثم يعيد encode له كـ readable formatted JSON باستخدام Real JSON parser و encoder."
+icon: "function"
+keywords: ["json.format","JSON"]
+---
+
+يعمل parse لـ JSON string ثم يعيد encode له كـ readable formatted JSON باستخدام Real JSON parser و encoder.
+
+## الصيغة
+
+```lua
+json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string يتم parse له قبل formatting. Function تقرأ هذا argument باستخدام string type checking. |
+| `encodeOptions` | `EncodeOptions` | No | Optional encode options يتم تمريرها الى re-encode step. json.format يقرأ نفس encode options مثل json.encode، ثم يفرض pretty على true. |
+| `decodeOptions` | `DecodeOptions` | No | Optional decode options تستخدم اثناء parsing للـ input JSON. boolean يضبط useNull. table يمكنها ضبط useNull و maxDepth. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `formatted` | `string` | Readable formatted JSON string يتم انتاجه بعد parsing و re-encoding للـ input. |
+
+## الأنواع
+
+### EncodeOptions
+
+يتحكم في تسلسل JSON وتنسيقه.
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | لتمكين إخراج JSON المنسق والمتعدد الأسطر. |
+| `sortKeys` | `boolean` | No | فرز مفاتيح الكائنات قبل الترميز. |
+| `emptyTableAsArray` | `boolean` | No | ترميز جدول فارغ كمصفوفة بدلاً من كائن. |
+| `errorOnUnsupported` | `boolean` | No | يثير خطأ بدلاً من استبدال قيم غير مدعومة. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | يشفر NaN والأرقام اللانهائية كـ JSON null. |
+| `maxDepth` | `integer` | No | يضبط الحد الأقصى لعمق التعشيش، المثبت من 1 إلى 4096. |
+| `indent` | `string` | No | يضبط سلسلة المسافة البادئة، والتي تقتصر على 32 حرفًا. |
+
+### DecodeOptions
+
+يتحكم في سلوك تحليل JSON.
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | يمثل JSON null مع الحارس الفارغ للمكتبة بدلاً من صفر. |
+| `maxDepth` | `integer` | No | يضبط الحد الأقصى لعمق التعشيش، المثبت من 1 إلى 4096. |
+
+## مثال
+
+Parse existing JSON ثم re-encode له كـ readable formatted JSON.
+
+```lua
+local compact = '{"b":2,"a":1}'
+local formatted = json.format(compact, {
+    pretty = true,
+    sortKeys = true,
+}, {
+    useNull = true,
+})
+
+print(formatted)
+```

@@ -1,0 +1,13 @@
+---
+title: "WebSocket"
+description: "Kết nối WebSocket hai chiều."
+icon: "folder-code"
+---
+
+Kết nối WebSocket hai chiều.
+
+| Điều hướng hàm | Mô tả |
+| --- | --- |
+| [`WebSocket.Close`](./websocket-close) | Đóng WebSocket object được trả về bởi WebSocket.connect. Argument đầu tiên phải là table. Hàm đọc field connection state của object; khi có live state và state đó chưa destroyed hoặc closed, hàm đặt isClosed thành true và gửi một frame close frame rỗng qua WebSocket connection đã lưu. Hàm không nhận close code hoặc reason và không trả về values. |
+| [`WebSocket.connect`](./websocket-connect) | Tạo hai BindableEvents, mở WebSocket client WebSocket connection tới URL được cung cấp và yield cho đến khi lần thử kết nối kết thúc. Khi thành công, hàm trả về WebSocket table có events OnMessage và OnClose, methods Send và Close do methods cung cấp, cùng connection state. Incoming message data được Fire qua OnMessage dưới dạng string. Khi receive loop kết thúc, OnClose được Fire không có arguments. Khi kết nối thất bại, hàm throw một error string bắt đầu bằng "WebSocket connection failed". |
+| [`WebSocket.Send`](./websocket-send) | Gửi một Lua string qua WebSocket object được trả về bởi WebSocket.connect. Method mong đợi WebSocket table là argument đầu tiên và message string là argument thứ hai. Nó đọc connection state của object, throw "WebSocket state is missing" nếu object đó vắng mặt, trả về mà không gửi khi state đã destroyed hoặc closed, và gọi curl_ws_send với CURLWS_TEXT theo mặc định hoặc CURLWS_BINARY khi argument thứ ba tùy chọn là boolean true. Nó không trả về values và không báo số bytes đã gửi. |

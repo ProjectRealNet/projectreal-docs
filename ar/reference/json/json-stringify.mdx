@@ -1,0 +1,61 @@
+---
+title: "json.stringify"
+sidebarTitle: "json.stringify"
+description: "يسلسل Lua value إلى JSON string باستخدام نفس function مثل json.encode."
+icon: "function"
+keywords: ["json.stringify","JSON"]
+---
+
+يسلسل Lua value إلى JSON string باستخدام نفس function مثل json.encode.
+
+## الصيغة
+
+```lua
+json.stringify(value: any, options?: EncodeOptions): string
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value الذي يتم encode له. nil و booleans و numbers و strings و tables و json.null يتم التعامل معها مباشرة. Unsupported Lua types يتم encode لها كـ null إلا إذا كان errorOnUnsupported true. |
+| `options` | `EncodeOptions` | No | Optional encode options. boolean يبدل pretty output. number تفعل pretty output بذلك العدد من spaces مع clamp إلى 0.16. string تفعل pretty output بهذا indent. table يمكنها ضبط pretty و sortKeys و emptyTableAsArray و errorOnUnsupported و encodeInvalidNumbersAsNull و maxDepth و indent. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `json` | `string` | Encoded JSON string. Encoding errors يتم رميها كـ Luau errors. |
+
+## الأنواع
+
+### EncodeOptions
+
+يتحكم في تسلسل JSON وتنسيقه.
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | لتمكين إخراج JSON المنسق والمتعدد الأسطر. |
+| `sortKeys` | `boolean` | No | فرز مفاتيح الكائنات قبل الترميز. |
+| `emptyTableAsArray` | `boolean` | No | ترميز جدول فارغ كمصفوفة بدلاً من كائن. |
+| `errorOnUnsupported` | `boolean` | No | يثير خطأ بدلاً من استبدال قيم غير مدعومة. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | يشفر NaN والأرقام اللانهائية كـ JSON null. |
+| `maxDepth` | `integer` | No | يضبط الحد الأقصى لعمق التعشيش، المثبت من 1 إلى 4096. |
+| `indent` | `string` | No | يضبط سلسلة المسافة البادئة، والتي تقتصر على 32 حرفًا. |
+
+## مثال
+
+Encode JSON-compatible values باستخدام نفس function مثل json.encode.
+
+```lua
+local text = json.stringify({
+    status = "ready",
+    count = 3,
+    tags = json.array({ "stringify", "alias" }),
+    missing = json.null,
+}, {
+    sortKeys = true,
+})
+
+print(text)
+```

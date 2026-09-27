@@ -1,0 +1,34 @@
+---
+title: "WebSocket.Send"
+sidebarTitle: "WebSocket.Send"
+description: "Gửi một Lua string qua WebSocket object được trả về bởi WebSocket.connect. Method mong đợi WebSocket table là argument đầu tiên và message string là argument thứ hai. Nó đọc connection state của object, throw \"WebSocket state is missing\" nếu object đó vắng mặt, trả về mà không gửi khi state đã destroyed hoặc closed, và gọi curl_ws_send với CURLWS_TEXT theo mặc định hoặc CURLWS_BINARY khi argument thứ ba tùy chọn là boolean true. Nó không trả về values và không báo số bytes đã gửi."
+icon: "function"
+keywords: ["WebSocket.Send","WebSocket"]
+---
+
+Gửi một Lua string qua WebSocket object được trả về bởi WebSocket.connect. Method mong đợi WebSocket table là argument đầu tiên và message string là argument thứ hai. Nó đọc connection state của object, throw "WebSocket state is missing" nếu object đó vắng mặt, trả về mà không gửi khi state đã destroyed hoặc closed, và gọi curl_ws_send với CURLWS_TEXT theo mặc định hoặc CURLWS_BINARY khi argument thứ ba tùy chọn là boolean true. Nó không trả về values và không báo số bytes đã gửi.
+
+## Cú pháp
+
+```lua
+WebSocket.Send(socket: WebSocket, message: string, isBinary?: boolean)
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `socket` | `WebSocket` | Yes | WebSocket table được trả về bởi WebSocket.connect. Send được resolve từ WebSocket object methods, vì vậy dạng gọi được ghi trong tài liệu là socket:Send(..). |
+| `message` | `string` | Yes | Lua string payload được truyền vào curl_ws_send cùng explicit byte length. |
+| `isBinary` | `boolean` | No | Khi argument này có mặt và là true, Send dùng CURLWS_BINARY. Nếu không, nó dùng CURLWS_TEXT. |
+
+## Ví dụ
+
+Send text or binary data through a WebSocket object returned by WebSocket.connect.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket:Send("hello")
+socket:Send(string.char(0, 1, 2, 3), true)
+```

@@ -1,0 +1,21 @@
+---
+title: "getsignalwhitelist"
+sidebarTitle: "getsignalwhitelist"
+description: "Mengembalikan array table baru dengan enam entry whitelist statis yang ditentukan oleh function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Setiap entry adalah table dengan field string Event dan Parent. Function ini tidak menerima arguments dan tidak memeriksa state game saat ini."
+icon: "function"
+keywords: ["getsignalwhitelist","Signals"]
+---
+
+Mengembalikan array table baru dengan enam entry whitelist statis yang ditentukan oleh function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Setiap entry adalah table dengan field string Event dan Parent. Function ini tidak menerima arguments dan tidak memeriksa state game saat ini.
+
+## Sintaks
+
+```lua
+getsignalwhitelist(): table
+```
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `signals` | `table` | Array table berisi entry whitelist statis. Setiap entry memiliki field string Event dan Parent. |

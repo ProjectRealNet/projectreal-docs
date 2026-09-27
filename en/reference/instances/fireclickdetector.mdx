@@ -1,0 +1,33 @@
+---
+title: "fireclickdetector"
+sidebarTitle: "fireclickdetector"
+description: "Fires a ClickDetector interaction for the local player. The first argument must be an Instance whose ClassName is ClickDetector. distance is optional and defaults to 0. clickOption is optional, compared case-insensitively, and defaults to \"mouseclick\". Supported options are \"mouseclick\", \"rightmouseclick\", \"mousehoverenter\", and \"mousehoverleave\". Click options pass distance as a float to the Roblox click helper, while hover options ignore distance. If Players or Players.LocalPlayer is not available, the function returns without firing anything. An unknown clickOption also results in no interaction. The function returns nothing."
+icon: "function"
+keywords: ["fireclickdetector","Instances"]
+---
+
+Fires a ClickDetector interaction for the local player. The first argument must be an Instance whose ClassName is ClickDetector. distance is optional and defaults to 0. clickOption is optional, compared case-insensitively, and defaults to "mouseclick". Supported options are "mouseclick", "rightmouseclick", "mousehoverenter", and "mousehoverleave". Click options pass distance as a float to the Roblox click helper, while hover options ignore distance. If Players or Players.LocalPlayer is not available, the function returns without firing anything. An unknown clickOption also results in no interaction. The function returns nothing.
+
+## Syntax
+
+```lua
+fireclickdetector(detector: Instance, distance?: number, clickOption?: "mouseclick" | "rightmouseclick" | "mousehoverenter" | "mousehoverleave")
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `detector` | `Instance` | Yes | Instance whose ClassName must be ClickDetector. |
+| `distance` | `number` | No | Optional distance value. Defaults to 0 and is passed as a float for "mouseclick" and "rightmouseclick". |
+| `clickOption` | `"mouseclick" \| "rightmouseclick" \| "mousehoverenter" \| "mousehoverleave"` | No | Optional interaction selector. It is read as a string, compared case-insensitively, and defaults to "mouseclick". |
+
+## Example
+
+Fire the default "mouseclick" interaction on a ClickDetector.
+
+```lua
+local detector = workspace.InteractivePart.ClickDetector
+
+fireclickdetector(detector)
+```

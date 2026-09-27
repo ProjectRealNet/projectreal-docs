@@ -1,0 +1,38 @@
+---
+title: "json.escape"
+sidebarTitle: "json.escape"
+description: "Escape mot string bang Real JSON string escaping rules va tra ve escaped content khong co surrounding quotes."
+icon: "function"
+keywords: ["json.escape","JSON"]
+---
+
+Escape mot string bang Real JSON string escaping rules va tra ve escaped content khong co surrounding quotes.
+
+## Cú pháp
+
+```lua
+json.escape(text: string): string
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | String se duoc escape. Function doc argument nay bang string type checking. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `escaped` | `string` | Escaped JSON string content khong co opening va closing quote. Quotes, backslashes, common control characters va bytes below 0x20 duoc escape. |
+
+## Ví dụ
+
+Escape string cho phan ben trong JSON string ma khong them surrounding quotes.
+
+```lua
+local source = "line 1" .. string.char(10) .. [[line "2"]]
+local escaped = json.escape(source)
+
+print(escaped)
+```

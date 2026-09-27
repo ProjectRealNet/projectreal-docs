@@ -1,0 +1,22 @@
+---
+title: "mousemoveabs"
+sidebarTitle: "mousemoveabs"
+description: "เลื่อน mouse ด้วย Windows absolute mouse input เมื่อ Roblox window active อาร์กิวเมนต์ x และ y ถูกตรวจเป็น Lua numbers และแปลงด้วย integer conversion Real ถือว่าเป็น coordinates relative to active foreground window client area เพิ่ม screen position ของ client area นั้นด้วย ClientToScreen scale ด้วย GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 และ integer math แล้วเรียก mouse input ด้วย the requested mouse action หาก isrbxactive จะเป็น false function จะ return โดยไม่ส่ง input"
+icon: "function"
+keywords: ["mousemoveabs","Input"]
+---
+
+เลื่อน mouse ด้วย Windows absolute mouse input เมื่อ Roblox window active อาร์กิวเมนต์ x และ y ถูกตรวจเป็น Lua numbers และแปลงด้วย integer conversion Real ถือว่าเป็น coordinates relative to active foreground window client area เพิ่ม screen position ของ client area นั้นด้วย ClientToScreen scale ด้วย GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 และ integer math แล้วเรียก mouse input ด้วย the requested mouse action หาก isrbxactive จะเป็น false function จะ return โดยไม่ส่ง input
+
+## ไวยากรณ์
+
+```lua
+mousemoveabs(x: number, y: number)
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `x` | `number` | Yes | Client-area X coordinate ที่อ่านเป็น Lua number และแปลงด้วย integer conversion ก่อนขั้นตอน screen-position และ absolute-input scaling |
+| `y` | `number` | Yes | Client-area Y coordinate ที่อ่านเป็น Lua number และแปลงด้วย integer conversion ก่อนขั้นตอน screen-position และ absolute-input scaling |

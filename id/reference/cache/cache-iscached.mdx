@@ -1,0 +1,41 @@
+---
+title: "cache.iscached"
+sidebarTitle: "cache.iscached"
+description: "Mengembalikan apakah Instance yang diberikan memiliki entri non-nil di Instance cache."
+icon: "function"
+keywords: ["cache.iscached","Cache"]
+---
+
+Mengembalikan apakah Instance yang diberikan memiliki entri non-nil di Instance cache.
+
+## Sintaks
+
+```lua
+cache.iscached(instance: Instance): boolean
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance yang entri Instance cache-nya harus diperiksa. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `cached` | `boolean` | True saat cache berisi entri non-nil untuk Instance tersebut. |
+
+## Contoh
+
+Periksa apakah sebuah Instance saat ini memiliki entri di Instance cache Real.
+
+```lua
+local Players = game:GetService("Players")
+
+local cached = cache.iscached(Players)
+print(cached)
+
+cache.invalidate(Players)
+print(cache.iscached(Players))
+```

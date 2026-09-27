@@ -1,0 +1,40 @@
+---
+title: "firetouchinterest"
+sidebarTitle: "firetouchinterest"
+description: "为两个 BasePart instances 触发 Real touch interest event。前两个参数必须是 Instance object，并且两个值都必须通过 IsA(\"BasePart\")。state 参数是必需的，必须是 number 或 boolean。当 state 是 number 时，只有 1 会变为 true，其他所有 number 都会变为 false。当 state 是 boolean 时，会直接传入它的 boolean 值。如果任意 part 没有 touch data，或者第一个 part 没有 overlap reference，function 会直接返回，不触发任何内容。function 不返回任何内容。传给 helper 的 boolean 的精确 begin/end 含义是: Nicht aus der Codebasis verifizierbar."
+icon: "function"
+keywords: ["firetouchinterest","Instances","firetouchtransmitter"]
+---
+
+为两个 BasePart instances 触发 Real touch interest event。前两个参数必须是 Instance object，并且两个值都必须通过 IsA("BasePart")。state 参数是必需的，必须是 number 或 boolean。当 state 是 number 时，只有 1 会变为 true，其他所有 number 都会变为 false。当 state 是 boolean 时，会直接传入它的 boolean 值。如果任意 part 没有 touch data，或者第一个 part 没有 overlap reference，function 会直接返回，不触发任何内容。function 不返回任何内容。传给 helper 的 boolean 的精确 begin/end 含义是: Nicht aus der Codebasis verifizierbar.
+
+## 语法
+
+```lua
+firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
+```
+
+## 别名
+
+- `firetouchtransmitter`
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `partA` | `Instance` | Yes | 第一个 Instance object。必须通过 IsA("BasePart")。它的 touch data 和 overlap reference 会用于 call。 |
+| `partB` | `Instance` | Yes | 第二个 Instance object。必须通过 IsA("BasePart")。它的 touch data 会用于 call。 |
+| `state` | `number \| boolean` | Yes | 必需的 state 值。numbers 会用 state == 1 转换；booleans 会直接传入。 |
+
+## 示例
+
+向 firetouchinterest 传入两个 BasePart 值和一个明确的 state 值。
+
+```lua
+local players = game:GetService("Players")
+local character = players.LocalPlayer.Character or players.LocalPlayer.CharacterAdded:Wait()
+local rootPart = character:WaitForChild("HumanoidRootPart")
+local targetPart = workspace.TouchTarget
+
+firetouchinterest(rootPart, targetPart, true)
+```

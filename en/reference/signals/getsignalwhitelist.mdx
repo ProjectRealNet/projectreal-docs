@@ -1,0 +1,21 @@
+---
+title: "getsignalwhitelist"
+sidebarTitle: "getsignalwhitelist"
+description: "Returns a new array table with the six static whitelist entries defined by the function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Each entry is a table with Event and Parent string fields. The function takes no arguments and does not inspect the current game state."
+icon: "function"
+keywords: ["getsignalwhitelist","Signals"]
+---
+
+Returns a new array table with the six static whitelist entries defined by the function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Each entry is a table with Event and Parent string fields. The function takes no arguments and does not inspect the current game state.
+
+## Syntax
+
+```lua
+getsignalwhitelist(): table
+```
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `signals` | `table` | Array table of static whitelist entries. Each entry has Event and Parent string fields. |

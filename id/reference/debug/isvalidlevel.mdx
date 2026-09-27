@@ -1,0 +1,44 @@
+---
+title: "isvalidlevel"
+sidebarTitle: "isvalidlevel"
+description: "Memeriksa apakah numeric stack level berada dalam current call stack range. level wajib dan harus berupa number karena function memanggil requires a number. value dikonversi dengan integer conversion. function mengembalikan false ketika level < 0 atau level >= the current call stack depth, selain itu true. function tidak memeriksa frame closure dan tidak memunculkan \"Level out of range\" untuk invalid numeric levels. validlevel adalah global alias, dan debug.isvalidlevel serta debug.validlevel tersedia melalui debug table aliases."
+icon: "function"
+keywords: ["isvalidlevel","Debug","validlevel","debug.isvalidlevel","debug.validlevel"]
+---
+
+Memeriksa apakah numeric stack level berada dalam current call stack range. level wajib dan harus berupa number karena function memanggil requires a number. value dikonversi dengan integer conversion. function mengembalikan false ketika level &lt; 0 atau level >= the current call stack depth, selain itu true. function tidak memeriksa frame closure dan tidak memunculkan "Level out of range" untuk invalid numeric levels. validlevel adalah global alias, dan debug.isvalidlevel serta debug.validlevel tersedia melalui debug table aliases.
+
+## Sintaks
+
+```lua
+isvalidlevel(level: number): boolean
+```
+
+## Alias
+
+- `validlevel`
+- `debug.isvalidlevel`
+- `debug.validlevel`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `level` | `number` | Yes | Stack level number yang dikonversi dengan integer conversion dan dicek terhadap 0 &lt;= level &lt; the current call stack depth. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `valid` | `boolean` | true ketika numeric level berada dalam current call stack range, selain itu false. |
+
+## Contoh
+
+Check whether a numeric stack level is inside the current call stack range.
+
+```lua
+print(isvalidlevel(0))
+print(validlevel(0))
+print(debug.isvalidlevel(0))
+print(debug.validlevel(0))
+```

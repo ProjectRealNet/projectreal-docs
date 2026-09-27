@@ -1,0 +1,33 @@
+---
+title: "delfile"
+sidebarTitle: "delfile"
+description: "Usuwa istniejacy regular file wewnatrz workspace."
+icon: "function"
+keywords: ["delfile","Filesystem"]
+---
+
+Usuwa istniejacy regular file wewnatrz workspace.
+
+## Składnia
+
+```lua
+delfile(path: string)
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path rozwiazywany wewnatrz workspace po separator normalization i workspace-boundary checks. Cel musi istniec i byc regular file; folders nie sa akceptowane. |
+
+## Przykład
+
+Usun istniejacy workspace file.
+
+```lua
+local path = "examples/temporary.txt"
+writefile(path, "temporary")
+
+delfile(path)
+print(isfile(path))
+```

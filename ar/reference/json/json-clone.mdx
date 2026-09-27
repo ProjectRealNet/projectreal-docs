@@ -1,0 +1,61 @@
+---
+title: "json.clone"
+sidebarTitle: "json.clone"
+description: "ينسخ value عبر encoding باستخدام json.encode semantics ثم decoding للـ generated JSON مرة أخرى إلى Lua values."
+icon: "function"
+keywords: ["json.clone","JSON"]
+---
+
+ينسخ value عبر encoding باستخدام json.encode semantics ثم decoding للـ generated JSON مرة أخرى إلى Lua values.
+
+## الصيغة
+
+```lua
+json.clone(value: any, options?: EncodeOptions): any
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value يتم encode و decode لها. Supported JSON values تعمل round-trip عبر JSON؛ unsupported types تتحول إلى null إلا إذا طلبت encode options خطأ. |
+| `options` | `EncodeOptions` | No | Optional encode options تمرر إلى encode step، مثل sortKeys و emptyTableAsArray و errorOnUnsupported و encodeInvalidNumbersAsNull و maxDepth و pretty و indent. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `clone` | `any` | Decoded value الناتجة من encoded JSON. Objects و arrays تصبح new tables مع JSON kind markers من decoder؛ JSON null values تتحول إلى json.null. |
+
+## الأنواع
+
+### EncodeOptions
+
+يتحكم في تسلسل JSON وتنسيقه.
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | لتمكين إخراج JSON المنسق والمتعدد الأسطر. |
+| `sortKeys` | `boolean` | No | فرز مفاتيح الكائنات قبل الترميز. |
+| `emptyTableAsArray` | `boolean` | No | ترميز جدول فارغ كمصفوفة بدلاً من كائن. |
+| `errorOnUnsupported` | `boolean` | No | يثير خطأ بدلاً من استبدال قيم غير مدعومة. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | يشفر NaN والأرقام اللانهائية كـ JSON null. |
+| `maxDepth` | `integer` | No | يضبط الحد الأقصى لعمق التعشيش، المثبت من 1 إلى 4096. |
+| `indent` | `string` | No | يضبط سلسلة المسافة البادئة، والتي تقتصر على 32 حرفًا. |
+
+## مثال
+
+اعمل round-trip لقيمة JSON-compatible عبر json.encode و json.decode قبل تغيير nested values.
+
+```lua
+local original = {
+    profile = { name = "Guest" },
+}
+
+local copy = json.clone(original)
+copy.profile.name = "Developer"
+
+print(original.profile.name)
+print(copy.profile.name)
+print(json.type(copy))
+```

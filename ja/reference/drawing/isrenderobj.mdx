@@ -1,0 +1,40 @@
+---
+title: "isrenderobj"
+sidebarTitle: "isrenderobj"
+description: "値が Drawing object type を持つ object かどうかを返します。これは methods check のみです。基になる Drawing object がまだ active、tracked、または destroyed かどうかは確認しません。 the Drawing API は the required rendering environment is active が true の場合だけこの API を登録します。このチェックが false の場合、initializer はこれらの globals を作成する前に戻ります。"
+icon: "function"
+keywords: ["isrenderobj","Drawing"]
+---
+
+値が Drawing object type を持つ object かどうかを返します。これは methods check のみです。基になる Drawing object がまだ active、tracked、または destroyed かどうかは確認しません。 the Drawing API は the required rendering environment is active が true の場合だけこの API を登録します。このチェックが false の場合、initializer はこれらの globals を作成する前に戻ります。
+
+## 構文
+
+```lua
+isrenderobj(object: any): boolean
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | テストする値。Drawing object type を持たない non-object values と object は false を返します。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `isDrawingObject` | `boolean` | 値が object で、その methods が RealDrawingObject と一致する場合は True。それ以外は false。 |
+
+## 例
+
+Check whether a value has Real's Drawing userdata metatable.
+
+```lua
+local square = Drawing.new("Square")
+
+print(isrenderobj(square))
+square:Destroy()
+print(isrenderobj(square))
+print(isrenderobj({}))
+```

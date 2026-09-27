@@ -1,0 +1,41 @@
+---
+title: "json.isArray"
+sidebarTitle: "json.isArray"
+description: "Mengembalikan apakah value treated as a JSON array oleh Real JSON table detection."
+icon: "function"
+keywords: ["json.isArray","JSON"]
+---
+
+Mengembalikan apakah value treated as a JSON array oleh Real JSON table detection.
+
+## Sintaks
+
+```lua
+json.isArray(value: any): boolean
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value yang di-inspect. Non-table values mengembalikan false. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `isArray` | `boolean` | true saat value adalah table marked as a JSON array atau unmarked table dengan contiguous positive integer keys dari 1 sampai maximum index. Empty unmarked tables mengembalikan false. |
+
+## Contoh
+
+Check apakah table treated as a JSON array oleh Real JSON encoder.
+
+```lua
+local items = json.array({ "one", "two" })
+local record = json.object({ name = "Real" })
+local inferred = { "one", "two" }
+
+print(json.isArray(items))
+print(json.isArray(record))
+print(json.isArray(inferred))
+```

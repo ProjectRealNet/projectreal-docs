@@ -1,0 +1,21 @@
+---
+title: "Console"
+description: "Sortie d'exécution et contrôles de la console."
+icon: "folder-code"
+---
+
+Sortie d'exécution et contrôles de la console.
+
+| Navigation des fonctions | Description |
+| --- | --- |
+| [`rconsoleclear`](./rconsoleclear) | Efface le current Windows console screen buffer lorsqu une console window existe. Si aucune console window n existe, le call retourne sans rien faire. |
+| [`rconsolecreate`](./rconsolecreate) | Alloue une Windows console pour le processus lorsqu aucune console window n existe. Si une console window existe deja, le call retourne sans rien faire. Apres allocation, la function redirige stdout vers console output et stdin vers console input. |
+| [`rconsoledestroy`](./rconsoledestroy) | Efface le Windows console screen buffer actuel, masque la console window et détache le processus de la console avec console detachment. Si aucune console window n’existe, l’appel revient sans rien faire. |
+| [`rconsoleerr`](./rconsoleerr) | Écrit zero ou plusieurs valeurs dans la Windows console actuelle with stdout après avoir défini le console text attribute sur error text color. Les valeurs sont converties avec Lua string conversion, séparées par des caractères tab, puis le text attribute est defini sur default console text color. Si aucune console window n’existe, l’appel revient sans convertir ni ecrire quoi que ce soit. |
+| [`rconsolehide`](./rconsolehide) | Masque la Windows console window actuelle avec Windows console visibility update en utilisant hide mode. La function n’appelle pas console detachment, donc elle ne détache pas la console et ne la détruit pas. Si aucune console window n’existe, l’appel revient sans rien faire. |
+| [`rconsoleinfo`](./rconsoleinfo) | Écrit zero ou plusieurs valeurs dans la Windows console actuelle with stdout après avoir défini le console text attribute sur info text color. Les valeurs sont converties avec Lua string conversion, séparées par des caractères tab, puis le text attribute est defini sur default console text color. Si aucune console window n’existe, l’appel revient sans convertir ni ecrire quoi que ce soit. |
+| [`rconsoleinput`](./rconsoleinput) | Effectue un yield pendant la lecture d’une line depuis stdin avec console input après avoir nettoyé l’état de console input et ignoré input jusqu’au prochain newline. Le string retourné est poussé avec string return et n’inclut pas le newline final. Si aucune console window n’existe, l’appel revient sans values. |
+| [`rconsolename`](./rconsolename) | Définit le title de la Windows console window actuelle avec Windows console title update. Le premier argument doit être un string et il est vérifié avant le console existence check. Si aucune console window n’existe après la réussite du string check, l’appel revient sans rien faire. |
+| [`rconsoleprint`](./rconsoleprint) | Écrit zero ou plusieurs valeurs dans la Windows console actuelle with stdout sans modifier le console text attribute. Les valeurs sont converties avec Lua string conversion et séparées par des caractères tab. La function n’ajoute aucun newline. Si aucune console window n’existe, l’appel revient sans convertir ni ecrire quoi que ce soit. |
+| [`rconsoleshow`](./rconsoleshow) | Affiche la Windows console window actuelle avec Windows console visibility update en utilisant show mode. La function ne cree pas de console. Si aucune console window n existe, l appel retourne sans rien faire. |
+| [`rconsolewarn`](./rconsolewarn) | Ecrit zero ou plusieurs valeurs dans la Windows console actuelle with stdout avec le warning console text attribute. Si aucune console window n existe, l appel retourne sans convertir ni ecrire quoi que ce soit. Quand une console existe, chaque argument est converti avec Lua string conversion, joint avec des caracteres tab, puis ecrit with runtime value. Si Lua string conversion leve une erreur, rconsolewarn ne la capture pas. La function definit le console text attribute sur FOREGROUND_RED \| FOREGROUND_GREEN \| FOREGROUND_INTENSITY avant l ecriture, puis sur default console text color apres. Elle n ajoute pas de newline, n ajoute pas de warning prefix, ne cree pas et n affiche pas la console, et n appelle pas Luau warn ni Roblox Output. consolewarn est un alias de la meme function. |

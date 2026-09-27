@@ -1,0 +1,22 @@
+---
+title: "mousemoveabs"
+sidebarTitle: "mousemoveabs"
+description: "Przesuwa mysz przy uzyciu Windows absolute mouse input, gdy Roblox window jest active. Argumenty x i y sa sprawdzane jako Lua numbers i konwertowane przez integer conversion. Real traktuje je jako wspolrzedne relative to active foreground window client area, dodaje screen position tej client area przez ClientToScreen, skaluje je przez GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 oraz integer math, a potem wywoluje mouse input z the requested mouse action. Jesli isrbxactive byloby false, function wraca bez wysylania input."
+icon: "function"
+keywords: ["mousemoveabs","Input"]
+---
+
+Przesuwa mysz przy uzyciu Windows absolute mouse input, gdy Roblox window jest active. Argumenty x i y sa sprawdzane jako Lua numbers i konwertowane przez integer conversion. Real traktuje je jako wspolrzedne relative to active foreground window client area, dodaje screen position tej client area przez ClientToScreen, skaluje je przez GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 oraz integer math, a potem wywoluje mouse input z the requested mouse action. Jesli isrbxactive byloby false, function wraca bez wysylania input.
+
+## Składnia
+
+```lua
+mousemoveabs(x: number, y: number)
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `x` | `number` | Yes | Client-area X coordinate czytana jako Lua number i konwertowana przez integer conversion przed etapem screen-position oraz absolute-input scaling. |
+| `y` | `number` | Yes | Client-area Y coordinate czytana jako Lua number i konwertowana przez integer conversion przed etapem screen-position oraz absolute-input scaling. |

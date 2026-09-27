@@ -1,0 +1,21 @@
+---
+title: "getinstances"
+sidebarTitle: "getinstances"
+description: "Instance cache에 현재 저장된 모든 object value를 포함하는 새 array table을 반환합니다. 이 function은 arguments를 받지 않습니다. 각 registry value가 object인지 확인하는 것 외에는 Parent, ClassName, DataModel fieldship, nil-parent state, Instance validity로 필터링하지 않습니다. entries는 1부터 시작하는 sequential numeric indexes로 반환 table에 복사됩니다. iteration order는 cache에 대한 table iteration에서 나오며 function이 정렬하지 않습니다."
+icon: "function"
+keywords: ["getinstances","Instances"]
+---
+
+Instance cache에 현재 저장된 모든 object value를 포함하는 새 array table을 반환합니다. 이 function은 arguments를 받지 않습니다. 각 registry value가 object인지 확인하는 것 외에는 Parent, ClassName, DataModel fieldship, nil-parent state, Instance validity로 필터링하지 않습니다. entries는 1부터 시작하는 sequential numeric indexes로 반환 table에 복사됩니다. iteration order는 cache에 대한 table iteration에서 나오며 function이 정렬하지 않습니다.
+
+## 문법
+
+```lua
+getinstances(): { Instance }
+```
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `instances` | `&#123; Instance &#125;` | Instance cache table에서 복사된 object values의 array table입니다. |

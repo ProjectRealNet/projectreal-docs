@@ -1,0 +1,34 @@
+---
+title: "WebSocket.Send"
+sidebarTitle: "WebSocket.Send"
+description: "ترسل Lua string عبر WebSocket object المعاد من WebSocket.connect. تتوقع method أن يكون WebSocket table هو الوسيط الأول و message string هو الوسيط الثاني. تقرأ connection state من object، وترفع \"WebSocket state is missing\" إذا لم تكن هذه object موجودة، وتعود بدون إرسال عندما تكون state destroyed أو closed، وتستدعي curl_ws_send مع CURLWS_TEXT افتراضيا أو CURLWS_BINARY عندما يكون الوسيط الثالث الاختياري boolean true. لا تعيد values ولا تبلغ بعدد bytes المرسلة."
+icon: "function"
+keywords: ["WebSocket.Send","WebSocket"]
+---
+
+ترسل Lua string عبر WebSocket object المعاد من WebSocket.connect. تتوقع method أن يكون WebSocket table هو الوسيط الأول و message string هو الوسيط الثاني. تقرأ connection state من object، وترفع "WebSocket state is missing" إذا لم تكن هذه object موجودة، وتعود بدون إرسال عندما تكون state destroyed أو closed، وتستدعي curl_ws_send مع CURLWS_TEXT افتراضيا أو CURLWS_BINARY عندما يكون الوسيط الثالث الاختياري boolean true. لا تعيد values ولا تبلغ بعدد bytes المرسلة.
+
+## الصيغة
+
+```lua
+WebSocket.Send(socket: WebSocket, message: string, isBinary?: boolean)
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `socket` | `WebSocket` | Yes | WebSocket table المعادة من WebSocket.connect. يتم resolve لـ Send من WebSocket object methods، لذلك صيغة الاستدعاء الموثقة هي socket:Send(..). |
+| `message` | `string` | Yes | Lua string payload يتم تمريره إلى curl_ws_send مع explicit byte length. |
+| `isBinary` | `boolean` | No | عندما يكون هذا argument موجودا و true، تستخدم Send ‏CURLWS_BINARY. وإلا تستخدم CURLWS_TEXT. |
+
+## مثال
+
+Send text or binary data through a WebSocket object returned by WebSocket.connect.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket:Send("hello")
+socket:Send(string.char(0, 1, 2, 3), true)
+```

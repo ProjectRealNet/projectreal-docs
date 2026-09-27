@@ -1,0 +1,40 @@
+---
+title: "json.array"
+sidebarTitle: "json.array"
+description: "Creates a new table marked as a JSON array for json.encode, copying the 1.#source sequence when a source table is provided."
+icon: "function"
+keywords: ["json.array","JSON"]
+---
+
+Creates a new table marked as a JSON array for json.encode, copying the 1.#source sequence when a source table is provided.
+
+## Syntax
+
+```lua
+json.array(source?: table): table
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `source` | `table` | No | Optional source table. When omitted or nil, json.array returns a new empty array-marked table. When provided, only numeric sequence entries from 1 with #source are copied into the new table. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `array` | `table` | New table with the JSON array marker. json.encode serializes it as a JSON array; the original source table is not returned. |
+
+## Example
+
+Create an array-marked copy so json.encode serializes the value as a JSON array.
+
+```lua
+local tags = json.array({ "api", "docs", "luau" })
+local empty = json.array()
+
+print(json.encode(tags))
+print(json.encode(empty))
+print(json.type(empty))
+```

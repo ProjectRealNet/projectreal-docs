@@ -1,0 +1,41 @@
+---
+title: "json.isArray"
+sidebarTitle: "json.isArray"
+description: "Devuelve si un value se treated as a JSON array por Real JSON table detection."
+icon: "function"
+keywords: ["json.isArray","JSON"]
+---
+
+Devuelve si un value se treated as a JSON array por Real JSON table detection.
+
+## Sintaxis
+
+```lua
+json.isArray(value: any): boolean
+```
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value que se inspect. Non-table values devuelven false. |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `isArray` | `boolean` | true cuando el value es una table marked as a JSON array o una unmarked table con contiguous positive integer keys desde 1 hasta su maximum index. Empty unmarked tables devuelven false. |
+
+## Ejemplo
+
+Check si una table se treated as a JSON array por Real JSON encoder.
+
+```lua
+local items = json.array({ "one", "two" })
+local record = json.object({ name = "Real" })
+local inferred = { "one", "two" }
+
+print(json.isArray(items))
+print(json.isArray(record))
+print(json.isArray(inferred))
+```

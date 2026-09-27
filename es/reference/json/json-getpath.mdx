@@ -1,0 +1,52 @@
+---
+title: "json.getPath"
+sidebarTitle: "json.getPath"
+description: "Lee un nested value desde una table usando un dotted string path o una array table of keys."
+icon: "function"
+keywords: ["json.getPath","JSON","json.getpath"]
+---
+
+Lee un nested value desde una table usando un dotted string path o una array table of keys.
+
+## Sintaxis
+
+```lua
+json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
+```
+
+## Alias
+
+- `json.getpath`
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | Root table desde la que se lee. La function requiere que este argument sea una table. |
+| `path` | `string \| table` | Yes | Path a seguir. Un string se divide por dots; integer string tokens se leen con raw array indexing. Una table path usa sus array entries desde 1 hasta #path como keys. |
+| `defaultValue` | `any` | No | Fallback value devuelto cuando traversal llega a nil o a non-table antes de completar el path. |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `pathValue` | `any \| nil` | Value en el requested path. Si falta el path, devuelve defaultValue cuando fue proporcionado, si no nil. |
+
+## Ejemplo
+
+Lee un nested table value desde un dotted string path o una array table of keys.
+
+```lua
+local document = {
+    user = {
+        profile = { name = "Guest" },
+        items = { "first", "second" },
+    },
+}
+
+local name = json.getPath(document, { "user", "profile", "name" }, "Unknown")
+local second = json.getPath(document, "user.items.2")
+
+print(name)
+print(second)
+```

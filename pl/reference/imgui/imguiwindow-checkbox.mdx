@@ -1,0 +1,50 @@
+---
+title: "ImGuiWindow.Checkbox"
+sidebarTitle: "ImGuiWindow.Checkbox"
+description: "Appends a checkbox element to an ImGuiWindow. The callback is invoked with the new boolean value when the checkbox changes, and the method returns the same ImGuiWindow object."
+icon: "function"
+keywords: ["ImGuiWindow.Checkbox","ImGui"]
+---
+
+Appends a checkbox element to an ImGuiWindow. The callback is invoked with the new boolean value when the checkbox changes, and the method returns the same ImGuiWindow object.
+
+## Składnia
+
+```lua
+ImGuiWindow.Checkbox(window: ImGuiWindow, label: string, checked: any, onChange: function): ImGuiWindow
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `window` | `ImGuiWindow` | Yes | ImGuiWindow object returned by imgui.create. A destroyed or invalid window raises a Lua error. |
+| `label` | `string` | Yes | Checkbox label string passed to the rendered ImGui checkbox. |
+| `checked` | `any` | Yes | Initial checked value. nil and false are treated as false; other values are treated as true. |
+| `onChange` | `function` | Yes | Function stored for this checkbox and invoked with the new boolean state after a change event is processed. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `window` | `ImGuiWindow` | The same ImGuiWindow object, allowing chained method calls. |
+
+## Typy
+
+### ImGuiWindow
+
+Uchwyt zwrócony przez imgui.create. Metody budowania kontroli zwracają ten sam uchwyt, dzięki czemu można łączyć wywołania.
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | Dołącza przycisk i wywołuje wywołanie zwrotne po kliknięciu. |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | Dołącza pole wyboru zainicjowane do podanego stanu. |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | Grupuje kontrolki dołączone przez wywołanie zwrotne zawartości pod zwijanym nagłówkiem. |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | Dołącza edytor RGBA; pominięte komponenty kolorów mają domyślnie wartość 1.0. |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | Dołącza jednowierszowy tekst; pominięty tekst początkowy domyślnie jest pustym ciągiem znaków. |
+| `SameLine` | `() -> ImGuiWindow` | Yes | Umieszcza następną kontrolkę w tej samej linii. |
+| `Separator` | `() -> ImGuiWindow` | Yes | Dołącza separator poziomy. |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Dołącza suwak zmiennoprzecinkowy. |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Dołącza suwak liczb całkowitych. |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | Dołącza tekst nieinteraktywny. |
+| `destroy` | `() -> ()` | Yes | Usuwa okno i zwalnia zarejestrowane wywołania zwrotne. |

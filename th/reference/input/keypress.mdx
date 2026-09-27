@@ -1,0 +1,21 @@
+---
+title: "keypress"
+sidebarTitle: "keypress"
+description: "ส่ง key down event เมื่อ Roblox window active อาร์กิวเมนต์ keyCode ถูกตรวจเป็น Lua number แปลงด้วย integer conversion map จาก Windows virtual-key code เป็น scan code ด้วย Windows key mapping และส่งผ่าน keyboard input พร้อม KEYEVENTF_SCANCODE function นี้ไม่ส่ง key up event หาก isrbxactive จะเป็น false function จะ return โดยไม่ส่ง input"
+icon: "function"
+keywords: ["keypress","Input"]
+---
+
+ส่ง key down event เมื่อ Roblox window active อาร์กิวเมนต์ keyCode ถูกตรวจเป็น Lua number แปลงด้วย integer conversion map จาก Windows virtual-key code เป็น scan code ด้วย Windows key mapping และส่งผ่าน keyboard input พร้อม KEYEVENTF_SCANCODE function นี้ไม่ส่ง key up event หาก isrbxactive จะเป็น false function จะ return โดยไม่ส่ง input
+
+## ไวยากรณ์
+
+```lua
+keypress(keyCode: number)
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `keyCode` | `number` | Yes | Windows virtual-key code ที่อ่านเป็น Lua number และแปลงด้วย integer conversion ก่อนเรียก Windows key mapping |

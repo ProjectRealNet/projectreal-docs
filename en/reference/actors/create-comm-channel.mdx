@@ -1,0 +1,33 @@
+---
+title: "create_comm_channel"
+sidebarTitle: "create_comm_channel"
+description: "Creates a new BindableEvent with Instance.new, stores its Instance reference in the communication channel list under a numeric channel ID, and returns the ID plus the BindableEvent Instance. The channel ID is computed from the current map size plus one. If Instance.new(\"BindableEvent\") does not leave a object value on the stack, the function raises \"Failed to make a BindableEvent\"."
+icon: "function"
+keywords: ["create_comm_channel","Actors"]
+---
+
+Creates a new BindableEvent with Instance.new, stores its Instance reference in the communication channel list under a numeric channel ID, and returns the ID plus the BindableEvent Instance. The channel ID is computed from the current map size plus one. If Instance.new("BindableEvent") does not leave a object value on the stack, the function raises "Failed to make a BindableEvent".
+
+## Syntax
+
+```lua
+create_comm_channel(): integer | Instance
+```
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `channelId` | `integer` | Numeric channel ID inserted into the communication channel list. |
+| `event` | `Instance` | BindableEvent Instance stored for the channel and returned to the caller. |
+
+## Example
+
+Create a BindableEvent communication channel and keep the returned channel ID for later lookup.
+
+```lua
+local channelId, event = create_comm_channel()
+
+print(channelId)
+print(event)
+```

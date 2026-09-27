@@ -1,0 +1,37 @@
+---
+title: "rconsoleinput"
+sidebarTitle: "rconsoleinput"
+description: "Melakukan yield saat membaca satu line dari stdin dengan console input setelah fieldsihkan state console input dan mengabaikan input hingga newline berikutnya. string yang dikembalikan didorong dengan string return dan tidak menyertakan newline penutup. Jika tidak ada console window, panggilan kembali tanpa values."
+icon: "function"
+keywords: ["rconsoleinput","Console","consoleinput"]
+---
+
+Melakukan yield saat membaca satu line dari stdin dengan console input setelah fieldsihkan state console input dan mengabaikan input hingga newline berikutnya. string yang dikembalikan didorong dengan string return dan tidak menyertakan newline penutup. Jika tidak ada console window, panggilan kembali tanpa values.
+
+## Sintaks
+
+```lua
+rconsoleinput(): string
+```
+
+## Alias
+
+- `consoleinput`
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `input` | `string` | Baris teks dibaca dari konsol. |
+
+## Contoh
+
+Read one submitted line from the current Windows console.
+
+```lua
+rconsolecreate()
+rconsoleprint("Name: ")
+local name = rconsoleinput()
+rconsoleprint("Hello, ", name, "
+")
+```

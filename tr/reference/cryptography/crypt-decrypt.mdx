@@ -1,0 +1,43 @@
+---
+title: "crypt.decrypt"
+sidebarTitle: "crypt.decrypt"
+description: "Base64 ciphertext degerini Base64 decode edilmis key ve gerekli Base64 IV ile AES CBC veya ECB kullanarak decrypt eder."
+icon: "function"
+keywords: ["crypt.decrypt","Cryptography"]
+---
+
+Base64 ciphertext degerini Base64 decode edilmis key ve gerekli Base64 IV ile AES CBC veya ECB kullanarak decrypt eder.
+
+## Söz dizimi
+
+```lua
+crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES-CBC" | "AES-ECB"): string
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Decrypt isleminden once decode edilen Base64 ciphertext. |
+| `key` | `string` | Yes | AES icine aktarilmadan once decode edilen Base64 key. |
+| `iv` | `string` | Yes | mode islenmeden once decode edilen Base64 IV. Bu arguman ECB icin de gereklidir. |
+| `mode` | `"CBC" \| "ECB" \| "AES-CBC" \| "AES-ECB"` | No | AES mode. Varsa AES- prefix kaldirilir. Varsayilan deger AES-CBC. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `plaintext` | `string` | Lua string olarak dondurulen plaintext byte degerleri. |
+
+## Örnek
+
+crypt.encrypt tarafindan dondurulen ciphertext degerini dondurulen IV ile decrypt et.
+
+```lua
+local key = crypt.generatekey()
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+local plaintext = crypt.decrypt(ciphertext, key, iv)
+
+print(plaintext)
+```

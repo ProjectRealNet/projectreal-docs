@@ -1,0 +1,61 @@
+---
+title: "json.encodePretty"
+sidebarTitle: "json.encodePretty"
+description: "Serializes Lua value เป็น readable formatted JSON string โดยใช้ Real JSON encoder. json.pretty ถูก register กับ function เดียวกัน."
+icon: "function"
+keywords: ["json.encodePretty","JSON"]
+---
+
+Serializes Lua value เป็น readable formatted JSON string โดยใช้ Real JSON encoder. json.pretty ถูก register กับ function เดียวกัน.
+
+## ไวยากรณ์
+
+```lua
+json.encodePretty(value: any, options?: EncodeOptions): string
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value ที่จะ encoded. nil, booleans, numbers, strings, tables และ json.null ถูกจัดการโดยตรง. Unsupported Lua types จะ encoded เป็น null เว้นแต่ errorOnUnsupported เป็น true. |
+| `options` | `EncodeOptions` | No | Optional encode options. json.encodePretty อ่าน options เดียวกับ json.encode แล้วบังคับ pretty เป็น true. ถ้าไม่มี options จะใช้ two-space indent. number ตั้งค่า indent width โดย clamp เป็น 0.16, string ตั้งค่า indent text, และ table ตั้งค่า sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth และ indent ได้. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `json` | `string` | Readable formatted JSON string. Encoding errors ถูก throw เป็น Luau errors. |
+
+## Types
+
+### EncodeOptions
+
+ควบคุมการทำให้เป็นอนุกรมและการจัดรูปแบบ JSON
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | เปิดใช้งานเอาต์พุต JSON แบบหลายบรรทัดที่จัดรูปแบบแล้ว |
+| `sortKeys` | `boolean` | No | เรียงลำดับออบเจ็กต์คีย์ก่อนการเข้ารหัส |
+| `emptyTableAsArray` | `boolean` | No | เข้ารหัสตารางว่างเป็นอาร์เรย์แทนที่จะเป็นวัตถุ |
+| `errorOnUnsupported` | `boolean` | No | ทำให้เกิดข้อผิดพลาดแทนที่จะแทนที่ค่าที่ไม่รองรับ |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | เข้ารหัส NaN และจำนวนอนันต์เป็น JSON null |
+| `maxDepth` | `integer` | No | ตั้งค่าความลึกของการซ้อนสูงสุด โดยยึดไว้ตั้งแต่ 1 ถึง 4096 |
+| `indent` | `string` | No | ตั้งค่าสตริงการเยื้อง โดยจำกัดไว้ที่ 32 อักขระ |
+
+## ตัวอย่าง
+
+Encode JSON-compatible values เป็น readable formatted JSON พร้อม pretty output forced on.
+
+```lua
+local text = json.encodePretty({
+    name = "Real",
+    version = 1,
+    features = json.array({ "docs", "examples" }),
+    missing = json.null,
+}, {
+    sortKeys = true,
+})
+
+print(text)
+```

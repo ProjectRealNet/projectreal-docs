@@ -1,0 +1,52 @@
+---
+title: "WebSocket.connect"
+sidebarTitle: "WebSocket.connect"
+description: "تنشئ BindableEvents عددها اثنان، وتفتح WebSocket client WebSocket connection إلى URL المقدم، وتعمل yield حتى تنتهي محاولة الاتصال. عند النجاح، تعيد WebSocket table تحتوي OnMessage و OnClose events، و Send و Close methods من methods، و connection state. يتم إطلاق incoming message data عبر OnMessage كسلسلة string. عندما تنتهي receive loop، يتم إطلاق OnClose بدون arguments. عند فشل الاتصال، ترفع الدالة error string يبدأ بـ \"WebSocket connection failed\"."
+icon: "function"
+keywords: ["WebSocket.connect","WebSocket","WebSocket.Connect","websocket.connect","websocket.Connect"]
+---
+
+تنشئ BindableEvents عددها اثنان، وتفتح WebSocket client WebSocket connection إلى URL المقدم، وتعمل yield حتى تنتهي محاولة الاتصال. عند النجاح، تعيد WebSocket table تحتوي OnMessage و OnClose events، و Send و Close methods من methods، و connection state. يتم إطلاق incoming message data عبر OnMessage كسلسلة string. عندما تنتهي receive loop، يتم إطلاق OnClose بدون arguments. عند فشل الاتصال، ترفع الدالة error string يبدأ بـ "WebSocket connection failed".
+
+## الصيغة
+
+```lua
+WebSocket.connect(url: string): WebSocket
+```
+
+## أسماء بديلة
+
+- `WebSocket.Connect`
+- `websocket.connect`
+- `websocket.Connect`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `url` | `string` | Yes | URL string يتم تمريره إلى CURLOPT_URL قبل أن ينفذ WebSocket client محاولة WebSocket connection. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `socket` | `WebSocket` | WebSocket table تحتوي OnMessage و OnClose و connection state. يتم حل Send و Close عبر WebSocket object methods. |
+
+## مثال
+
+افتح WebSocket، اربط OnMessage و OnClose، ثم استخدم socket methods للإرسال والإغلاق.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket.OnMessage:Connect(function(message)
+    print(message)
+end)
+
+socket.OnClose:Connect(function()
+    print("closed")
+end)
+
+socket:Send("hello")
+socket:Close()
+```

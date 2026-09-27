@@ -1,0 +1,55 @@
+---
+title: "json.validate"
+sidebarTitle: "json.validate"
+description: "Bir JSON string degerini tek bir complete JSON value parse ederek validate eder. Success durumunda yalnizca true dondurur. Parse failure durumunda false ve parser error details dondurur."
+icon: "function"
+keywords: ["json.validate","JSON"]
+---
+
+Bir JSON string degerini tek bir complete JSON value parse ederek validate eder. Success durumunda yalnizca true dondurur. Parse failure durumunda false ve parser error details dondurur.
+
+## Söz dizimi
+
+```lua
+json.validate(json: string, options?: DecodeOptions): boolean | string | nil | number | nil
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | Validate edilecek JSON string. Function bu argument degerini string type checking ile okur. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean useNull degerini ayarlar. table useNull ve maxDepth ayarlayabilir. maxDepth 1 ile 4096 arasinda clamp edilir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `valid` | `boolean` | Tek bir complete JSON value parsing basariliysa true. protected parse block icinde parsing basarisiz olursa false. |
+| `errorMessage` | `string \| nil` | Parse failure durumunda Error message. Message json.validate ile prefixed olur ve near-position suffix icerir. Bu return yalnizca failure durumunda vardir. |
+| `errorPosition` | `number \| nil` | Parse failure durumunda parser tarafindan gelen Parser byte position. Bu return yalnizca failure durumunda vardir. |
+
+## Tipler
+
+### DecodeOptions
+
+JSON ayrıştırma davranışını kontrol eder.
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Nil yerine kütüphanenin null sentinel'i ile JSON null'u temsil eder. |
+| `maxDepth` | `integer` | No | 1'den 4096'ya kadar kenetlenmiş maksimum yuvalama derinliğini ayarlar. |
+
+## Örnek
+
+Bir string degerinin tam olarak tek bir complete JSON value icerip icermedigini kontrol eder.
+
+```lua
+print(json.validate('{"value":42}'))
+
+local valid, message, position = json.validate('{"value":42 trailing')
+
+if not valid then
+    warn(message, position)
+end
+```

@@ -1,0 +1,44 @@
+---
+title: "isvalidlevel"
+sidebarTitle: "isvalidlevel"
+description: "numeric stack level değerinin current call stack range içinde olup olmadığını kontrol eder. level zorunludur ve number olmalıdır çünkü function requires a number çağırır. value integer conversion ile dönüştürülür. function level < 0 veya level >= the current call stack depth olduğunda false, aksi durumda true döndürür. frame closure değerini incelemez ve invalid numeric levels için \"Level out of range\" üretmez. validlevel bir global alias değeridir; debug.isvalidlevel ve debug.validlevel debug table aliases üzerinden sunulur."
+icon: "function"
+keywords: ["isvalidlevel","Debug","validlevel","debug.isvalidlevel","debug.validlevel"]
+---
+
+numeric stack level değerinin current call stack range içinde olup olmadığını kontrol eder. level zorunludur ve number olmalıdır çünkü function requires a number çağırır. value integer conversion ile dönüştürülür. function level &lt; 0 veya level >= the current call stack depth olduğunda false, aksi durumda true döndürür. frame closure değerini incelemez ve invalid numeric levels için "Level out of range" üretmez. validlevel bir global alias değeridir; debug.isvalidlevel ve debug.validlevel debug table aliases üzerinden sunulur.
+
+## Söz dizimi
+
+```lua
+isvalidlevel(level: number): boolean
+```
+
+## Aliaslar
+
+- `validlevel`
+- `debug.isvalidlevel`
+- `debug.validlevel`
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `level` | `number` | Yes | integer conversion ile dönüştürülen ve 0 &lt;= level &lt; the current call stack depth koşuluna göre kontrol edilen Stack level number. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `valid` | `boolean` | numeric level current call stack range içindeyse true, aksi halde false. |
+
+## Örnek
+
+Check whether a numeric stack level is inside the current call stack range.
+
+```lua
+print(isvalidlevel(0))
+print(validlevel(0))
+print(debug.isvalidlevel(0))
+print(debug.validlevel(0))
+```

@@ -1,0 +1,61 @@
+---
+title: "json.clone"
+sidebarTitle: "json.clone"
+description: "Clona um value fazendo encoding com json.encode semantics e depois decoding do generated JSON de volta para Lua values."
+icon: "function"
+keywords: ["json.clone","JSON"]
+---
+
+Clona um value fazendo encoding com json.encode semantics e depois decoding do generated JSON de volta para Lua values.
+
+## Sintaxe
+
+```lua
+json.clone(value: any, options?: EncodeOptions): any
+```
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value para encode e decode. Supported JSON values fazem round-trip por JSON; unsupported types sao codificados como null, a menos que encode options solicitem um erro. |
+| `options` | `EncodeOptions` | No | Optional encode options passadas para o encode step, como sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty e indent. |
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `clone` | `any` | Decoded value produzido a partir do encoded JSON. Objects e arrays sao new tables com JSON kind markers do decoder; JSON null values viram json.null. |
+
+## Tipos
+
+### EncodeOptions
+
+Controla a serialização e formatação JSON.
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Permite saída JSON formatada e multilinha. |
+| `sortKeys` | `boolean` | No | Classifica as chaves dos objetos antes da codificação. |
+| `emptyTableAsArray` | `boolean` | No | Codifica uma tabela vazia como uma matriz em vez de um objeto. |
+| `errorOnUnsupported` | `boolean` | No | Gera um erro em vez de substituir valores não suportados. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Codifica NaN e números infinitos como JSON nulo. |
+| `maxDepth` | `integer` | No | Define a profundidade máxima de aninhamento, fixada de 1 a 4096. |
+| `indent` | `string` | No | Define a sequência de recuo, limitada a 32 caracteres. |
+
+## Exemplo
+
+Faca round-trip de um JSON-compatible value por json.encode e json.decode antes de alterar nested values.
+
+```lua
+local original = {
+    profile = { name = "Guest" },
+}
+
+local copy = json.clone(original)
+copy.profile.name = "Developer"
+
+print(original.profile.name)
+print(copy.profile.name)
+print(json.type(copy))
+```

@@ -1,0 +1,52 @@
+---
+title: "json.decode"
+sidebarTitle: "json.decode"
+description: "Mem-parse JSON string dengan Real JSON parser dan mengembalikan decoded Lua value, menandai decoded arrays dan objects untuk JSON helpers."
+icon: "function"
+keywords: ["json.decode","JSON"]
+---
+
+Mem-parse JSON string dengan Real JSON parser dan mengembalikan decoded Lua value, menandai decoded arrays dan objects untuk JSON helpers.
+
+## Sintaks
+
+```lua
+json.decode(json: string, options?: DecodeOptions): any
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON text untuk di-parse. parser menerima satu JSON value dengan optional surrounding whitespace dan melempar error saat invalid syntax atau trailing non-whitespace characters ditemukan. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean mengatur useNull secara langsung. table dapat mengatur useNull dan maxDepth; maxDepth di-clamp dari 1 sampai 4096. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `decoded` | `any` | Decoded value. JSON objects dan arrays menjadi tables dengan JSON type markers, strings menjadi Lua strings, numbers menjadi Lua numbers, booleans menjadi booleans, dan null menjadi json.null kecuali useNull false. |
+
+## Tipe
+
+### DecodeOptions
+
+Mengontrol perilaku penguraian JSON.
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Mewakili JSON null dengan penjaga null perpustakaan, bukan nihil. |
+| `maxDepth` | `integer` | No | Menyetel kedalaman sarang maksimum, dijepit dari 1 hingga 4096. |
+
+## Contoh
+
+Decode JSON menjadi Lua values sambil mempertahankan JSON array, object, dan null markers.
+
+```lua
+local value = json.decode('{"name":"Real","tags":["docs"],"missing":null}')
+
+print(value.name)
+print(value.tags[1])
+print(json.type(value))
+print(json.isNull(value.missing))
+```

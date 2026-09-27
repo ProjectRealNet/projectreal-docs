@@ -1,0 +1,59 @@
+---
+title: "json.tryDecode"
+sidebarTitle: "json.tryDecode"
+description: "พยายาม parse JSON string ด้วย function เดียวกับ json.decodeSafe และคืน status values สำหรับ parse errors."
+icon: "function"
+keywords: ["json.tryDecode","JSON"]
+---
+
+พยายาม parse JSON string ด้วย function เดียวกับ json.decodeSafe และคืน status values สำหรับ parse errors.
+
+## ไวยากรณ์
+
+```lua
+json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string ที่จะ parse. function อ่าน argument นี้ด้วย string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean ตั้งค่า useNull. table ตั้งค่า useNull และ maxDepth ได้. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `success` | `boolean` | true เมื่อ parsing สำเร็จ, false เมื่อ parsing ล้มเหลวใน protected parse block. |
+| `decoded` | `any \| nil` | Decoded value เมื่อ success. เมื่อ parse failure return นี้เป็น nil. |
+| `errorMessage` | `string \| nil` | Error message เมื่อ parse failure. Message มี prefix json.decodeSafe และมี near-position suffix. |
+| `errorPosition` | `number \| nil` | Parser byte position จาก parser เมื่อ parse failure. Return นี้มีเฉพาะตอน failure. |
+
+## Types
+
+### DecodeOptions
+
+ควบคุมพฤติกรรมการแยกวิเคราะห์ JSON
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | แสดงถึง JSON null ด้วย null sentinel ของไลบรารีแทนที่จะเป็น nil |
+| `maxDepth` | `integer` | No | ตั้งค่าความลึกของการซ้อนสูงสุด โดยยึดไว้ตั้งแต่ 1 ถึง 4096 |
+
+## ตัวอย่าง
+
+Decode JSON พร้อม status returns โดยใช้ json.decodeSafe-compatible alias.
+
+```lua
+local ok, value, message, position = json.tryDecode('{"ready":true,"missing":null}', {
+    useNull = true,
+})
+
+if ok then
+    print(value.ready)
+    print(json.isNull(value.missing))
+else
+    warn(message, position)
+end
+```

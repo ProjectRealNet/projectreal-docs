@@ -1,0 +1,36 @@
+---
+title: "rconsolename"
+sidebarTitle: "rconsolename"
+description: "Geçerli Windows console window title değerini Windows console title update ile ayarlar. İlk argument string olmalıdır ve console existence check işleminden önce kontrol edilir. string check başarılı olduktan sonra console window yoksa çağrı hiçbir şey yapmadan döner."
+icon: "function"
+keywords: ["rconsolename","Console","consolename","rconsolesettitle","consolesettitle"]
+---
+
+Geçerli Windows console window title değerini Windows console title update ile ayarlar. İlk argument string olmalıdır ve console existence check işleminden önce kontrol edilir. string check başarılı olduktan sonra console window yoksa çağrı hiçbir şey yapmadan döner.
+
+## Söz dizimi
+
+```lua
+rconsolename(text: string)
+```
+
+## Aliaslar
+
+- `consolename`
+- `rconsolesettitle`
+- `consolesettitle`
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | İşlem tarafından kullanılan metin değeri. |
+
+## Örnek
+
+Set the current Windows console window title.
+
+```lua
+rconsolecreate()
+rconsolename("Real Console")
+```

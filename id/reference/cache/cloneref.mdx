@@ -1,0 +1,45 @@
+---
+title: "cloneref"
+sidebarTitle: "cloneref"
+description: "Mendorong referensi Instance baru untuk reference Instance dasar yang sama dan mengembalikannya."
+icon: "function"
+keywords: ["cloneref","Cache","clonereference"]
+---
+
+Mendorong referensi Instance baru untuk reference Instance dasar yang sama dan mengembalikannya.
+
+## Sintaks
+
+```lua
+cloneref(instance: Instance): Instance
+```
+
+## Alias
+
+- `clonereference`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object yang digunakan sebagai sumber untuk referensi baru. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `reference` | `Instance` | Referensi Instance yang dikembalikan setelah Instance cache berjalan dengan reference object asli. |
+
+## Contoh
+
+Buat referensi Instance lain dari Instance object yang sudah ada.
+
+```lua
+local Players = game:GetService("Players")
+
+local reference = cloneref(Players)
+print(reference)
+
+local sameAlias = clonereference(Players)
+print(sameAlias)
+```

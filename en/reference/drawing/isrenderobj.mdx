@@ -1,0 +1,40 @@
+---
+title: "isrenderobj"
+sidebarTitle: "isrenderobj"
+description: "Returns whether the value is object with the Drawing object type. This is a methods check only; it does not check whether the underlying Drawing object is still active, tracked, or destroyed. the Drawing API registers this API only when the required rendering environment is active is true; when that check is false, the initializer returns before creating these globals."
+icon: "function"
+keywords: ["isrenderobj","Drawing"]
+---
+
+Returns whether the value is object with the Drawing object type. This is a methods check only; it does not check whether the underlying Drawing object is still active, tracked, or destroyed. the Drawing API registers this API only when the required rendering environment is active is true; when that check is false, the initializer returns before creating these globals.
+
+## Syntax
+
+```lua
+isrenderobj(object: any): boolean
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | Value to test. Non-object values and object without the Drawing object type return false. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `isDrawingObject` | `boolean` | True when the value is object whose methods matches RealDrawingObject; otherwise false. |
+
+## Example
+
+Check whether a value has Real's Drawing userdata metatable.
+
+```lua
+local square = Drawing.new("Square")
+
+print(isrenderobj(square))
+square:Destroy()
+print(isrenderobj(square))
+print(isrenderobj({}))
+```

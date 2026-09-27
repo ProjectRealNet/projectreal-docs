@@ -1,0 +1,35 @@
+---
+title: "getcurrentactor"
+sidebarTitle: "getcurrentactor"
+description: "현재 Luau thread와 연결된 Actor Instance를 반환합니다. 이 function은 arguments를 받지 않습니다. getactorfromthread가 사용하는 것과 동일한 actor resolver로 현재 Luau thread를 resolve합니다. thread data가 존재해야 하고, Actor reference가 존재해야 하며, reference count가 0보다 커야 하고, the associated Actor는 non-expired weak reference를 가지고 있어야 합니다. valid actor reference가 없으면 function은 nil을 반환합니다."
+icon: "function"
+keywords: ["getcurrentactor","Actors","get_current_actor"]
+---
+
+현재 Luau thread와 연결된 Actor Instance를 반환합니다. 이 function은 arguments를 받지 않습니다. getactorfromthread가 사용하는 것과 동일한 actor resolver로 현재 Luau thread를 resolve합니다. thread data가 존재해야 하고, Actor reference가 존재해야 하며, reference count가 0보다 커야 하고, the associated Actor는 non-expired weak reference를 가지고 있어야 합니다. valid actor reference가 없으면 function은 nil을 반환합니다.
+
+## 문법
+
+```lua
+getcurrentactor(): Instance | nil
+```
+
+## 별칭
+
+- `get_current_actor`
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `actor` | `Instance \| nil` | 현재 thread의 the associated Actor weak reference에서 resolve된 Actor Instance, 또는 valid actor reference가 없을 때 nil입니다. |
+
+## 예제
+
+Resolve the Actor Instance associated with the current Luau thread.
+
+```lua
+local actor = getcurrentactor()
+
+print(actor)
+```

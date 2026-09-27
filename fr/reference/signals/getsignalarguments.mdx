@@ -1,0 +1,42 @@
+---
+title: "getsignalarguments"
+sidebarTitle: "getsignalarguments"
+description: "Retourne une array table de type names lus depuis l event descriptor signature d un RBXScriptSignal. Le premier argument doit etre un object dont le Luau type name est RBXScriptSignal. La function lit l event descriptor du signal, parcourt les signature slots avec l argument stride de l function, lit chaque argument type reference, puis ajoute le type name string resolu pour chaque slot. Elle ne retourne pas de captured runtime argument values. Si la signature ne peut pas etre lue ou si aucune entry n est ajoutee, la table retournee contient une fallback entry: \"Variant\"."
+icon: "function"
+keywords: ["getsignalarguments","Signals"]
+---
+
+Retourne une array table de type names lus depuis l event descriptor signature d un RBXScriptSignal. Le premier argument doit etre un object dont le Luau type name est RBXScriptSignal. La function lit l event descriptor du signal, parcourt les signature slots avec l argument stride de l function, lit chaque argument type reference, puis ajoute le type name string resolu pour chaque slot. Elle ne retourne pas de captured runtime argument values. Si la signature ne peut pas etre lue ou si aucune entry n est ajoutee, la table retournee contient une fallback entry: "Variant".
+
+## Syntaxe
+
+```lua
+getsignalarguments(signal: RBXScriptSignal): {string}
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | Signal dont l event descriptor signature doit etre inspectee. Un object non RBXScriptSignal declenche un type error. |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `arguments` | `&#123;string&#125;` | Array table de argument type name strings. Une fallback table contenant "Variant" est retournee quand les signature data ne peuvent pas etre lues ou qu aucune argument entry n est produite. |
+
+## Exemple
+
+Inspect an RBXScriptSignal signature and print the argument type names Real can read.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote then
+    for _, typeName in ipairs(getsignalarguments(remote.OnClientEvent)) do
+        print(typeName)
+    end
+end
+```

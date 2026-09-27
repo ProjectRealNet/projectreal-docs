@@ -1,0 +1,31 @@
+---
+title: "WebSocket.Close"
+sidebarTitle: "WebSocket.Close"
+description: "ปิด WebSocket object ที่ส่งคืนจาก WebSocket.connect argument แรกต้องเป็น table ฟังก์ชันอ่าน field connection state ของ object เมื่อมี live state และยังไม่ destroyed หรือ closed ฟังก์ชันจะตั้ง isClosed เป็น true และส่ง close frame frame ว่างผ่าน WebSocket connection ที่เก็บไว้ ฟังก์ชันไม่รับ close code หรือ reason และไม่คืน values"
+icon: "function"
+keywords: ["WebSocket.Close","WebSocket"]
+---
+
+ปิด WebSocket object ที่ส่งคืนจาก WebSocket.connect argument แรกต้องเป็น table ฟังก์ชันอ่าน field connection state ของ object เมื่อมี live state และยังไม่ destroyed หรือ closed ฟังก์ชันจะตั้ง isClosed เป็น true และส่ง close frame frame ว่างผ่าน WebSocket connection ที่เก็บไว้ ฟังก์ชันไม่รับ close code หรือ reason และไม่คืน values
+
+## ไวยากรณ์
+
+```lua
+WebSocket.Close(socket: WebSocket)
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `socket` | `WebSocket` | Yes | WebSocket table ที่ส่งคืนจาก WebSocket.connect function คาดว่า table นี้มี connection state |
+
+## ตัวอย่าง
+
+Close a WebSocket object returned by WebSocket.connect.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket:Close()
+```

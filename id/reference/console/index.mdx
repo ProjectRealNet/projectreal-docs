@@ -1,0 +1,21 @@
+---
+title: "Console"
+description: "Output runtime dan kontrol konsol."
+icon: "folder-code"
+---
+
+Output runtime dan kontrol konsol.
+
+| Navigasi fungsi | Deskripsi |
+| --- | --- |
+| [`rconsoleclear`](./rconsoleclear) | Menghapus current Windows console screen buffer saat ada console window. Jika tidak ada console window, call kembali tanpa melakukan apa pun. |
+| [`rconsolecreate`](./rconsolecreate) | Mengalokasikan Windows console untuk proses saat tidak ada console window. Jika console window sudah ada, call kembali tanpa melakukan apa pun. Setelah allocation, function mengarahkan stdout ke console output dan stdin ke console input. |
+| [`rconsoledestroy`](./rconsoledestroy) | Menghapus Windows console screen buffer saat ini, menyembunyikan console window, dan melepaskan proses dari console dengan console detachment. Jika tidak ada console window, panggilan kembali tanpa melakukan apa pun. |
+| [`rconsoleerr`](./rconsoleerr) | Menulis nol atau beberapa nilai ke Windows console saat ini melalui stdout setelah mengatur console text attribute ke error text color. Nilai dikonversi dengan Lua string conversion, dipisahkan dengan karakter tab, dan text attribute diatur ke default console text color setelahnya. Jika tidak ada console window, panggilan kembali tanpa mengonversi atau menulis apa pun. |
+| [`rconsolehide`](./rconsolehide) | Menyembunyikan Windows console window saat ini dengan Windows console visibility update menggunakan hide mode. function tidak memanggil console detachment, jadi tidak melepaskan dari console atau menghancurkannya. Jika tidak ada console window, panggilan kembali tanpa melakukan apa pun. |
+| [`rconsoleinfo`](./rconsoleinfo) | Menulis nol atau beberapa nilai ke Windows console saat ini melalui stdout setelah mengatur console text attribute ke info text color. Nilai dikonversi dengan Lua string conversion, dipisahkan dengan karakter tab, dan text attribute diatur ke default console text color setelahnya. Jika tidak ada console window, panggilan kembali tanpa mengonversi atau menulis apa pun. |
+| [`rconsoleinput`](./rconsoleinput) | Melakukan yield saat membaca satu line dari stdin dengan console input setelah fieldsihkan state console input dan mengabaikan input hingga newline berikutnya. string yang dikembalikan didorong dengan string return dan tidak menyertakan newline penutup. Jika tidak ada console window, panggilan kembali tanpa values. |
+| [`rconsolename`](./rconsolename) | Mengatur title Windows console window saat ini dengan Windows console title update. argument pertama harus berupa string dan diperiksa sebelum console existence check. Jika tidak ada console window setelah string check berhasil, panggilan kembali tanpa melakukan apa pun. |
+| [`rconsoleprint`](./rconsoleprint) | Menulis nol atau beberapa nilai ke Windows console saat ini melalui stdout tanpa mengubah console text attribute. Nilai dikonversi dengan Lua string conversion dan dipisahkan dengan karakter tab. function tidak menambahkan newline. Jika tidak ada console window, panggilan kembali tanpa mengonversi atau menulis apa pun. |
+| [`rconsoleshow`](./rconsoleshow) | Menampilkan Windows console window saat ini dengan Windows console visibility update menggunakan show mode. Function ini tidak membuat console. Jika tidak ada console window, pemanggilan kembali tanpa melakukan apa pun. |
+| [`rconsolewarn`](./rconsolewarn) | Menulis nol atau beberapa nilai ke Windows console saat ini melalui stdout dengan warning console text attribute. Jika tidak ada console window, pemanggilan kembali tanpa mengonversi atau menulis apa pun. Saat console ada, setiap argument dikonversi dengan Lua string conversion, digabungkan dengan karakter tab, lalu ditulis melalui runtime value. Jika Lua string conversion memunculkan error, rconsolewarn tidak menangkapnya. Function ini mengatur console text attribute ke FOREGROUND_RED \| FOREGROUND_GREEN \| FOREGROUND_INTENSITY sebelum menulis, lalu mengaturnya ke default console text color setelahnya. Function ini tidak menambahkan newline, tidak menambahkan warning prefix, tidak membuat atau menampilkan console, dan tidak memanggil Luau warn atau Roblox Output. consolewarn adalah alias untuk function yang sama. |

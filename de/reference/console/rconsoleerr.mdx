@@ -1,0 +1,35 @@
+---
+title: "rconsoleerr"
+sidebarTitle: "rconsoleerr"
+description: "Schreibt null oder mehr Werte in die aktuelle Windows console über stdout, nachdem das console text attribute auf error text color gesetzt wurde. Werte werden mit Lua string conversion konvertiert, mit Tab-Zeichen getrennt und das text attribute wird danach auf default console text color gesetzt. Wenn keine console window existiert, kehrt der Aufruf ohne etwas zu konvertieren oder zu schreiben zurück."
+icon: "function"
+keywords: ["rconsoleerr","Console","consoleerr"]
+---
+
+Schreibt null oder mehr Werte in die aktuelle Windows console über stdout, nachdem das console text attribute auf error text color gesetzt wurde. Werte werden mit Lua string conversion konvertiert, mit Tab-Zeichen getrennt und das text attribute wird danach auf default console text color gesetzt. Wenn keine console window existiert, kehrt der Aufruf ohne etwas zu konvertieren oder zu schreiben zurück.
+
+## Syntax
+
+```lua
+rconsoleerr(...values?: ...any)
+```
+
+## Aliase
+
+- `consoleerr`
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `...values` | `...any` | No | Optionale Werte. Wenn eine console existiert, wird jeder value mit Lua string conversion konvertiert und vor dem Schreiben mit tab-Zeichen verbunden. |
+
+## Beispiel
+
+Write a bright red message to the current Windows console without throwing a Luau error.
+
+```lua
+rconsolecreate()
+rconsoleerr("Request failed", 500, "
+")
+```

@@ -1,0 +1,41 @@
+---
+title: "json.isNull"
+sidebarTitle: "json.isNull"
+description: "Mengembalikan apakah value adalah Real JSON null sentinel, json.null."
+icon: "function"
+keywords: ["json.isNull","JSON"]
+---
+
+Mengembalikan apakah value adalah Real JSON null sentinel, json.null.
+
+## Sintaks
+
+```lua
+json.isNull(value: any): boolean
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value yang di-inspect. Hanya json.null value yang mengembalikan true; Lua nil dan other values mengembalikan false. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `isNull` | `boolean` | true saat value adalah exact json.null sentinel, otherwise false. |
+
+## Contoh
+
+Check apakah value adalah json.null sentinel, bukan Lua nil.
+
+```lua
+local value = json.decode("null")
+
+if json.isNull(value) then
+    print("The value is JSON null")
+end
+
+print(json.isNull(nil))
+```

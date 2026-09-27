@@ -1,0 +1,28 @@
+---
+title: "gethui"
+sidebarTitle: "gethui"
+description: "game:CoreGui lookup.RobloxGui를 반환합니다. 이 function은 arguments를 받지 않습니다. CoreGui lookup가 nil을 반환하거나 해당 값의 RobloxGui가 nil이면 function은 nil을 반환합니다. function은 container를 생성하지 않고 cached CoreGui 값을 사용하지 않습니다."
+icon: "function"
+keywords: ["gethui","Instances","gethiddenui","gethiddengui","get_hidden_ui","get_hidden_gui"]
+---
+
+game:CoreGui lookup.RobloxGui를 반환합니다. 이 function은 arguments를 받지 않습니다. CoreGui lookup가 nil을 반환하거나 해당 값의 RobloxGui가 nil이면 function은 nil을 반환합니다. function은 container를 생성하지 않고 cached CoreGui 값을 사용하지 않습니다.
+
+## 문법
+
+```lua
+gethui(): Instance | nil
+```
+
+## 별칭
+
+- `gethiddenui`
+- `gethiddengui`
+- `get_hidden_ui`
+- `get_hidden_gui`
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `robloxGui` | `Instance \| nil` | CoreGui에서 읽은 RobloxGui 값 또는 CoreGui나 RobloxGui를 사용할 수 없을 때 nil입니다. |

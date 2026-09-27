@@ -1,0 +1,47 @@
+---
+title: "getscriptbytecode"
+sidebarTitle: "getscriptbytecode"
+description: "Devuelve el decompressed bytecode string de un Roblox script object. getscriptbytecode esta registrado en la misma C++ function que dumpstring, por lo que su comportamiento es identico. El argument debe ser object. El bytecode reader compartido acepta valores ClassName ModuleScript, LocalScript, CoreScript y Script. Para Script, RunContext debe ser Client. Si falta ClassName, la function lanza \"Invalid Instance\". Si ClassName no es una script class admitida, lanza \"Script expected\". Si el valor es un Script con otro RunContext, lanza \"Expected a Script with RunContext set to Client\". Si el embedded bytecode reference no es valido o la longitud del stored bytecode es de 8 bytes o menos, la function devuelve nil. En caso contrario, descomprime el stored bytecode con DecompressBytecode y devuelve los resulting bytes como Luau string. Hash mismatch, too-short compressed data o ZSTD decompression errors son devueltos como error text bytes por DecompressBytecode en lugar de lanzarse aqui."
+icon: "function"
+keywords: ["getscriptbytecode","Scripts"]
+---
+
+Devuelve el decompressed bytecode string de un Roblox script object. getscriptbytecode esta registrado en la misma C++ function que dumpstring, por lo que su comportamiento es identico. El argument debe ser object. El bytecode reader compartido acepta valores ClassName ModuleScript, LocalScript, CoreScript y Script. Para Script, RunContext debe ser Client. Si falta ClassName, la function lanza "Invalid Instance". Si ClassName no es una script class admitida, lanza "Script expected". Si el valor es un Script con otro RunContext, lanza "Expected a Script with RunContext set to Client". Si el embedded bytecode reference no es valido o la longitud del stored bytecode es de 8 bytes o menos, la function devuelve nil. En caso contrario, descomprime el stored bytecode con DecompressBytecode y devuelve los resulting bytes como Luau string. Hash mismatch, too-short compressed data o ZSTD decompression errors son devueltos como error text bytes por DecompressBytecode en lugar de lanzarse aqui.
+
+## Sintaxis
+
+```lua
+getscriptbytecode(script: userdata): string | nil
+```
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | Script object para leer. Los valores ClassName admitidos son ModuleScript, LocalScript, CoreScript y Script con RunContext Client. |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `bytecode` | `string \| nil` | Decompressed bytecode bytes como Luau string, DecompressBytecode error text bytes o nil cuando no hay embedded bytecode utilizable. |
+
+## Ejemplo
+
+Read decompressed bytecode from a supported Roblox script Instance.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local bytecode = getscriptbytecode(targetScript)
+    print(bytecode)
+end
+```

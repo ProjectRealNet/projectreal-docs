@@ -1,0 +1,37 @@
+---
+title: "rconsoleinput"
+sidebarTitle: "rconsoleinput"
+description: "Waits for one line of input from the current Windows console and returns it without the ending newline. If no console window exists, the call returns no values."
+icon: "function"
+keywords: ["rconsoleinput","Console","consoleinput"]
+---
+
+Waits for one line of input from the current Windows console and returns it without the ending newline. If no console window exists, the call returns no values.
+
+## Syntax
+
+```lua
+rconsoleinput(): string
+```
+
+## Aliases
+
+- `consoleinput`
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `input` | `string` | Line of text read from stdin, without the terminating newline. |
+
+## Example
+
+Read one submitted line from the current Windows console.
+
+```lua
+rconsolecreate()
+rconsoleprint("Name: ")
+local name = rconsoleinput()
+rconsoleprint("Hello, ", name, "
+")
+```

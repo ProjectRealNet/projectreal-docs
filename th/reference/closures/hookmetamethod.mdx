@@ -1,0 +1,50 @@
+---
+title: "hookmetamethod"
+sidebarTitle: "hookmetamethod"
+description: "ค้นหา metamethod function บน value และ hook function นั้นผ่าน hookfunction first argument เป็น value ใดก็ได้ที่ raw metafield lookup รับได้ second argument ต้องเป็น string metamethod name และ third argument ต้องเป็น function replacement หาก raw metafield lookup หา named metafield ไม่พบ function จะ raise \"Metamethod doesn't exist\" สำหรับ argument 2 หาก metafield มีอยู่แต่ไม่ใช่ function จะ raise \"Metamethod isn't a function\" สำหรับ argument 2 เมื่อ metafield เป็น function hookmetamethod จะเรียก hookfunction โดยใช้ found metamethod function เป็น target และคืน cloned original closure ของ hookfunction"
+icon: "function"
+keywords: ["hookmetamethod","Closures"]
+---
+
+ค้นหา metamethod function บน value และ hook function นั้นผ่าน hookfunction first argument เป็น value ใดก็ได้ที่ raw metafield lookup รับได้ second argument ต้องเป็น string metamethod name และ third argument ต้องเป็น function replacement หาก raw metafield lookup หา named metafield ไม่พบ function จะ raise "Metamethod doesn't exist" สำหรับ argument 2 หาก metafield มีอยู่แต่ไม่ใช่ function จะ raise "Metamethod isn't a function" สำหรับ argument 2 เมื่อ metafield เป็น function hookmetamethod จะเรียก hookfunction โดยใช้ found metamethod function เป็น target และคืน cloned original closure ของ hookfunction
+
+## ไวยากรณ์
+
+```lua
+hookmetamethod(object: any, metamethod: string, replacement: function): function
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | Value ที่ methods ถูกตรวจด้วย raw metafield lookup |
+| `metamethod` | `string` | Yes | Metafield name ที่ส่งให้ raw metafield lookup |
+| `replacement` | `function` | Yes | Function ที่ส่งให้ hookfunction เป็น replacement สำหรับ found metamethod function |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `original` | `function` | Cloned original metamethod closure ที่ hookfunction คืน |
+
+## ตัวอย่าง
+
+Hook an existing metamethod function.
+
+```lua
+local object = setmetatable({}, {
+    __index = function(_, key)
+        return key
+    end,
+})
+
+local original
+original = hookmetamethod(object, "__index", function(self, key)
+    if key == "Name" then
+        return "Real"
+    end
+
+    return original(self, key)
+end)
+```

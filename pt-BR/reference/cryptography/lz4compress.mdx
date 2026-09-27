@@ -1,0 +1,45 @@
+---
+title: "lz4compress"
+sidebarTitle: "lz4compress"
+description: "Comprime bytes de uma string Lua com LZ4 block compression e retorna os raw compressed bytes como uma string Lua."
+icon: "function"
+keywords: ["lz4compress","Cryptography","crypt.lz4compress","crypt.lz4.compress","lz4.compress"]
+---
+
+Comprime bytes de uma string Lua com LZ4 block compression e retorna os raw compressed bytes como uma string Lua.
+
+## Sintaxe
+
+```lua
+lz4compress(data: string): string
+```
+
+## Aliases
+
+- `crypt.lz4compress`
+- `crypt.lz4.compress`
+- `lz4.compress`
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Bytes da string Lua passados para LZ4 block compression. |
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `compressed` | `string` | Raw compressed bytes retornados como uma string Lua. O original size nao e armazenado na saida. |
+
+## Exemplo
+
+Comprima bytes de uma string Lua e restaure-os passando o original size.
+
+```lua
+local source = string.rep("Real Docs ", 100)
+local compressed = lz4compress(source)
+local restored = lz4decompress(compressed, #source)
+
+print(#source, #compressed, restored == source)
+```

@@ -1,0 +1,21 @@
+---
+title: "getscripts"
+sidebarTitle: "getscripts"
+description: "Zwraca wartosci script object obecne aktualnie w Instance cache. Function nie przyjmuje arguments. Iteruje cache zapisana pod kluczem Instance cache lightobject i bierze pod uwage tylko entries, ktorych value jest object. Odczytuje pole ClassName kazdej value przez optional string handling. Entries LocalScript i ModuleScript sa wlaczane. Entries Script sa wlaczane tylko wtedy, gdy ich RunContext offset rowna sie CLIENT albo PLUGIN. Inne wartosci ClassName, entries bez string ClassName i entries CoreScript sa pomijane. Wynikiem jest sekwencyjna Luau table. Function nie przechodzi przez DataModel i nie gwarantuje sorted order."
+icon: "function"
+keywords: ["getscripts","Scripts"]
+---
+
+Zwraca wartosci script object obecne aktualnie w Instance cache. Function nie przyjmuje arguments. Iteruje cache zapisana pod kluczem Instance cache lightobject i bierze pod uwage tylko entries, ktorych value jest object. Odczytuje pole ClassName kazdej value przez optional string handling. Entries LocalScript i ModuleScript sa wlaczane. Entries Script sa wlaczane tylko wtedy, gdy ich RunContext offset rowna sie CLIENT albo PLUGIN. Inne wartosci ClassName, entries bez string ClassName i entries CoreScript sa pomijane. Wynikiem jest sekwencyjna Luau table. Function nie przechodzi przez DataModel i nie gwarantuje sorted order.
+
+## Składnia
+
+```lua
+getscripts(): { Instance }
+```
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `scripts` | `&#123; Instance &#125;` | Sekwencyjna table z cached LocalScript, ModuleScript oraz kwalifikujacymi sie wartosciami Script object z Instance cache. |

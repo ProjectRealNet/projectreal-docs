@@ -1,0 +1,62 @@
+---
+title: "savefiledialog"
+sidebarTitle: "savefiledialog"
+description: "通过 Windows save dialog 打开 Windows save dialog，将提供的 Lua string bytes 写入 selected path，并将 saved file 作为 file item 返回。"
+icon: "function"
+keywords: ["savefiledialog","Filesystem"]
+---
+
+通过 Windows save dialog 打开 Windows save dialog，将提供的 Lua string bytes 写入 selected path，并将 saved file 作为 file item 返回。
+
+## 语法
+
+```lua
+savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `content` | `string` | Yes | 要写入 selected file 的 Lua string bytes。用户确认 path 后，文件会以 binary truncate mode 打开。 |
+| `options` | `DialogOptions` | No | Optional table。savefiledialog 会使用 title、defaultPath、extensionFilter、suggestedName 和 defaultExtension。extensionFilter 是由 extension strings 组成的 table；每个 filter 变成 *.&lt;extension> 之前，会移除开头的 . 或 *.。defaultExtension 会在传给 SetDefaultExtension 之前移除 leading . characters。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Saved file item；如果 dialog 被取消，则为 nil。Dialog or write failures 会抛出 Failed to save file。 |
+
+## 类型
+
+### DialogOptions
+
+配置本机文件或文件夹选择对话框。
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `title` | `string` | No | 设置对话框窗口标题。 |
+| `defaultPath` | `string` | No | 选择对话框打开时显示的目录。 |
+| `extensionFilter` | `&#123;string&#125;` | No | 将可选文件限制为列出的扩展名，带或不带前导点。 |
+| `suggestedName` | `string` | No | 在保存对话框中提供初始文件名。 |
+| `defaultExtension` | `string` | No | 设置当输入的文件名没有扩展名时使用的扩展名。 |
+
+## 示例
+
+将 generated content 写入用户选择的 path，并处理 saved file item。
+
+```lua
+local saved = savefiledialog("Example output", {
+    title = "Save output",
+    suggestedName = "output.txt",
+    defaultExtension = "txt",
+    extensionFilter = { "txt" },
+})
+
+if saved then
+    print(saved:GetName())
+    print(saved:IsFile())
+else
+    print("No file saved")
+end
+```

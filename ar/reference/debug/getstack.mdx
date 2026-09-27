@@ -1,0 +1,49 @@
+---
+title: "getstack"
+sidebarTitle: "getstack"
+description: "Reads stack slot values from a Lua stack frame. level is required and must be a number; it is converted to an integer and must be between 0 and the current call stack depth minus one. Invalid levels raise \"Level out of range\". The selected frame is L->ci - level, so level 0 refers to the current frame in this function. If the selected frame is a C closure, the function raises \"Lua function expected\". index is optional and is only used when the second argument is a number; it is converted to an integer and must be between 1 and the frame stack size. Without a numeric index, the function returns a one-based array table containing values from frame->base[0] with frame->base[top - 1]. With a numeric index, it returns the single value at frame->base[index - 1]. Collectable values trigger luaC_threadbarrier before being pushed. debug.getstack is exposed with the debug table alias."
+icon: "function"
+keywords: ["getstack","Debug","debug.getstack"]
+---
+
+Reads stack slot values from a Lua stack frame. level is required and must be a number; it is converted to an integer and must be between 0 and the current call stack depth minus one. Invalid levels raise "Level out of range". The selected frame is L->ci - level, so level 0 refers to the current frame in this function. If the selected frame is a C closure, the function raises "Lua function expected". index is optional and is only used when the second argument is a number; it is converted to an integer and must be between 1 and the frame stack size. Without a numeric index, the function returns a one-based array table containing values from frame->base[0] with frame->base[top - 1]. With a numeric index, it returns the single value at frame->base[index - 1]. Collectable values trigger luaC_threadbarrier before being pushed. debug.getstack is exposed with the debug table alias.
+
+## الصيغة
+
+```lua
+getstack(level: number, index?: number): table | any
+```
+
+## أسماء بديلة
+
+- `debug.getstack`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `level` | `number` | Yes | Stack level number converted to an integer. Must be in range 0 &lt;= level &lt; current call stack depth. |
+| `index` | `number` | No | Optional one-based stack slot index. It is used only when the second argument is a number. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `stack` | `table \| any` | A one-based table of stack slot values when index is omitted or not numeric, or the single stack slot value when index is numeric. |
+
+## مثال
+
+Read stack slot values from a Lua stack frame.
+
+```lua
+local function inspect(value)
+    local stack = getstack(1)
+    local first = getstack(1, 1)
+
+    print(type(stack))
+    print(type(first))
+    print(debug.getstack(1, 1) == first)
+end
+
+inspect("ready")
+```

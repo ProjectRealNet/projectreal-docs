@@ -1,0 +1,22 @@
+---
+title: "mousemoveabs"
+sidebarTitle: "mousemoveabs"
+description: "Roblox window가 active일 때 Windows absolute mouse input으로 mouse를 이동합니다. x 및 y 인수는 Lua numbers로 검사되고 integer conversion로 변환됩니다. Real은 이를 active foreground window client area 기준 좌표로 처리하고 ClientToScreen으로 해당 client area의 screen position을 더한 뒤 GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1과 integer math로 scaling하고 the requested mouse action와 함께 mouse input를 호출합니다. isrbxactive가 false라면 function은 input을 보내지 않고 반환합니다."
+icon: "function"
+keywords: ["mousemoveabs","Input"]
+---
+
+Roblox window가 active일 때 Windows absolute mouse input으로 mouse를 이동합니다. x 및 y 인수는 Lua numbers로 검사되고 integer conversion로 변환됩니다. Real은 이를 active foreground window client area 기준 좌표로 처리하고 ClientToScreen으로 해당 client area의 screen position을 더한 뒤 GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1과 integer math로 scaling하고 the requested mouse action와 함께 mouse input를 호출합니다. isrbxactive가 false라면 function은 input을 보내지 않고 반환합니다.
+
+## 문법
+
+```lua
+mousemoveabs(x: number, y: number)
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `x` | `number` | Yes | screen-position 및 absolute-input scaling 단계 전에 Lua number로 읽고 integer conversion로 변환되는 client-area X coordinate입니다. |
+| `y` | `number` | Yes | screen-position 및 absolute-input scaling 단계 전에 Lua number로 읽고 integer conversion로 변환되는 client-area Y coordinate입니다. |

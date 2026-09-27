@@ -1,0 +1,59 @@
+---
+title: "json.tryDecode"
+sidebarTitle: "json.tryDecode"
+description: "json.decodeSafe와 같은 function을 사용해 JSON string parse를 시도하고 parse errors에 대한 status values를 반환합니다."
+icon: "function"
+keywords: ["json.tryDecode","JSON"]
+---
+
+json.decodeSafe와 같은 function을 사용해 JSON string parse를 시도하고 parse errors에 대한 status values를 반환합니다.
+
+## 문법
+
+```lua
+json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | Parse할 JSON string입니다. function은 이 argument를 string type checking으로 읽습니다. |
+| `options` | `DecodeOptions` | No | Optional decode options입니다. boolean은 useNull을 설정합니다. table은 useNull과 maxDepth를 설정할 수 있습니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `success` | `boolean` | parsing이 성공하면 true, protected parse block 안에서 parsing이 실패하면 false입니다. |
+| `decoded` | `any \| nil` | Success 시 decoded value입니다. Parse failure 시 이 return은 nil입니다. |
+| `errorMessage` | `string \| nil` | Parse failure 시 error message입니다. Message는 json.decodeSafe로 prefixed되고 near-position suffix를 포함합니다. |
+| `errorPosition` | `number \| nil` | Parse failure 시 parser의 parser byte position입니다. 이 return은 failure 시에만 존재합니다. |
+
+## 타입
+
+### DecodeOptions
+
+JSON 구문 분석 동작을 제어합니다.
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | nil 대신 라이브러리의 null 센티널을 사용하여 JSON null을 나타냅니다. |
+| `maxDepth` | `integer` | No | 1부터 4096까지 고정된 최대 중첩 깊이를 설정합니다. |
+
+## 예제
+
+json.decodeSafe-compatible alias를 사용해 status returns로 JSON을 decode합니다.
+
+```lua
+local ok, value, message, position = json.tryDecode('{"ready":true,"missing":null}', {
+    useNull = true,
+})
+
+if ok then
+    print(value.ready)
+    print(json.isNull(value.missing))
+else
+    warn(message, position)
+end
+```

@@ -1,0 +1,31 @@
+---
+title: "getinstancesbyclass"
+sidebarTitle: "getinstancesbyclass"
+description: "คืน instances จาก Instance cache table ที่ ClassName field ตรงกับ string ที่ขอแบบ exact อาร์กิวเมนต์แรกอ่านด้วย string type checking empty string จะเกิด \"ClassName required\" function สร้าง array table ใหม่ วน cache ที่เก็บไว้ใต้ Instance cache เก็บเฉพาะ values ที่ Lua type เป็น object อ่าน ClassName field ของแต่ละ object value แล้วเปรียบเทียบกับ className ที่ขอด้วย strcmp matches จะถูกใส่แบบ sequential เริ่มที่ index 1 การ match เป็น exact และ case-sensitive function ไม่ใช้ IsA ไม่รวม subclasses ไม่ walk descendants ไม่ filter ด้วย Parent และไม่ sort result getinstancesofclass เป็น alias ของ function เดียวกัน"
+icon: "function"
+keywords: ["getinstancesbyclass","Scripts","getinstancesofclass"]
+---
+
+คืน instances จาก Instance cache table ที่ ClassName field ตรงกับ string ที่ขอแบบ exact อาร์กิวเมนต์แรกอ่านด้วย string type checking empty string จะเกิด "ClassName required" function สร้าง array table ใหม่ วน cache ที่เก็บไว้ใต้ Instance cache เก็บเฉพาะ values ที่ Lua type เป็น object อ่าน ClassName field ของแต่ละ object value แล้วเปรียบเทียบกับ className ที่ขอด้วย strcmp matches จะถูกใส่แบบ sequential เริ่มที่ index 1 การ match เป็น exact และ case-sensitive function ไม่ใช้ IsA ไม่รวม subclasses ไม่ walk descendants ไม่ filter ด้วย Parent และไม่ sort result getinstancesofclass เป็น alias ของ function เดียวกัน
+
+## ไวยากรณ์
+
+```lua
+getinstancesbyclass(className: string): table
+```
+
+## Aliases
+
+- `getinstancesofclass`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `className` | `string` | Yes | Exact ClassName string ที่จะ match. Empty strings จะเกิด "ClassName required". |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `instances` | `table` | New array table ที่มี matching object values จาก Instance cache table. |

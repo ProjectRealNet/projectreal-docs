@@ -1,0 +1,39 @@
+---
+title: "json.type"
+sidebarTitle: "json.type"
+description: "Retourne un string type name pour une valeur. json.null retourne \"null\". Les tables retournent \"array\" ou \"object\" avec la meme table classification que json.isArray et json.isObject. Les autres valeurs retournent le runtime Lua type name result."
+icon: "function"
+keywords: ["json.type","JSON"]
+---
+
+Retourne un string type name pour une valeur. json.null retourne "null". Les tables retournent "array" ou "object" avec la meme table classification que json.isArray et json.isObject. Les autres valeurs retournent le runtime Lua type name result.
+
+## Syntaxe
+
+```lua
+json.type(value: any): string
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Valeur a classify. Passer no value retourne le runtime type name pour une stack value absente. |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `jsonType` | `string` | Type name string. Les returns JSON-specific verifies sont "null", "array" et "object". Les valeurs non-table et non-json.null utilisent Lua type name, comme "nil", "boolean", "number", "integer", "string", "function", "object", "thread", "buffer", "class", "object", "vector" ou "no value", selon la runtime value. |
+
+## Exemple
+
+Verifie le exact type string retourne par le JSON helper.
+
+```lua
+print(json.type(json.array({ "red", "blue" })))
+print(json.type(json.object({ enabled = true })))
+print(json.type(json.null))
+print(json.type(nil))
+print(json.type())
+```

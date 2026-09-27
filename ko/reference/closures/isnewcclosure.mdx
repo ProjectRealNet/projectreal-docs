@@ -1,0 +1,41 @@
+---
+title: "isnewcclosure"
+sidebarTitle: "isnewcclosure"
+description: "Returns whether the provided function is a newcclosure-created C closure. The first argument must be a function; passing a non-function raises a type error. Documented usage is a single function argument; extra arguments are not part of the supported signature."
+icon: "function"
+keywords: ["isnewcclosure","Closures"]
+---
+
+Returns whether the provided function is a newcclosure-created C closure. The first argument must be a function; passing a non-function raises a type error. Documented usage is a single function argument; extra arguments are not part of the supported signature.
+
+## 문법
+
+```lua
+isnewcclosure(func: function): boolean
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `func` | `function` | Yes | Function to check. Use a single function argument. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `isNewCClosure` | `boolean` | true when the function is a newcclosure-created C closure; otherwise false. |
+
+## 예제
+
+Check whether a function is a wrapped C closure.
+
+```lua
+local function target()
+end
+
+local wrapped = newcclosure(target)
+
+print(isnewcclosure(target))
+print(isnewcclosure(wrapped))
+```

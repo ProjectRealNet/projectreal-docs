@@ -1,0 +1,61 @@
+---
+title: "json.clone"
+sidebarTitle: "json.clone"
+description: "clone value โดย encoding ด้วย json.encode semantics แล้ว decoding generated JSON กลับเป็น Lua values"
+icon: "function"
+keywords: ["json.clone","JSON"]
+---
+
+clone value โดย encoding ด้วย json.encode semantics แล้ว decoding generated JSON กลับเป็น Lua values
+
+## ไวยากรณ์
+
+```lua
+json.clone(value: any, options?: EncodeOptions): any
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value ที่จะ encode และ decode. Supported JSON values จะ round-trip ผ่าน JSON; unsupported types จะ encode เป็น null เว้นแต่ encode options ขอให้เกิด error. |
+| `options` | `EncodeOptions` | No | Optional encode options ที่ส่งไปยัง encode step เช่น sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty และ indent. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `clone` | `any` | Decoded value ที่สร้างจาก encoded JSON. Objects และ arrays เป็น new tables พร้อม JSON kind markers จาก decoder; JSON null values จะกลายเป็น json.null. |
+
+## Types
+
+### EncodeOptions
+
+ควบคุมการทำให้เป็นอนุกรมและการจัดรูปแบบ JSON
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | เปิดใช้งานเอาต์พุต JSON แบบหลายบรรทัดที่จัดรูปแบบแล้ว |
+| `sortKeys` | `boolean` | No | เรียงลำดับออบเจ็กต์คีย์ก่อนการเข้ารหัส |
+| `emptyTableAsArray` | `boolean` | No | เข้ารหัสตารางว่างเป็นอาร์เรย์แทนที่จะเป็นวัตถุ |
+| `errorOnUnsupported` | `boolean` | No | ทำให้เกิดข้อผิดพลาดแทนที่จะแทนที่ค่าที่ไม่รองรับ |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | เข้ารหัส NaN และจำนวนอนันต์เป็น JSON null |
+| `maxDepth` | `integer` | No | ตั้งค่าความลึกของการซ้อนสูงสุด โดยยึดไว้ตั้งแต่ 1 ถึง 4096 |
+| `indent` | `string` | No | ตั้งค่าสตริงการเยื้อง โดยจำกัดไว้ที่ 32 อักขระ |
+
+## ตัวอย่าง
+
+ทำ round-trip JSON-compatible value ผ่าน json.encode และ json.decode ก่อนเปลี่ยน nested values.
+
+```lua
+local original = {
+    profile = { name = "Guest" },
+}
+
+local copy = json.clone(original)
+copy.profile.name = "Developer"
+
+print(original.profile.name)
+print(copy.profile.name)
+print(json.type(copy))
+```

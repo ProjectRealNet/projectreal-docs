@@ -1,0 +1,43 @@
+---
+title: "newcclosure"
+sidebarTitle: "newcclosure"
+description: "Returns a C closure for the provided function. If the function is already a C closure, the same function is returned. Passing a non-function raises a type error."
+icon: "function"
+keywords: ["newcclosure","Closures"]
+---
+
+Returns a C closure for the provided function. If the function is already a C closure, the same function is returned. Passing a non-function raises a type error.
+
+## Syntax
+
+```lua
+newcclosure(func: function, debugName?: string): function
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `func` | `function` | Yes | Function to return directly when it is already a C closure, or wrap in a wrapped C closure otherwise. |
+| `debugName` | `string` | No | Optional debug name used for the created closure. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `closure` | `function` | The original function when it is already a C closure, or a new C closure that calls the provided function. |
+
+## Example
+
+Create a wrapped C closure for an L closure.
+
+```lua
+local function add(a, b)
+    return a + b
+end
+
+local wrapped = newcclosure(add, "add")
+
+print(wrapped(2, 3))
+print(isnewcclosure(wrapped))
+```

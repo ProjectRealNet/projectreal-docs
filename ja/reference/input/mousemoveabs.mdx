@@ -1,0 +1,22 @@
+---
+title: "mousemoveabs"
+sidebarTitle: "mousemoveabs"
+description: "Roblox window が active のとき、Windows absolute mouse input を使ってマウスを移動します。x と y 引数は Lua numbers として検査され、integer conversion で変換されます。Real はそれらを active foreground window client area に対する座標として扱い、ClientToScreen でその client area の screen position を加算し、GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 と integer math でスケーリングしてから、the requested mouse action 付きの mouse input を呼び出します。isrbxactive が false になる場合、この function は input を送信せずに戻ります。"
+icon: "function"
+keywords: ["mousemoveabs","Input"]
+---
+
+Roblox window が active のとき、Windows absolute mouse input を使ってマウスを移動します。x と y 引数は Lua numbers として検査され、integer conversion で変換されます。Real はそれらを active foreground window client area に対する座標として扱い、ClientToScreen でその client area の screen position を加算し、GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 と integer math でスケーリングしてから、the requested mouse action 付きの mouse input を呼び出します。isrbxactive が false になる場合、この function は input を送信せずに戻ります。
+
+## 構文
+
+```lua
+mousemoveabs(x: number, y: number)
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `x` | `number` | Yes | Lua number として読み取られ、screen-position と absolute-input scaling の前に integer conversion で変換される client-area X coordinate。 |
+| `y` | `number` | Yes | Lua number として読み取られ、screen-position と absolute-input scaling の前に integer conversion で変換される client-area Y coordinate。 |

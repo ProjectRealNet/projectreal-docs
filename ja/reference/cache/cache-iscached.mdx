@@ -1,0 +1,41 @@
+---
+title: "cache.iscached"
+sidebarTitle: "cache.iscached"
+description: "指定された Instance が Instance cache に non-nil エントリを持つかどうかを返します。"
+icon: "function"
+keywords: ["cache.iscached","Cache"]
+---
+
+指定された Instance が Instance cache に non-nil エントリを持つかどうかを返します。
+
+## 構文
+
+```lua
+cache.iscached(instance: Instance): boolean
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance cache エントリを確認する Instance。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `cached` | `boolean` | cache にその Instance の non-nil エントリがある場合は True。 |
+
+## 例
+
+Instance が現在 Real の Instance cache にエントリを持つか確認します。
+
+```lua
+local Players = game:GetService("Players")
+
+local cached = cache.iscached(Players)
+print(cached)
+
+cache.invalidate(Players)
+print(cache.iscached(Players))
+```

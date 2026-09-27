@@ -1,0 +1,40 @@
+---
+title: "crypt.generatebytes"
+sidebarTitle: "crypt.generatebytes"
+description: "Tao byte ngau nhien bang random byte generator va tra ve chung Base64-encoded duoi dang Lua string."
+icon: "function"
+keywords: ["crypt.generatebytes","Cryptography"]
+---
+
+Tao byte ngau nhien bang random byte generator va tra ve chung Base64-encoded duoi dang Lua string.
+
+## Cú pháp
+
+```lua
+crypt.generatebytes(size: number): string
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `size` | `number` | Yes | So duoc dua qua integer conversion truoc khi allocation. Cac gia tri nho hon hoac bang 0 duoc doi thanh 1. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `encoded` | `string` | Base64 encoding cua raw bytes da tao. Do dai string duoc tra ve khong phai so byte da yeu cau. |
+
+## Ví dụ
+
+Tao bytes va decode ket qua Base64 khi can raw bytes.
+
+```lua
+local encoded = crypt.generatebytes(16)
+local raw = base64_decode(encoded)
+
+print(encoded)
+print(#encoded)
+print(#raw)
+```

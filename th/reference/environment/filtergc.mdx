@@ -1,0 +1,56 @@
+---
+title: "filtergc"
+sidebarTitle: "filtergc"
+description: "ค้นหา live garbage-collected tables หรือ functions ที่ตรงกับ filters ที่ให้มา filterType ต้องเป็น \"table\" หรือ \"function\" และ options ต้องเป็น table"
+icon: "function"
+keywords: ["filtergc","Environment"]
+---
+
+ค้นหา live garbage-collected tables หรือ functions ที่ตรงกับ filters ที่ให้มา filterType ต้องเป็น "table" หรือ "function" และ options ต้องเป็น table
+
+## ไวยากรณ์
+
+```lua
+filtergc(filterType: string, options: table, returnOne?: boolean): table | function | nil
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `filterType` | `string` | Yes | GC object type ที่จะค้นหา. ค่าถูกแปลงเป็น lowercase และต้องเป็น "table" หรือ "function". |
+| `options` | `table` | Yes | Filter table. function searches อ่าน Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants, Upvalues. table searches อ่าน Metatable, Keys, Values, KeyValuePairs. |
+| `returnOne` | `boolean` | No | Optional optional boolean handling flag. เมื่อ true จะคืน matching object แรกหรือ nil แทน array table. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `result` | `table \| function \| nil` | เมื่อ returnOne เป็น false หรือ omitted จะเป็น array table of matches. เมื่อ returnOne เป็น true จะเป็น matching table/function object แรกหรือ nil. |
+
+## ตัวอย่าง
+
+Find GC tables by key filters without relying on result order.
+
+```lua
+local marker = {
+    RealDocsMarker = true,
+}
+
+local matches = filtergc("table", {
+    Keys = { "RealDocsMarker" },
+})
+
+for _, value in ipairs(matches) do
+    if value == marker then
+        print("found marker")
+        break
+    end
+end
+
+local first = filtergc("table", {
+    Keys = { "RealDocsMarker" },
+}, true)
+
+print(first ~= nil)
+```

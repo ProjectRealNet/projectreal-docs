@@ -1,0 +1,13 @@
+---
+title: "WebSocket"
+description: "Bidirektionale WebSocket-Verbindungen."
+icon: "folder-code"
+---
+
+Bidirektionale WebSocket-Verbindungen.
+
+| Funktionsnavigation | Beschreibung |
+| --- | --- |
+| [`WebSocket.Close`](./websocket-close) | Schließt ein WebSocket object, das von WebSocket.connect zurückgegeben wurde. Das erste argument muss eine table sein. Die Funktion liest das connection state des object. Wenn ein live state existiert und noch nicht destroyed oder closed ist, setzt sie isClosed auf true und sendet einen leeren close frame frame über den gespeicherten WebSocket connection. Sie akzeptiert keinen close code oder reason und gibt keine values zurück. |
+| [`WebSocket.connect`](./websocket-connect) | Erstellt zwei BindableEvents, öffnet eine WebSocket client WebSocket connection zur übergebenen URL und yieldet, bis der Verbindungsversuch abgeschlossen ist. Bei Erfolg gibt die Funktion eine WebSocket table mit OnMessage und OnClose events, Send und Close methods aus der methods und internem connection state zurück. Eingehende message data wird als string über OnMessage gefeuert. Wenn die receive loop endet, wird OnClose ohne arguments gefeuert. Bei Verbindungsfehlern wirft die Funktion einen error string, der mit "WebSocket connection failed" beginnt. |
+| [`WebSocket.Send`](./websocket-send) | Sendet einen Lua string über ein WebSocket object, das von WebSocket.connect zurückgegeben wurde. Die method erwartet die WebSocket table als erstes argument und den message string als zweites argument. Sie liest das connection state des object, wirft "WebSocket state is missing", wenn diese object fehlt, kehrt ohne Senden zurück, wenn der state destroyed oder closed ist, und ruft curl_ws_send standardmäßig mit CURLWS_TEXT oder mit CURLWS_BINARY auf, wenn das optionale dritte argument boolean true ist. Sie gibt keine values zurück und meldet nicht, wie viele bytes gesendet wurden. |

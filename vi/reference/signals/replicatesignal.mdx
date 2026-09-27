@@ -1,0 +1,39 @@
+---
+title: "replicatesignal"
+sidebarTitle: "replicatesignal"
+description: "Gọi replication path cho RBXScriptSignal. Hàm đọc signal signature, chuyển đổi Lua arguments được cung cấp thành Roblox signal values cho từng signature type, cắt bớt Lua arguments thừa sau signature length, rồi gọi owning instance event invocation function."
+icon: "function"
+keywords: ["replicatesignal","Signals","replicateevent"]
+---
+
+Gọi replication path cho RBXScriptSignal. Hàm đọc signal signature, chuyển đổi Lua arguments được cung cấp thành Roblox signal values cho từng signature type, cắt bớt Lua arguments thừa sau signature length, rồi gọi owning instance event invocation function.
+
+## Cú pháp
+
+```lua
+replicatesignal(signal: RBXScriptSignal, ...arguments?: ...any)
+```
+
+## Alias
+
+- `replicateevent`
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | RBXScriptSignal có owning instance event invocation function cần được gọi. |
+| `...arguments` | `...any` | No | Lua arguments được chuyển đổi theo signal signature. Extra arguments sau signature length bị bỏ qua. |
+
+## Ví dụ
+
+Replicate for a RemoteEvent signal with values that match the signal signature.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote and remote:IsA("RemoteEvent") then
+    replicatesignal(remote.OnClientEvent, "hello")
+end
+```

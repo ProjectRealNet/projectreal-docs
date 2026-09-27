@@ -1,0 +1,39 @@
+---
+title: "rconsoleprint"
+sidebarTitle: "rconsoleprint"
+description: "Écrit zero ou plusieurs valeurs dans la Windows console actuelle with stdout sans modifier le console text attribute. Les valeurs sont converties avec Lua string conversion et séparées par des caractères tab. La function n’ajoute aucun newline. Si aucune console window n’existe, l’appel revient sans convertir ni ecrire quoi que ce soit."
+icon: "function"
+keywords: ["rconsoleprint","Console","consoleprint","rconsolewrite","consolewrite"]
+---
+
+Écrit zero ou plusieurs valeurs dans la Windows console actuelle with stdout sans modifier le console text attribute. Les valeurs sont converties avec Lua string conversion et séparées par des caractères tab. La function n’ajoute aucun newline. Si aucune console window n’existe, l’appel revient sans convertir ni ecrire quoi que ce soit.
+
+## Syntaxe
+
+```lua
+rconsoleprint(...values?: ...any)
+```
+
+## Alias
+
+- `consoleprint`
+- `rconsolewrite`
+- `consolewrite`
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `...values` | `...any` | No | Valeurs optionnelles. Si une console existe, chaque value est convertie avec Lua string conversion et jointe avec des caracteres tab avant l ecriture. |
+
+## Exemple
+
+Write values to the current Windows console without adding a newline.
+
+```lua
+rconsolecreate()
+rconsoleprint("Loading", "
+")
+rconsoleprint("User", "	", 42, "
+")
+```

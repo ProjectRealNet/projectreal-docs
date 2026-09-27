@@ -1,0 +1,15 @@
+---
+title: "Drawing"
+description: "Рисование объектов и их свойств."
+icon: "folder-code"
+---
+
+Рисование объектов и их свойств.
+
+| Навигация по функциям | Описание |
+| --- | --- |
+| [`cleardrawcache`](./cleardrawcache) | Очищает Real global Drawing object list. Каждый отслеживаемый Drawing object помечается как destroyed, image resources освобождаются при наличии, а object list очищается. Существующие Lua references на очищенные Drawing objects могут оставаться, но objects больше не считаются active Drawing objects. the Drawing API регистрирует эту API только когда the required rendering environment is active имеет значение true; если эта проверка false, initializer возвращается до создания этих globals. |
+| [`Drawing.new`](./drawing-new) | Создает новый Drawing object запрошенного типа и добавляет его в Real tracked Drawing object list. type string должен быть одним из точных поддерживаемых имен: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". Отсутствующие, non-string или неподдерживаемые type values вызывают Lua error. the Drawing API регистрирует эту API только когда the required rendering environment is active имеет значение true; если эта проверка false, initializer возвращается до создания этих globals. |
+| [`getrenderproperty`](./getrenderproperty) | Возвращает результат индексирования первого аргумента указанным property key. Для Drawing object используется то же Drawing property lookup, что и object[property], поэтому unknown properties и destroyed Drawing objects возвращают nil. the Drawing API регистрирует эту API только когда the required rendering environment is active имеет значение true; если эта проверка false, initializer возвращается до создания этих globals. |
+| [`isrenderobj`](./isrenderobj) | Возвращает, является ли значение object с Drawing object type. Это только methods check; он не проверяет, остается ли внутренний Drawing object active, tracked или destroyed. the Drawing API регистрирует эту API только когда the required rendering environment is active имеет значение true; если эта проверка false, initializer возвращается до создания этих globals. |
+| [`setrenderproperty`](./setrenderproperty) | Присваивает value в object[property]. Для Drawing object используется то же Drawing property assignment, что и direct property assignment. Unknown Drawing properties игнорируются, а destroyed Drawing objects не изменяются. Третий аргумент должен присутствовать. the Drawing API регистрирует эту API только когда the required rendering environment is active имеет значение true; если эта проверка false, initializer возвращается до создания этих globals. |

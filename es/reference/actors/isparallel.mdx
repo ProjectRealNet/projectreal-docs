@@ -1,0 +1,36 @@
+---
+title: "isparallel"
+sidebarTitle: "isparallel"
+description: "Devuelve un boolean desde el ScriptContext DataModel del Luau thread actual. La function no toma arguments. Lee the current parallel execution status, que devuelve el parallel execution status. Si the current DataModel no devuelve un DataModel, la function devuelve false. checkparallel es un alias de la misma function."
+icon: "function"
+keywords: ["isparallel","Actors","checkparallel"]
+---
+
+Devuelve un boolean desde el ScriptContext DataModel del Luau thread actual. La function no toma arguments. Lee the current parallel execution status, que devuelve el parallel execution status. Si the current DataModel no devuelve un DataModel, la function devuelve false. checkparallel es un alias de la misma function.
+
+## Sintaxis
+
+```lua
+isparallel(): boolean
+```
+
+## Alias
+
+- `checkparallel`
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `parallel` | `boolean` | true cuando el parallel execution status del DataModel actual está establecido; false cuando el flag no está establecido o no hay DataModel disponible. |
+
+## Ejemplo
+
+Read whether the current DataModel is in the parallel phase.
+
+```lua
+local parallel = isparallel()
+print(parallel)
+
+print(checkparallel())
+```

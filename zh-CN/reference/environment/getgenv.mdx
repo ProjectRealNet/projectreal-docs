@@ -1,0 +1,33 @@
+---
+title: "getgenv"
+sidebarTitle: "getgenv"
+description: "通过 pushing LUA_ENVIRONINDEX 返回 current executor environment table。该 function 不接受 arguments，返回 exactly one value，并且没有 registered alias。repository 中的 call-sites 使用 returned table 读取和写入 shared executor globals，例如 __siApiCache 和 saveinstance。"
+icon: "function"
+keywords: ["getgenv","Environment"]
+---
+
+通过 pushing LUA_ENVIRONINDEX 返回 current executor environment table。该 function 不接受 arguments，返回 exactly one value，并且没有 registered alias。repository 中的 call-sites 使用 returned table 读取和写入 shared executor globals，例如 __siApiCache 和 saveinstance。
+
+## 语法
+
+```lua
+getgenv(): table
+```
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `environment` | `table` | 此 state 当前存储在 LUA_ENVIRONINDEX 的 table。 |
+
+## 示例
+
+Read and write values on the current executor environment table.
+
+```lua
+local env = getgenv()
+
+env.RealDocsValue = "ready"
+
+print(getgenv().RealDocsValue)
+```

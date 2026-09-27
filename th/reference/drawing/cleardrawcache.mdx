@@ -1,0 +1,27 @@
+---
+title: "cleardrawcache"
+sidebarTitle: "cleardrawcache"
+description: "ล้าง Real global Drawing object list โดย Drawing object ที่ถูกติดตามแต่ละตัวจะถูกทำเครื่องหมายเป็น destroyed, image resources จะถูกปล่อยเมื่อมีอยู่ และ object list จะถูกทำให้ว่าง Lua references ที่มีอยู่ไปยัง Drawing objects ที่ถูกล้างอาจยังคงอยู่ แต่ objects จะไม่ถือเป็น active Drawing objects อีกต่อไป the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้"
+icon: "function"
+keywords: ["cleardrawcache","Drawing"]
+---
+
+ล้าง Real global Drawing object list โดย Drawing object ที่ถูกติดตามแต่ละตัวจะถูกทำเครื่องหมายเป็น destroyed, image resources จะถูกปล่อยเมื่อมีอยู่ และ object list จะถูกทำให้ว่าง Lua references ที่มีอยู่ไปยัง Drawing objects ที่ถูกล้างอาจยังคงอยู่ แต่ objects จะไม่ถือเป็น active Drawing objects อีกต่อไป the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้
+
+## ไวยากรณ์
+
+```lua
+cleardrawcache()
+```
+
+## ตัวอย่าง
+
+Clear every Drawing object currently tracked by Real.
+
+```lua
+local square = Drawing.new("Square")
+square.Visible = true
+
+cleardrawcache()
+print(square.Visible)
+```

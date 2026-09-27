@@ -1,0 +1,48 @@
+---
+title: "getcallbackvalue"
+sidebarTitle: "getcallbackvalue"
+description: "读取 Instance 上 callback property 中保存的 Lua callback function。第一个参数必须是 Instance object，第二个参数必须是 string property name。instance reference 必须有效。property name 会通过 Roblox property metadata 解析，并且必须指向类型为 LUA_CALLBACK 的 property。如果 property descriptor 缺失、property 不是 LUA_CALLBACK、callback field offset 缺失、没有保存 callback、LiveLuaRef 缺失、callback 属于另一个 Lua global state，或引用的值不是 function，function 会返回 nil。当第一个 callback slot 没有 callback 时，它也会检查 async callback field fallback。function 不会更新 property。"
+icon: "function"
+keywords: ["getcallbackvalue","Instances","getcallbackmember"]
+---
+
+读取 Instance 上 callback property 中保存的 Lua callback function。第一个参数必须是 Instance object，第二个参数必须是 string property name。instance reference 必须有效。property name 会通过 Roblox property metadata 解析，并且必须指向类型为 LUA_CALLBACK 的 property。如果 property descriptor 缺失、property 不是 LUA_CALLBACK、callback field offset 缺失、没有保存 callback、LiveLuaRef 缺失、callback 属于另一个 Lua global state，或引用的值不是 function，function 会返回 nil。当第一个 callback slot 没有 callback 时，它也会检查 async callback field fallback。function 不会更新 property。
+
+## 语法
+
+```lua
+getcallbackvalue(instance: Instance, property: string): function | nil
+```
+
+## 别名
+
+- `getcallbackmember`
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | 要检查 callback property 的 Instance object。Invalid Instance values 会抛出 argument error。 |
+| `property` | `string` | Yes | 通过 Roblox property metadata 解析的 string property name。只有 LUA_CALLBACK properties 可以返回 function。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `callback` | `function \| nil` | callback property 保存的 Lua function，或 function 无法解析可读取 function 时返回 nil。 |
+
+## 示例
+
+读取 BindableFunction.OnInvoke 中保存的 callback function。
+
+```lua
+local bindable = Instance.new("BindableFunction")
+bindable.OnInvoke = function(value)
+    return value * 2
+end
+
+local callback = getcallbackvalue(bindable, "OnInvoke")
+if callback then
+    print(callback(21))
+end
+```

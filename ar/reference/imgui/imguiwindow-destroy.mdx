@@ -1,0 +1,41 @@
+---
+title: "ImGuiWindow.destroy"
+sidebarTitle: "ImGuiWindow.destroy"
+description: "يدمر ImGuiWindow. إذا كان object لا يزال يشير إلى window، تزيل method هذا window من tracked ImGui window list الخاصة بـ Real، وتعمل unreference لـ stored element callbacks، وتحذف window record، وتضبط Instance reference إلى nil. استدعاء destroy مرة أخرى على نفس object يرجع بدون فعل أي شيء."
+icon: "function"
+keywords: ["ImGuiWindow.destroy","ImGui"]
+---
+
+يدمر ImGuiWindow. إذا كان object لا يزال يشير إلى window، تزيل method هذا window من tracked ImGui window list الخاصة بـ Real، وتعمل unreference لـ stored element callbacks، وتحذف window record، وتضبط Instance reference إلى nil. استدعاء destroy مرة أخرى على نفس object يرجع بدون فعل أي شيء.
+
+## الصيغة
+
+```lua
+ImGuiWindow.destroy(window: ImGuiWindow)
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `window` | `ImGuiWindow` | Yes | ImGuiWindow object المعادة من imgui.create. القيم غير ImGuiWindow ترفع Lua error. |
+
+## الأنواع
+
+### ImGuiWindow
+
+تم إرجاع المقبض بواسطة imgui.create. تقوم أساليب بناء التحكم بإرجاع نفس المقبض بحيث يمكن ربط المكالمات بالتسلسل.
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | يُلحق زرًا ويستدعي رد الاتصال بعد النقر. |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | يُلحق مربع اختيار تمت تهيئته بالحالة المتوفرة. |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | يتم إلحاق عناصر التحكم في المجموعات بواسطة رد اتصال المحتوى أسفل الرأس المطوي. |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | إلحاق محرر RGBA؛ تم حذف مكونات اللون الافتراضية إلى 1.0. |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | إلحاق إدخال نص من سطر واحد؛ تم حذف النص الأولي الافتراضي إلى سلسلة فارغة. |
+| `SameLine` | `() -> ImGuiWindow` | Yes | يضع عنصر التحكم التالي على نفس السطر. |
+| `Separator` | `() -> ImGuiWindow` | Yes | إلحاق فاصل أفقي. |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | إلحاق شريط تمرير النقطة العائمة. |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | إلحاق شريط تمرير عدد صحيح. |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | إلحاق نص غير تفاعلي. |
+| `destroy` | `() -> ()` | Yes | إزالة النافذة وتحرير عمليات الاسترجاعات المسجلة الخاصة بها. |

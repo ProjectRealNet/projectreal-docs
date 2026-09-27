@@ -1,0 +1,39 @@
+---
+title: "getfflagtype"
+sidebarTitle: "getfflagtype"
+description: "Returns the detected type for a Roblox fast flag as \"string\", \"bool\", \"int\", or \"unknown\". Missing or unsupported flags return \"unknown\"."
+icon: "function"
+keywords: ["getfflagtype","Miscellaneous"]
+---
+
+Returns the detected type for a Roblox fast flag as "string", "bool", "int", or "unknown". Missing or unsupported flags return "unknown".
+
+## 语法
+
+```lua
+getfflagtype(name: string): "string" | "bool" | "int" | "unknown"
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `name` | `string` | Yes | Exact fast flag name to inspect. |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `flagType` | `"string" \| "bool" \| "int" \| "unknown"` | Detected flag type string. |
+
+## 示例
+
+Read the detected type for a Roblox fast flag by exact name.
+
+```lua
+local flagType = getfflagtype("SomeFFlagName")
+
+if flagType ~= "unknown" then
+    print(flagType)
+end
+```

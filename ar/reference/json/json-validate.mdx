@@ -1,0 +1,55 @@
+---
+title: "json.validate"
+sidebarTitle: "json.validate"
+description: "يتحقق من JSON string عن طريق parse لقيمة JSON واحدة complete. عند success يرجع true فقط. عند parse failure يرجع false مع parser error details."
+icon: "function"
+keywords: ["json.validate","JSON"]
+---
+
+يتحقق من JSON string عن طريق parse لقيمة JSON واحدة complete. عند success يرجع true فقط. عند parse failure يرجع false مع parser error details.
+
+## الصيغة
+
+```lua
+json.validate(json: string, options?: DecodeOptions): boolean | string | nil | number | nil
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string يتم validate له. Function تقرأ هذا argument باستخدام string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean يضبط useNull. table يمكنها ضبط useNull و maxDepth. maxDepth يتم clamp من 1 إلى 4096. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `valid` | `boolean` | true عندما ينجح parsing لقيمة JSON واحدة complete. false عندما يفشل parsing داخل protected parse block. |
+| `errorMessage` | `string \| nil` | Error message عند parse failure. Message تكون prefixed بـ json.validate وتتضمن near-position suffix. هذا return موجود فقط عند failure. |
+| `errorPosition` | `number \| nil` | Parser byte position من parser عند parse failure. هذا return موجود فقط عند failure. |
+
+## الأنواع
+
+### DecodeOptions
+
+يتحكم في سلوك تحليل JSON.
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | يمثل JSON null مع الحارس الفارغ للمكتبة بدلاً من صفر. |
+| `maxDepth` | `integer` | No | يضبط الحد الأقصى لعمق التعشيش، المثبت من 1 إلى 4096. |
+
+## مثال
+
+تحقق مما إذا كان string يحتوي بالضبط على قيمة JSON واحدة complete.
+
+```lua
+print(json.validate('{"value":42}'))
+
+local valid, message, position = json.validate('{"value":42 trailing')
+
+if not valid then
+    warn(message, position)
+end
+```

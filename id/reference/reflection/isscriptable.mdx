@@ -1,0 +1,37 @@
+---
+title: "isscriptable"
+sidebarTitle: "isscriptable"
+description: "Memeriksa scriptable flag untuk Roblox property pada Instance. Function ini lebih dulu mengembalikan nilai scriptable dari cache jika ada untuk instance reference dan property name yang sama. Saat cache miss, property name diselesaikan melalui Roblox property metadata dan Instance class descriptor. Jika descriptor tidak ada, atau field yang ditemukan hilang atau bukan property entry, function mengembalikan nil. Saat property entry ditemukan, function membaca scriptable state, menyimpan nilai itu di scriptable override cache untuk instance dan property, lalu mengembalikan boolean. Function ini tidak mengubah scriptable flag."
+icon: "function"
+keywords: ["isscriptable","Reflection"]
+---
+
+Memeriksa scriptable flag untuk Roblox property pada Instance. Function ini lebih dulu mengembalikan nilai scriptable dari cache jika ada untuk instance reference dan property name yang sama. Saat cache miss, property name diselesaikan melalui Roblox property metadata dan Instance class descriptor. Jika descriptor tidak ada, atau field yang ditemukan hilang atau bukan property entry, function mengembalikan nil. Saat property entry ditemukan, function membaca scriptable state, menyimpan nilai itu di scriptable override cache untuk instance dan property, lalu mengembalikan boolean. Function ini tidak mengubah scriptable flag.
+
+## Sintaks
+
+```lua
+isscriptable(instance: Instance, property: string): boolean | nil
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object yang property scriptable state-nya akan diperiksa. |
+| `property` | `string` | Yes | Property name yang diselesaikan melalui Roblox property metadata dan Instance class descriptor. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `scriptable` | `boolean \| nil` | Nilai scriptable state dari cache atau saat ini, atau nil jika property descriptor/field hilang atau bukan property entry. |
+
+## Contoh
+
+Check whether a property is scriptable on an Instance.
+
+```lua
+local scriptable = isscriptable(workspace, "Name")
+print(scriptable)
+```

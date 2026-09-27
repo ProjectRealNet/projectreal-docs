@@ -1,0 +1,34 @@
+---
+title: "delfolder"
+sidebarTitle: "delfolder"
+description: "Xoa mot folder dang ton tai ben trong workspace theo recursive bang recursive folder deletion."
+icon: "function"
+keywords: ["delfolder","Filesystem"]
+---
+
+Xoa mot folder dang ton tai ben trong workspace theo recursive bang recursive folder deletion.
+
+## Cú pháp
+
+```lua
+delfolder(path: string)
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path duoc resolve ben trong workspace sau separator normalization va workspace-boundary checks. Target phai ton tai va la directory; files khong duoc chap nhan. |
+
+## Ví dụ
+
+Xoa mot workspace folder dang ton tai va noi dung ben trong.
+
+```lua
+local path = "examples/temporary"
+makefolder(path)
+writefile(path .. "/note.txt", "temporary")
+
+delfolder(path)
+print(isfolder(path))
+```

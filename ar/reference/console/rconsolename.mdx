@@ -1,0 +1,36 @@
+---
+title: "rconsolename"
+sidebarTitle: "rconsolename"
+description: "يضبط title الخاص بـ Windows console window الحالية باستخدام Windows console title update. يجب أن يكون argument الأول string ويتم فحصه قبل فحص وجود console. إذا لم تكن هناك console window بعد نجاح string check، يرجع الاستدعاء بدون أي إجراء."
+icon: "function"
+keywords: ["rconsolename","Console","consolename","rconsolesettitle","consolesettitle"]
+---
+
+يضبط title الخاص بـ Windows console window الحالية باستخدام Windows console title update. يجب أن يكون argument الأول string ويتم فحصه قبل فحص وجود console. إذا لم تكن هناك console window بعد نجاح string check، يرجع الاستدعاء بدون أي إجراء.
+
+## الصيغة
+
+```lua
+rconsolename(text: string)
+```
+
+## أسماء بديلة
+
+- `consolename`
+- `rconsolesettitle`
+- `consolesettitle`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | قيمة النص المستخدمة من قبل العملية. |
+
+## مثال
+
+Set the current Windows console window title.
+
+```lua
+rconsolecreate()
+rconsolename("Real Console")
+```

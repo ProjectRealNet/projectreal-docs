@@ -1,0 +1,45 @@
+---
+title: "cloneref"
+sidebarTitle: "cloneref"
+description: "Ayni temel Instance reference icin yeni bir Instance referansi push eder ve onu dondurur."
+icon: "function"
+keywords: ["cloneref","Cache","clonereference"]
+---
+
+Ayni temel Instance reference icin yeni bir Instance referansi push eder ve onu dondurur.
+
+## Söz dizimi
+
+```lua
+cloneref(instance: Instance): Instance
+```
+
+## Aliaslar
+
+- `clonereference`
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Yeni referans icin kaynak olarak kullanilan Instance object. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `reference` | `Instance` | Instance cache orijinal Instance reference ile calistiktan sonra dondurulen Instance referansi. |
+
+## Örnek
+
+Mevcut bir Instance object degerinden baska bir Instance referansi olustur.
+
+```lua
+local Players = game:GetService("Players")
+
+local reference = cloneref(Players)
+print(reference)
+
+local sameAlias = clonereference(Players)
+print(sameAlias)
+```

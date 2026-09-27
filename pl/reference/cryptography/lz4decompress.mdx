@@ -1,0 +1,47 @@
+---
+title: "lz4decompress"
+sidebarTitle: "lz4decompress"
+description: "Dekompresuje raw LZ4 block bytes za pomoca LZ4 block decompression i zwraca raw decompressed bytes jako lancuch Lua."
+icon: "function"
+keywords: ["lz4decompress","Cryptography","crypt.lz4decompress","crypt.lz4.decompress","lz4.decompress"]
+---
+
+Dekompresuje raw LZ4 block bytes za pomoca LZ4 block decompression i zwraca raw decompressed bytes jako lancuch Lua.
+
+## Składnia
+
+```lua
+lz4decompress(data: string, originalSize?: number): string
+```
+
+## Aliasy
+
+- `crypt.lz4decompress`
+- `crypt.lz4.decompress`
+- `lz4.decompress`
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Raw compressed bytes przekazywane do LZ4 block decompression. |
+| `originalSize` | `number` | No | Output buffer size przekazywany jako dstCapacity. Dla wyjscia lz4compress podaj oryginalna nieskompresowana dlugosc w bytes; po pominieciu uzywana jest dlugosc skompresowanego wejscia. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `decompressed` | `string` | Raw decompressed bytes zwracane jako lancuch Lua. Wyjscie moze byc krotsze niz originalSize. |
+
+## Przykład
+
+Dekompresuj LZ4 bytes, podajac oryginalny nieskompresowany rozmiar.
+
+```lua
+local source = "Real Docs"
+local compressed = lz4compress(source)
+local decompressed = lz4decompress(compressed, #source)
+
+print(decompressed)
+print(decompressed == source)
+```

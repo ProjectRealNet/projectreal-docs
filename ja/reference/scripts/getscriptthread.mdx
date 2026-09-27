@@ -1,0 +1,47 @@
+---
+title: "getscriptthread"
+sidebarTitle: "getscriptthread"
+description: "Real が見つけられる場合、script object に関連付けられた Lua thread を返します。argument は object である必要があります。この function は値の ClassName field を読み、field が string でない場合は \"not a valid Instance\" を発生させます。受け付ける ClassName 値は Script、LocalScript、ModuleScript です。それ以外の値では \"Script expected\" を発生させます。最初に script reference で Real の ScriptThreadCache を確認します。cache hit の場合、cached Luau thread を thread として返します。cache miss の場合、Script 値は RunContext Client である必要があり、そうでなければ \"Expected a Script with RunContext set to Client\" を発生させます。その後、the live Luau thread list を走査し、各 thread node の first weak thread reference から LiveLuaRef へ進み、missing thread data または expired Script stored references をスキップし、各 script reference を要求された script と比較します。match が見つかると、その Luau thread を thread として返します。match がなければ nil を返します。"
+icon: "function"
+keywords: ["getscriptthread","Scripts"]
+---
+
+Real が見つけられる場合、script object に関連付けられた Lua thread を返します。argument は object である必要があります。この function は値の ClassName field を読み、field が string でない場合は "not a valid Instance" を発生させます。受け付ける ClassName 値は Script、LocalScript、ModuleScript です。それ以外の値では "Script expected" を発生させます。最初に script reference で Real の ScriptThreadCache を確認します。cache hit の場合、cached Luau thread を thread として返します。cache miss の場合、Script 値は RunContext Client である必要があり、そうでなければ "Expected a Script with RunContext set to Client" を発生させます。その後、the live Luau thread list を走査し、各 thread node の first weak thread reference から LiveLuaRef へ進み、missing thread data または expired Script stored references をスキップし、各 script reference を要求された script と比較します。match が見つかると、その Luau thread を thread として返します。match がなければ nil を返します。
+
+## 構文
+
+```lua
+getscriptthread(script: userdata): thread | nil
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | 検索する Script object。受け付ける ClassName 値は Script、LocalScript、ModuleScript です。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `thread` | `thread \| nil` | 関連付けられた Lua thread、または matching live thread が見つからない場合は nil。 |
+
+## 例
+
+Read the Luau thread associated with a supported script Instance when one is available.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local thread = getscriptthread(targetScript)
+    print(thread)
+end
+```

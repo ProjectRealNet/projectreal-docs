@@ -1,0 +1,55 @@
+---
+title: "json.minify"
+sidebarTitle: "json.minify"
+description: "Parse un JSON string puis le re-encode avec Real default non-pretty JSON encoder output."
+icon: "function"
+keywords: ["json.minify","JSON"]
+---
+
+Parse un JSON string puis le re-encode avec Real default non-pretty JSON encoder output.
+
+## Syntaxe
+
+```lua
+json.minify(json: string, options?: DecodeOptions): string
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string a parse avant le minifying. L'function lit cet argument avec string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options utilisees pendant le parsing de l'input JSON. Un boolean definit useNull. Une table peut definir useNull et maxDepth. |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `minified` | `string` | JSON string produit apres parsing et re-encoding de l'input avec default encode options. |
+
+## Types
+
+### DecodeOptions
+
+Contrôle le comportement d'analyse JSON.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Représente JSON null avec la sentinelle nulle de la bibliothèque au lieu de nil. |
+| `maxDepth` | `integer` | No | Définit la profondeur d'imbrication maximale, comprise entre 1 et 4 096. |
+
+## Exemple
+
+Parse valid JSON puis re-encode avec default compact JSON output.
+
+```lua
+local formatted = [[{
+    "name": "Real",
+    "enabled": true,
+    "missing": null
+}]]
+
+print(json.minify(formatted, {
+    useNull = true,
+}))
+```

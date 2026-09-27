@@ -1,0 +1,33 @@
+---
+title: "makereadonly"
+sidebarTitle: "makereadonly"
+description: "Marks a table as readonly and returns no values."
+icon: "function"
+keywords: ["makereadonly","Metatables"]
+---
+
+Marks a table as readonly and returns no values.
+
+## Syntaxe
+
+```lua
+makereadonly(target: table)
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `target` | `table` | Yes | Table to mark as readonly. |
+
+## Exemple
+
+Set a table's readonly flag to true.
+
+```lua
+local target = {}
+
+makereadonly(target)
+
+print(isreadonly(target))
+```

@@ -1,0 +1,36 @@
+---
+title: "isparallel"
+sidebarTitle: "isparallel"
+description: "Geçerli Luau thread değerinin ScriptContext DataModel değerinden bir boolean döndürür. Function arguments almaz. parallel execution status değerini döndüren the current parallel execution status değerini okur. the current DataModel bir DataModel döndürmezse function false döndürür. checkparallel aynı function için alias değeridir."
+icon: "function"
+keywords: ["isparallel","Actors","checkparallel"]
+---
+
+Geçerli Luau thread değerinin ScriptContext DataModel değerinden bir boolean döndürür. Function arguments almaz. parallel execution status değerini döndüren the current parallel execution status değerini okur. the current DataModel bir DataModel döndürmezse function false döndürür. checkparallel aynı function için alias değeridir.
+
+## Söz dizimi
+
+```lua
+isparallel(): boolean
+```
+
+## Aliaslar
+
+- `checkparallel`
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `parallel` | `boolean` | Geçerli DataModel parallel execution status ayarlıysa true; flag ayarlı değilse veya DataModel yoksa false. |
+
+## Örnek
+
+Read whether the current DataModel is in the parallel phase.
+
+```lua
+local parallel = isparallel()
+print(parallel)
+
+print(checkparallel())
+```

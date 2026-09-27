@@ -1,0 +1,41 @@
+---
+title: "json.isNull"
+sidebarTitle: "json.isNull"
+description: "返回 value 是否为 Real JSON null sentinel，也就是 json.null。"
+icon: "function"
+keywords: ["json.isNull","JSON"]
+---
+
+返回 value 是否为 Real JSON null sentinel，也就是 json.null。
+
+## 语法
+
+```lua
+json.isNull(value: any): boolean
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | 要 inspect 的 value。只有 json.null value 返回 true；Lua nil 和 other values 返回 false。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `isNull` | `boolean` | 当 value 是 exact json.null sentinel 时返回 true，否则 false。 |
+
+## 示例
+
+Check value 是否是 json.null sentinel，而不是 Lua nil。
+
+```lua
+local value = json.decode("null")
+
+if json.isNull(value) then
+    print("The value is JSON null")
+end
+
+print(json.isNull(nil))
+```

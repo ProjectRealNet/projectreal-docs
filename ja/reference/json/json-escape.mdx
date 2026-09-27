@@ -1,0 +1,38 @@
+---
+title: "json.escape"
+sidebarTitle: "json.escape"
+description: "Real JSON string escaping rules を使って string を escape し、surrounding quotes なしの escaped content を返します。"
+icon: "function"
+keywords: ["json.escape","JSON"]
+---
+
+Real JSON string escaping rules を使って string を escape し、surrounding quotes なしの escaped content を返します。
+
+## 構文
+
+```lua
+json.escape(text: string): string
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | Escape する string。function はこの argument を string type checking で読みます。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `escaped` | `string` | Opening と closing quote なしの escaped JSON string content。Quotes、backslashes、common control characters、bytes below 0x20 は escape されます。 |
+
+## 例
+
+Surrounding quotes を追加せず、JSON string の内側用に string を escape します。
+
+```lua
+local source = "line 1" .. string.char(10) .. [[line "2"]]
+local escaped = json.escape(source)
+
+print(escaped)
+```

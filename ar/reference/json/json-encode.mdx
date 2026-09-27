@@ -1,0 +1,63 @@
+---
+title: "json.encode"
+sidebarTitle: "json.encode"
+description: "يعمل serialize لـ Lua value إلى JSON string باستخدام Real JSON encoder. json.stringify مسجل لنفس function."
+icon: "function"
+keywords: ["json.encode","JSON"]
+---
+
+يعمل serialize لـ Lua value إلى JSON string باستخدام Real JSON encoder. json.stringify مسجل لنفس function.
+
+## الصيغة
+
+```lua
+json.encode(value: any, options?: EncodeOptions): string
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value سيتم encode له. nil و booleans و numbers و strings و tables و json.null يتم التعامل معها مباشرة. Unsupported Lua types يتم encode لها كـ null إلا إذا كان errorOnUnsupported true. |
+| `options` | `EncodeOptions` | No | Optional encode options. boolean يبدل pretty output. number يفعل pretty output بعدد spaces يتم clamp له إلى 0.16. string يفعل pretty output بهذا indent. table يمكن أن تضبط pretty و sortKeys و emptyTableAsArray و errorOnUnsupported و encodeInvalidNumbersAsNull و maxDepth و indent. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `json` | `string` | Encoded JSON string. Encoding errors ترمى كـ Luau errors. |
+
+## الأنواع
+
+### EncodeOptions
+
+يتحكم في تسلسل JSON وتنسيقه.
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | لتمكين إخراج JSON المنسق والمتعدد الأسطر. |
+| `sortKeys` | `boolean` | No | فرز مفاتيح الكائنات قبل الترميز. |
+| `emptyTableAsArray` | `boolean` | No | ترميز جدول فارغ كمصفوفة بدلاً من كائن. |
+| `errorOnUnsupported` | `boolean` | No | يثير خطأ بدلاً من استبدال قيم غير مدعومة. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | يشفر NaN والأرقام اللانهائية كـ JSON null. |
+| `maxDepth` | `integer` | No | يضبط الحد الأقصى لعمق التعشيش، المثبت من 1 إلى 4096. |
+| `indent` | `string` | No | يضبط سلسلة المسافة البادئة، والتي تقتصر على 32 حرفًا. |
+
+## مثال
+
+Encode JSON-compatible values، مع استخدام json.array عندما يجب أن يبقى empty array كـ array.
+
+```lua
+local payload = {
+    name = "Real",
+    enabled = true,
+    tags = json.array({ "api", "docs" }),
+    missing = json.null,
+}
+
+local text = json.encode(payload, {
+    sortKeys = true,
+})
+
+print(text)
+```

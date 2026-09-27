@@ -1,0 +1,77 @@
+---
+title: "saveinstance"
+sidebarTitle: "saveinstance"
+description: "Serializes the DataModel or a selected Instance to a Roblox XML place or model file and returns the saved path string. The root can be passed as the first argument, supplied as options.Object, or omitted to use game. FilePath, Path, or FileName can select the output name. The function may yield while loading the API dump before saving."
+icon: "function"
+keywords: ["saveinstance","SaveInstance","SaveInstance","save_instance"]
+---
+
+Serializes the DataModel or a selected Instance to a Roblox XML place or model file and returns the saved path string. The root can be passed as the first argument, supplied as options.Object, or omitted to use game. FilePath, Path, or FileName can select the output name. The function may yield while loading the API dump before saving.
+
+## 문법
+
+```lua
+saveinstance(rootOrOptions?: Instance | SaveInstanceOptions, options?: SaveInstanceOptions): string
+```
+
+## 별칭
+
+- `SaveInstance`
+- `save_instance`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `rootOrOptions` | `Instance \| SaveInstanceOptions` | No | Optional root Instance to save, or the options table when no root is passed separately. |
+| `options` | `SaveInstanceOptions` | No | Optional save options table. Used as argument 2 when argument 1 is an Instance. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `path` | `string` | Filesystem path string of the saved .rbxlx, .rbxl, .rbxmx, or .rbxm file. |
+
+## 타입
+
+### SaveInstanceOptions
+
+Options table read by saveinstance.
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `Object` | `Instance` | No | Root Instance used when no root Instance is passed as argument 1. |
+| `FilePath` | `string` | No | Output name or path string. Path separators and colons are replaced before saving. |
+| `Path` | `string` | No | Alternative output name field. It is read after FilePath. |
+| `FileName` | `string` | No | Alternative output name field. It is read after Path. |
+| `NullifyScripts` | `boolean` | No | Writes empty Source values for script classes when no source is emitted. |
+| `Decompile` | `boolean` | No | Controls whether script bytecode is decompiled when source is not supplied and scripts are not nullified. |
+| `DecompileScripts` | `boolean` | No | Alternative field for Decompile. It is read after Decompile. |
+| `noscripts` | `boolean` | No | When true, disables script decompilation. When false, enables it. |
+| `scriptcache` | `boolean` | No | Controls reuse of decompiled source by bytecode hash during one save operation. |
+| `EmbedBytecode` | `boolean` | No | Writes captured bytecode for script classes when bytecode is available. |
+| `SaveBytecode` | `boolean` | No | Alternative field for EmbedBytecode. It is read after EmbedBytecode. |
+| `IgnoreDefaultProperties` | `boolean` | No | Skips properties whose serialized value matches the default value when default comparison is available. |
+| `IgnoreSpecialProperties` | `boolean` | No | Controls whether special property reads are skipped. |
+| `SourceCache` | `&#123;[Instance]: string&#125;` | No | Optional table mapping script Instances to source strings. |
+| `IgnoreList` | `&#123;string&#125;` | No | Class names to skip during serialization. Built-in ignored class names are also applied. |
+| `IgnoreProperties` | `&#123;string&#125; \| &#123;[string]: boolean&#125;` | No | Property names to skip during serialization. |
+| `IsModel` | `boolean` | No | Overrides whether the output is treated as a model file or place file for default name and extension handling. |
+
+## 예제
+
+Save a selected model to a Roblox XML model file and read the path returned by saveinstance.
+
+```lua
+local model = Instance.new("Model")
+model.Name = "SavedModel"
+
+local outputPath = saveinstance(model, {
+    FileName = "SavedModel.rbxmx",
+    Decompile = false,
+    NullifyScripts = true,
+})
+
+print(outputPath)
+model:Destroy()
+```

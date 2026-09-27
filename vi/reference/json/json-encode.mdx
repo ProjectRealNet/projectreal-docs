@@ -1,0 +1,63 @@
+---
+title: "json.encode"
+sidebarTitle: "json.encode"
+description: "Serialize Lua value thanh JSON string bang Real JSON encoder. json.stringify duoc dang ky voi cung function."
+icon: "function"
+keywords: ["json.encode","JSON"]
+---
+
+Serialize Lua value thanh JSON string bang Real JSON encoder. json.stringify duoc dang ky voi cung function.
+
+## Cú pháp
+
+```lua
+json.encode(value: any, options?: EncodeOptions): string
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value de encode. nil, booleans, numbers, strings, tables va json.null duoc xu ly truc tiep. Unsupported Lua types duoc encode thanh null tru khi errorOnUnsupported la true. |
+| `options` | `EncodeOptions` | No | Optional encode options. boolean toggle pretty output. number bat pretty output voi so spaces duoc clamp ve 0.16. string bat pretty output voi indent do. table co the dat pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth va indent. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `json` | `string` | Encoded JSON string. Encoding errors duoc throw nhu Luau errors. |
+
+## Kiểu
+
+### EncodeOptions
+
+Kiểm soát việc tuần tự hóa và định dạng JSON.
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Cho phép xuất JSON nhiều dòng, được định dạng. |
+| `sortKeys` | `boolean` | No | Sắp xếp các khóa đối tượng trước khi mã hóa. |
+| `emptyTableAsArray` | `boolean` | No | Mã hóa một bảng trống thành một mảng thay vì một đối tượng. |
+| `errorOnUnsupported` | `boolean` | No | Phát sinh lỗi thay vì thay thế các giá trị không được hỗ trợ. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Mã hóa NaN và số vô hạn dưới dạng JSON null. |
+| `maxDepth` | `integer` | No | Đặt độ sâu lồng tối đa, được kẹp từ 1 đến 4096. |
+| `indent` | `string` | No | Đặt chuỗi thụt lề, giới hạn ở 32 ký tự. |
+
+## Ví dụ
+
+Encode JSON-compatible values va dung json.array khi empty array can giu nguyen la array.
+
+```lua
+local payload = {
+    name = "Real",
+    enabled = true,
+    tags = json.array({ "api", "docs" }),
+    missing = json.null,
+}
+
+local text = json.encode(payload, {
+    sortKeys = true,
+})
+
+print(text)
+```

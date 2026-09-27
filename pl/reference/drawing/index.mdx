@@ -1,0 +1,15 @@
+---
+title: "Drawing"
+description: "Obiekty rysunkowe i ich właściwości."
+icon: "folder-code"
+---
+
+Obiekty rysunkowe i ich właściwości.
+
+| Nawigacja funkcji | Opis |
+| --- | --- |
+| [`cleardrawcache`](./cleardrawcache) | Czysci Real global Drawing object list. Kazdy sledzony Drawing object jest oznaczany jako destroyed, image resources sa zwalniane, gdy istnieja, a object list jest oprozniana. Istniejace Lua references do wyczyszczonych Drawing objects moga nadal istniec, ale objects nie sa juz active Drawing objects. the Drawing API rejestruje te API tylko wtedy, gdy the required rendering environment is active ma wartosc true; gdy ten check ma wartosc false, initializer wraca przed utworzeniem tych globals. |
+| [`Drawing.new`](./drawing-new) | Tworzy nowe Drawing object zadanego typu i dodaje je do Real tracked Drawing object list. type string musi byc jedna z dokladnie obslugiwanych nazw: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". Brakujace wartosci, non-string lub nieobslugiwane type values powoduja Lua error. the Drawing API rejestruje te API tylko wtedy, gdy the required rendering environment is active ma wartosc true; gdy ten check ma wartosc false, initializer wraca przed utworzeniem tych globals. |
+| [`getrenderproperty`](./getrenderproperty) | Zwraca wynik indeksowania pierwszego argumentu podanym property key. Dla Drawing object uzywa tego samego Drawing property lookup co object[property], wiec unknown properties i destroyed Drawing objects zwracaja nil. the Drawing API rejestruje te API tylko wtedy, gdy the required rendering environment is active ma wartosc true; gdy ten check ma wartosc false, initializer wraca przed utworzeniem tych globals. |
+| [`isrenderobj`](./isrenderobj) | Zwraca, czy wartosc jest object z Drawing object type. To tylko methods check; nie sprawdza, czy wewnetrzny Drawing object nadal jest active, tracked lub destroyed. the Drawing API rejestruje te API tylko wtedy, gdy the required rendering environment is active ma wartosc true; gdy ten check ma wartosc false, initializer wraca przed utworzeniem tych globals. |
+| [`setrenderproperty`](./setrenderproperty) | Przypisuje value do object[property]. Dla Drawing object uzywa tego samego Drawing property assignment co direct property assignment. Unknown Drawing properties sa ignorowane, a destroyed Drawing objects nie sa zmieniane. Trzeci argument musi byc podany. the Drawing API rejestruje te API tylko wtedy, gdy the required rendering environment is active ma wartosc true; gdy ten check ma wartosc false, initializer wraca przed utworzeniem tych globals. |

@@ -1,0 +1,47 @@
+---
+title: "lz4decompress"
+sidebarTitle: "lz4decompress"
+description: "LZ4 block decompression で raw LZ4 block bytes を展開し、raw decompressed bytes を Lua 文字列として返します。"
+icon: "function"
+keywords: ["lz4decompress","Cryptography","crypt.lz4decompress","crypt.lz4.decompress","lz4.decompress"]
+---
+
+LZ4 block decompression で raw LZ4 block bytes を展開し、raw decompressed bytes を Lua 文字列として返します。
+
+## 構文
+
+```lua
+lz4decompress(data: string, originalSize?: number): string
+```
+
+## エイリアス
+
+- `crypt.lz4decompress`
+- `crypt.lz4.decompress`
+- `lz4.decompress`
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | LZ4 block decompression に渡される raw compressed bytes。 |
+| `originalSize` | `number` | No | dstCapacity として渡される output buffer size。lz4compress の出力では、元の非圧縮 byte 長を渡します。省略すると、圧縮入力の長さが使われます。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `decompressed` | `string` | Lua 文字列として返される raw decompressed bytes。出力は originalSize より短い場合があります。 |
+
+## 例
+
+元の非圧縮サイズを渡して LZ4 bytes を展開します。
+
+```lua
+local source = "Real Docs"
+local compressed = lz4compress(source)
+local decompressed = lz4decompress(compressed, #source)
+
+print(decompressed)
+print(decompressed == source)
+```

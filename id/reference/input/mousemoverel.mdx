@@ -1,0 +1,22 @@
+---
+title: "mousemoverel"
+sidebarTitle: "mousemoverel"
+description: "Menggerakkan mouse dengan relative delta saat Roblox window aktif. Argumen x dan y diperiksa sebagai Lua numbers dan dikonversi dengan integer conversion, lalu diteruskan langsung ke mouse input dengan the requested mouse action sebagai dx dan dy. Function ini tidak menggunakan the requested mouse action, tidak melakukan client-area conversion, tidak mengembalikan apa pun, dan kembali tanpa mengirim input saat isrbxactive bernilai false."
+icon: "function"
+keywords: ["mousemoverel","Input"]
+---
+
+Menggerakkan mouse dengan relative delta saat Roblox window aktif. Argumen x dan y diperiksa sebagai Lua numbers dan dikonversi dengan integer conversion, lalu diteruskan langsung ke mouse input dengan the requested mouse action sebagai dx dan dy. Function ini tidak menggunakan the requested mouse action, tidak melakukan client-area conversion, tidak mengembalikan apa pun, dan kembali tanpa mengirim input saat isrbxactive bernilai false.
+
+## Sintaks
+
+```lua
+mousemoverel(x: number, y: number)
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `x` | `number` | Yes | Relative X movement delta yang dibaca sebagai Lua number dan dikonversi dengan integer conversion sebelum diteruskan sebagai dx ke mouse input. |
+| `y` | `number` | Yes | Relative Y movement delta yang dibaca sebagai Lua number dan dikonversi dengan integer conversion sebelum diteruskan sebagai dy ke mouse input. |

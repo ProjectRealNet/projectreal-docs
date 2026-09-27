@@ -1,0 +1,28 @@
+---
+title: "rconsolecreate"
+sidebarTitle: "rconsolecreate"
+description: "console window가 없으면 process에 Windows console을 allocate합니다. console window가 이미 있으면 call은 아무 작업 없이 반환됩니다. allocation 후 function은 stdout을 console output로, stdin을 console input로 redirect합니다."
+icon: "function"
+keywords: ["rconsolecreate","Console","consolecreate"]
+---
+
+console window가 없으면 process에 Windows console을 allocate합니다. console window가 이미 있으면 call은 아무 작업 없이 반환됩니다. allocation 후 function은 stdout을 console output로, stdin을 console input로 redirect합니다.
+
+## 문법
+
+```lua
+rconsolecreate()
+```
+
+## 별칭
+
+- `consolecreate`
+
+## 예제
+
+Create the Windows console once before writing console output.
+
+```lua
+rconsolecreate()
+rconsoleprint("Console ready")
+```

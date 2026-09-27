@@ -1,0 +1,33 @@
+---
+title: "fireclickdetector"
+sidebarTitle: "fireclickdetector"
+description: "Запускает взаимодействие ClickDetector для локального игрока. Первый аргумент должен быть Instance, у которого ClassName равен ClickDetector. distance необязателен и по умолчанию равен 0. clickOption необязателен, сравнивается без учета регистра и по умолчанию равен \"mouseclick\". Поддерживаемые варианты: \"mouseclick\", \"rightmouseclick\", \"mousehoverenter\" и \"mousehoverleave\". Варианты клика передают distance как float в Roblox click helper, а варианты hover игнорируют distance. Если Players или Players.LocalPlayer недоступны, function возвращается, ничего не запуская. Неизвестный clickOption также не вызывает interaction. Function ничего не возвращает."
+icon: "function"
+keywords: ["fireclickdetector","Instances"]
+---
+
+Запускает взаимодействие ClickDetector для локального игрока. Первый аргумент должен быть Instance, у которого ClassName равен ClickDetector. distance необязателен и по умолчанию равен 0. clickOption необязателен, сравнивается без учета регистра и по умолчанию равен "mouseclick". Поддерживаемые варианты: "mouseclick", "rightmouseclick", "mousehoverenter" и "mousehoverleave". Варианты клика передают distance как float в Roblox click helper, а варианты hover игнорируют distance. Если Players или Players.LocalPlayer недоступны, function возвращается, ничего не запуская. Неизвестный clickOption также не вызывает interaction. Function ничего не возвращает.
+
+## Синтаксис
+
+```lua
+fireclickdetector(detector: Instance, distance?: number, clickOption?: "mouseclick" | "rightmouseclick" | "mousehoverenter" | "mousehoverleave")
+```
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `detector` | `Instance` | Yes | Instance, у которого ClassName должен быть ClickDetector. |
+| `distance` | `number` | No | Необязательное значение distance. По умолчанию 0, передается как float для "mouseclick" и "rightmouseclick". |
+| `clickOption` | `"mouseclick" \| "rightmouseclick" \| "mousehoverenter" \| "mousehoverleave"` | No | Необязательный selector interaction. Читается как string, сравнивается без учета регистра и по умолчанию равен "mouseclick". |
+
+## Пример
+
+Запускает interaction "mouseclick" по умолчанию для ClickDetector.
+
+```lua
+local detector = workspace.InteractivePart.ClickDetector
+
+fireclickdetector(detector)
+```

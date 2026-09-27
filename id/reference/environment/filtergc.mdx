@@ -1,0 +1,56 @@
+---
+title: "filtergc"
+sidebarTitle: "filtergc"
+description: "Mencari tables atau functions live garbage-collected yang cocok dengan filters yang diberikan. filterType harus \"table\" atau \"function\". options harus berupa table."
+icon: "function"
+keywords: ["filtergc","Environment"]
+---
+
+Mencari tables atau functions live garbage-collected yang cocok dengan filters yang diberikan. filterType harus "table" atau "function". options harus berupa table.
+
+## Sintaks
+
+```lua
+filtergc(filterType: string, options: table, returnOne?: boolean): table | function | nil
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `filterType` | `string` | Yes | GC object type yang dicari. Nilai diubah ke lowercase dan harus "table" atau "function". |
+| `options` | `table` | Yes | Filter table. function searches membaca Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants, dan Upvalues. table searches membaca Metatable, Keys, Values, dan KeyValuePairs. |
+| `returnOne` | `boolean` | No | Optional optional boolean handling flag. Saat true, mengembalikan matching object pertama atau nil, bukan array table. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `result` | `table \| function \| nil` | Saat returnOne false atau omitted, array table of matches. Saat returnOne true, matching table/function object pertama atau nil. |
+
+## Contoh
+
+Find GC tables by key filters without relying on result order.
+
+```lua
+local marker = {
+    RealDocsMarker = true,
+}
+
+local matches = filtergc("table", {
+    Keys = { "RealDocsMarker" },
+})
+
+for _, value in ipairs(matches) do
+    if value == marker then
+        print("found marker")
+        break
+    end
+end
+
+local first = filtergc("table", {
+    Keys = { "RealDocsMarker" },
+}, true)
+
+print(first ~= nil)
+```

@@ -1,0 +1,40 @@
+---
+title: "json.array"
+sidebarTitle: "json.array"
+description: "Tao new table duoc danh dau la JSON array cho json.encode, sao chep sequence 1.#source khi co source table."
+icon: "function"
+keywords: ["json.array","JSON"]
+---
+
+Tao new table duoc danh dau la JSON array cho json.encode, sao chep sequence 1.#source khi co source table.
+
+## Cú pháp
+
+```lua
+json.array(source?: table): table
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `source` | `table` | No | Optional source table. Khi bo qua hoac nil, json.array tra ve new empty array-marked table. Khi duoc cung cap, chi numeric sequence entries tu 1 with #source duoc sao chep vao new table. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `array` | `table` | New table voi JSON array marker. json.encode serializes no thanh JSON array; original source table khong duoc tra ve. |
+
+## Ví dụ
+
+Tao array-marked copy de json.encode serializes gia tri thanh JSON array.
+
+```lua
+local tags = json.array({ "api", "docs", "luau" })
+local empty = json.array()
+
+print(json.encode(tags))
+print(json.encode(empty))
+print(json.type(empty))
+```

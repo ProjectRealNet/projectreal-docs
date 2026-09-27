@@ -1,0 +1,62 @@
+---
+title: "savefiledialog"
+sidebarTitle: "savefiledialog"
+description: "Windows save dialog を通じて Windows save dialog を開き、指定された Lua string bytes を selected path に書き込み、saved file を file item として返します。"
+icon: "function"
+keywords: ["savefiledialog","Filesystem"]
+---
+
+Windows save dialog を通じて Windows save dialog を開き、指定された Lua string bytes を selected path に書き込み、saved file を file item として返します。
+
+## 構文
+
+```lua
+savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `content` | `string` | Yes | selected file に書き込む Lua string bytes。ユーザーが path を確認した後、ファイルは binary truncate mode で開かれます。 |
+| `options` | `DialogOptions` | No | Optional table. savefiledialog は title、defaultPath、extensionFilter、suggestedName、defaultExtension を使用します。extensionFilter は extension strings の table です。各 filter が *.&lt;extension> になる前に、先頭の . または *. は取り除かれます。defaultExtension は SetDefaultExtension に渡される前に leading . characters を取り除きます。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Saved file item、または dialog がキャンセルされた場合は nil。Dialog or write failures は Failed to save file を throw します。 |
+
+## 型
+
+### DialogOptions
+
+ネイティブ ファイルまたはフォルダーの選択ダイアログを構成します。
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `title` | `string` | No | ダイアログウィンドウのタイトルを設定します。 |
+| `defaultPath` | `string` | No | ダイアログが開いたときに表示されるディレクトリを選択します。 |
+| `extensionFilter` | `&#123;string&#125;` | No | 先頭のドットの有無にかかわらず、選択可能なファイルをリストされた拡張子に制限します。 |
+| `suggestedName` | `string` | No | 保存ダイアログに初期ファイル名を指定します。 |
+| `defaultExtension` | `string` | No | 入力したファイル名に拡張子がない場合に使用する拡張子を設定します。 |
+
+## 例
+
+generated content をユーザーが選んだ path に書き込み、saved file item を処理します。
+
+```lua
+local saved = savefiledialog("Example output", {
+    title = "Save output",
+    suggestedName = "output.txt",
+    defaultExtension = "txt",
+    extensionFilter = { "txt" },
+})
+
+if saved then
+    print(saved:GetName())
+    print(saved:IsFile())
+else
+    print("No file saved")
+end
+```

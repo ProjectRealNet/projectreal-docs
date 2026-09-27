@@ -1,0 +1,55 @@
+---
+title: "json.validate"
+sidebarTitle: "json.validate"
+description: "Validiert einen JSON string, indem ein einzelner complete JSON value geparsed wird. Bei success gibt die Funktion nur true zurueck. Bei parse failure gibt sie false plus parser error details zurueck."
+icon: "function"
+keywords: ["json.validate","JSON"]
+---
+
+Validiert einen JSON string, indem ein einzelner complete JSON value geparsed wird. Bei success gibt die Funktion nur true zurueck. Bei parse failure gibt sie false plus parser error details zurueck.
+
+## Syntax
+
+```lua
+json.validate(json: string, options?: DecodeOptions): boolean | string | nil | number | nil
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string, der validated wird. Die function liest dieses argument mit string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. Ein boolean setzt useNull. Eine table kann useNull und maxDepth setzen. maxDepth wird von 1 bis 4096 geclamped. |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `valid` | `boolean` | true, wenn parsing eines einzelnen complete JSON value erfolgreich ist. false, wenn parsing im protected parse block fehlschlaegt. |
+| `errorMessage` | `string \| nil` | Error message bei parse failure. Die message ist mit json.validate prefixed und enthaelt einen near-position suffix. Dieser return ist nur bei failure vorhanden. |
+| `errorPosition` | `number \| nil` | Parser byte position aus dem parser bei parse failure. Dieser return ist nur bei failure vorhanden. |
+
+## Typen
+
+### DecodeOptions
+
+Steuert das JSON-Parsing-Verhalten.
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Stellt JSON Null mit dem Null-Sentinel der Bibliothek anstelle von Null dar. |
+| `maxDepth` | `integer` | No | Legt die maximale Verschachtelungstiefe fest, geklemmt von 1 bis 4096. |
+
+## Beispiel
+
+Prueft, ob ein string genau einen complete JSON value enthaelt.
+
+```lua
+print(json.validate('{"value":42}'))
+
+local valid, message, position = json.validate('{"value":42 trailing')
+
+if not valid then
+    warn(message, position)
+end
+```

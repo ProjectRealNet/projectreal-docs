@@ -1,0 +1,62 @@
+---
+title: "openfilesdialog"
+sidebarTitle: "openfilesdialog"
+description: "Windows file picker uzerinden multi-select etkin Windows file-open dialog acar ve secilen dosyalari file item degerleri olarak dondurur."
+icon: "function"
+keywords: ["openfilesdialog","Filesystem"]
+---
+
+Windows file picker uzerinden multi-select etkin Windows file-open dialog acar ve secilen dosyalari file item degerleri olarak dondurur.
+
+## Söz dizimi
+
+```lua
+openfilesdialog(options?: DialogOptions): { FileSystemItem } | nil
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. openfilesdialog icin title, defaultPath ve extensionFilter kullanilir. extensionFilter, extension strings iceren bir table olur; her filter *.&lt;extension> olmadan once bastaki . veya *. kaldirilir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `files` | `&#123; FileSystemItem &#125; \| nil` | Secilen dosyalar icin file item degerlerinden olusan Array table, ya da dialog iptal edilirse veya selected filesystem paths donmezse nil. Dialog failures, Failed to open file dialog firlatir. |
+
+## Tipler
+
+### DialogOptions
+
+Yerel dosya veya klasör seçimi iletişim kutusunu yapılandırır.
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `title` | `string` | No | İletişim penceresi başlığını ayarlar. |
+| `defaultPath` | `string` | No | İletişim kutusu açıldığında gösterilen dizini seçer. |
+| `extensionFilter` | `&#123;string&#125;` | No | Seçilebilir dosyaları, başında nokta olsun ya da olmasın, listelenen uzantılarla sınırlar. |
+| `suggestedName` | `string` | No | Kaydetme iletişim kutularında ilk dosya adını sağlar. |
+| `defaultExtension` | `string` | No | Girilen dosya adında hiçbir uzantı olmadığında kullanılan uzantıyı ayarlar. |
+
+## Örnek
+
+Bir veya daha fazla dosya secmek icin file picker acin ve her selected file item degerini isleyin.
+
+```lua
+local files = openfilesdialog({
+    title = "Choose source files",
+    defaultPath = ".",
+    extensionFilter = { "lua", "luau", "txt" },
+})
+
+if files then
+    for _, file in ipairs(files) do
+        print(file:GetName())
+        print(file:IsFile())
+    end
+else
+    print("No files selected")
+end
+```

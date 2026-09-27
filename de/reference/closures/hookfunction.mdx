@@ -1,0 +1,50 @@
+---
+title: "hookfunction"
+sidebarTitle: "hookfunction"
+description: "Hookt eine target function mit einer replacement function und gibt eine cloned copy der original target closure zurück. Beide arguments müssen functions sein. Die function flusht zuerst pending C function swaps, cloned den target über function cloning, fügt die replacement closure oder ihr mapped newcclosure target zu hidden stack tracking hinzu, ruft FixCallstack für target und cloned original auf und patcht dann die target closure über den C closure, Luau closure oder newcclosure-specific path. Wenn target noch nicht in hook records ist, wird das cloned original dort für restorefunction gespeichert. Die returned function ist die cloned original closure."
+icon: "function"
+keywords: ["hookfunction","Closures","hookfunc","replaceclosure","detourfunction","detour_function"]
+---
+
+Hookt eine target function mit einer replacement function und gibt eine cloned copy der original target closure zurück. Beide arguments müssen functions sein. Die function flusht zuerst pending C function swaps, cloned den target über function cloning, fügt die replacement closure oder ihr mapped newcclosure target zu hidden stack tracking hinzu, ruft FixCallstack für target und cloned original auf und patcht dann die target closure über den C closure, Luau closure oder newcclosure-specific path. Wenn target noch nicht in hook records ist, wird das cloned original dort für restorefunction gespeichert. Die returned function ist die cloned original closure.
+
+## Syntax
+
+```lua
+hookfunction(target: function, replacement: function): function
+```
+
+## Aliase
+
+- `hookfunc`
+- `replaceclosure`
+- `detourfunction`
+- `detour_function`
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `target` | `function` | Yes | Function, die gepatcht werden soll. Das Übergeben einer non-function löst einen type error aus. |
+| `replacement` | `function` | Yes | Function, deren function in target installiert oder auf target gemappt wird. Das Übergeben einer non-function löst einen type error aus. |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `original` | `function` | Cloned copy der original target closure, die vor dem Installieren des hook erstellt wurde. |
+
+## Beispiel
+
+Patch a function closure and keep a cloned original.
+
+```lua
+local function target(value)
+    return value + 1
+end
+
+local original
+original = hookfunction(target, function(value)
+    return original(value) * 2
+end)
+```

@@ -1,0 +1,21 @@
+---
+title: "getsignalwhitelist"
+sidebarTitle: "getsignalwhitelist"
+description: "返回一个新的 array table，其中包含 function 定义的六个静态 whitelist entry: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent。每个 entry 都是带有 Event 和 Parent string field 的 table。此 function 不接受 arguments，也不会检查当前 game state。"
+icon: "function"
+keywords: ["getsignalwhitelist","Signals"]
+---
+
+返回一个新的 array table，其中包含 function 定义的六个静态 whitelist entry: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent。每个 entry 都是带有 Event 和 Parent string field 的 table。此 function 不接受 arguments，也不会检查当前 game state。
+
+## 语法
+
+```lua
+getsignalwhitelist(): table
+```
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `signals` | `table` | 静态 whitelist entry 的 array table。每个 entry 都有 Event 和 Parent string field。 |

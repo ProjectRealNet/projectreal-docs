@@ -1,0 +1,56 @@
+---
+title: "RealSignal.Wait"
+sidebarTitle: "RealSignal.Wait"
+description: "Yields the current thread until the RealSignal is fired, then resumes with the arguments passed to Fire. It errors when called from a context that cannot yield."
+icon: "function"
+keywords: ["RealSignal.Wait","RealSignal"]
+---
+
+Yields the current thread until the RealSignal is fired, then resumes with the arguments passed to Fire. It errors when called from a context that cannot yield.
+
+## Sintaks
+
+```lua
+RealSignal.Wait(signal: RealSignal): ....any
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `signal` | `RealSignal` | Yes | Signal object returned by Signal.new. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `...values` | `....any` | All values passed to the Fire call that resumed the waiter. |
+
+## Tipe
+
+### RealSignal
+
+Signal object returned by Signal.new.
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `Connect` | `(callback: (...any) -> ()) -> RealSignalConnection` | Yes | Adds a callback that runs when Fire is called. |
+| `Once` | `(callback: (...any) -> ()) -> RealSignalConnection` | Yes | Adds a callback that is disconnected before its first callback invocation. |
+| `Wait` | `() -> ...any` | Yes | Yields until Fire resumes the waiter with the fired values. |
+| `Fire` | `(...values: any) -> ()` | Yes | Runs connected callbacks and resumes waiters with the provided values. |
+
+## Contoh
+
+Yield until the signal fires and receive the fired values.
+
+```lua
+local signal = Signal.new()
+
+task.spawn(function()
+    task.wait(1)
+    signal:Fire("done", 2)
+end)
+
+local status, count = signal:Wait()
+print(status, count)
+```

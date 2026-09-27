@@ -1,0 +1,21 @@
+---
+title: "Cryptography"
+description: "编码、散列、加密和压缩。"
+icon: "folder-code"
+---
+
+编码、散列、加密和压缩。
+
+| 函数导航 | 说明 |
+| --- | --- |
+| [`base64_decode`](./base64-decode) | 使用 Base64 decoder 解码 Base64 输入，并将解码后的字节作为 Lua string 返回。 |
+| [`base64_encode`](./base64-encode) | 使用 Base64 encoder 编码 Lua string 的字节，使用 = padding 且不插入换行。 |
+| [`crypt.decrypt`](./crypt-decrypt) | 使用从 Base64 解码的 key 和必需的 Base64 IV，通过 AES CBC 或 ECB 解密 Base64 ciphertext。 |
+| [`crypt.encrypt`](./crypt-encrypt) | 使用从 Base64 解码的 key，通过 AES CBC、ECB 或 CTR 加密 Lua string 字节，然后返回 Base64 ciphertext 和 IV 结果。 |
+| [`crypt.generatebytes`](./crypt-generatebytes) | 使用 random byte generator 生成随机字节，并以 Base64-encoded Lua string 返回。 |
+| [`crypt.generatekey`](./crypt-generatekey) | 使用 random byte generator 生成 32 个随机 raw bytes，并以 Base64-encoded Lua string 返回。 |
+| [`crypt.hash`](./crypt-hash) | 使用受支持的 crypto library hash 算法对 Lua string 字节进行 hash，并返回 lowercase hexadecimal digest。 |
+| [`crypt.hmac`](./crypt-hmac) | 使用 raw Lua string key 对 Lua string 字节计算 crypto library HMAC，并返回 Base64 digest。 |
+| [`crypt.random`](./crypt-random) | 使用 random byte generator 生成 raw random bytes，并作为 Lua string 返回。 |
+| [`lz4compress`](./lz4compress) | 使用 LZ4 block compression 压缩 Lua string 字节，并将 raw compressed bytes 作为 Lua string 返回。 |
+| [`lz4decompress`](./lz4decompress) | 使用 LZ4 block decompression 解压 raw LZ4 block bytes，并以 Lua 字符串返回 raw decompressed bytes。 |

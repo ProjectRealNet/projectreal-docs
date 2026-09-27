@@ -1,0 +1,40 @@
+---
+title: "json.array"
+sidebarTitle: "json.array"
+description: "ينشئ new table مميزة كـ JSON array من أجل json.encode، وينسخ sequence من 1.#source عند توفير source table."
+icon: "function"
+keywords: ["json.array","JSON"]
+---
+
+ينشئ new table مميزة كـ JSON array من أجل json.encode، وينسخ sequence من 1.#source عند توفير source table.
+
+## الصيغة
+
+```lua
+json.array(source?: table): table
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `source` | `table` | No | Optional source table. عند الحذف أو nil، يعيد json.array new empty array-marked table. عند توفيرها، يتم نسخ numeric sequence entries فقط من 1 with #source إلى new table. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `array` | `table` | New table مع JSON array marker. json.encode يقوم serializes لها كـ JSON array؛ original source table لا يتم إرجاعها. |
+
+## مثال
+
+انشئ array-marked copy حتى يقوم json.encode بعمل serialize للقيمة كـ JSON array.
+
+```lua
+local tags = json.array({ "api", "docs", "luau" })
+local empty = json.array()
+
+print(json.encode(tags))
+print(json.encode(empty))
+print(json.type(empty))
+```

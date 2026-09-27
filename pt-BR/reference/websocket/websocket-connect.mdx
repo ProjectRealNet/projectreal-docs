@@ -1,0 +1,52 @@
+---
+title: "WebSocket.connect"
+sidebarTitle: "WebSocket.connect"
+description: "Cria dois BindableEvents, abre uma WebSocket client WebSocket connection para a URL fornecida e faz yield até a tentativa de conexão terminar. Em caso de sucesso, retorna uma WebSocket table com events OnMessage e OnClose, methods Send e Close fornecidos pela methods, e um connection state. Incoming message data é disparada por OnMessage como string. Quando a receive loop termina, OnClose é disparado sem arguments. Em caso de falha de conexão, a função lança uma error string que começa com \"WebSocket connection failed\"."
+icon: "function"
+keywords: ["WebSocket.connect","WebSocket","WebSocket.Connect","websocket.connect","websocket.Connect"]
+---
+
+Cria dois BindableEvents, abre uma WebSocket client WebSocket connection para a URL fornecida e faz yield até a tentativa de conexão terminar. Em caso de sucesso, retorna uma WebSocket table com events OnMessage e OnClose, methods Send e Close fornecidos pela methods, e um connection state. Incoming message data é disparada por OnMessage como string. Quando a receive loop termina, OnClose é disparado sem arguments. Em caso de falha de conexão, a função lança uma error string que começa com "WebSocket connection failed".
+
+## Sintaxe
+
+```lua
+WebSocket.connect(url: string): WebSocket
+```
+
+## Aliases
+
+- `WebSocket.Connect`
+- `websocket.connect`
+- `websocket.Connect`
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `url` | `string` | Yes | URL string passada para CURLOPT_URL antes de WebSocket client executar o WebSocket connection attempt. |
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `socket` | `WebSocket` | WebSocket table contendo OnMessage, OnClose e connection state. Send e Close são resolvidos pela WebSocket object methods. |
+
+## Exemplo
+
+Abra um WebSocket, conecte OnMessage e OnClose, depois use socket methods para enviar e fechar.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket.OnMessage:Connect(function(message)
+    print(message)
+end)
+
+socket.OnClose:Connect(function()
+    print("closed")
+end)
+
+socket:Send("hello")
+socket:Close()
+```

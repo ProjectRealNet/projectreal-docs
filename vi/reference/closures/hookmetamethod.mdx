@@ -1,0 +1,50 @@
+---
+title: "hookmetamethod"
+sidebarTitle: "hookmetamethod"
+description: "Tìm metamethod function trên một value và hook function đó thông qua hookfunction. First argument có thể là bất kỳ value nào được raw metafield lookup chấp nhận. Second argument phải là string metamethod name, và third argument phải là function replacement. Nếu raw metafield lookup không tìm thấy named metafield, function tạo \"Metamethod doesn't exist\" cho argument 2. Nếu metafield tồn tại nhưng không phải function, function tạo \"Metamethod isn't a function\" cho argument 2. Khi metafield là function, hookmetamethod gọi hookfunction với found metamethod function làm target và trả về cloned original closure của hookfunction."
+icon: "function"
+keywords: ["hookmetamethod","Closures"]
+---
+
+Tìm metamethod function trên một value và hook function đó thông qua hookfunction. First argument có thể là bất kỳ value nào được raw metafield lookup chấp nhận. Second argument phải là string metamethod name, và third argument phải là function replacement. Nếu raw metafield lookup không tìm thấy named metafield, function tạo "Metamethod doesn't exist" cho argument 2. Nếu metafield tồn tại nhưng không phải function, function tạo "Metamethod isn't a function" cho argument 2. Khi metafield là function, hookmetamethod gọi hookfunction với found metamethod function làm target và trả về cloned original closure của hookfunction.
+
+## Cú pháp
+
+```lua
+hookmetamethod(object: any, metamethod: string, replacement: function): function
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | Value có methods được kiểm tra bằng raw metafield lookup. |
+| `metamethod` | `string` | Yes | Metafield name được truyền vào raw metafield lookup. |
+| `replacement` | `function` | Yes | Function được truyền vào hookfunction làm replacement cho found metamethod function. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `original` | `function` | Cloned original metamethod closure được hookfunction trả về. |
+
+## Ví dụ
+
+Hook an existing metamethod function.
+
+```lua
+local object = setmetatable({}, {
+    __index = function(_, key)
+        return key
+    end,
+})
+
+local original
+original = hookmetamethod(object, "__index", function(self, key)
+    if key == "Name" then
+        return "Real"
+    end
+
+    return original(self, key)
+end)
+```

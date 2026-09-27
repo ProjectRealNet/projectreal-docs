@@ -1,0 +1,40 @@
+---
+title: "writefile"
+sidebarTitle: "writefile"
+description: "workspace 안의 파일에 Lua string bytes 를 쓰고, missing parent directories 를 만들며, 파일이 이미 있으면 file contents 를 교체합니다."
+icon: "function"
+keywords: ["writefile","Filesystem","writefileasync"]
+---
+
+workspace 안의 파일에 Lua string bytes 를 쓰고, missing parent directories 를 만들며, 파일이 이미 있으면 file contents 를 교체합니다.
+
+## 문법
+
+```lua
+writefile(path: string, content: string)
+```
+
+## 별칭
+
+- `writefileasync`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | separator normalization, workspace-boundary checks, filename/extension checks 후 workspace 안으로 resolve 되는 File path 입니다. Absolute paths 는 workspace 안으로 resolve 될 때만 허용됩니다. |
+| `content` | `string` | Yes | 쓸 Lua string bytes 입니다. 데이터는 binary truncate mode 로 쓰입니다. writefile 은 newlines, BOM bytes, null terminators 또는 다른 extra bytes 를 추가하지 않습니다. |
+
+## 예제
+
+workspace file 에 bytes 를 쓰고 existing contents 를 교체합니다.
+
+```lua
+local path = "examples/config.json"
+
+writefile(path, '{"enabled":true}')
+print(readfile(path))
+
+writefile(path, "")
+print(#readfile(path))
+```

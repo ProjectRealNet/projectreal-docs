@@ -1,0 +1,33 @@
+---
+title: "fireclickdetector"
+sidebarTitle: "fireclickdetector"
+description: "Kich hoat mot ClickDetector interaction cho nguoi choi local. Doi so dau tien phai la Instance co ClassName la ClickDetector. distance la tuy chon va mac dinh la 0. clickOption la tuy chon, duoc so sanh khong phan biet chu hoa chu thuong, va mac dinh la \"mouseclick\". Cac option duoc ho tro la \"mouseclick\", \"rightmouseclick\", \"mousehoverenter\", va \"mousehoverleave\". Cac option click truyen distance duoi dang float vao Roblox click helper, con cac option hover bo qua distance. Neu Players hoac Players.LocalPlayer khong kha dung, function quay lai ma khong kich hoat gi. clickOption khong xac dinh cung khong tao interaction. Function khong tra ve gi."
+icon: "function"
+keywords: ["fireclickdetector","Instances"]
+---
+
+Kich hoat mot ClickDetector interaction cho nguoi choi local. Doi so dau tien phai la Instance co ClassName la ClickDetector. distance la tuy chon va mac dinh la 0. clickOption la tuy chon, duoc so sanh khong phan biet chu hoa chu thuong, va mac dinh la "mouseclick". Cac option duoc ho tro la "mouseclick", "rightmouseclick", "mousehoverenter", va "mousehoverleave". Cac option click truyen distance duoi dang float vao Roblox click helper, con cac option hover bo qua distance. Neu Players hoac Players.LocalPlayer khong kha dung, function quay lai ma khong kich hoat gi. clickOption khong xac dinh cung khong tao interaction. Function khong tra ve gi.
+
+## Cú pháp
+
+```lua
+fireclickdetector(detector: Instance, distance?: number, clickOption?: "mouseclick" | "rightmouseclick" | "mousehoverenter" | "mousehoverleave")
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `detector` | `Instance` | Yes | Instance co ClassName phai la ClickDetector. |
+| `distance` | `number` | No | Gia tri distance tuy chon. Mac dinh la 0 va duoc truyen duoi dang float cho "mouseclick" va "rightmouseclick". |
+| `clickOption` | `"mouseclick" \| "rightmouseclick" \| "mousehoverenter" \| "mousehoverleave"` | No | Bo chon interaction tuy chon. Duoc doc nhu string, so sanh khong phan biet chu hoa chu thuong, va mac dinh la "mouseclick". |
+
+## Ví dụ
+
+Kich hoat interaction "mouseclick" mac dinh tren ClickDetector.
+
+```lua
+local detector = workspace.InteractivePart.ClickDetector
+
+fireclickdetector(detector)
+```

@@ -1,0 +1,40 @@
+---
+title: "json.array"
+sidebarTitle: "json.array"
+description: "สร้าง new table ที่ถูก mark เป็น JSON array สำหรับ json.encode และคัดลอก sequence 1.#source เมื่อมี source table"
+icon: "function"
+keywords: ["json.array","JSON"]
+---
+
+สร้าง new table ที่ถูก mark เป็น JSON array สำหรับ json.encode และคัดลอก sequence 1.#source เมื่อมี source table
+
+## ไวยากรณ์
+
+```lua
+json.array(source?: table): table
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `source` | `table` | No | Optional source table. เมื่อไม่ใส่หรือเป็น nil, json.array จะคืน new empty array-marked table. เมื่อใส่ค่า จะคัดลอกเฉพาะ numeric sequence entries จาก 1 with #source ไปยัง new table. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `array` | `table` | New table พร้อม JSON array marker. json.encode จะ serializes เป็น JSON array; original source table จะไม่ถูกคืนกลับ. |
+
+## ตัวอย่าง
+
+สร้าง array-marked copy เพื่อให้ json.encode serializes ค่าเป็น JSON array.
+
+```lua
+local tags = json.array({ "api", "docs", "luau" })
+local empty = json.array()
+
+print(json.encode(tags))
+print(json.encode(empty))
+print(json.type(empty))
+```

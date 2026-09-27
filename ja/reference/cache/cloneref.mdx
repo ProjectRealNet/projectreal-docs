@@ -1,0 +1,45 @@
+---
+title: "cloneref"
+sidebarTitle: "cloneref"
+description: "同じ基になる Instance ポインタに対して新しい Instance 参照を push し、それを返します。"
+icon: "function"
+keywords: ["cloneref","Cache","clonereference"]
+---
+
+同じ基になる Instance ポインタに対して新しい Instance 参照を push し、それを返します。
+
+## 構文
+
+```lua
+cloneref(instance: Instance): Instance
+```
+
+## エイリアス
+
+- `clonereference`
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | 新しい参照のソースとして使われる Instance object。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `reference` | `Instance` | 元の object ポインタで Instance cache が実行された後に返される Instance 参照。 |
+
+## 例
+
+既存の Instance object から別の Instance 参照を作成します。
+
+```lua
+local Players = game:GetService("Players")
+
+local reference = cloneref(Players)
+print(reference)
+
+local sameAlias = clonereference(Players)
+print(sameAlias)
+```

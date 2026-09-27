@@ -1,0 +1,35 @@
+---
+title: "getactorthreads"
+sidebarTitle: "getactorthreads"
+description: "Trả về array table gồm Luau threads từ actor thread list. Function không nhận arguments. Nó đọc actor list bounds từ ScriptContext, đi qua từng actor state entry, decrypt stored global state thành Luau thread và chỉ bao gồm entries là valid threads."
+icon: "function"
+keywords: ["getactorthreads","Actors","getactorstates"]
+---
+
+Trả về array table gồm Luau threads từ actor thread list. Function không nhận arguments. Nó đọc actor list bounds từ ScriptContext, đi qua từng actor state entry, decrypt stored global state thành Luau thread và chỉ bao gồm entries là valid threads.
+
+## Cú pháp
+
+```lua
+getactorthreads(): {thread}
+```
+
+## Alias
+
+- `getactorstates`
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `threads` | `&#123;thread&#125;` | Array table gồm actor Luau thread values được push dưới dạng Luau threads. |
+
+## Ví dụ
+
+List Luau threads from the ScriptContext actor state list.
+
+```lua
+for _, thread in ipairs(getactorthreads()) do
+    print(thread)
+end
+```

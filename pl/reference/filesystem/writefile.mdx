@@ -1,0 +1,40 @@
+---
+title: "writefile"
+sidebarTitle: "writefile"
+description: "Zapisuje Lua string bytes do pliku wewnatrz workspace, tworzy missing parent directories i zastepuje file contents, jesli plik juz istnieje."
+icon: "function"
+keywords: ["writefile","Filesystem","writefileasync"]
+---
+
+Zapisuje Lua string bytes do pliku wewnatrz workspace, tworzy missing parent directories i zastepuje file contents, jesli plik juz istnieje.
+
+## Składnia
+
+```lua
+writefile(path: string, content: string)
+```
+
+## Aliasy
+
+- `writefileasync`
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | File path rozwiazywany wewnatrz workspace po separator normalization, workspace-boundary checks oraz filename/extension checks. Absolute paths sa akceptowane tylko jesli rozwiazuja sie wewnatrz workspace. |
+| `content` | `string` | Yes | Lua string bytes do zapisania. Dane sa zapisywane w binary truncate mode; writefile nie dodaje newlines, BOM bytes, null terminators ani innych extra bytes. |
+
+## Przykład
+
+Zapisz bytes do workspace file i zastap kazde existing contents.
+
+```lua
+local path = "examples/config.json"
+
+writefile(path, '{"enabled":true}')
+print(readfile(path))
+
+writefile(path, "")
+print(#readfile(path))
+```

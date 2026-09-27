@@ -1,0 +1,40 @@
+---
+title: "getrenderproperty"
+sidebarTitle: "getrenderproperty"
+description: "Returns the result of indexing the first argument with the given property key. For Drawing object, this uses the same Drawing property lookup as object[property], so unknown properties and destroyed Drawing objects return nil. the Drawing API registers this API only when the required rendering environment is active is true; when that check is false, the initializer returns before creating these globals."
+icon: "function"
+keywords: ["getrenderproperty","Drawing"]
+---
+
+Returns the result of indexing the first argument with the given property key. For Drawing object, this uses the same Drawing property lookup as object[property], so unknown properties and destroyed Drawing objects return nil. the Drawing API registers this API only when the required rendering environment is active is true; when that check is false, the initializer returns before creating these globals.
+
+## Syntax
+
+```lua
+getrenderproperty(object: any, property: any): any
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | Value to index. With a Drawing object, the RealDrawingObject __index handler is used. |
+| `property` | `any` | Yes | Property key used for indexing. Drawing object properties are string-based. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `propertyValue` | `any` | Value returned by indexing object with property, or nil when the Drawing __index handler has no value for that property. |
+
+## Example
+
+Read a Drawing property like direct indexing.
+
+```lua
+local line = Drawing.new("Line")
+line.Thickness = 3
+
+print(getrenderproperty(line, "Thickness"))
+print(getrenderproperty(line, "MissingProperty"))
+```

@@ -1,0 +1,50 @@
+---
+title: "decompile"
+sidebarTitle: "decompile"
+description: "Roblox script を decompile し、bytecode が利用できる場合は生成された source text を返します。argument は対応している script Instance である必要があります。使用できる bytecode がない場合、この function は nil を返します。"
+icon: "function"
+keywords: ["decompile","Scripts"]
+---
+
+Roblox script を decompile し、bytecode が利用できる場合は生成された source text を返します。argument は対応している script Instance である必要があります。使用できる bytecode がない場合、この function は nil を返します。
+
+## 構文
+
+```lua
+decompile(script: userdata): string | nil
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | decompile する Script object。対応する ClassName values は ModuleScript、LocalScript、CoreScript、RunContext Client の Script です。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `source` | `string \| nil` | Decompiler output string、caught decompiler exception text、または usable embedded bytecode がない場合は nil。 |
+
+## 例
+
+Decompile a supported Roblox script Instance. To decompile a whole game, iterate its descendants or use a saveinstance workflow.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local source = decompile(targetScript)
+
+    if source then
+        print(source)
+    end
+end
+```

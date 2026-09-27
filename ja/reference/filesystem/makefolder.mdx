@@ -1,0 +1,32 @@
+---
+title: "makefolder"
+sidebarTitle: "makefolder"
+description: "recursive folder creation を使い、missing parent directories を含めて workspace 内に directory を作成します。"
+icon: "function"
+keywords: ["makefolder","Filesystem"]
+---
+
+recursive folder creation を使い、missing parent directories を含めて workspace 内に directory を作成します。
+
+## 構文
+
+```lua
+makefolder(path: string)
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | separator normalization と workspace-boundary checks の後、workspace 内で解決される directory path。empty、invalid、outside-workspace paths は作成を試みる前に error になります。 |
+
+## 例
+
+workspace directory と missing parent directories を作成します。
+
+```lua
+local path = "examples/generated/nested"
+
+makefolder(path)
+print(isfolder(path))
+```

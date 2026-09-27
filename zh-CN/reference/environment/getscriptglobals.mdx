@@ -1,0 +1,32 @@
+---
+title: "getscriptglobals"
+sidebarTitle: "getscriptglobals"
+description: "返回包含 _G 和 shared 的 current LUA_GLOBALSINDEX values 的 new table。该 function 不接受 arguments，会创建 fresh table，把 _G 从 LUA_GLOBALSINDEX._G 赋值，把 shared 从 LUA_GLOBALSINDEX.shared 赋值，并返回 exactly one value。它不会返回 full global table，getscriptglobals 没有注册 alias。"
+icon: "function"
+keywords: ["getscriptglobals","Environment"]
+---
+
+返回包含 _G 和 shared 的 current LUA_GLOBALSINDEX values 的 new table。该 function 不接受 arguments，会创建 fresh table，把 _G 从 LUA_GLOBALSINDEX._G 赋值，把 shared 从 LUA_GLOBALSINDEX.shared 赋值，并返回 exactly one value。它不会返回 full global table，getscriptglobals 没有注册 alias。
+
+## 语法
+
+```lua
+getscriptglobals(): table
+```
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `globals` | `table` | 从 LUA_GLOBALSINDEX 复制了 _G 和 shared fields 的 fresh table。 |
+
+## 示例
+
+Read the _G and shared values copied from LUA_GLOBALSINDEX.
+
+```lua
+local globals = getscriptglobals()
+
+print(globals._G)
+print(globals.shared)
+```

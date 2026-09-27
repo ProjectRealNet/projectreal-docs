@@ -1,0 +1,62 @@
+---
+title: "savefiledialog"
+sidebarTitle: "savefiledialog"
+description: "Windows save dialog uzerinden Windows save dialog acar, verilen Lua string bytes degerlerini selected path konumuna yazar ve saved file degerini file item olarak dondurur."
+icon: "function"
+keywords: ["savefiledialog","Filesystem"]
+---
+
+Windows save dialog uzerinden Windows save dialog acar, verilen Lua string bytes degerlerini selected path konumuna yazar ve saved file degerini file item olarak dondurur.
+
+## Söz dizimi
+
+```lua
+savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `content` | `string` | Yes | selected file icine yazilacak Lua string bytes. Kullanici bir path onayladiktan sonra dosya binary truncate mode ile acilir. |
+| `options` | `DialogOptions` | No | Optional table. savefiledialog title, defaultPath, extensionFilter, suggestedName ve defaultExtension kullanir. extensionFilter, extension strings iceren bir table olur; her filter *.&lt;extension> olmadan once bastaki . veya *. kaldirilir. defaultExtension, SetDefaultExtension icine gecmeden once leading . characters kaldirir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Saved file item, ya da dialog iptal edilirse nil. Dialog or write failures, Failed to save file firlatir. |
+
+## Tipler
+
+### DialogOptions
+
+Yerel dosya veya klasör seçimi iletişim kutusunu yapılandırır.
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `title` | `string` | No | İletişim penceresi başlığını ayarlar. |
+| `defaultPath` | `string` | No | İletişim kutusu açıldığında gösterilen dizini seçer. |
+| `extensionFilter` | `&#123;string&#125;` | No | Seçilebilir dosyaları, başında nokta olsun ya da olmasın, listelenen uzantılarla sınırlar. |
+| `suggestedName` | `string` | No | Kaydetme iletişim kutularında ilk dosya adını sağlar. |
+| `defaultExtension` | `string` | No | Girilen dosya adında hiçbir uzantı olmadığında kullanılan uzantıyı ayarlar. |
+
+## Örnek
+
+generated content degerini kullanicinin sectigi path konumuna yazin ve saved file item degerini isleyin.
+
+```lua
+local saved = savefiledialog("Example output", {
+    title = "Save output",
+    suggestedName = "output.txt",
+    defaultExtension = "txt",
+    extensionFilter = { "txt" },
+})
+
+if saved then
+    print(saved:GetName())
+    print(saved:IsFile())
+else
+    print("No file saved")
+end
+```

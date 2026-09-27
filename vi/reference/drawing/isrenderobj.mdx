@@ -1,0 +1,40 @@
+---
+title: "isrenderobj"
+sidebarTitle: "isrenderobj"
+description: "Tra ve lieu gia tri co phai object voi Drawing object type hay khong. Day chi la methods check; no khong kiem tra Drawing object ben trong con active, tracked hay destroyed hay khong. the Drawing API chi dang ky API nay khi the required rendering environment is active la true; khi kiem tra do la false, initializer quay lai truoc khi tao cac globals nay."
+icon: "function"
+keywords: ["isrenderobj","Drawing"]
+---
+
+Tra ve lieu gia tri co phai object voi Drawing object type hay khong. Day chi la methods check; no khong kiem tra Drawing object ben trong con active, tracked hay destroyed hay khong. the Drawing API chi dang ky API nay khi the required rendering environment is active la true; khi kiem tra do la false, initializer quay lai truoc khi tao cac globals nay.
+
+## Cú pháp
+
+```lua
+isrenderobj(object: any): boolean
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | Gia tri can kiem tra. Non-object values va object khong co Drawing object type se tra ve false. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `isDrawingObject` | `boolean` | True khi gia tri la object co methods khop voi RealDrawingObject; neu khong thi false. |
+
+## Ví dụ
+
+Check whether a value has Real's Drawing userdata metatable.
+
+```lua
+local square = Drawing.new("Square")
+
+print(isrenderobj(square))
+square:Destroy()
+print(isrenderobj(square))
+print(isrenderobj({}))
+```

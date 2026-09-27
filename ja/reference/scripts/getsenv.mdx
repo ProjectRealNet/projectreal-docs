@@ -1,0 +1,47 @@
+---
+title: "getsenv"
+sidebarTitle: "getsenv"
+description: "Returns the environment table associated with a LocalScript, Script, or ModuleScript. Unsupported script objects or scripts without an available thread raise the same errors as the underlying script lookup."
+icon: "function"
+keywords: ["getsenv","Scripts"]
+---
+
+Returns the environment table associated with a LocalScript, Script, or ModuleScript. Unsupported script objects or scripts without an available thread raise the same errors as the underlying script lookup.
+
+## 構文
+
+```lua
+getsenv(script: userdata): table
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | Script object to inspect. Supported ClassName values are LocalScript, Script, and ModuleScript. |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `environment` | `table` | Environment table associated with the script or module. |
+
+## 例
+
+Read the environment table associated with a supported script Instance.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local environment = getsenv(targetScript)
+    print(environment)
+end
+```

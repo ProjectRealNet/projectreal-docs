@@ -1,0 +1,41 @@
+---
+title: "json.isNull"
+sidebarTitle: "json.isNull"
+description: "Tra ve value co phai Real JSON null sentinel, json.null, hay khong."
+icon: "function"
+keywords: ["json.isNull","JSON"]
+---
+
+Tra ve value co phai Real JSON null sentinel, json.null, hay khong.
+
+## Cú pháp
+
+```lua
+json.isNull(value: any): boolean
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value de inspect. Chi json.null value tra ve true; Lua nil va other values tra ve false. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `isNull` | `boolean` | true khi value la exact json.null sentinel, otherwise false. |
+
+## Ví dụ
+
+Check value co phai json.null sentinel thay vi Lua nil hay khong.
+
+```lua
+local value = json.decode("null")
+
+if json.isNull(value) then
+    print("The value is JSON null")
+end
+
+print(json.isNull(nil))
+```

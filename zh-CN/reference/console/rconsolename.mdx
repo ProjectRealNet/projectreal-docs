@@ -1,0 +1,36 @@
+---
+title: "rconsolename"
+sidebarTitle: "rconsolename"
+description: "使用 Windows console title update 设置当前 Windows console window 的 title。第一个 argument 必须是 string，并且会在 console existence check 之前检查。如果 string check 成功后不存在 console window，该调用会直接返回且不执行任何操作。"
+icon: "function"
+keywords: ["rconsolename","Console","consolename","rconsolesettitle","consolesettitle"]
+---
+
+使用 Windows console title update 设置当前 Windows console window 的 title。第一个 argument 必须是 string，并且会在 console existence check 之前检查。如果 string check 成功后不存在 console window，该调用会直接返回且不执行任何操作。
+
+## 语法
+
+```lua
+rconsolename(text: string)
+```
+
+## 别名
+
+- `consolename`
+- `rconsolesettitle`
+- `consolesettitle`
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | 操作使用的文本值。 |
+
+## 示例
+
+Set the current Windows console window title.
+
+```lua
+rconsolecreate()
+rconsolename("Real Console")
+```

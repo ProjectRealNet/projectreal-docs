@@ -1,0 +1,59 @@
+---
+title: "json.decodeSafe"
+sidebarTitle: "json.decodeSafe"
+description: "Parse JSON bang cung parser voi json.decode va tra ve success flag thay vi throw cho parse errors."
+icon: "function"
+keywords: ["json.decodeSafe","JSON"]
+---
+
+Parse JSON bang cung parser voi json.decode va tra ve success flag thay vi throw cho parse errors.
+
+## Cú pháp
+
+```lua
+json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON text de parse. argument nay duoc kiem tra la string truoc khi parse errors duoc catch. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean dat useNull truc tiep. table co the dat useNull va maxDepth; maxDepth duoc clamp tu 1 den 4096. Invalid option argument types duoc kiem tra truoc khi parse errors duoc catch. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `success` | `boolean` | True khi parsing thanh cong, false khi parser bao error. |
+| `decoded` | `any \| nil` | Decoded value khi thanh cong, nil khi parse failure. JSON false hop le tra ve success la true va decoded la false, vi vay hay kiem tra success return value. |
+| `errorMessage` | `string \| nil` | Error message khi parse failure, nguoc lai nil. message bao gom json.decodeSafe prefix va parser position. |
+| `errorPosition` | `number \| nil` | Parser byte position khi parse failure, nguoc lai nil. |
+
+## Kiểu
+
+### DecodeOptions
+
+Kiểm soát hành vi phân tích cú pháp JSON.
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Biểu thị JSON null bằng giá trị null của thư viện thay vì con số không. |
+| `maxDepth` | `integer` | No | Đặt độ sâu lồng tối đa, được kẹp từ 1 đến 4096. |
+
+## Ví dụ
+
+Parse JSON va dung success return value de tach valid false hoac nil results khoi parse failures.
+
+```lua
+local ok, value = json.decodeSafe("false")
+
+if ok then
+    print(value == false)
+end
+
+local parsed, _, message, position = json.decodeSafe("{")
+if not parsed then
+    warn(message, position)
+end
+```

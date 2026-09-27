@@ -1,0 +1,14 @@
+---
+title: "Threads"
+description: "Thread context and identity."
+icon: "folder-code"
+---
+
+Thread context and identity.
+
+| Function navigation | Description |
+| --- | --- |
+| [`getscriptfromthread`](./getscriptfromthread) | Returns the Script Instance associated with a Luau thread, or nil when no valid script reference is available. |
+| [`getthreadidentity`](./getthreadidentity) | Returns the identity for the current Luau thread, or for the first argument when that argument is a thread. Returned identities are 1 through 12; other stored values return 0. |
+| [`isourthread`](./isourthread) | Returns whether the supplied Luau thread is tracked as a Real-created thread. is_our_thread is an alias. |
+| [`setthreadidentity`](./setthreadidentity) | Sets the identity for the current Luau thread, or for a provided Luau thread. Identity values are converted to integers and clamped to the supported range 0 through 12. |

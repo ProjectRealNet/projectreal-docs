@@ -1,0 +1,22 @@
+---
+title: "mousemoveabs"
+sidebarTitle: "mousemoveabs"
+description: "Menggerakkan mouse memakai Windows absolute mouse input saat Roblox window aktif. Argumen x dan y diperiksa sebagai Lua numbers dan dikonversi dengan integer conversion. Real memperlakukannya sebagai koordinat relative to active foreground window client area, menambahkan posisi layar client area itu dengan ClientToScreen, melakukan scaling memakai GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 dan integer math, lalu memanggil mouse input dengan the requested mouse action. Jika isrbxactive bernilai false, function kembali tanpa mengirim input."
+icon: "function"
+keywords: ["mousemoveabs","Input"]
+---
+
+Menggerakkan mouse memakai Windows absolute mouse input saat Roblox window aktif. Argumen x dan y diperiksa sebagai Lua numbers dan dikonversi dengan integer conversion. Real memperlakukannya sebagai koordinat relative to active foreground window client area, menambahkan posisi layar client area itu dengan ClientToScreen, melakukan scaling memakai GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 dan integer math, lalu memanggil mouse input dengan the requested mouse action. Jika isrbxactive bernilai false, function kembali tanpa mengirim input.
+
+## Sintaks
+
+```lua
+mousemoveabs(x: number, y: number)
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `x` | `number` | Yes | Client-area X coordinate yang dibaca sebagai Lua number dan dikonversi dengan integer conversion sebelum langkah screen-position dan absolute-input scaling. |
+| `y` | `number` | Yes | Client-area Y coordinate yang dibaca sebagai Lua number dan dikonversi dengan integer conversion sebelum langkah screen-position dan absolute-input scaling. |

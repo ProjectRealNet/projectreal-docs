@@ -1,0 +1,41 @@
+---
+title: "run_on_actor"
+sidebarTitle: "run_on_actor"
+description: "Runs Luau source on the thread associated with a target Actor Instance. The first argument must be an Instance whose ClassName is Actor, and the second argument must be a non-empty source string. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonactor is an alias."
+icon: "function"
+keywords: ["run_on_actor","Actors","runonactor"]
+---
+
+Runs Luau source on the thread associated with a target Actor Instance. The first argument must be an Instance whose ClassName is Actor, and the second argument must be a non-empty source string. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonactor is an alias.
+
+## الصيغة
+
+```lua
+run_on_actor(actor: Instance, source: string, ...arguments?: ...any)
+```
+
+## أسماء بديلة
+
+- `runonactor`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `actor` | `Instance` | Yes | Actor Instance whose thread should run the source. The value must be an Instance with ClassName Actor. |
+| `source` | `string` | Yes | Non-empty Luau source string to run on the Actor thread. |
+| `...arguments` | `...any` | No | Additional values passed to the dispatched source when supported. Unsupported values are passed as nil. |
+
+## مثال
+
+Run source on a resolved Actor thread.
+
+```lua
+local actor = getactors()[1]
+
+if actor then
+    run_on_actor(actor, [[
+        print(getcurrentactor())
+    ]])
+end
+```

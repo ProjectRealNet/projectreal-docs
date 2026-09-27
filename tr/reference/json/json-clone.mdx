@@ -1,0 +1,61 @@
+---
+title: "json.clone"
+sidebarTitle: "json.clone"
+description: "Bir value degerini json.encode semantics ile encoding yapip generated JSON degerini tekrar Lua values olarak decoding ederek clone eder."
+icon: "function"
+keywords: ["json.clone","JSON"]
+---
+
+Bir value degerini json.encode semantics ile encoding yapip generated JSON degerini tekrar Lua values olarak decoding ederek clone eder.
+
+## Söz dizimi
+
+```lua
+json.clone(value: any, options?: EncodeOptions): any
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Encode ve decode edilecek Value. Supported JSON values JSON uzerinden round-trip yapar; unsupported types, encode options hata istemedikce null olarak encode edilir. |
+| `options` | `EncodeOptions` | No | encode step icine gecilen Optional encode options, ornegin sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty ve indent. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `clone` | `any` | encoded JSON uzerinden uretilen Decoded value. Objects ve arrays, decoder kaynakli JSON kind markers iceren new tables olur; JSON null values json.null olur. |
+
+## Tipler
+
+### EncodeOptions
+
+JSON serileştirmesini ve biçimlendirmesini kontrol eder.
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Biçimlendirilmiş, çok satırlı JSON çıkışını etkinleştirir. |
+| `sortKeys` | `boolean` | No | Kodlamadan önce nesne anahtarlarını sıralar. |
+| `emptyTableAsArray` | `boolean` | No | Boş bir tabloyu nesne yerine dizi olarak kodlar. |
+| `errorOnUnsupported` | `boolean` | No | Desteklenmeyen değerleri değiştirmek yerine hata oluşturur. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | NaN'yi ve sonsuz sayıları JSON null olarak kodlar. |
+| `maxDepth` | `integer` | No | 1'den 4096'ya kadar kenetlenmiş maksimum yuvalama derinliğini ayarlar. |
+| `indent` | `string` | No | 32 karakterle sınırlı girinti dizesini ayarlar. |
+
+## Örnek
+
+nested values degistirilmeden once JSON-compatible value degerini json.encode ve json.decode ile round-trip yapin.
+
+```lua
+local original = {
+    profile = { name = "Guest" },
+}
+
+local copy = json.clone(original)
+copy.profile.name = "Developer"
+
+print(original.profile.name)
+print(copy.profile.name)
+print(json.type(copy))
+```

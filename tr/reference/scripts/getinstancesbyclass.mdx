@@ -1,0 +1,31 @@
+---
+title: "getinstancesbyclass"
+sidebarTitle: "getinstancesbyclass"
+description: "Instance cache table icinden ClassName field degeri istenen string ile exact eslesen instances dondurur. Ilk argument string type checking ile okunur. Empty string \"ClassName required\" uretir. Function yeni bir array table olusturur, Instance cache altinda saklanan cache icinde iterasyon yapar, yalnizca Lua type degeri object olan values degerlerini tutar, her object value icin ClassName field okur ve istenen className ile strcmp kullanarak karsilastirir. Matches index 1 ile baslayarak sequential eklenir. Match exact ve case-sensitive olur. Function IsA kullanmaz, subclasses dahil etmez, walk descendants yapmaz, Parent ile filter yapmaz ve result sort etmez. getinstancesofclass ayni function icin alias degeridir."
+icon: "function"
+keywords: ["getinstancesbyclass","Scripts","getinstancesofclass"]
+---
+
+Instance cache table icinden ClassName field degeri istenen string ile exact eslesen instances dondurur. Ilk argument string type checking ile okunur. Empty string "ClassName required" uretir. Function yeni bir array table olusturur, Instance cache altinda saklanan cache icinde iterasyon yapar, yalnizca Lua type degeri object olan values degerlerini tutar, her object value icin ClassName field okur ve istenen className ile strcmp kullanarak karsilastirir. Matches index 1 ile baslayarak sequential eklenir. Match exact ve case-sensitive olur. Function IsA kullanmaz, subclasses dahil etmez, walk descendants yapmaz, Parent ile filter yapmaz ve result sort etmez. getinstancesofclass ayni function icin alias degeridir.
+
+## Söz dizimi
+
+```lua
+getinstancesbyclass(className: string): table
+```
+
+## Aliaslar
+
+- `getinstancesofclass`
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `className` | `string` | Yes | Match edilecek exact ClassName string. Empty strings "ClassName required" uretir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `instances` | `table` | Instance cache table icinden matching object values iceren new array table. |

@@ -1,0 +1,47 @@
+---
+title: "getmetafield"
+sidebarTitle: "getmetafield"
+description: "Returns a raw metafield value from the target metatable. target may be any value, and field must be a string. The function does not call the metafield, does not invoke __index lookup, and returns nil when the metatable or field is missing."
+icon: "function"
+keywords: ["getmetafield","Metatables"]
+---
+
+Returns a raw metafield value from the target metatable. target may be any value, and field must be a string. The function does not call the metafield, does not invoke __index lookup, and returns nil when the metatable or field is missing.
+
+## 構文
+
+```lua
+getmetafield(target: any, field: string): any | nil
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `target` | `any` | Yes | Value whose metatable is inspected. |
+| `field` | `string` | Yes | Metafield name to read. |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `fieldValue` | `any \| nil` | Raw metafield value when present; otherwise nil. |
+
+## 例
+
+Read one raw metafield value from a value's metatable.
+
+```lua
+local target = {}
+local meta = {
+    __index = function()
+        return "fallback"
+    end,
+}
+
+setrawmetatable(target, meta)
+
+local field = getmetafield(target, "__index")
+print(type(field))
+print(getmetafield(target, "__newindex"))
+```

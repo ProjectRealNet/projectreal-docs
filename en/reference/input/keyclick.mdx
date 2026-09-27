@@ -1,0 +1,25 @@
+---
+title: "keyclick"
+sidebarTitle: "keyclick"
+description: "Sends a key down event followed by a key up event when the Roblox window is active. The keyCode argument is checked as a Lua number, and sent with keyboard input with KEYEVENTF_SCANCODE. If isrbxactive would be false, the function returns without sending input."
+icon: "function"
+keywords: ["keyclick","Input","keytap"]
+---
+
+Sends a key down event followed by a key up event when the Roblox window is active. The keyCode argument is checked as a Lua number, and sent with keyboard input with KEYEVENTF_SCANCODE. If isrbxactive would be false, the function returns without sending input.
+
+## Syntax
+
+```lua
+keyclick(keyCode: number)
+```
+
+## Aliases
+
+- `keytap`
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `keyCode` | `number` | Yes | Windows virtual-key code read as a Lua number and converted to an integer before Windows key mapping is called. |

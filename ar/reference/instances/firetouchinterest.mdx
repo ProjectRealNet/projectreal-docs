@@ -1,0 +1,40 @@
+---
+title: "firetouchinterest"
+sidebarTitle: "firetouchinterest"
+description: "يطلق Real touch interest event لاثنين من BasePart instances. يجب أن يكون أول وسيطين Instance object ويجب أن ينجح كلاهما في IsA(\"BasePart\"). وسيط state مطلوب ويجب أن يكون number أو boolean. عندما يكون state رقميا، تصبح القيمة 1 فقط true وكل رقم آخر يصبح false. عندما يكون state boolean، يتم تمرير قيمته كما هي. إذا لم يكن لأي جزء touch data، أو لم يكن للجزء الأول overlap reference، تعود function بدون إطلاق أي شيء. لا ترجع function أي شيء. معنى begin/end الدقيق للـ boolean الممرر إلى helper هو: Nicht aus der Codebasis verifizierbar."
+icon: "function"
+keywords: ["firetouchinterest","Instances","firetouchtransmitter"]
+---
+
+يطلق Real touch interest event لاثنين من BasePart instances. يجب أن يكون أول وسيطين Instance object ويجب أن ينجح كلاهما في IsA("BasePart"). وسيط state مطلوب ويجب أن يكون number أو boolean. عندما يكون state رقميا، تصبح القيمة 1 فقط true وكل رقم آخر يصبح false. عندما يكون state boolean، يتم تمرير قيمته كما هي. إذا لم يكن لأي جزء touch data، أو لم يكن للجزء الأول overlap reference، تعود function بدون إطلاق أي شيء. لا ترجع function أي شيء. معنى begin/end الدقيق للـ boolean الممرر إلى helper هو: Nicht aus der Codebasis verifizierbar.
+
+## الصيغة
+
+```lua
+firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
+```
+
+## أسماء بديلة
+
+- `firetouchtransmitter`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `partA` | `Instance` | Yes | أول Instance object. يجب أن ينجح في IsA("BasePart"). يتم استخدام touch data و overlap reference الخاصين به في call. |
+| `partB` | `Instance` | Yes | ثاني Instance object. يجب أن ينجح في IsA("BasePart"). يتم استخدام touch data الخاص به في call. |
+| `state` | `number \| boolean` | Yes | قيمة state مطلوبة. يتم تحويل numbers باستخدام state == 1؛ booleans تمرر كما هي. |
+
+## مثال
+
+يمرر قيمتي BasePart وقيمة state صريحة إلى firetouchinterest.
+
+```lua
+local players = game:GetService("Players")
+local character = players.LocalPlayer.Character or players.LocalPlayer.CharacterAdded:Wait()
+local rootPart = character:WaitForChild("HumanoidRootPart")
+local targetPart = workspace.TouchTarget
+
+firetouchinterest(rootPart, targetPart, true)
+```

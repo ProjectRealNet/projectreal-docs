@@ -1,0 +1,62 @@
+---
+title: "savefiledialog"
+sidebarTitle: "savefiledialog"
+description: "Abre um Windows save dialog por Windows save dialog, escreve os Lua string bytes fornecidos no selected path e retorna o saved file como file item."
+icon: "function"
+keywords: ["savefiledialog","Filesystem"]
+---
+
+Abre um Windows save dialog por Windows save dialog, escreve os Lua string bytes fornecidos no selected path e retorna o saved file como file item.
+
+## Sintaxe
+
+```lua
+savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
+```
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `content` | `string` | Yes | Lua string bytes para escrever no selected file. O arquivo e aberto em binary truncate mode depois que o usuario confirma um path. |
+| `options` | `DialogOptions` | No | Optional table. savefiledialog usa title, defaultPath, extensionFilter, suggestedName e defaultExtension. extensionFilter e uma table de extension strings; . ou *. inicial e removido antes de cada filter virar *.&lt;extension>. defaultExtension remove leading . characters antes de ser passado para SetDefaultExtension. |
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Saved file item, ou nil quando o dialog e cancelado. Dialog or write failures lancam Failed to save file. |
+
+## Tipos
+
+### DialogOptions
+
+Configura a caixa de diálogo de seleção de arquivo ou pasta nativa.
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Define o título da janela de diálogo. |
+| `defaultPath` | `string` | No | Seleciona o diretório mostrado quando a caixa de diálogo é aberta. |
+| `extensionFilter` | `&#123;string&#125;` | No | Limita os arquivos selecionáveis às extensões listadas, com ou sem um ponto inicial. |
+| `suggestedName` | `string` | No | Fornece o nome inicial do arquivo nas caixas de diálogo para salvar. |
+| `defaultExtension` | `string` | No | Define a extensão usada quando o nome do arquivo inserido não possui nenhuma. |
+
+## Exemplo
+
+Escreva generated content em um path escolhido pelo usuario e lide com o saved file item.
+
+```lua
+local saved = savefiledialog("Example output", {
+    title = "Save output",
+    suggestedName = "output.txt",
+    defaultExtension = "txt",
+    extensionFilter = { "txt" },
+})
+
+if saved then
+    print(saved:GetName())
+    print(saved:IsFile())
+else
+    print("No file saved")
+end
+```

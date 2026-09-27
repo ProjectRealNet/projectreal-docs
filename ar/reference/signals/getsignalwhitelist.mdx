@@ -1,0 +1,21 @@
+---
+title: "getsignalwhitelist"
+sidebarTitle: "getsignalwhitelist"
+description: "يعيد array table جديدا يحتوي على إدخالات whitelist الستة الثابتة المعرفة في function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. كل entry هو table يحتوي على حقلي string باسم Event و Parent. لا تقبل function أي arguments ولا تفحص حالة اللعبة الحالية."
+icon: "function"
+keywords: ["getsignalwhitelist","Signals"]
+---
+
+يعيد array table جديدا يحتوي على إدخالات whitelist الستة الثابتة المعرفة في function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. كل entry هو table يحتوي على حقلي string باسم Event و Parent. لا تقبل function أي arguments ولا تفحص حالة اللعبة الحالية.
+
+## الصيغة
+
+```lua
+getsignalwhitelist(): table
+```
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `signals` | `table` | Array table لإدخالات whitelist الثابتة. يحتوي كل entry على حقلي string باسم Event و Parent. |

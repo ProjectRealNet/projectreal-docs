@@ -1,0 +1,25 @@
+---
+title: "Filesystem"
+description: "Чтение, запись и управление файлами и папками."
+icon: "folder-code"
+---
+
+Чтение, запись и управление файлами и папками.
+
+| Навигация по функциям | Описание |
+| --- | --- |
+| [`appendfile`](./appendfile) | Appends raw Lua string bytes to a workspace file using binary append mode. The file may be created if its parent folder exists. |
+| [`delfile`](./delfile) | Удаляет существующий regular file внутри workspace. |
+| [`delfolder`](./delfolder) | Удаляет существующий folder внутри workspace рекурсивно через recursive folder deletion. |
+| [`getcustomasset`](./getcustomasset) | Копирует существующий regular workspace file в ExtraContent/&lt;hwid>/ и возвращает rbxasset:// string для скопированного asset path. |
+| [`isfile`](./isfile) | Returns whether a path resolved inside the workspace exists and is a regular file. |
+| [`isfolder`](./isfolder) | Returns whether a path resolved inside the workspace exists and is a directory. |
+| [`listfiles`](./listfiles) | Returns an array table of the direct children of an existing workspace directory. |
+| [`loadfile`](./loadfile) | Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it. |
+| [`makefolder`](./makefolder) | Создает directory внутри workspace через recursive folder creation, включая missing parent directories. |
+| [`openfiledialog`](./openfiledialog) | Открывает Windows file-open dialog через Windows file picker и возвращает выбранный файл как file item. |
+| [`openfilesdialog`](./openfilesdialog) | Открывает Windows file-open dialog через Windows file picker с включенным multi-select и возвращает выбранные файлы как значения file item. |
+| [`openfolderdialog`](./openfolderdialog) | Открывает Windows folder picker через Windows file picker с folder selection mode и возвращает выбранную папку как file item. |
+| [`readfile`](./readfile) | Читает existing regular file внутри workspace в binary mode и возвращает его bytes как Lua string. |
+| [`savefiledialog`](./savefiledialog) | Открывает Windows save dialog через Windows save dialog, записывает переданные Lua string bytes в selected path и возвращает saved file как file item. |
+| [`writefile`](./writefile) | Записывает Lua string bytes в файл внутри workspace, создает missing parent directories и заменяет file contents, если файл уже существует. |

@@ -1,0 +1,50 @@
+---
+title: "decompile"
+sidebarTitle: "decompile"
+description: "对 Roblox script 执行 decompile，并在 bytecode 可用时返回生成的 source text。argument 必须是受支持的 script Instance。如果没有可用的 bytecode，该 function 返回 nil。"
+icon: "function"
+keywords: ["decompile","Scripts"]
+---
+
+对 Roblox script 执行 decompile，并在 bytecode 可用时返回生成的 source text。argument 必须是受支持的 script Instance。如果没有可用的 bytecode，该 function 返回 nil。
+
+## 语法
+
+```lua
+decompile(script: userdata): string | nil
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | 要 decompile 的 Script object。支持的 ClassName 值为 ModuleScript、LocalScript、CoreScript，以及 RunContext Client 的 Script。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `source` | `string \| nil` | Decompiler output string、caught decompiler exception text，或没有 usable embedded bytecode 时的 nil。 |
+
+## 示例
+
+Decompile a supported Roblox script Instance. To decompile a whole game, iterate its descendants or use a saveinstance workflow.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local source = decompile(targetScript)
+
+    if source then
+        print(source)
+    end
+end
+```

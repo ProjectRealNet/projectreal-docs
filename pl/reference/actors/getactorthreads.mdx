@@ -1,0 +1,35 @@
+---
+title: "getactorthreads"
+sidebarTitle: "getactorthreads"
+description: "Zwraca array table Luau threads z actor thread list. Function nie przyjmuje arguments. Odczytuje actor list bounds z ScriptContext, przechodzi przez każdy actor state entry, odszyfrowuje stored global state do Luau thread i uwzględnia tylko entries będące valid threads."
+icon: "function"
+keywords: ["getactorthreads","Actors","getactorstates"]
+---
+
+Zwraca array table Luau threads z actor thread list. Function nie przyjmuje arguments. Odczytuje actor list bounds z ScriptContext, przechodzi przez każdy actor state entry, odszyfrowuje stored global state do Luau thread i uwzględnia tylko entries będące valid threads.
+
+## Składnia
+
+```lua
+getactorthreads(): {thread}
+```
+
+## Aliasy
+
+- `getactorstates`
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `threads` | `&#123;thread&#125;` | Array table actor Luau thread values wypychanych jako Luau threads. |
+
+## Przykład
+
+List Luau threads from the ScriptContext actor state list.
+
+```lua
+for _, thread in ipairs(getactorthreads()) do
+    print(thread)
+end
+```

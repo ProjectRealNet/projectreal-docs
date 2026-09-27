@@ -1,0 +1,33 @@
+---
+title: "fireclickdetector"
+sidebarTitle: "fireclickdetector"
+description: "Dispara uma interacao ClickDetector para o jogador local. O primeiro argumento deve ser uma Instance cujo ClassName seja ClickDetector. distance e opcional e o padrao e 0. clickOption e opcional, comparado sem diferenciar maiusculas de minusculas, e o padrao e \"mouseclick\". As opcoes aceitas sao \"mouseclick\", \"rightmouseclick\", \"mousehoverenter\" e \"mousehoverleave\". As opcoes de clique passam distance como float para o Roblox click helper, enquanto as opcoes hover ignoram distance. Se Players ou Players.LocalPlayer nao estiver disponivel, a function retorna sem disparar nada. Um clickOption desconhecido tambem nao gera interacao. A function nao retorna nada."
+icon: "function"
+keywords: ["fireclickdetector","Instances"]
+---
+
+Dispara uma interacao ClickDetector para o jogador local. O primeiro argumento deve ser uma Instance cujo ClassName seja ClickDetector. distance e opcional e o padrao e 0. clickOption e opcional, comparado sem diferenciar maiusculas de minusculas, e o padrao e "mouseclick". As opcoes aceitas sao "mouseclick", "rightmouseclick", "mousehoverenter" e "mousehoverleave". As opcoes de clique passam distance como float para o Roblox click helper, enquanto as opcoes hover ignoram distance. Se Players ou Players.LocalPlayer nao estiver disponivel, a function retorna sem disparar nada. Um clickOption desconhecido tambem nao gera interacao. A function nao retorna nada.
+
+## Sintaxe
+
+```lua
+fireclickdetector(detector: Instance, distance?: number, clickOption?: "mouseclick" | "rightmouseclick" | "mousehoverenter" | "mousehoverleave")
+```
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `detector` | `Instance` | Yes | Instance cujo ClassName deve ser ClickDetector. |
+| `distance` | `number` | No | Valor distance opcional. O padrao e 0 e e passado como float para "mouseclick" e "rightmouseclick". |
+| `clickOption` | `"mouseclick" \| "rightmouseclick" \| "mousehoverenter" \| "mousehoverleave"` | No | Seletor interaction opcional. E lido como string, comparado sem diferenciar maiusculas de minusculas, e o padrao e "mouseclick". |
+
+## Exemplo
+
+Dispara a interaction "mouseclick" padrao em um ClickDetector.
+
+```lua
+local detector = workspace.InteractivePart.ClickDetector
+
+fireclickdetector(detector)
+```

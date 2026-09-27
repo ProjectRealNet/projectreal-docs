@@ -1,0 +1,60 @@
+---
+title: "openfiledialog"
+sidebarTitle: "openfiledialog"
+description: "Abre un Windows file-open dialog mediante Windows file picker y devuelve el archivo seleccionado como file item."
+icon: "function"
+keywords: ["openfiledialog","Filesystem"]
+---
+
+Abre un Windows file-open dialog mediante Windows file picker y devuelve el archivo seleccionado como file item.
+
+## Sintaxis
+
+```lua
+openfiledialog(options?: DialogOptions): FileSystemItem | nil
+```
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. En openfiledialog se usan title, defaultPath y extensionFilter. extensionFilter es una table de extension strings; se elimina . o *. inicial antes de que cada filter se convierta en *.&lt;extension>. |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Selected file item, o nil cuando el dialog se cancela o no se devuelve selected filesystem path. Dialog failures lanzan Failed to open file dialog. |
+
+## Tipos
+
+### DialogOptions
+
+Configura el cuadro de diálogo de selección de archivos o carpetas nativos.
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Establece el título de la ventana de diálogo. |
+| `defaultPath` | `string` | No | Selecciona el directorio que se muestra cuando se abre el cuadro de diálogo. |
+| `extensionFilter` | `&#123;string&#125;` | No | Limita los archivos seleccionables a las extensiones enumeradas, con o sin un punto inicial. |
+| `suggestedName` | `string` | No | Proporciona el nombre del archivo inicial en los cuadros de diálogo para guardar. |
+| `defaultExtension` | `string` | No | Establece la extensión utilizada cuando el nombre de archivo ingresado no tiene ninguno. |
+
+## Ejemplo
+
+Abre un file picker y maneja el selected file item o cancellation.
+
+```lua
+local file = openfiledialog({
+    title = "Choose a configuration",
+    defaultPath = ".",
+    extensionFilter = { "json", "txt" },
+})
+
+if file then
+    print(file:GetName())
+    print(file:IsFile())
+else
+    print("No file selected")
+end
+```

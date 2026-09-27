@@ -1,0 +1,23 @@
+---
+title: "ImGui"
+description: "Cửa sổ chế độ ngay lập tức và điều khiển hướng gọi lại."
+icon: "folder-code"
+---
+
+Cửa sổ chế độ ngay lập tức và điều khiển hướng gọi lại.
+
+| Điều hướng hàm | Mô tả |
+| --- | --- |
+| [`imgui.create`](./imgui-create) | Tao mot ImGui window record duoc theo doi va tra ve ImGuiWindow object. Doi so title dung "REAL_IM_UI" khi bi bo qua hoac la nil. Title phai la duy nhat trong cac ImGui windows dang duoc theo doi; tao tracked window khac voi cung title se gay Lua error. |
+| [`imgui.setvsync`](./imgui-setvsync) | Cap nhat vertical synchronization preference cua ImGui renderer. Presentation path hien tai luu preference nay nhung khong ap dung no. |
+| [`ImGuiWindow.Button`](./imguiwindow-button) | Them button element vao ImGuiWindow va luu callback. Khi button duoc render bi nhap, callback duoc dua vao queue va sau do duoc goi khong co arguments. Method tra ve cung ImGuiWindow object. |
+| [`ImGuiWindow.Checkbox`](./imguiwindow-checkbox) | Appends a checkbox element to an ImGuiWindow. The callback is invoked with the new boolean value when the checkbox changes, and the method returns the same ImGuiWindow object. |
+| [`ImGuiWindow.CollapsingHeader`](./imguiwindow-collapsingheader) | Them collapsing header start marker, goi content callback ngay lap tuc voi cung ImGuiWindow object de co the them nested elements, roi them header end marker. Trong rendering, nested elements bi bo qua khi header dang collapsed. Callback errors duoc bat va khong duoc tra ve boi method nay. |
+| [`ImGuiWindow.ColorPicker`](./imguiwindow-colorpicker) | Appends a RGBA color editor to an ImGuiWindow and stores the callback. Missing or nil color components default to 1.0. When the rendered editor changes, the callback is queued and later invoked with red, green, blue, and alpha. The method returns the same ImGuiWindow object. |
+| [`ImGuiWindow.destroy`](./imguiwindow-destroy) | Huy mot ImGuiWindow. Neu object van tro den window, method xoa window do khoi tracked ImGui window list cua Real, thuc hien unreference cho stored element callbacks, xoa window record va dat Instance reference thanh nil. Goi destroy lai tren cung object se quay lai ma khong lam gi. |
+| [`ImGuiWindow.InputText`](./imguiwindow-inputtext) | Them single-line ImGui InputText element vao ImGuiWindow va luu callback. Initial text duoc doc bang optional string handling va duoc sao chep vao fixed 256-byte text buffer cua element. Khi input duoc render thay doi, callback duoc dua vao queue va sau do duoc goi voi current string. Method tra ve cung ImGuiWindow object. |
+| [`ImGuiWindow.SameLine`](./imguiwindow-sameline) | Them SameLine layout marker vao window. Trong luc rendering, Real goi a same-line layout marker tai vi tri do trong element list de item duoc render tiep theo co the tiep tuc tren cung mot hang. |
+| [`ImGuiWindow.Separator`](./imguiwindow-separator) | Them Separator marker vao window. Trong luc rendering, Real goi a separator tai vi tri do trong element list. |
+| [`ImGuiWindow.SliderFloat`](./imguiwindow-sliderfloat) | Them SliderFloat element vao window. label, value, minimum va maximum duoc doc tu doi so 2 den 5, cac doi so so duoc kiem tra bang number type checking. Trong luc rendering, Real goi a floating-point slider voi gia tri va khoang da luu. Khi ImGui bao gia tri da thay doi, onChange duoc dua vao queue va sau do duoc goi voi mot Lua number. Real khong them kiem tra minimum &lt;= maximum rieng trong closure nay. |
+| [`ImGuiWindow.SliderInt`](./imguiwindow-sliderint) | Adds an integer slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated integer value. |
+| [`ImGuiWindow.Text`](./imguiwindow-text) | Them Text element khong tuong tac vao window. Doi so text duoc doc bang string type checking va luu tren element. Trong luc rendering, Real goi a text element, nen text duoc cung cap duoc dung lam string content thay vi ImGui format string. |

@@ -1,0 +1,33 @@
+---
+title: "delfile"
+sidebarTitle: "delfile"
+description: "workspace 안에 있는 기존 regular file을 삭제합니다."
+icon: "function"
+keywords: ["delfile","Filesystem"]
+---
+
+workspace 안에 있는 기존 regular file을 삭제합니다.
+
+## 문법
+
+```lua
+delfile(path: string)
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | separator normalization 및 workspace-boundary checks 후 workspace 안에서 해석되는 path입니다. 대상은 존재하는 regular file이어야 합니다. folders는 허용되지 않습니다. |
+
+## 예제
+
+기존 workspace file을 삭제합니다.
+
+```lua
+local path = "examples/temporary.txt"
+writefile(path, "temporary")
+
+delfile(path)
+print(isfile(path))
+```

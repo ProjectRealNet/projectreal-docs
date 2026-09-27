@@ -1,0 +1,38 @@
+---
+title: "get_comm_channel"
+sidebarTitle: "get_comm_channel"
+description: "ค้นหา channel ID ใน communication channel list และคืน BindableEvent Instance ที่เก็บไว้ argument แรกต้องเป็น number และถูกแปลงด้วย integer conversion ก่อน lookup หากไม่มี entry สำหรับ ID นั้น function จะคืน nil"
+icon: "function"
+keywords: ["get_comm_channel","Actors"]
+---
+
+ค้นหา channel ID ใน communication channel list และคืน BindableEvent Instance ที่เก็บไว้ argument แรกต้องเป็น number และถูกแปลงด้วย integer conversion ก่อน lookup หากไม่มี entry สำหรับ ID นั้น function จะคืน nil
+
+## ไวยากรณ์
+
+```lua
+get_comm_channel(channelId: number): Instance | nil
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `channelId` | `number` | Yes | Channel ID ที่ถูกแปลงด้วย integer conversion และค้นหาใน communication channel list |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `event` | `Instance \| nil` | BindableEvent Instance ที่เก็บไว้สำหรับ channel ID หรือ nil เมื่อ ID ไม่มีอยู่ใน communication channels |
+
+## ตัวอย่าง
+
+Look up the BindableEvent Instance stored for a communication channel ID.
+
+```lua
+local channelId = create_comm_channel()
+local event = get_comm_channel(channelId)
+
+print(event)
+```

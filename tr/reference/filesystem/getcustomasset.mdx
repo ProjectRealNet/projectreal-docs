@@ -1,0 +1,44 @@
+---
+title: "getcustomasset"
+sidebarTitle: "getcustomasset"
+description: "Mevcut bir regular workspace file degerini ExtraContent/<hwid>/ konumuna kopyalar ve kopyalanan asset path icin rbxasset:// string dondurur."
+icon: "function"
+keywords: ["getcustomasset","Filesystem","getsynasset"]
+---
+
+Mevcut bir regular workspace file degerini ExtraContent/&lt;hwid>/ konumuna kopyalar ve kopyalanan asset path icin rbxasset:// string dondurur.
+
+## Söz dizimi
+
+```lua
+getcustomasset(path: string): string
+```
+
+## Aliaslar
+
+- `getsynasset`
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Separator normalization ve workspace-boundary checks sonrasinda workspace icinde cozumlenen path. Hedef mevcut olmali ve regular file olmalidir; folders, invalid filenames, DOS device names ve blocked extensions kabul edilmez. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `assetId` | `string` | rbxasset://&lt;hwid>/&lt;workspace-relative-path> biciminde String. relative path icin forward slashes kullanilir. |
+
+## Örnek
+
+Mevcut bir workspace file degerini asset folder icine kopyalayin ve dondurulen rbxasset path degerini yazdirin.
+
+```lua
+local path = "assets/example.txt"
+writefile(path, "asset bytes")
+
+local assetId = getcustomasset(path)
+print(assetId)
+print(getsynasset(path))
+```

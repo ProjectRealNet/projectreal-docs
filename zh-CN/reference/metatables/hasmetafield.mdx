@@ -1,0 +1,44 @@
+---
+title: "hasmetafield"
+sidebarTitle: "hasmetafield"
+description: "Returns whether the target value has a non-nil raw metafield with the requested name. The function does not call the metafield, does not invoke __index lookup, and does not change readonly state."
+icon: "function"
+keywords: ["hasmetafield","Metatables"]
+---
+
+Returns whether the target value has a non-nil raw metafield with the requested name. The function does not call the metafield, does not invoke __index lookup, and does not change readonly state.
+
+## 语法
+
+```lua
+hasmetafield(target: any, field: string): boolean
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `target` | `any` | Yes | Value whose metatable is inspected. |
+| `field` | `string` | Yes | Metafield name to check. |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `hasField` | `boolean` | true when the raw metafield exists and is non-nil; otherwise false. |
+
+## 示例
+
+Check whether a value has a non-nil raw metafield.
+
+```lua
+local target = {}
+local meta = {
+    __index = {},
+}
+
+setrawmetatable(target, meta)
+
+print(hasmetafield(target, "__index"))
+print(hasmetafield(target, "__newindex"))
+```

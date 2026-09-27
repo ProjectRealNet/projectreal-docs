@@ -1,0 +1,62 @@
+---
+title: "openfilesdialog"
+sidebarTitle: "openfilesdialog"
+description: "Mo Windows file-open dialog thong qua Windows file picker voi multi-select duoc bat va tra ve cac tep da chon duoi dang gia tri file item."
+icon: "function"
+keywords: ["openfilesdialog","Filesystem"]
+---
+
+Mo Windows file-open dialog thong qua Windows file picker voi multi-select duoc bat va tra ve cac tep da chon duoi dang gia tri file item.
+
+## Cú pháp
+
+```lua
+openfilesdialog(options?: DialogOptions): { FileSystemItem } | nil
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. Voi openfilesdialog, title, defaultPath va extensionFilter duoc su dung. extensionFilter la table gom extension strings; dau . hoac *. o dau se bi loai bo truoc khi moi filter thanh *.&lt;extension>. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `files` | `&#123; FileSystemItem &#125; \| nil` | Array table gom cac gia tri file item cho cac tep da chon, hoac nil khi dialog bi huy hoac khong co selected filesystem paths duoc tra ve. Dialog failures se throw Failed to open file dialog. |
+
+## Kiểu
+
+### DialogOptions
+
+Định cấu hình hộp thoại chọn tệp hoặc thư mục gốc.
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Đặt tiêu đề cửa sổ hộp thoại. |
+| `defaultPath` | `string` | No | Chọn thư mục hiển thị khi hộp thoại mở ra. |
+| `extensionFilter` | `&#123;string&#125;` | No | Giới hạn các tệp có thể chọn ở các tiện ích mở rộng được liệt kê, có hoặc không có dấu chấm ở đầu. |
+| `suggestedName` | `string` | No | Cung cấp tên tệp ban đầu trong hộp thoại lưu. |
+| `defaultExtension` | `string` | No | Đặt phần mở rộng được sử dụng khi tên tệp đã nhập không có. |
+
+## Ví dụ
+
+Mo file picker de chon mot hoac nhieu tep va xu ly tung selected file item.
+
+```lua
+local files = openfilesdialog({
+    title = "Choose source files",
+    defaultPath = ".",
+    extensionFilter = { "lua", "luau", "txt" },
+})
+
+if files then
+    for _, file in ipairs(files) do
+        print(file:GetName())
+        print(file:IsFile())
+    end
+else
+    print("No files selected")
+end
+```

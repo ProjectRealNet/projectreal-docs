@@ -1,0 +1,40 @@
+---
+title: "isrenderobj"
+sidebarTitle: "isrenderobj"
+description: "Mengembalikan apakah nilai adalah object dengan Drawing object type. Ini hanya methods check; tidak memeriksa apakah Drawing object masih active, tracked, atau destroyed. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini."
+icon: "function"
+keywords: ["isrenderobj","Drawing"]
+---
+
+Mengembalikan apakah nilai adalah object dengan Drawing object type. Ini hanya methods check; tidak memeriksa apakah Drawing object masih active, tracked, atau destroyed. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini.
+
+## Sintaks
+
+```lua
+isrenderobj(object: any): boolean
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | Nilai yang akan diuji. Non-object values dan object tanpa Drawing object type mengembalikan false. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `isDrawingObject` | `boolean` | True ketika nilai adalah object dengan methods yang cocok dengan RealDrawingObject; jika tidak false. |
+
+## Contoh
+
+Check whether a value has Real's Drawing userdata metatable.
+
+```lua
+local square = Drawing.new("Square")
+
+print(isrenderobj(square))
+square:Destroy()
+print(isrenderobj(square))
+print(isrenderobj({}))
+```

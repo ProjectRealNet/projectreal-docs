@@ -1,0 +1,46 @@
+---
+title: "crypt.encrypt"
+sidebarTitle: "crypt.encrypt"
+description: "Szyfruje bajty Lua string za pomoca AES CBC, ECB albo CTR z key zdekodowanym z Base64, a nastepnie zwraca Base64 ciphertext i wynik IV."
+icon: "function"
+keywords: ["crypt.encrypt","Cryptography"]
+---
+
+Szyfruje bajty Lua string za pomoca AES CBC, ECB albo CTR z key zdekodowanym z Base64, a nastepnie zwraca Base64 ciphertext i wynik IV.
+
+## Składnia
+
+```lua
+crypt.encrypt(data: string, key: string, iv?: string, mode?: "CBC" | "ECB" | "CTR" | "AES-CBC" | "AES-ECB" | "AES-CTR"): string | string | nil
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Bajty plaintext odczytane z Lua string. |
+| `key` | `string` | Yes | Base64 key dekodowany przed przekazaniem do AES. |
+| `iv` | `string` | No | Opcjonalny Base64 IV dla CBC albo CTR. Gdy zostanie pominiety dla CBC albo CTR, generowany jest nowy IV o AES block size. |
+| `mode` | `"CBC" \| "ECB" \| "CTR" \| "AES-CBC" \| "AES-ECB" \| "AES-CTR"` | No | AES mode. Prefix AES- jest usuwany, gdy wystepuje. Wartosc domyslna to AES-CBC. CBC i ECB uzywaja crypto library DEFAULT_PADDING; CTR nie uzywa padding. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `ciphertext` | `string` | Base64-encoded ciphertext. |
+| `initializationVector` | `string \| nil` | Base64-encoded IV dla CBC i CTR; nil dla ECB. |
+
+## Przykład
+
+Zaszyfruj Lua string i odszyfruj zwrocony ciphertext za pomoca zwroconego IV.
+
+```lua
+local key = crypt.generatekey()
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+local plaintext = crypt.decrypt(ciphertext, key, iv)
+
+print(ciphertext)
+print(iv)
+print(plaintext)
+```

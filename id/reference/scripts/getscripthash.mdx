@@ -1,0 +1,47 @@
+---
+title: "getscripthash"
+sidebarTitle: "getscripthash"
+description: "Mengembalikan uppercase SHA384 hex digest untuk stored bytecode string dari Roblox script object. Argument harus berupa object. Helper bersama GetBytecode menerima nilai ClassName ModuleScript, LocalScript, CoreScript, dan Script. Untuk Script, RunContext harus Client. Jika ClassName tidak ada, function melempar \"Invalid Instance\". Jika ClassName bukan salah satu script classes yang didukung, function melempar \"Script expected\". Jika nilainya adalah Script dengan RunContext lain, function melempar \"Expected a Script with RunContext set to Client\". Jika embedded bytecode reference tidak valid atau panjang stored bytecode 8 bytes atau kurang, function mengembalikan nil. Jika tidak, function menghitung SHA384 dari stored bytecode bytes yang tepat dan mengembalikan uppercase hex string. Function tidak memanggil DecompressBytecode dan tidak melakukan hash pada decompressed bytecode."
+icon: "function"
+keywords: ["getscripthash","Scripts"]
+---
+
+Mengembalikan uppercase SHA384 hex digest untuk stored bytecode string dari Roblox script object. Argument harus berupa object. Helper bersama GetBytecode menerima nilai ClassName ModuleScript, LocalScript, CoreScript, dan Script. Untuk Script, RunContext harus Client. Jika ClassName tidak ada, function melempar "Invalid Instance". Jika ClassName bukan salah satu script classes yang didukung, function melempar "Script expected". Jika nilainya adalah Script dengan RunContext lain, function melempar "Expected a Script with RunContext set to Client". Jika embedded bytecode reference tidak valid atau panjang stored bytecode 8 bytes atau kurang, function mengembalikan nil. Jika tidak, function menghitung SHA384 dari stored bytecode bytes yang tepat dan mengembalikan uppercase hex string. Function tidak memanggil DecompressBytecode dan tidak melakukan hash pada decompressed bytecode.
+
+## Sintaks
+
+```lua
+getscripthash(script: userdata): string | nil
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | Script object yang akan di-hash. Nilai ClassName yang didukung adalah ModuleScript, LocalScript, CoreScript, dan Script dengan RunContext Client. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `hash` | `string \| nil` | Uppercase SHA384 hex digest dari stored bytecode bytes, atau nil saat tidak ada embedded bytecode yang dapat digunakan. |
+
+## Contoh
+
+Hash the bytecode of a supported Roblox script Instance when bytecode is available.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local hash = getscripthash(targetScript)
+    print(hash)
+end
+```

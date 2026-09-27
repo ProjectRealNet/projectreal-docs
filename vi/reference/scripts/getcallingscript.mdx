@@ -1,0 +1,21 @@
+---
+title: "getcallingscript"
+sidebarTitle: "getcallingscript"
+description: "Tra ve script duoc luu tren current Luau thread object. Function khong nhan arguments. No doc the current thread script, la mot stored reference. Neu stored reference do chua expired, function push script Instance bang Instance cache va tra ve no. Neu stored reference expired, function tra ve nil. Function khong kiem tra Lua call stack, khong tim ancestor scripts, va khong kiem tra script ClassName."
+icon: "function"
+keywords: ["getcallingscript","Scripts"]
+---
+
+Tra ve script duoc luu tren current Luau thread object. Function khong nhan arguments. No doc the current thread script, la mot stored reference. Neu stored reference do chua expired, function push script Instance bang Instance cache va tra ve no. Neu stored reference expired, function tra ve nil. Function khong kiem tra Lua call stack, khong tim ancestor scripts, va khong kiem tra script ClassName.
+
+## Cú pháp
+
+```lua
+getcallingscript(): Instance | nil
+```
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `script` | `Instance \| nil` | Script Instance tu current Luau thread object stored reference, hoac nil khi stored reference do expired. |

@@ -1,0 +1,59 @@
+---
+title: "json.decodeSafe"
+sidebarTitle: "json.decodeSafe"
+description: "parse JSON ด้วย parser เดียวกับ json.decode และคืน success flag แทนการ throw สำหรับ parse errors"
+icon: "function"
+keywords: ["json.decodeSafe","JSON"]
+---
+
+parse JSON ด้วย parser เดียวกับ json.decode และคืน success flag แทนการ throw สำหรับ parse errors
+
+## ไวยากรณ์
+
+```lua
+json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON text สำหรับ parse. argument นี้ถูกตรวจเป็น string ก่อนที่ parse errors จะถูก catch. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean ตั้งค่า useNull โดยตรง. table สามารถตั้ง useNull และ maxDepth; maxDepth ถูก clamp จาก 1 ถึง 4096. Invalid option argument types ถูกตรวจก่อนที่ parse errors จะถูก catch. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `success` | `boolean` | True เมื่อ parsing สำเร็จ, false เมื่อ parser รายงาน error. |
+| `decoded` | `any \| nil` | Decoded value เมื่อสำเร็จ, nil เมื่อ parse failure. JSON false ที่ valid จะคืน success เป็น true และ decoded เป็น false ดังนั้นให้ตรวจ success return value. |
+| `errorMessage` | `string \| nil` | Error message เมื่อ parse failure, ไม่เช่นนั้น nil. message มี json.decodeSafe prefix และ parser position. |
+| `errorPosition` | `number \| nil` | Parser byte position เมื่อ parse failure, ไม่เช่นนั้น nil. |
+
+## Types
+
+### DecodeOptions
+
+ควบคุมพฤติกรรมการแยกวิเคราะห์ JSON
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | แสดงถึง JSON null ด้วย null sentinel ของไลบรารีแทนที่จะเป็น nil |
+| `maxDepth` | `integer` | No | ตั้งค่าความลึกของการซ้อนสูงสุด โดยยึดไว้ตั้งแต่ 1 ถึง 4096 |
+
+## ตัวอย่าง
+
+Parse JSON แล้วใช้ success return value เพื่อแยก valid false หรือ nil results จาก parse failures.
+
+```lua
+local ok, value = json.decodeSafe("false")
+
+if ok then
+    print(value == false)
+end
+
+local parsed, _, message, position = json.decodeSafe("{")
+if not parsed then
+    warn(message, position)
+end
+```

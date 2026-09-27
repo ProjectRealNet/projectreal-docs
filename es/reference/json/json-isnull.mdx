@@ -1,0 +1,41 @@
+---
+title: "json.isNull"
+sidebarTitle: "json.isNull"
+description: "Devuelve si un value es Real JSON null sentinel, json.null."
+icon: "function"
+keywords: ["json.isNull","JSON"]
+---
+
+Devuelve si un value es Real JSON null sentinel, json.null.
+
+## Sintaxis
+
+```lua
+json.isNull(value: any): boolean
+```
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value que se inspect. Solo el json.null value devuelve true; Lua nil y other values devuelven false. |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `isNull` | `boolean` | true cuando el value es el exact json.null sentinel, otherwise false. |
+
+## Ejemplo
+
+Check si un value es el json.null sentinel en vez de Lua nil.
+
+```lua
+local value = json.decode("null")
+
+if json.isNull(value) then
+    print("The value is JSON null")
+end
+
+print(json.isNull(nil))
+```

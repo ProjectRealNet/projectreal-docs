@@ -1,0 +1,33 @@
+---
+title: "fireclickdetector"
+sidebarTitle: "fireclickdetector"
+description: "Yerel oyuncu icin bir ClickDetector interaction tetikler. Ilk arguman ClassName degeri ClickDetector olan bir Instance olmalidir. distance istege baglidir ve varsayilan degeri 0 dir. clickOption istege baglidir, buyuk kucuk harfe duyarsiz karsilastirilir ve varsayilan degeri \"mouseclick\" olur. Desteklenen option degerleri \"mouseclick\", \"rightmouseclick\", \"mousehoverenter\" ve \"mousehoverleave\" olur. Click option degerleri distance degerini Roblox click helper icine float olarak iletir, hover option degerleri distance degerini yok sayar. Players veya Players.LocalPlayer kullanilabilir degilse function hicbir sey tetiklemeden doner. Bilinmeyen clickOption degeri de interaction olusturmaz. Function herhangi bir deger dondurmez."
+icon: "function"
+keywords: ["fireclickdetector","Instances"]
+---
+
+Yerel oyuncu icin bir ClickDetector interaction tetikler. Ilk arguman ClassName degeri ClickDetector olan bir Instance olmalidir. distance istege baglidir ve varsayilan degeri 0 dir. clickOption istege baglidir, buyuk kucuk harfe duyarsiz karsilastirilir ve varsayilan degeri "mouseclick" olur. Desteklenen option degerleri "mouseclick", "rightmouseclick", "mousehoverenter" ve "mousehoverleave" olur. Click option degerleri distance degerini Roblox click helper icine float olarak iletir, hover option degerleri distance degerini yok sayar. Players veya Players.LocalPlayer kullanilabilir degilse function hicbir sey tetiklemeden doner. Bilinmeyen clickOption degeri de interaction olusturmaz. Function herhangi bir deger dondurmez.
+
+## Söz dizimi
+
+```lua
+fireclickdetector(detector: Instance, distance?: number, clickOption?: "mouseclick" | "rightmouseclick" | "mousehoverenter" | "mousehoverleave")
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `detector` | `Instance` | Yes | ClassName degeri ClickDetector olmasi gereken Instance. |
+| `distance` | `number` | No | Istege bagli distance degeri. Varsayilan deger 0 dir ve "mouseclick" ile "rightmouseclick" icin float olarak iletilir. |
+| `clickOption` | `"mouseclick" \| "rightmouseclick" \| "mousehoverenter" \| "mousehoverleave"` | No | Istege bagli interaction secici. string olarak okunur, buyuk kucuk harfe duyarsiz karsilastirilir ve varsayilan degeri "mouseclick" olur. |
+
+## Örnek
+
+ClickDetector uzerinde varsayilan "mouseclick" interaction tetikler.
+
+```lua
+local detector = workspace.InteractivePart.ClickDetector
+
+fireclickdetector(detector)
+```

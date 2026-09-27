@@ -1,0 +1,47 @@
+---
+title: "lz4decompress"
+sidebarTitle: "lz4decompress"
+description: "Mendekompresi raw LZ4 block bytes dengan LZ4 block decompression dan mengembalikan raw decompressed bytes sebagai string Lua."
+icon: "function"
+keywords: ["lz4decompress","Cryptography","crypt.lz4decompress","crypt.lz4.decompress","lz4.decompress"]
+---
+
+Mendekompresi raw LZ4 block bytes dengan LZ4 block decompression dan mengembalikan raw decompressed bytes sebagai string Lua.
+
+## Sintaks
+
+```lua
+lz4decompress(data: string, originalSize?: number): string
+```
+
+## Alias
+
+- `crypt.lz4decompress`
+- `crypt.lz4.decompress`
+- `lz4.decompress`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Raw compressed bytes yang diteruskan ke LZ4 block decompression. |
+| `originalSize` | `number` | No | Output buffer size yang diteruskan sebagai dstCapacity. Untuk output lz4compress, berikan panjang byte asli yang belum dikompresi; jika dihilangkan, panjang input terkompresi digunakan. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `decompressed` | `string` | Raw decompressed bytes yang dikembalikan sebagai string Lua. Output dapat lebih pendek dari originalSize. |
+
+## Contoh
+
+Dekompresi LZ4 bytes dengan fieldikan ukuran asli yang belum dikompresi.
+
+```lua
+local source = "Real Docs"
+local compressed = lz4compress(source)
+local decompressed = lz4decompress(compressed, #source)
+
+print(decompressed)
+print(decompressed == source)
+```

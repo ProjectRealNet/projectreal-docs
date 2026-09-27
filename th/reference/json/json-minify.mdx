@@ -1,0 +1,55 @@
+---
+title: "json.minify"
+sidebarTitle: "json.minify"
+description: "Parse JSON string แล้ว re-encode ด้วย Real default non-pretty JSON encoder output."
+icon: "function"
+keywords: ["json.minify","JSON"]
+---
+
+Parse JSON string แล้ว re-encode ด้วย Real default non-pretty JSON encoder output.
+
+## ไวยากรณ์
+
+```lua
+json.minify(json: string, options?: DecodeOptions): string
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string ที่ถูก parse ก่อน minifying. function อ่าน argument นี้ด้วย string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options ที่ใช้ระหว่าง parsing input JSON. boolean ตั้งค่า useNull. table ตั้งค่า useNull และ maxDepth ได้. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `minified` | `string` | JSON string ที่สร้างหลัง parsing และ re-encoding input ด้วย default encode options. |
+
+## Types
+
+### DecodeOptions
+
+ควบคุมพฤติกรรมการแยกวิเคราะห์ JSON
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | แสดงถึง JSON null ด้วย null sentinel ของไลบรารีแทนที่จะเป็น nil |
+| `maxDepth` | `integer` | No | ตั้งค่าความลึกของการซ้อนสูงสุด โดยยึดไว้ตั้งแต่ 1 ถึง 4096 |
+
+## ตัวอย่าง
+
+Parse valid JSON แล้ว re-encode ด้วย default compact JSON output.
+
+```lua
+local formatted = [[{
+    "name": "Real",
+    "enabled": true,
+    "missing": null
+}]]
+
+print(json.minify(formatted, {
+    useNull = true,
+}))
+```

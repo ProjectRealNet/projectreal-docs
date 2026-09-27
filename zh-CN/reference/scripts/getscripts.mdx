@@ -1,0 +1,21 @@
+---
+title: "getscripts"
+sidebarTitle: "getscripts"
+description: "返回当前存在于 Instance cache 中的 script object 值。该 function 不接受 arguments。它遍历存储在 Instance cache 下的 cache，并且只处理 value 是 object 的 entries。它用 optional string handling 读取每个 value 的 ClassName field。LocalScript 和 ModuleScript entries 会被包含。Script entries 只有在其 RunContext offset 等于 CLIENT 或 PLUGIN 时才会被包含。其他 ClassName 值、没有 string ClassName 的 entries，以及 CoreScript entries 会被跳过。结果是 sequential Luau table。function 不遍历 DataModel，也不保证 sorted order。"
+icon: "function"
+keywords: ["getscripts","Scripts"]
+---
+
+返回当前存在于 Instance cache 中的 script object 值。该 function 不接受 arguments。它遍历存储在 Instance cache 下的 cache，并且只处理 value 是 object 的 entries。它用 optional string handling 读取每个 value 的 ClassName field。LocalScript 和 ModuleScript entries 会被包含。Script entries 只有在其 RunContext offset 等于 CLIENT 或 PLUGIN 时才会被包含。其他 ClassName 值、没有 string ClassName 的 entries，以及 CoreScript entries 会被跳过。结果是 sequential Luau table。function 不遍历 DataModel，也不保证 sorted order。
+
+## 语法
+
+```lua
+getscripts(): { Instance }
+```
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `scripts` | `&#123; Instance &#125;` | 来自 Instance cache 的 cached LocalScript、ModuleScript 和符合条件的 Script object 值组成的 sequential table。 |

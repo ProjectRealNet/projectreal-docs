@@ -1,0 +1,38 @@
+---
+title: "json.quote"
+sidebarTitle: "json.quote"
+description: "Real JSON string escaping rules를 사용해 string을 escape하고 complete quoted JSON string literal을 반환합니다."
+icon: "function"
+keywords: ["json.quote","JSON"]
+---
+
+Real JSON string escaping rules를 사용해 string을 escape하고 complete quoted JSON string literal을 반환합니다.
+
+## 문법
+
+```lua
+json.quote(text: string): string
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | Quote할 string입니다. function은 이 argument를 string type checking으로 읽습니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `quoted` | `string` | Opening 및 closing quote를 포함하는 complete JSON string literal입니다. Quotes, backslashes, common control characters, bytes below 0x20은 escape됩니다. |
+
+## 예제
+
+String을 complete quoted JSON string literal로 convert합니다.
+
+```lua
+local source = "Real Docs" .. string.char(10) .. [[Documentation "A"]]
+local quoted = json.quote(source)
+
+print(quoted)
+```

@@ -1,0 +1,48 @@
+---
+title: "base64_decode"
+sidebarTitle: "base64_decode"
+description: "Decodifica la entrada Base64 con Base64 decoder y devuelve los bytes decodificados como una cadena Lua."
+icon: "function"
+keywords: ["base64_decode","Cryptography","base64decode","base64.decode","crypt.base64.decode","crypt.base64_decode","crypt.base64decode"]
+---
+
+Decodifica la entrada Base64 con Base64 decoder y devuelve los bytes decodificados como una cadena Lua.
+
+## Sintaxis
+
+```lua
+base64_decode(data: string): string
+```
+
+## Alias
+
+- `base64decode`
+- `base64.decode`
+- `crypt.base64.decode`
+- `crypt.base64_decode`
+- `crypt.base64decode`
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Entrada Base64 que se pasa a Base64 decoder. |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `decoded` | `string` | Bytes decodificados devueltos como una cadena Lua con longitud explicita. |
+
+## Ejemplo
+
+Decodifica datos Base64 y lee la cadena Lua devuelta.
+
+```lua
+local encoded = base64_encode("hello world")
+local decoded = base64_decode(encoded)
+
+print(decoded)
+print(base64decode(encoded))
+print(base64.decode(encoded))
+```

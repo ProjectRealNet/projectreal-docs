@@ -1,0 +1,44 @@
+---
+title: "getcustomasset"
+sidebarTitle: "getcustomasset"
+description: "คัดลอก regular workspace file ที่มีอยู่ไปยัง ExtraContent/<hwid>/ และคืน rbxasset:// string สำหรับ asset path ที่ถูกคัดลอก"
+icon: "function"
+keywords: ["getcustomasset","Filesystem","getsynasset"]
+---
+
+คัดลอก regular workspace file ที่มีอยู่ไปยัง ExtraContent/&lt;hwid>/ และคืน rbxasset:// string สำหรับ asset path ที่ถูกคัดลอก
+
+## ไวยากรณ์
+
+```lua
+getcustomasset(path: string): string
+```
+
+## Aliases
+
+- `getsynasset`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path ที่ถูก resolve ภายใน workspace หลัง separator normalization และ workspace-boundary checks เป้าหมายต้องมีอยู่และเป็น regular file; folders, invalid filenames, DOS device names และ blocked extensions ไม่ถูกยอมรับ |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `assetId` | `string` | String ในรูปแบบ rbxasset://&lt;hwid>/&lt;workspace-relative-path> โดย relative path ใช้ forward slashes |
+
+## ตัวอย่าง
+
+คัดลอก workspace file ที่มีอยู่ไปยัง asset folder และพิมพ์ rbxasset path ที่คืนมา
+
+```lua
+local path = "assets/example.txt"
+writefile(path, "asset bytes")
+
+local assetId = getcustomasset(path)
+print(assetId)
+print(getsynasset(path))
+```

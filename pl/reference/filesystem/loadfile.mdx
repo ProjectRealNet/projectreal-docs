@@ -1,0 +1,51 @@
+---
+title: "loadfile"
+sidebarTitle: "loadfile"
+description: "Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it."
+icon: "function"
+keywords: ["loadfile","Filesystem","loadfileasync","dofile","dofileasync"]
+---
+
+Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it.
+
+## Składnia
+
+```lua
+loadfile(path: string, chunkName?: string): function | nil | string | nil
+```
+
+## Aliasy
+
+- `loadfileasync`
+- `dofile`
+- `dofileasync`
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | File path resolved inside the workspace after separator normalization, workspace-boundary checks, and extension checks. Path, open, and read-size errors are thrown. |
+| `chunkName` | `string` | No | Optional chunk name passed to luau_load. Defaults to = when omitted or nil. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `chunk` | `function \| nil` | Loaded Luau function when luau_load succeeds. The function is not executed by loadfile. |
+| `errorMessage` | `string \| nil` | Error string returned as the second value only when luau_load fails. Filesystem and path errors are thrown instead. |
+
+## Przykład
+
+Zaladuj workspace Luau file jako function, potem wywolaj ja samodzielnie.
+
+```lua
+writefile("examples/module.luau", "return 2 + 3")
+
+local chunk, message = loadfile("examples/module.luau", "ExampleModule")
+
+if chunk then
+    print(chunk())
+else
+    warn(message)
+end
+```

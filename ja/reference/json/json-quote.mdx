@@ -1,0 +1,38 @@
+---
+title: "json.quote"
+sidebarTitle: "json.quote"
+description: "Real JSON string escaping rules を使って string を escape し、complete quoted JSON string literal を返します。"
+icon: "function"
+keywords: ["json.quote","JSON"]
+---
+
+Real JSON string escaping rules を使って string を escape し、complete quoted JSON string literal を返します。
+
+## 構文
+
+```lua
+json.quote(text: string): string
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | Quote する string。function はこの argument を string type checking で読みます。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `quoted` | `string` | opening と closing quote を含む complete JSON string literal。Quotes、backslashes、common control characters、bytes below 0x20 は escape されます。 |
+
+## 例
+
+String を complete quoted JSON string literal に convert します。
+
+```lua
+local source = "Real Docs" .. string.char(10) .. [[Documentation "A"]]
+local quoted = json.quote(source)
+
+print(quoted)
+```

@@ -1,0 +1,22 @@
+---
+title: "mousemoverel"
+sidebarTitle: "mousemoverel"
+description: "Roblox window가 active일 때 relative delta만큼 mouse를 이동합니다. x 및 y 인수는 Lua numbers로 검사되고 integer conversion로 변환된 뒤 the requested mouse action와 함께 mouse input에 dx 및 dy로 직접 전달됩니다. 이 function은 the requested mouse action를 사용하지 않고 client-area conversion을 수행하지 않으며 아무것도 반환하지 않고 isrbxactive가 false라면 input을 보내지 않고 반환합니다."
+icon: "function"
+keywords: ["mousemoverel","Input"]
+---
+
+Roblox window가 active일 때 relative delta만큼 mouse를 이동합니다. x 및 y 인수는 Lua numbers로 검사되고 integer conversion로 변환된 뒤 the requested mouse action와 함께 mouse input에 dx 및 dy로 직접 전달됩니다. 이 function은 the requested mouse action를 사용하지 않고 client-area conversion을 수행하지 않으며 아무것도 반환하지 않고 isrbxactive가 false라면 input을 보내지 않고 반환합니다.
+
+## 문법
+
+```lua
+mousemoverel(x: number, y: number)
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `x` | `number` | Yes | mouse input에 dx로 전달되기 전에 Lua number로 읽고 integer conversion로 변환되는 relative X movement delta입니다. |
+| `y` | `number` | Yes | mouse input에 dy로 전달되기 전에 Lua number로 읽고 integer conversion로 변환되는 relative Y movement delta입니다. |

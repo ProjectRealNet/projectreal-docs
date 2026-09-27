@@ -1,0 +1,44 @@
+---
+title: "getconnections"
+sidebarTitle: "getconnections"
+description: "返回 RBXScriptSignal 的 RealConnection closures array table。第一个 argument 必须是 Luau type name 为 RBXScriptSignal 的 object。function 会读取 signal 的 Connect method，连接 temporary blank callback，从临时 connection 的 next reference 开始读取 linked list，断开临时 connection，并包装每个有效的 connection reference。如果临时 connection 后没有找到 connection reference，则返回空 table。以前包装过的 underlying references 可能返回同一个 cached closure table。getsignals 和 get_signal_cons 是同一个 function 的 aliases。"
+icon: "function"
+keywords: ["getconnections","Signals","getsignals","get_signal_cons"]
+---
+
+返回 RBXScriptSignal 的 RealConnection closures array table。第一个 argument 必须是 Luau type name 为 RBXScriptSignal 的 object。function 会读取 signal 的 Connect method，连接 temporary blank callback，从临时 connection 的 next reference 开始读取 linked list，断开临时 connection，并包装每个有效的 connection reference。如果临时 connection 后没有找到 connection reference，则返回空 table。以前包装过的 underlying references 可能返回同一个 cached closure table。getsignals 和 get_signal_cons 是同一个 function 的 aliases。
+
+## 语法
+
+```lua
+getconnections(signal: RBXScriptSignal): {RealConnection}
+```
+
+## 别名
+
+- `getsignals`
+- `get_signal_cons`
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | 要检查的 signal。非 RBXScriptSignal object 会抛出 type error，没有可调用 Connect field 的 signal 会抛出 "Signal does not have 'Connect' method"。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `connections` | `&#123;RealConnection&#125;` | connection closure tables 的 array table。每个 closure 通过其 methods 暴露 fields 和 methods，包括可用时的 Enabled, Disabled, LuaConnection, ForeignState, Function, Thread, Disconnect, Disable, Enable, Fire 和 Defer。 |
+
+## 示例
+
+Inspect an RBXScriptSignal and list the wrapped connections Real can expose.
+
+```lua
+local Players = game:GetService("Players")
+
+for _, connection in ipairs(getconnections(Players.PlayerAdded)) do
+    print(connection.Enabled, connection.LuaConnection)
+end
+```

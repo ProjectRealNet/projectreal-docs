@@ -1,0 +1,52 @@
+---
+title: "json.decode"
+sidebarTitle: "json.decode"
+description: "Real JSON parser で JSON string を parse し、decoded arrays と objects を JSON helpers 用にマークした decoded Lua value を返します。"
+icon: "function"
+keywords: ["json.decode","JSON"]
+---
+
+Real JSON parser で JSON string を parse し、decoded arrays と objects を JSON helpers 用にマークした decoded Lua value を返します。
+
+## 構文
+
+```lua
+json.decode(json: string, options?: DecodeOptions): any
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | parse する JSON text。parser は optional surrounding whitespace 付きの単一 JSON value を受け入れ、invalid syntax または trailing non-whitespace characters がある場合に throw します。 |
+| `options` | `DecodeOptions` | No | Optional decode options。boolean は useNull を直接設定します。table は useNull と maxDepth を設定できます。maxDepth は 1 から 4096 に clamp されます。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `decoded` | `any` | Decoded value。JSON objects と arrays は JSON type markers を持つ tables になります。strings は Lua strings、numbers は Lua numbers、booleans は booleans になり、null は useNull が false でない限り json.null になります。 |
+
+## 型
+
+### DecodeOptions
+
+JSON 解析動作を制御します。
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | nil の代わりにライブラリの null センチネルを使用して JSON null を表します。 |
+| `maxDepth` | `integer` | No | ネストの最大の深さを 1 ～ 4096 の範囲で設定します。 |
+
+## 例
+
+JSON を Lua values に decode し、JSON array、object、null markers を保持します。
+
+```lua
+local value = json.decode('{"name":"Real","tags":["docs"],"missing":null}')
+
+print(value.name)
+print(value.tags[1])
+print(json.type(value))
+print(json.isNull(value.missing))
+```

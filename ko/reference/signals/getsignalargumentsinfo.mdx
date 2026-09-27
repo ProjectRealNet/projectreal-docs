@@ -1,0 +1,42 @@
+---
+title: "getsignalargumentsinfo"
+sidebarTitle: "getsignalargumentsinfo"
+description: "RBXScriptSignal 시그니처에서 인수 정보의 array table을 반환합니다. 캡처된 런타임 인수 값은 반환하지 않습니다."
+icon: "function"
+keywords: ["getsignalargumentsinfo","Signals"]
+---
+
+RBXScriptSignal 시그니처에서 인수 정보의 array table을 반환합니다. 캡처된 런타임 인수 값은 반환하지 않습니다.
+
+## 문법
+
+```lua
+getsignalargumentsinfo(signal: RBXScriptSignal): {{Name: string, Type: string}}
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | event descriptor signature를 검사할 RBXScriptSignal입니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `argumentInfo` | `&#123;&#123;Name: string, Type: string&#125;&#125;` | 각 항목에 Name 및 Type strings가 있는 array table입니다. 시그니처를 읽을 수 없거나 항목이 없으면 함수는 Name이 arg1이고 Type이 Variant인 fallback entry 하나를 반환합니다. |
+
+## 예제
+
+Inspect an RBXScriptSignal signature and print each argument name with its type name.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote then
+    for _, argument in ipairs(getsignalargumentsinfo(remote.OnClientEvent)) do
+        print(argument.Name, argument.Type)
+    end
+end
+```

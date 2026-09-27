@@ -1,0 +1,35 @@
+---
+title: "rconsoleerr"
+sidebarTitle: "rconsoleerr"
+description: "console text attribute を error text color に設定したあと、stdout を通して現在の Windows console に 1 つ以上の値を書き込みます。値は Lua string conversion で変換され、tab 文字で区切られ、出力後に text attribute はリセットされます。console window が存在しない場合、この呼び出しは何も変換せず、何も書き込まずに戻ります。"
+icon: "function"
+keywords: ["rconsoleerr","Console","consoleerr"]
+---
+
+console text attribute を error text color に設定したあと、stdout を通して現在の Windows console に 1 つ以上の値を書き込みます。値は Lua string conversion で変換され、tab 文字で区切られ、出力後に text attribute はリセットされます。console window が存在しない場合、この呼び出しは何も変換せず、何も書き込まずに戻ります。
+
+## 構文
+
+```lua
+rconsoleerr(...values?: ...any)
+```
+
+## エイリアス
+
+- `consoleerr`
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `...values` | `...any` | No | 任意の値。console が存在する場合、各 value は Lua string conversion で変換され、書き込み前に tab 文字で結合されます。 |
+
+## 例
+
+Write a bright red message to the current Windows console without throwing a Luau error.
+
+```lua
+rconsolecreate()
+rconsoleerr("Request failed", 500, "
+")
+```

@@ -1,0 +1,38 @@
+---
+title: "json.escape"
+sidebarTitle: "json.escape"
+description: "Bir string'i Real JSON string escaping rules ile escape eder ve surrounding quotes olmadan escaped content dondurur."
+icon: "function"
+keywords: ["json.escape","JSON"]
+---
+
+Bir string'i Real JSON string escaping rules ile escape eder ve surrounding quotes olmadan escaped content dondurur.
+
+## Söz dizimi
+
+```lua
+json.escape(text: string): string
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | Escape edilecek string. Function bu argument degerini string type checking ile okur. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `escaped` | `string` | Opening ve closing quote olmadan escaped JSON string content. Quotes, backslashes, common control characters ve bytes below 0x20 escape edilir. |
+
+## Örnek
+
+Surrounding quotes eklemeden JSON string icine koymak icin string escape eder.
+
+```lua
+local source = "line 1" .. string.char(10) .. [[line "2"]]
+local escaped = json.escape(source)
+
+print(escaped)
+```

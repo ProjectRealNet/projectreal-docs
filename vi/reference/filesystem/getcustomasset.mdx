@@ -1,0 +1,44 @@
+---
+title: "getcustomasset"
+sidebarTitle: "getcustomasset"
+description: "Sao chep mot regular workspace file dang ton tai vao ExtraContent/<hwid>/ va tra ve rbxasset:// string cho asset path da sao chep."
+icon: "function"
+keywords: ["getcustomasset","Filesystem","getsynasset"]
+---
+
+Sao chep mot regular workspace file dang ton tai vao ExtraContent/&lt;hwid>/ va tra ve rbxasset:// string cho asset path da sao chep.
+
+## Cú pháp
+
+```lua
+getcustomasset(path: string): string
+```
+
+## Alias
+
+- `getsynasset`
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path duoc resolve ben trong workspace sau separator normalization va workspace-boundary checks. Target phai ton tai va la regular file; folders, invalid filenames, DOS device names va blocked extensions khong duoc chap nhan. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `assetId` | `string` | String theo dang rbxasset://&lt;hwid>/&lt;workspace-relative-path>, dung forward slashes cho relative path. |
+
+## Ví dụ
+
+Sao chep mot workspace file dang ton tai vao asset folder va in rbxasset path duoc tra ve.
+
+```lua
+local path = "assets/example.txt"
+writefile(path, "asset bytes")
+
+local assetId = getcustomasset(path)
+print(assetId)
+print(getsynasset(path))
+```

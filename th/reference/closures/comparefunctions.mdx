@@ -1,0 +1,45 @@
+---
+title: "comparefunctions"
+sidebarTitle: "comparefunctions"
+description: "เปรียบเทียบ function values สองค่าโดยใช้ function identity ของมัน arguments ทั้งสองต้องเป็น functions function จะคืน boolean result ของ function identity(L, 1) == function identity(L, 2) ไม่เปรียบเทียบ function bytecode, source, behavior, hashes, upvalues หรือ newcclosure mappings comparefunction เป็น alias ของ function เดียวกัน"
+icon: "function"
+keywords: ["comparefunctions","Closures","comparefunction"]
+---
+
+เปรียบเทียบ function values สองค่าโดยใช้ function identity ของมัน arguments ทั้งสองต้องเป็น functions function จะคืน boolean result ของ function identity(L, 1) == function identity(L, 2) ไม่เปรียบเทียบ function bytecode, source, behavior, hashes, upvalues หรือ newcclosure mappings comparefunction เป็น alias ของ function เดียวกัน
+
+## ไวยากรณ์
+
+```lua
+comparefunctions(func1: function, func2: function): boolean
+```
+
+## Aliases
+
+- `comparefunction`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `func1` | `function` | Yes | First function value ที่แปลงด้วย function identity |
+| `func2` | `function` | Yes | Second function value ที่แปลงด้วย function identity |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `equal` | `boolean` | true เมื่อ function values ทั้งสอง resolve เป็น function identity เดียวกัน; มิฉะนั้น false |
+
+## ตัวอย่าง
+
+Compare two functions by their function identity.
+
+```lua
+local function sample()
+    return "ok"
+end
+
+local same = comparefunctions(sample, sample)
+print(same)
+```

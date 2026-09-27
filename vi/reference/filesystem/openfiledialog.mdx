@@ -1,0 +1,60 @@
+---
+title: "openfiledialog"
+sidebarTitle: "openfiledialog"
+description: "Mo Windows file-open dialog qua Windows file picker va tra ve file da chon duoi dang file item."
+icon: "function"
+keywords: ["openfiledialog","Filesystem"]
+---
+
+Mo Windows file-open dialog qua Windows file picker va tra ve file da chon duoi dang file item.
+
+## Cú pháp
+
+```lua
+openfiledialog(options?: DialogOptions): FileSystemItem | nil
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. Voi openfiledialog, title, defaultPath va extensionFilter duoc dung. extensionFilter la table gom extension strings; . hoac *. o dau duoc xoa truoc khi moi filter thanh *.&lt;extension>. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Selected file item, hoac nil khi dialog bi cancel hoac khong co selected filesystem path duoc tra ve. Dialog failures throw Failed to open file dialog. |
+
+## Kiểu
+
+### DialogOptions
+
+Định cấu hình hộp thoại chọn tệp hoặc thư mục gốc.
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Đặt tiêu đề cửa sổ hộp thoại. |
+| `defaultPath` | `string` | No | Chọn thư mục hiển thị khi hộp thoại mở ra. |
+| `extensionFilter` | `&#123;string&#125;` | No | Giới hạn các tệp có thể chọn ở các tiện ích mở rộng được liệt kê, có hoặc không có dấu chấm ở đầu. |
+| `suggestedName` | `string` | No | Cung cấp tên tệp ban đầu trong hộp thoại lưu. |
+| `defaultExtension` | `string` | No | Đặt phần mở rộng được sử dụng khi tên tệp đã nhập không có. |
+
+## Ví dụ
+
+Mo file picker va xu ly selected file item hoac cancellation.
+
+```lua
+local file = openfiledialog({
+    title = "Choose a configuration",
+    defaultPath = ".",
+    extensionFilter = { "json", "txt" },
+})
+
+if file then
+    print(file:GetName())
+    print(file:IsFile())
+else
+    print("No file selected")
+end
+```

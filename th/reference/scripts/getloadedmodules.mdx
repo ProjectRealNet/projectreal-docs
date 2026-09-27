@@ -1,0 +1,27 @@
+---
+title: "getloadedmodules"
+sidebarTitle: "getloadedmodules"
+description: "Returns a new array table containing live entries from loaded module list. The optional excludeCore argument is read with optional boolean handling and defaults to true when omitted or nil. If excludeCore is true, entries whose instance is a descendant of core packages or CoreGui are skipped. Expired weak entries and locked stored references without a value are skipped. The function pushes each remaining entry with Instance cache at sequential array indexes starting at 1. The function does not check ClassName, does not sort the result, and does not walk the DataModel."
+icon: "function"
+keywords: ["getloadedmodules","Scripts"]
+---
+
+Returns a new array table containing live entries from loaded module list. The optional excludeCore argument is read with optional boolean handling and defaults to true when omitted or nil. If excludeCore is true, entries whose instance is a descendant of core packages or CoreGui are skipped. Expired weak entries and locked stored references without a value are skipped. The function pushes each remaining entry with Instance cache at sequential array indexes starting at 1. The function does not check ClassName, does not sort the result, and does not walk the DataModel.
+
+## ไวยากรณ์
+
+```lua
+getloadedmodules(excludeCore?: boolean): table
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `excludeCore` | `boolean` | No | Optional boolean. Omitted or nil uses true. When true, entries under core packages or CoreGui are excluded. Non-boolean values are rejected by luaL_checkboolean. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `modules` | `table` | New array table of pushed live entries from loaded module list. |

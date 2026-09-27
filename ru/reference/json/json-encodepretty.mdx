@@ -1,0 +1,61 @@
+---
+title: "json.encodePretty"
+sidebarTitle: "json.encodePretty"
+description: "Serializes Lua value в readable formatted JSON string через Real JSON encoder. json.pretty зарегистрирован на ту же function."
+icon: "function"
+keywords: ["json.encodePretty","JSON"]
+---
+
+Serializes Lua value в readable formatted JSON string через Real JSON encoder. json.pretty зарегистрирован на ту же function.
+
+## Синтаксис
+
+```lua
+json.encodePretty(value: any, options?: EncodeOptions): string
+```
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value для encoded. nil, booleans, numbers, strings, tables и json.null обрабатываются напрямую. Unsupported Lua types encoded как null, если errorOnUnsupported не true. |
+| `options` | `EncodeOptions` | No | Optional encode options. json.encodePretty читает те же options, что и json.encode, затем принудительно ставит pretty в true. Без options используется two-space indent. number задает indent width с clamp до 0.16, string задает indent text, а table может задавать sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth и indent. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `json` | `string` | Readable formatted JSON string. Encoding errors выбрасываются как Luau errors. |
+
+## Типы
+
+### EncodeOptions
+
+Управляет сериализацией и форматированием JSON.
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Включает форматированный многострочный вывод JSON. |
+| `sortKeys` | `boolean` | No | Сортирует ключи объекта перед кодированием. |
+| `emptyTableAsArray` | `boolean` | No | Кодирует пустую таблицу как массив вместо объекта. |
+| `errorOnUnsupported` | `boolean` | No | Вызывает ошибку вместо замены неподдерживаемых значений. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Кодирует NaN и бесконечные числа как значение JSON null. |
+| `maxDepth` | `integer` | No | Устанавливает максимальную глубину вложенности от 1 до 4096. |
+| `indent` | `string` | No | Устанавливает строку отступа, ограниченную 32 символами. |
+
+## Пример
+
+Encode JSON-compatible values как readable formatted JSON с pretty output forced on.
+
+```lua
+local text = json.encodePretty({
+    name = "Real",
+    version = 1,
+    features = json.array({ "docs", "examples" }),
+    missing = json.null,
+}, {
+    sortKeys = true,
+})
+
+print(text)
+```

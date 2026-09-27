@@ -1,0 +1,35 @@
+---
+title: "rconsoleerr"
+sidebarTitle: "rconsoleerr"
+description: "เขียนค่าจำนวนศูนย์ค่าหรือมากกว่าไปยัง Windows console ปัจจุบันผ่าน stdout หลังจากตั้งค่า console text attribute เป็น error text color ค่าแต่ละค่าถูกแปลงด้วย Lua string conversion คั่นด้วยอักขระ tab แล้ว reset text attribute หลังจากนั้น หากไม่มี console window การเรียกจะกลับโดยไม่แปลงหรือเขียนอะไร"
+icon: "function"
+keywords: ["rconsoleerr","Console","consoleerr"]
+---
+
+เขียนค่าจำนวนศูนย์ค่าหรือมากกว่าไปยัง Windows console ปัจจุบันผ่าน stdout หลังจากตั้งค่า console text attribute เป็น error text color ค่าแต่ละค่าถูกแปลงด้วย Lua string conversion คั่นด้วยอักขระ tab แล้ว reset text attribute หลังจากนั้น หากไม่มี console window การเรียกจะกลับโดยไม่แปลงหรือเขียนอะไร
+
+## ไวยากรณ์
+
+```lua
+rconsoleerr(...values?: ...any)
+```
+
+## Aliases
+
+- `consoleerr`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `...values` | `...any` | No | ค่าเสริม หากมี console แต่ละ value จะถูกแปลงด้วย Lua string conversion และรวมด้วยอักขระ tab ก่อนเขียน |
+
+## ตัวอย่าง
+
+Write a bright red message to the current Windows console without throwing a Luau error.
+
+```lua
+rconsolecreate()
+rconsoleerr("Request failed", 500, "
+")
+```

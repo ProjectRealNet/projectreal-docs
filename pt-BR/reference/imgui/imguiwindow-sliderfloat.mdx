@@ -1,0 +1,52 @@
+---
+title: "ImGuiWindow.SliderFloat"
+sidebarTitle: "ImGuiWindow.SliderFloat"
+description: "Anexa um SliderFloat element a janela. label, value, minimum e maximum sao lidos dos argumentos 2 a 5, com os argumentos numericos verificados por number type checking. Durante o rendering, Real chama a floating-point slider com o valor e o intervalo armazenados. Quando ImGui informa uma mudanca de valor, onChange entra em uma queue e depois e chamado com um Lua number. Real nao adiciona uma validacao minimum <= maximum separada neste closure."
+icon: "function"
+keywords: ["ImGuiWindow.SliderFloat","ImGui"]
+---
+
+Anexa um SliderFloat element a janela. label, value, minimum e maximum sao lidos dos argumentos 2 a 5, com os argumentos numericos verificados por number type checking. Durante o rendering, Real chama a floating-point slider com o valor e o intervalo armazenados. Quando ImGui informa uma mudanca de valor, onChange entra em uma queue e depois e chamado com um Lua number. Real nao adiciona uma validacao minimum &lt;= maximum separada neste closure.
+
+## Sintaxe
+
+```lua
+ImGuiWindow.SliderFloat(window: ImGuiWindow, label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()): ImGuiWindow
+```
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `window` | `ImGuiWindow` | Yes | ImGuiWindow retornada por imgui.create. Se a object for invalida ou ja tiver sido destruida, a method gera um Lua error. |
+| `label` | `string` | Yes | Slider label lida com string type checking. |
+| `value` | `number` | Yes | Valor inicial do slider lido com number type checking e armazenado como o valor float atual. |
+| `minimum` | `number` | Yes | Minimum value lida com number type checking e passada para a floating-point slider. |
+| `maximum` | `number` | Yes | Maximum value lida com number type checking e passada para a floating-point slider. |
+| `onChange` | `(number) -> ()` | Yes | Callback function armazenada no Lua registry. Quando o slider muda durante o rendering, ela e chamada depois com o valor numerico atualizado. |
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `window` | `ImGuiWindow` | A mesma ImGuiWindow object, permitindo chamadas de method encadeadas. |
+
+## Tipos
+
+### ImGuiWindow
+
+Identificador retornado por imgui.create. Os métodos de construção de controle retornam o mesmo identificador para que as chamadas possam ser encadeadas.
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | Acrescenta um botão e invoca o retorno de chamada após um clique. |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | Acrescenta uma caixa de seleção inicializada no estado fornecido. |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | Agrupa controles anexados pelo retorno de chamada de conteúdo abaixo de um cabeçalho recolhido. |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | Acrescenta um editor RGBA; os componentes de cores omitidos são padronizados como 1,0. |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | Acrescenta uma entrada de texto de linha única; o texto inicial omitido é padronizado como uma string vazia. |
+| `SameLine` | `() -> ImGuiWindow` | Yes | Coloca o próximo controle na mesma linha. |
+| `Separator` | `() -> ImGuiWindow` | Yes | Acrescenta um separador horizontal. |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Acrescenta um controle deslizante de ponto flutuante. |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Acrescenta um controle deslizante inteiro. |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | Acrescenta texto não interativo. |
+| `destroy` | `() -> ()` | Yes | Remove a janela e libera seus retornos de chamada registrados. |

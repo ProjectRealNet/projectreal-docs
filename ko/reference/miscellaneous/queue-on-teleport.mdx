@@ -1,0 +1,35 @@
+---
+title: "queue_on_teleport"
+sidebarTitle: "queue_on_teleport"
+description: "Queues a source string to run after a later teleport initialization. The function returns no values."
+icon: "function"
+keywords: ["queue_on_teleport","Miscellaneous","queueonteleport","queue_on_tp","queueontp"]
+---
+
+Queues a source string to run after a later teleport initialization. The function returns no values.
+
+## 문법
+
+```lua
+queue_on_teleport(source: string)
+```
+
+## 별칭
+
+- `queueonteleport`
+- `queue_on_tp`
+- `queueontp`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `source` | `string` | Yes | Source string to queue for a later teleport initialization. |
+
+## 예제
+
+Store a source string so it can run during a later teleport initialization.
+
+```lua
+queue_on_teleport("print('queued after teleport')")
+```

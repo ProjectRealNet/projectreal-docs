@@ -1,0 +1,44 @@
+---
+title: "getconnections"
+sidebarTitle: "getconnections"
+description: "Tra ve array table gom RealConnection closures cho RBXScriptSignal. Argument dau tien phai la object co Luau type name la RBXScriptSignal. Function doc Connect method cua signal, ket noi temporary blank callback, doc linked list bat dau tu next reference cua ket noi tam thoi, ngat ket noi tam thoi, roi boc moi connection reference hop le. Neu khong tim thay connection reference sau ket noi tam thoi, tra ve table rong. references da duoc boc truoc do co the tra ve cung cached closure table. getsignals va get_signal_cons la aliases cho cung function."
+icon: "function"
+keywords: ["getconnections","Signals","getsignals","get_signal_cons"]
+---
+
+Tra ve array table gom RealConnection closures cho RBXScriptSignal. Argument dau tien phai la object co Luau type name la RBXScriptSignal. Function doc Connect method cua signal, ket noi temporary blank callback, doc linked list bat dau tu next reference cua ket noi tam thoi, ngat ket noi tam thoi, roi boc moi connection reference hop le. Neu khong tim thay connection reference sau ket noi tam thoi, tra ve table rong. references da duoc boc truoc do co the tra ve cung cached closure table. getsignals va get_signal_cons la aliases cho cung function.
+
+## Cú pháp
+
+```lua
+getconnections(signal: RBXScriptSignal): {RealConnection}
+```
+
+## Alias
+
+- `getsignals`
+- `get_signal_cons`
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | Signal can kiem tra. Userdata khong phai RBXScriptSignal gay type error, va signal khong co Connect field co the goi gay "Signal does not have 'Connect' method". |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `connections` | `&#123;RealConnection&#125;` | Array table cua connection closure tables. Moi closure hien thi fields va methods qua methods cua no, bao gom Enabled, Disabled, LuaConnection, ForeignState, Function, Thread, Disconnect, Disable, Enable, Fire va Defer khi co san. |
+
+## Ví dụ
+
+Inspect an RBXScriptSignal and list the wrapped connections Real can expose.
+
+```lua
+local Players = game:GetService("Players")
+
+for _, connection in ipairs(getconnections(Players.PlayerAdded)) do
+    print(connection.Enabled, connection.LuaConnection)
+end
+```

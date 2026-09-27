@@ -1,0 +1,40 @@
+---
+title: "cansignalreplicate"
+sidebarTitle: "cansignalreplicate"
+description: "Memeriksa apakah RBXScriptSignal legal untuk dikirim melalui NetworkClient replication layer saat ini. Function ini memvalidasi argument pertama sebagai RBXScriptSignal, membaca source instance dan event descriptor milik signal, lalu mengembalikan hasil boolean dari replication layer signal replication validation. Jika nilai reference replication layer yang diselesaikan adalah 0, function mengembalikan false. Arguments tambahan tidak dibaca. Function ini hanya memeriksa signal dan tidak menembakkan atau mereplikasinya. Tabel whitelist yang dikembalikan oleh getsignalwhitelist tidak digunakan oleh jalur kode ini."
+icon: "function"
+keywords: ["cansignalreplicate","Signals"]
+---
+
+Memeriksa apakah RBXScriptSignal legal untuk dikirim melalui NetworkClient replication layer saat ini. Function ini memvalidasi argument pertama sebagai RBXScriptSignal, membaca source instance dan event descriptor milik signal, lalu mengembalikan hasil boolean dari replication layer signal replication validation. Jika nilai reference replication layer yang diselesaikan adalah 0, function mengembalikan false. Arguments tambahan tidak dibaca. Function ini hanya memeriksa signal dan tidak menembakkan atau mereplikasinya. Tabel whitelist yang dikembalikan oleh getsignalwhitelist tidak digunakan oleh jalur kode ini.
+
+## Sintaks
+
+```lua
+cansignalreplicate(signal: RBXScriptSignal): boolean
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | Signal yang akan diperiksa. Argument pertama harus berupa object dengan Luau type name RBXScriptSignal. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `canReplicate` | `boolean` | Boolean yang dikembalikan oleh pemeriksaan replication layer signal replication validation, atau false ketika nilai reference replication layer yang diselesaikan adalah 0. |
+
+## Contoh
+
+Check whether an RBXScriptSignal is legal to send before attempting to replicate it.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote then
+    print(cansignalreplicate(remote.OnClientEvent))
+end
+```

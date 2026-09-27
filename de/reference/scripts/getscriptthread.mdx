@@ -1,0 +1,47 @@
+---
+title: "getscriptthread"
+sidebarTitle: "getscriptthread"
+description: "Gibt den Lua thread zurueck, der mit einer script object verbunden ist, wenn Real einen findet. Das argument muss object sein. Die function liest das ClassName Feld des Werts und wirft \"not a valid Instance\", wenn dieses Feld kein string ist. Akzeptierte ClassName Werte sind Script, LocalScript und ModuleScript; jeder andere Wert wirft \"Script expected\". Zuerst prueft sie Real's ScriptThreadCache ueber den script reference. Bei einem cache hit gibt sie den gecachten Luau thread als thread zurueck. Bei einem cache miss muessen Script Werte RunContext Client haben, sonst wirft die function \"Expected a Script with RunContext set to Client\". Danach laeuft sie durch the live Luau thread list, folgt bei jedem thread node der first weak thread reference zu LiveLuaRef, ueberspringt missing thread data oder expired Script stored references und vergleicht jeden script reference mit dem angefragten script. Wenn sie einen match findet, gibt sie diesen Luau thread als thread zurueck. Wenn kein match gefunden wird, gibt sie nil zurueck."
+icon: "function"
+keywords: ["getscriptthread","Scripts"]
+---
+
+Gibt den Lua thread zurueck, der mit einer script object verbunden ist, wenn Real einen findet. Das argument muss object sein. Die function liest das ClassName Feld des Werts und wirft "not a valid Instance", wenn dieses Feld kein string ist. Akzeptierte ClassName Werte sind Script, LocalScript und ModuleScript; jeder andere Wert wirft "Script expected". Zuerst prueft sie Real's ScriptThreadCache ueber den script reference. Bei einem cache hit gibt sie den gecachten Luau thread als thread zurueck. Bei einem cache miss muessen Script Werte RunContext Client haben, sonst wirft die function "Expected a Script with RunContext set to Client". Danach laeuft sie durch the live Luau thread list, folgt bei jedem thread node der first weak thread reference zu LiveLuaRef, ueberspringt missing thread data oder expired Script stored references und vergleicht jeden script reference mit dem angefragten script. Wenn sie einen match findet, gibt sie diesen Luau thread als thread zurueck. Wenn kein match gefunden wird, gibt sie nil zurueck.
+
+## Syntax
+
+```lua
+getscriptthread(script: userdata): thread | nil
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | Script object fuer den Lookup. Akzeptierte ClassName Werte sind Script, LocalScript und ModuleScript. |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `thread` | `thread \| nil` | Zugehoeriger Lua thread, oder nil, wenn kein matching live thread gefunden wird. |
+
+## Beispiel
+
+Read the Luau thread associated with a supported script Instance when one is available.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local thread = getscriptthread(targetScript)
+    print(thread)
+end
+```

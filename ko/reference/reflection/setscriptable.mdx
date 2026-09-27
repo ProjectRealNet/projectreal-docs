@@ -1,0 +1,42 @@
+---
+title: "setscriptable"
+sidebarTitle: "setscriptable"
+description: "Roblox property에 대한 scriptable override를 scriptable override cache에 저장하고 previous scriptable state를 반환합니다. 첫 번째 인수는 Instance object여야 하고, 두 번째 인수는 string property name이어야 하며, 세 번째 인수는 boolean이어야 합니다. 같은 instance reference와 property name에 대한 cache entry가 이미 있으면 cached scriptable value가 교체되고 이전 cached value가 반환됩니다. cache miss이면 property name을 Roblox property metadata 및 Instance class descriptor로 해석합니다. descriptor가 없거나 해석된 field가 없거나 property entry가 아니면 function은 nil을 반환합니다. property entry를 찾으면 function은 scriptable state을 읽고 요청된 boolean과 property reference를 scriptable override cache에 저장한 뒤 previous scriptable state value를 반환합니다. GameIndexHook 및 GameNewIndexHook은 나중에 이 cache를 사용하여 단일 indexed read 또는 write 동안 property field scriptable flag를 임시로 설정한 뒤 previous field flag를 복원합니다."
+icon: "function"
+keywords: ["setscriptable","Reflection"]
+---
+
+Roblox property에 대한 scriptable override를 scriptable override cache에 저장하고 previous scriptable state를 반환합니다. 첫 번째 인수는 Instance object여야 하고, 두 번째 인수는 string property name이어야 하며, 세 번째 인수는 boolean이어야 합니다. 같은 instance reference와 property name에 대한 cache entry가 이미 있으면 cached scriptable value가 교체되고 이전 cached value가 반환됩니다. cache miss이면 property name을 Roblox property metadata 및 Instance class descriptor로 해석합니다. descriptor가 없거나 해석된 field가 없거나 property entry가 아니면 function은 nil을 반환합니다. property entry를 찾으면 function은 scriptable state을 읽고 요청된 boolean과 property reference를 scriptable override cache에 저장한 뒤 previous scriptable state value를 반환합니다. GameIndexHook 및 GameNewIndexHook은 나중에 이 cache를 사용하여 단일 indexed read 또는 write 동안 property field scriptable flag를 임시로 설정한 뒤 previous field flag를 복원합니다.
+
+## 문법
+
+```lua
+setscriptable(instance: Instance, property: string, value: boolean): boolean | nil
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | scriptable override cache key의 일부로 사용되는 Instance object. |
+| `property` | `string` | Yes | cache miss 시 Roblox property metadata 및 Instance class descriptor로 해석되는 property name. |
+| `value` | `boolean` | Yes | scriptable override cache에 저장할 scriptable override value. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `previousState` | `boolean \| nil` | Previous cached scriptable value, previous scriptable state value, 또는 property가 property entry로 해석되지 않으면 nil입니다. |
+
+## 예제
+
+Temporarily change whether a property is scriptable, then restore the previous state when available.
+
+```lua
+local previous = setscriptable(workspace, "Name", true)
+print(previous)
+
+if previous ~= nil then
+    setscriptable(workspace, "Name", previous)
+end
+```

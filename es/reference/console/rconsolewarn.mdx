@@ -1,0 +1,35 @@
+---
+title: "rconsolewarn"
+sidebarTitle: "rconsolewarn"
+description: "Escribe cero o mas valores en la Windows console actual mediante stdout con el warning console text attribute. Si no existe ninguna console window, la llamada vuelve sin convertir ni escribir nada. Cuando existe una console, cada argument se convierte con Lua string conversion, se une con caracteres tab y se escribe mediante runtime value. Si Lua string conversion genera un error, rconsolewarn no lo captura. La function establece el console text attribute en FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY antes de escribir y luego lo establece en default console text color. No agrega newline, no agrega warning prefix, no crea ni muestra la console y no llama a Luau warn ni a Roblox Output. consolewarn es un alias de la misma function."
+icon: "function"
+keywords: ["rconsolewarn","Console","consolewarn"]
+---
+
+Escribe cero o mas valores en la Windows console actual mediante stdout con el warning console text attribute. Si no existe ninguna console window, la llamada vuelve sin convertir ni escribir nada. Cuando existe una console, cada argument se convierte con Lua string conversion, se une con caracteres tab y se escribe mediante runtime value. Si Lua string conversion genera un error, rconsolewarn no lo captura. La function establece el console text attribute en FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY antes de escribir y luego lo establece en default console text color. No agrega newline, no agrega warning prefix, no crea ni muestra la console y no llama a Luau warn ni a Roblox Output. consolewarn es un alias de la misma function.
+
+## Sintaxis
+
+```lua
+rconsolewarn(...values?: ...any)
+```
+
+## Alias
+
+- `consolewarn`
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `...values` | `...any` | No | Valores opcionales. Si existe una console, cada value se convierte con Lua string conversion y se une con caracteres tab antes de escribirse. |
+
+## Ejemplo
+
+Write values to the current Windows console with the warning console text attribute. Values are tab-separated, no newline or warning prefix is added, and consolewarn is the same function.
+
+```lua
+rconsolecreate()
+rconsolewarn("Retrying request", 3)
+rconsolewarn("\n")
+```

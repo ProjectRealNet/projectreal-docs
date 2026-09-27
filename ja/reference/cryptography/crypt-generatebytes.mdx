@@ -1,0 +1,40 @@
+---
+title: "crypt.generatebytes"
+sidebarTitle: "crypt.generatebytes"
+description: "random byte generator でランダムバイトを生成し、Base64-encoded として Lua string で返します。"
+icon: "function"
+keywords: ["crypt.generatebytes","Cryptography"]
+---
+
+random byte generator でランダムバイトを生成し、Base64-encoded として Lua string で返します。
+
+## 構文
+
+```lua
+crypt.generatebytes(size: number): string
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `size` | `number` | Yes | 割り当て前に integer conversion を通る数値。0 以下の値は 1 に変更されます。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `encoded` | `string` | 生成された raw bytes の Base64 encoding。返される string の長さは要求したバイト数ではありません。 |
+
+## 例
+
+raw bytes が必要な場合は、バイトを生成して Base64 結果をデコードします。
+
+```lua
+local encoded = crypt.generatebytes(16)
+local raw = base64_decode(encoded)
+
+print(encoded)
+print(#encoded)
+print(#raw)
+```

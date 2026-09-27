@@ -1,0 +1,45 @@
+---
+title: "comparefunctions"
+sidebarTitle: "comparefunctions"
+description: "İki function values değerini function identity üzerinden karşılaştırır. İki arguments de functions olmalıdır. Function, function identity(L, 1) == function identity(L, 2) boolean result değerini döndürür. function bytecode, source, behavior, hashes, upvalues veya newcclosure mappings karşılaştırmaz. comparefunction aynı function için alias değeridir."
+icon: "function"
+keywords: ["comparefunctions","Closures","comparefunction"]
+---
+
+İki function values değerini function identity üzerinden karşılaştırır. İki arguments de functions olmalıdır. Function, function identity(L, 1) == function identity(L, 2) boolean result değerini döndürür. function bytecode, source, behavior, hashes, upvalues veya newcclosure mappings karşılaştırmaz. comparefunction aynı function için alias değeridir.
+
+## Söz dizimi
+
+```lua
+comparefunctions(func1: function, func2: function): boolean
+```
+
+## Aliaslar
+
+- `comparefunction`
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `func1` | `function` | Yes | function identity ile dönüştürülen first function value. |
+| `func2` | `function` | Yes | function identity ile dönüştürülen second function value. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `equal` | `boolean` | İki function values aynı function identity değerine resolve olursa true; aksi halde false. |
+
+## Örnek
+
+Compare two functions by their function identity.
+
+```lua
+local function sample()
+    return "ok"
+end
+
+local same = comparefunctions(sample, sample)
+print(same)
+```

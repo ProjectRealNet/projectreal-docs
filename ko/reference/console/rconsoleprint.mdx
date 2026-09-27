@@ -1,0 +1,39 @@
+---
+title: "rconsoleprint"
+sidebarTitle: "rconsoleprint"
+description: "console text attribute를 변경하지 않고 stdout을 통해 현재 Windows console에 0개 이상의 값을 씁니다. 값은 Lua string conversion으로 변환되고 tab 문자로 구분됩니다. 이 function은 newline을 추가하지 않습니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다."
+icon: "function"
+keywords: ["rconsoleprint","Console","consoleprint","rconsolewrite","consolewrite"]
+---
+
+console text attribute를 변경하지 않고 stdout을 통해 현재 Windows console에 0개 이상의 값을 씁니다. 값은 Lua string conversion으로 변환되고 tab 문자로 구분됩니다. 이 function은 newline을 추가하지 않습니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다.
+
+## 문법
+
+```lua
+rconsoleprint(...values?: ...any)
+```
+
+## 별칭
+
+- `consoleprint`
+- `rconsolewrite`
+- `consolewrite`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `...values` | `...any` | No | 선택적 값입니다. console이 있으면 각 value는 Lua string conversion으로 변환되고 쓰기 전에 tab 문자로 결합됩니다. |
+
+## 예제
+
+Write values to the current Windows console without adding a newline.
+
+```lua
+rconsolecreate()
+rconsoleprint("Loading", "
+")
+rconsoleprint("User", "	", 42, "
+")
+```

@@ -1,0 +1,55 @@
+---
+title: "json.minify"
+sidebarTitle: "json.minify"
+description: "JSON string を parse し、Real default non-pretty JSON encoder output で re-encode します。"
+icon: "function"
+keywords: ["json.minify","JSON"]
+---
+
+JSON string を parse し、Real default non-pretty JSON encoder output で re-encode します。
+
+## 構文
+
+```lua
+json.minify(json: string, options?: DecodeOptions): string
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | Minifying の前に parse される JSON string。function はこの argument を string type checking で読みます。 |
+| `options` | `DecodeOptions` | No | Input JSON の parsing 中に使われる optional decode options。boolean は useNull を設定します。table は useNull と maxDepth を設定できます。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `minified` | `string` | Input の parsing と default encode options による re-encoding 後に生成される JSON string。 |
+
+## 型
+
+### DecodeOptions
+
+JSON 解析動作を制御します。
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | nil の代わりにライブラリの null センチネルを使用して JSON null を表します。 |
+| `maxDepth` | `integer` | No | ネストの最大の深さを 1 ～ 4096 の範囲で設定します。 |
+
+## 例
+
+Valid JSON を parse し、default compact JSON output で re-encode します。
+
+```lua
+local formatted = [[{
+    "name": "Real",
+    "enabled": true,
+    "missing": null
+}]]
+
+print(json.minify(formatted, {
+    useNull = true,
+}))
+```

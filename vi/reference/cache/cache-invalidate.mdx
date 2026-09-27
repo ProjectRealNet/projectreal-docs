@@ -1,0 +1,33 @@
+---
+title: "cache.invalidate"
+sidebarTitle: "cache.invalidate"
+description: "Xoa muc registry Instance cache da duoc cache cho Instance duoc cung cap."
+icon: "function"
+keywords: ["cache.invalidate","Cache"]
+---
+
+Xoa muc registry Instance cache da duoc cache cho Instance duoc cung cap.
+
+## Cú pháp
+
+```lua
+cache.invalidate(instance: Instance)
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance co muc registry da cache can duoc xoa. |
+
+## Ví dụ
+
+Xoa mot Instance khoi cache cua Real va kiem tra xem muc cache con ton tai hay khong.
+
+```lua
+local Players = game:GetService("Players")
+
+cache.invalidate(Players)
+
+print(cache.iscached(Players))
+```

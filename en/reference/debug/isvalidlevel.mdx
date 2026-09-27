@@ -1,0 +1,44 @@
+---
+title: "isvalidlevel"
+sidebarTitle: "isvalidlevel"
+description: "Checks whether a numeric stack level is within the current call stack range. level is required and must be a number because the function calls requires a number. The value is converted to an integer. The function returns false when level < 0 or level >= the current call stack depth, otherwise true. It does not inspect the frame closure and does not raise \"Level out of range\" for invalid numeric levels. validlevel is a global alias, and debug.isvalidlevel plus debug.validlevel are exposed with the debug table aliases."
+icon: "function"
+keywords: ["isvalidlevel","Debug","validlevel","debug.isvalidlevel","debug.validlevel"]
+---
+
+Checks whether a numeric stack level is within the current call stack range. level is required and must be a number because the function calls requires a number. The value is converted to an integer. The function returns false when level &lt; 0 or level >= the current call stack depth, otherwise true. It does not inspect the frame closure and does not raise "Level out of range" for invalid numeric levels. validlevel is a global alias, and debug.isvalidlevel plus debug.validlevel are exposed with the debug table aliases.
+
+## Syntax
+
+```lua
+isvalidlevel(level: number): boolean
+```
+
+## Aliases
+
+- `validlevel`
+- `debug.isvalidlevel`
+- `debug.validlevel`
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `level` | `number` | Yes | Stack level number converted to an integer and checked against 0 &lt;= level &lt; the current call stack depth. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `valid` | `boolean` | true when the numeric level is within the current call stack range, otherwise false. |
+
+## Example
+
+Check whether a numeric stack level is inside the current call stack range.
+
+```lua
+print(isvalidlevel(0))
+print(validlevel(0))
+print(debug.isvalidlevel(0))
+print(debug.validlevel(0))
+```

@@ -1,0 +1,38 @@
+---
+title: "json.escape"
+sidebarTitle: "json.escape"
+description: "Escapa un string usando Real JSON string escaping rules y devuelve el escaped content sin surrounding quotes."
+icon: "function"
+keywords: ["json.escape","JSON"]
+---
+
+Escapa un string usando Real JSON string escaping rules y devuelve el escaped content sin surrounding quotes.
+
+## Sintaxis
+
+```lua
+json.escape(text: string): string
+```
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | String que se va a escape. La function lee este argument con string type checking. |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `escaped` | `string` | Escaped JSON string content sin opening ni closing quote. Quotes, backslashes, common control characters y bytes below 0x20 se escapan. |
+
+## Ejemplo
+
+Escape un string para el interior de un JSON string sin agregar surrounding quotes.
+
+```lua
+local source = "line 1" .. string.char(10) .. [[line "2"]]
+local escaped = json.escape(source)
+
+print(escaped)
+```

@@ -1,0 +1,45 @@
+---
+title: "comparefunctions"
+sidebarTitle: "comparefunctions"
+description: "So sánh hai function values bằng function identity của chúng. Cả hai arguments phải là functions. Function trả về boolean result của function identity(L, 1) == function identity(L, 2). Function không so sánh function bytecode, source, behavior, hashes, upvalues hoặc newcclosure mappings. comparefunction là alias cho cùng function."
+icon: "function"
+keywords: ["comparefunctions","Closures","comparefunction"]
+---
+
+So sánh hai function values bằng function identity của chúng. Cả hai arguments phải là functions. Function trả về boolean result của function identity(L, 1) == function identity(L, 2). Function không so sánh function bytecode, source, behavior, hashes, upvalues hoặc newcclosure mappings. comparefunction là alias cho cùng function.
+
+## Cú pháp
+
+```lua
+comparefunctions(func1: function, func2: function): boolean
+```
+
+## Alias
+
+- `comparefunction`
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `func1` | `function` | Yes | First function value được chuyển đổi bằng function identity. |
+| `func2` | `function` | Yes | Second function value được chuyển đổi bằng function identity. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `equal` | `boolean` | true khi cả hai function values resolve thành cùng một function identity; ngược lại false. |
+
+## Ví dụ
+
+Compare two functions by their function identity.
+
+```lua
+local function sample()
+    return "ok"
+end
+
+local same = comparefunctions(sample, sample)
+print(same)
+```

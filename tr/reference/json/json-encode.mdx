@@ -1,0 +1,63 @@
+---
+title: "json.encode"
+sidebarTitle: "json.encode"
+description: "Lua value degerini Real JSON encoder kullanarak JSON string olarak serialize eder. json.stringify ayni function icin kayitlidir."
+icon: "function"
+keywords: ["json.encode","JSON"]
+---
+
+Lua value degerini Real JSON encoder kullanarak JSON string olarak serialize eder. json.stringify ayni function icin kayitlidir.
+
+## Söz dizimi
+
+```lua
+json.encode(value: any, options?: EncodeOptions): string
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Encode edilecek Value. nil, booleans, numbers, strings, tables ve json.null dogrudan islenir. Unsupported Lua types, errorOnUnsupported true degilse null olarak encode edilir. |
+| `options` | `EncodeOptions` | No | Optional encode options. boolean pretty output degerini toggle eder. number, 0.16 araligina clamp edilen spaces sayisiyla pretty output etkinlestirir. string bu indent ile pretty output etkinlestirir. table pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth ve indent ayarlayabilir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `json` | `string` | Encoded JSON string. Encoding errors Luau errors olarak throw edilir. |
+
+## Tipler
+
+### EncodeOptions
+
+JSON serileştirmesini ve biçimlendirmesini kontrol eder.
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Biçimlendirilmiş, çok satırlı JSON çıkışını etkinleştirir. |
+| `sortKeys` | `boolean` | No | Kodlamadan önce nesne anahtarlarını sıralar. |
+| `emptyTableAsArray` | `boolean` | No | Boş bir tabloyu nesne yerine dizi olarak kodlar. |
+| `errorOnUnsupported` | `boolean` | No | Desteklenmeyen değerleri değiştirmek yerine hata oluşturur. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | NaN'yi ve sonsuz sayıları JSON null olarak kodlar. |
+| `maxDepth` | `integer` | No | 1'den 4096'ya kadar kenetlenmiş maksimum yuvalama derinliğini ayarlar. |
+| `indent` | `string` | No | 32 karakterle sınırlı girinti dizesini ayarlar. |
+
+## Örnek
+
+JSON-compatible values encode edin ve empty array array olarak kalmaliysa json.array kullanin.
+
+```lua
+local payload = {
+    name = "Real",
+    enabled = true,
+    tags = json.array({ "api", "docs" }),
+    missing = json.null,
+}
+
+local text = json.encode(payload, {
+    sortKeys = true,
+})
+
+print(text)
+```

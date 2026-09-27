@@ -1,0 +1,47 @@
+---
+title: "dumpstring"
+sidebarTitle: "dumpstring"
+description: "Tra ve decompressed bytecode string cho Roblox script object. dumpstring duoc register vao cung C++ function voi getscriptbytecode, nen hanh vi giong het. argument phai la object. bytecode reader dung chung chap nhan cac gia tri ClassName ModuleScript, LocalScript, CoreScript va Script. Voi Script, RunContext phai la Client. Neu thieu ClassName, function tao \"Invalid Instance\". Neu ClassName khong phai script class duoc ho tro, function tao \"Script expected\". Neu gia tri la Script voi RunContext khac, function tao \"Expected a Script with RunContext set to Client\". Neu embedded bytecode reference khong hop le hoac do dai stored bytecode la 8 bytes hoac it hon, function tra ve nil. Neu khong, no decompress stored bytecode bang DecompressBytecode va tra ve resulting bytes nhu Luau string. Hash mismatch, too-short compressed data hoac ZSTD decompression errors duoc DecompressBytecode tra ve duoi dang error text bytes thay vi throw tai day."
+icon: "function"
+keywords: ["dumpstring","Scripts"]
+---
+
+Tra ve decompressed bytecode string cho Roblox script object. dumpstring duoc register vao cung C++ function voi getscriptbytecode, nen hanh vi giong het. argument phai la object. bytecode reader dung chung chap nhan cac gia tri ClassName ModuleScript, LocalScript, CoreScript va Script. Voi Script, RunContext phai la Client. Neu thieu ClassName, function tao "Invalid Instance". Neu ClassName khong phai script class duoc ho tro, function tao "Script expected". Neu gia tri la Script voi RunContext khac, function tao "Expected a Script with RunContext set to Client". Neu embedded bytecode reference khong hop le hoac do dai stored bytecode la 8 bytes hoac it hon, function tra ve nil. Neu khong, no decompress stored bytecode bang DecompressBytecode va tra ve resulting bytes nhu Luau string. Hash mismatch, too-short compressed data hoac ZSTD decompression errors duoc DecompressBytecode tra ve duoi dang error text bytes thay vi throw tai day.
+
+## Cú pháp
+
+```lua
+dumpstring(script: userdata): string | nil
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | Script object can doc. Cac gia tri ClassName duoc ho tro la ModuleScript, LocalScript, CoreScript va Script voi RunContext Client. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `bytecode` | `string \| nil` | Decompressed bytecode bytes duoi dang Luau string, DecompressBytecode error text bytes, hoac nil khi khong co usable embedded bytecode. |
+
+## Ví dụ
+
+Read decompressed bytecode from a supported Roblox script Instance. dumpstring is an alias for getscriptbytecode.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local bytecode = dumpstring(targetScript)
+    print(bytecode)
+end
+```

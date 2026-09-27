@@ -1,0 +1,70 @@
+---
+title: "json.format"
+sidebarTitle: "json.format"
+description: "Bir JSON string degerini parse eder ve Real JSON parser ve encoder ile readable formatted JSON olarak tekrar encode eder."
+icon: "function"
+keywords: ["json.format","JSON"]
+---
+
+Bir JSON string degerini parse eder ve Real JSON parser ve encoder ile readable formatted JSON olarak tekrar encode eder.
+
+## Söz dizimi
+
+```lua
+json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | Formatting oncesinde parse edilen JSON string. Function bu argument degerini string type checking ile okur. |
+| `encodeOptions` | `EncodeOptions` | No | Re-encode step icin optional encode options. json.format, json.encode ile ayni encode options degerlerini okur, sonra pretty degerini true yapar. |
+| `decodeOptions` | `DecodeOptions` | No | Input JSON parsing sirasinda kullanilan optional decode options. boolean useNull ayarlar. table useNull ve maxDepth ayarlayabilir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `formatted` | `string` | Input parsing ve re-encoding sonrasi uretilen readable formatted JSON string. |
+
+## Tipler
+
+### EncodeOptions
+
+JSON serileştirmesini ve biçimlendirmesini kontrol eder.
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Biçimlendirilmiş, çok satırlı JSON çıkışını etkinleştirir. |
+| `sortKeys` | `boolean` | No | Kodlamadan önce nesne anahtarlarını sıralar. |
+| `emptyTableAsArray` | `boolean` | No | Boş bir tabloyu nesne yerine dizi olarak kodlar. |
+| `errorOnUnsupported` | `boolean` | No | Desteklenmeyen değerleri değiştirmek yerine hata oluşturur. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | NaN'yi ve sonsuz sayıları JSON null olarak kodlar. |
+| `maxDepth` | `integer` | No | 1'den 4096'ya kadar kenetlenmiş maksimum yuvalama derinliğini ayarlar. |
+| `indent` | `string` | No | 32 karakterle sınırlı girinti dizesini ayarlar. |
+
+### DecodeOptions
+
+JSON ayrıştırma davranışını kontrol eder.
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Nil yerine kütüphanenin null sentinel'i ile JSON null'u temsil eder. |
+| `maxDepth` | `integer` | No | 1'den 4096'ya kadar kenetlenmiş maksimum yuvalama derinliğini ayarlar. |
+
+## Örnek
+
+Existing JSON parse eder ve readable formatted JSON olarak re-encode eder.
+
+```lua
+local compact = '{"b":2,"a":1}'
+local formatted = json.format(compact, {
+    pretty = true,
+    sortKeys = true,
+}, {
+    useNull = true,
+})
+
+print(formatted)
+```

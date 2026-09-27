@@ -1,0 +1,39 @@
+---
+title: "json.values"
+sidebarTitle: "json.values"
+description: "Gibt die direct values aus einer table in einer neuen table zurueck, die als JSON array markiert ist. JSON kind marker entries werden uebersprungen."
+icon: "function"
+keywords: ["json.values","JSON"]
+---
+
+Gibt die direct values aus einer table in einer neuen table zurueck, die als JSON array markiert ist. JSON kind marker entries werden uebersprungen.
+
+## Syntax
+
+```lua
+json.values(object: table): table
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | Table, die enumerated wird. Die function prueft dieses argument mit type checking. |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `values` | `table` | Neue array-style table mit den direct values aus der input table. Der output ist als JSON array markiert. Enumeration verwendet table iteration, daher ist in der function keine ordering guarantee sichtbar. |
+
+## Beispiel
+
+Sammelt die direct values aus einer table in eine JSON array-marked table.
+
+```lua
+local list = json.array({ "one", "two" })
+
+for _, value in ipairs(json.values(list)) do
+    print(value)
+end
+```

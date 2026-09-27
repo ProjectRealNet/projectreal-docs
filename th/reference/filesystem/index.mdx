@@ -1,0 +1,25 @@
+---
+title: "Filesystem"
+description: "อ่าน เขียน และจัดการไฟล์และโฟลเดอร์"
+icon: "folder-code"
+---
+
+อ่าน เขียน และจัดการไฟล์และโฟลเดอร์
+
+| การนำทางฟังก์ชัน | คำอธิบาย |
+| --- | --- |
+| [`appendfile`](./appendfile) | Appends raw Lua string bytes to a workspace file using binary append mode. The file may be created if its parent folder exists. |
+| [`delfile`](./delfile) | ลบ regular file ที่มีอยู่ภายใน workspace |
+| [`delfolder`](./delfolder) | ลบ folder ที่มีอยู่ภายใน workspace แบบ recursive ด้วย recursive folder deletion |
+| [`getcustomasset`](./getcustomasset) | คัดลอก regular workspace file ที่มีอยู่ไปยัง ExtraContent/&lt;hwid>/ และคืน rbxasset:// string สำหรับ asset path ที่ถูกคัดลอก |
+| [`isfile`](./isfile) | Returns whether a path resolved inside the workspace exists and is a regular file. |
+| [`isfolder`](./isfolder) | Returns whether a path resolved inside the workspace exists and is a directory. |
+| [`listfiles`](./listfiles) | Returns an array table of the direct children of an existing workspace directory. |
+| [`loadfile`](./loadfile) | Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it. |
+| [`makefolder`](./makefolder) | สร้าง directory ภายใน workspace ด้วย recursive folder creation รวมถึง missing parent directories |
+| [`openfiledialog`](./openfiledialog) | เปิด Windows file-open dialog ผ่าน Windows file picker และคืนไฟล์ที่เลือกเป็น file item |
+| [`openfilesdialog`](./openfilesdialog) | เปิด Windows file-open dialog ผ่าน Windows file picker โดยเปิดใช้ multi-select และคืนไฟล์ที่เลือกเป็นค่า file item |
+| [`openfolderdialog`](./openfolderdialog) | เปิด Windows folder picker ผ่าน Windows file picker พร้อม folder selection mode และคืนโฟลเดอร์ที่เลือกเป็น file item |
+| [`readfile`](./readfile) | อ่าน existing regular file ภายใน workspace ใน binary mode และคืน bytes เป็น Lua string |
+| [`savefiledialog`](./savefiledialog) | เปิด Windows save dialog ผ่าน Windows save dialog เขียน Lua string bytes ที่ส่งเข้ามาไปยัง selected path และคืน saved file เป็น file item |
+| [`writefile`](./writefile) | เขียน Lua string bytes ไปยังไฟล์ภายใน workspace สร้าง missing parent directories และแทนที่ file contents ถ้าไฟล์มีอยู่แล้ว |

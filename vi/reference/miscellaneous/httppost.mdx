@@ -1,0 +1,47 @@
+---
+title: "HttpPost"
+sidebarTitle: "HttpPost"
+description: "Performs a POST request for game:HttpPost(...) or game:HttpPostAsync(...) and returns the response body string or a request error string. The URL must pass Real's URL restrictions."
+icon: "function"
+keywords: ["HttpPost","Miscellaneous"]
+---
+
+Performs a POST request for game:HttpPost(...) or game:HttpPostAsync(...) and returns the response body string or a request error string. The URL must pass Real's URL restrictions.
+
+## Cú pháp
+
+```lua
+HttpPost(context: DataModel, url: string, body?: string, contentTypeOrCompatibility?: string | number | boolean, headersOrContentType?: table | string, headers?: table): string
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `context` | `DataModel` | Yes | Method-call self value. Use game:HttpPost(...) or game:HttpPostAsync(...). |
+| `url` | `string` | Yes | URL string to request. |
+| `body` | `string` | No | Optional request body. Defaults to an empty string. |
+| `contentTypeOrCompatibility` | `string \| number \| boolean` | No | Normally the content type string. A number uses legacy timeout mode, and a boolean uses legacy compression mode. |
+| `headersOrContentType` | `table \| string` | No | Optional headers table in the normal call shape, or optional content type string in legacy mode. |
+| `headers` | `table` | No | Optional headers table used only in legacy mode. Keys and values must be strings without CR or LF. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `body` | `string` | Response body string or request error string. |
+
+## Ví dụ
+
+Run a DataModel-style POST request and return the response body string.
+
+```lua
+local body = game:HttpPost(
+    "https://example.com",
+    '{"hello":"world"}',
+    "application/json",
+    { ["X-Example"] = "Real" }
+)
+
+print(body)
+```

@@ -1,0 +1,25 @@
+---
+title: "Filesystem"
+description: "Dosyaları ve klasörleri okuyun, yazın ve yönetin."
+icon: "folder-code"
+---
+
+Dosyaları ve klasörleri okuyun, yazın ve yönetin.
+
+| Fonksiyon gezinmesi | Açıklama |
+| --- | --- |
+| [`appendfile`](./appendfile) | Appends raw Lua string bytes to a workspace file using binary append mode. The file may be created if its parent folder exists. |
+| [`delfile`](./delfile) | Workspace icindeki mevcut bir regular file degerini siler. |
+| [`delfolder`](./delfolder) | Workspace icindeki mevcut bir folder degerini recursive folder deletion ile recursive olarak siler. |
+| [`getcustomasset`](./getcustomasset) | Mevcut bir regular workspace file degerini ExtraContent/&lt;hwid>/ konumuna kopyalar ve kopyalanan asset path icin rbxasset:// string dondurur. |
+| [`isfile`](./isfile) | Returns whether a path resolved inside the workspace exists and is a regular file. |
+| [`isfolder`](./isfolder) | Returns whether a path resolved inside the workspace exists and is a directory. |
+| [`listfiles`](./listfiles) | Returns an array table of the direct children of an existing workspace directory. |
+| [`loadfile`](./loadfile) | Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it. |
+| [`makefolder`](./makefolder) | recursive folder creation ile workspace icinde directory olusturur, missing parent directories dahil. |
+| [`openfiledialog`](./openfiledialog) | Windows file picker uzerinden Windows file-open dialog acar ve secilen dosyayi file item olarak dondurur. |
+| [`openfilesdialog`](./openfilesdialog) | Windows file picker uzerinden multi-select etkin Windows file-open dialog acar ve secilen dosyalari file item degerleri olarak dondurur. |
+| [`openfolderdialog`](./openfolderdialog) | Windows file picker uzerinden folder selection mode ile Windows folder picker acar ve secilen klasoru file item olarak dondurur. |
+| [`readfile`](./readfile) | workspace icindeki existing regular file degerini binary mode ile okur ve bytes degerlerini Lua string olarak dondurur. |
+| [`savefiledialog`](./savefiledialog) | Windows save dialog uzerinden Windows save dialog acar, verilen Lua string bytes degerlerini selected path konumuna yazar ve saved file degerini file item olarak dondurur. |
+| [`writefile`](./writefile) | workspace icindeki bir dosyaya Lua string bytes yazar, missing parent directories olusturur ve dosya zaten varsa file contents degerini degistirir. |

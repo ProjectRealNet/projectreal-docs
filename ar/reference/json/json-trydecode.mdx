@@ -1,0 +1,59 @@
+---
+title: "json.tryDecode"
+sidebarTitle: "json.tryDecode"
+description: "يحاول parse لـ JSON string باستخدام نفس function مثل json.decodeSafe ويرجع status values لـ parse errors."
+icon: "function"
+keywords: ["json.tryDecode","JSON"]
+---
+
+يحاول parse لـ JSON string باستخدام نفس function مثل json.decodeSafe ويرجع status values لـ parse errors.
+
+## الصيغة
+
+```lua
+json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string يتم parse له. Function تقرأ هذا argument باستخدام string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean يضبط useNull. table يمكنها ضبط useNull و maxDepth. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `success` | `boolean` | true عندما ينجح parsing، و false عندما يفشل parsing داخل protected parse block. |
+| `decoded` | `any \| nil` | Decoded value عند success. عند parse failure، هذا return يكون nil. |
+| `errorMessage` | `string \| nil` | Error message عند parse failure. Message تكون prefixed بـ json.decodeSafe وتتضمن near-position suffix. |
+| `errorPosition` | `number \| nil` | Parser byte position من parser عند parse failure. هذا return موجود فقط عند failure. |
+
+## الأنواع
+
+### DecodeOptions
+
+يتحكم في سلوك تحليل JSON.
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | يمثل JSON null مع الحارس الفارغ للمكتبة بدلاً من صفر. |
+| `maxDepth` | `integer` | No | يضبط الحد الأقصى لعمق التعشيش، المثبت من 1 إلى 4096. |
+
+## مثال
+
+Decode JSON مع status returns باستخدام json.decodeSafe-compatible alias.
+
+```lua
+local ok, value, message, position = json.tryDecode('{"ready":true,"missing":null}', {
+    useNull = true,
+})
+
+if ok then
+    print(value.ready)
+    print(json.isNull(value.missing))
+else
+    warn(message, position)
+end
+```

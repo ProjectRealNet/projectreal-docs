@@ -1,0 +1,38 @@
+---
+title: "get_comm_channel"
+sidebarTitle: "get_comm_channel"
+description: "在 communication channel list 中查找 channel ID，并返回保存的 BindableEvent Instance。第一个 argument 必须是 number，并在 lookup 前使用 integer conversion 转换。如果该 ID 没有 entry，该 function 返回 nil。"
+icon: "function"
+keywords: ["get_comm_channel","Actors"]
+---
+
+在 communication channel list 中查找 channel ID，并返回保存的 BindableEvent Instance。第一个 argument 必须是 number，并在 lookup 前使用 integer conversion 转换。如果该 ID 没有 entry，该 function 返回 nil。
+
+## 语法
+
+```lua
+get_comm_channel(channelId: number): Instance | nil
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `channelId` | `number` | Yes | 使用 integer conversion 转换并在 communication channel list 中查找的 channel ID。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `event` | `Instance \| nil` | channel ID 对应保存的 BindableEvent Instance，或当该 ID 不存在于 communication channels 中时返回 nil。 |
+
+## 示例
+
+Look up the BindableEvent Instance stored for a communication channel ID.
+
+```lua
+local channelId = create_comm_channel()
+local event = get_comm_channel(channelId)
+
+print(event)
+```

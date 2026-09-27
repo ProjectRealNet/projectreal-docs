@@ -1,0 +1,30 @@
+---
+title: "gethwid"
+sidebarTitle: "gethwid"
+description: "Returns Real's hardware identifier string."
+icon: "function"
+keywords: ["gethwid","Miscellaneous"]
+---
+
+Returns Real's hardware identifier string.
+
+## 문법
+
+```lua
+gethwid(): string
+```
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `hardwareId` | `string` | Hardware identifier string. |
+
+## 예제
+
+Read Real's cached hardware identifier string.
+
+```lua
+local hardwareId = gethwid()
+print(hardwareId)
+```

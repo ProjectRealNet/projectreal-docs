@@ -1,0 +1,41 @@
+---
+title: "json.isNull"
+sidebarTitle: "json.isNull"
+description: "Value が Real JSON null sentinel である json.null かを返します。"
+icon: "function"
+keywords: ["json.isNull","JSON"]
+---
+
+Value が Real JSON null sentinel である json.null かを返します。
+
+## 構文
+
+```lua
+json.isNull(value: any): boolean
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Inspect する value。 json.null sentinel だけが true を返します。Lua nil と other values は false を返します。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `isNull` | `boolean` | Value が exact json.null sentinel の場合 true、それ以外は false。 |
+
+## 例
+
+Value が Lua nil ではなく json.null sentinel かを check します。
+
+```lua
+local value = json.decode("null")
+
+if json.isNull(value) then
+    print("The value is JSON null")
+end
+
+print(json.isNull(nil))
+```

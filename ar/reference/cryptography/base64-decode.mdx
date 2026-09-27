@@ -1,0 +1,48 @@
+---
+title: "base64_decode"
+sidebarTitle: "base64_decode"
+description: "يفك ترميز إدخال Base64 باستخدام Base64 decoder ويعيد البايتات المفكوكة كسلسلة Lua."
+icon: "function"
+keywords: ["base64_decode","Cryptography","base64decode","base64.decode","crypt.base64.decode","crypt.base64_decode","crypt.base64decode"]
+---
+
+يفك ترميز إدخال Base64 باستخدام Base64 decoder ويعيد البايتات المفكوكة كسلسلة Lua.
+
+## الصيغة
+
+```lua
+base64_decode(data: string): string
+```
+
+## أسماء بديلة
+
+- `base64decode`
+- `base64.decode`
+- `crypt.base64.decode`
+- `crypt.base64_decode`
+- `crypt.base64decode`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | إدخال Base64 الذي يمرر إلى Base64 decoder. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `decoded` | `string` | البايتات المفكوكة التي تعاد كسلسلة Lua بطول صريح. |
+
+## مثال
+
+فك ترميز بيانات Base64 واقرأ سلسلة Lua المعادة.
+
+```lua
+local encoded = base64_encode("hello world")
+local decoded = base64_decode(encoded)
+
+print(decoded)
+print(base64decode(encoded))
+print(base64.decode(encoded))
+```

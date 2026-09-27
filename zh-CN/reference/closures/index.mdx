@@ -1,0 +1,26 @@
+---
+title: "Closures"
+description: "检查、创建、克隆和替换闭包。"
+icon: "folder-code"
+---
+
+检查、创建、克隆和替换闭包。
+
+| 函数导航 | 说明 |
+| --- | --- |
+| [`checkcaller`](./checkcaller) | 返回 current Luau thread 是否存在于 Real caller context。该 function 不接受 arguments，并 push the current caller context 的 boolean result。function 不检查 Lua call stack 或 function object。 |
+| [`clonefunction`](./clonefunction) | Creates and returns a separate function value for the function passed as the first argument. The argument must be a function. |
+| [`comparefunctions`](./comparefunctions) | 通过 function identity 比较两个 function values。两个 arguments 都必须是 functions。该 function 返回 function identity(L, 1) == function identity(L, 2) 的 boolean result。它不比较 function bytecode, source, behavior, hashes, upvalues 或 newcclosure mappings。comparefunction 是同一个 function 的 alias。 |
+| [`getfunctionhash`](./getfunctionhash) | Returns an uppercase SHA384 hex digest derived from a Luau function. The argument must be a function, and C closures raise "Lua function expected". If no hashable function content is available, the function returns nil. |
+| [`hookfunction`](./hookfunction) | 用 replacement function hook 一个 target function，并返回 original target closure 的 cloned copy。两个 arguments 都必须是 functions。function 首先 flush pending C function swaps，通过 function cloning cloning target，将 replacement closure 或它的 mapped newcclosure target 添加到 hidden stack tracking，对 target 和 cloned original 调用 FixCallstack，然后通过 C closure, Luau closure 或 newcclosure-specific path patch target closure。如果 target 尚未在 hook records 中，则 cloned original 会存储在那里供 restorefunction 使用。returned function 是 cloned original closure。 |
+| [`hookmetamethod`](./hookmetamethod) | 在 value 上查找 metamethod function，并通过 hookfunction hook 该 function。first argument 可以是 raw metafield lookup 接受的任何 value。second argument 必须是 string metamethod name，third argument 必须是 function replacement。如果 raw metafield lookup 找不到 named metafield，该 function 会对 argument 2 抛出 "Metamethod doesn't exist"。如果 metafield 存在但不是 function，会对 argument 2 抛出 "Metamethod isn't a function"。当 metafield 是 function 时，hookmetamethod 会以 found metamethod function 作为 target 调用 hookfunction，并返回 hookfunction 的 cloned original closure。 |
+| [`iscclosure`](./iscclosure) | Returns whether the provided function is a C closure. The argument must be a function; passing any other type raises a type error. The function does not inspect executor ownership, source, bytecode, or upvalues. |
+| [`isexecutorclosure`](./isexecutorclosure) | Returns whether the provided function is classified as executor-owned. The argument must be a function. The function does not inspect source text, debug names, bytecode hashes, or call stack ownership. |
+| [`isfunctionhooked`](./isfunctionhooked) | Returns whether the provided function currently has a hook record. The argument must be a function. |
+| [`ishiddenstack`](./ishiddenstack) | Returns whether a function, or the function at a stack level, is marked as hidden. target must be a function or stack level number. Invalid stack levels raise "Level out of range". isstackhidden is an alias. |
+| [`islclosure`](./islclosure) | Returns whether the provided function is a Lua closure. The argument must be a function; passing a non-function raises a type error. isluaclosure is an alias. |
+| [`isnewcclosure`](./isnewcclosure) | Returns whether the provided function is a newcclosure-created C closure. The first argument must be a function; passing a non-function raises a type error. Documented usage is a single function argument; extra arguments are not part of the supported signature. |
+| [`newcclosure`](./newcclosure) | Returns a C closure for the provided function. If the function is already a C closure, the same function is returned. Passing a non-function raises a type error. |
+| [`newlclosure`](./newlclosure) | Returns a Luau closure that calls the provided function. The first argument must be a function. |
+| [`restorefunction`](./restorefunction) | 通过内部调用 function hook operation 来恢复或替换 function，并且不返回 values。first argument 必须是 function。只有一个 function argument 时，function 查找 the saved original function；如果不存在 entry，则抛出 "Function is not hooked"。然后用 hooked closure 和 stored original closure 调用 function hook operation，清空 Lua stack，并在使用 stored original 时从 hook records 移除 restored closure。如果 second argument 也是 function，function 会改为将 firstFunction 视为要安装的 original function，将 secondFunction 视为要 patch 的 closure。在这种形式中，不会针对存储的 hook records 值执行 missing-original check；存储的值只会在 final remove check 期间比较。。non-function second arguments 会被 branch condition 忽略。restorefunc 和 restoreclosure 是同一个 function 的 aliases。 |
+| [`sethiddenstack`](./sethiddenstack) | Marks or unmarks a function, or the function at a stack level, as hidden. target must be a function or stack level number. hidden defaults to true. Invalid stack levels raise "Level out of range". setstackhidden is an alias. |

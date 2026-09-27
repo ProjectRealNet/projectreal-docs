@@ -1,0 +1,62 @@
+---
+title: "openfilesdialog"
+sidebarTitle: "openfilesdialog"
+description: "Abre un Windows file-open dialog mediante Windows file picker con multi-select activado y devuelve los archivos seleccionados como valores file item."
+icon: "function"
+keywords: ["openfilesdialog","Filesystem"]
+---
+
+Abre un Windows file-open dialog mediante Windows file picker con multi-select activado y devuelve los archivos seleccionados como valores file item.
+
+## Sintaxis
+
+```lua
+openfilesdialog(options?: DialogOptions): { FileSystemItem } | nil
+```
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. En openfilesdialog se usan title, defaultPath y extensionFilter. extensionFilter es una table de extension strings; se elimina un . o *. inicial antes de que cada filter se convierta en *.&lt;extension>. |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `files` | `&#123; FileSystemItem &#125; \| nil` | Array table de valores file item para los archivos seleccionados, o nil cuando se cancela el dialog o no se devuelven selected filesystem paths. Dialog failures lanzan Failed to open file dialog. |
+
+## Tipos
+
+### DialogOptions
+
+Configura el cuadro de diálogo de selección de archivos o carpetas nativos.
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Establece el título de la ventana de diálogo. |
+| `defaultPath` | `string` | No | Selecciona el directorio que se muestra cuando se abre el cuadro de diálogo. |
+| `extensionFilter` | `&#123;string&#125;` | No | Limita los archivos seleccionables a las extensiones enumeradas, con o sin un punto inicial. |
+| `suggestedName` | `string` | No | Proporciona el nombre del archivo inicial en los cuadros de diálogo para guardar. |
+| `defaultExtension` | `string` | No | Establece la extensión utilizada cuando el nombre de archivo ingresado no tiene ninguno. |
+
+## Ejemplo
+
+Abre un file picker para seleccionar uno o mas archivos y manejar cada selected file item.
+
+```lua
+local files = openfilesdialog({
+    title = "Choose source files",
+    defaultPath = ".",
+    extensionFilter = { "lua", "luau", "txt" },
+})
+
+if files then
+    for _, file in ipairs(files) do
+        print(file:GetName())
+        print(file:IsFile())
+    end
+else
+    print("No files selected")
+end
+```

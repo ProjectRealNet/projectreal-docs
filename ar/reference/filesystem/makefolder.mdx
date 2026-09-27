@@ -1,0 +1,32 @@
+---
+title: "makefolder"
+sidebarTitle: "makefolder"
+description: "ينشئ directory داخل workspace باستخدام recursive folder creation، بما في ذلك missing parent directories."
+icon: "function"
+keywords: ["makefolder","Filesystem"]
+---
+
+ينشئ directory داخل workspace باستخدام recursive folder creation، بما في ذلك missing parent directories.
+
+## الصيغة
+
+```lua
+makefolder(path: string)
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Directory path يتم حله داخل workspace بعد separator normalization وفحص workspace-boundary. Empty او invalid او outside-workspace paths تسبب error قبل محاولة الانشاء. |
+
+## مثال
+
+انشئ workspace directory واي missing parent directories.
+
+```lua
+local path = "examples/generated/nested"
+
+makefolder(path)
+print(isfolder(path))
+```

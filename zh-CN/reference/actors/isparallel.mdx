@@ -1,0 +1,36 @@
+---
+title: "isparallel"
+sidebarTitle: "isparallel"
+description: "从当前 Luau thread 的 ScriptContext DataModel 返回 boolean。该 function 不接受 arguments。它读取 the current parallel execution status，该函数返回 parallel execution status。如果 the current DataModel 没有返回 DataModel，该 function 返回 false。checkparallel 是同一个 function 的 alias。"
+icon: "function"
+keywords: ["isparallel","Actors","checkparallel"]
+---
+
+从当前 Luau thread 的 ScriptContext DataModel 返回 boolean。该 function 不接受 arguments。它读取 the current parallel execution status，该函数返回 parallel execution status。如果 the current DataModel 没有返回 DataModel，该 function 返回 false。checkparallel 是同一个 function 的 alias。
+
+## 语法
+
+```lua
+isparallel(): boolean
+```
+
+## 别名
+
+- `checkparallel`
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `parallel` | `boolean` | 当当前 DataModel parallel execution status 已设置时为 true；当 flag 未设置或没有可用的 DataModel 时为 false。 |
+
+## 示例
+
+Read whether the current DataModel is in the parallel phase.
+
+```lua
+local parallel = isparallel()
+print(parallel)
+
+print(checkparallel())
+```

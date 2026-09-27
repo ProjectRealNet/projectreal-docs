@@ -1,0 +1,38 @@
+---
+title: "gethiddenproperty"
+sidebarTitle: "gethiddenproperty"
+description: "Doc Roblox property qua reflection metadata, bao gom non-scriptable properties. Doi so dau tien phai la Instance object va doi so thu hai phai la string property name. instance reference phai hop le. Neu property descriptor bi thieu trong Roblox property metadata, function chi tra ve nil. Neu descriptor ton tai nhung khong resolve thanh property entry, no tao \"Not a property\". Voi reflection types Bool, Int, Float, Double, String, SystemAddress, SharedString va Vector3, function goi getter va tra ve value cong voi boolean bang !IsScriptable(). SystemAddress tra ve RemoteId.PeerId duoi dang integer. SharedString tra ve Content duoi dang string. Vector3 doc tu instance primitive Size offset va tao \"can't get value\" neu thieu touch data. Cac property types khac duoc doc qua normal Lua field access sau khi tam thoi dat property scriptable flag thanh true; BinaryString tam thoi duoc xu ly nhu String cho lan doc do. original scriptable flag va BinaryString type duoc khoi phuc truoc khi return."
+icon: "function"
+keywords: ["gethiddenproperty","Reflection"]
+---
+
+Doc Roblox property qua reflection metadata, bao gom non-scriptable properties. Doi so dau tien phai la Instance object va doi so thu hai phai la string property name. instance reference phai hop le. Neu property descriptor bi thieu trong Roblox property metadata, function chi tra ve nil. Neu descriptor ton tai nhung khong resolve thanh property entry, no tao "Not a property". Voi reflection types Bool, Int, Float, Double, String, SystemAddress, SharedString va Vector3, function goi getter va tra ve value cong voi boolean bang !IsScriptable(). SystemAddress tra ve RemoteId.PeerId duoi dang integer. SharedString tra ve Content duoi dang string. Vector3 doc tu instance primitive Size offset va tao "can't get value" neu thieu touch data. Cac property types khac duoc doc qua normal Lua field access sau khi tam thoi dat property scriptable flag thanh true; BinaryString tam thoi duoc xu ly nhu String cho lan doc do. original scriptable flag va BinaryString type duoc khoi phuc truoc khi return.
+
+## Cú pháp
+
+```lua
+gethiddenproperty(instance: Instance, property: string): any | boolean
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object whose property should be read. Invalid Instance values raise an argument error. |
+| `property` | `string` | Yes | string property name resolved with Roblox property metadata. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `propertyValue` | `any` | Property value, or nil as the only return value when no property descriptor exists. |
+| `wasHidden` | `boolean` | Second return value equal to !IsScriptable() when a property value is read. |
+
+## Ví dụ
+
+Read a property value even when normal script access is limited.
+
+```lua
+local value, wasHidden = gethiddenproperty(workspace, "ClassName")
+print(value, wasHidden)
+```

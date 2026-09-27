@@ -1,0 +1,38 @@
+---
+title: "json.escape"
+sidebarTitle: "json.escape"
+description: "Escape string ด้วย Real JSON string escaping rules และคืน escaped content โดยไม่มี surrounding quotes."
+icon: "function"
+keywords: ["json.escape","JSON"]
+---
+
+Escape string ด้วย Real JSON string escaping rules และคืน escaped content โดยไม่มี surrounding quotes.
+
+## ไวยากรณ์
+
+```lua
+json.escape(text: string): string
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | String ที่จะ escape. function อ่าน argument นี้ด้วย string type checking. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `escaped` | `string` | Escaped JSON string content โดยไม่มี opening และ closing quote. Quotes, backslashes, common control characters และ bytes below 0x20 จะถูก escape. |
+
+## ตัวอย่าง
+
+Escape string สำหรับด้านในของ JSON string โดยไม่เพิ่ม surrounding quotes.
+
+```lua
+local source = "line 1" .. string.char(10) .. [[line "2"]]
+local escaped = json.escape(source)
+
+print(escaped)
+```

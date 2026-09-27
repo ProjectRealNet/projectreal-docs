@@ -1,0 +1,61 @@
+---
+title: "json.encodePretty"
+sidebarTitle: "json.encodePretty"
+description: "Serializa un Lua value a un JSON string formateado y legible usando Real JSON encoder. json.pretty esta registrado en la misma function."
+icon: "function"
+keywords: ["json.encodePretty","JSON"]
+---
+
+Serializa un Lua value a un JSON string formateado y legible usando Real JSON encoder. json.pretty esta registrado en la misma function.
+
+## Sintaxis
+
+```lua
+json.encodePretty(value: any, options?: EncodeOptions): string
+```
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value que se encoded. nil, booleans, numbers, strings, tables y json.null se manejan directamente. Unsupported Lua types se encoded como null salvo que errorOnUnsupported sea true. |
+| `options` | `EncodeOptions` | No | Optional encode options. json.encodePretty lee las mismas options que json.encode y luego fuerza pretty a true. Sin options usa un two-space indent. Un number define la indent width con clamp a 0.16, un string define el indent text, y una table puede definir sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth e indent. |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `json` | `string` | JSON string formateado y legible. Encoding errors se lanzan como Luau errors. |
+
+## Tipos
+
+### EncodeOptions
+
+Controla la serialización y el formato JSON.
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Habilita la salida JSON formateada y de varias líneas. |
+| `sortKeys` | `boolean` | No | Ordena las claves de los objetos antes de codificar. |
+| `emptyTableAsArray` | `boolean` | No | Codifica una tabla vacía como una matriz en lugar de un objeto. |
+| `errorOnUnsupported` | `boolean` | No | Genera un error en lugar de sustituir valores no admitidos. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Codifica NaN y números infinitos como JSON nulo. |
+| `maxDepth` | `integer` | No | Establece la profundidad máxima de anidamiento, sujeta de 1 a 4096. |
+| `indent` | `string` | No | Establece la cadena de sangría, limitada a 32 caracteres. |
+
+## Ejemplo
+
+Encode JSON-compatible values como readable formatted JSON con pretty output forced on.
+
+```lua
+local text = json.encodePretty({
+    name = "Real",
+    version = 1,
+    features = json.array({ "docs", "examples" }),
+    missing = json.null,
+}, {
+    sortKeys = true,
+})
+
+print(text)
+```

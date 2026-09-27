@@ -1,0 +1,33 @@
+---
+title: "fireclickdetector"
+sidebarTitle: "fireclickdetector"
+description: "Memicu interaksi ClickDetector untuk pemain lokal. Argumen pertama harus berupa Instance dengan ClassName ClickDetector. distance bersifat opsional dan default-nya 0. clickOption bersifat opsional, dibandingkan tanpa memperhatikan huruf besar kecil, dan default-nya \"mouseclick\". Opsi yang didukung adalah \"mouseclick\", \"rightmouseclick\", \"mousehoverenter\", dan \"mousehoverleave\". Opsi klik meneruskan distance sebagai float ke Roblox click helper, sementara opsi hover mengabaikan distance. Jika Players atau Players.LocalPlayer tidak tersedia, function kembali tanpa memicu apa pun. clickOption yang tidak dikenal juga tidak menghasilkan interaksi. Function tidak mengembalikan apa pun."
+icon: "function"
+keywords: ["fireclickdetector","Instances"]
+---
+
+Memicu interaksi ClickDetector untuk pemain lokal. Argumen pertama harus berupa Instance dengan ClassName ClickDetector. distance bersifat opsional dan default-nya 0. clickOption bersifat opsional, dibandingkan tanpa memperhatikan huruf besar kecil, dan default-nya "mouseclick". Opsi yang didukung adalah "mouseclick", "rightmouseclick", "mousehoverenter", dan "mousehoverleave". Opsi klik meneruskan distance sebagai float ke Roblox click helper, sementara opsi hover mengabaikan distance. Jika Players atau Players.LocalPlayer tidak tersedia, function kembali tanpa memicu apa pun. clickOption yang tidak dikenal juga tidak menghasilkan interaksi. Function tidak mengembalikan apa pun.
+
+## Sintaks
+
+```lua
+fireclickdetector(detector: Instance, distance?: number, clickOption?: "mouseclick" | "rightmouseclick" | "mousehoverenter" | "mousehoverleave")
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `detector` | `Instance` | Yes | Instance yang ClassName-nya harus ClickDetector. |
+| `distance` | `number` | No | Nilai distance opsional. Default-nya 0 dan diteruskan sebagai float untuk "mouseclick" dan "rightmouseclick". |
+| `clickOption` | `"mouseclick" \| "rightmouseclick" \| "mousehoverenter" \| "mousehoverleave"` | No | Pemilih interaction opsional. Dibaca sebagai string, dibandingkan tanpa memperhatikan huruf besar kecil, dan default-nya "mouseclick". |
+
+## Contoh
+
+Memicu interaction "mouseclick" default pada ClickDetector.
+
+```lua
+local detector = workspace.InteractivePart.ClickDetector
+
+fireclickdetector(detector)
+```

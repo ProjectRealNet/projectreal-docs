@@ -1,0 +1,39 @@
+---
+title: "json.type"
+sidebarTitle: "json.type"
+description: "Mengembalikan string type name untuk sebuah nilai. json.null mengembalikan \"null\". Table mengembalikan \"array\" atau \"object\" memakai table classification yang sama seperti json.isArray dan json.isObject. Nilai lain mengembalikan runtime Lua type name result."
+icon: "function"
+keywords: ["json.type","JSON"]
+---
+
+Mengembalikan string type name untuk sebuah nilai. json.null mengembalikan "null". Table mengembalikan "array" atau "object" memakai table classification yang sama seperti json.isArray dan json.isObject. Nilai lain mengembalikan runtime Lua type name result.
+
+## Sintaks
+
+```lua
+json.type(value: any): string
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Nilai yang akan di-classify. Mengirim no value mengembalikan runtime type name untuk stack value yang hilang. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `jsonType` | `string` | Type name string. Return JSON-specific yang terverifikasi adalah "null", "array", dan "object". Nilai non-table dan non-json.null memakai Lua type name, seperti "nil", "boolean", "number", "integer", "string", "function", "object", "thread", "buffer", "class", "object", "vector", atau "no value", tergantung runtime value. |
+
+## Contoh
+
+Periksa exact type string yang dikembalikan JSON helper.
+
+```lua
+print(json.type(json.array({ "red", "blue" })))
+print(json.type(json.object({ enabled = true })))
+print(json.type(json.null))
+print(json.type(nil))
+print(json.type())
+```

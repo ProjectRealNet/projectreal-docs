@@ -1,0 +1,31 @@
+---
+title: "WebSocket.Close"
+sidebarTitle: "WebSocket.Close"
+description: "WebSocket.connect가 반환한 WebSocket object를 닫습니다. 첫 번째 argument는 table이어야 합니다. 함수는 object의 connection state를 읽습니다. live state가 있고 아직 destroyed 또는 closed 상태가 아니면 isClosed를 true로 설정하고 저장된 WebSocket connection을 통해 빈 close frame frame을 보냅니다. close code 또는 reason을 받지 않으며 values를 반환하지 않습니다."
+icon: "function"
+keywords: ["WebSocket.Close","WebSocket"]
+---
+
+WebSocket.connect가 반환한 WebSocket object를 닫습니다. 첫 번째 argument는 table이어야 합니다. 함수는 object의 connection state를 읽습니다. live state가 있고 아직 destroyed 또는 closed 상태가 아니면 isClosed를 true로 설정하고 저장된 WebSocket connection을 통해 빈 close frame frame을 보냅니다. close code 또는 reason을 받지 않으며 values를 반환하지 않습니다.
+
+## 문법
+
+```lua
+WebSocket.Close(socket: WebSocket)
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `socket` | `WebSocket` | Yes | WebSocket.connect가 반환한 WebSocket table입니다. function은 이 table에 connection state가 들어 있다고 예상합니다. |
+
+## 예제
+
+Close a WebSocket object returned by WebSocket.connect.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket:Close()
+```

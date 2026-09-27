@@ -1,0 +1,11 @@
+---
+title: "Disassembler"
+description: "Chức năng tháo gỡ đầu ra."
+icon: "folder-code"
+---
+
+Chức năng tháo gỡ đầu ra.
+
+| Điều hướng hàm | Mô tả |
+| --- | --- |
+| [`disassemble`](./disassemble) | Disassembles a Luau function and returns a formatted bytecode listing string. Argument 1 must be a function; otherwise a type error reports expected function. The closure must be valid and must not be a C closure; invalid closures raise "invalid closure" and C closures raise "cannot disassemble C closure". When an optional second argument is present, the function reads Recursive, ShowLines, ShowConstants, and StringPreviewMax from it. Boolean option fields override the matching defaults, and a numeric StringPreviewMax overrides the default string preview length. Indata structureions are decoded with the bytecode decoder before formatting. The output always has one trailing newline and the function has no registered alias. |

@@ -1,0 +1,35 @@
+---
+title: "rconsoleinfo"
+sidebarTitle: "rconsoleinfo"
+description: "Zapisuje jedną lub więcej wartości do bieżącej Windows console przez stdout po ustawieniu console text attribute na info text color. Wartości są konwertowane za pomocą Lua string conversion, rozdzielane znakami tab, a text attribute jest potem resetowany. Jeśli nie istnieje żadna console window, wywołanie wraca bez wykonania akcji."
+icon: "function"
+keywords: ["rconsoleinfo","Console","consoleinfo"]
+---
+
+Zapisuje jedną lub więcej wartości do bieżącej Windows console przez stdout po ustawieniu console text attribute na info text color. Wartości są konwertowane za pomocą Lua string conversion, rozdzielane znakami tab, a text attribute jest potem resetowany. Jeśli nie istnieje żadna console window, wywołanie wraca bez wykonania akcji.
+
+## Składnia
+
+```lua
+rconsoleinfo(...values?: ...any)
+```
+
+## Aliasy
+
+- `consoleinfo`
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `...values` | `...any` | No | Opcjonalne wartosci. Jesli istnieje console, kazdy value jest konwertowany przez Lua string conversion i laczony znakami tab przed zapisem. |
+
+## Przykład
+
+Write a bright blue message to the current Windows console.
+
+```lua
+rconsolecreate()
+rconsoleinfo("Connected", "
+")
+```

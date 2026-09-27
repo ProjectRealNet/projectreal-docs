@@ -1,0 +1,52 @@
+---
+title: "json.decode"
+sidebarTitle: "json.decode"
+description: "Parsuje JSON string przy uzyciu Real JSON parser i zwraca decoded Lua value, oznaczajac decoded arrays i objects dla JSON helpers."
+icon: "function"
+keywords: ["json.decode","JSON"]
+---
+
+Parsuje JSON string przy uzyciu Real JSON parser i zwraca decoded Lua value, oznaczajac decoded arrays i objects dla JSON helpers.
+
+## Składnia
+
+```lua
+json.decode(json: string, options?: DecodeOptions): any
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON text do parsowania. parser akceptuje jedna JSON value z optional surrounding whitespace i rzuca blad przy invalid syntax albo trailing non-whitespace characters. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean ustawia useNull bezposrednio. table moze ustawic useNull i maxDepth; maxDepth jest clamp od 1 do 4096. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `decoded` | `any` | Decoded value. JSON objects i arrays staja sie tables z JSON type markers, strings staja sie Lua strings, numbers staja sie Lua numbers, booleans staja sie booleans, a null staje sie json.null, chyba ze useNull jest false. |
+
+## Typy
+
+### DecodeOptions
+
+Kontroluje zachowanie analizy JSON.
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Reprezentuje JSON null ze wskaźnikiem null biblioteki zamiast nil. |
+| `maxDepth` | `integer` | No | Ustawia maksymalną głębokość zagnieżdżenia, zaciśniętą w zakresie od 1 do 4096. |
+
+## Przykład
+
+Decode JSON do Lua values z zachowaniem JSON array, object i null markers.
+
+```lua
+local value = json.decode('{"name":"Real","tags":["docs"],"missing":null}')
+
+print(value.name)
+print(value.tags[1])
+print(json.type(value))
+print(json.isNull(value.missing))
+```

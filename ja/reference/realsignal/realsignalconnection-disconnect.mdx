@@ -1,0 +1,56 @@
+---
+title: "RealSignalConnection.Disconnect"
+sidebarTitle: "RealSignalConnection.Disconnect"
+description: "Disconnects a RealSignalConnection returned by Connect or Once. The method returns no values."
+icon: "function"
+keywords: ["RealSignalConnection.Disconnect","RealSignal"]
+---
+
+Disconnects a RealSignalConnection returned by Connect or Once. The method returns no values.
+
+## 構文
+
+```lua
+RealSignalConnection.Disconnect(connection: RealSignalConnection)
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `connection` | `RealSignalConnection` | Yes | Connection object returned by RealSignal.Connect or RealSignal.Once. |
+
+## 型
+
+### RealSignal
+
+Signal object returned by Signal.new.
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `Connect` | `(callback: (...any) -> ()) -> RealSignalConnection` | Yes | Adds a callback that runs when Fire is called. |
+| `Once` | `(callback: (...any) -> ()) -> RealSignalConnection` | Yes | Adds a callback that is disconnected before its first callback invocation. |
+| `Wait` | `() -> ...any` | Yes | Yields until Fire resumes the waiter with the fired values. |
+| `Fire` | `(...values: any) -> ()` | Yes | Runs connected callbacks and resumes waiters with the provided values. |
+
+### RealSignalConnection
+
+Connection object returned by RealSignal.Connect and RealSignal.Once.
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `Disconnect` | `() -> ()` | Yes | Disconnects the connection. |
+
+## 例
+
+Disconnect a connection returned by RealSignal.Connect or RealSignal.Once.
+
+```lua
+local signal = Signal.new()
+local connection = signal:Connect(function()
+    print("fired")
+end)
+
+connection:Disconnect()
+signal:Fire()
+```

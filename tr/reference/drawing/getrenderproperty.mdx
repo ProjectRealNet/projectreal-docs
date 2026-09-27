@@ -1,0 +1,40 @@
+---
+title: "getrenderproperty"
+sidebarTitle: "getrenderproperty"
+description: "Ilk argumani verilen property key ile indekslemenin sonucunu dondurur. Drawing object icin object[property] ile ayni Drawing property lookup kullanilir, bu yuzden unknown properties ve destroyed Drawing objects nil dondurur. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner."
+icon: "function"
+keywords: ["getrenderproperty","Drawing"]
+---
+
+Ilk argumani verilen property key ile indekslemenin sonucunu dondurur. Drawing object icin object[property] ile ayni Drawing property lookup kullanilir, bu yuzden unknown properties ve destroyed Drawing objects nil dondurur. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner.
+
+## Söz dizimi
+
+```lua
+getrenderproperty(object: any, property: any): any
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | Indekslenecek deger. Drawing object ile RealDrawingObject __index handler kullanilir. |
+| `property` | `any` | Yes | Indeksleme icin kullanilan property key. Drawing object properties strings tabanlidir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `propertyValue` | `any` | object degerini property ile indeksleyerek donen deger veya Drawing __index handler bu property icin deger bulamadiginda nil. |
+
+## Örnek
+
+Read a Drawing property like direct indexing.
+
+```lua
+local line = Drawing.new("Line")
+line.Thickness = 3
+
+print(getrenderproperty(line, "Thickness"))
+print(getrenderproperty(line, "MissingProperty"))
+```

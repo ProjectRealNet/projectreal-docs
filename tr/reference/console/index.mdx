@@ -1,0 +1,21 @@
+---
+title: "Console"
+description: "Çalışma zamanı çıkışı ve konsol kontrolleri."
+icon: "folder-code"
+---
+
+Çalışma zamanı çıkışı ve konsol kontrolleri.
+
+| Fonksiyon gezinmesi | Açıklama |
+| --- | --- |
+| [`rconsoleclear`](./rconsoleclear) | Bir console window varsa current Windows console screen buffer degerini temizler. Console window yoksa call hicbir sey yapmadan geri doner. |
+| [`rconsolecreate`](./rconsolecreate) | console window yoksa process icin Windows console allocate eder. console window zaten varsa call hicbir sey yapmadan geri doner. Allocation sonrasinda function stdout degerini console output ve stdin degerini console input konumuna redirect eder. |
+| [`rconsoledestroy`](./rconsoledestroy) | Geçerli Windows console screen buffer alanını temizler, console window öğesini gizler ve işlemi console detachment ile console öğesinden ayırır. console window yoksa çağrı hiçbir şey yapmadan döner. |
+| [`rconsoleerr`](./rconsoleerr) | console text attribute error text color olarak ayarlandıktan sonra stdout üzerinden geçerli Windows console içine sifir veya daha fazla deger yazar. Değerler Lua string conversion ile dönüştürülür, tab karakterleriyle ayrılır ve text attribute daha sonra default console text color olarak ayarlanir. console window yoksa çağrı herhangi bir seyi donusturmeden veya yazmadan doner. |
+| [`rconsolehide`](./rconsolehide) | Geçerli Windows console window öğesini Windows console visibility update ile hide mode kullanarak gizler. function console detachment çağırmaz, bu yüzden console öğesinden ayrılmaz veya onu yok etmez. console window yoksa çağrı hiçbir şey yapmadan döner. |
+| [`rconsoleinfo`](./rconsoleinfo) | console text attribute info text color olarak ayarlandıktan sonra stdout üzerinden geçerli Windows console içine sifir veya daha fazla deger yazar. Değerler Lua string conversion ile dönüştürülür, tab karakterleriyle ayrılır ve text attribute daha sonra default console text color olarak ayarlanir. console window yoksa çağrı herhangi bir seyi donusturmeden veya yazmadan doner. |
+| [`rconsoleinput`](./rconsoleinput) | console input state temizlendikten ve sonraki newline noktasına kadar input yok sayıldıktan sonra console input ile stdin üzerinden bir line okurken yield eder. Dönen string string return ile push edilir ve sondaki newline değerini içermez. console window yoksa çağrı values olmadan döner. |
+| [`rconsolename`](./rconsolename) | Geçerli Windows console window title değerini Windows console title update ile ayarlar. İlk argument string olmalıdır ve console existence check işleminden önce kontrol edilir. string check başarılı olduktan sonra console window yoksa çağrı hiçbir şey yapmadan döner. |
+| [`rconsoleprint`](./rconsoleprint) | console text attribute değerini değiştirmeden stdout üzerinden geçerli Windows console içine sifir veya daha fazla deger yazar. Değerler Lua string conversion ile dönüştürülür ve tab karakterleriyle ayrılır. function newline eklemez. console window yoksa çağrı herhangi bir seyi donusturmeden veya yazmadan doner. |
+| [`rconsoleshow`](./rconsoleshow) | Geçerli Windows console window öğesini Windows console visibility update ile show mode kullanarak gösterir. Bu function console oluşturmaz. console window yoksa çağrı hiçbir şey yapmadan döner. |
+| [`rconsolewarn`](./rconsolewarn) | warning console text attribute ile gecerli Windows console icine stdout uzerinden sifir veya daha fazla deger yazar. console window yoksa cagri herhangi bir seyi donusturmeden veya yazmadan doner. console varsa her argument Lua string conversion ile donusturulur, tab karakterleriyle birlestirilir ve runtime value uzerinden yazilir. Lua string conversion error uretirse rconsolewarn bunu yakalamaz. Function yazmadan once console text attribute degerini FOREGROUND_RED \| FOREGROUND_GREEN \| FOREGROUND_INTENSITY olarak, sonra default console text color olarak ayarlar. newline eklemez, warning prefix eklemez, console olusturmaz veya gostermez ve Luau warn ya da Roblox Output cagirmaz. consolewarn ayni function icin alias degeridir. |

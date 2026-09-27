@@ -1,0 +1,38 @@
+---
+title: "gethiddenproperty"
+sidebarTitle: "gethiddenproperty"
+description: "Le uma Roblox property por reflection metadata, incluindo non-scriptable properties. O primeiro argumento deve ser Instance object e o segundo argumento deve ser um string property name. O instance reference deve ser valido. Se o property descriptor estiver ausente em Roblox property metadata, a function retorna apenas nil. Se o descriptor existir mas nao resolver para um property entry, gera \"Not a property\". Para reflection types Bool, Int, Float, Double, String, SystemAddress, SharedString e Vector3, a function chama o getter e retorna o value mais um boolean igual a !IsScriptable(). SystemAddress retorna RemoteId.PeerId como integer. SharedString retorna Content como string. Vector3 le do instance primitive Size offset e gera \"can't get value\" se o touch data estiver ausente. Outros property types sao lidos por normal Lua field access apos definir temporariamente o property scriptable flag como true; BinaryString e tratado temporariamente como String nessa leitura. O original scriptable flag e o BinaryString type sao restaurados antes de retornar."
+icon: "function"
+keywords: ["gethiddenproperty","Reflection"]
+---
+
+Le uma Roblox property por reflection metadata, incluindo non-scriptable properties. O primeiro argumento deve ser Instance object e o segundo argumento deve ser um string property name. O instance reference deve ser valido. Se o property descriptor estiver ausente em Roblox property metadata, a function retorna apenas nil. Se o descriptor existir mas nao resolver para um property entry, gera "Not a property". Para reflection types Bool, Int, Float, Double, String, SystemAddress, SharedString e Vector3, a function chama o getter e retorna o value mais um boolean igual a !IsScriptable(). SystemAddress retorna RemoteId.PeerId como integer. SharedString retorna Content como string. Vector3 le do instance primitive Size offset e gera "can't get value" se o touch data estiver ausente. Outros property types sao lidos por normal Lua field access apos definir temporariamente o property scriptable flag como true; BinaryString e tratado temporariamente como String nessa leitura. O original scriptable flag e o BinaryString type sao restaurados antes de retornar.
+
+## Sintaxe
+
+```lua
+gethiddenproperty(instance: Instance, property: string): any | boolean
+```
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object whose property should be read. Invalid Instance values raise an argument error. |
+| `property` | `string` | Yes | string property name resolved with Roblox property metadata. |
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `propertyValue` | `any` | Property value, or nil as the only return value when no property descriptor exists. |
+| `wasHidden` | `boolean` | Second return value equal to !IsScriptable() when a property value is read. |
+
+## Exemplo
+
+Read a property value even when normal script access is limited.
+
+```lua
+local value, wasHidden = gethiddenproperty(workspace, "ClassName")
+print(value, wasHidden)
+```

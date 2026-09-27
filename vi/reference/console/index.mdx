@@ -1,0 +1,21 @@
+---
+title: "Console"
+description: "Đầu ra thời gian chạy và điều khiển bảng điều khiển."
+icon: "folder-code"
+---
+
+Đầu ra thời gian chạy và điều khiển bảng điều khiển.
+
+| Điều hướng hàm | Mô tả |
+| --- | --- |
+| [`rconsoleclear`](./rconsoleclear) | Xoa current Windows console screen buffer khi co console window. Neu khong co console window, call tra ve ma khong lam gi. |
+| [`rconsolecreate`](./rconsolecreate) | Allocate Windows console cho process khi khong co console window. Neu console window da ton tai, call tra ve ma khong lam gi. Sau allocation, function redirect stdout den console output va stdin den console input. |
+| [`rconsoledestroy`](./rconsoledestroy) | Xóa Windows console screen buffer hiện tại, ẩn console window và tách process khỏi console bằng console detachment. Nếu không có console window, lời gọi sẽ trả về mà không làm gì. |
+| [`rconsoleerr`](./rconsoleerr) | Ghi khong hoac nhieu gia tri vào Windows console hiện tại qua stdout sau khi đặt console text attribute thành error text color. Giá trị được chuyển đổi bằng Lua string conversion, phân tách bằng ký tự tab, và text attribute duoc dat thanh default console text color sau do. Nếu không có console window, lời gọi sẽ trả về ma khong chuyen doi hoac ghi gi. |
+| [`rconsolehide`](./rconsolehide) | Ẩn Windows console window hiện tại bằng Windows console visibility update với hide mode. function không gọi console detachment, nên không tách khỏi console và không hủy console. Nếu không có console window, lời gọi sẽ trả về mà không làm gì. |
+| [`rconsoleinfo`](./rconsoleinfo) | Ghi khong hoac nhieu gia tri vào Windows console hiện tại qua stdout sau khi đặt console text attribute thành info text color. Giá trị được chuyển đổi bằng Lua string conversion, phân tách bằng ký tự tab, và text attribute duoc dat thanh default console text color sau do. Nếu không có console window, lời gọi sẽ trả về ma khong chuyen doi hoac ghi gi. |
+| [`rconsoleinput`](./rconsoleinput) | Yield trong khi đọc một line từ stdin bằng console input sau khi xóa state của console input và bỏ qua input đến newline tiếp theo. string được trả về được push bằng string return và không bao gồm newline kết thúc. Nếu không có console window, lời gọi trả về không có values. |
+| [`rconsolename`](./rconsolename) | Đặt title của Windows console window hiện tại bằng Windows console title update. argument đầu tiên phải là string và được kiểm tra trước console existence check. Nếu không có console window sau khi string check thành công, lời gọi sẽ trả về mà không làm gì. |
+| [`rconsoleprint`](./rconsoleprint) | Ghi khong hoac nhieu gia tri vào Windows console hiện tại qua stdout mà không thay đổi console text attribute. Giá trị được chuyển đổi bằng Lua string conversion và phân tách bằng ký tự tab. function không thêm newline. Nếu không có console window, lời gọi sẽ trả về ma khong chuyen doi hoac ghi gi. |
+| [`rconsoleshow`](./rconsoleshow) | Hien thi Windows console window hien tai bang Windows console visibility update voi show mode. Function nay khong tao console. Neu khong co console window, loi goi se quay lai ma khong lam gi. |
+| [`rconsolewarn`](./rconsolewarn) | Ghi khong hoac nhieu gia tri vao Windows console hien tai qua stdout voi warning console text attribute. Neu khong co console window, loi goi quay lai ma khong chuyen doi hoac ghi gi. Khi co console, moi argument duoc chuyen doi bang Lua string conversion, noi bang ky tu tab va ghi qua runtime value. Neu Lua string conversion tao error, rconsolewarn khong bat error do. Function dat console text attribute thanh FOREGROUND_RED \| FOREGROUND_GREEN \| FOREGROUND_INTENSITY truoc khi ghi, sau do dat thanh default console text color. Function khong them newline, khong them warning prefix, khong tao hoac hien console, va khong goi Luau warn hay Roblox Output. consolewarn la alias cho cung function. |

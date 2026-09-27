@@ -1,0 +1,17 @@
+---
+title: "Signals"
+description: "信号接続とイベント転送。"
+icon: "folder-code"
+---
+
+信号接続とイベント転送。
+
+| 関数ナビゲーション | 説明 |
+| --- | --- |
+| [`cansignalreplicate`](./cansignalreplicate) | RBXScriptSignal が現在の NetworkClient replication layer から送信可能として合法かどうかを確認します。この function は最初の argument を RBXScriptSignal として検証し、signal の source instance と event descriptor を読み取り、replication layer signal replication validation の boolean 結果を返します。解決された replication layer reference 値が 0 の場合は false を返します。追加の arguments は読み取りません。この function は signal を確認するだけで、fire や replicate は行いません。getsignalwhitelist が返す whitelist table は、このコードパスでは使われません。 |
+| [`firesignal`](./firesignal) | Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error. |
+| [`getconnections`](./getconnections) | RBXScriptSignal の RealConnection closures を array table として返します。最初の argument は、Luau type name が RBXScriptSignal の object である必要があります。function は signal の Connect method を読み取り、temporary blank callback を接続し、その一時 connection の next reference から linked list を読み取り、一時 connection を切断して、有効な connection reference ごとに closure を作ります。一時 connection の後に connection reference が見つからない場合は空の table を返します。以前に closure 化された underlying references は、同じ cached closure table を返すことがあります。getsignals と get_signal_cons は同じ function の aliases です。 |
+| [`getsignalarguments`](./getsignalarguments) | RBXScriptSignal の event descriptor signature から読み取った type names の array table を返します。最初の argument は、Luau type name が RBXScriptSignal の object である必要があります。この function は signal の event descriptor を読み取り、function の argument stride で signature slots を走査し、各 argument type reference を読み取り、各 slot の解決済み type name string を push します。captured runtime argument values は返しません。signature を読めない場合、または entries が 1 つも push されない場合、返される table には fallback entry として "Variant" が 1 つ含まれます。 |
+| [`getsignalargumentsinfo`](./getsignalargumentsinfo) | RBXScriptSignal のシグネチャから引数情報の array table を返します。キャプチャされた実行時の引数値は返しません。 |
+| [`getsignalwhitelist`](./getsignalwhitelist) | function で定義された 6 個の静的 whitelist entry を含む新しい array table を返します: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent。各 entry は Event と Parent の string field を持つ table です。この function は arguments を受け取らず、現在の game state を検査しません。 |
+| [`replicatesignal`](./replicatesignal) | RBXScriptSignal の replication path を呼び出します。この関数は signal signature を読み取り、渡された Lua arguments を各 signature type の Roblox signal values に変換し、signature length を超える余分な Lua arguments を切り捨ててから、owning instance event invocation function を呼び出します。 |

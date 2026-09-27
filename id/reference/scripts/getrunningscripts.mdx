@@ -1,0 +1,21 @@
+---
+title: "getrunningscripts"
+sidebarTitle: "getrunningscripts"
+description: "Mengembalikan array table baru berisi unique script Instances yang diambil dari live Lua threads. Function ini tidak menerima arguments. Function berjalan melalui the live Luau thread list, membaca setiap thread node, dan melewati entries tanpa thread node, tanpa weak thread ref, tanpa LiveLuaRef, tanpa Lua state, tanpa object, atau dengan expired Script stored reference. Untuk setiap thread tersisa, function mengunci scriptThread->object->Script(), melakukan deduplikasi berdasarkan script reference, mendorong Instance dengan Instance cache, dan menyisipkannya pada array indexes berurutan mulai dari 1. Function tidak memindai DataModel, tidak memeriksa ClassName, dan tidak mengurutkan result."
+icon: "function"
+keywords: ["getrunningscripts","Scripts"]
+---
+
+Mengembalikan array table baru berisi unique script Instances yang diambil dari live Lua threads. Function ini tidak menerima arguments. Function berjalan melalui the live Luau thread list, membaca setiap thread node, dan melewati entries tanpa thread node, tanpa weak thread ref, tanpa LiveLuaRef, tanpa Lua state, tanpa object, atau dengan expired Script stored reference. Untuk setiap thread tersisa, function mengunci scriptThread->object->Script(), melakukan deduplikasi berdasarkan script reference, mendorong Instance dengan Instance cache, dan menyisipkannya pada array indexes berurutan mulai dari 1. Function tidak memindai DataModel, tidak memeriksa ClassName, dan tidak mengurutkan result.
+
+## Sintaks
+
+```lua
+getrunningscripts(): table
+```
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `scripts` | `table` | Array table baru berisi unique script Instance object values yang terkait dengan live Lua threads. |

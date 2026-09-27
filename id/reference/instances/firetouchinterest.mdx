@@ -1,0 +1,40 @@
+---
+title: "firetouchinterest"
+sidebarTitle: "firetouchinterest"
+description: "Memicu Real touch interest event untuk dua BasePart instances. Dua argumen pertama harus berupa Instance object dan kedua nilai harus lulus IsA(\"BasePart\"). Argumen state wajib dan harus number atau boolean. Saat state berupa number, hanya 1 menjadi true dan number lain menjadi false. Saat state berupa boolean, nilai boolean-nya diteruskan. Jika salah satu part tidak memiliki touch data, atau part pertama tidak memiliki overlap reference, function kembali tanpa memicu apa pun. Function tidak mengembalikan apa pun. Makna begin/end yang tepat dari boolean yang diteruskan ke helper adalah: Nicht aus der Codebasis verifizierbar."
+icon: "function"
+keywords: ["firetouchinterest","Instances","firetouchtransmitter"]
+---
+
+Memicu Real touch interest event untuk dua BasePart instances. Dua argumen pertama harus berupa Instance object dan kedua nilai harus lulus IsA("BasePart"). Argumen state wajib dan harus number atau boolean. Saat state berupa number, hanya 1 menjadi true dan number lain menjadi false. Saat state berupa boolean, nilai boolean-nya diteruskan. Jika salah satu part tidak memiliki touch data, atau part pertama tidak memiliki overlap reference, function kembali tanpa memicu apa pun. Function tidak mengembalikan apa pun. Makna begin/end yang tepat dari boolean yang diteruskan ke helper adalah: Nicht aus der Codebasis verifizierbar.
+
+## Sintaks
+
+```lua
+firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
+```
+
+## Alias
+
+- `firetouchtransmitter`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `partA` | `Instance` | Yes | Instance object pertama. Harus lulus IsA("BasePart"). touch data dan overlap reference-nya digunakan untuk call. |
+| `partB` | `Instance` | Yes | Instance object kedua. Harus lulus IsA("BasePart"). touch data-nya digunakan untuk call. |
+| `state` | `number \| boolean` | Yes | Nilai state wajib. Numbers dikonversi dengan state == 1; booleans diteruskan langsung. |
+
+## Contoh
+
+Meneruskan dua nilai BasePart dan nilai state eksplisit ke firetouchinterest.
+
+```lua
+local players = game:GetService("Players")
+local character = players.LocalPlayer.Character or players.LocalPlayer.CharacterAdded:Wait()
+local rootPart = character:WaitForChild("HumanoidRootPart")
+local targetPart = workspace.TouchTarget
+
+firetouchinterest(rootPart, targetPart, true)
+```

@@ -1,0 +1,36 @@
+---
+title: "crypt.generatekey"
+sidebarTitle: "crypt.generatekey"
+description: "random byte generator で 32 個のランダム raw bytes を生成し、Base64-encoded として Lua string で返します。"
+icon: "function"
+keywords: ["crypt.generatekey","Cryptography"]
+---
+
+random byte generator で 32 個のランダム raw bytes を生成し、Base64-encoded として Lua string で返します。
+
+## 構文
+
+```lua
+crypt.generatekey(): string
+```
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `key` | `string` | 生成された 32 raw bytes の Base64 encoding。返される string は 32 文字ではありません。 |
+
+## 例
+
+Base64 key を生成し、raw bytes の数を確認するためにデコードします。
+
+```lua
+local key = crypt.generatekey()
+local raw = base64_decode(key)
+
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+print(key)
+print(#raw)
+print(ciphertext, iv)
+```

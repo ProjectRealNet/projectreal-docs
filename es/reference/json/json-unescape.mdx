@@ -1,0 +1,38 @@
+---
+title: "json.unescape"
+sidebarTitle: "json.unescape"
+description: "Decodifica JSON string escape sequences desde escaped string content o desde un complete quoted JSON string literal. La entrada se parsea con el JSON string parser, no como full JSON document."
+icon: "function"
+keywords: ["json.unescape","JSON"]
+---
+
+Decodifica JSON string escape sequences desde escaped string content o desde un complete quoted JSON string literal. La entrada se parsea con el JSON string parser, no como full JSON document.
+
+## Sintaxis
+
+```lua
+json.unescape(text: string): string
+```
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | Escaped JSON string content, o un complete quoted JSON string literal cuyos first and last bytes son quotes. La function lee este argument con string type checking. |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `text` | `string` | Decoded string. Supported escapes incluyen \", \\, \/, \b, \f, \n, \r, \t y \uXXXX con surrogate-pair handling. Invalid escapes, unescaped control characters, unterminated strings y trailing characters despues de un quoted literal lanzan un Luau error con near-position suffix. |
+
+## Ejemplo
+
+Decodifica JSON string escapes desde escaped content o un quoted JSON string literal.
+
+```lua
+local escaped = json.escape("Real Docs" .. string.char(10) .. "Docs")
+local restored = json.unescape(escaped)
+
+print(restored)
+```

@@ -1,0 +1,39 @@
+---
+title: "replicatesignal"
+sidebarTitle: "replicatesignal"
+description: "Вызывает replication path для RBXScriptSignal. Функция читает signal signature, преобразует переданные Lua arguments в Roblox signal values для каждого signature type, обрезает лишние Lua arguments за пределами signature length, затем вызывает owning instance event invocation function."
+icon: "function"
+keywords: ["replicatesignal","Signals","replicateevent"]
+---
+
+Вызывает replication path для RBXScriptSignal. Функция читает signal signature, преобразует переданные Lua arguments в Roblox signal values для каждого signature type, обрезает лишние Lua arguments за пределами signature length, затем вызывает owning instance event invocation function.
+
+## Синтаксис
+
+```lua
+replicatesignal(signal: RBXScriptSignal, ...arguments?: ...any)
+```
+
+## Алиасы
+
+- `replicateevent`
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | RBXScriptSignal, для которого нужно вызвать owning instance event invocation function. |
+| `...arguments` | `...any` | No | Lua arguments, преобразуемые согласно signal signature. Extra arguments за пределами signature length игнорируются. |
+
+## Пример
+
+Replicate for a RemoteEvent signal with values that match the signal signature.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote and remote:IsA("RemoteEvent") then
+    replicatesignal(remote.OnClientEvent, "hello")
+end
+```

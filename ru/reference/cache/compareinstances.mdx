@@ -1,0 +1,40 @@
+---
+title: "compareinstances"
+sidebarTitle: "compareinstances"
+description: "Сравнивает внутренние значения указателя Instance, сохраненные в двух значениях Instance object."
+icon: "function"
+keywords: ["compareinstances","Cache"]
+---
+
+Сравнивает внутренние значения указателя Instance, сохраненные в двух значениях Instance object.
+
+## Синтаксис
+
+```lua
+compareinstances(first: Instance, second: Instance): boolean
+```
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `first` | `Instance` | Yes | Первое Instance object для сравнения. |
+| `second` | `Instance` | Yes | Второе Instance object для сравнения. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `equal` | `boolean` | True, если оба значения Instance object содержат одно и то же внутреннее значение указателя. |
+
+## Пример
+
+Сравните внутренние значения указателя Instance, сохраненные в двух значениях Instance object.
+
+```lua
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+print(compareinstances(Players, Players))
+print(compareinstances(Players, ReplicatedStorage))
+```

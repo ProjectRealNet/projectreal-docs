@@ -1,0 +1,45 @@
+---
+title: "comparefunctions"
+sidebarTitle: "comparefunctions"
+description: "Compare deux function values par leur function identity. Les deux arguments doivent être des functions. La function renvoie le boolean result de function identity(L, 1) == function identity(L, 2). Elle ne compare pas function bytecode, source, behavior, hashes, upvalues ni newcclosure mappings. comparefunction est un alias de la même function."
+icon: "function"
+keywords: ["comparefunctions","Closures","comparefunction"]
+---
+
+Compare deux function values par leur function identity. Les deux arguments doivent être des functions. La function renvoie le boolean result de function identity(L, 1) == function identity(L, 2). Elle ne compare pas function bytecode, source, behavior, hashes, upvalues ni newcclosure mappings. comparefunction est un alias de la même function.
+
+## Syntaxe
+
+```lua
+comparefunctions(func1: function, func2: function): boolean
+```
+
+## Alias
+
+- `comparefunction`
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `func1` | `function` | Yes | First function value convertie avec function identity. |
+| `func2` | `function` | Yes | Second function value convertie avec function identity. |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `equal` | `boolean` | true lorsque les deux function values se résolvent au même function identity; sinon false. |
+
+## Exemple
+
+Compare two functions by their function identity.
+
+```lua
+local function sample()
+    return "ok"
+end
+
+local same = comparefunctions(sample, sample)
+print(same)
+```

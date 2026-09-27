@@ -1,0 +1,40 @@
+---
+title: "cansignalreplicate"
+sidebarTitle: "cansignalreplicate"
+description: "Kiem tra mot RBXScriptSignal co hop le de gui qua NetworkClient replication layer hien tai hay khong. Function xac thuc argument dau tien la RBXScriptSignal, doc source instance va event descriptor cua signal, roi tra ve ket qua boolean cua replication layer signal replication validation. Neu gia tri reference replication layer da resolve la 0, tra ve false. Arguments bo sung khong duoc doc. Function nay chi kiem tra signal va khong fire hoac replicate no. Bang whitelist do getsignalwhitelist tra ve khong duoc su dung trong code path nay."
+icon: "function"
+keywords: ["cansignalreplicate","Signals"]
+---
+
+Kiem tra mot RBXScriptSignal co hop le de gui qua NetworkClient replication layer hien tai hay khong. Function xac thuc argument dau tien la RBXScriptSignal, doc source instance va event descriptor cua signal, roi tra ve ket qua boolean cua replication layer signal replication validation. Neu gia tri reference replication layer da resolve la 0, tra ve false. Arguments bo sung khong duoc doc. Function nay chi kiem tra signal va khong fire hoac replicate no. Bang whitelist do getsignalwhitelist tra ve khong duoc su dung trong code path nay.
+
+## Cú pháp
+
+```lua
+cansignalreplicate(signal: RBXScriptSignal): boolean
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | Signal can kiem tra. Argument dau tien phai la object co Luau type name la RBXScriptSignal. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `canReplicate` | `boolean` | Boolean duoc tra ve boi kiem tra replication layer signal replication validation, hoac false khi gia tri reference replication layer da resolve la 0. |
+
+## Ví dụ
+
+Check whether an RBXScriptSignal is legal to send before attempting to replicate it.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote then
+    print(cansignalreplicate(remote.OnClientEvent))
+end
+```

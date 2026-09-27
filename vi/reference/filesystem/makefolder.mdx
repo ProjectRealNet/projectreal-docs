@@ -1,0 +1,32 @@
+---
+title: "makefolder"
+sidebarTitle: "makefolder"
+description: "Tao directory ben trong workspace bang recursive folder creation, bao gom missing parent directories."
+icon: "function"
+keywords: ["makefolder","Filesystem"]
+---
+
+Tao directory ben trong workspace bang recursive folder creation, bao gom missing parent directories.
+
+## Cú pháp
+
+```lua
+makefolder(path: string)
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Directory path duoc resolve ben trong workspace sau separator normalization va workspace-boundary checks. Empty, invalid hoac outside-workspace paths gay error truoc khi thu tao. |
+
+## Ví dụ
+
+Tao workspace directory va missing parent directories.
+
+```lua
+local path = "examples/generated/nested"
+
+makefolder(path)
+print(isfolder(path))
+```

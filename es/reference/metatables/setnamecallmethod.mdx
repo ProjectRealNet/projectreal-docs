@@ -1,0 +1,37 @@
+---
+title: "setnamecallmethod"
+sidebarTitle: "setnamecallmethod"
+description: "Replaces the current namecall method string when a current namecall method exists. The method argument must be a string. If no current namecall method exists, the call returns no values and does not create one. set_namecall_method is an alias."
+icon: "function"
+keywords: ["setnamecallmethod","Metatables","set_namecall_method"]
+---
+
+Replaces the current namecall method string when a current namecall method exists. The method argument must be a string. If no current namecall method exists, the call returns no values and does not create one. set_namecall_method is an alias.
+
+## Sintaxis
+
+```lua
+setnamecallmethod(method: string)
+```
+
+## Alias
+
+- `set_namecall_method`
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `method` | `string` | Yes | String used to replace the current namecall method when one exists. |
+
+## Ejemplo
+
+Replace L->namecall when a namecall atom already exists.
+
+```lua
+setnamecallmethod("FindFirstChild")
+print(getnamecallmethod())
+
+set_namecall_method("WaitForChild")
+print(get_namecall_method())
+```

@@ -1,0 +1,33 @@
+---
+title: "getdeletedactors"
+sidebarTitle: "getdeletedactors"
+description: "Retorna uma array table de Luau threads da actor list cujo thread data tem Actor reference, reference count é maior que 0 e the associated Actor é uma expired weak reference. A function não recebe arguments. Ela não retorna Actor Instance values."
+icon: "function"
+keywords: ["getdeletedactors","Actors"]
+---
+
+Retorna uma array table de Luau threads da actor list cujo thread data tem Actor reference, reference count é maior que 0 e the associated Actor é uma expired weak reference. A function não recebe arguments. Ela não retorna Actor Instance values.
+
+## Sintaxe
+
+```lua
+getdeletedactors(): table
+```
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `threads` | `table` | Array table contendo Luau thread values para actor entries cuja Actor weak reference está expired. |
+
+## Exemplo
+
+List actor threads whose Actor weak reference is expired.
+
+```lua
+local deletedActorThreads = getdeletedactors()
+
+for _, thread in ipairs(deletedActorThreads) do
+    print(thread)
+end
+```

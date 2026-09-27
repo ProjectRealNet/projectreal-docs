@@ -1,0 +1,21 @@
+---
+title: "Console"
+description: "Salida en tiempo de ejecución y controles de consola."
+icon: "folder-code"
+---
+
+Salida en tiempo de ejecución y controles de consola.
+
+| Navegación de funciones | Descripción |
+| --- | --- |
+| [`rconsoleclear`](./rconsoleclear) | Limpia el current Windows console screen buffer cuando existe una console window. Si no existe una console window, el call vuelve sin hacer nada. |
+| [`rconsolecreate`](./rconsolecreate) | Alloca una Windows console para el proceso cuando no existe una console window. Si ya existe una console window, el call vuelve sin hacer nada. Despues de allocation, la function redirige stdout a console output y stdin a console input. |
+| [`rconsoledestroy`](./rconsoledestroy) | Borra el Windows console screen buffer actual, oculta la console window y separa el proceso de la console con console detachment. Si no existe ninguna console window, la llamada vuelve sin hacer nada. |
+| [`rconsoleerr`](./rconsoleerr) | Escribe uno o más valores en la Windows console actual mediante stdout después de establecer el console text attribute en error text color. Los valores se convierten con Lua string conversion, se separan con caracteres tab y el text attribute se restablece después. Si no existe ninguna console window, la llamada vuelve sin convertir ni escribir nada. |
+| [`rconsolehide`](./rconsolehide) | Oculta la Windows console window actual con Windows console visibility update usando hide mode. La function no llama a console detachment, así que no se separa de la console ni la destruye. Si no existe ninguna console window, la llamada vuelve sin hacer nada. |
+| [`rconsoleinfo`](./rconsoleinfo) | Escribe uno o más valores en la Windows console actual mediante stdout después de establecer el console text attribute en info text color. Los valores se convierten con Lua string conversion, se separan con caracteres tab y el text attribute se restablece después. Si no existe ninguna console window, la llamada vuelve sin convertir ni escribir nada. |
+| [`rconsoleinput`](./rconsoleinput) | Hace yield mientras lee una line desde stdin con console input después de limpiar el estado de console input e ignorar input hasta el siguiente newline. El string devuelto se inserta con string return y no incluye el newline final. Si no existe ninguna console window, la llamada vuelve sin values. |
+| [`rconsolename`](./rconsolename) | Establece el title de la Windows console window actual con Windows console title update. El primer argument debe ser un string y se comprueba antes del console existence check. Si no existe ninguna console window después de que el string check tenga éxito, la llamada vuelve sin hacer nada. |
+| [`rconsoleprint`](./rconsoleprint) | Escribe uno o más valores en la Windows console actual mediante stdout sin cambiar el console text attribute. Los valores se convierten con Lua string conversion y se separan con caracteres tab. La function no agrega ningún newline. Si no existe ninguna console window, la llamada vuelve sin convertir ni escribir nada. |
+| [`rconsoleshow`](./rconsoleshow) | Muestra la Windows console window actual con Windows console visibility update usando show mode. La function no crea una console. Si no existe ninguna console window, la llamada vuelve sin hacer nada. |
+| [`rconsolewarn`](./rconsolewarn) | Escribe cero o mas valores en la Windows console actual mediante stdout con el warning console text attribute. Si no existe ninguna console window, la llamada vuelve sin convertir ni escribir nada. Cuando existe una console, cada argument se convierte con Lua string conversion, se une con caracteres tab y se escribe mediante runtime value. Si Lua string conversion genera un error, rconsolewarn no lo captura. La function establece el console text attribute en FOREGROUND_RED \| FOREGROUND_GREEN \| FOREGROUND_INTENSITY antes de escribir y luego lo establece en default console text color. No agrega newline, no agrega warning prefix, no crea ni muestra la console y no llama a Luau warn ni a Roblox Output. consolewarn es un alias de la misma function. |

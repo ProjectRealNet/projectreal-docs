@@ -1,0 +1,52 @@
+---
+title: "WebSocket.connect"
+sidebarTitle: "WebSocket.connect"
+description: "สร้าง BindableEvents สองรายการ เปิด WebSocket client WebSocket connection ไปยัง URL ที่ให้มา และ yield จนกว่าการพยายามเชื่อมต่อจะเสร็จ เมื่อสำเร็จจะคืน WebSocket table ที่มี OnMessage และ OnClose events, Send และ Close methods จาก methods และ connection state incoming message data จะถูก Fire ผ่าน OnMessage เป็น string เมื่อ receive loop จบ OnClose จะถูก Fire โดยไม่มี arguments หากเชื่อมต่อล้มเหลว ฟังก์ชันจะ throw error string ที่ขึ้นต้นด้วย \"WebSocket connection failed\""
+icon: "function"
+keywords: ["WebSocket.connect","WebSocket","WebSocket.Connect","websocket.connect","websocket.Connect"]
+---
+
+สร้าง BindableEvents สองรายการ เปิด WebSocket client WebSocket connection ไปยัง URL ที่ให้มา และ yield จนกว่าการพยายามเชื่อมต่อจะเสร็จ เมื่อสำเร็จจะคืน WebSocket table ที่มี OnMessage และ OnClose events, Send และ Close methods จาก methods และ connection state incoming message data จะถูก Fire ผ่าน OnMessage เป็น string เมื่อ receive loop จบ OnClose จะถูก Fire โดยไม่มี arguments หากเชื่อมต่อล้มเหลว ฟังก์ชันจะ throw error string ที่ขึ้นต้นด้วย "WebSocket connection failed"
+
+## ไวยากรณ์
+
+```lua
+WebSocket.connect(url: string): WebSocket
+```
+
+## Aliases
+
+- `WebSocket.Connect`
+- `websocket.connect`
+- `websocket.Connect`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `url` | `string` | Yes | URL string ที่ส่งให้ CURLOPT_URL ก่อนที่ WebSocket client จะทำ WebSocket connection attempt |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `socket` | `WebSocket` | WebSocket table ที่มี OnMessage, OnClose และ connection state Send และ Close ถูก resolve ผ่าน WebSocket object methods |
+
+## ตัวอย่าง
+
+เปิด WebSocket เชื่อม OnMessage และ OnClose แล้วใช้ socket methods เพื่อส่งและปิด
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket.OnMessage:Connect(function(message)
+    print(message)
+end)
+
+socket.OnClose:Connect(function()
+    print("closed")
+end)
+
+socket:Send("hello")
+socket:Close()
+```

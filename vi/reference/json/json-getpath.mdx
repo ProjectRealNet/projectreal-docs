@@ -1,0 +1,52 @@
+---
+title: "json.getPath"
+sidebarTitle: "json.getPath"
+description: "Doc nested value tu table bang dotted string path hoac array table of keys."
+icon: "function"
+keywords: ["json.getPath","JSON","json.getpath"]
+---
+
+Doc nested value tu table bang dotted string path hoac array table of keys.
+
+## Cú pháp
+
+```lua
+json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
+```
+
+## Alias
+
+- `json.getpath`
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | Root table de doc tu do. Function yeu cau argument nay la table. |
+| `path` | `string \| table` | Yes | Path can di theo. string duoc split theo dots; integer string tokens duoc doc bang raw array indexing. table path dung array entries tu 1 den #path lam keys. |
+| `defaultValue` | `any` | No | Fallback value tra ve khi traversal gap nil hoac non-table truoc khi hoan tat path. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `pathValue` | `any \| nil` | Value tai requested path. Neu path missing, tra ve defaultValue khi duoc cung cap, neu khong thi nil. |
+
+## Ví dụ
+
+Doc nested table value tu dotted string path hoac array table of keys.
+
+```lua
+local document = {
+    user = {
+        profile = { name = "Guest" },
+        items = { "first", "second" },
+    },
+}
+
+local name = json.getPath(document, { "user", "profile", "name" }, "Unknown")
+local second = json.getPath(document, "user.items.2")
+
+print(name)
+print(second)
+```

@@ -1,0 +1,32 @@
+---
+title: "getscriptglobals"
+sidebarTitle: "getscriptglobals"
+description: "Tra ve new table chua current LUA_GLOBALSINDEX values cho _G va shared. Function khong nhan arguments, tao fresh table, gan _G tu LUA_GLOBALSINDEX._G va shared tu LUA_GLOBALSINDEX.shared, va tra ve exactly one value. No khong tra ve full global table, va khong co alias duoc dang ky cho getscriptglobals."
+icon: "function"
+keywords: ["getscriptglobals","Environment"]
+---
+
+Tra ve new table chua current LUA_GLOBALSINDEX values cho _G va shared. Function khong nhan arguments, tao fresh table, gan _G tu LUA_GLOBALSINDEX._G va shared tu LUA_GLOBALSINDEX.shared, va tra ve exactly one value. No khong tra ve full global table, va khong co alias duoc dang ky cho getscriptglobals.
+
+## Cú pháp
+
+```lua
+getscriptglobals(): table
+```
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `globals` | `table` | Fresh table voi _G va shared fields duoc copy tu LUA_GLOBALSINDEX. |
+
+## Ví dụ
+
+Read the _G and shared values copied from LUA_GLOBALSINDEX.
+
+```lua
+local globals = getscriptglobals()
+
+print(globals._G)
+print(globals.shared)
+```

@@ -1,0 +1,49 @@
+---
+title: "getinfo"
+sidebarTitle: "getinfo"
+description: "Returns a metadata table for a function or stack level. target must be a function or number. Invalid target types raise \"function or number expected\", invalid stack levels raise \"Level out of range\", and unavailable levels raise \"invalid level\". The returned table includes func, nups, source, short_src, currentline, what, linedefined, is_vararg, numparams, and name. sizep is included only for direct Lua function targets. debug.getinfo is an alias."
+icon: "function"
+keywords: ["getinfo","Debug","debug.getinfo"]
+---
+
+Returns a metadata table for a function or stack level. target must be a function or number. Invalid target types raise "function or number expected", invalid stack levels raise "Level out of range", and unavailable levels raise "invalid level". The returned table includes func, nups, source, short_src, currentline, what, linedefined, is_vararg, numparams, and name. sizep is included only for direct Lua function targets. debug.getinfo is an alias.
+
+## ไวยากรณ์
+
+```lua
+getinfo(target: function | number): table
+```
+
+## Aliases
+
+- `debug.getinfo`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `target` | `function \| number` | Yes | Function or stack level number to inspect. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `info` | `table` | Metadata table containing func, nups, source, short_src, currentline, what, linedefined, is_vararg, numparams, name, and sizep only for direct Lua function targets. |
+
+## ตัวอย่าง
+
+Read the metadata table for a function or stack level.
+
+```lua
+local function target()
+    return "ready"
+end
+
+local info = getinfo(target)
+
+print(info.source)
+print(info.currentline)
+print(info.numparams)
+print(info.sizep)
+print(debug.getinfo(target).what)
+```

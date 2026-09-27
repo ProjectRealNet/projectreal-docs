@@ -1,0 +1,21 @@
+---
+title: "getinstances"
+sidebarTitle: "getinstances"
+description: "Instance cache icinde su anda saklanan her object value iceren yeni bir array table dondurur. Function arguments almaz. Her registry value object mi kontrolu disinda Parent, ClassName, DataModel fieldship, nil-parent state veya Instance validity ile filtreleme yapmaz. Entries donen tabloya 1 den baslayan sequential numeric indexes ile kopyalanir. iteration order cache uzerindeki table iteration kaynagindan gelir ve function tarafindan siralanmaz."
+icon: "function"
+keywords: ["getinstances","Instances"]
+---
+
+Instance cache icinde su anda saklanan her object value iceren yeni bir array table dondurur. Function arguments almaz. Her registry value object mi kontrolu disinda Parent, ClassName, DataModel fieldship, nil-parent state veya Instance validity ile filtreleme yapmaz. Entries donen tabloya 1 den baslayan sequential numeric indexes ile kopyalanir. iteration order cache uzerindeki table iteration kaynagindan gelir ve function tarafindan siralanmaz.
+
+## Söz dizimi
+
+```lua
+getinstances(): { Instance }
+```
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `instances` | `&#123; Instance &#125;` | Instance cache table icinden kopyalanan object values iceren array table. |

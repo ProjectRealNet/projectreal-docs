@@ -1,0 +1,41 @@
+---
+title: "json.isObject"
+sidebarTitle: "json.isObject"
+description: "Zwraca, czy value jest treated as a JSON object przez Real JSON table detection."
+icon: "function"
+keywords: ["json.isObject","JSON"]
+---
+
+Zwraca, czy value jest treated as a JSON object przez Real JSON table detection.
+
+## Składnia
+
+```lua
+json.isObject(value: any): boolean
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value do inspect. Non-table values zwracaja false. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `isObject` | `boolean` | true, gdy value jest table marked as a JSON object albo gdy Real JSON table detection nie klasyfikuje table jako array. Empty unmarked tables zwracaja true. |
+
+## Przykład
+
+Check, czy table jest treated as a JSON object przez Real JSON encoder.
+
+```lua
+local record = json.object({ name = "Real" })
+local items = json.array({ "one", "two" })
+local empty = {}
+
+print(json.isObject(record))
+print(json.isObject(items))
+print(json.isObject(empty))
+```

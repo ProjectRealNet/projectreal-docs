@@ -1,0 +1,50 @@
+---
+title: "hookfunction"
+sidebarTitle: "hookfunction"
+description: "hook target function ด้วย replacement function และคืน cloned copy ของ original target closure arguments ทั้งสองต้องเป็น functions function จะ flush pending C function swaps ก่อน จากนั้น cloning target ผ่าน function cloning เพิ่ม replacement closure หรือ mapped newcclosure target ของมันไปที่ hidden stack tracking เรียก FixCallstack สำหรับ target และ cloned original แล้ว patch target closure ผ่าน C closure, Luau closure หรือ newcclosure-specific path หาก target ยังไม่อยู่ใน hook records จะเก็บ cloned original ไว้ที่นั่นสำหรับ restorefunction returned function คือ cloned original closure"
+icon: "function"
+keywords: ["hookfunction","Closures","hookfunc","replaceclosure","detourfunction","detour_function"]
+---
+
+hook target function ด้วย replacement function และคืน cloned copy ของ original target closure arguments ทั้งสองต้องเป็น functions function จะ flush pending C function swaps ก่อน จากนั้น cloning target ผ่าน function cloning เพิ่ม replacement closure หรือ mapped newcclosure target ของมันไปที่ hidden stack tracking เรียก FixCallstack สำหรับ target และ cloned original แล้ว patch target closure ผ่าน C closure, Luau closure หรือ newcclosure-specific path หาก target ยังไม่อยู่ใน hook records จะเก็บ cloned original ไว้ที่นั่นสำหรับ restorefunction returned function คือ cloned original closure
+
+## ไวยากรณ์
+
+```lua
+hookfunction(target: function, replacement: function): function
+```
+
+## Aliases
+
+- `hookfunc`
+- `replaceclosure`
+- `detourfunction`
+- `detour_function`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `target` | `function` | Yes | Function ที่จะ patch การส่ง non-function จะทำให้เกิด type error |
+| `replacement` | `function` | Yes | Function ที่ function ถูก install หรือ map ไปยัง target การส่ง non-function จะทำให้เกิด type error |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `original` | `function` | Cloned copy ของ original target closure ที่สร้างก่อน install hook |
+
+## ตัวอย่าง
+
+Patch a function closure and keep a cloned original.
+
+```lua
+local function target(value)
+    return value + 1
+end
+
+local original
+original = hookfunction(target, function(value)
+    return original(value) * 2
+end)
+```

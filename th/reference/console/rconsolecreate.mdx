@@ -1,0 +1,28 @@
+---
+title: "rconsolecreate"
+sidebarTitle: "rconsolecreate"
+description: "Allocate Windows console สำหรับ process เมื่อไม่มี console window ถ้ามี console window อยู่แล้ว call จะ return โดยไม่ทำอะไร หลัง allocation function จะ redirect stdout ไปที่ console output และ stdin ไปที่ console input"
+icon: "function"
+keywords: ["rconsolecreate","Console","consolecreate"]
+---
+
+Allocate Windows console สำหรับ process เมื่อไม่มี console window ถ้ามี console window อยู่แล้ว call จะ return โดยไม่ทำอะไร หลัง allocation function จะ redirect stdout ไปที่ console output และ stdin ไปที่ console input
+
+## ไวยากรณ์
+
+```lua
+rconsolecreate()
+```
+
+## Aliases
+
+- `consolecreate`
+
+## ตัวอย่าง
+
+Create the Windows console once before writing console output.
+
+```lua
+rconsolecreate()
+rconsoleprint("Console ready")
+```

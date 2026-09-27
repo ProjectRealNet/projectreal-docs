@@ -1,0 +1,21 @@
+---
+title: "getrunningscripts"
+sidebarTitle: "getrunningscripts"
+description: "返回一个新的 array table，其中包含来自 live Lua threads 的 unique script Instances。该 function 不接受 arguments。它遍历 the live Luau thread list，读取每个 thread node，并跳过没有 thread node、没有 weak thread ref、没有 LiveLuaRef、没有 Lua state、没有 object 或带有 expired Script stored reference 的 entries。对于每个剩余 thread，它会 lock scriptThread->object->Script()，按 script reference 去重，使用 Instance cache 推入 Instance，并从 1 开始插入连续 array indexes。function 不扫描 DataModel，不检查 ClassName，也不排序 result。"
+icon: "function"
+keywords: ["getrunningscripts","Scripts"]
+---
+
+返回一个新的 array table，其中包含来自 live Lua threads 的 unique script Instances。该 function 不接受 arguments。它遍历 the live Luau thread list，读取每个 thread node，并跳过没有 thread node、没有 weak thread ref、没有 LiveLuaRef、没有 Lua state、没有 object 或带有 expired Script stored reference 的 entries。对于每个剩余 thread，它会 lock scriptThread->object->Script()，按 script reference 去重，使用 Instance cache 推入 Instance，并从 1 开始插入连续 array indexes。function 不扫描 DataModel，不检查 ClassName，也不排序 result。
+
+## 语法
+
+```lua
+getrunningscripts(): table
+```
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `scripts` | `table` | 与 live Lua threads 关联的 unique script Instance object values 的新 array table。 |

@@ -1,0 +1,43 @@
+---
+title: "isourthread"
+sidebarTitle: "isourthread"
+description: "Returns whether the required Luau thread argument is currently present in Real's Real caller context. The function requires argument 1 to be a thread with type checking, converts it with thread conversion, checks Real caller context.Has(..), and returns exactly one boolean. is_our_thread is an alias for the same function."
+icon: "function"
+keywords: ["isourthread","Threads","is_our_thread"]
+---
+
+Returns whether the required Luau thread argument is currently present in Real's Real caller context. The function requires argument 1 to be a thread with type checking, converts it with thread conversion, checks Real caller context.Has(..), and returns exactly one boolean. is_our_thread is an alias for the same function.
+
+## الصيغة
+
+```lua
+isourthread(thread: thread): boolean
+```
+
+## أسماء بديلة
+
+- `is_our_thread`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `thread` | `thread` | Yes | Required Luau thread to test against Real caller context. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `tracked` | `boolean` | true when the thread is present in Real caller context; otherwise false. |
+
+## مثال
+
+Check whether a Luau thread is currently tracked by Real's caller context.
+
+```lua
+local thread = coroutine.create(function()
+end)
+
+local tracked = isourthread(thread)
+print(tracked)
+```

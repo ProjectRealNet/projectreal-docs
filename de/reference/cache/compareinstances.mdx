@@ -1,0 +1,40 @@
+---
+title: "compareinstances"
+sidebarTitle: "compareinstances"
+description: "Vergleicht die internen Instance-reference-Werte, die in zwei Instance object Werten gespeichert sind."
+icon: "function"
+keywords: ["compareinstances","Cache"]
+---
+
+Vergleicht die internen Instance-reference-Werte, die in zwei Instance object Werten gespeichert sind.
+
+## Syntax
+
+```lua
+compareinstances(first: Instance, second: Instance): boolean
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `first` | `Instance` | Yes | Erstes Instance object fuer den Vergleich. |
+| `second` | `Instance` | Yes | Zweites Instance object fuer den Vergleich. |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `equal` | `boolean` | True, wenn beide Instance object Werte denselben internen reference-Wert enthalten. |
+
+## Beispiel
+
+Vergleiche die internen Instance-reference-Werte, die in zwei Instance object Werten gespeichert sind.
+
+```lua
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+print(compareinstances(Players, Players))
+print(compareinstances(Players, ReplicatedStorage))
+```

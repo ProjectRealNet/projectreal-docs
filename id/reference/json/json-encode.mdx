@@ -1,0 +1,63 @@
+---
+title: "json.encode"
+sidebarTitle: "json.encode"
+description: "Melakukan serialize Lua value menjadi JSON string memakai Real JSON encoder. json.stringify didaftarkan ke function yang sama."
+icon: "function"
+keywords: ["json.encode","JSON"]
+---
+
+Melakukan serialize Lua value menjadi JSON string memakai Real JSON encoder. json.stringify didaftarkan ke function yang sama.
+
+## Sintaks
+
+```lua
+json.encode(value: any, options?: EncodeOptions): string
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value yang di-encode. nil, booleans, numbers, strings, tables, dan json.null ditangani langsung. Unsupported Lua types di-encode sebagai null kecuali errorOnUnsupported true. |
+| `options` | `EncodeOptions` | No | Optional encode options. boolean mengubah pretty output. number mengaktifkan pretty output dengan jumlah spaces yang di-clamp ke 0.16. string mengaktifkan pretty output dengan indent tersebut. table dapat mengatur pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, dan indent. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `json` | `string` | Encoded JSON string. Encoding errors dilempar sebagai Luau errors. |
+
+## Tipe
+
+### EncodeOptions
+
+Mengontrol serialisasi dan pemformatan JSON.
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Mengaktifkan keLua runtime JSON multi-baris yang diformat. |
+| `sortKeys` | `boolean` | No | Mengurutkan kunci objek sebelum pengkodean. |
+| `emptyTableAsArray` | `boolean` | No | Mengkodekan tabel kosong sebagai array, bukan objek. |
+| `errorOnUnsupported` | `boolean` | No | Menimbulkan kesalahan alih-alih mengganti nilai yang tidak didukung. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Mengkodekan NaN dan angka tak terbatas sebagai JSON null. |
+| `maxDepth` | `integer` | No | Menyetel kedalaman sarang maksimum, dijepit dari 1 hingga 4096. |
+| `indent` | `string` | No | Menyetel string indentasi, dibatasi hingga 32 karakter. |
+
+## Contoh
+
+Encode JSON-compatible values, gunakan json.array saat empty array harus tetap array.
+
+```lua
+local payload = {
+    name = "Real",
+    enabled = true,
+    tags = json.array({ "api", "docs" }),
+    missing = json.null,
+}
+
+local text = json.encode(payload, {
+    sortKeys = true,
+})
+
+print(text)
+```

@@ -1,0 +1,29 @@
+---
+title: "rconsoleclear"
+sidebarTitle: "rconsoleclear"
+description: "console window가 있으면 current Windows console screen buffer를 지웁니다. console window가 없으면 call은 아무 작업 없이 반환됩니다."
+icon: "function"
+keywords: ["rconsoleclear","Console","consoleclear"]
+---
+
+console window가 있으면 current Windows console screen buffer를 지웁니다. console window가 없으면 call은 아무 작업 없이 반환됩니다.
+
+## 문법
+
+```lua
+rconsoleclear()
+```
+
+## 별칭
+
+- `consoleclear`
+
+## 예제
+
+Clear the current console screen when a console window exists.
+
+```lua
+rconsolecreate()
+rconsoleprint("Preparing output...")
+rconsoleclear()
+```

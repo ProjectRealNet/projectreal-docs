@@ -1,0 +1,41 @@
+---
+title: "crypt.hmac"
+sidebarTitle: "crypt.hmac"
+description: "يحسب crypto library HMAC على بايتات Lua string باستخدام raw Lua string key ويعيد Base64 digest."
+icon: "function"
+keywords: ["crypt.hmac","Cryptography"]
+---
+
+يحسب crypto library HMAC على بايتات Lua string باستخدام raw Lua string key ويعيد Base64 digest.
+
+## الصيغة
+
+```lua
+crypt.hmac(key: string, data: string, algorithm?: "sha256" | "sha1" | "sha224" | "sha384" | "sha512" | "md5"): string
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `key` | `string` | Yes | بايتات raw Lua string المستخدمة كـ HMAC key. لا يتم Base64-decode للـ key. |
+| `data` | `string` | Yes | بايتات Lua string التي تمرر إلى HMAC calculation. |
+| `algorithm` | `"sha256" \| "sha1" \| "sha224" \| "sha384" \| "sha512" \| "md5"` | No | اسم HMAC algorithm case-sensitive. القيمة الافتراضية هي sha256. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `digest` | `string` | Base64-encoded HMAC output بدون line breaks. |
+
+## مثال
+
+احسب Base64 HMAC output من raw Lua string key و data.
+
+```lua
+local key = "shared secret"
+local data = "payload"
+local digest = crypt.hmac(key, data, "sha256")
+
+print(digest)
+```

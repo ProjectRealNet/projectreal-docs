@@ -1,0 +1,70 @@
+---
+title: "json.format"
+sidebarTitle: "json.format"
+description: "JSON string을 parse한 뒤 Real JSON parser와 encoder로 readable formatted JSON으로 re-encode합니다."
+icon: "function"
+keywords: ["json.format","JSON"]
+---
+
+JSON string을 parse한 뒤 Real JSON parser와 encoder로 readable formatted JSON으로 re-encode합니다.
+
+## 문법
+
+```lua
+json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | Formatting 전에 parse되는 JSON string입니다. function은 이 argument를 string type checking으로 읽습니다. |
+| `encodeOptions` | `EncodeOptions` | No | Re-encode step에 전달되는 optional encode options입니다. json.format은 json.encode와 같은 encode options를 읽은 뒤 pretty를 true로 강제합니다. |
+| `decodeOptions` | `DecodeOptions` | No | Input JSON parsing 중 사용하는 optional decode options입니다. boolean은 useNull을 설정합니다. table은 useNull과 maxDepth를 설정할 수 있습니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `formatted` | `string` | Input을 parsing 및 re-encoding한 뒤 생성되는 readable formatted JSON string입니다. |
+
+## 타입
+
+### EncodeOptions
+
+JSON 직렬화 및 형식화를 제어합니다.
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | 형식이 지정된 여러 줄 JSON 출력을 활성화합니다. |
+| `sortKeys` | `boolean` | No | 인코딩하기 전에 객체 키를 정렬합니다. |
+| `emptyTableAsArray` | `boolean` | No | 빈 테이블을 개체 대신 배열로 인코딩합니다. |
+| `errorOnUnsupported` | `boolean` | No | 지원되지 않는 값을 대체하는 대신 오류가 발생합니다. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | NaN 및 무한 숫자를 JSON null로 인코딩합니다. |
+| `maxDepth` | `integer` | No | 1부터 4096까지 고정된 최대 중첩 깊이를 설정합니다. |
+| `indent` | `string` | No | 32자로 제한되는 들여쓰기 문자열을 설정합니다. |
+
+### DecodeOptions
+
+JSON 구문 분석 동작을 제어합니다.
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | nil 대신 라이브러리의 null 센티널을 사용하여 JSON null을 나타냅니다. |
+| `maxDepth` | `integer` | No | 1부터 4096까지 고정된 최대 중첩 깊이를 설정합니다. |
+
+## 예제
+
+Existing JSON을 parse한 뒤 readable formatted JSON으로 re-encode합니다.
+
+```lua
+local compact = '{"b":2,"a":1}'
+local formatted = json.format(compact, {
+    pretty = true,
+    sortKeys = true,
+}, {
+    useNull = true,
+})
+
+print(formatted)
+```

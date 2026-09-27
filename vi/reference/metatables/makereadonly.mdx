@@ -1,0 +1,33 @@
+---
+title: "makereadonly"
+sidebarTitle: "makereadonly"
+description: "Marks a table as readonly and returns no values."
+icon: "function"
+keywords: ["makereadonly","Metatables"]
+---
+
+Marks a table as readonly and returns no values.
+
+## Cú pháp
+
+```lua
+makereadonly(target: table)
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `target` | `table` | Yes | Table to mark as readonly. |
+
+## Ví dụ
+
+Set a table's readonly flag to true.
+
+```lua
+local target = {}
+
+makereadonly(target)
+
+print(isreadonly(target))
+```

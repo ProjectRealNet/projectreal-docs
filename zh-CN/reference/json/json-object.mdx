@@ -1,0 +1,42 @@
+---
+title: "json.object"
+sidebarTitle: "json.object"
+description: "创建 new table marked as a JSON object，让 Real JSON encoder 将其作为 object 处理。"
+icon: "function"
+keywords: ["json.object","JSON"]
+---
+
+创建 new table marked as a JSON object，让 Real JSON encoder 将其作为 object 处理。
+
+## 语法
+
+```lua
+json.object(source?: table): table
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `source` | `table` | No | Optional source table，会 copy 到 new object table。若 omitted 或 nil，则返回 empty object table。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `object` | `table` | 带有 Real JSON object marker 的 new table。Source entries 会被 copy，但不包括 Real JSON type marker。 |
+
+## 示例
+
+Create new table marked as a JSON object，包括 empty object。
+
+```lua
+local profile = json.object({
+    name = "Guest",
+    active = true,
+})
+local empty = json.object()
+
+print(json.encode(profile))
+print(json.encode(empty))
+```

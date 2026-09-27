@@ -1,0 +1,38 @@
+---
+title: "isfunctionhooked"
+sidebarTitle: "isfunctionhooked"
+description: "Returns whether the provided function currently has a hook record. The argument must be a function."
+icon: "function"
+keywords: ["isfunctionhooked","Closures"]
+---
+
+Returns whether the provided function currently has a hook record. The argument must be a function.
+
+## 문법
+
+```lua
+isfunctionhooked(func: function): boolean
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `func` | `function` | Yes | Function to check. Passing a non-function raises a type error. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `hooked` | `boolean` | true when the function is currently hooked; otherwise false. |
+
+## 예제
+
+Check whether a function closure is tracked as a hook target.
+
+```lua
+local function target()
+end
+
+print(isfunctionhooked(target))
+```

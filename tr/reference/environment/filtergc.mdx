@@ -1,0 +1,56 @@
+---
+title: "filtergc"
+sidebarTitle: "filtergc"
+description: "Verilen filters ile eşleşen live garbage-collected tables veya functions arar. filterType \"table\" veya \"function\" olmalıdır. options bir table olmalıdır."
+icon: "function"
+keywords: ["filtergc","Environment"]
+---
+
+Verilen filters ile eşleşen live garbage-collected tables veya functions arar. filterType "table" veya "function" olmalıdır. options bir table olmalıdır.
+
+## Söz dizimi
+
+```lua
+filtergc(filterType: string, options: table, returnOne?: boolean): table | function | nil
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `filterType` | `string` | Yes | Aranacak GC object type. Deger lowercase yapilir ve "table" veya "function" olmalidir. |
+| `options` | `table` | Yes | Filter table. function searches Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants ve Upvalues okur. table searches Metatable, Keys, Values ve KeyValuePairs okur. |
+| `returnOne` | `boolean` | No | Optional optional boolean handling flag. true iken array table yerine ilk matching object veya nil dondurur. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `result` | `table \| function \| nil` | returnOne false veya omitted iken array table of matches. returnOne true iken ilk matching table/function object veya nil. |
+
+## Örnek
+
+Find GC tables by key filters without relying on result order.
+
+```lua
+local marker = {
+    RealDocsMarker = true,
+}
+
+local matches = filtergc("table", {
+    Keys = { "RealDocsMarker" },
+})
+
+for _, value in ipairs(matches) do
+    if value == marker then
+        print("found marker")
+        break
+    end
+end
+
+local first = filtergc("table", {
+    Keys = { "RealDocsMarker" },
+}, true)
+
+print(first ~= nil)
+```

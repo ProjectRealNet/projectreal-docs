@@ -1,0 +1,35 @@
+---
+title: "getcurrentactor"
+sidebarTitle: "getcurrentactor"
+description: "คืน Actor Instance ที่เชื่อมกับ Luau thread ปัจจุบัน function นี้ไม่รับ arguments resolve current Luau thread ผ่าน actor resolver เดียวกับที่ getactorfromthread ใช้: ต้องมี thread data, ต้องมี Actor reference, reference count ต้องมากกว่า 0 และ the associated Actor ต้องมี non-expired weak reference หากไม่มี valid actor reference function จะคืน nil"
+icon: "function"
+keywords: ["getcurrentactor","Actors","get_current_actor"]
+---
+
+คืน Actor Instance ที่เชื่อมกับ Luau thread ปัจจุบัน function นี้ไม่รับ arguments resolve current Luau thread ผ่าน actor resolver เดียวกับที่ getactorfromthread ใช้: ต้องมี thread data, ต้องมี Actor reference, reference count ต้องมากกว่า 0 และ the associated Actor ต้องมี non-expired weak reference หากไม่มี valid actor reference function จะคืน nil
+
+## ไวยากรณ์
+
+```lua
+getcurrentactor(): Instance | nil
+```
+
+## Aliases
+
+- `get_current_actor`
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `actor` | `Instance \| nil` | Actor Instance ที่ resolve จาก the associated Actor weak reference ของ current thread หรือ nil เมื่อไม่มี valid actor reference |
+
+## ตัวอย่าง
+
+Resolve the Actor Instance associated with the current Luau thread.
+
+```lua
+local actor = getcurrentactor()
+
+print(actor)
+```

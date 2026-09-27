@@ -1,0 +1,33 @@
+---
+title: "fireclickdetector"
+sidebarTitle: "fireclickdetector"
+description: "يطلق تفاعل ClickDetector للاعب المحلي. يجب أن يكون الوسيط الأول Instance تكون ClassName الخاصة به ClickDetector. distance اختياري وقيمته الافتراضية 0. clickOption اختياري، وتتم مقارنته بدون حساسية لحالة الأحرف، وقيمته الافتراضية \"mouseclick\". الخيارات المدعومة هي \"mouseclick\" و \"rightmouseclick\" و \"mousehoverenter\" و \"mousehoverleave\". خيارات النقر تمرر distance كـ float إلى Roblox click helper، بينما خيارات hover تتجاهل distance. إذا لم تكن Players أو Players.LocalPlayer متاحة، تعود function بدون إطلاق أي شيء. أي clickOption غير معروف لا ينتج أي تفاعل أيضا. لا ترجع function أي شيء."
+icon: "function"
+keywords: ["fireclickdetector","Instances"]
+---
+
+يطلق تفاعل ClickDetector للاعب المحلي. يجب أن يكون الوسيط الأول Instance تكون ClassName الخاصة به ClickDetector. distance اختياري وقيمته الافتراضية 0. clickOption اختياري، وتتم مقارنته بدون حساسية لحالة الأحرف، وقيمته الافتراضية "mouseclick". الخيارات المدعومة هي "mouseclick" و "rightmouseclick" و "mousehoverenter" و "mousehoverleave". خيارات النقر تمرر distance كـ float إلى Roblox click helper، بينما خيارات hover تتجاهل distance. إذا لم تكن Players أو Players.LocalPlayer متاحة، تعود function بدون إطلاق أي شيء. أي clickOption غير معروف لا ينتج أي تفاعل أيضا. لا ترجع function أي شيء.
+
+## الصيغة
+
+```lua
+fireclickdetector(detector: Instance, distance?: number, clickOption?: "mouseclick" | "rightmouseclick" | "mousehoverenter" | "mousehoverleave")
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `detector` | `Instance` | Yes | Instance يجب أن تكون ClassName الخاصة به ClickDetector. |
+| `distance` | `number` | No | قيمة distance اختيارية. القيمة الافتراضية 0 ويتم تمريرها كـ float عند "mouseclick" و "rightmouseclick". |
+| `clickOption` | `"mouseclick" \| "rightmouseclick" \| "mousehoverenter" \| "mousehoverleave"` | No | محدد interaction اختياري. يقرأ كـ string، ويقارن بدون حساسية لحالة الأحرف، وقيمته الافتراضية "mouseclick". |
+
+## مثال
+
+يطلق تفاعل "mouseclick" الافتراضي على ClickDetector.
+
+```lua
+local detector = workspace.InteractivePart.ClickDetector
+
+fireclickdetector(detector)
+```

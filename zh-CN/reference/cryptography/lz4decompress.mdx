@@ -1,0 +1,47 @@
+---
+title: "lz4decompress"
+sidebarTitle: "lz4decompress"
+description: "使用 LZ4 block decompression 解压 raw LZ4 block bytes，并以 Lua 字符串返回 raw decompressed bytes。"
+icon: "function"
+keywords: ["lz4decompress","Cryptography","crypt.lz4decompress","crypt.lz4.decompress","lz4.decompress"]
+---
+
+使用 LZ4 block decompression 解压 raw LZ4 block bytes，并以 Lua 字符串返回 raw decompressed bytes。
+
+## 语法
+
+```lua
+lz4decompress(data: string, originalSize?: number): string
+```
+
+## 别名
+
+- `crypt.lz4decompress`
+- `crypt.lz4.decompress`
+- `lz4.decompress`
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | 传递给 LZ4 block decompression 的 raw compressed bytes。 |
+| `originalSize` | `number` | No | 作为 dstCapacity 传递的 output buffer size。对于 lz4compress 输出，传入原始未压缩 byte 长度；省略时使用压缩输入长度。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `decompressed` | `string` | 以 Lua 字符串返回的 raw decompressed bytes。输出可能短于 originalSize。 |
+
+## 示例
+
+通过传入原始未压缩大小来解压 LZ4 bytes。
+
+```lua
+local source = "Real Docs"
+local compressed = lz4compress(source)
+local decompressed = lz4decompress(compressed, #source)
+
+print(decompressed)
+print(decompressed == source)
+```

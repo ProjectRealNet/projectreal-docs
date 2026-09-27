@@ -1,0 +1,47 @@
+---
+title: "RakNetSignalConnection.Disconnect"
+sidebarTitle: "RakNetSignalConnection.Disconnect"
+description: "Disconnects a connection returned by RakNet.OnPacketSend.Connect or RakNet.OnPacketReceive.Connect. The method returns no values."
+icon: "function"
+keywords: ["RakNetSignalConnection.Disconnect","RakNet"]
+---
+
+Disconnects a connection returned by RakNet.OnPacketSend.Connect or RakNet.OnPacketReceive.Connect. The method returns no values.
+
+## ไวยากรณ์
+
+```lua
+RakNetSignalConnection.Disconnect(connection: RakNetSignalConnection)
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `connection` | `RakNetSignalConnection` | Yes | Connection object returned by a RakNet packet signal Connect call. |
+
+## Types
+
+### RakNetSignalConnection
+
+Connection object returned by RakNet.OnPacketSend.Connect and RakNet.OnPacketReceive.Connect.
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `Disconnect` | `() -> ()` | Yes | Removes the connection from the packet signal. |
+| `Connected` | `boolean` | Yes | true while the connection still exists for the current RakNet hook generation. |
+
+## ตัวอย่าง
+
+Disconnect a RakNet packet signal connection.
+
+```lua
+if RakNet.is_enabled then
+    local connection = RakNet.OnPacketSend:Connect(function(packet)
+        print(packet.Size)
+    end)
+
+    connection:Disconnect()
+    print(connection.Connected)
+end
+```

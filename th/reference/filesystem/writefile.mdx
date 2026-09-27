@@ -1,0 +1,40 @@
+---
+title: "writefile"
+sidebarTitle: "writefile"
+description: "เขียน Lua string bytes ไปยังไฟล์ภายใน workspace สร้าง missing parent directories และแทนที่ file contents ถ้าไฟล์มีอยู่แล้ว"
+icon: "function"
+keywords: ["writefile","Filesystem","writefileasync"]
+---
+
+เขียน Lua string bytes ไปยังไฟล์ภายใน workspace สร้าง missing parent directories และแทนที่ file contents ถ้าไฟล์มีอยู่แล้ว
+
+## ไวยากรณ์
+
+```lua
+writefile(path: string, content: string)
+```
+
+## Aliases
+
+- `writefileasync`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | File path ที่ถูก resolve ภายใน workspace หลัง separator normalization, workspace-boundary checks และ filename/extension checks. Absolute paths จะถูกยอมรับเฉพาะเมื่อ resolve อยู่ภายใน workspace. |
+| `content` | `string` | Yes | Lua string bytes ที่จะเขียน. ข้อมูลถูกเขียนใน binary truncate mode; writefile ไม่เพิ่ม newlines, BOM bytes, null terminators หรือ extra bytes อื่น. |
+
+## ตัวอย่าง
+
+เขียน bytes ไปยัง workspace file และแทนที่ existing contents.
+
+```lua
+local path = "examples/config.json"
+
+writefile(path, '{"enabled":true}')
+print(readfile(path))
+
+writefile(path, "")
+print(#readfile(path))
+```

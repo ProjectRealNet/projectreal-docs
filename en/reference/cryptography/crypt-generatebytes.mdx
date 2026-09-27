@@ -1,0 +1,40 @@
+---
+title: "crypt.generatebytes"
+sidebarTitle: "crypt.generatebytes"
+description: "Generates random bytes with random byte generator and returns them Base64-encoded as a Lua string."
+icon: "function"
+keywords: ["crypt.generatebytes","Cryptography"]
+---
+
+Generates random bytes with random byte generator and returns them Base64-encoded as a Lua string.
+
+## Syntax
+
+```lua
+crypt.generatebytes(size: number): string
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `size` | `number` | Yes | Number converted to an integer before allocation. Values less than or equal to 0 are changed to 1. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `encoded` | `string` | Base64 encoding of the generated raw bytes. The returned string length is not the requested byte count. |
+
+## Example
+
+Generate bytes and decode the Base64 result when raw bytes are needed.
+
+```lua
+local encoded = crypt.generatebytes(16)
+local raw = base64_decode(encoded)
+
+print(encoded)
+print(#encoded)
+print(#raw)
+```

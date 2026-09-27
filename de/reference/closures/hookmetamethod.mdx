@@ -1,0 +1,50 @@
+---
+title: "hookmetamethod"
+sidebarTitle: "hookmetamethod"
+description: "Sucht eine metamethod function auf einem value und hookt diese function über hookfunction. Das first argument kann jeder value sein, den raw metafield lookup akzeptiert. Das second argument muss ein string metamethod name sein, und das third argument muss eine function replacement sein. Wenn raw metafield lookup das named metafield nicht findet, löst die function \"Metamethod doesn't exist\" für argument 2 aus. Wenn das metafield existiert, aber keine function ist, löst sie \"Metamethod isn't a function\" für argument 2 aus. Wenn das metafield eine function ist, ruft hookmetamethod hookfunction mit der found metamethod function als target auf und gibt die cloned original closure von hookfunction zurück."
+icon: "function"
+keywords: ["hookmetamethod","Closures"]
+---
+
+Sucht eine metamethod function auf einem value und hookt diese function über hookfunction. Das first argument kann jeder value sein, den raw metafield lookup akzeptiert. Das second argument muss ein string metamethod name sein, und das third argument muss eine function replacement sein. Wenn raw metafield lookup das named metafield nicht findet, löst die function "Metamethod doesn't exist" für argument 2 aus. Wenn das metafield existiert, aber keine function ist, löst sie "Metamethod isn't a function" für argument 2 aus. Wenn das metafield eine function ist, ruft hookmetamethod hookfunction mit der found metamethod function als target auf und gibt die cloned original closure von hookfunction zurück.
+
+## Syntax
+
+```lua
+hookmetamethod(object: any, metamethod: string, replacement: function): function
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | Value, dessen methods mit raw metafield lookup geprüft wird. |
+| `metamethod` | `string` | Yes | Metafield name, der an raw metafield lookup übergeben wird. |
+| `replacement` | `function` | Yes | Function, die als replacement für die found metamethod function an hookfunction übergeben wird. |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `original` | `function` | Cloned original metamethod closure, die von hookfunction zurückgegeben wird. |
+
+## Beispiel
+
+Hook an existing metamethod function.
+
+```lua
+local object = setmetatable({}, {
+    __index = function(_, key)
+        return key
+    end,
+})
+
+local original
+original = hookmetamethod(object, "__index", function(self, key)
+    if key == "Name" then
+        return "Real"
+    end
+
+    return original(self, key)
+end)
+```

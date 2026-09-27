@@ -1,0 +1,34 @@
+---
+title: "WebSocket.Send"
+sidebarTitle: "WebSocket.Send"
+description: "Envoie un Lua string with un WebSocket object renvoyé par WebSocket.connect. La method attend la WebSocket table comme premier argument et le message string comme deuxième argument. Elle lit le connection state de l'object, lance \"WebSocket state is missing\" si ce object est absent, revient sans envoyer lorsque le state est destroyed ou closed, et appelle curl_ws_send avec CURLWS_TEXT par défaut ou CURLWS_BINARY lorsque le troisième argument optionnel est boolean true. Elle ne renvoie aucune value et ne signale pas le nombre de bytes envoyés."
+icon: "function"
+keywords: ["WebSocket.Send","WebSocket"]
+---
+
+Envoie un Lua string with un WebSocket object renvoyé par WebSocket.connect. La method attend la WebSocket table comme premier argument et le message string comme deuxième argument. Elle lit le connection state de l'object, lance "WebSocket state is missing" si ce object est absent, revient sans envoyer lorsque le state est destroyed ou closed, et appelle curl_ws_send avec CURLWS_TEXT par défaut ou CURLWS_BINARY lorsque le troisième argument optionnel est boolean true. Elle ne renvoie aucune value et ne signale pas le nombre de bytes envoyés.
+
+## Syntaxe
+
+```lua
+WebSocket.Send(socket: WebSocket, message: string, isBinary?: boolean)
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `socket` | `WebSocket` | Yes | WebSocket table renvoyée par WebSocket.connect. Send est résolu depuis la WebSocket object methods, donc la forme d'appel documentée est socket:Send(..). |
+| `message` | `string` | Yes | Lua string payload transmis à curl_ws_send avec son explicit byte length. |
+| `isBinary` | `boolean` | No | Lorsque cet argument est présent et vaut true, Send utilise CURLWS_BINARY. Sinon, elle utilise CURLWS_TEXT. |
+
+## Exemple
+
+Send text or binary data through a WebSocket object returned by WebSocket.connect.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket:Send("hello")
+socket:Send(string.char(0, 1, 2, 3), true)
+```

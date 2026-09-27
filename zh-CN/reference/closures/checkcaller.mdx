@@ -1,0 +1,30 @@
+---
+title: "checkcaller"
+sidebarTitle: "checkcaller"
+description: "返回 current Luau thread 是否存在于 Real caller context。该 function 不接受 arguments，并 push the current caller context 的 boolean result。function 不检查 Lua call stack 或 function object。"
+icon: "function"
+keywords: ["checkcaller","Closures"]
+---
+
+返回 current Luau thread 是否存在于 Real caller context。该 function 不接受 arguments，并 push the current caller context 的 boolean result。function 不检查 Lua call stack 或 function object。
+
+## 语法
+
+```lua
+checkcaller(): boolean
+```
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `isCaller` | `boolean` | 当 current Luau thread 在 Real caller context 中 tracked 时为 true；否则为 false。 |
+
+## 示例
+
+Check whether the current thread is tracked by Real.
+
+```lua
+local tracked = checkcaller()
+print(tracked)
+```

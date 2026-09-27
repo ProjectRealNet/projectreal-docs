@@ -1,0 +1,40 @@
+---
+title: "getrenderproperty"
+sidebarTitle: "getrenderproperty"
+description: "返回使用给定 property key 索引第一个参数的结果。对于 Drawing object，这会使用与 object[property] 相同的 Drawing property lookup，因此 unknown properties 和 destroyed Drawing objects 会返回 nil。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。"
+icon: "function"
+keywords: ["getrenderproperty","Drawing"]
+---
+
+返回使用给定 property key 索引第一个参数的结果。对于 Drawing object，这会使用与 object[property] 相同的 Drawing property lookup，因此 unknown properties 和 destroyed Drawing objects 会返回 nil。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。
+
+## 语法
+
+```lua
+getrenderproperty(object: any, property: any): any
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | 要索引的值。对于 Drawing object，会使用 RealDrawingObject __index handler。 |
+| `property` | `any` | Yes | 用于索引的 property key。Drawing object properties 基于 strings。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `propertyValue` | `any` | 使用 property 索引 object 返回的值，或在 Drawing __index handler 对该 property 没有值时返回 nil。 |
+
+## 示例
+
+Read a Drawing property like direct indexing.
+
+```lua
+local line = Drawing.new("Line")
+line.Thickness = 3
+
+print(getrenderproperty(line, "Thickness"))
+print(getrenderproperty(line, "MissingProperty"))
+```

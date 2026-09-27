@@ -1,0 +1,46 @@
+---
+title: "crypt.encrypt"
+sidebarTitle: "crypt.encrypt"
+description: "เข้ารหัส byte ของ Lua string ด้วย AES CBC, ECB หรือ CTR โดยใช้ key ที่ decode จาก Base64 แล้วคืนค่า Base64 ciphertext และผลลัพธ์ IV"
+icon: "function"
+keywords: ["crypt.encrypt","Cryptography"]
+---
+
+เข้ารหัส byte ของ Lua string ด้วย AES CBC, ECB หรือ CTR โดยใช้ key ที่ decode จาก Base64 แล้วคืนค่า Base64 ciphertext และผลลัพธ์ IV
+
+## ไวยากรณ์
+
+```lua
+crypt.encrypt(data: string, key: string, iv?: string, mode?: "CBC" | "ECB" | "CTR" | "AES-CBC" | "AES-ECB" | "AES-CTR"): string | string | nil
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | byte plaintext ที่อ่านจาก Lua string |
+| `key` | `string` | Yes | Base64 key ที่ถูก decode ก่อนส่งให้ AES |
+| `iv` | `string` | No | Base64 IV แบบ optional สำหรับ CBC หรือ CTR เมื่อไม่ส่งใน CBC หรือ CTR จะสร้าง IV ใหม่ขนาด AES block size |
+| `mode` | `"CBC" \| "ECB" \| "CTR" \| "AES-CBC" \| "AES-ECB" \| "AES-CTR"` | No | AES mode ถ้ามี prefix AES- จะถูกลบ ค่าเริ่มต้นคือ AES-CBC โดย CBC และ ECB ใช้ crypto library DEFAULT_PADDING ส่วน CTR ไม่ใช้ padding |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `ciphertext` | `string` | Base64-encoded ciphertext |
+| `initializationVector` | `string \| nil` | Base64-encoded IV สำหรับ CBC และ CTR; nil สำหรับ ECB |
+
+## ตัวอย่าง
+
+เข้ารหัส Lua string แล้วถอดรหัส ciphertext ที่คืนค่าโดยใช้ IV ที่คืนมา
+
+```lua
+local key = crypt.generatekey()
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+local plaintext = crypt.decrypt(ciphertext, key, iv)
+
+print(ciphertext)
+print(iv)
+print(plaintext)
+```

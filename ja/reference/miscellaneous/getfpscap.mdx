@@ -1,0 +1,34 @@
+---
+title: "getfpscap"
+sidebarTitle: "getfpscap"
+description: "Returns the current FPS cap value represented by Roblox, or 0 when the value cannot be read."
+icon: "function"
+keywords: ["getfpscap","Miscellaneous","get_fps_cap"]
+---
+
+Returns the current FPS cap value represented by Roblox, or 0 when the value cannot be read.
+
+## 構文
+
+```lua
+getfpscap(): number
+```
+
+## エイリアス
+
+- `get_fps_cap`
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `fpsCap` | `number` | Current FPS cap value, or 0 when unavailable. |
+
+## 例
+
+Read the FPS cap value currently represented by the TaskScheduler cap field.
+
+```lua
+local fpsCap = getfpscap()
+print(fpsCap)
+```

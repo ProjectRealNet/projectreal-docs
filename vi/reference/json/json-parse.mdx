@@ -1,0 +1,53 @@
+---
+title: "json.parse"
+sidebarTitle: "json.parse"
+description: "Parse JSON string bang cung function nhu json.decode."
+icon: "function"
+keywords: ["json.parse","JSON"]
+---
+
+Parse JSON string bang cung function nhu json.decode.
+
+## Cú pháp
+
+```lua
+json.parse(json: string, options?: DecodeOptions): any
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string de parse. Function doc argument nay bang string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean dat useNull. table co the dat useNull va maxDepth. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `decoded` | `any` | Decoded value. JSON objects va arrays tro thanh tables voi JSON type markers, strings tro thanh Lua strings, numbers tro thanh Lua numbers, booleans tro thanh booleans, va null tro thanh json.null tru khi useNull la false. |
+
+## Kiểu
+
+### DecodeOptions
+
+Kiểm soát hành vi phân tích cú pháp JSON.
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Biểu thị JSON null bằng giá trị null của thư viện thay vì con số không. |
+| `maxDepth` | `integer` | No | Đặt độ sâu lồng tối đa, được kẹp từ 1 đến 4096. |
+
+## Ví dụ
+
+Parse JSON bang cung function duoc json.decode su dung.
+
+```lua
+local settings = json.parse('{"volume":0.75,"theme":"dark","missing":null}', {
+    useNull = true,
+})
+
+print(settings.volume)
+print(settings.theme)
+print(json.isNull(settings.missing))
+```

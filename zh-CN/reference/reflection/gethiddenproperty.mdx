@@ -1,0 +1,38 @@
+---
+title: "gethiddenproperty"
+sidebarTitle: "gethiddenproperty"
+description: "通过 reflection metadata 读取 Roblox property，包括 non-scriptable properties。第一个参数必须是 Instance object，第二个参数必须是 string property name。instance reference 必须有效。如果 Roblox property metadata 中缺少 property descriptor，function 只返回 nil。如果 descriptor 存在但无法解析为 property entry，会抛出 \"Not a property\"。对于 reflection types Bool、Int、Float、Double、String、SystemAddress、SharedString 和 Vector3，function 会调用 getter，并返回 value 加上等于 !IsScriptable() 的 boolean。SystemAddress 返回 RemoteId.PeerId 作为 integer。SharedString 返回 Content 作为 string。Vector3 从 instance primitive Size offset 读取，如果 touch data 缺失则抛出 \"can't get value\"。其他 property types 会在临时将 property scriptable flag 设置为 true 后通过 normal Lua field access 读取；BinaryString 在该读取期间会临时当作 String 处理。original scriptable flag 和 BinaryString type 会在 return 前恢复。"
+icon: "function"
+keywords: ["gethiddenproperty","Reflection"]
+---
+
+通过 reflection metadata 读取 Roblox property，包括 non-scriptable properties。第一个参数必须是 Instance object，第二个参数必须是 string property name。instance reference 必须有效。如果 Roblox property metadata 中缺少 property descriptor，function 只返回 nil。如果 descriptor 存在但无法解析为 property entry，会抛出 "Not a property"。对于 reflection types Bool、Int、Float、Double、String、SystemAddress、SharedString 和 Vector3，function 会调用 getter，并返回 value 加上等于 !IsScriptable() 的 boolean。SystemAddress 返回 RemoteId.PeerId 作为 integer。SharedString 返回 Content 作为 string。Vector3 从 instance primitive Size offset 读取，如果 touch data 缺失则抛出 "can't get value"。其他 property types 会在临时将 property scriptable flag 设置为 true 后通过 normal Lua field access 读取；BinaryString 在该读取期间会临时当作 String 处理。original scriptable flag 和 BinaryString type 会在 return 前恢复。
+
+## 语法
+
+```lua
+gethiddenproperty(instance: Instance, property: string): any | boolean
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object whose property should be read. Invalid Instance values raise an argument error. |
+| `property` | `string` | Yes | string property name resolved with Roblox property metadata. |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `propertyValue` | `any` | Property value, or nil as the only return value when no property descriptor exists. |
+| `wasHidden` | `boolean` | Second return value equal to !IsScriptable() when a property value is read. |
+
+## 示例
+
+Read a property value even when normal script access is limited.
+
+```lua
+local value, wasHidden = gethiddenproperty(workspace, "ClassName")
+print(value, wasHidden)
+```

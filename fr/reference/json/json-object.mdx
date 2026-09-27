@@ -1,0 +1,42 @@
+---
+title: "json.object"
+sidebarTitle: "json.object"
+description: "Cree une new table marked as a JSON object pour que Real JSON encoder la traite comme object."
+icon: "function"
+keywords: ["json.object","JSON"]
+---
+
+Cree une new table marked as a JSON object pour que Real JSON encoder la traite comme object.
+
+## Syntaxe
+
+```lua
+json.object(source?: table): table
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `source` | `table` | No | Optional source table a copy dans la new object table. Si omitted ou nil, une empty object table est renvoyee. |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `object` | `table` | New table marked avec Real JSON object marker. Source entries sont copy, sauf Real JSON type marker. |
+
+## Exemple
+
+Create une new table marked as a JSON object, y compris un empty object.
+
+```lua
+local profile = json.object({
+    name = "Guest",
+    active = true,
+})
+local empty = json.object()
+
+print(json.encode(profile))
+print(json.encode(empty))
+```

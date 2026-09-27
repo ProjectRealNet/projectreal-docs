@@ -1,0 +1,61 @@
+---
+title: "json.clone"
+sidebarTitle: "json.clone"
+description: "value 를 json.encode semantics 로 encoding 한 뒤 generated JSON 을 다시 Lua values 로 decoding 해서 clone 합니다."
+icon: "function"
+keywords: ["json.clone","JSON"]
+---
+
+value 를 json.encode semantics 로 encoding 한 뒤 generated JSON 을 다시 Lua values 로 decoding 해서 clone 합니다.
+
+## 문법
+
+```lua
+json.clone(value: any, options?: EncodeOptions): any
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | encode 및 decode 할 Value 입니다. Supported JSON values 는 JSON 을 통해 round-trip 됩니다. unsupported types 는 encode options 가 error 를 요청하지 않으면 null 로 encode 됩니다. |
+| `options` | `EncodeOptions` | No | encode step 으로 전달되는 Optional encode options 입니다. 예: sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty, indent. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `clone` | `any` | encoded JSON 에서 생성된 Decoded value 입니다. Objects 와 arrays 는 decoder 의 JSON kind markers 를 가진 new tables 입니다. JSON null values 는 json.null 이 됩니다. |
+
+## 타입
+
+### EncodeOptions
+
+JSON 직렬화 및 형식화를 제어합니다.
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | 형식이 지정된 여러 줄 JSON 출력을 활성화합니다. |
+| `sortKeys` | `boolean` | No | 인코딩하기 전에 객체 키를 정렬합니다. |
+| `emptyTableAsArray` | `boolean` | No | 빈 테이블을 개체 대신 배열로 인코딩합니다. |
+| `errorOnUnsupported` | `boolean` | No | 지원되지 않는 값을 대체하는 대신 오류가 발생합니다. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | NaN 및 무한 숫자를 JSON null로 인코딩합니다. |
+| `maxDepth` | `integer` | No | 1부터 4096까지 고정된 최대 중첩 깊이를 설정합니다. |
+| `indent` | `string` | No | 32자로 제한되는 들여쓰기 문자열을 설정합니다. |
+
+## 예제
+
+nested values 를 변경하기 전에 JSON-compatible value 를 json.encode 와 json.decode 로 round-trip 합니다.
+
+```lua
+local original = {
+    profile = { name = "Guest" },
+}
+
+local copy = json.clone(original)
+copy.profile.name = "Developer"
+
+print(original.profile.name)
+print(copy.profile.name)
+print(json.type(copy))
+```

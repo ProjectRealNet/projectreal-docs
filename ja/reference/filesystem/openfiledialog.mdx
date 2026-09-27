@@ -1,0 +1,60 @@
+---
+title: "openfiledialog"
+sidebarTitle: "openfiledialog"
+description: "Windows file picker 経由で Windows file-open dialog を開き、選択されたファイルを file item として返します。"
+icon: "function"
+keywords: ["openfiledialog","Filesystem"]
+---
+
+Windows file picker 経由で Windows file-open dialog を開き、選択されたファイルを file item として返します。
+
+## 構文
+
+```lua
+openfiledialog(options?: DialogOptions): FileSystemItem | nil
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table。openfiledialog では title、defaultPath、extensionFilter が使われます。extensionFilter は extension strings の table です。各 filter が *.&lt;extension> になる前に、先頭の . または *. は削除されます。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Selected file item。dialog が cancel された場合、または selected filesystem path が返らない場合は nil。Dialog failures は Failed to open file dialog を throw します。 |
+
+## 型
+
+### DialogOptions
+
+ネイティブ ファイルまたはフォルダーの選択ダイアログを構成します。
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `title` | `string` | No | ダイアログウィンドウのタイトルを設定します。 |
+| `defaultPath` | `string` | No | ダイアログが開いたときに表示されるディレクトリを選択します。 |
+| `extensionFilter` | `&#123;string&#125;` | No | 先頭のドットの有無にかかわらず、選択可能なファイルをリストされた拡張子に制限します。 |
+| `suggestedName` | `string` | No | 保存ダイアログに初期ファイル名を指定します。 |
+| `defaultExtension` | `string` | No | 入力したファイル名に拡張子がない場合に使用する拡張子を設定します。 |
+
+## 例
+
+file picker を開き、selected file item または cancellation を処理します。
+
+```lua
+local file = openfiledialog({
+    title = "Choose a configuration",
+    defaultPath = ".",
+    extensionFilter = { "json", "txt" },
+})
+
+if file then
+    print(file:GetName())
+    print(file:IsFile())
+else
+    print("No file selected")
+end
+```

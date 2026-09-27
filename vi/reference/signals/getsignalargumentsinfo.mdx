@@ -1,0 +1,42 @@
+---
+title: "getsignalargumentsinfo"
+sidebarTitle: "getsignalargumentsinfo"
+description: "Trả về một array table chứa thông tin đối số từ chữ ký RBXScriptSignal. Hàm không trả về các giá trị đối số runtime đã được bắt."
+icon: "function"
+keywords: ["getsignalargumentsinfo","Signals"]
+---
+
+Trả về một array table chứa thông tin đối số từ chữ ký RBXScriptSignal. Hàm không trả về các giá trị đối số runtime đã được bắt.
+
+## Cú pháp
+
+```lua
+getsignalargumentsinfo(signal: RBXScriptSignal): {{Name: string, Type: string}}
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | RBXScriptSignal có event descriptor signature cần được kiểm tra. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `argumentInfo` | `&#123;&#123;Name: string, Type: string&#125;&#125;` | Một array table trong đó mỗi mục có strings Name và Type. Nếu không thể đọc chữ ký hoặc chữ ký không có mục nào, hàm trả về một fallback entry với Name được đặt thành arg1 và Type được đặt thành Variant. |
+
+## Ví dụ
+
+Inspect an RBXScriptSignal signature and print each argument name with its type name.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote then
+    for _, argument in ipairs(getsignalargumentsinfo(remote.OnClientEvent)) do
+        print(argument.Name, argument.Type)
+    end
+end
+```

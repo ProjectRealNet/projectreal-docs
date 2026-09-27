@@ -1,0 +1,36 @@
+---
+title: "crypt.generatekey"
+sidebarTitle: "crypt.generatekey"
+description: "Tao 32 raw bytes ngau nhien bang random byte generator va tra ve chung Base64-encoded duoi dang Lua string."
+icon: "function"
+keywords: ["crypt.generatekey","Cryptography"]
+---
+
+Tao 32 raw bytes ngau nhien bang random byte generator va tra ve chung Base64-encoded duoi dang Lua string.
+
+## Cú pháp
+
+```lua
+crypt.generatekey(): string
+```
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `key` | `string` | Base64 encoding cua 32 raw bytes da tao. String duoc tra ve khong dai 32 ky tu. |
+
+## Ví dụ
+
+Tao Base64 key va decode no de kiem tra so luong raw bytes.
+
+```lua
+local key = crypt.generatekey()
+local raw = base64_decode(key)
+
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+print(key)
+print(#raw)
+print(ciphertext, iv)
+```

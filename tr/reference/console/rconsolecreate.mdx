@@ -1,0 +1,28 @@
+---
+title: "rconsolecreate"
+sidebarTitle: "rconsolecreate"
+description: "console window yoksa process icin Windows console allocate eder. console window zaten varsa call hicbir sey yapmadan geri doner. Allocation sonrasinda function stdout degerini console output ve stdin degerini console input konumuna redirect eder."
+icon: "function"
+keywords: ["rconsolecreate","Console","consolecreate"]
+---
+
+console window yoksa process icin Windows console allocate eder. console window zaten varsa call hicbir sey yapmadan geri doner. Allocation sonrasinda function stdout degerini console output ve stdin degerini console input konumuna redirect eder.
+
+## Söz dizimi
+
+```lua
+rconsolecreate()
+```
+
+## Aliaslar
+
+- `consolecreate`
+
+## Örnek
+
+Create the Windows console once before writing console output.
+
+```lua
+rconsolecreate()
+rconsoleprint("Console ready")
+```

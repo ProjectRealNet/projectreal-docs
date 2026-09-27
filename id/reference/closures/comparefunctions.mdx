@@ -1,0 +1,45 @@
+---
+title: "comparefunctions"
+sidebarTitle: "comparefunctions"
+description: "Membandingkan dua function values berdasarkan function identity. Kedua arguments harus berupa functions. Function mengembalikan boolean result dari function identity(L, 1) == function identity(L, 2). Function tidak membandingkan function bytecode, source, behavior, hashes, upvalues, atau newcclosure mappings. comparefunction adalah alias untuk function yang sama."
+icon: "function"
+keywords: ["comparefunctions","Closures","comparefunction"]
+---
+
+Membandingkan dua function values berdasarkan function identity. Kedua arguments harus berupa functions. Function mengembalikan boolean result dari function identity(L, 1) == function identity(L, 2). Function tidak membandingkan function bytecode, source, behavior, hashes, upvalues, atau newcclosure mappings. comparefunction adalah alias untuk function yang sama.
+
+## Sintaks
+
+```lua
+comparefunctions(func1: function, func2: function): boolean
+```
+
+## Alias
+
+- `comparefunction`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `func1` | `function` | Yes | First function value yang dikonversi dengan function identity. |
+| `func2` | `function` | Yes | Second function value yang dikonversi dengan function identity. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `equal` | `boolean` | true saat kedua function values resolve ke function identity yang sama; jika tidak, false. |
+
+## Contoh
+
+Compare two functions by their function identity.
+
+```lua
+local function sample()
+    return "ok"
+end
+
+local same = comparefunctions(sample, sample)
+print(same)
+```

@@ -1,0 +1,33 @@
+---
+title: "fireclickdetector"
+sidebarTitle: "fireclickdetector"
+description: "ローカルプレイヤーに対して ClickDetector interaction を発火します。最初の引数は ClassName が ClickDetector の Instance である必要があります。distance は任意で、既定値は 0 です。clickOption は任意で、大文字小文字を区別せずに比較され、既定値は \"mouseclick\" です。対応する option は \"mouseclick\"、\"rightmouseclick\"、\"mousehoverenter\"、\"mousehoverleave\" です。click option は distance を float として Roblox click helper に渡し、hover option は distance を無視します。Players または Players.LocalPlayer が利用できない場合、この function は何も発火せずに戻ります。不明な clickOption でも interaction は発生しません。この function は何も返しません。"
+icon: "function"
+keywords: ["fireclickdetector","Instances"]
+---
+
+ローカルプレイヤーに対して ClickDetector interaction を発火します。最初の引数は ClassName が ClickDetector の Instance である必要があります。distance は任意で、既定値は 0 です。clickOption は任意で、大文字小文字を区別せずに比較され、既定値は "mouseclick" です。対応する option は "mouseclick"、"rightmouseclick"、"mousehoverenter"、"mousehoverleave" です。click option は distance を float として Roblox click helper に渡し、hover option は distance を無視します。Players または Players.LocalPlayer が利用できない場合、この function は何も発火せずに戻ります。不明な clickOption でも interaction は発生しません。この function は何も返しません。
+
+## 構文
+
+```lua
+fireclickdetector(detector: Instance, distance?: number, clickOption?: "mouseclick" | "rightmouseclick" | "mousehoverenter" | "mousehoverleave")
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `detector` | `Instance` | Yes | ClassName が ClickDetector である必要がある Instance。 |
+| `distance` | `number` | No | 任意の distance 値。既定値は 0 で、"mouseclick" と "rightmouseclick" では float として渡されます。 |
+| `clickOption` | `"mouseclick" \| "rightmouseclick" \| "mousehoverenter" \| "mousehoverleave"` | No | 任意の interaction selector。string として読み取られ、大文字小文字を区別せずに比較され、既定値は "mouseclick" です。 |
+
+## 例
+
+ClickDetector で既定の "mouseclick" interaction を発火します。
+
+```lua
+local detector = workspace.InteractivePart.ClickDetector
+
+fireclickdetector(detector)
+```

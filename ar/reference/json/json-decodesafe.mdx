@@ -1,0 +1,59 @@
+---
+title: "json.decodeSafe"
+sidebarTitle: "json.decodeSafe"
+description: "يفسر JSON باستخدام نفس parser مثل json.decode ويعيد success flag بدلا من الرمي عند parse errors."
+icon: "function"
+keywords: ["json.decodeSafe","JSON"]
+---
+
+يفسر JSON باستخدام نفس parser مثل json.decode ويعيد success flag بدلا من الرمي عند parse errors.
+
+## الصيغة
+
+```lua
+json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON text للتفسير. يتم فحص هذا argument كـ string قبل catch لـ parse errors. |
+| `options` | `DecodeOptions` | No | Optional decode options. قيمة boolean تضبط useNull مباشرة. table يمكن أن تضبط useNull و maxDepth؛ يتم clamp لـ maxDepth من 1 إلى 4096. Invalid option argument types يتم فحصها قبل catch لـ parse errors. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `success` | `boolean` | True عندما ينجح parsing، و false عندما يبلغ parser عن error. |
+| `decoded` | `any \| nil` | Decoded value عند النجاح، و nil عند parse failure. JSON false صالح يعيد success كـ true و decoded كـ false، لذلك افحص success return value. |
+| `errorMessage` | `string \| nil` | Error message عند parse failure، وإلا nil. الرسالة تتضمن json.decodeSafe prefix و parser position. |
+| `errorPosition` | `number \| nil` | Parser byte position عند parse failure، وإلا nil. |
+
+## الأنواع
+
+### DecodeOptions
+
+يتحكم في سلوك تحليل JSON.
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | يمثل JSON null مع الحارس الفارغ للمكتبة بدلاً من صفر. |
+| `maxDepth` | `integer` | No | يضبط الحد الأقصى لعمق التعشيش، المثبت من 1 إلى 4096. |
+
+## مثال
+
+Parse JSON واستخدم success return value لتمييز valid false أو nil results عن parse failures.
+
+```lua
+local ok, value = json.decodeSafe("false")
+
+if ok then
+    print(value == false)
+end
+
+local parsed, _, message, position = json.decodeSafe("{")
+if not parsed then
+    warn(message, position)
+end
+```

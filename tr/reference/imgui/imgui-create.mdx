@@ -1,0 +1,78 @@
+---
+title: "imgui.create"
+sidebarTitle: "imgui.create"
+description: "Izlenen bir ImGui window record olusturur ve ImGuiWindow object dondurur. title argumani atlandiginda veya nil oldugunda \"REAL_IM_UI\" kullanir. title, su anda izlenen ImGui windows arasinda benzersiz olmalidir; ayni title ile baska bir tracked window olusturmak Lua error uretir."
+icon: "function"
+keywords: ["imgui.create","ImGui"]
+---
+
+Izlenen bir ImGui window record olusturur ve ImGuiWindow object dondurur. title argumani atlandiginda veya nil oldugunda "REAL_IM_UI" kullanir. title, su anda izlenen ImGui windows arasinda benzersiz olmalidir; ayni title ile baska bir tracked window olusturmak Lua error uretir.
+
+## Söz dizimi
+
+```lua
+imgui.create(title?: string): ImGuiWindow
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Optional window title. Atlandiginda veya nil oldugunda "REAL_IM_UI" kullanilir. Su anda izlenen ImGui windows arasinda yinelenen title Lua error uretir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `window` | `ImGuiWindow` | methods uzerinde window methods kayitli olan ImGuiWindow object. |
+
+## Tipler
+
+### ImGuiWindow
+
+imgui.create tarafından döndürülen tanıtıcı. Kontrol oluşturma yöntemleri aynı tanıtıcıyı döndürür, böylece çağrılar zincirlenebilir.
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | Bir düğme ekler ve tıklamanın ardından geri aramayı başlatır. |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | Sağlanan duruma başlatılan bir onay kutusu ekler. |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | İçerik geri çağrısı tarafından daraltılan bir başlığın altına eklenen grup kontrolleri. |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | Bir RGBA düzenleyicisi ekler; atlanan renk bileşenleri varsayılan olarak 1,0'dır. |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | Tek satırlık bir metin girişi ekler; atlanan ilk metin varsayılan olarak boş bir dizeye dönüştürülür. |
+| `SameLine` | `() -> ImGuiWindow` | Yes | Sonraki kontrolü aynı satıra yerleştirir. |
+| `Separator` | `() -> ImGuiWindow` | Yes | Yatay bir ayırıcı ekler. |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Kayan nokta kaydırıcısını ekler. |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Bir tamsayı kaydırıcısı ekler. |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | Etkileşimli olmayan metin ekler. |
+| `destroy` | `() -> ()` | Yes | Pencereyi kaldırır ve kayıtlı geri aramalarını serbest bırakır. |
+
+## Örnek
+
+Bir ImGui window olusturun ve dondurulen ImGuiWindow object icine controls ekleyin.
+
+```lua
+local window = imgui.create("Runtime settings")
+
+window:Text("Controls")
+window:Separator()
+
+window:Checkbox("Enabled", true, function(enabled)
+    print("Enabled:", enabled)
+end)
+
+window:SliderFloat("Opacity", 0.8, 0, 1, function(value)
+    print("Opacity:", value)
+end)
+
+window:InputText("Label", "Real", function(text)
+    print("Label:", text)
+end)
+
+window:ColorPicker("Accent", 0.3, 0.6, 1, 1, function(red, green, blue, alpha)
+    print(red, green, blue, alpha)
+end)
+
+window:CollapsingHeader("Advanced", function(section)
+    section:Text("Advanced controls go here")
+end)
+```

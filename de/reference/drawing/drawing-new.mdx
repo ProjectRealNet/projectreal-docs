@@ -1,0 +1,40 @@
+---
+title: "Drawing.new"
+sidebarTitle: "Drawing.new"
+description: "Erstellt ein neues Drawing object des angeforderten Typs und fügt es zu Real tracked Drawing object list hinzu. Der type string muss exakt einer dieser unterstützten Namen sein: \"Line\", \"Text\", \"Circle\", \"Square\", \"Quad\", \"Triangle\", \"Image\". Fehlende, non-string oder nicht unterstützte type values lösen einen Lua error aus. the Drawing API registriert diese API nur, wenn the required rendering environment is active true ist; wenn diese Prüfung false ist, kehrt der initializer zurück, bevor diese globals erstellt werden."
+icon: "function"
+keywords: ["Drawing.new","Drawing"]
+---
+
+Erstellt ein neues Drawing object des angeforderten Typs und fügt es zu Real tracked Drawing object list hinzu. Der type string muss exakt einer dieser unterstützten Namen sein: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". Fehlende, non-string oder nicht unterstützte type values lösen einen Lua error aus. the Drawing API registriert diese API nur, wenn the required rendering environment is active true ist; wenn diese Prüfung false ist, kehrt der initializer zurück, bevor diese globals erstellt werden.
+
+## Syntax
+
+```lua
+Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad" | "Triangle"): DrawingObject
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `objectType` | `"Image" \| "Line" \| "Text" \| "Circle" \| "Square" \| "Quad" \| "Triangle"` | Yes | Exakter Drawing type name, der erstellt werden soll. Unterstützte Werte sind "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `object` | `DrawingObject` | Erstelltes Drawing object mit der Drawing object type. |
+
+## Beispiel
+
+Erstellen Sie ein sichtbares Quadrat und konfigurieren Sie seine grundlegenden Zeichnungseigenschaften.
+
+```lua
+local square = Drawing.new("Square")
+square.Position = Vector2.new(120, 120)
+square.Size = Vector2.new(220, 120)
+square.Color = Color3.fromRGB(120, 170, 255)
+square.Filled = true
+square.Visible = true
+```

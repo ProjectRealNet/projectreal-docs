@@ -1,0 +1,59 @@
+---
+title: "json.tryDecode"
+sidebarTitle: "json.tryDecode"
+description: "json.decodeSafe と同じ function を使って JSON string の parse を試み、parse errors 用の status values を返します。"
+icon: "function"
+keywords: ["json.tryDecode","JSON"]
+---
+
+json.decodeSafe と同じ function を使って JSON string の parse を試み、parse errors 用の status values を返します。
+
+## 構文
+
+```lua
+json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | Parse する JSON string。function はこの argument を string type checking で読みます。 |
+| `options` | `DecodeOptions` | No | Optional decode options。boolean は useNull を設定します。table は useNull と maxDepth を設定できます。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `success` | `boolean` | Parsing が成功した場合 true、protected parse block 内で parsing が失敗した場合 false。 |
+| `decoded` | `any \| nil` | Success 時の decoded value。Parse failure 時、この return は nil です。 |
+| `errorMessage` | `string \| nil` | Parse failure 時の error message。Message は json.decodeSafe で prefixed され、near-position suffix を含みます。 |
+| `errorPosition` | `number \| nil` | Parse failure 時の parser 由来の parser byte position。この return は failure 時のみ存在します。 |
+
+## 型
+
+### DecodeOptions
+
+JSON 解析動作を制御します。
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | nil の代わりにライブラリの null センチネルを使用して JSON null を表します。 |
+| `maxDepth` | `integer` | No | ネストの最大の深さを 1 ～ 4096 の範囲で設定します。 |
+
+## 例
+
+json.decodeSafe-compatible alias を使い、status returns 付きで JSON を decode します。
+
+```lua
+local ok, value, message, position = json.tryDecode('{"ready":true,"missing":null}', {
+    useNull = true,
+})
+
+if ok then
+    print(value.ready)
+    print(json.isNull(value.missing))
+else
+    warn(message, position)
+end
+```

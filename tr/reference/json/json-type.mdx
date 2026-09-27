@@ -1,0 +1,39 @@
+---
+title: "json.type"
+sidebarTitle: "json.type"
+description: "Bir deger icin string type name dondurur. json.null \"null\" dondurur. Tablolar json.isArray ve json.isObject ile ayni table classification kullanarak \"array\" veya \"object\" dondurur. Diger degerler runtime Lua type name result dondurur."
+icon: "function"
+keywords: ["json.type","JSON"]
+---
+
+Bir deger icin string type name dondurur. json.null "null" dondurur. Tablolar json.isArray ve json.isObject ile ayni table classification kullanarak "array" veya "object" dondurur. Diger degerler runtime Lua type name result dondurur.
+
+## Söz dizimi
+
+```lua
+json.type(value: any): string
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Classify edilecek deger. no value gecmek, eksik stack value icin runtime type name dondurur. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `jsonType` | `string` | Type name string. Dogrulanmis JSON-specific returns "null", "array" ve "object" degerleridir. Non-table, non-json.null degerler Lua type name kullanir, runtime value durumuna gore "nil", "boolean", "number", "integer", "string", "function", "object", "thread", "buffer", "class", "object", "vector" veya "no value" olabilir. |
+
+## Örnek
+
+JSON helper tarafindan dondurulen exact type string degerini kontrol eder.
+
+```lua
+print(json.type(json.array({ "red", "blue" })))
+print(json.type(json.object({ enabled = true })))
+print(json.type(json.null))
+print(json.type(nil))
+print(json.type())
+```

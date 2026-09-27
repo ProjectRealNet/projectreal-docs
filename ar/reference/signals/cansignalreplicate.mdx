@@ -1,0 +1,40 @@
+---
+title: "cansignalreplicate"
+sidebarTitle: "cansignalreplicate"
+description: "يتحقق مما إذا كان RBXScriptSignal قانونيا للإرسال عبر NetworkClient replication layer الحالي. تتحقق function من أن argument الأول هو RBXScriptSignal، وتقرأ source instance و event descriptor الخاصين بالإشارة، ثم تعيد boolean الناتج من فحص replication layer signal replication validation. إذا كانت قيمة مؤشر replication layer المحلولة هي 0، تعيد false. لا تقرأ arguments إضافية. هذه function تتحقق من signal فقط ولا تطلقه أو تكرره. جدول whitelist الذي تعيده getsignalwhitelist لا يستخدمه مسار الكود هذا."
+icon: "function"
+keywords: ["cansignalreplicate","Signals"]
+---
+
+يتحقق مما إذا كان RBXScriptSignal قانونيا للإرسال عبر NetworkClient replication layer الحالي. تتحقق function من أن argument الأول هو RBXScriptSignal، وتقرأ source instance و event descriptor الخاصين بالإشارة، ثم تعيد boolean الناتج من فحص replication layer signal replication validation. إذا كانت قيمة مؤشر replication layer المحلولة هي 0، تعيد false. لا تقرأ arguments إضافية. هذه function تتحقق من signal فقط ولا تطلقه أو تكرره. جدول whitelist الذي تعيده getsignalwhitelist لا يستخدمه مسار الكود هذا.
+
+## الصيغة
+
+```lua
+cansignalreplicate(signal: RBXScriptSignal): boolean
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | Signal المراد فحصه. يجب أن يكون argument الأول object يحمل Luau type name بقيمة RBXScriptSignal. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `canReplicate` | `boolean` | قيمة boolean التي يعيدها فحص replication layer signal replication validation، أو false عندما تكون قيمة مؤشر replication layer المحلولة هي 0. |
+
+## مثال
+
+Check whether an RBXScriptSignal is legal to send before attempting to replicate it.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote then
+    print(cansignalreplicate(remote.OnClientEvent))
+end
+```

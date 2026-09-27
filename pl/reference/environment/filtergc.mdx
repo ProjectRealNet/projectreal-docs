@@ -1,0 +1,56 @@
+---
+title: "filtergc"
+sidebarTitle: "filtergc"
+description: "Szuka live garbage-collected tables albo functions pasujących do podanych filters. filterType musi być \"table\" albo \"function\". options musi być table."
+icon: "function"
+keywords: ["filtergc","Environment"]
+---
+
+Szuka live garbage-collected tables albo functions pasujących do podanych filters. filterType musi być "table" albo "function". options musi być table.
+
+## Składnia
+
+```lua
+filtergc(filterType: string, options: table, returnOne?: boolean): table | function | nil
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `filterType` | `string` | Yes | Szukany GC object type. Wartosc jest konwertowana do lowercase i musi byc "table" albo "function". |
+| `options` | `table` | Yes | Filter table. function searches czytaja Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants i Upvalues. table searches czytaja Metatable, Keys, Values i KeyValuePairs. |
+| `returnOne` | `boolean` | No | Optional optional boolean handling flag. Gdy true, zwraca pierwszy matching object albo nil zamiast array table. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `result` | `table \| function \| nil` | Gdy returnOne jest false albo omitted, array table of matches. Gdy returnOne jest true, pierwszy matching table/function object albo nil. |
+
+## Przykład
+
+Find GC tables by key filters without relying on result order.
+
+```lua
+local marker = {
+    RealDocsMarker = true,
+}
+
+local matches = filtergc("table", {
+    Keys = { "RealDocsMarker" },
+})
+
+for _, value in ipairs(matches) do
+    if value == marker then
+        print("found marker")
+        break
+    end
+end
+
+local first = filtergc("table", {
+    Keys = { "RealDocsMarker" },
+}, true)
+
+print(first ~= nil)
+```

@@ -1,0 +1,20 @@
+---
+title: "Actors"
+description: "执行上下文和参与者通信。"
+icon: "folder-code"
+---
+
+执行上下文和参与者通信。
+
+| 函数导航 | 说明 |
+| --- | --- |
+| [`create_comm_channel`](./create-comm-channel) | 使用 Instance.new 创建新的 BindableEvent，将它的 Instance reference 以 numeric channel ID 存入 communication channel list，并返回该 ID 和 BindableEvent Instance。channel ID 由 current map size plus one 计算。如果 Instance.new("BindableEvent") 没有在 stack 上留下 object value，该 function 会抛出 "Failed to make a BindableEvent"。 |
+| [`get_comm_channel`](./get-comm-channel) | 在 communication channel list 中查找 channel ID，并返回保存的 BindableEvent Instance。第一个 argument 必须是 number，并在 lookup 前使用 integer conversion 转换。如果该 ID 没有 entry，该 function 返回 nil。 |
+| [`getactorfromthread`](./getactorfromthread) | 返回与 Luau thread 关联的 Actor Instance。第一个 argument 必须是 thread。function 会读取该 thread 的 thread data，要求存在 Actor reference 且 container count 为 positive，然后读取 the associated Actor。如果 actor weak reference 有效，就作为 Instance push；否则 function 返回 nil。 |
+| [`getactors`](./getactors) | 返回从 ScriptContext actor thread list 解析出的 live Actor Instances 的 array table。该 function 不接受 arguments。它遍历 actor thread list，解密每个 actor Lua state，保留 valid threads 的 entries，然后读取每个 thread 的 thread data 和 the associated Actor weak reference。只有 non-expired actor references 会作为 Instances push。没有 container、没有 Actor reference、reference count &lt;= 0 或带 expired actor reference 的 entries 会被跳过。 |
+| [`getactorthreads`](./getactorthreads) | 返回来自 actor thread list 的 Luau threads array table。该 function 不接受 arguments。它从 ScriptContext 读取 actor list bounds，遍历每个 actor state entry，将 stored global state 解密为 Luau thread，并且只包含 valid threads 的 entries。 |
+| [`getcurrentactor`](./getcurrentactor) | 返回与当前 Luau thread 关联的 Actor Instance。该 function 不接受 arguments。它通过 getactorfromthread 使用的同一个 actor resolver 解析当前 Luau thread：thread data 必须存在，Actor reference 必须存在，reference count 必须大于 0，并且 the associated Actor 必须保存 non-expired weak reference。如果没有 valid actor reference，该 function 返回 nil。 |
+| [`getdeletedactors`](./getdeletedactors) | 返回 actor list 中 Luau threads 的 array table，这些条目的 thread data 具有 Actor reference，reference count 大于 0，并且 the associated Actor 是 expired weak reference。该 function 不接受 arguments。它不返回 Actor Instance values。 |
+| [`isparallel`](./isparallel) | 从当前 Luau thread 的 ScriptContext DataModel 返回 boolean。该 function 不接受 arguments。它读取 the current parallel execution status，该函数返回 parallel execution status。如果 the current DataModel 没有返回 DataModel，该 function 返回 false。checkparallel 是同一个 function 的 alias。 |
+| [`run_on_actor`](./run-on-actor) | Runs Luau source on the thread associated with a target Actor Instance. The first argument must be an Instance whose ClassName is Actor, and the second argument must be a non-empty source string. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonactor is an alias. |
+| [`run_on_thread`](./run-on-thread) | Runs Luau source on a specific Luau thread. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonthread is an alias. |

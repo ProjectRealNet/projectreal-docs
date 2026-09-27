@@ -1,0 +1,36 @@
+---
+title: "crypt.generatekey"
+sidebarTitle: "crypt.generatekey"
+description: "ينشئ 32 بايت خام عشوائي باستخدام random byte generator ويعيدها Base64-encoded كسلسلة Lua."
+icon: "function"
+keywords: ["crypt.generatekey","Cryptography"]
+---
+
+ينشئ 32 بايت خام عشوائي باستخدام random byte generator ويعيدها Base64-encoded كسلسلة Lua.
+
+## الصيغة
+
+```lua
+crypt.generatekey(): string
+```
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `key` | `string` | Base64 encoding للـ 32 بايت خام التي تم إنشاؤها. السلسلة المعادة ليست بطول 32 حرفا. |
+
+## مثال
+
+انشئ Base64 key وفكه لفحص عدد raw bytes.
+
+```lua
+local key = crypt.generatekey()
+local raw = base64_decode(key)
+
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+print(key)
+print(#raw)
+print(ciphertext, iv)
+```

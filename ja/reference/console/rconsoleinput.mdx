@@ -1,0 +1,37 @@
+---
+title: "rconsoleinput"
+sidebarTitle: "rconsoleinput"
+description: "console input state をクリアし、次の newline まで input を無視したあと、console input で stdin から 1 つの line を読む間 yield します。返される string は string return で push され、終端の newline は含まれません。console window が存在しない場合、この呼び出しは values なしで戻ります。"
+icon: "function"
+keywords: ["rconsoleinput","Console","consoleinput"]
+---
+
+console input state をクリアし、次の newline まで input を無視したあと、console input で stdin から 1 つの line を読む間 yield します。返される string は string return で push され、終端の newline は含まれません。console window が存在しない場合、この呼び出しは values なしで戻ります。
+
+## 構文
+
+```lua
+rconsoleinput(): string
+```
+
+## エイリアス
+
+- `consoleinput`
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `input` | `string` | コンソールから読み取られたテキスト行。 |
+
+## 例
+
+Read one submitted line from the current Windows console.
+
+```lua
+rconsolecreate()
+rconsoleprint("Name: ")
+local name = rconsoleinput()
+rconsoleprint("Hello, ", name, "
+")
+```

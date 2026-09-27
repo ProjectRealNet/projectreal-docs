@@ -1,0 +1,55 @@
+---
+title: "json.minify"
+sidebarTitle: "json.minify"
+description: "Parse 一个 JSON string，并使用 Real default non-pretty JSON encoder output 重新 encode。"
+icon: "function"
+keywords: ["json.minify","JSON"]
+---
+
+Parse 一个 JSON string，并使用 Real default non-pretty JSON encoder output 重新 encode。
+
+## 语法
+
+```lua
+json.minify(json: string, options?: DecodeOptions): string
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | Minifying 前要 parse 的 JSON string。function 使用 string type checking 读取这个 argument。 |
+| `options` | `DecodeOptions` | No | Parsing input JSON 时使用的 optional decode options。boolean 设置 useNull。table 可以设置 useNull 和 maxDepth。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `minified` | `string` | Parsing 并用 default encode options re-encoding input 后产生的 JSON string。 |
+
+## 类型
+
+### DecodeOptions
+
+控制 JSON 解析行为。
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | 使用库的 null 标记而不是 nil 来表示 JSON null。 |
+| `maxDepth` | `integer` | No | 设置最大嵌套深度，范围为 1 到 4096。 |
+
+## 示例
+
+Parse valid JSON，并用 default compact JSON output re-encode。
+
+```lua
+local formatted = [[{
+    "name": "Real",
+    "enabled": true,
+    "missing": null
+}]]
+
+print(json.minify(formatted, {
+    useNull = true,
+}))
+```

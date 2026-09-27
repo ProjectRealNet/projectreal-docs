@@ -1,0 +1,63 @@
+---
+title: "json.encode"
+sidebarTitle: "json.encode"
+description: "Serializuje Lua value do JSON string przy uzyciu Real JSON encoder. json.stringify jest zarejestrowane do tej samej function."
+icon: "function"
+keywords: ["json.encode","JSON"]
+---
+
+Serializuje Lua value do JSON string przy uzyciu Real JSON encoder. json.stringify jest zarejestrowane do tej samej function.
+
+## Składnia
+
+```lua
+json.encode(value: any, options?: EncodeOptions): string
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value do encode. nil, booleans, numbers, strings, tables i json.null sa obslugiwane bezposrednio. Unsupported Lua types sa encode jako null, chyba ze errorOnUnsupported jest true. |
+| `options` | `EncodeOptions` | No | Optional encode options. boolean przelacza pretty output. number wlacza pretty output z taka liczba spaces clamp do 0.16. string wlacza pretty output z tym indent. table moze ustawic pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth i indent. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `json` | `string` | Encoded JSON string. Encoding errors sa rzucane jako Luau errors. |
+
+## Typy
+
+### EncodeOptions
+
+Kontroluje serializację i formatowanie JSON.
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Włącza sformatowane, wielowierszowe wyjście JSON. |
+| `sortKeys` | `boolean` | No | Sortuje klucze obiektów przed kodowaniem. |
+| `emptyTableAsArray` | `boolean` | No | Koduje pustą tabelę jako tablicę zamiast obiektu. |
+| `errorOnUnsupported` | `boolean` | No | Zgłasza błąd zamiast zastępować nieobsługiwane wartości. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Koduje liczby NaN i nieskończone jako JSON null. |
+| `maxDepth` | `integer` | No | Ustawia maksymalną głębokość zagnieżdżenia, zaciśniętą w zakresie od 1 do 4096. |
+| `indent` | `string` | No | Ustawia ciąg wcięcia ograniczony do 32 znaków. |
+
+## Przykład
+
+Encode JSON-compatible values i uzyj json.array, gdy empty array musi pozostac array.
+
+```lua
+local payload = {
+    name = "Real",
+    enabled = true,
+    tags = json.array({ "api", "docs" }),
+    missing = json.null,
+}
+
+local text = json.encode(payload, {
+    sortKeys = true,
+})
+
+print(text)
+```

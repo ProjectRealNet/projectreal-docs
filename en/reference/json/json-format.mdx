@@ -1,0 +1,70 @@
+---
+title: "json.format"
+sidebarTitle: "json.format"
+description: "Parses a JSON string and re-encodes it as readable formatted JSON using Real's JSON parser and encoder."
+icon: "function"
+keywords: ["json.format","JSON"]
+---
+
+Parses a JSON string and re-encodes it as readable formatted JSON using Real's JSON parser and encoder.
+
+## Syntax
+
+```lua
+json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string to parse before formatting. The function reads this argument with string type checking. |
+| `encodeOptions` | `EncodeOptions` | No | Optional encode options passed to the re-encode step. json.format reads the same encode options as json.encode, then forces pretty to true. |
+| `decodeOptions` | `DecodeOptions` | No | Optional decode options used while parsing the input JSON. A boolean sets useNull. A table can set useNull and maxDepth. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `formatted` | `string` | Readable formatted JSON string produced after parsing and re-encoding the input. |
+
+## Types
+
+### EncodeOptions
+
+Controls JSON serialization and formatting.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Enables formatted, multi-line JSON output. |
+| `sortKeys` | `boolean` | No | Sorts object keys before encoding. |
+| `emptyTableAsArray` | `boolean` | No | Encodes an empty table as an array instead of an object. |
+| `errorOnUnsupported` | `boolean` | No | Raises an error instead of substituting unsupported values. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Encodes NaN and infinite numbers as JSON null. |
+| `maxDepth` | `integer` | No | Sets the maximum nesting depth, clamped from 1 to 4096. |
+| `indent` | `string` | No | Sets the indentation string, limited to 32 characters. |
+
+### DecodeOptions
+
+Controls JSON parsing behavior.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Represents JSON null with the library's null sentinel instead of nil. |
+| `maxDepth` | `integer` | No | Sets the maximum nesting depth, clamped from 1 to 4096. |
+
+## Example
+
+Parse existing JSON and re-encode it as readable formatted JSON.
+
+```lua
+local compact = '{"b":2,"a":1}'
+local formatted = json.format(compact, {
+    pretty = true,
+    sortKeys = true,
+}, {
+    useNull = true,
+})
+
+print(formatted)
+```

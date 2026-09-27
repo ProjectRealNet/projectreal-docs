@@ -1,0 +1,49 @@
+---
+title: "ImGuiWindow.CollapsingHeader"
+sidebarTitle: "ImGuiWindow.CollapsingHeader"
+description: "Anexa um collapsing header start marker, chama imediatamente o content callback com o mesmo ImGuiWindow object para que ele possa anexar nested elements, e depois anexa um header end marker. Durante rendering, nested elements sao pulados enquanto o header esta collapsed. Callback errors sao capturados e nao retornados por esta method."
+icon: "function"
+keywords: ["ImGuiWindow.CollapsingHeader","ImGui"]
+---
+
+Anexa um collapsing header start marker, chama imediatamente o content callback com o mesmo ImGuiWindow object para que ele possa anexar nested elements, e depois anexa um header end marker. Durante rendering, nested elements sao pulados enquanto o header esta collapsed. Callback errors sao capturados e nao retornados por esta method.
+
+## Sintaxe
+
+```lua
+ImGuiWindow.CollapsingHeader(window: ImGuiWindow, label: string, content: function): ImGuiWindow
+```
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `window` | `ImGuiWindow` | Yes | ImGuiWindow object retornado por imgui.create. Um window destruido ou invalido gera um Lua error. |
+| `label` | `string` | Yes | Header label string passado ao ImGui collapsing header renderizado. |
+| `content` | `function` | Yes | Function invocada imediatamente com o mesmo ImGuiWindow object. Return values sao ignorados; erros sao capturados pela method. |
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `window` | `ImGuiWindow` | O mesmo ImGuiWindow object, permitindo encadear method calls. |
+
+## Tipos
+
+### ImGuiWindow
+
+Identificador retornado por imgui.create. Os métodos de construção de controle retornam o mesmo identificador para que as chamadas possam ser encadeadas.
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | Acrescenta um botão e invoca o retorno de chamada após um clique. |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | Acrescenta uma caixa de seleção inicializada no estado fornecido. |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | Agrupa controles anexados pelo retorno de chamada de conteúdo abaixo de um cabeçalho recolhido. |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | Acrescenta um editor RGBA; os componentes de cores omitidos são padronizados como 1,0. |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | Acrescenta uma entrada de texto de linha única; o texto inicial omitido é padronizado como uma string vazia. |
+| `SameLine` | `() -> ImGuiWindow` | Yes | Coloca o próximo controle na mesma linha. |
+| `Separator` | `() -> ImGuiWindow` | Yes | Acrescenta um separador horizontal. |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Acrescenta um controle deslizante de ponto flutuante. |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Acrescenta um controle deslizante inteiro. |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | Acrescenta texto não interativo. |
+| `destroy` | `() -> ()` | Yes | Remove a janela e libera seus retornos de chamada registrados. |

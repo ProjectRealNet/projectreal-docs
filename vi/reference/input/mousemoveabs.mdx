@@ -1,0 +1,22 @@
+---
+title: "mousemoveabs"
+sidebarTitle: "mousemoveabs"
+description: "Di chuyen mouse bang Windows absolute mouse input khi Roblox window active. Doi so x va y duoc kiem tra la Lua numbers va chuyen doi bang integer conversion. Real xem chung la toa do relative to active foreground window client area, cong screen position cua client area do bang ClientToScreen, scale bang GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 va integer math, roi goi mouse input voi the requested mouse action. Neu isrbxactive se la false, function tra ve ma khong gui input."
+icon: "function"
+keywords: ["mousemoveabs","Input"]
+---
+
+Di chuyen mouse bang Windows absolute mouse input khi Roblox window active. Doi so x va y duoc kiem tra la Lua numbers va chuyen doi bang integer conversion. Real xem chung la toa do relative to active foreground window client area, cong screen position cua client area do bang ClientToScreen, scale bang GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 va integer math, roi goi mouse input voi the requested mouse action. Neu isrbxactive se la false, function tra ve ma khong gui input.
+
+## Cú pháp
+
+```lua
+mousemoveabs(x: number, y: number)
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `x` | `number` | Yes | Client-area X coordinate duoc doc nhu Lua number va chuyen doi bang integer conversion truoc buoc screen-position va absolute-input scaling. |
+| `y` | `number` | Yes | Client-area Y coordinate duoc doc nhu Lua number va chuyen doi bang integer conversion truoc buoc screen-position va absolute-input scaling. |

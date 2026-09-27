@@ -1,0 +1,42 @@
+---
+title: "getsignalarguments"
+sidebarTitle: "getsignalarguments"
+description: "RBXScriptSignal の event descriptor signature から読み取った type names の array table を返します。最初の argument は、Luau type name が RBXScriptSignal の object である必要があります。この function は signal の event descriptor を読み取り、function の argument stride で signature slots を走査し、各 argument type reference を読み取り、各 slot の解決済み type name string を push します。captured runtime argument values は返しません。signature を読めない場合、または entries が 1 つも push されない場合、返される table には fallback entry として \"Variant\" が 1 つ含まれます。"
+icon: "function"
+keywords: ["getsignalarguments","Signals"]
+---
+
+RBXScriptSignal の event descriptor signature から読み取った type names の array table を返します。最初の argument は、Luau type name が RBXScriptSignal の object である必要があります。この function は signal の event descriptor を読み取り、function の argument stride で signature slots を走査し、各 argument type reference を読み取り、各 slot の解決済み type name string を push します。captured runtime argument values は返しません。signature を読めない場合、または entries が 1 つも push されない場合、返される table には fallback entry として "Variant" が 1 つ含まれます。
+
+## 構文
+
+```lua
+getsignalarguments(signal: RBXScriptSignal): {string}
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | event descriptor signature を調べる signal。RBXScriptSignal ではない object は type error を発生させます。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `arguments` | `&#123;string&#125;` | argument type name strings の array table。signature data を読めない場合、または argument entries が生成されない場合、"Variant" を含む fallback table が返されます。 |
+
+## 例
+
+Inspect an RBXScriptSignal signature and print the argument type names Real can read.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote then
+    for _, typeName in ipairs(getsignalarguments(remote.OnClientEvent)) do
+        print(typeName)
+    end
+end
+```

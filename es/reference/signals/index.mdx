@@ -1,0 +1,17 @@
+---
+title: "Signals"
+description: "Conexiones de señal y reenvío de eventos."
+icon: "folder-code"
+---
+
+Conexiones de señal y reenvío de eventos.
+
+| Navegación de funciones | Descripción |
+| --- | --- |
+| [`cansignalreplicate`](./cansignalreplicate) | Comprueba si un RBXScriptSignal es legal para enviarse mediante el NetworkClient replication layer actual. La function valida el primer argument como RBXScriptSignal, lee la source instance y el event descriptor del signal, y devuelve el resultado boolean de replication layer signal replication validation. Si el valor de puntero replication layer resuelto es 0, devuelve false. No lee arguments adicionales. Esta function solo comprueba el signal y no lo dispara ni lo replica. La tabla whitelist devuelta por getsignalwhitelist no se usa en esta ruta de codigo. |
+| [`firesignal`](./firesignal) | Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error. |
+| [`getconnections`](./getconnections) | Devuelve una array table de RealConnection closures para un RBXScriptSignal. El primer argument debe ser object cuyo Luau type name sea RBXScriptSignal. La function lee el Connect method del signal, conecta un temporary blank callback, lee la linked list desde el next reference de la conexion temporal, desconecta la conexion temporal y envuelve cada connection reference valido. Si no se encuentra ningun connection reference despues de la conexion temporal, devuelve una table vacia. Los underlying references envueltos previamente pueden devolver la misma cached closure table. getsignals y get_signal_cons son aliases de la misma function. |
+| [`getsignalarguments`](./getsignalarguments) | Devuelve una array table de type names leidos desde la event descriptor signature de un RBXScriptSignal. El primer argument debe ser object cuyo Luau type name sea RBXScriptSignal. La function lee el event descriptor del signal, recorre los signature slots con el argument stride de la function, lee cada argument type reference y agrega el type name string resuelto para cada slot. No devuelve captured runtime argument values. Si no se puede leer la signature o no se agregan entries, la table devuelta contiene una fallback entry: "Variant". |
+| [`getsignalargumentsinfo`](./getsignalargumentsinfo) | Devuelve una array table de información de argumentos desde la firma de un RBXScriptSignal. No devuelve valores de argumentos capturados en tiempo de ejecución. |
+| [`getsignalwhitelist`](./getsignalwhitelist) | Devuelve una nueva array table con las seis entradas whitelist estaticas definidas por la function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Cada entry es una table con campos string Event y Parent. La function no acepta arguments y no inspecciona el estado actual del juego. |
+| [`replicatesignal`](./replicatesignal) | Invoca la replication path para un RBXScriptSignal. La función lee la signal signature, convierte los Lua arguments proporcionados en Roblox signal values para cada signature type, recorta los Lua arguments extra después de la signature length y luego llama a la owning instance event invocation function. |

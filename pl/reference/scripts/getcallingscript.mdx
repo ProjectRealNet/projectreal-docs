@@ -1,0 +1,21 @@
+---
+title: "getcallingscript"
+sidebarTitle: "getcallingscript"
+description: "Zwraca script zapisany na current Luau thread object. Function nie przyjmuje zadnych arguments. Odczytuje the current thread script, ktore jest stored reference. Jesli ten stored reference nie jest expired, function wypycha script Instance przez Instance cache i ja zwraca. Jesli stored reference jest expired, function zwraca nil. Function nie sprawdza Lua call stack, nie szuka ancestor scripts i nie sprawdza script ClassName."
+icon: "function"
+keywords: ["getcallingscript","Scripts"]
+---
+
+Zwraca script zapisany na current Luau thread object. Function nie przyjmuje zadnych arguments. Odczytuje the current thread script, ktore jest stored reference. Jesli ten stored reference nie jest expired, function wypycha script Instance przez Instance cache i ja zwraca. Jesli stored reference jest expired, function zwraca nil. Function nie sprawdza Lua call stack, nie szuka ancestor scripts i nie sprawdza script ClassName.
+
+## Składnia
+
+```lua
+getcallingscript(): Instance | nil
+```
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `script` | `Instance \| nil` | Script Instance z current Luau thread object stored reference, albo nil, gdy ten stored reference jest expired. |

@@ -1,0 +1,41 @@
+---
+title: "cache.iscached"
+sidebarTitle: "cache.iscached"
+description: "Verilen Instance icin Instance cache icinde non-nil bir girdi olup olmadigini dondurur."
+icon: "function"
+keywords: ["cache.iscached","Cache"]
+---
+
+Verilen Instance icin Instance cache icinde non-nil bir girdi olup olmadigini dondurur.
+
+## Söz dizimi
+
+```lua
+cache.iscached(instance: Instance): boolean
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance cache girdisi kontrol edilecek Instance. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `cached` | `boolean` | cache bu Instance icin non-nil bir girdi iceriyorsa True. |
+
+## Örnek
+
+Bir Instance degerinin su anda Real Instance cache icinde bir girdisi olup olmadigini kontrol et.
+
+```lua
+local Players = game:GetService("Players")
+
+local cached = cache.iscached(Players)
+print(cached)
+
+cache.invalidate(Players)
+print(cache.iscached(Players))
+```

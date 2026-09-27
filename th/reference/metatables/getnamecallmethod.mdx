@@ -1,0 +1,37 @@
+---
+title: "getnamecallmethod"
+sidebarTitle: "getnamecallmethod"
+description: "คืน current Luau namecall atom ที่เก็บใน the current namecall method. function ไม่รับ arguments และคืน exactly one value. ถ้า the current namecall method มีอยู่, the current namecall method มากกว่า 0, และ the current namecall method เป็น non-null, จะ push data นั้นเป็น string ด้วย string return. ไม่เช่นนั้นจะ push nil. function ไม่ inspect arguments, ไม่คำนวณ method name จาก target object, และไม่เรียก metamethod ใดๆ. get_namecall_method เป็น alias ของ getnamecallmethod."
+icon: "function"
+keywords: ["getnamecallmethod","Metatables","get_namecall_method"]
+---
+
+คืน current Luau namecall atom ที่เก็บใน the current namecall method. function ไม่รับ arguments และคืน exactly one value. ถ้า the current namecall method มีอยู่, the current namecall method มากกว่า 0, และ the current namecall method เป็น non-null, จะ push data นั้นเป็น string ด้วย string return. ไม่เช่นนั้นจะ push nil. function ไม่ inspect arguments, ไม่คำนวณ method name จาก target object, และไม่เรียก metamethod ใดๆ. get_namecall_method เป็น alias ของ getnamecallmethod.
+
+## ไวยากรณ์
+
+```lua
+getnamecallmethod(): string | nil
+```
+
+## Aliases
+
+- `get_namecall_method`
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `method` | `string \| nil` | Current the current namecall method data string เมื่อมีอยู่และ non-empty; ไม่เช่นนั้น nil. |
+
+## ตัวอย่าง
+
+Read the current L->namecall string when Real is inside namecall handling.
+
+```lua
+local method = getnamecallmethod()
+print(method)
+
+local aliasMethod = get_namecall_method()
+print(aliasMethod)
+```

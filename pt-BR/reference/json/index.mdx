@@ -1,0 +1,34 @@
+---
+title: "JSON"
+description: "Analise, codifique, inspecione e transforme JSON."
+icon: "folder-code"
+---
+
+Analise, codifique, inspecione e transforme JSON.
+
+| Navegação de funções | Descrição |
+| --- | --- |
+| [`json.array`](./json-array) | Cria uma new table marcada como JSON array para json.encode, copiando a sequence 1.#source quando uma source table e fornecida. |
+| [`json.clone`](./json-clone) | Clona um value fazendo encoding com json.encode semantics e depois decoding do generated JSON de volta para Lua values. |
+| [`json.decode`](./json-decode) | Faz parse de um JSON string com Real JSON parser e retorna o decoded Lua value, marcando decoded arrays e objects para os JSON helpers. |
+| [`json.decodeSafe`](./json-decodesafe) | Faz parse de JSON com o mesmo parser de json.decode e retorna um success flag em vez de lancar para parse errors. |
+| [`json.encode`](./json-encode) | Serializa um Lua value para JSON string usando Real JSON encoder. json.stringify e registrado para a mesma function. |
+| [`json.encodePretty`](./json-encodepretty) | Serializa um Lua value para um JSON string legivel e formatado usando Real JSON encoder. json.pretty e registrado na mesma function. |
+| [`json.escape`](./json-escape) | Escapa uma string usando Real JSON string escaping rules e retorna o escaped content sem surrounding quotes. |
+| [`json.format`](./json-format) | Faz parse de um JSON string e re-encode como readable formatted JSON usando Real JSON parser e encoder. |
+| [`json.getPath`](./json-getpath) | Le um nested value de uma table usando um dotted string path ou uma array table of keys. |
+| [`json.isArray`](./json-isarray) | Retorna se um value e treated as a JSON array pela Real JSON table detection. |
+| [`json.isNull`](./json-isnull) | Retorna se um value e o Real JSON null sentinel, json.null. |
+| [`json.isObject`](./json-isobject) | Retorna se um value e treated as a JSON object pela Real JSON table detection. |
+| [`json.keys`](./json-keys) | Retorna as visible keys de uma table em uma new table marked as a JSON array. |
+| [`json.minify`](./json-minify) | Faz parse de um JSON string e re-encode usando Real default non-pretty JSON encoder output. |
+| [`json.object`](./json-object) | Cria uma new table marked as a JSON object para que Real JSON encoder a trate como object. |
+| [`json.parse`](./json-parse) | Faz parse de um JSON string usando a mesma function que json.decode. |
+| [`json.pretty`](./json-pretty) | Serializa um Lua value para readable formatted JSON string usando a mesma function que json.encodePretty. |
+| [`json.quote`](./json-quote) | Escapa uma string usando Real JSON string escaping rules e retorna um complete quoted JSON string literal. |
+| [`json.stringify`](./json-stringify) | Serializa um Lua value para JSON string usando a mesma function que json.encode. |
+| [`json.tryDecode`](./json-trydecode) | Tenta fazer parse de um JSON string usando a mesma function que json.decodeSafe e retorna status values para parse errors. |
+| [`json.type`](./json-type) | Retorna um string type name para um valor. json.null retorna "null". Tabelas retornam "array" ou "object" usando a mesma table classification de json.isArray e json.isObject. Outros valores retornam o runtime Lua type name result. |
+| [`json.unescape`](./json-unescape) | Decodifica JSON string escape sequences de escaped string content ou de um complete quoted JSON string literal. A entrada e parseada com o JSON string parser, nao como full JSON document. |
+| [`json.validate`](./json-validate) | Valida um JSON string fazendo parse de um unico complete JSON value. Em success retorna apenas true. Em parse failure retorna false mais parser error details. |
+| [`json.values`](./json-values) | Retorna os direct values de uma table em uma nova table marked as JSON array. JSON kind marker entries sao ignorados. |

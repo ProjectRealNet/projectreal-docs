@@ -1,0 +1,31 @@
+---
+title: "clear_teleport_queue"
+sidebarTitle: "clear_teleport_queue"
+description: "Clears Real's queued teleport source strings and returns no values. The registered aliases call the same function."
+icon: "function"
+keywords: ["clear_teleport_queue","Miscellaneous","clearteleportqueue","clear_tp_queue","cleartpqueue","clearqueueonteleport"]
+---
+
+Clears Real's queued teleport source strings and returns no values. The registered aliases call the same function.
+
+## Синтаксис
+
+```lua
+clear_teleport_queue()
+```
+
+## Алиасы
+
+- `clearteleportqueue`
+- `clear_tp_queue`
+- `cleartpqueue`
+- `clearqueueonteleport`
+
+## Пример
+
+Remove all source currently stored in Real's teleport execution queue.
+
+```lua
+queue_on_teleport("print('queued after teleport')")
+clear_teleport_queue()
+```

@@ -1,0 +1,50 @@
+---
+title: "ImGuiWindow.InputText"
+sidebarTitle: "ImGuiWindow.InputText"
+description: "เพิ่ม single-line ImGui InputText element ไปยัง ImGuiWindow และเก็บ callback initial text ถูกอ่านด้วย optional string handling และคัดลอกลงใน fixed 256-byte text buffer ของ element เมื่อ input ที่ render แล้วเปลี่ยน callback จะถูกใส่ใน queue และถูกเรียกภายหลังพร้อม current string method ส่งคืน ImGuiWindow object เดิม"
+icon: "function"
+keywords: ["ImGuiWindow.InputText","ImGui"]
+---
+
+เพิ่ม single-line ImGui InputText element ไปยัง ImGuiWindow และเก็บ callback initial text ถูกอ่านด้วย optional string handling และคัดลอกลงใน fixed 256-byte text buffer ของ element เมื่อ input ที่ render แล้วเปลี่ยน callback จะถูกใส่ใน queue และถูกเรียกภายหลังพร้อม current string method ส่งคืน ImGuiWindow object เดิม
+
+## ไวยากรณ์
+
+```lua
+ImGuiWindow.InputText(window: ImGuiWindow, label: string, text?: string, onChange: function): ImGuiWindow
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `window` | `ImGuiWindow` | Yes | ImGuiWindow object ที่ส่งคืนโดย imgui.create window ที่ถูกทำลายหรือไม่ถูกต้องจะทำให้เกิด Lua error |
+| `label` | `string` | Yes | Input label string ที่ส่งไปยัง ImGui InputText widget ที่ render แล้ว |
+| `text` | `string` | No | Initial text อ่านด้วย optional string handling ส่ง nil ที่นี่เมื่อคุณต้องการ default empty string แต่ยังส่ง onChange เป็น argument 4 |
+| `onChange` | `function` | Yes | Function ที่เก็บไว้สำหรับ input นี้และถูกเรียกพร้อม current string หลังจาก edit event ถูกประมวลผล ต้องส่งเป็น argument 4 |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `window` | `ImGuiWindow` | ImGuiWindow object เดิม ทำให้สามารถ chain method calls ได้ |
+
+## Types
+
+### ImGuiWindow
+
+หมายเลขอ้างอิงส่งคืนโดย imgui.create วิธีการสร้างการควบคุมส่งคืนหมายเลขอ้างอิงเดียวกันเพื่อให้สามารถต่อสายได้
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | ผนวกปุ่มและเรียกกลับหลังจากการคลิก |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | ผนวกช่องทำเครื่องหมายที่เตรียมใช้งานกับสถานะที่ให้ไว้ |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | การควบคุมกลุ่มต่อท้ายด้วยการเรียกกลับเนื้อหาใต้ส่วนหัวที่ยุบ |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | ต่อท้ายโปรแกรมแก้ไข RGBA ละเว้นส่วนประกอบสีเริ่มต้นที่ 1.0 |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | ผนวกการป้อนข้อความบรรทัดเดียว ละเว้นค่าเริ่มต้นของข้อความเริ่มต้นเป็นสตริงว่าง |
+| `SameLine` | `() -> ImGuiWindow` | Yes | วางตัวควบคุมถัดไปบนบรรทัดเดียวกัน |
+| `Separator` | `() -> ImGuiWindow` | Yes | ผนวกตัวคั่นแนวนอน |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | เพิ่มแถบเลื่อนจุดลอยตัวต่อท้าย |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | เพิ่มแถบเลื่อนจำนวนเต็มต่อท้าย |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | ต่อท้ายข้อความที่ไม่โต้ตอบ |
+| `destroy` | `() -> ()` | Yes | ลบหน้าต่างและปล่อยการเรียกกลับที่ลงทะเบียนไว้ |

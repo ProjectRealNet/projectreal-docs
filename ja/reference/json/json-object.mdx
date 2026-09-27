@@ -1,0 +1,42 @@
+---
+title: "json.object"
+sidebarTitle: "json.object"
+description: "Real JSON encoder が object として扱う new table marked as a JSON object を作成します。"
+icon: "function"
+keywords: ["json.object","JSON"]
+---
+
+Real JSON encoder が object として扱う new table marked as a JSON object を作成します。
+
+## 構文
+
+```lua
+json.object(source?: table): table
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `source` | `table` | No | New object table に copy される optional source table。omitted または nil の場合、empty object table が返ります。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `object` | `table` | Real JSON object marker で marked された new table。Source entries は copy されますが、Real JSON type marker は除外されます。 |
+
+## 例
+
+Empty object を含む new table marked as a JSON object を create します。
+
+```lua
+local profile = json.object({
+    name = "Guest",
+    active = true,
+})
+local empty = json.object()
+
+print(json.encode(profile))
+print(json.encode(empty))
+```

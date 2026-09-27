@@ -1,0 +1,43 @@
+---
+title: "isfile"
+sidebarTitle: "isfile"
+description: "Returns whether a path resolved inside the workspace exists and is a regular file."
+icon: "function"
+keywords: ["isfile","Filesystem"]
+---
+
+Returns whether a path resolved inside the workspace exists and is a regular file.
+
+## Cú pháp
+
+```lua
+isfile(path: string): boolean
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path resolved inside the workspace after separator normalization and workspace-boundary checks. Invalid or outside-workspace paths error before a boolean is returned. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `isFile` | `boolean` | True only when the resolved path exists and is a regular file; folders and missing paths return false. |
+
+## Ví dụ
+
+Kiem tra workspace path co resolve thanh regular file dang ton tai hay khong.
+
+```lua
+local folderPath = "examples"
+local filePath = "examples/config.json"
+
+makefolder(folderPath)
+writefile(filePath, "{}")
+
+print(isfile(filePath))
+print(isfile(folderPath))
+print(isfile("examples/missing.json"))
+```

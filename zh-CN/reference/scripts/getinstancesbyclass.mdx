@@ -1,0 +1,31 @@
+---
+title: "getinstancesbyclass"
+sidebarTitle: "getinstancesbyclass"
+description: "从 Instance cache table 返回 ClassName field 与请求 string 完全匹配的 instances。第一个参数通过 string type checking 读取。empty string 会抛出 \"ClassName required\"。function 创建新的 array table，遍历存储在 Instance cache 下的 cache，只保留 Lua type 为 object 的 values，读取每个 object value 的 ClassName field，并用 strcmp 与请求的 className 比较。matches 从 index 1 开始 sequential 插入。匹配是 exact 且 case-sensitive。function 不使用 IsA，不包含 subclasses，不 walk descendants，不按 Parent filter，也不 sort result。getinstancesofclass 是同一 function 的 alias。"
+icon: "function"
+keywords: ["getinstancesbyclass","Scripts","getinstancesofclass"]
+---
+
+从 Instance cache table 返回 ClassName field 与请求 string 完全匹配的 instances。第一个参数通过 string type checking 读取。empty string 会抛出 "ClassName required"。function 创建新的 array table，遍历存储在 Instance cache 下的 cache，只保留 Lua type 为 object 的 values，读取每个 object value 的 ClassName field，并用 strcmp 与请求的 className 比较。matches 从 index 1 开始 sequential 插入。匹配是 exact 且 case-sensitive。function 不使用 IsA，不包含 subclasses，不 walk descendants，不按 Parent filter，也不 sort result。getinstancesofclass 是同一 function 的 alias。
+
+## 语法
+
+```lua
+getinstancesbyclass(className: string): table
+```
+
+## 别名
+
+- `getinstancesofclass`
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `className` | `string` | Yes | 要匹配的 exact ClassName string。Empty strings 会抛出 "ClassName required"。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `instances` | `table` | 包含来自 Instance cache table 的 matching object values 的 new array table。 |

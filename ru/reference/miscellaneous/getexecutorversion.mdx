@@ -1,0 +1,30 @@
+---
+title: "getexecutorversion"
+sidebarTitle: "getexecutorversion"
+description: "Returns Real's executor version as one string."
+icon: "function"
+keywords: ["getexecutorversion","Miscellaneous"]
+---
+
+Returns Real's executor version as one string.
+
+## Синтаксис
+
+```lua
+getexecutorversion(): string
+```
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `executorVersion` | `string` | Executor version string. |
+
+## Пример
+
+Read the executor version string exposed by Real.
+
+```lua
+local version = getexecutorversion()
+print(version)
+```

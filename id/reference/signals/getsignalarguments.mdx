@@ -1,0 +1,42 @@
+---
+title: "getsignalarguments"
+sidebarTitle: "getsignalarguments"
+description: "Mengembalikan array table berisi type names yang dibaca dari event descriptor signature milik RBXScriptSignal. Argument pertama harus berupa object dengan Luau type name RBXScriptSignal. Function membaca event descriptor milik signal, menelusuri signature slots dengan argument stride milik function, membaca setiap argument type reference, lalu mendorong type name string yang diselesaikan untuk setiap slot. Function ini tidak mengembalikan captured runtime argument values. Jika signature tidak dapat dibaca atau tidak ada entries yang didorong, table yang dikembalikan berisi satu fallback entry: \"Variant\"."
+icon: "function"
+keywords: ["getsignalarguments","Signals"]
+---
+
+Mengembalikan array table berisi type names yang dibaca dari event descriptor signature milik RBXScriptSignal. Argument pertama harus berupa object dengan Luau type name RBXScriptSignal. Function membaca event descriptor milik signal, menelusuri signature slots dengan argument stride milik function, membaca setiap argument type reference, lalu mendorong type name string yang diselesaikan untuk setiap slot. Function ini tidak mengembalikan captured runtime argument values. Jika signature tidak dapat dibaca atau tidak ada entries yang didorong, table yang dikembalikan berisi satu fallback entry: "Variant".
+
+## Sintaks
+
+```lua
+getsignalarguments(signal: RBXScriptSignal): {string}
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | Signal yang event descriptor signature-nya akan diperiksa. Userdata non-RBXScriptSignal memunculkan type error. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `arguments` | `&#123;string&#125;` | Array table berisi argument type name strings. Fallback table berisi "Variant" dikembalikan saat signature data tidak dapat dibaca atau tidak ada argument entries yang dihasilkan. |
+
+## Contoh
+
+Inspect an RBXScriptSignal signature and print the argument type names Real can read.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote then
+    for _, typeName in ipairs(getsignalarguments(remote.OnClientEvent)) do
+        print(typeName)
+    end
+end
+```

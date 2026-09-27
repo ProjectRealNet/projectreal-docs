@@ -1,0 +1,29 @@
+---
+title: "info"
+sidebarTitle: "info"
+description: "Writes zero or more values as an informational message. Values are converted to strings and separated with tab characters. The function returns no values."
+icon: "function"
+keywords: ["info","Miscellaneous"]
+---
+
+Writes zero or more values as an informational message. Values are converted to strings and separated with tab characters. The function returns no values.
+
+## Syntaxe
+
+```lua
+info(...values?: ...any)
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `...values` | `...any` | No | Optional values to print as an informational message. |
+
+## Exemple
+
+Write an informational message to the active console output.
+
+```lua
+info("Loaded", "scripts", 3)
+```

@@ -1,0 +1,55 @@
+---
+title: "json.minify"
+sidebarTitle: "json.minify"
+description: "Mem-parse JSON string lalu meng-encode ulang dengan Real default non-pretty JSON encoder output."
+icon: "function"
+keywords: ["json.minify","JSON"]
+---
+
+Mem-parse JSON string lalu meng-encode ulang dengan Real default non-pretty JSON encoder output.
+
+## Sintaks
+
+```lua
+json.minify(json: string, options?: DecodeOptions): string
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string yang di-parse sebelum minifying. Function membaca argument ini dengan string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options yang dipakai saat parsing input JSON. boolean mengatur useNull. table dapat mengatur useNull dan maxDepth. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `minified` | `string` | JSON string yang dibuat setelah parsing dan re-encoding input dengan default encode options. |
+
+## Tipe
+
+### DecodeOptions
+
+Mengontrol perilaku penguraian JSON.
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Mewakili JSON null dengan penjaga null perpustakaan, bukan nihil. |
+| `maxDepth` | `integer` | No | Menyetel kedalaman sarang maksimum, dijepit dari 1 hingga 4096. |
+
+## Contoh
+
+Parse valid JSON lalu re-encode dengan default compact JSON output.
+
+```lua
+local formatted = [[{
+    "name": "Real",
+    "enabled": true,
+    "missing": null
+}]]
+
+print(json.minify(formatted, {
+    useNull = true,
+}))
+```

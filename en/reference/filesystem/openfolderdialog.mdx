@@ -1,0 +1,59 @@
+---
+title: "openfolderdialog"
+sidebarTitle: "openfolderdialog"
+description: "Opens a Windows folder picker with Windows file picker with folder selection mode and returns the selected folder as a file item."
+icon: "function"
+keywords: ["openfolderdialog","Filesystem"]
+---
+
+Opens a Windows folder picker with Windows file picker with folder selection mode and returns the selected folder as a file item.
+
+## Syntax
+
+```lua
+openfolderdialog(options?: DialogOptions): FileSystemItem | nil
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. For openfolderdialog, title and defaultPath are used. defaultPath is applied only when it resolves to an existing directory. extensionFilter is accepted by the shared dialog options parser but folder selection is enabled with folder selection mode. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `folder` | `FileSystemItem \| nil` | Selected folder item, or nil when the dialog is cancelled. Dialog failures throw Failed to open folder dialog. |
+
+## Types
+
+### DialogOptions
+
+Configures the Windows file or folder selection dialog.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Sets the dialog window title. |
+| `defaultPath` | `string` | No | Selects the directory shown when the dialog opens. |
+| `extensionFilter` | `&#123;string&#125;` | No | Limits selectable files to the listed extensions, with or without a leading dot. |
+| `suggestedName` | `string` | No | Provides the initial file name in save dialogs. |
+| `defaultExtension` | `string` | No | Sets the extension used when the entered file name has none. |
+
+## Example
+
+Let the user select a folder and handle the selected folder item or cancellation.
+
+```lua
+local folder = openfolderdialog({
+    title = "Choose a folder",
+    defaultPath = ".",
+})
+
+if folder then
+    print(folder:GetName())
+    print(folder:IsFolder())
+else
+    print("No folder selected")
+end
+```

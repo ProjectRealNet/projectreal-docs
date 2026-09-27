@@ -1,0 +1,34 @@
+---
+title: "JSON"
+description: "Phân tích cú pháp, mã hóa, kiểm tra và chuyển đổi JSON."
+icon: "folder-code"
+---
+
+Phân tích cú pháp, mã hóa, kiểm tra và chuyển đổi JSON.
+
+| Điều hướng hàm | Mô tả |
+| --- | --- |
+| [`json.array`](./json-array) | Tao new table duoc danh dau la JSON array cho json.encode, sao chep sequence 1.#source khi co source table. |
+| [`json.clone`](./json-clone) | Clone value bang cach encoding voi json.encode semantics roi decoding generated JSON tro lai thanh Lua values. |
+| [`json.decode`](./json-decode) | Parse JSON string bang Real JSON parser va tra ve decoded Lua value, danh dau decoded arrays va objects cho JSON helpers. |
+| [`json.decodeSafe`](./json-decodesafe) | Parse JSON bang cung parser voi json.decode va tra ve success flag thay vi throw cho parse errors. |
+| [`json.encode`](./json-encode) | Serialize Lua value thanh JSON string bang Real JSON encoder. json.stringify duoc dang ky voi cung function. |
+| [`json.encodePretty`](./json-encodepretty) | Serializes Lua value thanh readable formatted JSON string bang Real JSON encoder. json.pretty duoc dang ky vao cung function. |
+| [`json.escape`](./json-escape) | Escape mot string bang Real JSON string escaping rules va tra ve escaped content khong co surrounding quotes. |
+| [`json.format`](./json-format) | Parse JSON string va re-encode thanh readable formatted JSON bang Real JSON parser va encoder. |
+| [`json.getPath`](./json-getpath) | Doc nested value tu table bang dotted string path hoac array table of keys. |
+| [`json.isArray`](./json-isarray) | Tra ve value co duoc treated as a JSON array boi Real JSON table detection hay khong. |
+| [`json.isNull`](./json-isnull) | Tra ve value co phai Real JSON null sentinel, json.null, hay khong. |
+| [`json.isObject`](./json-isobject) | Tra ve value co duoc treated as a JSON object boi Real JSON table detection hay khong. |
+| [`json.keys`](./json-keys) | Tra ve visible keys cua table trong new table marked as a JSON array. |
+| [`json.minify`](./json-minify) | Parse JSON string va re-encode bang Real default non-pretty JSON encoder output. |
+| [`json.object`](./json-object) | Tao new table marked as a JSON object de Real JSON encoder xu ly nhu object. |
+| [`json.parse`](./json-parse) | Parse JSON string bang cung function nhu json.decode. |
+| [`json.pretty`](./json-pretty) | Serializes Lua value thanh readable formatted JSON string bang cung function nhu json.encodePretty. |
+| [`json.quote`](./json-quote) | Escape string bang Real JSON string escaping rules va tra ve complete quoted JSON string literal. |
+| [`json.stringify`](./json-stringify) | Serialize Lua value thanh JSON string bang cung function nhu json.encode. |
+| [`json.tryDecode`](./json-trydecode) | Thu parse JSON string bang cung function nhu json.decodeSafe va tra ve status values cho parse errors. |
+| [`json.type`](./json-type) | Tra ve string type name cho mot gia tri. json.null tra ve "null". Table tra ve "array" hoac "object" bang cung table classification nhu json.isArray va json.isObject. Cac gia tri khac tra ve runtime Lua type name result. |
+| [`json.unescape`](./json-unescape) | Decode JSON string escape sequences tu escaped string content hoac tu complete quoted JSON string literal. Input duoc parse bang JSON string parser, khong phai full JSON document. |
+| [`json.validate`](./json-validate) | Validate mot JSON string bang cach parse mot complete JSON value duy nhat. Khi success chi tra ve true. Khi parse failure tra ve false cong parser error details. |
+| [`json.values`](./json-values) | Tra ve direct values tu table trong mot table moi marked as JSON array. JSON kind marker entries duoc bo qua. |

@@ -1,0 +1,40 @@
+---
+title: "getreg"
+sidebarTitle: "getreg"
+description: "Returns the current Lua registry table. The function takes no arguments and returns the registry table directly."
+icon: "function"
+keywords: ["getreg","Debug","getregistry","debug.getreg","debug.getregistry"]
+---
+
+Returns the current Lua registry table. The function takes no arguments and returns the registry table directly.
+
+## 语法
+
+```lua
+getreg(): table
+```
+
+## 别名
+
+- `getregistry`
+- `debug.getreg`
+- `debug.getregistry`
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `registry` | `table` | The current Lua registry table. |
+
+## 示例
+
+Return the current Lua registry table.
+
+```lua
+local registry = getreg()
+
+print(type(registry))
+print(type(getregistry()))
+print(type(debug.getreg()))
+print(type(debug.getregistry()))
+```

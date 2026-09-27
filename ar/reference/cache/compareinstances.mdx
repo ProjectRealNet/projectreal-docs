@@ -1,0 +1,40 @@
+---
+title: "compareinstances"
+sidebarTitle: "compareinstances"
+description: "يقارن قيم مؤشر Instance الداخلية المخزنة في قيمتي Instance object."
+icon: "function"
+keywords: ["compareinstances","Cache"]
+---
+
+يقارن قيم مؤشر Instance الداخلية المخزنة في قيمتي Instance object.
+
+## الصيغة
+
+```lua
+compareinstances(first: Instance, second: Instance): boolean
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `first` | `Instance` | Yes | اول Instance object للمقارنة. |
+| `second` | `Instance` | Yes | ثاني Instance object للمقارنة. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `equal` | `boolean` | True عندما تحتوي قيمتا Instance object على نفس قيمة المؤشر الداخلية. |
+
+## مثال
+
+قارن قيم مؤشر Instance الداخلية المخزنة في قيمتي Instance object.
+
+```lua
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+print(compareinstances(Players, Players))
+print(compareinstances(Players, ReplicatedStorage))
+```

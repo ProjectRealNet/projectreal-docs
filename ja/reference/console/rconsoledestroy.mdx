@@ -1,0 +1,29 @@
+---
+title: "rconsoledestroy"
+sidebarTitle: "rconsoledestroy"
+description: "現在の Windows console screen buffer をクリアし、console window を非表示にして、console detachment でプロセスを console から切り離します。console window が存在しない場合、この呼び出しは何もせずに戻ります。"
+icon: "function"
+keywords: ["rconsoledestroy","Console","consoledestroy"]
+---
+
+現在の Windows console screen buffer をクリアし、console window を非表示にして、console detachment でプロセスを console から切り離します。console window が存在しない場合、この呼び出しは何もせずに戻ります。
+
+## 構文
+
+```lua
+rconsoledestroy()
+```
+
+## エイリアス
+
+- `consoledestroy`
+
+## 例
+
+Clear and hide the current console, then detach from it.
+
+```lua
+rconsolecreate()
+rconsoleprint("Console closing")
+rconsoledestroy()
+```

@@ -1,0 +1,47 @@
+---
+title: "getscriptbytecode"
+sidebarTitle: "getscriptbytecode"
+description: "คืน decompressed bytecode string สำหรับ Roblox script object getscriptbytecode ถูก register ไปยัง C++ function เดียวกับ dumpstring ดังนั้นพฤติกรรมเหมือนกัน argument ต้องเป็น object bytecode reader ที่ใช้ร่วมกันรับค่า ClassName คือ ModuleScript, LocalScript, CoreScript และ Script สำหรับ Script นั้น RunContext ต้องเป็น Client หาก ClassName หายไป function จะเกิด \"Invalid Instance\" หาก ClassName ไม่ใช่ script class ที่รองรับ จะเกิด \"Script expected\" หากค่าเป็น Script ที่มี RunContext อื่น จะเกิด \"Expected a Script with RunContext set to Client\" หาก embedded bytecode reference ไม่ถูกต้อง หรือ stored bytecode มีความยาว 8 bytes หรือน้อยกว่า function จะคืน nil มิฉะนั้นจะ decompress stored bytecode ด้วย DecompressBytecode และคืน resulting bytes เป็น Luau string Hash mismatch, too-short compressed data หรือ ZSTD decompression errors จะถูกคืนเป็น error text bytes โดย DecompressBytecode แทนการ throw ที่นี่"
+icon: "function"
+keywords: ["getscriptbytecode","Scripts"]
+---
+
+คืน decompressed bytecode string สำหรับ Roblox script object getscriptbytecode ถูก register ไปยัง C++ function เดียวกับ dumpstring ดังนั้นพฤติกรรมเหมือนกัน argument ต้องเป็น object bytecode reader ที่ใช้ร่วมกันรับค่า ClassName คือ ModuleScript, LocalScript, CoreScript และ Script สำหรับ Script นั้น RunContext ต้องเป็น Client หาก ClassName หายไป function จะเกิด "Invalid Instance" หาก ClassName ไม่ใช่ script class ที่รองรับ จะเกิด "Script expected" หากค่าเป็น Script ที่มี RunContext อื่น จะเกิด "Expected a Script with RunContext set to Client" หาก embedded bytecode reference ไม่ถูกต้อง หรือ stored bytecode มีความยาว 8 bytes หรือน้อยกว่า function จะคืน nil มิฉะนั้นจะ decompress stored bytecode ด้วย DecompressBytecode และคืน resulting bytes เป็น Luau string Hash mismatch, too-short compressed data หรือ ZSTD decompression errors จะถูกคืนเป็น error text bytes โดย DecompressBytecode แทนการ throw ที่นี่
+
+## ไวยากรณ์
+
+```lua
+getscriptbytecode(script: userdata): string | nil
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | Script object ที่จะอ่าน ค่า ClassName ที่รองรับคือ ModuleScript, LocalScript, CoreScript และ Script ที่มี RunContext Client |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `bytecode` | `string \| nil` | Decompressed bytecode bytes เป็น Luau string, DecompressBytecode error text bytes หรือ nil เมื่อไม่มี embedded bytecode ที่ใช้งานได้ |
+
+## ตัวอย่าง
+
+Read decompressed bytecode from a supported Roblox script Instance.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local bytecode = getscriptbytecode(targetScript)
+    print(bytecode)
+end
+```

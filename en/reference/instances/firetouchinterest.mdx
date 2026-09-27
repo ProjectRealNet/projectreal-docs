@@ -1,0 +1,40 @@
+---
+title: "firetouchinterest"
+sidebarTitle: "firetouchinterest"
+description: "Fires Real's touch interest event for two BasePart instances. The first two arguments must be Instance object and both values must pass IsA(\"BasePart\"). The state argument is required and must be a number or boolean. When state is a number, only 1 becomes true and every other number becomes false. When state is a boolean, its boolean value is passed through. If either part has no touch data, or the first part has no overlap reference, the function returns without firing anything. The function returns nothing. The exact begin/end meaning of the boolean passed to the helper is: Nicht aus der Codebasis verifizierbar."
+icon: "function"
+keywords: ["firetouchinterest","Instances","firetouchtransmitter"]
+---
+
+Fires Real's touch interest event for two BasePart instances. The first two arguments must be Instance object and both values must pass IsA("BasePart"). The state argument is required and must be a number or boolean. When state is a number, only 1 becomes true and every other number becomes false. When state is a boolean, its boolean value is passed through. If either part has no touch data, or the first part has no overlap reference, the function returns without firing anything. The function returns nothing. The exact begin/end meaning of the boolean passed to the helper is: Nicht aus der Codebasis verifizierbar.
+
+## Syntax
+
+```lua
+firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
+```
+
+## Aliases
+
+- `firetouchtransmitter`
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `partA` | `Instance` | Yes | First Instance object. It must pass IsA("BasePart"). Its touch data are used for the call. |
+| `partB` | `Instance` | Yes | Second Instance object. It must pass IsA("BasePart"). Its touch data is used for the call. |
+| `state` | `number \| boolean` | Yes | Required state value. Numbers are converted with state == 1; booleans are passed through. The resulting boolean is passed to the helper. |
+
+## Example
+
+Fire touch interest with two BaseParts and an explicit state.
+
+```lua
+local players = game:GetService("Players")
+local character = players.LocalPlayer.Character or players.LocalPlayer.CharacterAdded:Wait()
+local rootPart = character:WaitForChild("HumanoidRootPart")
+local targetPart = workspace.TouchTarget
+
+firetouchinterest(rootPart, targetPart, true)
+```

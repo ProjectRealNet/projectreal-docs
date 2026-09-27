@@ -1,0 +1,61 @@
+---
+title: "json.clone"
+sidebarTitle: "json.clone"
+description: "Meng-clone value dengan encoding memakai json.encode semantics lalu decoding generated JSON kembali menjadi Lua values."
+icon: "function"
+keywords: ["json.clone","JSON"]
+---
+
+Meng-clone value dengan encoding memakai json.encode semantics lalu decoding generated JSON kembali menjadi Lua values.
+
+## Sintaks
+
+```lua
+json.clone(value: any, options?: EncodeOptions): any
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value untuk di-encode dan di-decode. Supported JSON values melakukan round-trip melalui JSON; unsupported types di-encode sebagai null kecuali encode options meminta error. |
+| `options` | `EncodeOptions` | No | Optional encode options yang diteruskan ke encode step, seperti sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty, dan indent. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `clone` | `any` | Decoded value yang dihasilkan dari encoded JSON. Objects dan arrays menjadi new tables dengan JSON kind markers dari decoder; JSON null values menjadi json.null. |
+
+## Tipe
+
+### EncodeOptions
+
+Mengontrol serialisasi dan pemformatan JSON.
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Mengaktifkan keLua runtime JSON multi-baris yang diformat. |
+| `sortKeys` | `boolean` | No | Mengurutkan kunci objek sebelum pengkodean. |
+| `emptyTableAsArray` | `boolean` | No | Mengkodekan tabel kosong sebagai array, bukan objek. |
+| `errorOnUnsupported` | `boolean` | No | Menimbulkan kesalahan alih-alih mengganti nilai yang tidak didukung. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Mengkodekan NaN dan angka tak terbatas sebagai JSON null. |
+| `maxDepth` | `integer` | No | Menyetel kedalaman sarang maksimum, dijepit dari 1 hingga 4096. |
+| `indent` | `string` | No | Menyetel string indentasi, dibatasi hingga 32 karakter. |
+
+## Contoh
+
+Round-trip JSON-compatible value melalui json.encode dan json.decode sebelum mengubah nested values.
+
+```lua
+local original = {
+    profile = { name = "Guest" },
+}
+
+local copy = json.clone(original)
+copy.profile.name = "Developer"
+
+print(original.profile.name)
+print(copy.profile.name)
+print(json.type(copy))
+```

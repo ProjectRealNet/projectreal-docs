@@ -1,0 +1,53 @@
+---
+title: "json.parse"
+sidebarTitle: "json.parse"
+description: "Mem-parse JSON string memakai function yang sama seperti json.decode."
+icon: "function"
+keywords: ["json.parse","JSON"]
+---
+
+Mem-parse JSON string memakai function yang sama seperti json.decode.
+
+## Sintaks
+
+```lua
+json.parse(json: string, options?: DecodeOptions): any
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string yang di-parse. Function membaca argument ini dengan string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean mengatur useNull. table dapat mengatur useNull dan maxDepth. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `decoded` | `any` | Decoded value. JSON objects dan arrays menjadi tables dengan JSON type markers, strings menjadi Lua strings, numbers menjadi Lua numbers, booleans menjadi booleans, dan null menjadi json.null kecuali useNull false. |
+
+## Tipe
+
+### DecodeOptions
+
+Mengontrol perilaku penguraian JSON.
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Mewakili JSON null dengan penjaga null perpustakaan, bukan nihil. |
+| `maxDepth` | `integer` | No | Menyetel kedalaman sarang maksimum, dijepit dari 1 hingga 4096. |
+
+## Contoh
+
+Parse JSON dengan function yang sama seperti json.decode.
+
+```lua
+local settings = json.parse('{"volume":0.75,"theme":"dark","missing":null}', {
+    useNull = true,
+})
+
+print(settings.volume)
+print(settings.theme)
+print(json.isNull(settings.missing))
+```

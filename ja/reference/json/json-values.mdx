@@ -1,0 +1,39 @@
+---
+title: "json.values"
+sidebarTitle: "json.values"
+description: "table の direct values を、新しい JSON array として marked された table で返します。JSON type marker entries はスキップされます。"
+icon: "function"
+keywords: ["json.values","JSON"]
+---
+
+table の direct values を、新しい JSON array として marked された table で返します。JSON type marker entries はスキップされます。
+
+## 構文
+
+```lua
+json.values(object: table): table
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | enumerate する table。function はこの argument を type checking で確認します。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `values` | `table` | input table の direct values を含む new array-style table。output は JSON array として marked されます。Enumeration は table iteration を使うため、function から ordering guarantee は見えません。 |
+
+## 例
+
+table の direct values を JSON array-marked table に集めます。
+
+```lua
+local list = json.array({ "one", "two" })
+
+for _, value in ipairs(json.values(list)) do
+    print(value)
+end
+```

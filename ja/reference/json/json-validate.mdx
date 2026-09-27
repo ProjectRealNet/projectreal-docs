@@ -1,0 +1,55 @@
+---
+title: "json.validate"
+sidebarTitle: "json.validate"
+description: "JSON string を、1 つの complete JSON value として parse して検証します。success では true だけを返します。parse failure では false と parser error details を返します。"
+icon: "function"
+keywords: ["json.validate","JSON"]
+---
+
+JSON string を、1 つの complete JSON value として parse して検証します。success では true だけを返します。parse failure では false と parser error details を返します。
+
+## 構文
+
+```lua
+json.validate(json: string, options?: DecodeOptions): boolean | string | nil | number | nil
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | validate する JSON string。function はこの argument を string type checking で読みます。 |
+| `options` | `DecodeOptions` | No | Optional decode options。boolean は useNull を設定します。table は useNull と maxDepth を設定できます。maxDepth は 1 から 4096 に clamp されます。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `valid` | `boolean` | 1 つの complete JSON value の parsing が成功すると true。protected parse block 内で parsing が失敗すると false。 |
+| `errorMessage` | `string \| nil` | parse failure 時の Error message。message は json.validate で prefixed され、near-position suffix を含みます。この return は failure 時だけ存在します。 |
+| `errorPosition` | `number \| nil` | parse failure 時の parser からの Parser byte position。この return は failure 時だけ存在します。 |
+
+## 型
+
+### DecodeOptions
+
+JSON 解析動作を制御します。
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | nil の代わりにライブラリの null センチネルを使用して JSON null を表します。 |
+| `maxDepth` | `integer` | No | ネストの最大の深さを 1 ～ 4096 の範囲で設定します。 |
+
+## 例
+
+string がちょうど 1 つの complete JSON value を含むか確認します。
+
+```lua
+print(json.validate('{"value":42}'))
+
+local valid, message, position = json.validate('{"value":42 trailing')
+
+if not valid then
+    warn(message, position)
+end
+```

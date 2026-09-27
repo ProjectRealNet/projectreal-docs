@@ -1,0 +1,55 @@
+---
+title: "json.validate"
+sidebarTitle: "json.validate"
+description: "通过 parse 一个 complete JSON value 来验证 JSON string。success 时只返回 true。parse failure 时返回 false 以及 parser error details。"
+icon: "function"
+keywords: ["json.validate","JSON"]
+---
+
+通过 parse 一个 complete JSON value 来验证 JSON string。success 时只返回 true。parse failure 时返回 false 以及 parser error details。
+
+## 语法
+
+```lua
+json.validate(json: string, options?: DecodeOptions): boolean | string | nil | number | nil
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | 要 validate 的 JSON string。function 使用 string type checking 读取此 argument。 |
+| `options` | `DecodeOptions` | No | Optional decode options。boolean 设置 useNull。table 可以设置 useNull 和 maxDepth。maxDepth 会 clamp 到 1 到 4096。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `valid` | `boolean` | 当一个 complete JSON value parsing 成功时为 true。当 parsing 在 protected parse block 中失败时为 false。 |
+| `errorMessage` | `string \| nil` | parse failure 时的 Error message。message 使用 json.validate 作为 prefix，并包含 near-position suffix。此 return 只在 failure 时存在。 |
+| `errorPosition` | `number \| nil` | parse failure 时来自 parser 的 Parser byte position。此 return 只在 failure 时存在。 |
+
+## 类型
+
+### DecodeOptions
+
+控制 JSON 解析行为。
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | 使用库的 null 标记而不是 nil 来表示 JSON null。 |
+| `maxDepth` | `integer` | No | 设置最大嵌套深度，范围为 1 到 4096。 |
+
+## 示例
+
+检查 string 是否正好包含一个 complete JSON value。
+
+```lua
+print(json.validate('{"value":42}'))
+
+local valid, message, position = json.validate('{"value":42 trailing')
+
+if not valid then
+    warn(message, position)
+end
+```

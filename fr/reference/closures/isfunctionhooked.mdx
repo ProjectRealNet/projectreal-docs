@@ -1,0 +1,38 @@
+---
+title: "isfunctionhooked"
+sidebarTitle: "isfunctionhooked"
+description: "Returns whether the provided function currently has a hook record. The argument must be a function."
+icon: "function"
+keywords: ["isfunctionhooked","Closures"]
+---
+
+Returns whether the provided function currently has a hook record. The argument must be a function.
+
+## Syntaxe
+
+```lua
+isfunctionhooked(func: function): boolean
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `func` | `function` | Yes | Function to check. Passing a non-function raises a type error. |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `hooked` | `boolean` | true when the function is currently hooked; otherwise false. |
+
+## Exemple
+
+Check whether a function closure is tracked as a hook target.
+
+```lua
+local function target()
+end
+
+print(isfunctionhooked(target))
+```

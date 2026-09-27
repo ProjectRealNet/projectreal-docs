@@ -1,0 +1,60 @@
+---
+title: "openfiledialog"
+sidebarTitle: "openfiledialog"
+description: "Abre um Windows file-open dialog por Windows file picker e retorna o arquivo selecionado como file item."
+icon: "function"
+keywords: ["openfiledialog","Filesystem"]
+---
+
+Abre um Windows file-open dialog por Windows file picker e retorna o arquivo selecionado como file item.
+
+## Sintaxe
+
+```lua
+openfiledialog(options?: DialogOptions): FileSystemItem | nil
+```
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. Para openfiledialog, title, defaultPath e extensionFilter sao usados. extensionFilter e uma table de extension strings; . ou *. inicial e removido antes de cada filter virar *.&lt;extension>. |
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Selected file item, ou nil quando o dialog e cancelado ou nenhum selected filesystem path e retornado. Dialog failures lancam Failed to open file dialog. |
+
+## Tipos
+
+### DialogOptions
+
+Configura a caixa de diálogo de seleção de arquivo ou pasta nativa.
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Define o título da janela de diálogo. |
+| `defaultPath` | `string` | No | Seleciona o diretório mostrado quando a caixa de diálogo é aberta. |
+| `extensionFilter` | `&#123;string&#125;` | No | Limita os arquivos selecionáveis às extensões listadas, com ou sem um ponto inicial. |
+| `suggestedName` | `string` | No | Fornece o nome inicial do arquivo nas caixas de diálogo para salvar. |
+| `defaultExtension` | `string` | No | Define a extensão usada quando o nome do arquivo inserido não possui nenhuma. |
+
+## Exemplo
+
+Abra um file picker e trate o selected file item ou cancellation.
+
+```lua
+local file = openfiledialog({
+    title = "Choose a configuration",
+    defaultPath = ".",
+    extensionFilter = { "json", "txt" },
+})
+
+if file then
+    print(file:GetName())
+    print(file:IsFile())
+else
+    print("No file selected")
+end
+```

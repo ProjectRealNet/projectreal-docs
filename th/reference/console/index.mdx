@@ -1,0 +1,21 @@
+---
+title: "Console"
+description: "เอาต์พุตรันไทม์และการควบคุมคอนโซล"
+icon: "folder-code"
+---
+
+เอาต์พุตรันไทม์และการควบคุมคอนโซล
+
+| การนำทางฟังก์ชัน | คำอธิบาย |
+| --- | --- |
+| [`rconsoleclear`](./rconsoleclear) | ล้าง current Windows console screen buffer เมื่อมี console window ถ้าไม่มี console window, call จะ return โดยไม่ทำอะไร |
+| [`rconsolecreate`](./rconsolecreate) | Allocate Windows console สำหรับ process เมื่อไม่มี console window ถ้ามี console window อยู่แล้ว call จะ return โดยไม่ทำอะไร หลัง allocation function จะ redirect stdout ไปที่ console output และ stdin ไปที่ console input |
+| [`rconsoledestroy`](./rconsoledestroy) | ล้าง Windows console screen buffer ปัจจุบัน ซ่อน console window และแยก process ออกจาก console ด้วย console detachment หากไม่มี console window การเรียกจะกลับโดยไม่ทำอะไร |
+| [`rconsoleerr`](./rconsoleerr) | เขียนค่าจำนวนศูนย์ค่าหรือมากกว่าไปยัง Windows console ปัจจุบันผ่าน stdout หลังจากตั้งค่า console text attribute เป็น error text color ค่าแต่ละค่าถูกแปลงด้วย Lua string conversion คั่นด้วยอักขระ tab แล้ว reset text attribute หลังจากนั้น หากไม่มี console window การเรียกจะกลับโดยไม่แปลงหรือเขียนอะไร |
+| [`rconsolehide`](./rconsolehide) | ซ่อน Windows console window ปัจจุบันด้วย Windows console visibility update โดยใช้ hide mode function ไม่เรียก console detachment ดังนั้นจึงไม่ detach จาก console และไม่ destroy console หากไม่มี console window การเรียกจะกลับโดยไม่ทำอะไร |
+| [`rconsoleinfo`](./rconsoleinfo) | เขียนค่าจำนวนศูนย์ค่าหรือมากกว่าไปยัง Windows console ปัจจุบันผ่าน stdout หลังจากตั้งค่า console text attribute เป็น info text color ค่าแต่ละค่าถูกแปลงด้วย Lua string conversion คั่นด้วยอักขระ tab แล้ว reset text attribute หลังจากนั้น หากไม่มี console window การเรียกจะกลับโดยไม่แปลงหรือเขียนอะไร |
+| [`rconsoleinput`](./rconsoleinput) | yield ระหว่างอ่าน line หนึ่งจาก stdin ด้วย console input หลังจาก clear state ของ console input และ ignore input จนถึง newline ถัดไป string ที่คืนค่าถูก push ด้วย string return และไม่มี newline ปิดท้าย หากไม่มี console window การเรียกจะกลับโดยไม่มี values |
+| [`rconsolename`](./rconsolename) | ตั้งค่า title ของ Windows console window ปัจจุบันด้วย Windows console title update argument แรกต้องเป็น string และถูกตรวจสอบก่อน console existence check หากไม่มี console window หลังจาก string check สำเร็จ การเรียกจะกลับโดยไม่ทำอะไร |
+| [`rconsoleprint`](./rconsoleprint) | เขียนค่าจำนวนศูนย์ค่าหรือมากกว่าไปยัง Windows console ปัจจุบันผ่าน stdout โดยไม่เปลี่ยน console text attribute ค่าแต่ละค่าถูกแปลงด้วย Lua string conversion และคั่นด้วยอักขระ tab function ไม่เพิ่ม newline หากไม่มี console window การเรียกจะกลับโดยไม่แปลงหรือเขียนอะไร |
+| [`rconsoleshow`](./rconsoleshow) | แสดง Windows console window ปัจจุบันด้วย Windows console visibility update โดยใช้ show mode function นี้ไม่สร้าง console หากไม่มี console window อยู่ การเรียกจะกลับโดยไม่ทำอะไร |
+| [`rconsolewarn`](./rconsolewarn) | เขียนค่าจำนวนศูนย์ค่าหรือมากกว่าไปยัง Windows console ปัจจุบันผ่าน stdout ด้วย warning console text attribute หากไม่มี console window อยู่ การเรียกจะกลับโดยไม่แปลงหรือเขียนอะไร เมื่อมี console แต่ละ argument จะถูกแปลงด้วย Lua string conversion รวมด้วยอักขระ tab แล้วเขียนผ่าน runtime value หาก Lua string conversion ทำให้เกิด error rconsolewarn จะไม่จับ error นั้น function นี้ตั้งค่า console text attribute เป็น FOREGROUND_RED \| FOREGROUND_GREEN \| FOREGROUND_INTENSITY ก่อนเขียน แล้วตั้งเป็น default console text color หลังจากนั้น ไม่เพิ่ม newline ไม่เพิ่ม warning prefix ไม่สร้างหรือแสดง console และไม่เรียก Luau warn หรือ Roblox Output consolewarn เป็น alias ของ function เดียวกัน |

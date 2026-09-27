@@ -1,0 +1,40 @@
+---
+title: "writefile"
+sidebarTitle: "writefile"
+description: "Ghi Lua string bytes vao mot tep ben trong workspace, tao missing parent directories va thay the file contents neu tep da ton tai."
+icon: "function"
+keywords: ["writefile","Filesystem","writefileasync"]
+---
+
+Ghi Lua string bytes vao mot tep ben trong workspace, tao missing parent directories va thay the file contents neu tep da ton tai.
+
+## Cú pháp
+
+```lua
+writefile(path: string, content: string)
+```
+
+## Alias
+
+- `writefileasync`
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | File path duoc resolve ben trong workspace sau separator normalization, workspace-boundary checks va filename/extension checks. Absolute paths chi duoc chap nhan neu resolve ben trong workspace. |
+| `content` | `string` | Yes | Lua string bytes de ghi. Du lieu duoc ghi o binary truncate mode; writefile khong them newlines, BOM bytes, null terminators hoac extra bytes khac. |
+
+## Ví dụ
+
+Ghi bytes vao workspace file va thay the moi existing contents.
+
+```lua
+local path = "examples/config.json"
+
+writefile(path, '{"enabled":true}')
+print(readfile(path))
+
+writefile(path, "")
+print(#readfile(path))
+```

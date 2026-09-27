@@ -1,0 +1,52 @@
+---
+title: "WebSocket.connect"
+sidebarTitle: "WebSocket.connect"
+description: "Erstellt zwei BindableEvents, öffnet eine WebSocket client WebSocket connection zur übergebenen URL und yieldet, bis der Verbindungsversuch abgeschlossen ist. Bei Erfolg gibt die Funktion eine WebSocket table mit OnMessage und OnClose events, Send und Close methods aus der methods und internem connection state zurück. Eingehende message data wird als string über OnMessage gefeuert. Wenn die receive loop endet, wird OnClose ohne arguments gefeuert. Bei Verbindungsfehlern wirft die Funktion einen error string, der mit \"WebSocket connection failed\" beginnt."
+icon: "function"
+keywords: ["WebSocket.connect","WebSocket","WebSocket.Connect","websocket.connect","websocket.Connect"]
+---
+
+Erstellt zwei BindableEvents, öffnet eine WebSocket client WebSocket connection zur übergebenen URL und yieldet, bis der Verbindungsversuch abgeschlossen ist. Bei Erfolg gibt die Funktion eine WebSocket table mit OnMessage und OnClose events, Send und Close methods aus der methods und internem connection state zurück. Eingehende message data wird als string über OnMessage gefeuert. Wenn die receive loop endet, wird OnClose ohne arguments gefeuert. Bei Verbindungsfehlern wirft die Funktion einen error string, der mit "WebSocket connection failed" beginnt.
+
+## Syntax
+
+```lua
+WebSocket.connect(url: string): WebSocket
+```
+
+## Aliase
+
+- `WebSocket.Connect`
+- `websocket.connect`
+- `websocket.Connect`
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `url` | `string` | Yes | URL string, der an CURLOPT_URL übergeben wird, bevor WebSocket client den WebSocket connection attempt ausführt. |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `socket` | `WebSocket` | WebSocket table mit OnMessage, OnClose und internem connection state. Send und Close werden über die WebSocket object methods aufgelöst. |
+
+## Beispiel
+
+Öffne ein WebSocket, verbinde OnMessage und OnClose und nutze socket methods zum Senden und Schließen.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket.OnMessage:Connect(function(message)
+    print(message)
+end)
+
+socket.OnClose:Connect(function()
+    print("closed")
+end)
+
+socket:Send("hello")
+socket:Close()
+```

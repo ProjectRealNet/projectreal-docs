@@ -1,0 +1,38 @@
+---
+title: "json.unescape"
+sidebarTitle: "json.unescape"
+description: "Escaped string content veya complete quoted JSON string literal icinden JSON string escape sequences decode eder. Girdi full JSON document olarak degil, JSON string parser ile parse edilir."
+icon: "function"
+keywords: ["json.unescape","JSON"]
+---
+
+Escaped string content veya complete quoted JSON string literal icinden JSON string escape sequences decode eder. Girdi full JSON document olarak degil, JSON string parser ile parse edilir.
+
+## Söz dizimi
+
+```lua
+json.unescape(text: string): string
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | Escaped JSON string content veya first and last bytes degerleri quotes olan complete quoted JSON string literal. Function bu argument degerini string type checking ile okur. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `text` | `string` | Decoded string. Supported escapes: \", \\, \/, \b, \f, \n, \r, \t ve surrogate-pair handling ile \uXXXX. Invalid escapes, unescaped control characters, unterminated strings ve quoted literal sonrasi trailing characters near-position suffix ile Luau error firlatir. |
+
+## Örnek
+
+Escaped content veya quoted JSON string literal icinden JSON string escapes decode eder.
+
+```lua
+local escaped = json.escape("Real Docs" .. string.char(10) .. "Docs")
+local restored = json.unescape(escaped)
+
+print(restored)
+```

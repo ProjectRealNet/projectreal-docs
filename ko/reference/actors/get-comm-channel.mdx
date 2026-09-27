@@ -1,0 +1,38 @@
+---
+title: "get_comm_channel"
+sidebarTitle: "get_comm_channel"
+description: "communication channel list에서 channel ID를 조회하고 저장된 BindableEvent Instance를 반환합니다. 첫 번째 argument는 number여야 하며 lookup 전에 integer conversion로 변환됩니다. 해당 ID의 entry가 없으면 function은 nil을 반환합니다."
+icon: "function"
+keywords: ["get_comm_channel","Actors"]
+---
+
+communication channel list에서 channel ID를 조회하고 저장된 BindableEvent Instance를 반환합니다. 첫 번째 argument는 number여야 하며 lookup 전에 integer conversion로 변환됩니다. 해당 ID의 entry가 없으면 function은 nil을 반환합니다.
+
+## 문법
+
+```lua
+get_comm_channel(channelId: number): Instance | nil
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `channelId` | `number` | Yes | integer conversion로 변환한 뒤 communication channel list에서 검색할 channel ID입니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `event` | `Instance \| nil` | channel ID에 저장된 BindableEvent Instance, 또는 ID가 communication channels에 없을 때 nil입니다. |
+
+## 예제
+
+Look up the BindableEvent Instance stored for a communication channel ID.
+
+```lua
+local channelId = create_comm_channel()
+local event = get_comm_channel(channelId)
+
+print(event)
+```

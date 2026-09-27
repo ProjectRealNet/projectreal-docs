@@ -1,0 +1,41 @@
+---
+title: "crypt.hmac"
+sidebarTitle: "crypt.hmac"
+description: "Raw Lua string key kullanarak Lua string byte degerleri uzerinde crypto library HMAC hesaplar ve Base64 digest dondurur."
+icon: "function"
+keywords: ["crypt.hmac","Cryptography"]
+---
+
+Raw Lua string key kullanarak Lua string byte degerleri uzerinde crypto library HMAC hesaplar ve Base64 digest dondurur.
+
+## Söz dizimi
+
+```lua
+crypt.hmac(key: string, data: string, algorithm?: "sha256" | "sha1" | "sha224" | "sha384" | "sha512" | "md5"): string
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `key` | `string` | Yes | HMAC key olarak kullanilan raw Lua string byte degerleri. key Base64-decode edilmez. |
+| `data` | `string` | Yes | HMAC calculation icine aktarilan Lua string byte degerleri. |
+| `algorithm` | `"sha256" \| "sha1" \| "sha224" \| "sha384" \| "sha512" \| "md5"` | No | Case-sensitive HMAC algorithm adi. Varsayilan deger sha256. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `digest` | `string` | Line breaks olmayan Base64-encoded HMAC output. |
+
+## Örnek
+
+Raw Lua string key ve data ile Base64 HMAC output hesapla.
+
+```lua
+local key = "shared secret"
+local data = "payload"
+local digest = crypt.hmac(key, data, "sha256")
+
+print(digest)
+```

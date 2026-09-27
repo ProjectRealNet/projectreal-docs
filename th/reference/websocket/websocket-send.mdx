@@ -1,0 +1,34 @@
+---
+title: "WebSocket.Send"
+sidebarTitle: "WebSocket.Send"
+description: "ส่ง Lua string ผ่าน WebSocket object ที่ส่งคืนจาก WebSocket.connect method คาดว่า WebSocket table เป็น argument แรก และ message string เป็น argument ที่สอง ฟังก์ชันอ่าน connection state ของ object, throw \"WebSocket state is missing\" หากไม่มี object นั้น, กลับโดยไม่ส่งเมื่อ state เป็น destroyed หรือ closed, และเรียก curl_ws_send ด้วย CURLWS_TEXT เป็นค่าเริ่มต้น หรือ CURLWS_BINARY เมื่อ argument ที่สามแบบ optional เป็น boolean true ไม่คืน values และไม่รายงานจำนวน bytes ที่ส่ง"
+icon: "function"
+keywords: ["WebSocket.Send","WebSocket"]
+---
+
+ส่ง Lua string ผ่าน WebSocket object ที่ส่งคืนจาก WebSocket.connect method คาดว่า WebSocket table เป็น argument แรก และ message string เป็น argument ที่สอง ฟังก์ชันอ่าน connection state ของ object, throw "WebSocket state is missing" หากไม่มี object นั้น, กลับโดยไม่ส่งเมื่อ state เป็น destroyed หรือ closed, และเรียก curl_ws_send ด้วย CURLWS_TEXT เป็นค่าเริ่มต้น หรือ CURLWS_BINARY เมื่อ argument ที่สามแบบ optional เป็น boolean true ไม่คืน values และไม่รายงานจำนวน bytes ที่ส่ง
+
+## ไวยากรณ์
+
+```lua
+WebSocket.Send(socket: WebSocket, message: string, isBinary?: boolean)
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `socket` | `WebSocket` | Yes | WebSocket table ที่ส่งคืนจาก WebSocket.connect Send ถูก resolve จาก WebSocket object methods ดังนั้นรูปแบบการเรียกที่เอกสารใช้คือ socket:Send(..). |
+| `message` | `string` | Yes | Lua string payload ที่ส่งให้ curl_ws_send พร้อม explicit byte length |
+| `isBinary` | `boolean` | No | เมื่อ argument นี้มีอยู่และเป็น true, Send ใช้ CURLWS_BINARY มิฉะนั้นใช้ CURLWS_TEXT |
+
+## ตัวอย่าง
+
+Send text or binary data through a WebSocket object returned by WebSocket.connect.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket:Send("hello")
+socket:Send(string.char(0, 1, 2, 3), true)
+```

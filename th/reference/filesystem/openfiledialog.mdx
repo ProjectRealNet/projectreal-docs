@@ -1,0 +1,60 @@
+---
+title: "openfiledialog"
+sidebarTitle: "openfiledialog"
+description: "เปิด Windows file-open dialog ผ่าน Windows file picker และคืนไฟล์ที่เลือกเป็น file item"
+icon: "function"
+keywords: ["openfiledialog","Filesystem"]
+---
+
+เปิด Windows file-open dialog ผ่าน Windows file picker และคืนไฟล์ที่เลือกเป็น file item
+
+## ไวยากรณ์
+
+```lua
+openfiledialog(options?: DialogOptions): FileSystemItem | nil
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table สำหรับ openfiledialog จะใช้ title, defaultPath และ extensionFilter extensionFilter คือ table ของ extension strings; . หรือ *. ที่ขึ้นต้นจะถูกลบก่อนที่แต่ละ filter จะกลายเป็น *.&lt;extension> |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Selected file item หรือ nil เมื่อ dialog ถูก cancel หรือไม่มี selected filesystem path ถูกคืน Dialog failures จะ throw Failed to open file dialog |
+
+## Types
+
+### DialogOptions
+
+กำหนดค่ากล่องโต้ตอบการเลือกไฟล์หรือโฟลเดอร์ดั้งเดิม
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `title` | `string` | No | ตั้งชื่อหน้าต่างข้อความโต้ตอบ |
+| `defaultPath` | `string` | No | เลือกไดเร็กทอรีที่แสดงเมื่อกล่องโต้ตอบเปิดขึ้น |
+| `extensionFilter` | `&#123;string&#125;` | No | จำกัดไฟล์ที่เลือกไว้เฉพาะนามสกุลที่อยู่ในรายการ โดยมีหรือไม่มีจุดนำหน้าก็ได้ |
+| `suggestedName` | `string` | No | ระบุชื่อไฟล์เริ่มต้นในกล่องโต้ตอบบันทึก |
+| `defaultExtension` | `string` | No | ตั้งค่านามสกุลที่ใช้เมื่อชื่อไฟล์ที่ป้อนไม่มี |
+
+## ตัวอย่าง
+
+เปิด file picker และจัดการ selected file item หรือ cancellation
+
+```lua
+local file = openfiledialog({
+    title = "Choose a configuration",
+    defaultPath = ".",
+    extensionFilter = { "json", "txt" },
+})
+
+if file then
+    print(file:GetName())
+    print(file:IsFile())
+else
+    print("No file selected")
+end
+```

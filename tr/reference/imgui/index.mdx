@@ -1,0 +1,23 @@
+---
+title: "ImGui"
+description: "Anında mod pencereleri ve geri arama odaklı kontroller."
+icon: "folder-code"
+---
+
+Anında mod pencereleri ve geri arama odaklı kontroller.
+
+| Fonksiyon gezinmesi | Açıklama |
+| --- | --- |
+| [`imgui.create`](./imgui-create) | Izlenen bir ImGui window record olusturur ve ImGuiWindow object dondurur. title argumani atlandiginda veya nil oldugunda "REAL_IM_UI" kullanir. title, su anda izlenen ImGui windows arasinda benzersiz olmalidir; ayni title ile baska bir tracked window olusturmak Lua error uretir. |
+| [`imgui.setvsync`](./imgui-setvsync) | ImGui renderer icin vertical synchronization preference degerini gunceller. Gecerli presentation path bu preference degerini saklar ama uygulamaz. |
+| [`ImGuiWindow.Button`](./imguiwindow-button) | ImGuiWindow icine bir button element ekler ve callback degerini saklar. Render edilen button tiklandiginda callback queue icine alinir ve daha sonra arguments olmadan cagrilir. Method ayni ImGuiWindow object degerini dondurur. |
+| [`ImGuiWindow.Checkbox`](./imguiwindow-checkbox) | Appends a checkbox element to an ImGuiWindow. The callback is invoked with the new boolean value when the checkbox changes, and the method returns the same ImGuiWindow object. |
+| [`ImGuiWindow.CollapsingHeader`](./imguiwindow-collapsingheader) | Bir collapsing header start marker ekler, nested elements ekleyebilmesi icin content callback degerini ayni ImGuiWindow object ile hemen cagirir, sonra header end marker ekler. Rendering sirasinda header collapsed iken nested elements atlanir. Callback errors yakalanir ve bu method tarafindan dondurulmez. |
+| [`ImGuiWindow.ColorPicker`](./imguiwindow-colorpicker) | Appends a RGBA color editor to an ImGuiWindow and stores the callback. Missing or nil color components default to 1.0. When the rendered editor changes, the callback is queued and later invoked with red, green, blue, and alpha. The method returns the same ImGuiWindow object. |
+| [`ImGuiWindow.destroy`](./imguiwindow-destroy) | Bir ImGuiWindow yok eder. object hala bir window degerine isaret ediyorsa method bu window degerini Real tracked ImGui window list icinden kaldirir, stored element callbacks icin unreference yapar, window record degerini siler ve Instance reference degerini nil yapar. Ayni object uzerinde destroy tekrar cagrilirsa hicbir sey yapmadan doner. |
+| [`ImGuiWindow.InputText`](./imguiwindow-inputtext) | ImGuiWindow icine single-line ImGui InputText element ekler ve callback degerini saklar. Initial text optional string handling ile okunur ve elementin fixed 256-byte text buffer icine kopyalanir. Render edilen input degistiginde callback queue icine alinir ve daha sonra current string ile cagrilir. Method ayni ImGuiWindow object degerini dondurur. |
+| [`ImGuiWindow.SameLine`](./imguiwindow-sameline) | Window icine bir SameLine layout marker ekler. Rendering sirasinda Real, element list icindeki bu noktada a same-line layout marker cagirir; boylece sonraki render edilen item ayni satirda devam edebilir. |
+| [`ImGuiWindow.Separator`](./imguiwindow-separator) | Window icine bir Separator marker ekler. Rendering sirasinda Real, element list icindeki bu noktada a separator cagirir. |
+| [`ImGuiWindow.SliderFloat`](./imguiwindow-sliderfloat) | Window icine bir SliderFloat element ekler. label, value, minimum ve maximum 2 ile 5 arasindaki argumanlardan okunur; sayisal argumanlar number type checking ile kontrol edilir. Rendering sirasinda Real, saklanan deger ve aralikla a floating-point slider cagirir. ImGui degisen bir deger bildirdiginde onChange queue icine alinir ve daha sonra bir Lua number ile cagrilir. Real bu closure icinde ayri bir minimum &lt;= maximum dogrulamasi eklemez. |
+| [`ImGuiWindow.SliderInt`](./imguiwindow-sliderint) | Adds an integer slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated integer value. |
+| [`ImGuiWindow.Text`](./imguiwindow-text) | Window icine etkilesimsiz bir Text element ekler. text argumani string type checking ile okunur ve element uzerinde saklanir. Rendering sirasinda Real a text element cagirir; bu nedenle verilen text ImGui format string olarak degil, string content olarak kullanilir. |

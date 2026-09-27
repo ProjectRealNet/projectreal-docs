@@ -1,0 +1,50 @@
+---
+title: "hookmetamethod"
+sidebarTitle: "hookmetamethod"
+description: "Mencari metamethod function pada value dan melakukan hook pada function tersebut melalui hookfunction. First argument dapat berupa value apa pun yang diterima raw metafield lookup. Second argument harus berupa string metamethod name, dan third argument harus berupa function replacement. Jika raw metafield lookup tidak menemukan named metafield, function memunculkan \"Metamethod doesn't exist\" untuk argument 2. Jika metafield ada tetapi bukan function, function memunculkan \"Metamethod isn't a function\" untuk argument 2. Saat metafield adalah function, hookmetamethod memanggil hookfunction dengan found metamethod function sebagai target dan mengembalikan cloned original closure dari hookfunction."
+icon: "function"
+keywords: ["hookmetamethod","Closures"]
+---
+
+Mencari metamethod function pada value dan melakukan hook pada function tersebut melalui hookfunction. First argument dapat berupa value apa pun yang diterima raw metafield lookup. Second argument harus berupa string metamethod name, dan third argument harus berupa function replacement. Jika raw metafield lookup tidak menemukan named metafield, function memunculkan "Metamethod doesn't exist" untuk argument 2. Jika metafield ada tetapi bukan function, function memunculkan "Metamethod isn't a function" untuk argument 2. Saat metafield adalah function, hookmetamethod memanggil hookfunction dengan found metamethod function sebagai target dan mengembalikan cloned original closure dari hookfunction.
+
+## Sintaks
+
+```lua
+hookmetamethod(object: any, metamethod: string, replacement: function): function
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | Value yang methods-nya diperiksa dengan raw metafield lookup. |
+| `metamethod` | `string` | Yes | Metafield name yang diteruskan ke raw metafield lookup. |
+| `replacement` | `function` | Yes | Function yang diteruskan ke hookfunction sebagai replacement untuk found metamethod function. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `original` | `function` | Cloned original metamethod closure yang dikembalikan oleh hookfunction. |
+
+## Contoh
+
+Hook an existing metamethod function.
+
+```lua
+local object = setmetatable({}, {
+    __index = function(_, key)
+        return key
+    end,
+})
+
+local original
+original = hookmetamethod(object, "__index", function(self, key)
+    if key == "Name" then
+        return "Real"
+    end
+
+    return original(self, key)
+end)
+```

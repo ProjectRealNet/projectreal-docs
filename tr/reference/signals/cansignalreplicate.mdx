@@ -1,0 +1,40 @@
+---
+title: "cansignalreplicate"
+sidebarTitle: "cansignalreplicate"
+description: "Bir RBXScriptSignal degerinin gecerli NetworkClient replication layer uzerinden gonderilmesinin legal olup olmadigini denetler. Function ilk argument degerini RBXScriptSignal olarak dogrular, signal icin source instance ve event descriptor degerlerini okur, sonra replication layer signal replication validation sonucundaki boolean degerini dondurur. Cozumlenen replication layer reference degeri 0 ise false dondurur. Ek arguments okunmaz. Bu function yalnizca signal degerini denetler, onu fire veya replicate etmez. getsignalwhitelist tarafindan dondurulen whitelist table bu code path icinde kullanilmaz."
+icon: "function"
+keywords: ["cansignalreplicate","Signals"]
+---
+
+Bir RBXScriptSignal degerinin gecerli NetworkClient replication layer uzerinden gonderilmesinin legal olup olmadigini denetler. Function ilk argument degerini RBXScriptSignal olarak dogrular, signal icin source instance ve event descriptor degerlerini okur, sonra replication layer signal replication validation sonucundaki boolean degerini dondurur. Cozumlenen replication layer reference degeri 0 ise false dondurur. Ek arguments okunmaz. Bu function yalnizca signal degerini denetler, onu fire veya replicate etmez. getsignalwhitelist tarafindan dondurulen whitelist table bu code path icinde kullanilmaz.
+
+## Söz dizimi
+
+```lua
+cansignalreplicate(signal: RBXScriptSignal): boolean
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | Denetlenecek signal. Ilk argument, Luau type name degeri RBXScriptSignal olan object olmalidir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `canReplicate` | `boolean` | replication layer signal replication validation denetiminin dondurdugu boolean, veya cozumlenen replication layer reference degeri 0 oldugunda false. |
+
+## Örnek
+
+Check whether an RBXScriptSignal is legal to send before attempting to replicate it.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote then
+    print(cansignalreplicate(remote.OnClientEvent))
+end
+```

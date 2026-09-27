@@ -1,0 +1,30 @@
+---
+title: "gethwid"
+sidebarTitle: "gethwid"
+description: "Returns Real's hardware identifier string."
+icon: "function"
+keywords: ["gethwid","Miscellaneous"]
+---
+
+Returns Real's hardware identifier string.
+
+## الصيغة
+
+```lua
+gethwid(): string
+```
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `hardwareId` | `string` | Hardware identifier string. |
+
+## مثال
+
+Read Real's cached hardware identifier string.
+
+```lua
+local hardwareId = gethwid()
+print(hardwareId)
+```

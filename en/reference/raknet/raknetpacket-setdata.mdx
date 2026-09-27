@@ -1,0 +1,58 @@
+---
+title: "RakNetPacket.SetData"
+sidebarTitle: "RakNetPacket.SetData"
+description: "Replaces the data stored on a live RakNetPacket with a string, buffer, or array table of byte numbers. The packet id field is updated from the first byte, or 0 when the new data is empty. The method returns no values."
+icon: "function"
+keywords: ["RakNetPacket.SetData","RakNet"]
+---
+
+Replaces the data stored on a live RakNetPacket with a string, buffer, or array table of byte numbers. The packet id field is updated from the first byte, or 0 when the new data is empty. The method returns no values.
+
+## Syntax
+
+```lua
+RakNetPacket.SetData(packet: RakNetPacket, data: string | buffer | {number})
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `packet` | `RakNetPacket` | Yes | Live packet object passed to a RakNet hook or signal callback. |
+| `data` | `string \| buffer \| &#123;number&#125;` | Yes | Replacement packet data. Array-table bytes must be numbers from 0 through 255. |
+
+## Types
+
+### RakNetPacket
+
+Live packet object passed to RakNet hooks and packet signal callbacks. It is only valid during the callback that receives it.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `SetData` | `(data: string \| buffer \| &#123;number&#125;) -> ()` | Yes | Replaces packet bytes and updates the packet id from the first byte, or 0 for empty data. |
+| `Block` | `() -> ()` | Yes | Marks the packet as blocked. |
+| `Ignore` | `() -> ()` | Yes | Alias that resolves to Block. |
+| `AsString` | `string` | Yes | Packet bytes as a Lua string. |
+| `AsArray` | `&#123;number&#125;` | Yes | Packet bytes as a 1-based array of numbers. |
+| `AsBuffer` | `buffer` | Yes | Packet bytes as a buffer. |
+| `Data` | `buffer` | Yes | Packet bytes as a buffer. |
+| `ID` | `number` | Yes | Packet id value. PacketId, PacketID, and Id resolve to the same value. |
+| `Priority` | `number` | Yes | Packet priority value. |
+| `Reliability` | `number` | Yes | Packet reliability value. |
+| `OrderingChannel` | `number` | Yes | Packet ordering channel value. |
+| `SystemIdentifier` | `string` | Yes | Packet system identifier as decimal string. |
+| `Broadcast` | `boolean` | Yes | Packet broadcast flag. |
+| `ForceReceiptNumber` | `number` | Yes | Packet receipt number. |
+| `Size` | `number` | Yes | Number of bytes in the packet data. |
+
+## Example
+
+Replace packet data from inside a live packet callback.
+
+```lua
+if RakNet.is_enabled then
+    RakNet.OnPacketSend:Connect(function(packet)
+        packet:SetData({ 0x83, 0x00 })
+    end)
+end
+```

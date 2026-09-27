@@ -1,0 +1,40 @@
+---
+title: "compareinstances"
+sidebarTitle: "compareinstances"
+description: "เปรียบเทียบค่า reference ภายในของ Instance ที่เก็บอยู่ในค่า Instance object สองค่า"
+icon: "function"
+keywords: ["compareinstances","Cache"]
+---
+
+เปรียบเทียบค่า reference ภายในของ Instance ที่เก็บอยู่ในค่า Instance object สองค่า
+
+## ไวยากรณ์
+
+```lua
+compareinstances(first: Instance, second: Instance): boolean
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `first` | `Instance` | Yes | Instance object ค่าแรกที่จะเปรียบเทียบ |
+| `second` | `Instance` | Yes | Instance object ค่าที่สองที่จะเปรียบเทียบ |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `equal` | `boolean` | True เมื่อค่า Instance object ทั้งสองมีค่า reference ภายในเดียวกัน |
+
+## ตัวอย่าง
+
+เปรียบเทียบค่า reference ภายในของ Instance ที่เก็บอยู่ในค่า Instance object สองค่า
+
+```lua
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+print(compareinstances(Players, Players))
+print(compareinstances(Players, ReplicatedStorage))
+```

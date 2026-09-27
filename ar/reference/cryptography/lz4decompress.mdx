@@ -1,0 +1,47 @@
+---
+title: "lz4decompress"
+sidebarTitle: "lz4decompress"
+description: "يفك ضغط raw LZ4 block bytes باستخدام LZ4 block decompression ويعيد raw decompressed bytes كسلسلة Lua."
+icon: "function"
+keywords: ["lz4decompress","Cryptography","crypt.lz4decompress","crypt.lz4.decompress","lz4.decompress"]
+---
+
+يفك ضغط raw LZ4 block bytes باستخدام LZ4 block decompression ويعيد raw decompressed bytes كسلسلة Lua.
+
+## الصيغة
+
+```lua
+lz4decompress(data: string, originalSize?: number): string
+```
+
+## أسماء بديلة
+
+- `crypt.lz4decompress`
+- `crypt.lz4.decompress`
+- `lz4.decompress`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Raw compressed bytes التي يتم تمريرها إلى LZ4 block decompression. |
+| `originalSize` | `number` | No | Output buffer size التي يتم تمريرها كـ dstCapacity. عند استخدام ناتج lz4compress، مرر طول bytes الأصلي غير المضغوط؛ عند حذفه، يتم استخدام طول الإدخال المضغوط. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `decompressed` | `string` | Raw decompressed bytes كسلسلة Lua. يمكن أن تكون المخرجات أقصر من originalSize. |
+
+## مثال
+
+فك ضغط LZ4 bytes بتمرير الحجم الأصلي غير المضغوط.
+
+```lua
+local source = "Real Docs"
+local compressed = lz4compress(source)
+local decompressed = lz4decompress(compressed, #source)
+
+print(decompressed)
+print(decompressed == source)
+```

@@ -1,0 +1,33 @@
+---
+title: "cache.invalidate"
+sidebarTitle: "cache.invalidate"
+description: "지정한 Instance의 캐시된 Instance cache 항목을 제거합니다."
+icon: "function"
+keywords: ["cache.invalidate","Cache"]
+---
+
+지정한 Instance의 캐시된 Instance cache 항목을 제거합니다.
+
+## 문법
+
+```lua
+cache.invalidate(instance: Instance)
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | 캐시된 registry 항목을 제거할 Instance입니다. |
+
+## 예제
+
+Real cache에서 Instance를 제거하고 cache 항목이 아직 있는지 확인합니다.
+
+```lua
+local Players = game:GetService("Players")
+
+cache.invalidate(Players)
+
+print(cache.iscached(Players))
+```

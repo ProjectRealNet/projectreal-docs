@@ -1,0 +1,31 @@
+---
+title: "fireproximityprompt"
+sidebarTitle: "fireproximityprompt"
+description: "Real의 ProximityPrompt trigger를 통해 ProximityPrompt를 발생시킵니다. prompt 인수는 ClassName field가 \"ProximityPrompt\"인 object여야 합니다. 값이 object가 아니면 호출은 type error를 발생시킵니다. ClassName이 없거나 string이 아니면 \"Invalid Instance\"를 발생시킵니다. ClassName이 \"ProximityPrompt\"가 아니면 \"ProximityPrompt expected\"를 발생시킵니다. 이 function은 optional arguments를 받지 않고 아무것도 반환하지 않습니다."
+icon: "function"
+keywords: ["fireproximityprompt","Instances"]
+---
+
+Real의 ProximityPrompt trigger를 통해 ProximityPrompt를 발생시킵니다. prompt 인수는 ClassName field가 "ProximityPrompt"인 object여야 합니다. 값이 object가 아니면 호출은 type error를 발생시킵니다. ClassName이 없거나 string이 아니면 "Invalid Instance"를 발생시킵니다. ClassName이 "ProximityPrompt"가 아니면 "ProximityPrompt expected"를 발생시킵니다. 이 function은 optional arguments를 받지 않고 아무것도 반환하지 않습니다.
+
+## 문법
+
+```lua
+fireproximityprompt(prompt: Instance)
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `prompt` | `Instance` | Yes | ClassName이 ProximityPrompt여야 하는 Instance입니다. |
+
+## 예제
+
+유일한 필수 인수로 ProximityPrompt를 발생시킵니다.
+
+```lua
+local prompt = workspace.InteractivePart.ProximityPrompt
+
+fireproximityprompt(prompt)
+```

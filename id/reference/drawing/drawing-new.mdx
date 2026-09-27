@@ -1,0 +1,40 @@
+---
+title: "Drawing.new"
+sidebarTitle: "Drawing.new"
+description: "Membuat Drawing object baru dari tipe yang diminta dan menambahkannya ke Real tracked Drawing object list. type string harus salah satu nama yang didukung secara tepat: \"Line\", \"Text\", \"Circle\", \"Square\", \"Quad\", \"Triangle\", \"Image\". Nilai yang hilang, non-string, atau type values yang tidak didukung memunculkan Lua error. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini."
+icon: "function"
+keywords: ["Drawing.new","Drawing"]
+---
+
+Membuat Drawing object baru dari tipe yang diminta dan menambahkannya ke Real tracked Drawing object list. type string harus salah satu nama yang didukung secara tepat: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". Nilai yang hilang, non-string, atau type values yang tidak didukung memunculkan Lua error. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini.
+
+## Sintaks
+
+```lua
+Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad" | "Triangle"): DrawingObject
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `objectType` | `"Image" \| "Line" \| "Text" \| "Circle" \| "Square" \| "Quad" \| "Triangle"` | Yes | Nama Drawing type yang tepat untuk dibuat. Nilai yang didukung adalah "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `object` | `DrawingObject` | Drawing object yang dibuat dengan Drawing object type. |
+
+## Contoh
+
+Buat persegi yang terlihat dan konfigurasikan properti gambar dasarnya.
+
+```lua
+local square = Drawing.new("Square")
+square.Position = Vector2.new(120, 120)
+square.Size = Vector2.new(220, 120)
+square.Color = Color3.fromRGB(120, 170, 255)
+square.Filled = true
+square.Visible = true
+```

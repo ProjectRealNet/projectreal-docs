@@ -1,0 +1,15 @@
+---
+title: "Drawing"
+description: "도면 객체 및 해당 속성."
+icon: "folder-code"
+---
+
+도면 객체 및 해당 속성.
+
+| 함수 탐색 | 설명 |
+| --- | --- |
+| [`cleardrawcache`](./cleardrawcache) | Real global Drawing object list를 비웁니다. 추적 중인 각 Drawing object는 destroyed로 표시되고, image resources가 있으면 해제되며, object list가 비워집니다. 정리된 Drawing objects에 대한 기존 Lua references는 남아 있을 수 있지만, 해당 objects는 더 이상 active Drawing objects로 간주되지 않습니다. the Drawing API는 the required rendering environment is active가 true일 때만 이 API를 등록합니다. 이 검사가 false이면 initializer는 이러한 globals를 만들기 전에 반환됩니다. |
+| [`Drawing.new`](./drawing-new) | 요청된 타입의 새 Drawing object를 만들고 Real tracked Drawing object list에 추가합니다. type string은 지원되는 정확한 이름 "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image" 중 하나여야 합니다. 누락된 값, non-string, 지원되지 않는 type values는 Lua error를 발생시킵니다. the Drawing API는 the required rendering environment is active가 true일 때만 이 API를 등록합니다. 이 검사가 false이면 initializer는 이러한 globals를 만들기 전에 반환됩니다. |
+| [`getrenderproperty`](./getrenderproperty) | 첫 번째 인수를 지정한 property key로 인덱싱한 결과를 반환합니다. Drawing object의 경우 object[property]와 같은 Drawing property lookup를 사용하므로 unknown properties와 destroyed Drawing objects는 nil을 반환합니다. the Drawing API는 the required rendering environment is active가 true일 때만 이 API를 등록합니다. 이 검사가 false이면 initializer는 이러한 globals를 만들기 전에 반환됩니다. |
+| [`isrenderobj`](./isrenderobj) | 값이 Drawing object type을 가진 object인지 반환합니다. 이것은 methods check일 뿐이며, 내부 Drawing object가 아직 active, tracked 또는 destroyed인지 확인하지 않습니다. the Drawing API는 the required rendering environment is active가 true일 때만 이 API를 등록합니다. 이 검사가 false이면 initializer는 이러한 globals를 만들기 전에 반환됩니다. |
+| [`setrenderproperty`](./setrenderproperty) | value를 object[property]에 할당합니다. Drawing object의 경우 direct property assignment와 같은 Drawing property assignment를 사용합니다. unknown Drawing properties는 무시되고 destroyed Drawing objects는 변경되지 않습니다. 세 번째 인수는 있어야 합니다. the Drawing API는 the required rendering environment is active가 true일 때만 이 API를 등록합니다. 이 검사가 false이면 initializer는 이러한 globals를 만들기 전에 반환됩니다. |

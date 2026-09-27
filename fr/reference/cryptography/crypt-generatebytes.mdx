@@ -1,0 +1,40 @@
+---
+title: "crypt.generatebytes"
+sidebarTitle: "crypt.generatebytes"
+description: "Genere des octets aleatoires avec random byte generator et les renvoie Base64-encoded sous forme de chaine Lua."
+icon: "function"
+keywords: ["crypt.generatebytes","Cryptography"]
+---
+
+Genere des octets aleatoires avec random byte generator et les renvoie Base64-encoded sous forme de chaine Lua.
+
+## Syntaxe
+
+```lua
+crypt.generatebytes(size: number): string
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `size` | `number` | Yes | Nombre passe par integer conversion avant l allocation. Les valeurs inferieures ou egales a 0 sont changees en 1. |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `encoded` | `string` | Base64 encoding des raw bytes generes. La longueur de la chaine renvoyee n est pas le nombre d octets demande. |
+
+## Exemple
+
+Genere des octets et decode le resultat Base64 lorsque des raw bytes sont necessaires.
+
+```lua
+local encoded = crypt.generatebytes(16)
+local raw = base64_decode(encoded)
+
+print(encoded)
+print(#encoded)
+print(#raw)
+```

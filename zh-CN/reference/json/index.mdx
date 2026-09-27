@@ -1,0 +1,34 @@
+---
+title: "JSON"
+description: "解析、编码、检查和转换 JSON。"
+icon: "folder-code"
+---
+
+解析、编码、检查和转换 JSON。
+
+| 函数导航 | 说明 |
+| --- | --- |
+| [`json.array`](./json-array) | 为 json.encode 创建一个标记为 JSON array 的 new table，并在提供 source table 时复制 1.#source sequence。 |
+| [`json.clone`](./json-clone) | 通过 json.encode semantics 对 value 进行 encoding，再把 generated JSON decoding 回 Lua values 来 clone。 |
+| [`json.decode`](./json-decode) | 使用 Real JSON parser 解析 JSON string，并返回 decoded Lua value，同时为 JSON helpers 标记 decoded arrays 和 objects。 |
+| [`json.decodeSafe`](./json-decodesafe) | 使用与 json.decode 相同的 parser 解析 JSON，并在 parse errors 时返回 success flag，而不是抛出错误。 |
+| [`json.encode`](./json-encode) | 使用 Real JSON encoder 将 Lua value serialize 为 JSON string。json.stringify 注册到同一个 function。 |
+| [`json.encodePretty`](./json-encodepretty) | 使用 Real JSON encoder 将 Lua value serializes 为 readable formatted JSON string。json.pretty 注册到同一个 function。 |
+| [`json.escape`](./json-escape) | 使用 Real JSON string escaping rules 对 string 执行 escape，并返回不带 surrounding quotes 的 escaped content。 |
+| [`json.format`](./json-format) | Parse 一个 JSON string，并使用 Real JSON parser 和 encoder 将其 re-encode 为 readable formatted JSON。 |
+| [`json.getPath`](./json-getpath) | 使用 dotted string path 或 array table of keys 从 table 读取 nested value。 |
+| [`json.isArray`](./json-isarray) | 返回 value 是否会被 Real JSON table detection treated as a JSON array。 |
+| [`json.isNull`](./json-isnull) | 返回 value 是否为 Real JSON null sentinel，也就是 json.null。 |
+| [`json.isObject`](./json-isobject) | 返回 value 是否会被 Real JSON table detection treated as a JSON object。 |
+| [`json.keys`](./json-keys) | 返回 table 的 visible keys，放入 new table marked as a JSON array。 |
+| [`json.minify`](./json-minify) | Parse 一个 JSON string，并使用 Real default non-pretty JSON encoder output 重新 encode。 |
+| [`json.object`](./json-object) | 创建 new table marked as a JSON object，让 Real JSON encoder 将其作为 object 处理。 |
+| [`json.parse`](./json-parse) | 使用与 json.decode 相同的 function parse JSON string。 |
+| [`json.pretty`](./json-pretty) | 使用与 json.encodePretty 相同的 function 将 Lua value serializes 为 readable formatted JSON string。 |
+| [`json.quote`](./json-quote) | 使用 Real JSON string escaping rules 对 string 执行 escape，并返回 complete quoted JSON string literal。 |
+| [`json.stringify`](./json-stringify) | 使用与 json.encode 相同的 function 将 Lua value serialize 为 JSON string。 |
+| [`json.tryDecode`](./json-trydecode) | 使用与 json.decodeSafe 相同的 function 尝试 parse JSON string，并为 parse errors 返回 status values。 |
+| [`json.type`](./json-type) | 返回值的 string type name。json.null 返回 "null"。table 使用与 json.isArray 和 json.isObject 相同的 table classification 返回 "array" 或 "object"。其他值返回 runtime Lua type name result。 |
+| [`json.unescape`](./json-unescape) | 从 escaped string content 或 complete quoted JSON string literal 解码 JSON string escape sequences。输入会用 JSON string parser parse，而不是作为 full JSON document。 |
+| [`json.validate`](./json-validate) | 通过 parse 一个 complete JSON value 来验证 JSON string。success 时只返回 true。parse failure 时返回 false 以及 parser error details。 |
+| [`json.values`](./json-values) | 返回 table 的 direct values，放入一个 marked as JSON array 的新 table。JSON type marker entries 会被跳过。 |

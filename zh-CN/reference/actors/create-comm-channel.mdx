@@ -1,0 +1,33 @@
+---
+title: "create_comm_channel"
+sidebarTitle: "create_comm_channel"
+description: "使用 Instance.new 创建新的 BindableEvent，将它的 Instance reference 以 numeric channel ID 存入 communication channel list，并返回该 ID 和 BindableEvent Instance。channel ID 由 current map size plus one 计算。如果 Instance.new(\"BindableEvent\") 没有在 stack 上留下 object value，该 function 会抛出 \"Failed to make a BindableEvent\"。"
+icon: "function"
+keywords: ["create_comm_channel","Actors"]
+---
+
+使用 Instance.new 创建新的 BindableEvent，将它的 Instance reference 以 numeric channel ID 存入 communication channel list，并返回该 ID 和 BindableEvent Instance。channel ID 由 current map size plus one 计算。如果 Instance.new("BindableEvent") 没有在 stack 上留下 object value，该 function 会抛出 "Failed to make a BindableEvent"。
+
+## 语法
+
+```lua
+create_comm_channel(): integer | Instance
+```
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `channelId` | `integer` | 插入 communication channel list 的 numeric channel ID。 |
+| `event` | `Instance` | 为 channel 保存并返回给 caller 的 BindableEvent Instance。 |
+
+## 示例
+
+Create a BindableEvent communication channel and keep the returned channel ID for later lookup.
+
+```lua
+local channelId, event = create_comm_channel()
+
+print(channelId)
+print(event)
+```

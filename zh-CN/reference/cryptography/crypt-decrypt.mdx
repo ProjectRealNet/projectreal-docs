@@ -1,0 +1,43 @@
+---
+title: "crypt.decrypt"
+sidebarTitle: "crypt.decrypt"
+description: "使用从 Base64 解码的 key 和必需的 Base64 IV，通过 AES CBC 或 ECB 解密 Base64 ciphertext。"
+icon: "function"
+keywords: ["crypt.decrypt","Cryptography"]
+---
+
+使用从 Base64 解码的 key 和必需的 Base64 IV，通过 AES CBC 或 ECB 解密 Base64 ciphertext。
+
+## 语法
+
+```lua
+crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES-CBC" | "AES-ECB"): string
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | 解密前会被解码的 Base64 ciphertext。 |
+| `key` | `string` | Yes | 传递给 AES 前会被解码的 Base64 key。 |
+| `iv` | `string` | Yes | 处理 mode 前会被解码的 Base64 IV。此参数是必需的，包括 ECB。 |
+| `mode` | `"CBC" \| "ECB" \| "AES-CBC" \| "AES-ECB"` | No | AES mode。如果存在 AES- prefix，会将其移除。默认值是 AES-CBC。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `plaintext` | `string` | 以 Lua string 返回的 plaintext 字节。 |
+
+## 示例
+
+使用返回的 IV 解密 crypt.encrypt 返回的 ciphertext。
+
+```lua
+local key = crypt.generatekey()
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+local plaintext = crypt.decrypt(ciphertext, key, iv)
+
+print(plaintext)
+```

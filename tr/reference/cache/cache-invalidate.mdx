@@ -1,0 +1,33 @@
+---
+title: "cache.invalidate"
+sidebarTitle: "cache.invalidate"
+description: "Verilen Instance icin cachelenen Instance cache girdisini kaldirir."
+icon: "function"
+keywords: ["cache.invalidate","Cache"]
+---
+
+Verilen Instance icin cachelenen Instance cache girdisini kaldirir.
+
+## Söz dizimi
+
+```lua
+cache.invalidate(instance: Instance)
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Cachelenen registry girdisi kaldirilacak Instance. |
+
+## Örnek
+
+Bir Instance degerini Real cache icinden kaldir ve cache girdisinin hala var olup olmadigini kontrol et.
+
+```lua
+local Players = game:GetService("Players")
+
+cache.invalidate(Players)
+
+print(cache.iscached(Players))
+```

@@ -1,0 +1,49 @@
+---
+title: "ImGuiWindow.Button"
+sidebarTitle: "ImGuiWindow.Button"
+description: "Menambahkan button element ke ImGuiWindow dan menyimpan callback. Saat button yang dirender diklik, callback dimasukkan ke queue lalu dipanggil nanti tanpa arguments. Method ini mengembalikan ImGuiWindow object yang sama."
+icon: "function"
+keywords: ["ImGuiWindow.Button","ImGui"]
+---
+
+Menambahkan button element ke ImGuiWindow dan menyimpan callback. Saat button yang dirender diklik, callback dimasukkan ke queue lalu dipanggil nanti tanpa arguments. Method ini mengembalikan ImGuiWindow object yang sama.
+
+## Sintaks
+
+```lua
+ImGuiWindow.Button(window: ImGuiWindow, label: string, onClick: function): ImGuiWindow
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `window` | `ImGuiWindow` | Yes | ImGuiWindow object yang dikembalikan oleh imgui.create. Window yang sudah dihancurkan atau tidak valid menimbulkan Lua error. |
+| `label` | `string` | Yes | Button label string yang diteruskan ke ImGui button yang dirender. |
+| `onClick` | `function` | Yes | Function yang disimpan untuk button ini dan dipanggil tanpa arguments setelah click event diproses. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `window` | `ImGuiWindow` | ImGuiWindow object yang sama, sehingga method calls dapat dirangkai. |
+
+## Tipe
+
+### ImGuiWindow
+
+Pegangan dikembalikan oleh imgui.create. Metode pembuatan kontrol mengembalikan pegangan yang sama sehingga panggilan dapat dirangkai.
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | Menambahkan tombol dan memanggil panggilan balik setelah klik. |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | Menambahkan kotak centang yang diinisialisasi ke status yang disediakan. |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | Kontrol grup ditambahkan oleh callback konten di bawah header yang diciutkan. |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | Menambahkan editor RGBA; menghilangkan komponen warna default ke 1.0. |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | Menambahkan input teks satu baris; menghilangkan default teks awal ke string kosong. |
+| `SameLine` | `() -> ImGuiWindow` | Yes | Tempatkan kontrol berikutnya pada baris yang sama. |
+| `Separator` | `() -> ImGuiWindow` | Yes | Menambahkan pemisah horizontal. |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Menambahkan penggeser titik mengambang. |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Menambahkan penggeser bilangan bulat. |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | Menambahkan teks non-interaktif. |
+| `destroy` | `() -> ()` | Yes | Menghapus jendela dan melepaskan panggilan balik terdaftarnya. |

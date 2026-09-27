@@ -1,0 +1,45 @@
+---
+title: "cloneref"
+sidebarTitle: "cloneref"
+description: "为同一个底层 Instance 指针 push 一个新的 Instance 引用并返回它。"
+icon: "function"
+keywords: ["cloneref","Cache","clonereference"]
+---
+
+为同一个底层 Instance 指针 push 一个新的 Instance 引用并返回它。
+
+## 语法
+
+```lua
+cloneref(instance: Instance): Instance
+```
+
+## 别名
+
+- `clonereference`
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | 作为新引用来源的 Instance object。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `reference` | `Instance` | 使用原始 object 指针运行 Instance cache 后返回的 Instance 引用。 |
+
+## 示例
+
+从现有 Instance object 创建另一个 Instance 引用。
+
+```lua
+local Players = game:GetService("Players")
+
+local reference = cloneref(Players)
+print(reference)
+
+local sameAlias = clonereference(Players)
+print(sameAlias)
+```

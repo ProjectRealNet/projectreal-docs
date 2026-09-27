@@ -1,0 +1,41 @@
+---
+title: "sethiddenstack"
+sidebarTitle: "sethiddenstack"
+description: "Marks or unmarks a function, or the function at a stack level, as hidden. target must be a function or stack level number. hidden defaults to true. Invalid stack levels raise \"Level out of range\". setstackhidden is an alias."
+icon: "function"
+keywords: ["sethiddenstack","Closures","setstackhidden"]
+---
+
+Marks or unmarks a function, or the function at a stack level, as hidden. target must be a function or stack level number. hidden defaults to true. Invalid stack levels raise "Level out of range". setstackhidden is an alias.
+
+## 構文
+
+```lua
+sethiddenstack(target: function | number, hidden?: boolean)
+```
+
+## エイリアス
+
+- `setstackhidden`
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `target` | `function \| number` | Yes | Function or stack level number to mark or unmark. |
+| `hidden` | `boolean` | No | Whether the resolved function should be marked hidden. Defaults to true; false removes the mark. |
+
+## 例
+
+Add or remove a function closure from hidden stack tracking.
+
+```lua
+local function target()
+end
+
+sethiddenstack(target)
+print(ishiddenstack(target))
+
+sethiddenstack(target, false)
+print(ishiddenstack(target))
+```

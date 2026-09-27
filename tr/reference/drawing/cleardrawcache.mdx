@@ -1,0 +1,27 @@
+---
+title: "cleardrawcache"
+sidebarTitle: "cleardrawcache"
+description: "Real global Drawing object list listesini temizler. Izlenen her Drawing object destroyed olarak isaretlenir, varsa image resources serbest birakilir ve object list bosaltilir. Temizlenen Drawing objects icin mevcut Lua references kalabilir, ancak objects artik active Drawing objects olarak kabul edilmez. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner."
+icon: "function"
+keywords: ["cleardrawcache","Drawing"]
+---
+
+Real global Drawing object list listesini temizler. Izlenen her Drawing object destroyed olarak isaretlenir, varsa image resources serbest birakilir ve object list bosaltilir. Temizlenen Drawing objects icin mevcut Lua references kalabilir, ancak objects artik active Drawing objects olarak kabul edilmez. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner.
+
+## Söz dizimi
+
+```lua
+cleardrawcache()
+```
+
+## Örnek
+
+Clear every Drawing object currently tracked by Real.
+
+```lua
+local square = Drawing.new("Square")
+square.Visible = true
+
+cleardrawcache()
+print(square.Visible)
+```

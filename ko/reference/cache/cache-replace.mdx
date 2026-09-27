@@ -1,0 +1,35 @@
+---
+title: "cache.replace"
+sidebarTitle: "cache.replace"
+description: "Sets the cached Instance entry for one Instance to another Instance."
+icon: "function"
+keywords: ["cache.replace","Cache"]
+---
+
+Sets the cached Instance entry for one Instance to another Instance.
+
+## 문법
+
+```lua
+cache.replace(instance: Instance, replacement: Instance)
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance whose Instance cache entry should be replaced. |
+| `replacement` | `Instance` | Yes | Instance value to store in the cache entry for the first argument. |
+
+## 예제
+
+한 Instance를 다른 Instance의 Instance cache 항목으로 저장합니다.
+
+```lua
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+cache.replace(Players, ReplicatedStorage)
+
+print(cache.iscached(Players))
+```

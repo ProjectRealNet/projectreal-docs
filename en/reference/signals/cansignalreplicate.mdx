@@ -1,0 +1,40 @@
+---
+title: "cansignalreplicate"
+sidebarTitle: "cansignalreplicate"
+description: "Checks whether an RBXScriptSignal is legal to send with the current NetworkClient replication layer. The function validates the first argument as RBXScriptSignal, reads the signal's source instance and event descriptor, then returns the boolean result of replication layer signal replication validation. If the resolved replication layer reference is 0, it returns false. Extra arguments are not read. This function only checks the signal and does not fire or replicate it. The whitelist table returned by getsignalwhitelist is not used by this code path."
+icon: "function"
+keywords: ["cansignalreplicate","Signals"]
+---
+
+Checks whether an RBXScriptSignal is legal to send with the current NetworkClient replication layer. The function validates the first argument as RBXScriptSignal, reads the signal's source instance and event descriptor, then returns the boolean result of replication layer signal replication validation. If the resolved replication layer reference is 0, it returns false. Extra arguments are not read. This function only checks the signal and does not fire or replicate it. The whitelist table returned by getsignalwhitelist is not used by this code path.
+
+## Syntax
+
+```lua
+cansignalreplicate(signal: RBXScriptSignal): boolean
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | Signal to check. The first argument must be object whose Luau type name is RBXScriptSignal. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `canReplicate` | `boolean` | The boolean returned by the replication layer signal replication validation check, or false when the resolved replication layer reference is 0. |
+
+## Example
+
+Check whether an RBXScriptSignal is legal to send before attempting to replicate it.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote then
+    print(cansignalreplicate(remote.OnClientEvent))
+end
+```

@@ -1,0 +1,34 @@
+---
+title: "WebSocket.Send"
+sidebarTitle: "WebSocket.Send"
+description: "通过 WebSocket.connect 返回的 WebSocket object 发送 Lua string。该 method 期望第一个 argument 是 WebSocket table，第二个 argument 是 message string。它读取 object 的 connection state；如果该 object 不存在，则抛出 \"WebSocket state is missing\"；当 state 已 destroyed 或 closed 时不发送并返回；默认使用 CURLWS_TEXT 调用 curl_ws_send，或者当可选第三个 argument 是 boolean true 时使用 CURLWS_BINARY。它不返回 values，也不报告已发送的 bytes 数。"
+icon: "function"
+keywords: ["WebSocket.Send","WebSocket"]
+---
+
+通过 WebSocket.connect 返回的 WebSocket object 发送 Lua string。该 method 期望第一个 argument 是 WebSocket table，第二个 argument 是 message string。它读取 object 的 connection state；如果该 object 不存在，则抛出 "WebSocket state is missing"；当 state 已 destroyed 或 closed 时不发送并返回；默认使用 CURLWS_TEXT 调用 curl_ws_send，或者当可选第三个 argument 是 boolean true 时使用 CURLWS_BINARY。它不返回 values，也不报告已发送的 bytes 数。
+
+## 语法
+
+```lua
+WebSocket.Send(socket: WebSocket, message: string, isBinary?: boolean)
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `socket` | `WebSocket` | Yes | WebSocket.connect 返回的 WebSocket table。Send 通过 WebSocket object methods 解析，因此文档中的调用形式是 socket:Send(..). |
+| `message` | `string` | Yes | 传给 curl_ws_send 的 Lua string payload，并带有 explicit byte length。 |
+| `isBinary` | `boolean` | No | 当此 argument 存在且为 true 时，Send 使用 CURLWS_BINARY。否则使用 CURLWS_TEXT。 |
+
+## 示例
+
+Send text or binary data through a WebSocket object returned by WebSocket.connect.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket:Send("hello")
+socket:Send(string.char(0, 1, 2, 3), true)
+```

@@ -1,0 +1,40 @@
+---
+title: "isrenderobj"
+sidebarTitle: "isrenderobj"
+description: "Degerin Drawing object type iceren object olup olmadigini dondurur. Bu yalnizca methods check yapar; alttaki Drawing object hala active, tracked veya destroyed mi kontrol etmez. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner."
+icon: "function"
+keywords: ["isrenderobj","Drawing"]
+---
+
+Degerin Drawing object type iceren object olup olmadigini dondurur. Bu yalnizca methods check yapar; alttaki Drawing object hala active, tracked veya destroyed mi kontrol etmez. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner.
+
+## Söz dizimi
+
+```lua
+isrenderobj(object: any): boolean
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | Test edilecek deger. Drawing object type olmayan non-object values ve object false dondurur. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `isDrawingObject` | `boolean` | Deger methods degeri RealDrawingObject ile eslesen object oldugunda True; aksi halde false. |
+
+## Örnek
+
+Check whether a value has Real's Drawing userdata metatable.
+
+```lua
+local square = Drawing.new("Square")
+
+print(isrenderobj(square))
+square:Destroy()
+print(isrenderobj(square))
+print(isrenderobj({}))
+```

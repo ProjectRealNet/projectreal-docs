@@ -1,0 +1,36 @@
+---
+title: "isparallel"
+sidebarTitle: "isparallel"
+description: "Mengembalikan boolean dari ScriptContext DataModel milik Luau thread saat ini. Function tidak menerima arguments. Function membaca the current parallel execution status, yang mengembalikan parallel execution status. Jika the current DataModel tidak mengembalikan DataModel, function mengembalikan false. checkparallel adalah alias untuk function yang sama."
+icon: "function"
+keywords: ["isparallel","Actors","checkparallel"]
+---
+
+Mengembalikan boolean dari ScriptContext DataModel milik Luau thread saat ini. Function tidak menerima arguments. Function membaca the current parallel execution status, yang mengembalikan parallel execution status. Jika the current DataModel tidak mengembalikan DataModel, function mengembalikan false. checkparallel adalah alias untuk function yang sama.
+
+## Sintaks
+
+```lua
+isparallel(): boolean
+```
+
+## Alias
+
+- `checkparallel`
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `parallel` | `boolean` | true saat parallel execution status pada DataModel saat ini disetel; false saat flag tidak disetel atau tidak ada DataModel yang tersedia. |
+
+## Contoh
+
+Read whether the current DataModel is in the parallel phase.
+
+```lua
+local parallel = isparallel()
+print(parallel)
+
+print(checkparallel())
+```

@@ -1,0 +1,38 @@
+---
+title: "messagebox"
+sidebarTitle: "messagebox"
+description: "Shows a Windows message box with text, caption, and numeric flags, then returns the integer result code."
+icon: "function"
+keywords: ["messagebox","Miscellaneous"]
+---
+
+Shows a Windows message box with text, caption, and numeric flags, then returns the integer result code.
+
+## Sintaxis
+
+```lua
+messagebox(text: string, caption: string, flags: number): integer
+```
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | Message text. |
+| `caption` | `string` | Yes | Window caption. |
+| `flags` | `number` | Yes | Numeric message box flags. |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `result` | `integer` | Integer result code returned by the message box. |
+
+## Ejemplo
+
+Show a Windows message box and read the integer result code returned by the dialog.
+
+```lua
+local result = messagebox("Real is ready.", "Real", 0)
+print(result)
+```

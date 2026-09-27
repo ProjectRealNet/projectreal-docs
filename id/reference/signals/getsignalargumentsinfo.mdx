@@ -1,0 +1,42 @@
+---
+title: "getsignalargumentsinfo"
+sidebarTitle: "getsignalargumentsinfo"
+description: "Mengembalikan array table berisi info argumen dari signature RBXScriptSignal. Fungsi ini tidak mengembalikan nilai argumen runtime yang tertangkap."
+icon: "function"
+keywords: ["getsignalargumentsinfo","Signals"]
+---
+
+Mengembalikan array table berisi info argumen dari signature RBXScriptSignal. Fungsi ini tidak mengembalikan nilai argumen runtime yang tertangkap.
+
+## Sintaks
+
+```lua
+getsignalargumentsinfo(signal: RBXScriptSignal): {{Name: string, Type: string}}
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | RBXScriptSignal yang event descriptor signature-nya harus diperiksa. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `argumentInfo` | `&#123;&#123;Name: string, Type: string&#125;&#125;` | Array table dengan setiap entri berisi string Name dan Type. Jika signature tidak dapat dibaca atau tidak memiliki entri, fungsi mengembalikan satu fallback entry dengan Name bernilai arg1 dan Type bernilai Variant. |
+
+## Contoh
+
+Inspect an RBXScriptSignal signature and print each argument name with its type name.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote then
+    for _, argument in ipairs(getsignalargumentsinfo(remote.OnClientEvent)) do
+        print(argument.Name, argument.Type)
+    end
+end
+```

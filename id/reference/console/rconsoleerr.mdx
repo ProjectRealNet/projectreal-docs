@@ -1,0 +1,35 @@
+---
+title: "rconsoleerr"
+sidebarTitle: "rconsoleerr"
+description: "Menulis nol atau beberapa nilai ke Windows console saat ini melalui stdout setelah mengatur console text attribute ke error text color. Nilai dikonversi dengan Lua string conversion, dipisahkan dengan karakter tab, dan text attribute diatur ke default console text color setelahnya. Jika tidak ada console window, panggilan kembali tanpa mengonversi atau menulis apa pun."
+icon: "function"
+keywords: ["rconsoleerr","Console","consoleerr"]
+---
+
+Menulis nol atau beberapa nilai ke Windows console saat ini melalui stdout setelah mengatur console text attribute ke error text color. Nilai dikonversi dengan Lua string conversion, dipisahkan dengan karakter tab, dan text attribute diatur ke default console text color setelahnya. Jika tidak ada console window, panggilan kembali tanpa mengonversi atau menulis apa pun.
+
+## Sintaks
+
+```lua
+rconsoleerr(...values?: ...any)
+```
+
+## Alias
+
+- `consoleerr`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `...values` | `...any` | No | Nilai opsional. Jika console ada, setiap value dikonversi dengan Lua string conversion dan digabungkan dengan karakter tab sebelum ditulis. |
+
+## Contoh
+
+Write a bright red message to the current Windows console without throwing a Luau error.
+
+```lua
+rconsolecreate()
+rconsoleerr("Request failed", 500, "
+")
+```

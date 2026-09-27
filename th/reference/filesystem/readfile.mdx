@@ -1,0 +1,44 @@
+---
+title: "readfile"
+sidebarTitle: "readfile"
+description: "อ่าน existing regular file ภายใน workspace ใน binary mode และคืน bytes เป็น Lua string"
+icon: "function"
+keywords: ["readfile","Filesystem","readfileasync"]
+---
+
+อ่าน existing regular file ภายใน workspace ใน binary mode และคืน bytes เป็น Lua string
+
+## ไวยากรณ์
+
+```lua
+readfile(path: string): string
+```
+
+## Aliases
+
+- `readfileasync`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | File path ที่ถูก resolve ภายใน workspace หลัง separator normalization, workspace-boundary checks และ filename/extension checks. Absolute paths จะถูกยอมรับเฉพาะเมื่อ resolve อยู่ภายใน workspace. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `content` | `string` | File contents ถูกคืนเป็น Lua string พร้อมความยาวแบบ explicit. Bytes เช่น null bytes, line endings และ BOM bytes จะไม่ถูก transform โดย readfile. |
+
+## ตัวอย่าง
+
+อ่าน bytes จาก existing workspace file.
+
+```lua
+local path = "examples/config.json"
+writefile(path, '{"enabled":true}')
+
+local content = readfile(path)
+print(content)
+print(#content)
+```

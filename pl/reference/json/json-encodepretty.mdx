@@ -1,0 +1,61 @@
+---
+title: "json.encodePretty"
+sidebarTitle: "json.encodePretty"
+description: "Serializuje Lua value do readable formatted JSON string przy uzyciu Real JSON encoder. json.pretty jest zarejestrowane do tej samej function."
+icon: "function"
+keywords: ["json.encodePretty","JSON"]
+---
+
+Serializuje Lua value do readable formatted JSON string przy uzyciu Real JSON encoder. json.pretty jest zarejestrowane do tej samej function.
+
+## Składnia
+
+```lua
+json.encodePretty(value: any, options?: EncodeOptions): string
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value do encoded. nil, booleans, numbers, strings, tables i json.null sa obslugiwane bezposrednio. Unsupported Lua types sa encoded jako null, chyba ze errorOnUnsupported ma wartosc true. |
+| `options` | `EncodeOptions` | No | Optional encode options. json.encodePretty czyta te same options co json.encode, a potem wymusza pretty na true. Bez options uzywa two-space indent. number ustawia indent width z clamp do 0.16, string ustawia indent text, a table moze ustawic sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth i indent. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `json` | `string` | Readable formatted JSON string. Encoding errors sa rzucane jako Luau errors. |
+
+## Typy
+
+### EncodeOptions
+
+Kontroluje serializację i formatowanie JSON.
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Włącza sformatowane, wielowierszowe wyjście JSON. |
+| `sortKeys` | `boolean` | No | Sortuje klucze obiektów przed kodowaniem. |
+| `emptyTableAsArray` | `boolean` | No | Koduje pustą tabelę jako tablicę zamiast obiektu. |
+| `errorOnUnsupported` | `boolean` | No | Zgłasza błąd zamiast zastępować nieobsługiwane wartości. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Koduje liczby NaN i nieskończone jako JSON null. |
+| `maxDepth` | `integer` | No | Ustawia maksymalną głębokość zagnieżdżenia, zaciśniętą w zakresie od 1 do 4096. |
+| `indent` | `string` | No | Ustawia ciąg wcięcia ograniczony do 32 znaków. |
+
+## Przykład
+
+Encode JSON-compatible values jako readable formatted JSON z pretty output forced on.
+
+```lua
+local text = json.encodePretty({
+    name = "Real",
+    version = 1,
+    features = json.array({ "docs", "examples" }),
+    missing = json.null,
+}, {
+    sortKeys = true,
+})
+
+print(text)
+```

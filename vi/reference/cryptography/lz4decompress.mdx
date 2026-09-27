@@ -1,0 +1,47 @@
+---
+title: "lz4decompress"
+sidebarTitle: "lz4decompress"
+description: "Giai nen raw LZ4 block bytes bang LZ4 block decompression va tra ve raw decompressed bytes duoi dang chuoi Lua."
+icon: "function"
+keywords: ["lz4decompress","Cryptography","crypt.lz4decompress","crypt.lz4.decompress","lz4.decompress"]
+---
+
+Giai nen raw LZ4 block bytes bang LZ4 block decompression va tra ve raw decompressed bytes duoi dang chuoi Lua.
+
+## Cú pháp
+
+```lua
+lz4decompress(data: string, originalSize?: number): string
+```
+
+## Alias
+
+- `crypt.lz4decompress`
+- `crypt.lz4.decompress`
+- `lz4.decompress`
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Raw compressed bytes duoc truyen vao LZ4 block decompression. |
+| `originalSize` | `number` | No | Output buffer size duoc truyen lam dstCapacity. Voi output cua lz4compress, hay truyen do dai byte goc chua nen; neu bo qua, do dai input da nen se duoc dung. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `decompressed` | `string` | Raw decompressed bytes duoc tra ve duoi dang chuoi Lua. Output co the ngan hon originalSize. |
+
+## Ví dụ
+
+Giai nen LZ4 bytes bang cach truyen kich thuoc goc chua nen.
+
+```lua
+local source = "Real Docs"
+local compressed = lz4compress(source)
+local decompressed = lz4decompress(compressed, #source)
+
+print(decompressed)
+print(decompressed == source)
+```

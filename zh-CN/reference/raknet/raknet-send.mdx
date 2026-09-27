@@ -1,0 +1,78 @@
+---
+title: "RakNet.send"
+sidebarTitle: "RakNet.send"
+description: "Queues packet data for the RakNet send path. The packet can be a string, buffer, array table of byte numbers, RakNetPacket, or RakNetPacketTable. Raw data calls may also pass optional priority, reliability, and orderingChannel values. The call returns no values."
+icon: "function"
+keywords: ["RakNet.send","RakNet","RakNet.Send","raknet.send","raknet.Send"]
+---
+
+Queues packet data for the RakNet send path. The packet can be a string, buffer, array table of byte numbers, RakNetPacket, or RakNetPacketTable. Raw data calls may also pass optional priority, reliability, and orderingChannel values. The call returns no values.
+
+## 语法
+
+```lua
+RakNet.send(packet: string | buffer | {number} | RakNetPacket | RakNetPacketTable, priority?: integer, reliability?: integer, orderingChannel?: integer)
+```
+
+## 别名
+
+- `RakNet.Send`
+- `raknet.send`
+- `raknet.Send`
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `packet` | `string \| buffer \| &#123;number&#125; \| RakNetPacket \| RakNetPacketTable` | Yes | Packet data or packet object to queue. Array-table bytes must be numbers from 0 through 255. |
+| `priority` | `integer` | No | Optional priority used only for raw data calls. Defaults to 2. |
+| `reliability` | `integer` | No | Optional reliability used only for raw data calls. Defaults to 3. |
+| `orderingChannel` | `integer` | No | Optional ordering channel used only for raw data calls. Defaults to 0. |
+
+## 类型
+
+### RakNetPacketTable
+
+Table form accepted by RakNet.send.
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `Data` | `string \| buffer \| &#123;number&#125;` | Yes | Packet bytes. Array-table bytes must be numbers from 0 through 255. |
+| `Priority` | `integer` | No | Optional packet priority value. |
+| `Reliability` | `integer` | No | Optional packet reliability value. |
+| `OrderingChannel` | `integer` | No | Optional ordering channel value. |
+| `SystemIdentifier` | `number \| string` | No | Optional target identifier. Strings are parsed as unsigned integer text. |
+| `Broadcast` | `boolean` | No | Optional broadcast flag. |
+| `ForceReceiptNumber` | `integer` | No | Optional receipt number. |
+
+### RakNetPacket
+
+Live packet object passed to RakNet hooks and packet signal callbacks. It is only valid during the callback that receives it.
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `SetData` | `(data: string \| buffer \| &#123;number&#125;) -> ()` | Yes | Replaces packet bytes and updates the packet id from the first byte, or 0 for empty data. |
+| `Block` | `() -> ()` | Yes | Marks the packet as blocked. |
+| `Ignore` | `() -> ()` | Yes | Alias that resolves to Block. |
+| `AsString` | `string` | Yes | Packet bytes as a Lua string. |
+| `AsArray` | `&#123;number&#125;` | Yes | Packet bytes as a 1-based array of numbers. |
+| `AsBuffer` | `buffer` | Yes | Packet bytes as a buffer. |
+| `Data` | `buffer` | Yes | Packet bytes as a buffer. |
+| `ID` | `number` | Yes | Packet id value. PacketId, PacketID, and Id resolve to the same value. |
+| `Priority` | `number` | Yes | Packet priority value. |
+| `Reliability` | `number` | Yes | Packet reliability value. |
+| `OrderingChannel` | `number` | Yes | Packet ordering channel value. |
+| `SystemIdentifier` | `string` | Yes | Packet system identifier as decimal string. |
+| `Broadcast` | `boolean` | Yes | Packet broadcast flag. |
+| `ForceReceiptNumber` | `number` | Yes | Packet receipt number. |
+| `Size` | `number` | Yes | Number of bytes in the packet data. |
+
+## 示例
+
+Queue packet data after checking that the RakNet API surface is enabled.
+
+```lua
+if RakNet.is_enabled then
+    RakNet.send({ 0x83, 0x00 }, RakNet.PacketPriority.MEDIUM_PRIORITY, RakNet.PacketReliability.RELIABLE_ORDERED, 0)
+end
+```

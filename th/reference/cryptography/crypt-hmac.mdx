@@ -1,0 +1,41 @@
+---
+title: "crypt.hmac"
+sidebarTitle: "crypt.hmac"
+description: "คำนวณ crypto library HMAC บน byte ของ Lua string โดยใช้ raw Lua string key และคืนค่า Base64 digest"
+icon: "function"
+keywords: ["crypt.hmac","Cryptography"]
+---
+
+คำนวณ crypto library HMAC บน byte ของ Lua string โดยใช้ raw Lua string key และคืนค่า Base64 digest
+
+## ไวยากรณ์
+
+```lua
+crypt.hmac(key: string, data: string, algorithm?: "sha256" | "sha1" | "sha224" | "sha384" | "sha512" | "md5"): string
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `key` | `string` | Yes | byte ของ raw Lua string ที่ใช้เป็น HMAC key โดย key จะไม่ถูก Base64-decode |
+| `data` | `string` | Yes | byte ของ Lua string ที่ส่งเข้า HMAC calculation |
+| `algorithm` | `"sha256" \| "sha1" \| "sha224" \| "sha384" \| "sha512" \| "md5"` | No | ชื่อ HMAC algorithm แบบ case-sensitive ค่าเริ่มต้นคือ sha256 |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `digest` | `string` | Base64-encoded HMAC output ที่ไม่มี line breaks |
+
+## ตัวอย่าง
+
+คำนวณ Base64 HMAC output จาก raw Lua string key และ data
+
+```lua
+local key = "shared secret"
+local data = "payload"
+local digest = crypt.hmac(key, data, "sha256")
+
+print(digest)
+```

@@ -1,0 +1,22 @@
+---
+title: "mousemoverel"
+sidebarTitle: "mousemoverel"
+description: "Move o mouse por um relative delta quando a Roblox window esta ativa. Os argumentos x e y sao verificados como Lua numbers e convertidos com integer conversion, depois passados diretamente para mouse input com the requested mouse action como dx e dy. A function nao usa the requested mouse action, nao faz client-area conversion, nao retorna nada e volta sem enviar input quando isrbxactive seria false."
+icon: "function"
+keywords: ["mousemoverel","Input"]
+---
+
+Move o mouse por um relative delta quando a Roblox window esta ativa. Os argumentos x e y sao verificados como Lua numbers e convertidos com integer conversion, depois passados diretamente para mouse input com the requested mouse action como dx e dy. A function nao usa the requested mouse action, nao faz client-area conversion, nao retorna nada e volta sem enviar input quando isrbxactive seria false.
+
+## Sintaxe
+
+```lua
+mousemoverel(x: number, y: number)
+```
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `x` | `number` | Yes | Relative X movement delta lido como Lua number e convertido com integer conversion antes de ser passado como dx para mouse input. |
+| `y` | `number` | Yes | Relative Y movement delta lido como Lua number e convertido com integer conversion antes de ser passado como dy para mouse input. |

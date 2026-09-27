@@ -1,0 +1,56 @@
+---
+title: "filtergc"
+sidebarTitle: "filtergc"
+description: "Tìm live garbage-collected tables hoặc functions khớp với filters đã cung cấp. filterType phải là \"table\" hoặc \"function\". options phải là table."
+icon: "function"
+keywords: ["filtergc","Environment"]
+---
+
+Tìm live garbage-collected tables hoặc functions khớp với filters đã cung cấp. filterType phải là "table" hoặc "function". options phải là table.
+
+## Cú pháp
+
+```lua
+filtergc(filterType: string, options: table, returnOne?: boolean): table | function | nil
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `filterType` | `string` | Yes | GC object type can tim. Gia tri duoc chuyen thanh lowercase va phai la "table" hoac "function". |
+| `options` | `table` | Yes | Filter table. function searches doc Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants va Upvalues. table searches doc Metatable, Keys, Values va KeyValuePairs. |
+| `returnOne` | `boolean` | No | Optional optional boolean handling flag. Khi true, tra ve matching object dau tien hoac nil thay vi array table. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `result` | `table \| function \| nil` | Khi returnOne la false hoac omitted, array table of matches. Khi returnOne la true, matching table/function object dau tien hoac nil. |
+
+## Ví dụ
+
+Find GC tables by key filters without relying on result order.
+
+```lua
+local marker = {
+    RealDocsMarker = true,
+}
+
+local matches = filtergc("table", {
+    Keys = { "RealDocsMarker" },
+})
+
+for _, value in ipairs(matches) do
+    if value == marker then
+        print("found marker")
+        break
+    end
+end
+
+local first = filtergc("table", {
+    Keys = { "RealDocsMarker" },
+}, true)
+
+print(first ~= nil)
+```

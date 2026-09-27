@@ -1,0 +1,49 @@
+---
+title: "ImGuiWindow.CollapsingHeader"
+sidebarTitle: "ImGuiWindow.CollapsingHeader"
+description: "يلحق collapsing header start marker، ثم يستدعي content callback فورا مع نفس ImGuiWindow object كي يتمكن من إلحاق nested elements، ثم يلحق header end marker. أثناء rendering، يتم تخطي nested elements بينما header collapsed. يتم التقاط callback errors ولا تعيدها هذه method."
+icon: "function"
+keywords: ["ImGuiWindow.CollapsingHeader","ImGui"]
+---
+
+يلحق collapsing header start marker، ثم يستدعي content callback فورا مع نفس ImGuiWindow object كي يتمكن من إلحاق nested elements، ثم يلحق header end marker. أثناء rendering، يتم تخطي nested elements بينما header collapsed. يتم التقاط callback errors ولا تعيدها هذه method.
+
+## الصيغة
+
+```lua
+ImGuiWindow.CollapsingHeader(window: ImGuiWindow, label: string, content: function): ImGuiWindow
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `window` | `ImGuiWindow` | Yes | ImGuiWindow object المعادة من imgui.create. Window مدمرة أو غير صالحة ترفع Lua error. |
+| `label` | `string` | Yes | Header label string الذي يمرر إلى ImGui collapsing header المعروض. |
+| `content` | `function` | Yes | Function يتم استدعاؤها فورا مع نفس ImGuiWindow object. يتم تجاهل return values؛ وتلتقط method الأخطاء. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `window` | `ImGuiWindow` | نفس ImGuiWindow object، مما يسمح بتسلسل method calls. |
+
+## الأنواع
+
+### ImGuiWindow
+
+تم إرجاع المقبض بواسطة imgui.create. تقوم أساليب بناء التحكم بإرجاع نفس المقبض بحيث يمكن ربط المكالمات بالتسلسل.
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | يُلحق زرًا ويستدعي رد الاتصال بعد النقر. |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | يُلحق مربع اختيار تمت تهيئته بالحالة المتوفرة. |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | يتم إلحاق عناصر التحكم في المجموعات بواسطة رد اتصال المحتوى أسفل الرأس المطوي. |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | إلحاق محرر RGBA؛ تم حذف مكونات اللون الافتراضية إلى 1.0. |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | إلحاق إدخال نص من سطر واحد؛ تم حذف النص الأولي الافتراضي إلى سلسلة فارغة. |
+| `SameLine` | `() -> ImGuiWindow` | Yes | يضع عنصر التحكم التالي على نفس السطر. |
+| `Separator` | `() -> ImGuiWindow` | Yes | إلحاق فاصل أفقي. |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | إلحاق شريط تمرير النقطة العائمة. |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | إلحاق شريط تمرير عدد صحيح. |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | إلحاق نص غير تفاعلي. |
+| `destroy` | `() -> ()` | Yes | إزالة النافذة وتحرير عمليات الاسترجاعات المسجلة الخاصة بها. |

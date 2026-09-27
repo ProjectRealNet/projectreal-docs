@@ -1,0 +1,52 @@
+---
+title: "json.getPath"
+sidebarTitle: "json.getPath"
+description: "อ่าน nested value จาก table ด้วย dotted string path หรือ array table of keys."
+icon: "function"
+keywords: ["json.getPath","JSON","json.getpath"]
+---
+
+อ่าน nested value จาก table ด้วย dotted string path หรือ array table of keys.
+
+## ไวยากรณ์
+
+```lua
+json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
+```
+
+## Aliases
+
+- `json.getpath`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | Root table ที่จะอ่านจากมัน. function ต้องการให้ argument นี้เป็น table. |
+| `path` | `string \| table` | Yes | Path ที่จะตามไป. string จะ split ด้วย dots; integer string tokens อ่านด้วย raw array indexing. table path ใช้ array entries จาก 1 ถึง #path เป็น keys. |
+| `defaultValue` | `any` | No | Fallback value ที่คืนเมื่อ traversal เจอ nil หรือ non-table ก่อน path จบ. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `pathValue` | `any \| nil` | Value ที่ requested path. ถ้า path missing จะคืน defaultValue เมื่อมีการให้มา ไม่เช่นนั้นคืน nil. |
+
+## ตัวอย่าง
+
+อ่าน nested table value จาก dotted string path หรือ array table of keys.
+
+```lua
+local document = {
+    user = {
+        profile = { name = "Guest" },
+        items = { "first", "second" },
+    },
+}
+
+local name = json.getPath(document, { "user", "profile", "name" }, "Unknown")
+local second = json.getPath(document, "user.items.2")
+
+print(name)
+print(second)
+```

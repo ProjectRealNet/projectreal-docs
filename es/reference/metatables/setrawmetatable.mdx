@@ -1,0 +1,48 @@
+---
+title: "setrawmetatable"
+sidebarTitle: "setrawmetatable"
+description: "Sets the metatable for a target value and returns the original target. metatable must be a table or nil; nil clears the metatable. debug.setmethods is an alias for setrawmethods."
+icon: "function"
+keywords: ["setrawmetatable","Metatables","debug.setmetatable"]
+---
+
+Sets the metatable for a target value and returns the original target. metatable must be a table or nil; nil clears the metatable. debug.setmethods is an alias for setrawmethods.
+
+## Sintaxis
+
+```lua
+setrawmetatable(target: any, metatable: table | nil): any
+```
+
+## Alias
+
+- `debug.setmetatable`
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `target` | `any` | Yes | Value whose metatable is changed. |
+| `metatable` | `table \| nil` | Yes | New metatable, or nil to clear the metatable. Other types raise "nil or table". |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `target` | `any` | The original target value. |
+
+## Ejemplo
+
+Set or clear a value's metatable and receive the target back.
+
+```lua
+local target = {}
+local meta = { label = "Real" }
+
+local returned = setrawmetatable(target, meta)
+print(returned == target)
+print(getrawmetatable(target) == meta)
+
+debug.setmetatable(target, nil)
+print(getrawmetatable(target))
+```

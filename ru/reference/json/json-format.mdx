@@ -1,0 +1,70 @@
+---
+title: "json.format"
+sidebarTitle: "json.format"
+description: "Parse для JSON string и повторный encode как readable formatted JSON через Real JSON parser и encoder."
+icon: "function"
+keywords: ["json.format","JSON"]
+---
+
+Parse для JSON string и повторный encode как readable formatted JSON через Real JSON parser и encoder.
+
+## Синтаксис
+
+```lua
+json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
+```
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string, который parse перед formatting. Function читает этот argument через string type checking. |
+| `encodeOptions` | `EncodeOptions` | No | Optional encode options для re-encode step. json.format читает те же encode options, что json.encode, затем принудительно ставит pretty в true. |
+| `decodeOptions` | `DecodeOptions` | No | Optional decode options для parsing input JSON. boolean задает useNull. table может задавать useNull и maxDepth. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `formatted` | `string` | Readable formatted JSON string, созданный после parsing и re-encoding input. |
+
+## Типы
+
+### EncodeOptions
+
+Управляет сериализацией и форматированием JSON.
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Включает форматированный многострочный вывод JSON. |
+| `sortKeys` | `boolean` | No | Сортирует ключи объекта перед кодированием. |
+| `emptyTableAsArray` | `boolean` | No | Кодирует пустую таблицу как массив вместо объекта. |
+| `errorOnUnsupported` | `boolean` | No | Вызывает ошибку вместо замены неподдерживаемых значений. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Кодирует NaN и бесконечные числа как значение JSON null. |
+| `maxDepth` | `integer` | No | Устанавливает максимальную глубину вложенности от 1 до 4096. |
+| `indent` | `string` | No | Устанавливает строку отступа, ограниченную 32 символами. |
+
+### DecodeOptions
+
+Управляет поведением анализа JSON.
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Представляет значение JSON null с нулевым контрольным значением библиотеки вместо nil. |
+| `maxDepth` | `integer` | No | Устанавливает максимальную глубину вложенности от 1 до 4096. |
+
+## Пример
+
+Parse existing JSON и re-encode как readable formatted JSON.
+
+```lua
+local compact = '{"b":2,"a":1}'
+local formatted = json.format(compact, {
+    pretty = true,
+    sortKeys = true,
+}, {
+    useNull = true,
+})
+
+print(formatted)
+```

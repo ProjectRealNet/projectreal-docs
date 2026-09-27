@@ -1,0 +1,57 @@
+---
+title: "getprotos"
+sidebarTitle: "getprotos"
+description: "Returns all nested Lua functions from a Lua function or stack level as a one-based array table. Invalid stack levels raise \"Level out of range\", and non-Lua functions raise \"Lua function expected\". debug.getprotos is an alias."
+icon: "function"
+keywords: ["getprotos","Debug","debug.getprotos"]
+---
+
+Returns all nested Lua functions from a Lua function or stack level as a one-based array table. Invalid stack levels raise "Level out of range", and non-Lua functions raise "Lua function expected". debug.getprotos is an alias.
+
+## الصيغة
+
+```lua
+getprotos(target: function | number): table
+```
+
+## أسماء بديلة
+
+- `debug.getprotos`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `target` | `function \| number` | Yes | Lua function or stack level whose nested functions are returned. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `protos` | `table` | One-based array table containing nested functions. Empty when none are present. |
+
+## مثال
+
+Clone every nested Proto from a Lua closure into an array of new L closures.
+
+```lua
+local function outer()
+    local function first()
+        return "one"
+    end
+
+    local function second()
+        return "two"
+    end
+
+    return first, second
+end
+
+local protos = getprotos(outer)
+
+for index, proto in ipairs(protos) do
+    print(index, type(proto))
+end
+
+print(#debug.getprotos(outer))
+```

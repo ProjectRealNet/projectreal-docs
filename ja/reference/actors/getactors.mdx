@@ -1,0 +1,31 @@
+---
+title: "getactors"
+sidebarTitle: "getactors"
+description: "ScriptContext actor thread list から解決された live Actor Instances の array table を返します。この function は arguments を取りません。actor thread list を走査し、各 actor Lua state を復号し、valid threads である entries を残してから、各 thread の thread data と the associated Actor weak reference を読み取ります。non-expired actor references だけが Instances として push されます。container がない entries、Actor reference がない entries、reference count <= 0 の entries、expired actor reference の entries はスキップされます。"
+icon: "function"
+keywords: ["getactors","Actors"]
+---
+
+ScriptContext actor thread list から解決された live Actor Instances の array table を返します。この function は arguments を取りません。actor thread list を走査し、各 actor Lua state を復号し、valid threads である entries を残してから、各 thread の thread data と the associated Actor weak reference を読み取ります。non-expired actor references だけが Instances として push されます。container がない entries、Actor reference がない entries、reference count &lt;= 0 の entries、expired actor reference の entries はスキップされます。
+
+## 構文
+
+```lua
+getactors(): {Instance}
+```
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `actors` | `&#123;Instance&#125;` | actor weak references がまだ valid な Actor Instances の array table。 |
+
+## 例
+
+List live Actor Instances resolved from actor threads.
+
+```lua
+for _, actor in ipairs(getactors()) do
+    print(actor)
+end
+```

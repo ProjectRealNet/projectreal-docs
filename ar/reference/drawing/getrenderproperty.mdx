@@ -1,0 +1,40 @@
+---
+title: "getrenderproperty"
+sidebarTitle: "getrenderproperty"
+description: "يعيد نتيجة فهرسة الوسيط الأول باستخدام property key المعطى. بالنسبة إلى Drawing object، يستخدم نفس Drawing property lookup مثل object[property]، لذلك ترجع unknown properties و destroyed Drawing objects القيمة nil. يسجل the Drawing API هذه API فقط عندما تكون the required rendering environment is active true؛ عندما يكون هذا الفحص false، يرجع initializer قبل إنشاء هذه globals."
+icon: "function"
+keywords: ["getrenderproperty","Drawing"]
+---
+
+يعيد نتيجة فهرسة الوسيط الأول باستخدام property key المعطى. بالنسبة إلى Drawing object، يستخدم نفس Drawing property lookup مثل object[property]، لذلك ترجع unknown properties و destroyed Drawing objects القيمة nil. يسجل the Drawing API هذه API فقط عندما تكون the required rendering environment is active true؛ عندما يكون هذا الفحص false، يرجع initializer قبل إنشاء هذه globals.
+
+## الصيغة
+
+```lua
+getrenderproperty(object: any, property: any): any
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | القيمة المراد فهرستها. مع Drawing object، يتم استخدام RealDrawingObject __index handler. |
+| `property` | `any` | Yes | property key المستخدم للفهرسة. خصائص Drawing object تعتمد على strings. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `propertyValue` | `any` | القيمة المعادة من فهرسة object باستخدام property، أو nil عندما لا يملك Drawing __index handler قيمة لتلك property. |
+
+## مثال
+
+Read a Drawing property like direct indexing.
+
+```lua
+local line = Drawing.new("Line")
+line.Thickness = 3
+
+print(getrenderproperty(line, "Thickness"))
+print(getrenderproperty(line, "MissingProperty"))
+```

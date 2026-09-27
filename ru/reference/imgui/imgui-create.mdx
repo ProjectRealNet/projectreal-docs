@@ -1,0 +1,78 @@
+---
+title: "imgui.create"
+sidebarTitle: "imgui.create"
+description: "Создает отслеживаемый ImGui window record и возвращает ImGuiWindow object. Аргумент title использует \"REAL_IM_UI\", когда он пропущен или равен nil. Title должен быть уникальным среди текущих отслеживаемых ImGui windows; создание другого tracked window с тем же title вызывает Lua error."
+icon: "function"
+keywords: ["imgui.create","ImGui"]
+---
+
+Создает отслеживаемый ImGui window record и возвращает ImGuiWindow object. Аргумент title использует "REAL_IM_UI", когда он пропущен или равен nil. Title должен быть уникальным среди текущих отслеживаемых ImGui windows; создание другого tracked window с тем же title вызывает Lua error.
+
+## Синтаксис
+
+```lua
+imgui.create(title?: string): ImGuiWindow
+```
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Optional window title. Когда он пропущен или равен nil, используется "REAL_IM_UI". Дублирующийся title среди текущих отслеживаемых ImGui windows вызывает Lua error. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `window` | `ImGuiWindow` | ImGuiWindow object с window methods, зарегистрированными в его methods. |
+
+## Типы
+
+### ImGuiWindow
+
+Дескриптор, возвращаемый imgui.create. Методы создания элементов управления возвращают один и тот же дескриптор, поэтому вызовы можно объединять в цепочки.
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `Button` | `(label: string, onClick: () -> ()) -> ImGuiWindow` | Yes | Добавляет кнопку и вызывает обратный вызов после щелчка. |
+| `Checkbox` | `(label: string, checked: any, onChange: (boolean) -> ()) -> ImGuiWindow` | Yes | Добавляет флажок, инициализированный в указанное состояние. |
+| `CollapsingHeader` | `(label: string, content: (ImGuiWindow) -> ()) -> ImGuiWindow` | Yes | Элементы управления группами, добавляемые обратным вызовом содержимого под сворачивающимся заголовком. |
+| `ColorPicker` | `(label: string, red: number?, green: number?, blue: number?, alpha: number?, onChange: (number, number, number, number) -> ()) -> ImGuiWindow` | Yes | Добавляет редактор RGBA; опущенные цветовые компоненты по умолчанию равны 1.0. |
+| `InputText` | `(label: string, text: string?, onChange: (string) -> ()) -> ImGuiWindow` | Yes | Добавляет однострочный текстовый ввод; опущенный начальный текст по умолчанию представляет собой пустую строку. |
+| `SameLine` | `() -> ImGuiWindow` | Yes | Размещает следующий элемент управления в той же строке. |
+| `Separator` | `() -> ImGuiWindow` | Yes | Добавляет горизонтальный разделитель. |
+| `SliderFloat` | `(label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Добавляет ползунок с плавающей запятой. |
+| `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Добавляет целочисленный ползунок. |
+| `Text` | `(text: string) -> ImGuiWindow` | Yes | Добавляет неинтерактивный текст. |
+| `destroy` | `() -> ()` | Yes | Удаляет окно и освобождает зарегистрированные обратные вызовы. |
+
+## Пример
+
+Создайте ImGui window и добавьте controls в возвращенный ImGuiWindow object.
+
+```lua
+local window = imgui.create("Runtime settings")
+
+window:Text("Controls")
+window:Separator()
+
+window:Checkbox("Enabled", true, function(enabled)
+    print("Enabled:", enabled)
+end)
+
+window:SliderFloat("Opacity", 0.8, 0, 1, function(value)
+    print("Opacity:", value)
+end)
+
+window:InputText("Label", "Real", function(text)
+    print("Label:", text)
+end)
+
+window:ColorPicker("Accent", 0.3, 0.6, 1, 1, function(red, green, blue, alpha)
+    print(red, green, blue, alpha)
+end)
+
+window:CollapsingHeader("Advanced", function(section)
+    section:Text("Advanced controls go here")
+end)
+```

@@ -1,0 +1,73 @@
+---
+title: "RakNet.add_send_hook"
+sidebarTitle: "RakNet.add_send_hook"
+description: "Registers a callback for observed outgoing RakNet packets. The callback receives one RakNetPacket while the packet is valid. Registering the same closure again replaces its stored reference. The function returns the callback it was given."
+icon: "function"
+keywords: ["RakNet.add_send_hook","RakNet","raknet.add_send_hook"]
+---
+
+Registers a callback for observed outgoing RakNet packets. The callback receives one RakNetPacket while the packet is valid. Registering the same closure again replaces its stored reference. The function returns the callback it was given.
+
+## ไวยากรณ์
+
+```lua
+RakNet.add_send_hook(callback: (packet: RakNetPacket) -> ()): function
+```
+
+## Aliases
+
+- `raknet.add_send_hook`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `callback` | `(packet: RakNetPacket) -> ()` | Yes | Function called with each observed outgoing RakNetPacket. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `callback` | `function` | The same callback function that was passed in. |
+
+## Types
+
+### RakNetPacket
+
+Live packet object passed to RakNet hooks and packet signal callbacks. It is only valid during the callback that receives it.
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `SetData` | `(data: string \| buffer \| &#123;number&#125;) -> ()` | Yes | Replaces packet bytes and updates the packet id from the first byte, or 0 for empty data. |
+| `Block` | `() -> ()` | Yes | Marks the packet as blocked. |
+| `Ignore` | `() -> ()` | Yes | Alias that resolves to Block. |
+| `AsString` | `string` | Yes | Packet bytes as a Lua string. |
+| `AsArray` | `&#123;number&#125;` | Yes | Packet bytes as a 1-based array of numbers. |
+| `AsBuffer` | `buffer` | Yes | Packet bytes as a buffer. |
+| `Data` | `buffer` | Yes | Packet bytes as a buffer. |
+| `ID` | `number` | Yes | Packet id value. PacketId, PacketID, and Id resolve to the same value. |
+| `Priority` | `number` | Yes | Packet priority value. |
+| `Reliability` | `number` | Yes | Packet reliability value. |
+| `OrderingChannel` | `number` | Yes | Packet ordering channel value. |
+| `SystemIdentifier` | `string` | Yes | Packet system identifier as decimal string. |
+| `Broadcast` | `boolean` | Yes | Packet broadcast flag. |
+| `ForceReceiptNumber` | `number` | Yes | Packet receipt number. |
+| `Size` | `number` | Yes | Number of bytes in the packet data. |
+
+## ตัวอย่าง
+
+Observe outgoing packets with a callback and remove the same callback later.
+
+```lua
+if not raknet.is_enabled then
+    return
+end
+
+local function onSend(packet)
+    print(packet.ID, packet.Size)
+end
+
+raknet.add_send_hook(onSend)
+task.wait(1)
+raknet.remove_send_hook(onSend)
+```

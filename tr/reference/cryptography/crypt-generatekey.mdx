@@ -1,0 +1,36 @@
+---
+title: "crypt.generatekey"
+sidebarTitle: "crypt.generatekey"
+description: "random byte generator ile 32 rastgele raw bytes uretir ve bunlari Base64-encoded Lua string olarak dondurur."
+icon: "function"
+keywords: ["crypt.generatekey","Cryptography"]
+---
+
+random byte generator ile 32 rastgele raw bytes uretir ve bunlari Base64-encoded Lua string olarak dondurur.
+
+## Söz dizimi
+
+```lua
+crypt.generatekey(): string
+```
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `key` | `string` | Uretilen 32 raw bytes icin Base64 encoding. Dondurulen string 32 karakter uzunlugunda degildir. |
+
+## Örnek
+
+Bir Base64 key uret ve raw bytes sayisini incelemek icin decode et.
+
+```lua
+local key = crypt.generatekey()
+local raw = base64_decode(key)
+
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+print(key)
+print(#raw)
+print(ciphertext, iv)
+```

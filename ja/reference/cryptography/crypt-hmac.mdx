@@ -1,0 +1,41 @@
+---
+title: "crypt.hmac"
+sidebarTitle: "crypt.hmac"
+description: "Raw Lua string key を使って Lua string のバイトに crypto library HMAC を計算し、Base64 digest を返します。"
+icon: "function"
+keywords: ["crypt.hmac","Cryptography"]
+---
+
+Raw Lua string key を使って Lua string のバイトに crypto library HMAC を計算し、Base64 digest を返します。
+
+## 構文
+
+```lua
+crypt.hmac(key: string, data: string, algorithm?: "sha256" | "sha1" | "sha224" | "sha384" | "sha512" | "md5"): string
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `key` | `string` | Yes | HMAC key として使われる raw Lua string のバイト。key は Base64-decode されません。 |
+| `data` | `string` | Yes | HMAC calculation に渡される Lua string のバイト。 |
+| `algorithm` | `"sha256" \| "sha1" \| "sha224" \| "sha384" \| "sha512" \| "md5"` | No | Case-sensitive な HMAC algorithm 名。デフォルトは sha256 です。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `digest` | `string` | line breaks のない Base64-encoded HMAC output。 |
+
+## 例
+
+raw Lua string key と data から Base64 HMAC output を計算します。
+
+```lua
+local key = "shared secret"
+local data = "payload"
+local digest = crypt.hmac(key, data, "sha256")
+
+print(digest)
+```

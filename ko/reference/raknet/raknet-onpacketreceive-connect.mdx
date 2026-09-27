@@ -1,0 +1,81 @@
+---
+title: "RakNet.OnPacketReceive.Connect"
+sidebarTitle: "RakNet.OnPacketReceive.Connect"
+description: "Connects a callback to the OnPacketReceive signal table and returns a RakNetSignalConnection. The callback receives a RakNetPacket while the packet is valid."
+icon: "function"
+keywords: ["RakNet.OnPacketReceive.Connect","RakNet","raknet.OnPacketReceive.Connect"]
+---
+
+Connects a callback to the OnPacketReceive signal table and returns a RakNetSignalConnection. The callback receives a RakNetPacket while the packet is valid.
+
+## 문법
+
+```lua
+RakNet.OnPacketReceive.Connect(callback: (packet: RakNetPacket) -> ()): RakNetSignalConnection
+```
+
+## 별칭
+
+- `raknet.OnPacketReceive.Connect`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `callback` | `(packet: RakNetPacket) -> ()` | Yes | Function called with each observed incoming RakNetPacket. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `connection` | `RakNetSignalConnection` | Connection object with Disconnect and Connected. |
+
+## 타입
+
+### RakNetPacket
+
+Live packet object passed to RakNet hooks and packet signal callbacks. It is only valid during the callback that receives it.
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `SetData` | `(data: string \| buffer \| &#123;number&#125;) -> ()` | Yes | Replaces packet bytes and updates the packet id from the first byte, or 0 for empty data. |
+| `Block` | `() -> ()` | Yes | Marks the packet as blocked. |
+| `Ignore` | `() -> ()` | Yes | Alias that resolves to Block. |
+| `AsString` | `string` | Yes | Packet bytes as a Lua string. |
+| `AsArray` | `&#123;number&#125;` | Yes | Packet bytes as a 1-based array of numbers. |
+| `AsBuffer` | `buffer` | Yes | Packet bytes as a buffer. |
+| `Data` | `buffer` | Yes | Packet bytes as a buffer. |
+| `ID` | `number` | Yes | Packet id value. PacketId, PacketID, and Id resolve to the same value. |
+| `Priority` | `number` | Yes | Packet priority value. |
+| `Reliability` | `number` | Yes | Packet reliability value. |
+| `OrderingChannel` | `number` | Yes | Packet ordering channel value. |
+| `SystemIdentifier` | `string` | Yes | Packet system identifier as decimal string. |
+| `Broadcast` | `boolean` | Yes | Packet broadcast flag. |
+| `ForceReceiptNumber` | `number` | Yes | Packet receipt number. |
+| `Size` | `number` | Yes | Number of bytes in the packet data. |
+
+### RakNetSignalConnection
+
+Connection object returned by RakNet.OnPacketSend.Connect and RakNet.OnPacketReceive.Connect.
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `Disconnect` | `() -> ()` | Yes | Removes the connection from the packet signal. |
+| `Connected` | `boolean` | Yes | true while the connection still exists for the current RakNet hook generation. |
+
+## 예제
+
+Use the signal-style API to observe incoming packets and disconnect the returned connection.
+
+```lua
+if not RakNet.is_enabled then
+    return
+end
+
+local connection = RakNet.OnPacketReceive:Connect(function(packet)
+    print(packet.ID, packet.Size)
+end)
+
+task.wait(1)
+connection:Disconnect()
+```

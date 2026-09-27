@@ -1,0 +1,35 @@
+---
+title: "rconsoleerr"
+sidebarTitle: "rconsoleerr"
+description: "يكتب صفرا أو أكثر من القيم إلى Windows console الحالية عبر stdout بعد ضبط console text attribute على error text color. يتم تحويل القيم باستخدام Lua string conversion، وفصلها بعلامات tab، ثم يتم ضبط text attribute إلى default console text color بعد ذلك. إذا لم تكن هناك console window، يرجع الاستدعاء بدون تحويل أو كتابة أي شيء."
+icon: "function"
+keywords: ["rconsoleerr","Console","consoleerr"]
+---
+
+يكتب صفرا أو أكثر من القيم إلى Windows console الحالية عبر stdout بعد ضبط console text attribute على error text color. يتم تحويل القيم باستخدام Lua string conversion، وفصلها بعلامات tab، ثم يتم ضبط text attribute إلى default console text color بعد ذلك. إذا لم تكن هناك console window، يرجع الاستدعاء بدون تحويل أو كتابة أي شيء.
+
+## الصيغة
+
+```lua
+rconsoleerr(...values?: ...any)
+```
+
+## أسماء بديلة
+
+- `consoleerr`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `...values` | `...any` | No | قيم اختيارية. إذا كانت هناك console، يتم تحويل كل value باستخدام Lua string conversion وربط القيم بعلامات tab قبل الكتابة. |
+
+## مثال
+
+Write a bright red message to the current Windows console without throwing a Luau error.
+
+```lua
+rconsolecreate()
+rconsoleerr("Request failed", 500, "
+")
+```

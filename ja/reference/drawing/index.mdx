@@ -1,0 +1,15 @@
+---
+title: "Drawing"
+description: "描画オブジェクトとそのプロパティ。"
+icon: "folder-code"
+---
+
+描画オブジェクトとそのプロパティ。
+
+| 関数ナビゲーション | 説明 |
+| --- | --- |
+| [`cleardrawcache`](./cleardrawcache) | Real global Drawing object list をクリアします。追跡中の各 Drawing object は destroyed としてマークされ、存在する image resources は解放され、object list は空になります。クリアされた Drawing objects への既存の Lua references は残る場合がありますが、それらの objects は active Drawing objects とは見なされなくなります。 the Drawing API は the required rendering environment is active が true の場合だけこの API を登録します。このチェックが false の場合、initializer はこれらの globals を作成する前に戻ります。 |
+| [`Drawing.new`](./drawing-new) | 要求された型の新しい Drawing object を作成し、Real tracked Drawing object list に追加します。type string は、サポートされている正確な名前 "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image" のいずれかである必要があります。欠落した値、non-string、またはサポートされていない type values は Lua error を発生させます。 the Drawing API は the required rendering environment is active が true の場合だけこの API を登録します。このチェックが false の場合、initializer はこれらの globals を作成する前に戻ります。 |
+| [`getrenderproperty`](./getrenderproperty) | 最初の引数を指定された property key でインデックスした結果を返します。Drawing object では object[property] と同じ Drawing property lookup を使用するため、unknown properties と destroyed Drawing objects は nil を返します。 the Drawing API は the required rendering environment is active が true の場合だけこの API を登録します。このチェックが false の場合、initializer はこれらの globals を作成する前に戻ります。 |
+| [`isrenderobj`](./isrenderobj) | 値が Drawing object type を持つ object かどうかを返します。これは methods check のみです。基になる Drawing object がまだ active、tracked、または destroyed かどうかは確認しません。 the Drawing API は the required rendering environment is active が true の場合だけこの API を登録します。このチェックが false の場合、initializer はこれらの globals を作成する前に戻ります。 |
+| [`setrenderproperty`](./setrenderproperty) | value を object[property] に代入します。Drawing object では direct property assignment と同じ Drawing property assignment を使用します。unknown Drawing properties は無視され、destroyed Drawing objects は変更されません。3 番目の引数は存在する必要があります。 the Drawing API は the required rendering environment is active が true の場合だけこの API を登録します。このチェックが false の場合、initializer はこれらの globals を作成する前に戻ります。 |

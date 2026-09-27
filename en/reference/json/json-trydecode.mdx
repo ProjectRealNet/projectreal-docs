@@ -1,0 +1,59 @@
+---
+title: "json.tryDecode"
+sidebarTitle: "json.tryDecode"
+description: "Attempts to parse a JSON string like json.decodeSafe and returns status values for parse errors."
+icon: "function"
+keywords: ["json.tryDecode","JSON"]
+---
+
+Attempts to parse a JSON string like json.decodeSafe and returns status values for parse errors.
+
+## Syntax
+
+```lua
+json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string to parse. The function reads this argument with string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. A boolean sets useNull. A table can set useNull and maxDepth. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `success` | `boolean` | true when parsing succeeds, false when parsing fails inside the protected parse block. |
+| `decoded` | `any \| nil` | Decoded value on success. On parse failure, this return is nil. |
+| `errorMessage` | `string \| nil` | Error message on parse failure. The message is prefixed with json.decodeSafe and includes a near-position suffix. |
+| `errorPosition` | `number \| nil` | Parser byte position from the parser on parse failure. This return is only present on failure. |
+
+## Types
+
+### DecodeOptions
+
+Controls JSON parsing behavior.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Represents JSON null with the library's null sentinel instead of nil. |
+| `maxDepth` | `integer` | No | Sets the maximum nesting depth, clamped from 1 to 4096. |
+
+## Example
+
+Decode JSON with status returns using the json.decodeSafe-compatible alias.
+
+```lua
+local ok, value, message, position = json.tryDecode('{"ready":true,"missing":null}', {
+    useNull = true,
+})
+
+if ok then
+    print(value.ready)
+    print(json.isNull(value.missing))
+else
+    warn(message, position)
+end
+```

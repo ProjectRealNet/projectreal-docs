@@ -1,0 +1,47 @@
+---
+title: "getscriptthread"
+sidebarTitle: "getscriptthread"
+description: "Tra ve Lua thread lien ket voi script object khi Real co the tim thay. Argument phai la object. Function doc field ClassName cua gia tri va nem \"not a valid Instance\" neu field do khong phai string. Cac gia tri ClassName duoc chap nhan la Script, LocalScript va ModuleScript; bat ky gia tri nao khac nem \"Script expected\". Dau tien no kiem tra ScriptThreadCache cua Real bang script reference. Khi cache hit, no tra ve Luau thread da cache nhu mot thread. Khi cache miss, cac gia tri Script phai co RunContext Client, neu khong function nem \"Expected a Script with RunContext set to Client\". Sau do no di qua the live Luau thread list, theo first weak thread reference cua moi thread node toi LiveLuaRef, bo qua missing thread data hoac expired Script stored references, va so sanh moi script reference voi script duoc yeu cau. Neu tim thay match, no tra ve Luau thread do nhu thread. Neu khong tim thay match, no tra ve nil."
+icon: "function"
+keywords: ["getscriptthread","Scripts"]
+---
+
+Tra ve Lua thread lien ket voi script object khi Real co the tim thay. Argument phai la object. Function doc field ClassName cua gia tri va nem "not a valid Instance" neu field do khong phai string. Cac gia tri ClassName duoc chap nhan la Script, LocalScript va ModuleScript; bat ky gia tri nao khac nem "Script expected". Dau tien no kiem tra ScriptThreadCache cua Real bang script reference. Khi cache hit, no tra ve Luau thread da cache nhu mot thread. Khi cache miss, cac gia tri Script phai co RunContext Client, neu khong function nem "Expected a Script with RunContext set to Client". Sau do no di qua the live Luau thread list, theo first weak thread reference cua moi thread node toi LiveLuaRef, bo qua missing thread data hoac expired Script stored references, va so sanh moi script reference voi script duoc yeu cau. Neu tim thay match, no tra ve Luau thread do nhu thread. Neu khong tim thay match, no tra ve nil.
+
+## Cú pháp
+
+```lua
+getscriptthread(script: userdata): thread | nil
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | Script object can tim. Cac gia tri ClassName duoc chap nhan la Script, LocalScript va ModuleScript. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `thread` | `thread \| nil` | Lua thread lien ket, hoac nil khi khong tim thay matching live thread. |
+
+## Ví dụ
+
+Read the Luau thread associated with a supported script Instance when one is available.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local thread = getscriptthread(targetScript)
+    print(thread)
+end
+```

@@ -1,0 +1,33 @@
+---
+title: "cache.invalidate"
+sidebarTitle: "cache.invalidate"
+description: "Remove a entrada de registro Instance cache em cache da Instance informada."
+icon: "function"
+keywords: ["cache.invalidate","Cache"]
+---
+
+Remove a entrada de registro Instance cache em cache da Instance informada.
+
+## Sintaxe
+
+```lua
+cache.invalidate(instance: Instance)
+```
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance cuja entrada de registro em cache deve ser removida. |
+
+## Exemplo
+
+Remova uma Instance do cache do Real e verifique se a entrada de cache ainda existe.
+
+```lua
+local Players = game:GetService("Players")
+
+cache.invalidate(Players)
+
+print(cache.iscached(Players))
+```

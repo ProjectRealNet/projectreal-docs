@@ -1,0 +1,62 @@
+---
+title: "savefiledialog"
+sidebarTitle: "savefiledialog"
+description: "Открывает Windows save dialog через Windows save dialog, записывает переданные Lua string bytes в selected path и возвращает saved file как file item."
+icon: "function"
+keywords: ["savefiledialog","Filesystem"]
+---
+
+Открывает Windows save dialog через Windows save dialog, записывает переданные Lua string bytes в selected path и возвращает saved file как file item.
+
+## Синтаксис
+
+```lua
+savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
+```
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `content` | `string` | Yes | Lua string bytes для записи в selected file. Файл открывается в binary truncate mode после подтверждения path пользователем. |
+| `options` | `DialogOptions` | No | Optional table. savefiledialog использует title, defaultPath, extensionFilter, suggestedName и defaultExtension. extensionFilter это table из extension strings; начальные . или *. удаляются перед тем, как каждый filter становится *.&lt;extension>. defaultExtension удаляет leading . characters перед передачей в SetDefaultExtension. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Saved file item или nil, если dialog отменен. Dialog or write failures выбрасывают Failed to save file. |
+
+## Типы
+
+### DialogOptions
+
+Настраивает собственный диалог выбора файла или папки.
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Устанавливает заголовок диалогового окна. |
+| `defaultPath` | `string` | No | Выбирает каталог, отображаемый при открытии диалогового окна. |
+| `extensionFilter` | `&#123;string&#125;` | No | Ограничивает выбираемые файлы перечисленными расширениями с точкой в начале или без нее. |
+| `suggestedName` | `string` | No | Предоставляет исходное имя файла в диалоговых окнах сохранения. |
+| `defaultExtension` | `string` | No | Устанавливает расширение, используемое, если введенное имя файла не имеет его. |
+
+## Пример
+
+Запишите generated content в path, выбранный пользователем, и обработайте saved file item.
+
+```lua
+local saved = savefiledialog("Example output", {
+    title = "Save output",
+    suggestedName = "output.txt",
+    defaultExtension = "txt",
+    extensionFilter = { "txt" },
+})
+
+if saved then
+    print(saved:GetName())
+    print(saved:IsFile())
+else
+    print("No file saved")
+end
+```

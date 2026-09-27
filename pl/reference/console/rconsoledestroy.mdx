@@ -1,0 +1,29 @@
+---
+title: "rconsoledestroy"
+sidebarTitle: "rconsoledestroy"
+description: "Czyści bieżący Windows console screen buffer, ukrywa console window i odłącza proces od console za pomocą console detachment. Jeśli nie istnieje żadna console window, wywołanie wraca bez wykonania akcji."
+icon: "function"
+keywords: ["rconsoledestroy","Console","consoledestroy"]
+---
+
+Czyści bieżący Windows console screen buffer, ukrywa console window i odłącza proces od console za pomocą console detachment. Jeśli nie istnieje żadna console window, wywołanie wraca bez wykonania akcji.
+
+## Składnia
+
+```lua
+rconsoledestroy()
+```
+
+## Aliasy
+
+- `consoledestroy`
+
+## Przykład
+
+Clear and hide the current console, then detach from it.
+
+```lua
+rconsolecreate()
+rconsoleprint("Console closing")
+rconsoledestroy()
+```

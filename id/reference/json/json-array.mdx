@@ -1,0 +1,40 @@
+---
+title: "json.array"
+sidebarTitle: "json.array"
+description: "Membuat new table yang ditandai sebagai JSON array untuk json.encode, menyalin sequence 1.#source saat source table diberikan."
+icon: "function"
+keywords: ["json.array","JSON"]
+---
+
+Membuat new table yang ditandai sebagai JSON array untuk json.encode, menyalin sequence 1.#source saat source table diberikan.
+
+## Sintaks
+
+```lua
+json.array(source?: table): table
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `source` | `table` | No | Optional source table. Saat dihilangkan atau nil, json.array mengembalikan new empty array-marked table. Saat diberikan, hanya numeric sequence entries dari 1 with #source yang disalin ke new table. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `array` | `table` | New table dengan JSON array marker. json.encode melakukan serializes sebagai JSON array; original source table tidak dikembalikan. |
+
+## Contoh
+
+Buat array-marked copy agar json.encode melakukan serializes nilai sebagai JSON array.
+
+```lua
+local tags = json.array({ "api", "docs", "luau" })
+local empty = json.array()
+
+print(json.encode(tags))
+print(json.encode(empty))
+print(json.type(empty))
+```

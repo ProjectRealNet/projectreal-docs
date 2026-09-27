@@ -1,0 +1,61 @@
+---
+title: "json.stringify"
+sidebarTitle: "json.stringify"
+description: "serialize Lua value เป็น JSON string ด้วย function เดียวกับ json.encode."
+icon: "function"
+keywords: ["json.stringify","JSON"]
+---
+
+serialize Lua value เป็น JSON string ด้วย function เดียวกับ json.encode.
+
+## ไวยากรณ์
+
+```lua
+json.stringify(value: any, options?: EncodeOptions): string
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value ที่จะ encode. nil, booleans, numbers, strings, tables และ json.null ถูกจัดการโดยตรง. Unsupported Lua types จะถูก encode เป็น null เว้นแต่ errorOnUnsupported เป็น true. |
+| `options` | `EncodeOptions` | No | Optional encode options. boolean toggle pretty output. number เปิด pretty output ด้วยจำนวน spaces ที่ clamp เป็น 0.16. string เปิด pretty output ด้วย indent นั้น. table ตั้งค่า pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth และ indent ได้. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `json` | `string` | Encoded JSON string. Encoding errors ถูก throw เป็น Luau errors. |
+
+## Types
+
+### EncodeOptions
+
+ควบคุมการทำให้เป็นอนุกรมและการจัดรูปแบบ JSON
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | เปิดใช้งานเอาต์พุต JSON แบบหลายบรรทัดที่จัดรูปแบบแล้ว |
+| `sortKeys` | `boolean` | No | เรียงลำดับออบเจ็กต์คีย์ก่อนการเข้ารหัส |
+| `emptyTableAsArray` | `boolean` | No | เข้ารหัสตารางว่างเป็นอาร์เรย์แทนที่จะเป็นวัตถุ |
+| `errorOnUnsupported` | `boolean` | No | ทำให้เกิดข้อผิดพลาดแทนที่จะแทนที่ค่าที่ไม่รองรับ |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | เข้ารหัส NaN และจำนวนอนันต์เป็น JSON null |
+| `maxDepth` | `integer` | No | ตั้งค่าความลึกของการซ้อนสูงสุด โดยยึดไว้ตั้งแต่ 1 ถึง 4096 |
+| `indent` | `string` | No | ตั้งค่าสตริงการเยื้อง โดยจำกัดไว้ที่ 32 อักขระ |
+
+## ตัวอย่าง
+
+Encode JSON-compatible values ด้วย function เดียวกับ json.encode.
+
+```lua
+local text = json.stringify({
+    status = "ready",
+    count = 3,
+    tags = json.array({ "stringify", "alias" }),
+    missing = json.null,
+}, {
+    sortKeys = true,
+})
+
+print(text)
+```

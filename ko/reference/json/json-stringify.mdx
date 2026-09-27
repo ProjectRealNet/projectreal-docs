@@ -1,0 +1,61 @@
+---
+title: "json.stringify"
+sidebarTitle: "json.stringify"
+description: "json.encode와 같은 function을 사용해 Lua value를 JSON string으로 serialize합니다."
+icon: "function"
+keywords: ["json.stringify","JSON"]
+---
+
+json.encode와 같은 function을 사용해 Lua value를 JSON string으로 serialize합니다.
+
+## 문법
+
+```lua
+json.stringify(value: any, options?: EncodeOptions): string
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Encode할 value입니다. nil, booleans, numbers, strings, tables, json.null은 직접 처리됩니다. Unsupported Lua types는 errorOnUnsupported가 true가 아니면 null로 encode됩니다. |
+| `options` | `EncodeOptions` | No | Optional encode options입니다. boolean은 pretty output을 토글합니다. number는 0.16으로 clamp된 spaces 개수로 pretty output을 활성화합니다. string은 해당 indent로 pretty output을 활성화합니다. table은 pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, indent를 설정할 수 있습니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `json` | `string` | Encoded JSON string입니다. Encoding errors는 Luau errors로 throw됩니다. |
+
+## 타입
+
+### EncodeOptions
+
+JSON 직렬화 및 형식화를 제어합니다.
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | 형식이 지정된 여러 줄 JSON 출력을 활성화합니다. |
+| `sortKeys` | `boolean` | No | 인코딩하기 전에 객체 키를 정렬합니다. |
+| `emptyTableAsArray` | `boolean` | No | 빈 테이블을 개체 대신 배열로 인코딩합니다. |
+| `errorOnUnsupported` | `boolean` | No | 지원되지 않는 값을 대체하는 대신 오류가 발생합니다. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | NaN 및 무한 숫자를 JSON null로 인코딩합니다. |
+| `maxDepth` | `integer` | No | 1부터 4096까지 고정된 최대 중첩 깊이를 설정합니다. |
+| `indent` | `string` | No | 32자로 제한되는 들여쓰기 문자열을 설정합니다. |
+
+## 예제
+
+json.encode와 같은 function을 사용해 JSON-compatible values를 encode합니다.
+
+```lua
+local text = json.stringify({
+    status = "ready",
+    count = 3,
+    tags = json.array({ "stringify", "alias" }),
+    missing = json.null,
+}, {
+    sortKeys = true,
+})
+
+print(text)
+```

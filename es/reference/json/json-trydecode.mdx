@@ -1,0 +1,59 @@
+---
+title: "json.tryDecode"
+sidebarTitle: "json.tryDecode"
+description: "Intenta parsear un JSON string usando la misma function que json.decodeSafe y devuelve status values para parse errors."
+icon: "function"
+keywords: ["json.tryDecode","JSON"]
+---
+
+Intenta parsear un JSON string usando la misma function que json.decodeSafe y devuelve status values para parse errors.
+
+## Sintaxis
+
+```lua
+json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string que se parsea. La function lee este argument con string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. Un boolean define useNull. Una table puede definir useNull y maxDepth. |
+
+## Retornos
+
+| Name | Type | Descripción |
+| --- | --- | --- |
+| `success` | `boolean` | true cuando parsing tiene exito, false cuando parsing falla dentro del protected parse block. |
+| `decoded` | `any \| nil` | Decoded value en success. En parse failure, este return es nil. |
+| `errorMessage` | `string \| nil` | Error message en parse failure. El message esta prefixed con json.decodeSafe e incluye near-position suffix. |
+| `errorPosition` | `number \| nil` | Parser byte position del parser en parse failure. Este return solo esta presente en failure. |
+
+## Tipos
+
+### DecodeOptions
+
+Controla el comportamiento de análisis de JSON.
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Representa JSON nulo con el centinela nulo de la biblioteca en lugar de nulo. |
+| `maxDepth` | `integer` | No | Establece la profundidad máxima de anidamiento, sujeta de 1 a 4096. |
+
+## Ejemplo
+
+Decode JSON con status returns usando el json.decodeSafe-compatible alias.
+
+```lua
+local ok, value, message, position = json.tryDecode('{"ready":true,"missing":null}', {
+    useNull = true,
+})
+
+if ok then
+    print(value.ready)
+    print(json.isNull(value.missing))
+else
+    warn(message, position)
+end
+```

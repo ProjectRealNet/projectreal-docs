@@ -1,0 +1,31 @@
+---
+title: "getinstancesbyclass"
+sidebarTitle: "getinstancesbyclass"
+description: "Renvoie les instances de la Instance cache table dont le ClassName field correspond exactement au string demande. Le premier argument est lu avec string type checking. Un empty string leve \"ClassName required\". La function cree une nouvelle array table, parcourt la cache stockee sous Instance cache, garde seulement les values dont le Lua type est object, lit le ClassName field de chaque object value, puis le compare avec strcmp au className demande. Les matches sont inseres sequential a partir de index 1. La correspondance est exact et case-sensitive. L function n utilise pas IsA, n inclut pas les subclasses, ne fait pas de walk descendants, ne filtre pas par Parent et ne trie pas le result. getinstancesofclass est un alias de la meme function."
+icon: "function"
+keywords: ["getinstancesbyclass","Scripts","getinstancesofclass"]
+---
+
+Renvoie les instances de la Instance cache table dont le ClassName field correspond exactement au string demande. Le premier argument est lu avec string type checking. Un empty string leve "ClassName required". La function cree une nouvelle array table, parcourt la cache stockee sous Instance cache, garde seulement les values dont le Lua type est object, lit le ClassName field de chaque object value, puis le compare avec strcmp au className demande. Les matches sont inseres sequential a partir de index 1. La correspondance est exact et case-sensitive. L function n utilise pas IsA, n inclut pas les subclasses, ne fait pas de walk descendants, ne filtre pas par Parent et ne trie pas le result. getinstancesofclass est un alias de la meme function.
+
+## Syntaxe
+
+```lua
+getinstancesbyclass(className: string): table
+```
+
+## Alias
+
+- `getinstancesofclass`
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | Yes | Exact ClassName string a faire correspondre. Empty strings leve "ClassName required". |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `instances` | `table` | New array table contenant les matching object values de la Instance cache table. |

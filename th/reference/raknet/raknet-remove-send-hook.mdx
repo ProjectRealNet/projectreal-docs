@@ -1,0 +1,40 @@
+---
+title: "RakNet.remove_send_hook"
+sidebarTitle: "RakNet.remove_send_hook"
+description: "Removes a send hook previously registered with the same callback closure. The function returns no values whether or not a matching hook was present."
+icon: "function"
+keywords: ["RakNet.remove_send_hook","RakNet","raknet.remove_send_hook"]
+---
+
+Removes a send hook previously registered with the same callback closure. The function returns no values whether or not a matching hook was present.
+
+## ไวยากรณ์
+
+```lua
+RakNet.remove_send_hook(callback: function)
+```
+
+## Aliases
+
+- `raknet.remove_send_hook`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `callback` | `function` | Yes | The callback closure to remove from outgoing packet hooks. |
+
+## ตัวอย่าง
+
+Remove a send hook by passing the same callback closure that was registered.
+
+```lua
+local function onSend(packet)
+    print(packet.Size)
+end
+
+if raknet.is_enabled then
+    raknet.add_send_hook(onSend)
+    raknet.remove_send_hook(onSend)
+end
+```

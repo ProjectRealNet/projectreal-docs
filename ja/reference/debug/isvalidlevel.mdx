@@ -1,0 +1,44 @@
+---
+title: "isvalidlevel"
+sidebarTitle: "isvalidlevel"
+description: "numeric stack level が current call stack range 内にあるかを確認します。function は requires a number を呼ぶため、level は必須で number である必要があります。value は integer conversion で変換されます。level < 0 または level >= the current call stack depth の場合は false、それ以外の場合は true を返します。frame closure は検査せず、invalid numeric levels に対して \"Level out of range\" は発生させません。validlevel は global alias で、debug.isvalidlevel と debug.validlevel は debug table aliases から利用できます。"
+icon: "function"
+keywords: ["isvalidlevel","Debug","validlevel","debug.isvalidlevel","debug.validlevel"]
+---
+
+numeric stack level が current call stack range 内にあるかを確認します。function は requires a number を呼ぶため、level は必須で number である必要があります。value は integer conversion で変換されます。level &lt; 0 または level >= the current call stack depth の場合は false、それ以外の場合は true を返します。frame closure は検査せず、invalid numeric levels に対して "Level out of range" は発生させません。validlevel は global alias で、debug.isvalidlevel と debug.validlevel は debug table aliases から利用できます。
+
+## 構文
+
+```lua
+isvalidlevel(level: number): boolean
+```
+
+## エイリアス
+
+- `validlevel`
+- `debug.isvalidlevel`
+- `debug.validlevel`
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `level` | `number` | Yes | integer conversion で変換され、0 &lt;= level &lt; the current call stack depth に対して確認される Stack level number。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `valid` | `boolean` | numeric level が current call stack range 内なら true、それ以外なら false。 |
+
+## 例
+
+Check whether a numeric stack level is inside the current call stack range.
+
+```lua
+print(isvalidlevel(0))
+print(validlevel(0))
+print(debug.isvalidlevel(0))
+print(debug.validlevel(0))
+```

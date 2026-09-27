@@ -1,0 +1,38 @@
+---
+title: "json.unescape"
+sidebarTitle: "json.unescape"
+description: "Mendecode JSON string escape sequences dari escaped string content atau dari complete quoted JSON string literal. Input di-parse dengan JSON string parser, bukan sebagai full JSON document."
+icon: "function"
+keywords: ["json.unescape","JSON"]
+---
+
+Mendecode JSON string escape sequences dari escaped string content atau dari complete quoted JSON string literal. Input di-parse dengan JSON string parser, bukan sebagai full JSON document.
+
+## Sintaks
+
+```lua
+json.unescape(text: string): string
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | Escaped JSON string content, atau complete quoted JSON string literal dengan first and last bytes berupa quotes. Function membaca argument ini dengan string type checking. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `text` | `string` | Decoded string. Supported escapes mencakup \", \\, \/, \b, \f, \n, \r, \t, dan \uXXXX dengan surrogate-pair handling. Invalid escapes, unescaped control characters, unterminated strings, dan trailing characters setelah quoted literal melempar Luau error dengan near-position suffix. |
+
+## Contoh
+
+Decode JSON string escapes dari escaped content atau quoted JSON string literal.
+
+```lua
+local escaped = json.escape("Real Docs" .. string.char(10) .. "Docs")
+local restored = json.unescape(escaped)
+
+print(restored)
+```

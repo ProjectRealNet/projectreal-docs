@@ -1,0 +1,33 @@
+---
+title: "delfile"
+sidebarTitle: "delfile"
+description: "ลบ regular file ที่มีอยู่ภายใน workspace"
+icon: "function"
+keywords: ["delfile","Filesystem"]
+---
+
+ลบ regular file ที่มีอยู่ภายใน workspace
+
+## ไวยากรณ์
+
+```lua
+delfile(path: string)
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path ที่ถูก resolve ภายใน workspace หลัง separator normalization และ workspace-boundary checks เป้าหมายต้องมีอยู่และเป็น regular file; folders ไม่ถูกยอมรับ |
+
+## ตัวอย่าง
+
+ลบ workspace file ที่มีอยู่
+
+```lua
+local path = "examples/temporary.txt"
+writefile(path, "temporary")
+
+delfile(path)
+print(isfile(path))
+```

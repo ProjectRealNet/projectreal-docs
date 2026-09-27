@@ -1,0 +1,42 @@
+---
+title: "getsignalarguments"
+sidebarTitle: "getsignalarguments"
+description: "Gibt eine array table von type names zurück, die aus der event descriptor signature eines RBXScriptSignal gelesen werden. Das erste argument muss object sein, dessen Luau type name RBXScriptSignal ist. Die function liest den event descriptor des signal, läuft mit dem argument stride der function durch die signature slots, liest für jeden slot den argument type reference und gibt den aufgelösten type name string für jeden slot aus. Sie gibt keine captured runtime argument values zurück. Wenn die signature nicht gelesen werden kann oder keine entries eingefügt werden, enthält die zurückgegebene table einen fallback entry: \"Variant\"."
+icon: "function"
+keywords: ["getsignalarguments","Signals"]
+---
+
+Gibt eine array table von type names zurück, die aus der event descriptor signature eines RBXScriptSignal gelesen werden. Das erste argument muss object sein, dessen Luau type name RBXScriptSignal ist. Die function liest den event descriptor des signal, läuft mit dem argument stride der function durch die signature slots, liest für jeden slot den argument type reference und gibt den aufgelösten type name string für jeden slot aus. Sie gibt keine captured runtime argument values zurück. Wenn die signature nicht gelesen werden kann oder keine entries eingefügt werden, enthält die zurückgegebene table einen fallback entry: "Variant".
+
+## Syntax
+
+```lua
+getsignalarguments(signal: RBXScriptSignal): {string}
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | Signal, dessen event descriptor signature geprüft werden soll. Nicht-RBXScriptSignal object löst einen type error aus. |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `arguments` | `&#123;string&#125;` | Array table von argument type name strings. Eine fallback table mit "Variant" wird zurückgegeben, wenn die signature data nicht gelesen werden können oder keine argument entries erzeugt werden. |
+
+## Beispiel
+
+Inspect an RBXScriptSignal signature and print the argument type names Real can read.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote then
+    for _, typeName in ipairs(getsignalarguments(remote.OnClientEvent)) do
+        print(typeName)
+    end
+end
+```

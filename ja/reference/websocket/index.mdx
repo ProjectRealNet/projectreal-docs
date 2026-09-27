@@ -1,0 +1,13 @@
+---
+title: "WebSocket"
+description: "双方向 WebSocket 接続。"
+icon: "folder-code"
+---
+
+双方向 WebSocket 接続。
+
+| 関数ナビゲーション | 説明 |
+| --- | --- |
+| [`WebSocket.Close`](./websocket-close) | WebSocket.connect が返した WebSocket object を閉じます。最初の argument は table である必要があります。この関数は object の connection state を読み取ります。live state が存在し、まだ destroyed または closed でない場合、isClosed を true に設定し、保存された WebSocket connection を通して空の close frame frame を送信します。close code や reason は受け取らず、values は返しません。 |
+| [`WebSocket.connect`](./websocket-connect) | 2 つの BindableEvents を作成し、指定された URL への WebSocket client WebSocket connection を開き、接続試行が完了するまで yield します。成功すると、OnMessage と OnClose events、methods から提供される Send と Close methods、connection state を持つ WebSocket table を返します。incoming message data は string として OnMessage から Fire されます。receive loop が終了すると、OnClose は arguments なしで Fire されます。接続に失敗すると、この関数は "WebSocket connection failed" で始まる error string を発生させます。 |
+| [`WebSocket.Send`](./websocket-send) | WebSocket.connect が返した WebSocket object を通して Lua string を送信します。この method は 1 番目の argument に WebSocket table、2 番目の argument に message string を期待します。object の connection state を読み取り、その object がない場合は "WebSocket state is missing" を発生させます。state が destroyed または closed の場合は送信せずに戻ります。既定では CURLWS_TEXT、任意の 3 番目の argument が boolean true の場合は CURLWS_BINARY で curl_ws_send を呼び出します。values は返さず、送信した bytes 数も報告しません。 |

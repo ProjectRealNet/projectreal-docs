@@ -1,0 +1,31 @@
+---
+title: "fireproximityprompt"
+sidebarTitle: "fireproximityprompt"
+description: "Declenche un ProximityPrompt with le ProximityPrompt trigger de Real. L argument prompt doit etre object avec un champ ClassName egal a \"ProximityPrompt\". Si la valeur n est pas object, l appel leve un type error. Si ClassName est absent ou n est pas string, il leve \"Invalid Instance\". Si ClassName n est pas \"ProximityPrompt\", il leve \"ProximityPrompt expected\". La function ne prend aucun optional arguments et ne retourne rien."
+icon: "function"
+keywords: ["fireproximityprompt","Instances"]
+---
+
+Declenche un ProximityPrompt with le ProximityPrompt trigger de Real. L argument prompt doit etre object avec un champ ClassName egal a "ProximityPrompt". Si la valeur n est pas object, l appel leve un type error. Si ClassName est absent ou n est pas string, il leve "Invalid Instance". Si ClassName n est pas "ProximityPrompt", il leve "ProximityPrompt expected". La function ne prend aucun optional arguments et ne retourne rien.
+
+## Syntaxe
+
+```lua
+fireproximityprompt(prompt: Instance)
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `prompt` | `Instance` | Yes | Instance dont ClassName doit etre ProximityPrompt. |
+
+## Exemple
+
+Declenche un ProximityPrompt avec le seul argument requis.
+
+```lua
+local prompt = workspace.InteractivePart.ProximityPrompt
+
+fireproximityprompt(prompt)
+```

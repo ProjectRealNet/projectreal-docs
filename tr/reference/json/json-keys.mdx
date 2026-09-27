@@ -1,0 +1,43 @@
+---
+title: "json.keys"
+sidebarTitle: "json.keys"
+description: "Bir table icindeki visible keys degerlerini new table marked as a JSON array olarak dondurur."
+icon: "function"
+keywords: ["json.keys","JSON"]
+---
+
+Bir table icindeki visible keys degerlerini new table marked as a JSON array olarak dondurur.
+
+## Söz dizimi
+
+```lua
+json.keys(object: table): table
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | Inspect edilecek table. Function bu argument degerinin table olmasini ister. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `keys` | `table` | Source table keys iceren new array table, Real JSON type marker haric. Order table iteration iteration izler ve bu function tarafindan sorted edilmez. |
+
+## Örnek
+
+Bir table icindeki visible keys degerlerini new JSON array table icine collect et.
+
+```lua
+local record = {
+    name = "Real",
+    enabled = true,
+    [5] = "numeric key",
+}
+
+for _, key in ipairs(json.keys(record)) do
+    print(key)
+end
+```

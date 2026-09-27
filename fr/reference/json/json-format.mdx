@@ -1,0 +1,70 @@
+---
+title: "json.format"
+sidebarTitle: "json.format"
+description: "Parse un JSON string puis le re-encode en readable formatted JSON avec Real JSON parser et encoder."
+icon: "function"
+keywords: ["json.format","JSON"]
+---
+
+Parse un JSON string puis le re-encode en readable formatted JSON avec Real JSON parser et encoder.
+
+## Syntaxe
+
+```lua
+json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string a parse avant le formatting. L'function lit cet argument avec string type checking. |
+| `encodeOptions` | `EncodeOptions` | No | Optional encode options passees au re-encode step. json.format lit les memes encode options que json.encode, puis force pretty a true. |
+| `decodeOptions` | `DecodeOptions` | No | Optional decode options utilisees pendant le parsing de l'input JSON. Un boolean definit useNull. Une table peut definir useNull et maxDepth. |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `formatted` | `string` | Readable formatted JSON string produit apres parsing et re-encoding de l'input. |
+
+## Types
+
+### EncodeOptions
+
+Contrôle la sérialisation et le formatage JSON.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | Permet une sortie JSON formatée et multiligne. |
+| `sortKeys` | `boolean` | No | Trie les clés d'objet avant l'encodage. |
+| `emptyTableAsArray` | `boolean` | No | Encode une table vide sous forme de tableau au lieu d'un objet. |
+| `errorOnUnsupported` | `boolean` | No | Génère une erreur au lieu de remplacer des valeurs non prises en charge. |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | Encode NaN et les nombres infinis en JSON null. |
+| `maxDepth` | `integer` | No | Définit la profondeur d'imbrication maximale, comprise entre 1 et 4 096. |
+| `indent` | `string` | No | Définit la chaîne d'indentation, limitée à 32 caractères. |
+
+### DecodeOptions
+
+Contrôle le comportement d'analyse JSON.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Représente JSON null avec la sentinelle nulle de la bibliothèque au lieu de nil. |
+| `maxDepth` | `integer` | No | Définit la profondeur d'imbrication maximale, comprise entre 1 et 4 096. |
+
+## Exemple
+
+Parse existing JSON puis re-encode en readable formatted JSON.
+
+```lua
+local compact = '{"b":2,"a":1}'
+local formatted = json.format(compact, {
+    pretty = true,
+    sortKeys = true,
+}, {
+    useNull = true,
+})
+
+print(formatted)
+```

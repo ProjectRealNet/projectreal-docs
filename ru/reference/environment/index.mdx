@@ -1,0 +1,18 @@
+---
+title: "Environment"
+description: "Доступ к средам выполнения и объектам, собирающим мусор."
+icon: "folder-code"
+---
+
+Доступ к средам выполнения и объектам, собирающим мусор.
+
+| Навигация по функциям | Описание |
+| --- | --- |
+| [`filtergc`](./filtergc) | Ищет live garbage-collected tables или functions, совпадающие с переданными filters. filterType должен быть "table" или "function". options должен быть table. |
+| [`getgc`](./getgc) | Returns an array table of live Luau garbage-collected objects visible to the API. Functions and userdata-like objects are included by default. Tables are included only when includeTables is true. get_gc_objects is an alias. |
+| [`getgenv`](./getgenv) | Возвращает current executor environment table, помещая LUA_ENVIRONINDEX. Function не принимает arguments, возвращает exactly one value и не имеет registered alias. Call-sites в repository используют returned table для чтения и записи shared executor globals, таких как __siApiCache и saveinstance. |
+| [`getrenv`](./getrenv) | Returns the Roblox global environment table. The function takes no arguments and returns exactly one value. |
+| [`getscriptglobals`](./getscriptglobals) | Возвращает new table, содержащую current LUA_GLOBALSINDEX values для _G и shared. Function не принимает arguments, создает fresh table, назначает _G из LUA_GLOBALSINDEX._G и shared из LUA_GLOBALSINDEX.shared, и возвращает exactly one value. Она не возвращает full global table, и для getscriptglobals не зарегистрирован alias. |
+| [`gettenv`](./gettenv) | Returns the environment table stored on a Luau thread. getstateenv is an alias. |
+| [`setclipboard`](./setclipboard) | Writes one value to the Windows system clipboard as text. The value is converted to a string. The function returns no status value, whether the clipboard write succeeds or fails. toclipboard is an alias. |
+| [`setrbxclipboard`](./setrbxclipboard) | Writes a required string to the Windows clipboard using Roblox Studio clipboard data format. The function returns no status value, whether the clipboard write succeeds or fails. |

@@ -1,0 +1,33 @@
+---
+title: "delfile"
+sidebarTitle: "delfile"
+description: "يحذف regular file موجودا داخل workspace."
+icon: "function"
+keywords: ["delfile","Filesystem"]
+---
+
+يحذف regular file موجودا داخل workspace.
+
+## الصيغة
+
+```lua
+delfile(path: string)
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path يتم حله داخل workspace بعد separator normalization وفحص workspace-boundary. يجب ان يكون الهدف موجودا وان يكون regular file؛ folders غير مقبولة. |
+
+## مثال
+
+احذف ملفا موجودا داخل workspace.
+
+```lua
+local path = "examples/temporary.txt"
+writefile(path, "temporary")
+
+delfile(path)
+print(isfile(path))
+```

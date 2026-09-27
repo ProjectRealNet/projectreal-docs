@@ -1,0 +1,35 @@
+---
+title: "getactorthreads"
+sidebarTitle: "getactorthreads"
+description: "actor thread list içinden Luau threads değerlerinin array table halini döndürür. Function arguments almaz. ScriptContext içinden actor list bounds değerlerini okur, her actor state entry üzerinden geçer, stored global state değerini Luau thread değerine decrypt eder ve yalnızca valid threads olan entries değerlerini dahil eder."
+icon: "function"
+keywords: ["getactorthreads","Actors","getactorstates"]
+---
+
+actor thread list içinden Luau threads değerlerinin array table halini döndürür. Function arguments almaz. ScriptContext içinden actor list bounds değerlerini okur, her actor state entry üzerinden geçer, stored global state değerini Luau thread değerine decrypt eder ve yalnızca valid threads olan entries değerlerini dahil eder.
+
+## Söz dizimi
+
+```lua
+getactorthreads(): {thread}
+```
+
+## Aliaslar
+
+- `getactorstates`
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `threads` | `&#123;thread&#125;` | Luau threads olarak push edilen actor Luau thread values array table değeri. |
+
+## Örnek
+
+List Luau threads from the ScriptContext actor state list.
+
+```lua
+for _, thread in ipairs(getactorthreads()) do
+    print(thread)
+end
+```

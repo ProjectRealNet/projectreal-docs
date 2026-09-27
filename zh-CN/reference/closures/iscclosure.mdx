@@ -1,0 +1,36 @@
+---
+title: "iscclosure"
+sidebarTitle: "iscclosure"
+description: "Returns whether the provided function is a C closure. The argument must be a function; passing any other type raises a type error. The function does not inspect executor ownership, source, bytecode, or upvalues."
+icon: "function"
+keywords: ["iscclosure","Closures"]
+---
+
+Returns whether the provided function is a C closure. The argument must be a function; passing any other type raises a type error. The function does not inspect executor ownership, source, bytecode, or upvalues.
+
+## 语法
+
+```lua
+iscclosure(func: function): boolean
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `func` | `function` | Yes | Function value passed to C closure check. |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `isCClosure` | `boolean` | true when C closure check returns true for the function; otherwise false. |
+
+## 示例
+
+Check whether a function is a C closure.
+
+```lua
+local result = iscclosure(print)
+print(result)
+```

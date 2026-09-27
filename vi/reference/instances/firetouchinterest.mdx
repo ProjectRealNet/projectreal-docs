@@ -1,0 +1,40 @@
+---
+title: "firetouchinterest"
+sidebarTitle: "firetouchinterest"
+description: "Kich hoat Real touch interest event cho hai BasePart instances. Hai doi so dau tien phai la Instance object va ca hai gia tri phai vuot qua IsA(\"BasePart\"). Doi so state la bat buoc va phai la number hoac boolean. Khi state la number, chi 1 tro thanh true va moi number khac tro thanh false. Khi state la boolean, gia tri boolean cua no duoc truyen truc tiep. Neu bat ky part nao khong co touch data, hoac part dau tien khong co overlap reference, function quay lai ma khong kich hoat gi. Function khong tra ve gi. Y nghia begin/end chinh xac cua boolean duoc truyen vao helper la: Nicht aus der Codebasis verifizierbar."
+icon: "function"
+keywords: ["firetouchinterest","Instances","firetouchtransmitter"]
+---
+
+Kich hoat Real touch interest event cho hai BasePart instances. Hai doi so dau tien phai la Instance object va ca hai gia tri phai vuot qua IsA("BasePart"). Doi so state la bat buoc va phai la number hoac boolean. Khi state la number, chi 1 tro thanh true va moi number khac tro thanh false. Khi state la boolean, gia tri boolean cua no duoc truyen truc tiep. Neu bat ky part nao khong co touch data, hoac part dau tien khong co overlap reference, function quay lai ma khong kich hoat gi. Function khong tra ve gi. Y nghia begin/end chinh xac cua boolean duoc truyen vao helper la: Nicht aus der Codebasis verifizierbar.
+
+## Cú pháp
+
+```lua
+firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
+```
+
+## Alias
+
+- `firetouchtransmitter`
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `partA` | `Instance` | Yes | Instance object dau tien. Phai vuot qua IsA("BasePart"). touch data va overlap reference cua no duoc dung cho call. |
+| `partB` | `Instance` | Yes | Instance object thu hai. Phai vuot qua IsA("BasePart"). touch data cua no duoc dung cho call. |
+| `state` | `number \| boolean` | Yes | Gia tri state bat buoc. Numbers duoc chuyen doi voi state == 1; booleans duoc truyen truc tiep. |
+
+## Ví dụ
+
+Truyen hai gia tri BasePart va mot gia tri state ro rang vao firetouchinterest.
+
+```lua
+local players = game:GetService("Players")
+local character = players.LocalPlayer.Character or players.LocalPlayer.CharacterAdded:Wait()
+local rootPart = character:WaitForChild("HumanoidRootPart")
+local targetPart = workspace.TouchTarget
+
+firetouchinterest(rootPart, targetPart, true)
+```

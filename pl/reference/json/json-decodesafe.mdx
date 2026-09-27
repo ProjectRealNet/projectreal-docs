@@ -1,0 +1,59 @@
+---
+title: "json.decodeSafe"
+sidebarTitle: "json.decodeSafe"
+description: "Parsuje JSON tym samym parserem co json.decode i zwraca success flag zamiast rzucac dla parse errors."
+icon: "function"
+keywords: ["json.decodeSafe","JSON"]
+---
+
+Parsuje JSON tym samym parserem co json.decode i zwraca success flag zamiast rzucac dla parse errors.
+
+## Składnia
+
+```lua
+json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON text do parsowania. Ten argument jest sprawdzany jako string przed przechwyceniem parse errors. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean ustawia useNull bezposrednio. table moze ustawic useNull i maxDepth; maxDepth jest clamp od 1 do 4096. Invalid option argument types sa sprawdzane przed przechwyceniem parse errors. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `success` | `boolean` | True gdy parsing sie powiedzie, false gdy parser zglosi error. |
+| `decoded` | `any \| nil` | Decoded value przy sukcesie, nil przy parse failure. Poprawne JSON false zwraca success jako true i decoded jako false, wiec sprawdzaj success return value. |
+| `errorMessage` | `string \| nil` | Error message przy parse failure, w przeciwnym razie nil. Message zawiera json.decodeSafe prefix i parser position. |
+| `errorPosition` | `number \| nil` | Parser byte position przy parse failure, w przeciwnym razie nil. |
+
+## Typy
+
+### DecodeOptions
+
+Kontroluje zachowanie analizy JSON.
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Reprezentuje JSON null ze wskaźnikiem null biblioteki zamiast nil. |
+| `maxDepth` | `integer` | No | Ustawia maksymalną głębokość zagnieżdżenia, zaciśniętą w zakresie od 1 do 4096. |
+
+## Przykład
+
+Parsuj JSON i uzyj success return value, aby oddzielic valid false lub nil results od parse failures.
+
+```lua
+local ok, value = json.decodeSafe("false")
+
+if ok then
+    print(value == false)
+end
+
+local parsed, _, message, position = json.decodeSafe("{")
+if not parsed then
+    warn(message, position)
+end
+```

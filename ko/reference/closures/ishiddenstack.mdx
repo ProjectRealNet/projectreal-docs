@@ -1,0 +1,42 @@
+---
+title: "ishiddenstack"
+sidebarTitle: "ishiddenstack"
+description: "Returns whether a function, or the function at a stack level, is marked as hidden. target must be a function or stack level number. Invalid stack levels raise \"Level out of range\". isstackhidden is an alias."
+icon: "function"
+keywords: ["ishiddenstack","Closures","isstackhidden"]
+---
+
+Returns whether a function, or the function at a stack level, is marked as hidden. target must be a function or stack level number. Invalid stack levels raise "Level out of range". isstackhidden is an alias.
+
+## 문법
+
+```lua
+ishiddenstack(target: function | number): boolean
+```
+
+## 별칭
+
+- `isstackhidden`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `target` | `function \| number` | Yes | Function or stack level number to check. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `hidden` | `boolean` | true when the resolved function is marked as hidden; otherwise false. |
+
+## 예제
+
+Check whether a function closure is present in hidden stack tracking.
+
+```lua
+local function target()
+end
+
+print(ishiddenstack(target))
+```

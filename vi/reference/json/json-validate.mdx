@@ -1,0 +1,55 @@
+---
+title: "json.validate"
+sidebarTitle: "json.validate"
+description: "Validate mot JSON string bang cach parse mot complete JSON value duy nhat. Khi success chi tra ve true. Khi parse failure tra ve false cong parser error details."
+icon: "function"
+keywords: ["json.validate","JSON"]
+---
+
+Validate mot JSON string bang cach parse mot complete JSON value duy nhat. Khi success chi tra ve true. Khi parse failure tra ve false cong parser error details.
+
+## Cú pháp
+
+```lua
+json.validate(json: string, options?: DecodeOptions): boolean | string | nil | number | nil
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string de validate. Function doc argument nay bang string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean dat useNull. table co the dat useNull va maxDepth. maxDepth duoc clamp tu 1 den 4096. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `valid` | `boolean` | true khi parsing mot complete JSON value duy nhat thanh cong. false khi parsing that bai trong protected parse block. |
+| `errorMessage` | `string \| nil` | Error message khi parse failure. Message duoc prefixed bang json.validate va co near-position suffix. Return nay chi co khi failure. |
+| `errorPosition` | `number \| nil` | Parser byte position tu parser khi parse failure. Return nay chi co khi failure. |
+
+## Kiểu
+
+### DecodeOptions
+
+Kiểm soát hành vi phân tích cú pháp JSON.
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Biểu thị JSON null bằng giá trị null của thư viện thay vì con số không. |
+| `maxDepth` | `integer` | No | Đặt độ sâu lồng tối đa, được kẹp từ 1 đến 4096. |
+
+## Ví dụ
+
+Kiem tra mot string co chua dung mot complete JSON value hay khong.
+
+```lua
+print(json.validate('{"value":42}'))
+
+local valid, message, position = json.validate('{"value":42 trailing')
+
+if not valid then
+    warn(message, position)
+end
+```

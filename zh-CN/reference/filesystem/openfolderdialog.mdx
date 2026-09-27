@@ -1,0 +1,59 @@
+---
+title: "openfolderdialog"
+sidebarTitle: "openfolderdialog"
+description: "通过 Windows file picker 和 folder selection mode 打开 Windows folder picker，并将选中的文件夹作为 file item 返回。"
+icon: "function"
+keywords: ["openfolderdialog","Filesystem"]
+---
+
+通过 Windows file picker 和 folder selection mode 打开 Windows folder picker，并将选中的文件夹作为 file item 返回。
+
+## 语法
+
+```lua
+openfolderdialog(options?: DialogOptions): FileSystemItem | nil
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table。openfolderdialog 会使用 title 和 defaultPath。defaultPath 只有在解析为 existing directory 时才会应用。extensionFilter 会被 shared dialog options parser 接受，但 folder selection 通过 folder selection mode 启用。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `folder` | `FileSystemItem \| nil` | Selected folder item；如果 dialog 被取消，则为 nil。Dialog failures 会抛出 Failed to open folder dialog。 |
+
+## 类型
+
+### DialogOptions
+
+配置本机文件或文件夹选择对话框。
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `title` | `string` | No | 设置对话框窗口标题。 |
+| `defaultPath` | `string` | No | 选择对话框打开时显示的目录。 |
+| `extensionFilter` | `&#123;string&#125;` | No | 将可选文件限制为列出的扩展名，带或不带前导点。 |
+| `suggestedName` | `string` | No | 在保存对话框中提供初始文件名。 |
+| `defaultExtension` | `string` | No | 设置当输入的文件名没有扩展名时使用的扩展名。 |
+
+## 示例
+
+打开 folder picker，并处理 selected folder item 或 cancellation。
+
+```lua
+local folder = openfolderdialog({
+    title = "Choose a folder",
+    defaultPath = ".",
+})
+
+if folder then
+    print(folder:GetName())
+    print(folder:IsFolder())
+else
+    print("No folder selected")
+end
+```

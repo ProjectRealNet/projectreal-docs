@@ -1,0 +1,39 @@
+---
+title: "json.values"
+sidebarTitle: "json.values"
+description: "Returns the direct values from a table in a new JSON array table. JSON metadata entries are not included."
+icon: "function"
+keywords: ["json.values","JSON"]
+---
+
+Returns the direct values from a table in a new JSON array table. JSON metadata entries are not included.
+
+## Syntax
+
+```lua
+json.values(object: table): table
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | Table to enumerate. The function checks this argument with type checking. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `values` | `table` | New array-style table containing the direct values from the input table. The output is marked as a JSON array. Enumeration uses table iteration, so no ordering guarantee is visible in the function. |
+
+## Example
+
+Collect the direct values from a table into a JSON array-marked table.
+
+```lua
+local list = json.array({ "one", "two" })
+
+for _, value in ipairs(json.values(list)) do
+    print(value)
+end
+```

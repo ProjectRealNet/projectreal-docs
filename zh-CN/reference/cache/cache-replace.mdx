@@ -1,0 +1,35 @@
+---
+title: "cache.replace"
+sidebarTitle: "cache.replace"
+description: "Sets the cached Instance entry for one Instance to another Instance."
+icon: "function"
+keywords: ["cache.replace","Cache"]
+---
+
+Sets the cached Instance entry for one Instance to another Instance.
+
+## 语法
+
+```lua
+cache.replace(instance: Instance, replacement: Instance)
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance whose Instance cache entry should be replaced. |
+| `replacement` | `Instance` | Yes | Instance value to store in the cache entry for the first argument. |
+
+## 示例
+
+将一个 Instance 存为另一个 Instance 的 Instance cache 条目。
+
+```lua
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+cache.replace(Players, ReplicatedStorage)
+
+print(cache.iscached(Players))
+```

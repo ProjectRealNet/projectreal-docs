@@ -1,0 +1,40 @@
+---
+title: "RakNet.remove_receive_hook"
+sidebarTitle: "RakNet.remove_receive_hook"
+description: "Removes a receive hook previously registered with the same callback closure. The function returns no values whether or not a matching hook was present."
+icon: "function"
+keywords: ["RakNet.remove_receive_hook","RakNet","raknet.remove_receive_hook"]
+---
+
+Removes a receive hook previously registered with the same callback closure. The function returns no values whether or not a matching hook was present.
+
+## Składnia
+
+```lua
+RakNet.remove_receive_hook(callback: function)
+```
+
+## Aliasy
+
+- `raknet.remove_receive_hook`
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `callback` | `function` | Yes | The callback closure to remove from incoming packet hooks. |
+
+## Przykład
+
+Remove a receive hook by passing the same callback closure that was registered.
+
+```lua
+local function onReceive(packet)
+    print(packet.Size)
+end
+
+if raknet.is_enabled then
+    raknet.add_receive_hook(onReceive)
+    raknet.remove_receive_hook(onReceive)
+end
+```

@@ -1,0 +1,28 @@
+---
+title: "rconsolehide"
+sidebarTitle: "rconsolehide"
+description: "Hides the current Windows console window . The function does not call console detachment, so it does not detach from or destroy the console. If no console window exists, the call returns without doing anything."
+icon: "function"
+keywords: ["rconsolehide","Console","consolehide"]
+---
+
+Hides the current Windows console window . The function does not call console detachment, so it does not detach from or destroy the console. If no console window exists, the call returns without doing anything.
+
+## Syntax
+
+```lua
+rconsolehide()
+```
+
+## Aliases
+
+- `consolehide`
+
+## Example
+
+Hide the current Windows console without detaching from it.
+
+```lua
+rconsolecreate()
+rconsolehide()
+```

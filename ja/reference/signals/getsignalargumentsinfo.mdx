@@ -1,0 +1,42 @@
+---
+title: "getsignalargumentsinfo"
+sidebarTitle: "getsignalargumentsinfo"
+description: "RBXScriptSignal のシグネチャから引数情報の array table を返します。キャプチャされた実行時の引数値は返しません。"
+icon: "function"
+keywords: ["getsignalargumentsinfo","Signals"]
+---
+
+RBXScriptSignal のシグネチャから引数情報の array table を返します。キャプチャされた実行時の引数値は返しません。
+
+## 構文
+
+```lua
+getsignalargumentsinfo(signal: RBXScriptSignal): {{Name: string, Type: string}}
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | event descriptor signature を調べる RBXScriptSignal。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `argumentInfo` | `&#123;&#123;Name: string, Type: string&#125;&#125;` | 各エントリに Name と Type の strings が含まれる array table。シグネチャを読み取れない場合、またはエントリがない場合、この関数は Name が arg1、Type が Variant の fallback entry を 1 つ返します。 |
+
+## 例
+
+Inspect an RBXScriptSignal signature and print each argument name with its type name.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote then
+    for _, argument in ipairs(getsignalargumentsinfo(remote.OnClientEvent)) do
+        print(argument.Name, argument.Type)
+    end
+end
+```

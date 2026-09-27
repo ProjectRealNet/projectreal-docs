@@ -1,0 +1,28 @@
+---
+title: "rconsolecreate"
+sidebarTitle: "rconsolecreate"
+description: "Alloue une Windows console pour le processus lorsqu aucune console window n existe. Si une console window existe deja, le call retourne sans rien faire. Apres allocation, la function redirige stdout vers console output et stdin vers console input."
+icon: "function"
+keywords: ["rconsolecreate","Console","consolecreate"]
+---
+
+Alloue une Windows console pour le processus lorsqu aucune console window n existe. Si une console window existe deja, le call retourne sans rien faire. Apres allocation, la function redirige stdout vers console output et stdin vers console input.
+
+## Syntaxe
+
+```lua
+rconsolecreate()
+```
+
+## Alias
+
+- `consolecreate`
+
+## Exemple
+
+Create the Windows console once before writing console output.
+
+```lua
+rconsolecreate()
+rconsoleprint("Console ready")
+```

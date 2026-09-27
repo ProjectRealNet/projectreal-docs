@@ -1,0 +1,35 @@
+---
+title: "rconsolewarn"
+sidebarTitle: "rconsolewarn"
+description: "Writes zero or more values to the current Windows console using the warning text color, then restores the normal console text color. Values are converted to strings and separated with tabs. If no console window exists, the call returns without writing anything."
+icon: "function"
+keywords: ["rconsolewarn","Console","consolewarn"]
+---
+
+Writes zero or more values to the current Windows console using the warning text color, then restores the normal console text color. Values are converted to strings and separated with tabs. If no console window exists, the call returns without writing anything.
+
+## Syntax
+
+```lua
+rconsolewarn(...values?: ...any)
+```
+
+## Aliases
+
+- `consolewarn`
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `...values` | `...any` | No | Optional values. If a console exists, each value is converted to strings and joined with tab characters before writing. |
+
+## Example
+
+Write values to the current Windows console with the warning console text attribute. Values are tab-separated, no newline or warning prefix is added, and consolewarn is the same function.
+
+```lua
+rconsolecreate()
+rconsolewarn("Retrying request", 3)
+rconsolewarn("\n")
+```

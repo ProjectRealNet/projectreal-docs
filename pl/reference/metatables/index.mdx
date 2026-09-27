@@ -1,0 +1,21 @@
+---
+title: "Metatables"
+description: "Metatabele, metapola i metody wywoływania nazw."
+icon: "folder-code"
+---
+
+Metatabele, metapola i metody wywoływania nazw.
+
+| Nawigacja funkcji | Opis |
+| --- | --- |
+| [`getmetafield`](./getmetafield) | Returns a raw metafield value from the target metatable. target may be any value, and field must be a string. The function does not call the metafield, does not invoke __index lookup, and returns nil when the metatable or field is missing. |
+| [`getnamecallmethod`](./getnamecallmethod) | Zwraca current Luau namecall atom przechowywany w the current namecall method. Function nie przyjmuje arguments i zwraca exactly one value. Jesli the current namecall method istnieje, the current namecall method jest wieksze niz 0 i the current namecall method jest non-null, pushuje te data jako string przez string return. W przeciwnym razie pushuje nil. function nie sprawdza arguments, nie oblicza method name z target object i nie wywoluje zadnej metamethod. get_namecall_method jest alias dla getnamecallmethod. |
+| [`getrawmetatable`](./getrawmetatable) | Returns the metatable currently attached to a target value, or nil when none is present. The function returns exactly one value and does not change the target. debug.getmethods is an alias for getrawmethods. |
+| [`hasmetafield`](./hasmetafield) | Returns whether the target value has a non-nil raw metafield with the requested name. The function does not call the metafield, does not invoke __index lookup, and does not change readonly state. |
+| [`hasmetatable`](./hasmetatable) | Returns whether the target value has a metatable. The function returns one boolean and does not return or change the metatable itself. |
+| [`isreadonly`](./isreadonly) | Returns whether a table is readonly. The argument must be a table, and the function does not change it. |
+| [`makereadonly`](./makereadonly) | Marks a table as readonly and returns no values. |
+| [`makewriteable`](./makewriteable) | Marks a table as writable and returns no values. |
+| [`setnamecallmethod`](./setnamecallmethod) | Replaces the current namecall method string when a current namecall method exists. The method argument must be a string. If no current namecall method exists, the call returns no values and does not create one. set_namecall_method is an alias. |
+| [`setrawmetatable`](./setrawmetatable) | Sets the metatable for a target value and returns the original target. metatable must be a table or nil; nil clears the metatable. debug.setmethods is an alias for setrawmethods. |
+| [`setreadonly`](./setreadonly) | Sets whether a table is readonly and returns no values. |

@@ -1,0 +1,39 @@
+---
+title: "json.type"
+sidebarTitle: "json.type"
+description: "値の string type name を返します。json.null は \"null\" を返します。table は json.isArray と json.isObject と同じ table classification を使って \"array\" または \"object\" を返します。その他の値は runtime Lua type name result を返します。"
+icon: "function"
+keywords: ["json.type","JSON"]
+---
+
+値の string type name を返します。json.null は "null" を返します。table は json.isArray と json.isObject と同じ table classification を使って "array" または "object" を返します。その他の値は runtime Lua type name result を返します。
+
+## 構文
+
+```lua
+json.type(value: any): string
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | classify する値です。no value を渡すと、欠けている stack value の runtime type name を返します。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `jsonType` | `string` | Type name string です。検証済みの JSON-specific returns は "null"、"array"、"object" です。non-table かつ non-json.null の値は Lua type name を使い、runtime value に応じて "nil"、"boolean"、"number"、"integer"、"string"、"function"、"object"、"thread"、"buffer"、"class"、"object"、"vector"、"no value" などになります。 |
+
+## 例
+
+JSON helper が返す exact type string を確認します。
+
+```lua
+print(json.type(json.array({ "red", "blue" })))
+print(json.type(json.object({ enabled = true })))
+print(json.type(json.null))
+print(json.type(nil))
+print(json.type())
+```

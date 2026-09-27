@@ -1,0 +1,64 @@
+---
+title: "RealSignal.Connect"
+sidebarTitle: "RealSignal.Connect"
+description: "Connects a callback to a RealSignal and returns a RealSignalConnection. The callback receives the arguments passed to Fire."
+icon: "function"
+keywords: ["RealSignal.Connect","RealSignal"]
+---
+
+Connects a callback to a RealSignal and returns a RealSignalConnection. The callback receives the arguments passed to Fire.
+
+## Syntax
+
+```lua
+RealSignal.Connect(signal: RealSignal, callback: (....any) -> ()): RealSignalConnection
+```
+
+## Argumente
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `signal` | `RealSignal` | Yes | Signal object returned by Signal.new. |
+| `callback` | `(....any) -> ()` | Yes | Function called whenever the signal is fired while the connection remains connected. |
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `connection` | `RealSignalConnection` | Connection object with Disconnect. |
+
+## Typen
+
+### RealSignal
+
+Signal object returned by Signal.new.
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `Connect` | `(callback: (...any) -> ()) -> RealSignalConnection` | Yes | Adds a callback that runs when Fire is called. |
+| `Once` | `(callback: (...any) -> ()) -> RealSignalConnection` | Yes | Adds a callback that is disconnected before its first callback invocation. |
+| `Wait` | `() -> ...any` | Yes | Yields until Fire resumes the waiter with the fired values. |
+| `Fire` | `(...values: any) -> ()` | Yes | Runs connected callbacks and resumes waiters with the provided values. |
+
+### RealSignalConnection
+
+Connection object returned by RealSignal.Connect and RealSignal.Once.
+
+| Name | Type | Required | Beschreibung |
+| --- | --- | --- | --- |
+| `Disconnect` | `() -> ()` | Yes | Disconnects the connection. |
+
+## Beispiel
+
+Connect a callback and disconnect it when it is no longer needed.
+
+```lua
+local signal = Signal.new()
+
+local connection = signal:Connect(function(value)
+    print(value)
+end)
+
+signal:Fire(1)
+connection:Disconnect()
+```

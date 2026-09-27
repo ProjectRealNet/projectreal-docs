@@ -1,0 +1,62 @@
+---
+title: "openfilesdialog"
+sidebarTitle: "openfilesdialog"
+description: "通过 Windows file picker 打开启用 multi-select 的 Windows file-open dialog，并将选中的文件作为 file item 值返回。"
+icon: "function"
+keywords: ["openfilesdialog","Filesystem"]
+---
+
+通过 Windows file picker 打开启用 multi-select 的 Windows file-open dialog，并将选中的文件作为 file item 值返回。
+
+## 语法
+
+```lua
+openfilesdialog(options?: DialogOptions): { FileSystemItem } | nil
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table。openfilesdialog 会使用 title、defaultPath 和 extensionFilter。extensionFilter 是由 extension strings 组成的 table；每个 filter 变成 *.&lt;extension> 之前，会移除开头的 . 或 *.。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `files` | `&#123; FileSystemItem &#125; \| nil` | 所选文件的 file item 值组成的 Array table；如果 dialog 被取消，或没有返回 selected filesystem paths，则为 nil。Dialog failures 会抛出 Failed to open file dialog。 |
+
+## 类型
+
+### DialogOptions
+
+配置本机文件或文件夹选择对话框。
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `title` | `string` | No | 设置对话框窗口标题。 |
+| `defaultPath` | `string` | No | 选择对话框打开时显示的目录。 |
+| `extensionFilter` | `&#123;string&#125;` | No | 将可选文件限制为列出的扩展名，带或不带前导点。 |
+| `suggestedName` | `string` | No | 在保存对话框中提供初始文件名。 |
+| `defaultExtension` | `string` | No | 设置当输入的文件名没有扩展名时使用的扩展名。 |
+
+## 示例
+
+打开 file picker，选择一个或多个文件，并处理每个 selected file item。
+
+```lua
+local files = openfilesdialog({
+    title = "Choose source files",
+    defaultPath = ".",
+    extensionFilter = { "lua", "luau", "txt" },
+})
+
+if files then
+    for _, file in ipairs(files) do
+        print(file:GetName())
+        print(file:IsFile())
+    end
+else
+    print("No files selected")
+end
+```

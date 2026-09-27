@@ -1,0 +1,34 @@
+---
+title: "WebSocket.Send"
+sidebarTitle: "WebSocket.Send"
+description: "Envia uma Lua string por um WebSocket object retornado por WebSocket.connect. A method espera a WebSocket table como primeiro argument e a message string como segundo argument. Ela lê o connection state do object, lança \"WebSocket state is missing\" se esse object estiver ausente, retorna sem enviar quando o state está destroyed ou closed, e chama curl_ws_send com CURLWS_TEXT por padrão ou CURLWS_BINARY quando o terceiro argument opcional é boolean true. Ela não retorna values e não informa o número de bytes enviados."
+icon: "function"
+keywords: ["WebSocket.Send","WebSocket"]
+---
+
+Envia uma Lua string por um WebSocket object retornado por WebSocket.connect. A method espera a WebSocket table como primeiro argument e a message string como segundo argument. Ela lê o connection state do object, lança "WebSocket state is missing" se esse object estiver ausente, retorna sem enviar quando o state está destroyed ou closed, e chama curl_ws_send com CURLWS_TEXT por padrão ou CURLWS_BINARY quando o terceiro argument opcional é boolean true. Ela não retorna values e não informa o número de bytes enviados.
+
+## Sintaxe
+
+```lua
+WebSocket.Send(socket: WebSocket, message: string, isBinary?: boolean)
+```
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `socket` | `WebSocket` | Yes | WebSocket table retornada por WebSocket.connect. Send é resolvido pela WebSocket object methods, então a forma de chamada documentada é socket:Send(..). |
+| `message` | `string` | Yes | Lua string payload passada para curl_ws_send com seu explicit byte length. |
+| `isBinary` | `boolean` | No | Quando este argument está presente e é true, Send usa CURLWS_BINARY. Caso contrário usa CURLWS_TEXT. |
+
+## Exemplo
+
+Send text or binary data through a WebSocket object returned by WebSocket.connect.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket:Send("hello")
+socket:Send(string.char(0, 1, 2, 3), true)
+```

@@ -1,0 +1,22 @@
+---
+title: "mousemoverel"
+sidebarTitle: "mousemoverel"
+description: "Przesuwa mysz o relative delta, gdy Roblox window jest active. Argumenty x i y sa sprawdzane jako Lua numbers i konwertowane przez integer conversion, a potem przekazywane bezposrednio do mouse input z the requested mouse action jako dx i dy. Function nie uzywa the requested mouse action, nie wykonuje client-area conversion, nic nie zwraca i wraca bez wysylania input, gdy isrbxactive byloby false."
+icon: "function"
+keywords: ["mousemoverel","Input"]
+---
+
+Przesuwa mysz o relative delta, gdy Roblox window jest active. Argumenty x i y sa sprawdzane jako Lua numbers i konwertowane przez integer conversion, a potem przekazywane bezposrednio do mouse input z the requested mouse action jako dx i dy. Function nie uzywa the requested mouse action, nie wykonuje client-area conversion, nic nie zwraca i wraca bez wysylania input, gdy isrbxactive byloby false.
+
+## Składnia
+
+```lua
+mousemoverel(x: number, y: number)
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `x` | `number` | Yes | Relative X movement delta czytany jako Lua number i konwertowany przez integer conversion przed przekazaniem jako dx do mouse input. |
+| `y` | `number` | Yes | Relative Y movement delta czytany jako Lua number i konwertowany przez integer conversion przed przekazaniem jako dy do mouse input. |

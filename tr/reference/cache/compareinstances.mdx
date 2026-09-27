@@ -1,0 +1,40 @@
+---
+title: "compareinstances"
+sidebarTitle: "compareinstances"
+description: "Iki Instance object degerinde saklanan dahili Instance reference degerlerini karsilastirir."
+icon: "function"
+keywords: ["compareinstances","Cache"]
+---
+
+Iki Instance object degerinde saklanan dahili Instance reference degerlerini karsilastirir.
+
+## Söz dizimi
+
+```lua
+compareinstances(first: Instance, second: Instance): boolean
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `first` | `Instance` | Yes | Karsilastirilacak ilk Instance object. |
+| `second` | `Instance` | Yes | Karsilastirilacak ikinci Instance object. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `equal` | `boolean` | Iki Instance object degeri ayni dahili reference degerini iceriyorsa True. |
+
+## Örnek
+
+Iki Instance object degerinde saklanan dahili Instance reference degerlerini karsilastir.
+
+```lua
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+print(compareinstances(Players, Players))
+print(compareinstances(Players, ReplicatedStorage))
+```

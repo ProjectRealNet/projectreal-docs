@@ -1,0 +1,33 @@
+---
+title: "cache.invalidate"
+sidebarTitle: "cache.invalidate"
+description: "指定された Instance のキャッシュ済み Instance cache エントリを削除します。"
+icon: "function"
+keywords: ["cache.invalidate","Cache"]
+---
+
+指定された Instance のキャッシュ済み Instance cache エントリを削除します。
+
+## 構文
+
+```lua
+cache.invalidate(instance: Instance)
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | キャッシュ済み registry エントリを削除する Instance。 |
+
+## 例
+
+Real の cache から Instance を削除し、cache エントリがまだ存在するか確認します。
+
+```lua
+local Players = game:GetService("Players")
+
+cache.invalidate(Players)
+
+print(cache.iscached(Players))
+```

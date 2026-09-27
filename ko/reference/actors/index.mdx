@@ -1,0 +1,20 @@
+---
+title: "Actors"
+description: "실행 컨텍스트 및 행위자 통신."
+icon: "folder-code"
+---
+
+실행 컨텍스트 및 행위자 통신.
+
+| 함수 탐색 | 설명 |
+| --- | --- |
+| [`create_comm_channel`](./create-comm-channel) | Instance.new로 새 BindableEvent를 만들고, 해당 Instance reference를 numeric channel ID 아래 communication channel list에 저장한 뒤 ID와 BindableEvent Instance를 반환합니다. channel ID는 current map size plus one으로 계산됩니다. Instance.new("BindableEvent")가 stack에 object value를 남기지 않으면 function은 "Failed to make a BindableEvent"를 발생시킵니다. |
+| [`get_comm_channel`](./get-comm-channel) | communication channel list에서 channel ID를 조회하고 저장된 BindableEvent Instance를 반환합니다. 첫 번째 argument는 number여야 하며 lookup 전에 integer conversion로 변환됩니다. 해당 ID의 entry가 없으면 function은 nil을 반환합니다. |
+| [`getactorfromthread`](./getactorfromthread) | Luau thread와 연결된 Actor Instance를 반환합니다. 첫 번째 argument는 thread여야 합니다. function은 thread의 thread data를 읽고 Actor reference 및 positive container count를 요구한 다음 the associated Actor를 읽습니다. actor weak reference가 유효하면 Instance로 push하고, 그렇지 않으면 function은 nil을 반환합니다. |
+| [`getactors`](./getactors) | ScriptContext actor thread list에서 resolve된 live Actor Instances의 array table을 반환합니다. 이 function은 arguments를 받지 않습니다. actor thread list를 순회하고 각 actor Lua state를 복호화하며 valid threads인 entries를 유지한 다음 각 thread의 thread data와 the associated Actor weak reference를 읽습니다. non-expired actor references만 Instances로 push됩니다. container가 없거나 Actor reference가 없거나 reference count &lt;= 0이거나 expired actor reference가 있는 entries는 건너뜁니다. |
+| [`getactorthreads`](./getactorthreads) | actor thread list에서 Luau threads의 array table을 반환합니다. 이 function은 arguments를 받지 않습니다. ScriptContext에서 actor list bounds를 읽고 각 actor state entry를 순회하며 stored global state를 Luau thread로 복호화하고 valid threads인 entries만 포함합니다. |
+| [`getcurrentactor`](./getcurrentactor) | 현재 Luau thread와 연결된 Actor Instance를 반환합니다. 이 function은 arguments를 받지 않습니다. getactorfromthread가 사용하는 것과 동일한 actor resolver로 현재 Luau thread를 resolve합니다. thread data가 존재해야 하고, Actor reference가 존재해야 하며, reference count가 0보다 커야 하고, the associated Actor는 non-expired weak reference를 가지고 있어야 합니다. valid actor reference가 없으면 function은 nil을 반환합니다. |
+| [`getdeletedactors`](./getdeletedactors) | thread data에 Actor reference가 있고 reference count가 0보다 크며 the associated Actor가 expired weak reference인 actor list의 Luau threads array table을 반환합니다. 이 function은 arguments를 받지 않습니다. Actor Instance values를 반환하지 않습니다. |
+| [`isparallel`](./isparallel) | 현재 Luau thread의 ScriptContext DataModel에서 boolean을 반환합니다. 이 function은 arguments를 받지 않습니다. parallel execution status를 반환하는 the current parallel execution status을 읽습니다. the current DataModel이 DataModel를 반환하지 않으면 function은 false를 반환합니다. checkparallel은 같은 function의 alias입니다. |
+| [`run_on_actor`](./run-on-actor) | Runs Luau source on the thread associated with a target Actor Instance. The first argument must be an Instance whose ClassName is Actor, and the second argument must be a non-empty source string. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonactor is an alias. |
+| [`run_on_thread`](./run-on-thread) | Runs Luau source on a specific Luau thread. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonthread is an alias. |

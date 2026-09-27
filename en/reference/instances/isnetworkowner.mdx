@@ -1,0 +1,40 @@
+---
+title: "isnetworkowner"
+sidebarTitle: "isnetworkowner"
+description: "Returns true when the Instance reports a NetworkOwnerV3 value greater than 2. Errors from reading that hidden property are not caught by this function."
+icon: "function"
+keywords: ["isnetworkowner","Instances"]
+---
+
+Returns true when the Instance reports a NetworkOwnerV3 value greater than 2. Errors from reading that hidden property are not caught by this function.
+
+## Syntax
+
+```lua
+isnetworkowner(instance: Instance): boolean
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance whose NetworkOwnerV3 hidden property is checked. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `isOwner` | `boolean` | true when the first NetworkOwnerV3 value is greater than 2; otherwise false. |
+
+## Example
+
+Check network ownership for a BasePart Instance.
+
+```lua
+local part = workspace:FindFirstChildWhichIsA("BasePart", true)
+
+if part then
+    local ownsNetwork = isnetworkowner(part)
+    print(ownsNetwork)
+end
+```

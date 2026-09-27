@@ -1,0 +1,62 @@
+---
+title: "savefiledialog"
+sidebarTitle: "savefiledialog"
+description: "Membuka Windows save dialog melalui Windows save dialog, menulis Lua string bytes yang diberikan ke selected path, dan mengembalikan saved file sebagai file item."
+icon: "function"
+keywords: ["savefiledialog","Filesystem"]
+---
+
+Membuka Windows save dialog melalui Windows save dialog, menulis Lua string bytes yang diberikan ke selected path, dan mengembalikan saved file sebagai file item.
+
+## Sintaks
+
+```lua
+savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `content` | `string` | Yes | Lua string bytes yang ditulis ke selected file. File dibuka dalam binary truncate mode setelah pengguna mengonfirmasi path. |
+| `options` | `DialogOptions` | No | Optional table. savefiledialog memakai title, defaultPath, extensionFilter, suggestedName, dan defaultExtension. extensionFilter adalah table berisi extension strings; awalan . atau *. dihapus sebelum setiap filter menjadi *.&lt;extension>. defaultExtension menghapus leading . characters sebelum diteruskan ke SetDefaultExtension. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Saved file item, atau nil saat dialog dibatalkan. Dialog or write failures melempar Failed to save file. |
+
+## Tipe
+
+### DialogOptions
+
+Mengonfigurasi dialog pemilihan file atau folder asli.
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Menetapkan judul jendela dialog. |
+| `defaultPath` | `string` | No | Memilih direktori yang ditampilkan saat dialog terbuka. |
+| `extensionFilter` | `&#123;string&#125;` | No | Membatasi file yang dapat dipilih ke ekstensi yang tercantum, dengan atau tanpa titik di depannya. |
+| `suggestedName` | `string` | No | Memberikan nama file awal dalam dialog penyimpanan. |
+| `defaultExtension` | `string` | No | Menetapkan ekstensi yang digunakan ketika nama file yang dimasukkan tidak ada. |
+
+## Contoh
+
+Tulis generated content ke path yang dipilih pengguna dan tangani saved file item.
+
+```lua
+local saved = savefiledialog("Example output", {
+    title = "Save output",
+    suggestedName = "output.txt",
+    defaultExtension = "txt",
+    extensionFilter = { "txt" },
+})
+
+if saved then
+    print(saved:GetName())
+    print(saved:IsFile())
+else
+    print("No file saved")
+end
+```

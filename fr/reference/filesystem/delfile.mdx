@@ -1,0 +1,33 @@
+---
+title: "delfile"
+sidebarTitle: "delfile"
+description: "Supprime un regular file existant dans le workspace."
+icon: "function"
+keywords: ["delfile","Filesystem"]
+---
+
+Supprime un regular file existant dans le workspace.
+
+## Syntaxe
+
+```lua
+delfile(path: string)
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path resolu dans le workspace apres separator normalization et workspace-boundary checks. La cible doit exister et etre un regular file; les folders ne sont pas acceptes. |
+
+## Exemple
+
+Supprime un workspace file existant.
+
+```lua
+local path = "examples/temporary.txt"
+writefile(path, "temporary")
+
+delfile(path)
+print(isfile(path))
+```

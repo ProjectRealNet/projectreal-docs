@@ -1,0 +1,41 @@
+---
+title: "listfiles"
+sidebarTitle: "listfiles"
+description: "Returns an array table of the direct children of an existing workspace directory."
+icon: "function"
+keywords: ["listfiles","Filesystem"]
+---
+
+Returns an array table of the direct children of an existing workspace directory.
+
+## Cú pháp
+
+```lua
+listfiles(path: string): table
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Directory path resolved inside the workspace after separator normalization and workspace-boundary checks. Empty path or / is treated as ./; invalid or outside-workspace paths error. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `paths` | `table` | Array table of workspace-relative path strings for direct child entries. Files and folders can both be included; entries are not sorted by this function. |
+
+## Ví dụ
+
+Liet ke direct child paths ben trong workspace directory dang ton tai.
+
+```lua
+makefolder("examples/listing")
+writefile("examples/listing/config.json", "{}")
+makefolder("examples/listing/nested")
+
+for _, path in ipairs(listfiles("examples/listing")) do
+    print(path)
+end
+```

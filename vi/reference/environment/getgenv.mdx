@@ -1,0 +1,33 @@
+---
+title: "getgenv"
+sidebarTitle: "getgenv"
+description: "Tra ve current executor environment table bang cach pushing LUA_ENVIRONINDEX. Function khong nhan arguments, tra ve exactly one value, va khong co registered alias. Call-sites trong repository dung returned table de doc va ghi shared executor globals nhu __siApiCache va saveinstance."
+icon: "function"
+keywords: ["getgenv","Environment"]
+---
+
+Tra ve current executor environment table bang cach pushing LUA_ENVIRONINDEX. Function khong nhan arguments, tra ve exactly one value, va khong co registered alias. Call-sites trong repository dung returned table de doc va ghi shared executor globals nhu __siApiCache va saveinstance.
+
+## Cú pháp
+
+```lua
+getgenv(): table
+```
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `environment` | `table` | Table hien duoc luu tai LUA_ENVIRONINDEX cho state nay. |
+
+## Ví dụ
+
+Read and write values on the current executor environment table.
+
+```lua
+local env = getgenv()
+
+env.RealDocsValue = "ready"
+
+print(getgenv().RealDocsValue)
+```

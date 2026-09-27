@@ -1,0 +1,21 @@
+---
+title: "imgui.setvsync"
+sidebarTitle: "imgui.setvsync"
+description: "更新 ImGui renderer 的 vertical synchronization preference。当前 presentation path 会存储此 preference，但不会应用它。"
+icon: "function"
+keywords: ["imgui.setvsync","ImGui"]
+---
+
+更新 ImGui renderer 的 vertical synchronization preference。当前 presentation path 会存储此 preference，但不会应用它。
+
+## 语法
+
+```lua
+imgui.setvsync(enabled: boolean)
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `enabled` | `boolean` | Yes | `true` 表示请求 vertical synchronization；`false` 表示请求 uncapped presentation。 |

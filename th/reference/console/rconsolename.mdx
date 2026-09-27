@@ -1,0 +1,36 @@
+---
+title: "rconsolename"
+sidebarTitle: "rconsolename"
+description: "ตั้งค่า title ของ Windows console window ปัจจุบันด้วย Windows console title update argument แรกต้องเป็น string และถูกตรวจสอบก่อน console existence check หากไม่มี console window หลังจาก string check สำเร็จ การเรียกจะกลับโดยไม่ทำอะไร"
+icon: "function"
+keywords: ["rconsolename","Console","consolename","rconsolesettitle","consolesettitle"]
+---
+
+ตั้งค่า title ของ Windows console window ปัจจุบันด้วย Windows console title update argument แรกต้องเป็น string และถูกตรวจสอบก่อน console existence check หากไม่มี console window หลังจาก string check สำเร็จ การเรียกจะกลับโดยไม่ทำอะไร
+
+## ไวยากรณ์
+
+```lua
+rconsolename(text: string)
+```
+
+## Aliases
+
+- `consolename`
+- `rconsolesettitle`
+- `consolesettitle`
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | ค่าข้อความที่ใช้โดยการดำเนินการ |
+
+## ตัวอย่าง
+
+Set the current Windows console window title.
+
+```lua
+rconsolecreate()
+rconsolename("Real Console")
+```

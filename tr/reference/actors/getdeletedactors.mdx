@@ -1,0 +1,33 @@
+---
+title: "getdeletedactors"
+sidebarTitle: "getdeletedactors"
+description: "thread data değeri Actor reference içeren, reference count değeri 0 değerinden büyük olan ve the associated Actor değeri expired weak reference olan actor list içindeki Luau threads için bir array table döndürür. Function arguments almaz. Actor Instance values döndürmez."
+icon: "function"
+keywords: ["getdeletedactors","Actors"]
+---
+
+thread data değeri Actor reference içeren, reference count değeri 0 değerinden büyük olan ve the associated Actor değeri expired weak reference olan actor list içindeki Luau threads için bir array table döndürür. Function arguments almaz. Actor Instance values döndürmez.
+
+## Söz dizimi
+
+```lua
+getdeletedactors(): table
+```
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `threads` | `table` | Actor weak reference değeri expired olan actor entries için Luau thread values içeren array table. |
+
+## Örnek
+
+List actor threads whose Actor weak reference is expired.
+
+```lua
+local deletedActorThreads = getdeletedactors()
+
+for _, thread in ipairs(deletedActorThreads) do
+    print(thread)
+end
+```

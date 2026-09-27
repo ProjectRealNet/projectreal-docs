@@ -1,0 +1,37 @@
+---
+title: "getnamecallmethod"
+sidebarTitle: "getnamecallmethod"
+description: "the current namecall method に保存されている current Luau namecall atom を返します。この function は arguments を取らず、exactly one value を返します。the current namecall method が存在し、the current namecall method が 0 より大きく、the current namecall method が non-null の場合、その data を string return で string として push します。それ以外の場合は nil を push します。function は arguments を検査せず、target object から method name を計算せず、metamethod を呼び出しません。get_namecall_method は getnamecallmethod の alias です。"
+icon: "function"
+keywords: ["getnamecallmethod","Metatables","get_namecall_method"]
+---
+
+the current namecall method に保存されている current Luau namecall atom を返します。この function は arguments を取らず、exactly one value を返します。the current namecall method が存在し、the current namecall method が 0 より大きく、the current namecall method が non-null の場合、その data を string return で string として push します。それ以外の場合は nil を push します。function は arguments を検査せず、target object から method name を計算せず、metamethod を呼び出しません。get_namecall_method は getnamecallmethod の alias です。
+
+## 構文
+
+```lua
+getnamecallmethod(): string | nil
+```
+
+## エイリアス
+
+- `get_namecall_method`
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `method` | `string \| nil` | 存在して non-empty の場合は current the current namecall method data string。それ以外は nil。 |
+
+## 例
+
+Read the current L->namecall string when Real is inside namecall handling.
+
+```lua
+local method = getnamecallmethod()
+print(method)
+
+local aliasMethod = get_namecall_method()
+print(aliasMethod)
+```

@@ -1,0 +1,28 @@
+---
+title: "gethui"
+sidebarTitle: "gethui"
+description: "Retourne game:CoreGui lookup.RobloxGui. La function ne prend aucun arguments. Si CoreGui lookup retourne nil, ou si RobloxGui sur cette valeur est nil, la function retourne nil. L function ne cree aucun container et n utilise pas la valeur mise en cache CoreGui."
+icon: "function"
+keywords: ["gethui","Instances","gethiddenui","gethiddengui","get_hidden_ui","get_hidden_gui"]
+---
+
+Retourne game:CoreGui lookup.RobloxGui. La function ne prend aucun arguments. Si CoreGui lookup retourne nil, ou si RobloxGui sur cette valeur est nil, la function retourne nil. L function ne cree aucun container et n utilise pas la valeur mise en cache CoreGui.
+
+## Syntaxe
+
+```lua
+gethui(): Instance | nil
+```
+
+## Alias
+
+- `gethiddenui`
+- `gethiddengui`
+- `get_hidden_ui`
+- `get_hidden_gui`
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `robloxGui` | `Instance \| nil` | La valeur RobloxGui lue depuis CoreGui, ou nil lorsque CoreGui ou RobloxGui est indisponible. |

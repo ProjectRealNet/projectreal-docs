@@ -1,0 +1,62 @@
+---
+title: "savefiledialog"
+sidebarTitle: "savefiledialog"
+description: "Windows save dialog 를 통해 Windows save dialog 를 열고 제공된 Lua string bytes 를 selected path 에 쓴 뒤 saved file 을 file item 으로 반환합니다."
+icon: "function"
+keywords: ["savefiledialog","Filesystem"]
+---
+
+Windows save dialog 를 통해 Windows save dialog 를 열고 제공된 Lua string bytes 를 selected path 에 쓴 뒤 saved file 을 file item 으로 반환합니다.
+
+## 문법
+
+```lua
+savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `content` | `string` | Yes | selected file 에 쓸 Lua string bytes 입니다. 사용자가 path 를 확인한 뒤 파일은 binary truncate mode 로 열립니다. |
+| `options` | `DialogOptions` | No | Optional table. savefiledialog 는 title, defaultPath, extensionFilter, suggestedName, defaultExtension 을 사용합니다. extensionFilter 는 extension strings 의 table 입니다. 각 filter 가 *.&lt;extension> 이 되기 전에 앞의 . 또는 *. 가 제거됩니다. defaultExtension 은 SetDefaultExtension 에 전달되기 전에 leading . characters 를 제거합니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Saved file item 이거나 dialog 가 취소되면 nil 입니다. Dialog or write failures 는 Failed to save file 를 throw 합니다. |
+
+## 타입
+
+### DialogOptions
+
+기본 파일 또는 폴더 선택 대화 상자를 구성합니다.
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `title` | `string` | No | 대화 상자 창 제목을 설정합니다. |
+| `defaultPath` | `string` | No | 대화 상자가 열릴 때 표시되는 디렉터리를 선택합니다. |
+| `extensionFilter` | `&#123;string&#125;` | No | 선택 가능한 파일을 앞에 점이 있거나 없이 나열된 확장자로 제한합니다. |
+| `suggestedName` | `string` | No | 저장 대화 상자에 초기 파일 이름을 제공합니다. |
+| `defaultExtension` | `string` | No | 입력한 파일 이름이 없을 때 사용되는 확장자를 설정합니다. |
+
+## 예제
+
+generated content 를 사용자가 선택한 path 에 쓰고 saved file item 을 처리합니다.
+
+```lua
+local saved = savefiledialog("Example output", {
+    title = "Save output",
+    suggestedName = "output.txt",
+    defaultExtension = "txt",
+    extensionFilter = { "txt" },
+})
+
+if saved then
+    print(saved:GetName())
+    print(saved:IsFile())
+else
+    print("No file saved")
+end
+```

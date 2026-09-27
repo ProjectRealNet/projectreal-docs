@@ -1,0 +1,36 @@
+---
+title: "setreadonly"
+sidebarTitle: "setreadonly"
+description: "Sets whether a table is readonly and returns no values."
+icon: "function"
+keywords: ["setreadonly","Metatables"]
+---
+
+Sets whether a table is readonly and returns no values.
+
+## Sintaxis
+
+```lua
+setreadonly(target: table, readonly: boolean)
+```
+
+## Argumentos
+
+| Name | Type | Required | Descripción |
+| --- | --- | --- | --- |
+| `target` | `table` | Yes | Table whose readonly status is changed. |
+| `readonly` | `boolean` | Yes | Boolean readonly value to apply. |
+
+## Ejemplo
+
+Set a table's readonly flag to a specific boolean value.
+
+```lua
+local target = {}
+
+setreadonly(target, true)
+print(isreadonly(target))
+
+setreadonly(target, false)
+print(isreadonly(target))
+```

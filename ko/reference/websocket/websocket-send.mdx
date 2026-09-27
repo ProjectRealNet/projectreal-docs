@@ -1,0 +1,34 @@
+---
+title: "WebSocket.Send"
+sidebarTitle: "WebSocket.Send"
+description: "WebSocket.connect가 반환한 WebSocket object를 통해 Lua string을 보냅니다. 이 method는 첫 번째 argument로 WebSocket table, 두 번째 argument로 message string을 예상합니다. object의 connection state를 읽고, 해당 object가 없으면 \"WebSocket state is missing\"을 발생시킵니다. state가 destroyed 또는 closed이면 보내지 않고 반환하며, 기본적으로 CURLWS_TEXT로 curl_ws_send를 호출하거나 선택적 세 번째 argument가 boolean true이면 CURLWS_BINARY로 호출합니다. values를 반환하지 않고 전송된 bytes 수도 보고하지 않습니다."
+icon: "function"
+keywords: ["WebSocket.Send","WebSocket"]
+---
+
+WebSocket.connect가 반환한 WebSocket object를 통해 Lua string을 보냅니다. 이 method는 첫 번째 argument로 WebSocket table, 두 번째 argument로 message string을 예상합니다. object의 connection state를 읽고, 해당 object가 없으면 "WebSocket state is missing"을 발생시킵니다. state가 destroyed 또는 closed이면 보내지 않고 반환하며, 기본적으로 CURLWS_TEXT로 curl_ws_send를 호출하거나 선택적 세 번째 argument가 boolean true이면 CURLWS_BINARY로 호출합니다. values를 반환하지 않고 전송된 bytes 수도 보고하지 않습니다.
+
+## 문법
+
+```lua
+WebSocket.Send(socket: WebSocket, message: string, isBinary?: boolean)
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `socket` | `WebSocket` | Yes | WebSocket.connect가 반환한 WebSocket table입니다. Send는 WebSocket object methods에서 resolve되므로 문서화된 호출 형식은 socket:Send(..)입니다. |
+| `message` | `string` | Yes | explicit byte length와 함께 curl_ws_send에 전달되는 Lua string payload입니다. |
+| `isBinary` | `boolean` | No | 이 argument가 있고 true이면 Send는 CURLWS_BINARY를 사용합니다. 그렇지 않으면 CURLWS_TEXT를 사용합니다. |
+
+## 예제
+
+Send text or binary data through a WebSocket object returned by WebSocket.connect.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket:Send("hello")
+socket:Send(string.char(0, 1, 2, 3), true)
+```

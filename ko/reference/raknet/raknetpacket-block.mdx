@@ -1,0 +1,63 @@
+---
+title: "RakNetPacket.Block"
+sidebarTitle: "RakNetPacket.Block"
+description: "Marks a live RakNetPacket as blocked. Ignore resolves to the same method. The method returns no values."
+icon: "function"
+keywords: ["RakNetPacket.Block","RakNet","RakNetPacket.Ignore"]
+---
+
+Marks a live RakNetPacket as blocked. Ignore resolves to the same method. The method returns no values.
+
+## 문법
+
+```lua
+RakNetPacket.Block(packet: RakNetPacket)
+```
+
+## 별칭
+
+- `RakNetPacket.Ignore`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `packet` | `RakNetPacket` | Yes | Live packet object passed to a RakNet hook or signal callback. |
+
+## 타입
+
+### RakNetPacket
+
+Live packet object passed to RakNet hooks and packet signal callbacks. It is only valid during the callback that receives it.
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `SetData` | `(data: string \| buffer \| &#123;number&#125;) -> ()` | Yes | Replaces packet bytes and updates the packet id from the first byte, or 0 for empty data. |
+| `Block` | `() -> ()` | Yes | Marks the packet as blocked. |
+| `Ignore` | `() -> ()` | Yes | Alias that resolves to Block. |
+| `AsString` | `string` | Yes | Packet bytes as a Lua string. |
+| `AsArray` | `&#123;number&#125;` | Yes | Packet bytes as a 1-based array of numbers. |
+| `AsBuffer` | `buffer` | Yes | Packet bytes as a buffer. |
+| `Data` | `buffer` | Yes | Packet bytes as a buffer. |
+| `ID` | `number` | Yes | Packet id value. PacketId, PacketID, and Id resolve to the same value. |
+| `Priority` | `number` | Yes | Packet priority value. |
+| `Reliability` | `number` | Yes | Packet reliability value. |
+| `OrderingChannel` | `number` | Yes | Packet ordering channel value. |
+| `SystemIdentifier` | `string` | Yes | Packet system identifier as decimal string. |
+| `Broadcast` | `boolean` | Yes | Packet broadcast flag. |
+| `ForceReceiptNumber` | `number` | Yes | Packet receipt number. |
+| `Size` | `number` | Yes | Number of bytes in the packet data. |
+
+## 예제
+
+Mark a live packet as blocked from inside a packet callback.
+
+```lua
+if RakNet.is_enabled then
+    RakNet.OnPacketSend:Connect(function(packet)
+        if packet.ID == 0 then
+            packet:Block()
+        end
+    end)
+end
+```

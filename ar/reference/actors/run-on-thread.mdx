@@ -1,0 +1,41 @@
+---
+title: "run_on_thread"
+sidebarTitle: "run_on_thread"
+description: "Runs Luau source on a specific Luau thread. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonthread is an alias."
+icon: "function"
+keywords: ["run_on_thread","Actors","runonthread"]
+---
+
+Runs Luau source on a specific Luau thread. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonthread is an alias.
+
+## الصيغة
+
+```lua
+run_on_thread(thread: thread, source: string, ...arguments?: ...any)
+```
+
+## أسماء بديلة
+
+- `runonthread`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `thread` | `thread` | Yes | Target Luau thread used to run the source. |
+| `source` | `string` | Yes | Non-empty Luau source string to run on the target thread. |
+| `...arguments` | `...any` | No | Additional values passed to the dispatched source when supported. Unsupported values are passed as nil. |
+
+## مثال
+
+Run source on a target Luau thread.
+
+```lua
+local thread = getactorthreads()[1]
+
+if thread then
+    run_on_thread(thread, [[
+        print(getcurrentactor())
+    ]])
+end
+```

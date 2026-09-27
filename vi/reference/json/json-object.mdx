@@ -1,0 +1,42 @@
+---
+title: "json.object"
+sidebarTitle: "json.object"
+description: "Tao new table marked as a JSON object de Real JSON encoder xu ly nhu object."
+icon: "function"
+keywords: ["json.object","JSON"]
+---
+
+Tao new table marked as a JSON object de Real JSON encoder xu ly nhu object.
+
+## Cú pháp
+
+```lua
+json.object(source?: table): table
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `source` | `table` | No | Optional source table de copy vao new object table. Neu omitted hoac nil, tra ve empty object table. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `object` | `table` | New table marked voi Real JSON object marker. Source entries duoc copy, tru Real JSON type marker. |
+
+## Ví dụ
+
+Create new table marked as a JSON object, bao gom empty object.
+
+```lua
+local profile = json.object({
+    name = "Guest",
+    active = true,
+})
+local empty = json.object()
+
+print(json.encode(profile))
+print(json.encode(empty))
+```

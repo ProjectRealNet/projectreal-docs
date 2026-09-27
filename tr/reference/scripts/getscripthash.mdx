@@ -1,0 +1,47 @@
+---
+title: "getscripthash"
+sidebarTitle: "getscripthash"
+description: "Bir Roblox script object icindeki stored bytecode string icin uppercase SHA384 hex digest dondurur. Argument object olmalidir. Ortak bytecode reader, ModuleScript, LocalScript, CoreScript ve Script ClassName degerlerini kabul eder. Script icin RunContext Client olmalidir. ClassName eksikse function \"Invalid Instance\" firlatir. ClassName desteklenen script classes icinde degilse \"Script expected\" firlatir. Deger farkli RunContext iceren bir Script ise \"Expected a Script with RunContext set to Client\" firlatir. Embedded bytecode reference gecersizse veya stored bytecode uzunlugu 8 bytes ya da daha azsa function nil dondurur. Aksi halde tam stored bytecode bytes degerini SHA384 ile hash eder ve uppercase hex string dondurur. Function DecompressBytecode cagirmaz ve decompressed bytecode hash etmez."
+icon: "function"
+keywords: ["getscripthash","Scripts"]
+---
+
+Bir Roblox script object icindeki stored bytecode string icin uppercase SHA384 hex digest dondurur. Argument object olmalidir. Ortak bytecode reader, ModuleScript, LocalScript, CoreScript ve Script ClassName degerlerini kabul eder. Script icin RunContext Client olmalidir. ClassName eksikse function "Invalid Instance" firlatir. ClassName desteklenen script classes icinde degilse "Script expected" firlatir. Deger farkli RunContext iceren bir Script ise "Expected a Script with RunContext set to Client" firlatir. Embedded bytecode reference gecersizse veya stored bytecode uzunlugu 8 bytes ya da daha azsa function nil dondurur. Aksi halde tam stored bytecode bytes degerini SHA384 ile hash eder ve uppercase hex string dondurur. Function DecompressBytecode cagirmaz ve decompressed bytecode hash etmez.
+
+## Söz dizimi
+
+```lua
+getscripthash(script: userdata): string | nil
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | Hashlenecek Script object. Desteklenen ClassName degerleri ModuleScript, LocalScript, CoreScript ve RunContext Client olan Script degeridir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `hash` | `string \| nil` | stored bytecode bytes icin uppercase SHA384 hex digest, veya kullanilabilir embedded bytecode yoksa nil. |
+
+## Örnek
+
+Hash the bytecode of a supported Roblox script Instance when bytecode is available.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local hash = getscripthash(targetScript)
+    print(hash)
+end
+```

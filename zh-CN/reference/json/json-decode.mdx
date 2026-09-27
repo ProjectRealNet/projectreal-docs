@@ -1,0 +1,52 @@
+---
+title: "json.decode"
+sidebarTitle: "json.decode"
+description: "使用 Real JSON parser 解析 JSON string，并返回 decoded Lua value，同时为 JSON helpers 标记 decoded arrays 和 objects。"
+icon: "function"
+keywords: ["json.decode","JSON"]
+---
+
+使用 Real JSON parser 解析 JSON string，并返回 decoded Lua value，同时为 JSON helpers 标记 decoded arrays 和 objects。
+
+## 语法
+
+```lua
+json.decode(json: string, options?: DecodeOptions): any
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | 要解析的 JSON text。parser 接受一个带有 optional surrounding whitespace 的 JSON value，并在发现 invalid syntax 或 trailing non-whitespace characters 时抛出错误。 |
+| `options` | `DecodeOptions` | No | Optional decode options。boolean 会直接设置 useNull。table 可以设置 useNull 和 maxDepth；maxDepth 会 clamp 到 1 到 4096。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `decoded` | `any` | Decoded value。JSON objects 和 arrays 会变成带有 JSON type markers 的 tables，strings 变成 Lua strings，numbers 变成 Lua numbers，booleans 变成 booleans，null 会变成 json.null，除非 useNull 为 false。 |
+
+## 类型
+
+### DecodeOptions
+
+控制 JSON 解析行为。
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | 使用库的 null 标记而不是 nil 来表示 JSON null。 |
+| `maxDepth` | `integer` | No | 设置最大嵌套深度，范围为 1 到 4096。 |
+
+## 示例
+
+将 JSON decode 为 Lua values，同时保留 JSON array、object 和 null markers。
+
+```lua
+local value = json.decode('{"name":"Real","tags":["docs"],"missing":null}')
+
+print(value.name)
+print(value.tags[1])
+print(json.type(value))
+print(json.isNull(value.missing))
+```

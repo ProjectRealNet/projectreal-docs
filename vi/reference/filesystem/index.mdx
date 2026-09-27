@@ -1,0 +1,25 @@
+---
+title: "Filesystem"
+description: "Đọc, ghi và quản lý tập tin và thư mục."
+icon: "folder-code"
+---
+
+Đọc, ghi và quản lý tập tin và thư mục.
+
+| Điều hướng hàm | Mô tả |
+| --- | --- |
+| [`appendfile`](./appendfile) | Appends raw Lua string bytes to a workspace file using binary append mode. The file may be created if its parent folder exists. |
+| [`delfile`](./delfile) | Xoa mot regular file dang ton tai ben trong workspace. |
+| [`delfolder`](./delfolder) | Xoa mot folder dang ton tai ben trong workspace theo recursive bang recursive folder deletion. |
+| [`getcustomasset`](./getcustomasset) | Sao chep mot regular workspace file dang ton tai vao ExtraContent/&lt;hwid>/ va tra ve rbxasset:// string cho asset path da sao chep. |
+| [`isfile`](./isfile) | Returns whether a path resolved inside the workspace exists and is a regular file. |
+| [`isfolder`](./isfolder) | Returns whether a path resolved inside the workspace exists and is a directory. |
+| [`listfiles`](./listfiles) | Returns an array table of the direct children of an existing workspace directory. |
+| [`loadfile`](./loadfile) | Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it. |
+| [`makefolder`](./makefolder) | Tao directory ben trong workspace bang recursive folder creation, bao gom missing parent directories. |
+| [`openfiledialog`](./openfiledialog) | Mo Windows file-open dialog qua Windows file picker va tra ve file da chon duoi dang file item. |
+| [`openfilesdialog`](./openfilesdialog) | Mo Windows file-open dialog thong qua Windows file picker voi multi-select duoc bat va tra ve cac tep da chon duoi dang gia tri file item. |
+| [`openfolderdialog`](./openfolderdialog) | Mo Windows folder picker thong qua Windows file picker voi folder selection mode va tra ve thu muc da chon duoi dang file item. |
+| [`readfile`](./readfile) | Doc existing regular file ben trong workspace o binary mode va tra ve bytes cua no duoi dang Lua string. |
+| [`savefiledialog`](./savefiledialog) | Mo Windows save dialog thong qua Windows save dialog, ghi Lua string bytes duoc cung cap vao selected path va tra ve saved file duoi dang file item. |
+| [`writefile`](./writefile) | Ghi Lua string bytes vao mot tep ben trong workspace, tao missing parent directories va thay the file contents neu tep da ton tai. |

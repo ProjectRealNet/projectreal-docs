@@ -1,0 +1,42 @@
+---
+title: "json.object"
+sidebarTitle: "json.object"
+description: "ينشئ new table marked as a JSON object حتى يعاملها Real JSON encoder كـ object."
+icon: "function"
+keywords: ["json.object","JSON"]
+---
+
+ينشئ new table marked as a JSON object حتى يعاملها Real JSON encoder كـ object.
+
+## الصيغة
+
+```lua
+json.object(source?: table): table
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `source` | `table` | No | Optional source table يتم copy لها داخل new object table. اذا كانت omitted او nil، يتم ارجاع empty object table. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `object` | `table` | New table marked مع Real JSON object marker. Source entries يتم copy لها، باستثناء Real JSON type marker. |
+
+## مثال
+
+Create new table marked as a JSON object، بما في ذلك empty object.
+
+```lua
+local profile = json.object({
+    name = "Guest",
+    active = true,
+})
+local empty = json.object()
+
+print(json.encode(profile))
+print(json.encode(empty))
+```

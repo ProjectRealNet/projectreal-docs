@@ -1,0 +1,59 @@
+---
+title: "json.decodeSafe"
+sidebarTitle: "json.decodeSafe"
+description: "json.decode 와 같은 parser 로 JSON 을 parse 하고 parse errors 에 대해 throw 하는 대신 success flag 를 반환합니다."
+icon: "function"
+keywords: ["json.decodeSafe","JSON"]
+---
+
+json.decode 와 같은 parser 로 JSON 을 parse 하고 parse errors 에 대해 throw 하는 대신 success flag 를 반환합니다.
+
+## 문법
+
+```lua
+json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | parse 할 JSON text 입니다. 이 argument 는 parse errors 가 catch 되기 전에 string 으로 검사됩니다. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean 은 useNull 을 직접 설정합니다. table 은 useNull 과 maxDepth 를 설정할 수 있습니다. maxDepth 는 1 에서 4096 으로 clamp 됩니다. Invalid option argument types 는 parse errors 가 catch 되기 전에 검사됩니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `success` | `boolean` | parsing 이 성공하면 True, parser 가 error 를 보고하면 false 입니다. |
+| `decoded` | `any \| nil` | 성공 시 Decoded value, parse failure 시 nil 입니다. 유효한 JSON false 는 success 를 true 로, decoded 를 false 로 반환하므로 success return value 를 확인하세요. |
+| `errorMessage` | `string \| nil` | parse failure 시 Error message, 아니면 nil 입니다. message 는 json.decodeSafe prefix 와 parser position 을 포함합니다. |
+| `errorPosition` | `number \| nil` | parse failure 시 Parser byte position, 아니면 nil 입니다. |
+
+## 타입
+
+### DecodeOptions
+
+JSON 구문 분석 동작을 제어합니다.
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | nil 대신 라이브러리의 null 센티널을 사용하여 JSON null을 나타냅니다. |
+| `maxDepth` | `integer` | No | 1부터 4096까지 고정된 최대 중첩 깊이를 설정합니다. |
+
+## 예제
+
+JSON 을 parse 하고 success return value 로 valid false 또는 nil results 와 parse failures 를 구분합니다.
+
+```lua
+local ok, value = json.decodeSafe("false")
+
+if ok then
+    print(value == false)
+end
+
+local parsed, _, message, position = json.decodeSafe("{")
+if not parsed then
+    warn(message, position)
+end
+```

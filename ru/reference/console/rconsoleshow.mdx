@@ -1,0 +1,29 @@
+---
+title: "rconsoleshow"
+sidebarTitle: "rconsoleshow"
+description: "Показывает текущее Windows console window через Windows console visibility update с show mode. Эта function не создает console. Если console window не существует, вызов возвращается без каких-либо действий."
+icon: "function"
+keywords: ["rconsoleshow","Console","consoleshow"]
+---
+
+Показывает текущее Windows console window через Windows console visibility update с show mode. Эта function не создает console. Если console window не существует, вызов возвращается без каких-либо действий.
+
+## Синтаксис
+
+```lua
+rconsoleshow()
+```
+
+## Алиасы
+
+- `consoleshow`
+
+## Пример
+
+Show the current Windows console window when one exists.
+
+```lua
+rconsolecreate()
+rconsolehide()
+rconsoleshow()
+```

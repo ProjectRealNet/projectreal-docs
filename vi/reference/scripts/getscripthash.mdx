@@ -1,0 +1,47 @@
+---
+title: "getscripthash"
+sidebarTitle: "getscripthash"
+description: "Tra ve uppercase SHA384 hex digest cho stored bytecode string cua Roblox script object. Argument phai la object. Helper dung chung GetBytecode chap nhan cac gia tri ClassName ModuleScript, LocalScript, CoreScript va Script. Voi Script, RunContext phai la Client. Neu thieu ClassName, function nem \"Invalid Instance\". Neu ClassName khong phai mot trong cac script classes duoc ho tro, function nem \"Script expected\". Neu gia tri la Script voi RunContext khac, function nem \"Expected a Script with RunContext set to Client\". Neu embedded bytecode reference khong hop le hoac do dai stored bytecode la 8 bytes hoac it hon, function tra ve nil. Neu khong, function hash dung stored bytecode bytes bang SHA384 va tra ve uppercase hex string. Function khong goi DecompressBytecode va khong hash decompressed bytecode."
+icon: "function"
+keywords: ["getscripthash","Scripts"]
+---
+
+Tra ve uppercase SHA384 hex digest cho stored bytecode string cua Roblox script object. Argument phai la object. Helper dung chung GetBytecode chap nhan cac gia tri ClassName ModuleScript, LocalScript, CoreScript va Script. Voi Script, RunContext phai la Client. Neu thieu ClassName, function nem "Invalid Instance". Neu ClassName khong phai mot trong cac script classes duoc ho tro, function nem "Script expected". Neu gia tri la Script voi RunContext khac, function nem "Expected a Script with RunContext set to Client". Neu embedded bytecode reference khong hop le hoac do dai stored bytecode la 8 bytes hoac it hon, function tra ve nil. Neu khong, function hash dung stored bytecode bytes bang SHA384 va tra ve uppercase hex string. Function khong goi DecompressBytecode va khong hash decompressed bytecode.
+
+## Cú pháp
+
+```lua
+getscripthash(script: userdata): string | nil
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | Script object can hash. Cac gia tri ClassName duoc ho tro la ModuleScript, LocalScript, CoreScript va Script voi RunContext Client. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `hash` | `string \| nil` | Uppercase SHA384 hex digest cua stored bytecode bytes, hoac nil khi khong co embedded bytecode co the dung. |
+
+## Ví dụ
+
+Hash the bytecode of a supported Roblox script Instance when bytecode is available.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local hash = getscripthash(targetScript)
+    print(hash)
+end
+```

@@ -1,0 +1,62 @@
+---
+title: "savefiledialog"
+sidebarTitle: "savefiledialog"
+description: "Opens a Windows save dialog with Windows save dialog, writes the provided Lua string bytes to the selected path, and returns the saved file as a file item."
+icon: "function"
+keywords: ["savefiledialog","Filesystem"]
+---
+
+Opens a Windows save dialog with Windows save dialog, writes the provided Lua string bytes to the selected path, and returns the saved file as a file item.
+
+## Syntax
+
+```lua
+savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `content` | `string` | Yes | Lua string bytes to write to the selected file. The file is opened in binary truncate mode after the user confirms a path. |
+| `options` | `DialogOptions` | No | Optional table. savefiledialog uses title, defaultPath, extensionFilter, suggestedName, and defaultExtension. extensionFilter is a table of extension strings; leading . or *. is stripped before each filter becomes *.&lt;extension>. defaultExtension strips leading . characters before it is passed to SetDefaultExtension. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Saved file item, or nil when the dialog is cancelled. Dialog or write failures throw Failed to save file. |
+
+## Types
+
+### DialogOptions
+
+Configures the Windows file or folder selection dialog.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Sets the dialog window title. |
+| `defaultPath` | `string` | No | Selects the directory shown when the dialog opens. |
+| `extensionFilter` | `&#123;string&#125;` | No | Limits selectable files to the listed extensions, with or without a leading dot. |
+| `suggestedName` | `string` | No | Provides the initial file name in save dialogs. |
+| `defaultExtension` | `string` | No | Sets the extension used when the entered file name has none. |
+
+## Example
+
+Write generated content to a path chosen by the user and handle the saved file item.
+
+```lua
+local saved = savefiledialog("Example output", {
+    title = "Save output",
+    suggestedName = "output.txt",
+    defaultExtension = "txt",
+    extensionFilter = { "txt" },
+})
+
+if saved then
+    print(saved:GetName())
+    print(saved:IsFile())
+else
+    print("No file saved")
+end
+```

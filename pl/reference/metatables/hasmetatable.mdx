@@ -1,0 +1,41 @@
+---
+title: "hasmetatable"
+sidebarTitle: "hasmetatable"
+description: "Returns whether the target value has a metatable. The function returns one boolean and does not return or change the metatable itself."
+icon: "function"
+keywords: ["hasmetatable","Metatables"]
+---
+
+Returns whether the target value has a metatable. The function returns one boolean and does not return or change the metatable itself.
+
+## Składnia
+
+```lua
+hasmetatable(target: any): boolean
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `target` | `any` | Yes | Value to check for a metatable. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `hasMetatable` | `boolean` | true when the target has a metatable; otherwise false. |
+
+## Przykład
+
+Check whether a value currently has a metatable.
+
+```lua
+local target = {}
+
+print(hasmetatable(target))
+
+setrawmetatable(target, {})
+
+print(hasmetatable(target))
+```

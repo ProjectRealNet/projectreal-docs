@@ -1,0 +1,20 @@
+---
+title: "Actors"
+description: "Bối cảnh thực thi và giao tiếp của tác nhân."
+icon: "folder-code"
+---
+
+Bối cảnh thực thi và giao tiếp của tác nhân.
+
+| Điều hướng hàm | Mô tả |
+| --- | --- |
+| [`create_comm_channel`](./create-comm-channel) | Tạo một BindableEvent mới bằng Instance.new, lưu Instance reference của nó trong communication channel list dưới numeric channel ID, rồi trả về ID cùng BindableEvent Instance. channel ID được tính từ current map size plus one. Nếu Instance.new("BindableEvent") không để lại object value trên stack, function throw "Failed to make a BindableEvent". |
+| [`get_comm_channel`](./get-comm-channel) | Tìm channel ID trong communication channel list và trả về BindableEvent Instance đã lưu. Argument đầu tiên phải là number và được chuyển đổi bằng integer conversion trước lookup. Nếu không có entry cho ID đó, function trả về nil. |
+| [`getactorfromthread`](./getactorfromthread) | Trả về Actor Instance liên kết với Luau thread. Argument đầu tiên phải là thread. Function đọc thread data của thread, yêu cầu Actor reference và positive container count, rồi đọc the associated Actor. Nếu actor weak reference hợp lệ, nó được push dưới dạng Instance; nếu không function trả về nil. |
+| [`getactors`](./getactors) | Trả về array table gồm live Actor Instances được resolve từ ScriptContext actor thread list. Function không nhận arguments. Nó đi qua actor thread list, decrypt từng actor Lua state, giữ entries là valid threads, rồi đọc thread data và the associated Actor weak reference của từng thread. Chỉ non-expired actor references được push dưới dạng Instances. Entries không có container, không có Actor reference, có reference count &lt;= 0 hoặc có expired actor reference sẽ bị bỏ qua. |
+| [`getactorthreads`](./getactorthreads) | Trả về array table gồm Luau threads từ actor thread list. Function không nhận arguments. Nó đọc actor list bounds từ ScriptContext, đi qua từng actor state entry, decrypt stored global state thành Luau thread và chỉ bao gồm entries là valid threads. |
+| [`getcurrentactor`](./getcurrentactor) | Trả về Actor Instance liên kết với Luau thread hiện tại. Function không nhận arguments. Nó resolve Luau thread hiện tại thông qua cùng actor resolver mà getactorfromthread sử dụng: thread data phải tồn tại, Actor reference phải tồn tại, reference count phải lớn hơn 0, và the associated Actor phải chứa non-expired weak reference. Nếu không có valid actor reference, function trả về nil. |
+| [`getdeletedactors`](./getdeletedactors) | Trả về array table của Luau threads từ actor list có thread data chứa Actor reference, reference count lớn hơn 0, và the associated Actor là expired weak reference. Function không nhận arguments. Function không trả về Actor Instance values. |
+| [`isparallel`](./isparallel) | Trả về boolean từ ScriptContext DataModel của Luau thread hiện tại. Function không nhận arguments. Nó đọc the current parallel execution status, hàm trả về parallel execution status. Nếu the current DataModel không trả về DataModel, function trả về false. checkparallel là alias cho cùng function. |
+| [`run_on_actor`](./run-on-actor) | Runs Luau source on the thread associated with a target Actor Instance. The first argument must be an Instance whose ClassName is Actor, and the second argument must be a non-empty source string. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonactor is an alias. |
+| [`run_on_thread`](./run-on-thread) | Runs Luau source on a specific Luau thread. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonthread is an alias. |

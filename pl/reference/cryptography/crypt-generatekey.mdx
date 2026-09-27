@@ -1,0 +1,36 @@
+---
+title: "crypt.generatekey"
+sidebarTitle: "crypt.generatekey"
+description: "Generuje 32 losowe raw bytes za pomoca random byte generator i zwraca je Base64-encoded jako Lua string."
+icon: "function"
+keywords: ["crypt.generatekey","Cryptography"]
+---
+
+Generuje 32 losowe raw bytes za pomoca random byte generator i zwraca je Base64-encoded jako Lua string.
+
+## Składnia
+
+```lua
+crypt.generatekey(): string
+```
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `key` | `string` | Base64 encoding wygenerowanych 32 raw bytes. Zwrocony string nie ma 32 znakow. |
+
+## Przykład
+
+Wygeneruj Base64 key i zdekoduj go, aby sprawdzic liczbe raw bytes.
+
+```lua
+local key = crypt.generatekey()
+local raw = base64_decode(key)
+
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+print(key)
+print(#raw)
+print(ciphertext, iv)
+```

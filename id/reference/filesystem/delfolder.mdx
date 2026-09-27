@@ -1,0 +1,34 @@
+---
+title: "delfolder"
+sidebarTitle: "delfolder"
+description: "Menghapus folder yang ada di dalam workspace secara recursive dengan recursive folder deletion."
+icon: "function"
+keywords: ["delfolder","Filesystem"]
+---
+
+Menghapus folder yang ada di dalam workspace secara recursive dengan recursive folder deletion.
+
+## Sintaks
+
+```lua
+delfolder(path: string)
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path yang diselesaikan di dalam workspace setelah separator normalization dan workspace-boundary checks. Target harus ada dan berupa directory; files tidak diterima. |
+
+## Contoh
+
+Hapus workspace folder yang ada beserta isinya.
+
+```lua
+local path = "examples/temporary"
+makefolder(path)
+writefile(path .. "/note.txt", "temporary")
+
+delfolder(path)
+print(isfolder(path))
+```

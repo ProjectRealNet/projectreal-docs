@@ -1,0 +1,37 @@
+---
+title: "rconsoleinput"
+sidebarTitle: "rconsoleinput"
+description: "Yieldet, während eine line aus stdin mit console input gelesen wird, nachdem der console input state geleert und input bis zum nächsten newline ignoriert wurde. Der zurückgegebene string wird mit string return gepusht und enthält den terminierenden newline nicht. Wenn keine console window existiert, kehrt der Aufruf ohne values zurück."
+icon: "function"
+keywords: ["rconsoleinput","Console","consoleinput"]
+---
+
+Yieldet, während eine line aus stdin mit console input gelesen wird, nachdem der console input state geleert und input bis zum nächsten newline ignoriert wurde. Der zurückgegebene string wird mit string return gepusht und enthält den terminierenden newline nicht. Wenn keine console window existiert, kehrt der Aufruf ohne values zurück.
+
+## Syntax
+
+```lua
+rconsoleinput(): string
+```
+
+## Aliase
+
+- `consoleinput`
+
+## Rückgaben
+
+| Name | Type | Beschreibung |
+| --- | --- | --- |
+| `input` | `string` | Von der Konsole gelesene Textzeile. |
+
+## Beispiel
+
+Read one submitted line from the current Windows console.
+
+```lua
+rconsolecreate()
+rconsoleprint("Name: ")
+local name = rconsoleinput()
+rconsoleprint("Hello, ", name, "
+")
+```

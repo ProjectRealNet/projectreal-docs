@@ -1,0 +1,40 @@
+---
+title: "isnetworkowner"
+sidebarTitle: "isnetworkowner"
+description: "Instance から hidden property \"NetworkOwnerV3\" を読み取り、最初の戻り値を integer conversion で変換した値が 2 より大きいかを返します。引数は Instance object である必要があります。この function は内部で the hidden property reader を呼び出し、その呼び出しの error を捕捉しないため、Invalid Instance values、missing properties、non-property metadata は gethiddenproperty と同じ error を発生させる可能性があります。boolean を 1 つ返します。peer_id > 2 が正確に local network ownership を意味するかは: Nicht aus der Codebasis verifizierbar."
+icon: "function"
+keywords: ["isnetworkowner","Instances"]
+---
+
+Instance から hidden property "NetworkOwnerV3" を読み取り、最初の戻り値を integer conversion で変換した値が 2 より大きいかを返します。引数は Instance object である必要があります。この function は内部で the hidden property reader を呼び出し、その呼び出しの error を捕捉しないため、Invalid Instance values、missing properties、non-property metadata は gethiddenproperty と同じ error を発生させる可能性があります。boolean を 1 つ返します。peer_id > 2 が正確に local network ownership を意味するかは: Nicht aus der Codebasis verifizierbar.
+
+## 構文
+
+```lua
+isnetworkowner(instance: Instance): boolean
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | property name "NetworkOwnerV3" と一緒に the hidden property reader へ渡される Instance object。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `isOwner` | `boolean` | "NetworkOwnerV3" の最初の戻り値に対する integer conversion が 2 より大きい場合は true、それ以外は false。 |
+
+## 例
+
+Check network ownership for a BasePart Instance.
+
+```lua
+local part = workspace:FindFirstChildWhichIsA("BasePart", true)
+
+if part then
+    local ownsNetwork = isnetworkowner(part)
+    print(ownsNetwork)
+end
+```

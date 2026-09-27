@@ -1,0 +1,47 @@
+---
+title: "lz4decompress"
+sidebarTitle: "lz4decompress"
+description: "LZ4 block decompression로 raw LZ4 block bytes를 압축 해제하고 raw decompressed bytes를 Lua 문자열로 반환합니다."
+icon: "function"
+keywords: ["lz4decompress","Cryptography","crypt.lz4decompress","crypt.lz4.decompress","lz4.decompress"]
+---
+
+LZ4 block decompression로 raw LZ4 block bytes를 압축 해제하고 raw decompressed bytes를 Lua 문자열로 반환합니다.
+
+## 문법
+
+```lua
+lz4decompress(data: string, originalSize?: number): string
+```
+
+## 별칭
+
+- `crypt.lz4decompress`
+- `crypt.lz4.decompress`
+- `lz4.decompress`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | LZ4 block decompression에 전달되는 raw compressed bytes입니다. |
+| `originalSize` | `number` | No | dstCapacity로 전달되는 output buffer size입니다. lz4compress 출력에는 원래 비압축 byte 길이를 전달합니다. 생략하면 압축 입력 길이가 사용됩니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `decompressed` | `string` | Lua 문자열로 반환되는 raw decompressed bytes입니다. 출력은 originalSize보다 짧을 수 있습니다. |
+
+## 예제
+
+원래 비압축 크기를 전달해 LZ4 bytes를 압축 해제합니다.
+
+```lua
+local source = "Real Docs"
+local compressed = lz4compress(source)
+local decompressed = lz4decompress(compressed, #source)
+
+print(decompressed)
+print(decompressed == source)
+```

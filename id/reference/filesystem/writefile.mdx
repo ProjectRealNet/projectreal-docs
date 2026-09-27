@@ -1,0 +1,40 @@
+---
+title: "writefile"
+sidebarTitle: "writefile"
+description: "Menulis Lua string bytes ke file di dalam workspace, membuat missing parent directories, dan mengganti file contents jika file sudah ada."
+icon: "function"
+keywords: ["writefile","Filesystem","writefileasync"]
+---
+
+Menulis Lua string bytes ke file di dalam workspace, membuat missing parent directories, dan mengganti file contents jika file sudah ada.
+
+## Sintaks
+
+```lua
+writefile(path: string, content: string)
+```
+
+## Alias
+
+- `writefileasync`
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | File path yang di-resolve di dalam workspace setelah separator normalization, workspace-boundary checks, dan filename/extension checks. Absolute paths hanya diterima jika resolve di dalam workspace. |
+| `content` | `string` | Yes | Lua string bytes yang ditulis. Data ditulis dalam binary truncate mode; writefile tidak menambahkan newlines, BOM bytes, null terminators, atau extra bytes lain. |
+
+## Contoh
+
+Tulis bytes ke workspace file dan ganti existing contents apa pun.
+
+```lua
+local path = "examples/config.json"
+
+writefile(path, '{"enabled":true}')
+print(readfile(path))
+
+writefile(path, "")
+print(#readfile(path))
+```

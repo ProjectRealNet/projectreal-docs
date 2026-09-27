@@ -1,0 +1,45 @@
+---
+title: "cloneref"
+sidebarTitle: "cloneref"
+description: "Pousse une nouvelle reference Instance pour le meme pointeur Instance sous-jacent et la renvoie."
+icon: "function"
+keywords: ["cloneref","Cache","clonereference"]
+---
+
+Pousse une nouvelle reference Instance pour le meme pointeur Instance sous-jacent et la renvoie.
+
+## Syntaxe
+
+```lua
+cloneref(instance: Instance): Instance
+```
+
+## Alias
+
+- `clonereference`
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object utilise comme source pour la nouvelle reference. |
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `reference` | `Instance` | Reference Instance renvoyee apres l'execution de Instance cache avec le pointeur object original. |
+
+## Exemple
+
+Cree une autre reference Instance a partir d'un Instance object existant.
+
+```lua
+local Players = game:GetService("Players")
+
+local reference = cloneref(Players)
+print(reference)
+
+local sameAlias = clonereference(Players)
+print(sameAlias)
+```

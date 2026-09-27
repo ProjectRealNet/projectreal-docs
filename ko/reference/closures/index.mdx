@@ -1,0 +1,26 @@
+---
+title: "Closures"
+description: "클로저를 검사, 생성, 복제 및 교체합니다."
+icon: "folder-code"
+---
+
+클로저를 검사, 생성, 복제 및 교체합니다.
+
+| 함수 탐색 | 설명 |
+| --- | --- |
+| [`checkcaller`](./checkcaller) | current Luau thread가 Real caller context에 있는지 반환합니다. 이 function은 arguments를 받지 않고 the current caller context의 boolean result를 push합니다. function은 Lua call stack 또는 function object를 검사하지 않습니다. |
+| [`clonefunction`](./clonefunction) | Creates and returns a separate function value for the function passed as the first argument. The argument must be a function. |
+| [`comparefunctions`](./comparefunctions) | 두 function values를 function identity로 비교합니다. 두 arguments는 모두 functions여야 합니다. 이 function은 function identity(L, 1) == function identity(L, 2)의 boolean result를 반환합니다. function bytecode, source, behavior, hashes, upvalues 또는 newcclosure mappings는 비교하지 않습니다. comparefunction은 같은 function의 alias입니다. |
+| [`getfunctionhash`](./getfunctionhash) | Returns an uppercase SHA384 hex digest derived from a Luau function. The argument must be a function, and C closures raise "Lua function expected". If no hashable function content is available, the function returns nil. |
+| [`hookfunction`](./hookfunction) | target function를 replacement function로 hook하고 original target closure의 cloned copy를 반환합니다. 두 arguments는 모두 functions여야 합니다. function은 먼저 pending C function swaps를 flush하고, function cloning으로 target을 cloning하고, replacement closure 또는 mapped newcclosure target을 hidden stack tracking에 추가하고, target 및 cloned original에 대해 FixCallstack을 호출한 다음, C closure, Luau closure 또는 newcclosure-specific path를 통해 target closure를 patch합니다. target이 아직 hook records에 없으면 restorefunction을 위해 cloned original이 거기에 저장됩니다. returned function은 cloned original closure입니다. |
+| [`hookmetamethod`](./hookmetamethod) | value에서 metamethod function을 찾고 hookfunction을 통해 해당 function을 hook합니다. first argument는 raw metafield lookup가 허용하는 어떤 value도 가능합니다. second argument는 string metamethod name이어야 하고, third argument는 function replacement여야 합니다. raw metafield lookup가 named metafield를 찾지 못하면 function은 argument 2에 대해 "Metamethod doesn't exist"를 발생시킵니다. metafield가 있지만 function이 아니면 argument 2에 대해 "Metamethod isn't a function"를 발생시킵니다. metafield가 function이면 hookmetamethod는 found metamethod function을 target으로 hookfunction을 호출하고 hookfunction의 cloned original closure를 반환합니다. |
+| [`iscclosure`](./iscclosure) | Returns whether the provided function is a C closure. The argument must be a function; passing any other type raises a type error. The function does not inspect executor ownership, source, bytecode, or upvalues. |
+| [`isexecutorclosure`](./isexecutorclosure) | Returns whether the provided function is classified as executor-owned. The argument must be a function. The function does not inspect source text, debug names, bytecode hashes, or call stack ownership. |
+| [`isfunctionhooked`](./isfunctionhooked) | Returns whether the provided function currently has a hook record. The argument must be a function. |
+| [`ishiddenstack`](./ishiddenstack) | Returns whether a function, or the function at a stack level, is marked as hidden. target must be a function or stack level number. Invalid stack levels raise "Level out of range". isstackhidden is an alias. |
+| [`islclosure`](./islclosure) | Returns whether the provided function is a Lua closure. The argument must be a function; passing a non-function raises a type error. isluaclosure is an alias. |
+| [`isnewcclosure`](./isnewcclosure) | Returns whether the provided function is a newcclosure-created C closure. The first argument must be a function; passing a non-function raises a type error. Documented usage is a single function argument; extra arguments are not part of the supported signature. |
+| [`newcclosure`](./newcclosure) | Returns a C closure for the provided function. If the function is already a C closure, the same function is returned. Passing a non-function raises a type error. |
+| [`newlclosure`](./newlclosure) | Returns a Luau closure that calls the provided function. The first argument must be a function. |
+| [`restorefunction`](./restorefunction) | 내부적으로 function hook operation을 호출해 function를 복원하거나 교체하며 values를 반환하지 않습니다. first argument는 function이어야 합니다. function argument가 하나이면 function은 the saved original function를 조회합니다. entry가 없으면 "Function is not hooked"를 발생시킵니다. 그런 다음 hooked closure와 stored original closure로 function hook operation을 호출하고 Lua stack을 비우며, stored original이 사용된 경우 restored closure를 hook records에서 제거합니다. second argument도 function이면 function은 firstFunction을 설치할 original function으로, secondFunction을 patch할 closure로 취급합니다. 이 형태에서는 저장된 hook records 값에 대해 missing-original check를 수행하지 않습니다. 저장된 값은 final remove check 중에만 비교됩니다.에만 사용됩니다. non-function second arguments는 branch condition에 의해 무시됩니다. restorefunc 및 restoreclosure는 같은 function의 aliases입니다. |
+| [`sethiddenstack`](./sethiddenstack) | Marks or unmarks a function, or the function at a stack level, as hidden. target must be a function or stack level number. hidden defaults to true. Invalid stack levels raise "Level out of range". setstackhidden is an alias. |

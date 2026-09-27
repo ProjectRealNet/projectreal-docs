@@ -1,0 +1,39 @@
+---
+title: "json.type"
+sidebarTitle: "json.type"
+description: "Tra ve string type name cho mot gia tri. json.null tra ve \"null\". Table tra ve \"array\" hoac \"object\" bang cung table classification nhu json.isArray va json.isObject. Cac gia tri khac tra ve runtime Lua type name result."
+icon: "function"
+keywords: ["json.type","JSON"]
+---
+
+Tra ve string type name cho mot gia tri. json.null tra ve "null". Table tra ve "array" hoac "object" bang cung table classification nhu json.isArray va json.isObject. Cac gia tri khac tra ve runtime Lua type name result.
+
+## Cú pháp
+
+```lua
+json.type(value: any): string
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Gia tri de classify. Truyen no value tra ve runtime type name cho stack value bi thieu. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `jsonType` | `string` | Type name string. Cac JSON-specific returns da xac minh la "null", "array" va "object". Gia tri non-table va non-json.null dung Lua type name, vi du "nil", "boolean", "number", "integer", "string", "function", "object", "thread", "buffer", "class", "object", "vector" hoac "no value", tuy runtime value. |
+
+## Ví dụ
+
+Kiem tra exact type string ma JSON helper tra ve.
+
+```lua
+print(json.type(json.array({ "red", "blue" })))
+print(json.type(json.object({ enabled = true })))
+print(json.type(json.null))
+print(json.type(nil))
+print(json.type())
+```

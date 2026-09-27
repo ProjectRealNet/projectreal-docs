@@ -1,0 +1,21 @@
+---
+title: "imgui.setvsync"
+sidebarTitle: "imgui.setvsync"
+description: "يحدّث تفضيل vertical synchronization الخاص بـ ImGui renderer. يخزن presentation path الحالي هذا التفضيل لكنه لا يطبقه."
+icon: "function"
+keywords: ["imgui.setvsync","ImGui"]
+---
+
+يحدّث تفضيل vertical synchronization الخاص بـ ImGui renderer. يخزن presentation path الحالي هذا التفضيل لكنه لا يطبقه.
+
+## الصيغة
+
+```lua
+imgui.setvsync(enabled: boolean)
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `enabled` | `boolean` | Yes | `true` لطلب vertical synchronization؛ `false` لطلب uncapped presentation. |

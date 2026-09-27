@@ -1,0 +1,40 @@
+---
+title: "getrenderproperty"
+sidebarTitle: "getrenderproperty"
+description: "คืนผลลัพธ์จากการ index อาร์กิวเมนต์แรกด้วย property key ที่กำหนด สำหรับ Drawing object จะใช้ Drawing property lookup เดียวกับ object[property] ดังนั้น unknown properties และ destroyed Drawing objects จะคืนค่า nil the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้"
+icon: "function"
+keywords: ["getrenderproperty","Drawing"]
+---
+
+คืนผลลัพธ์จากการ index อาร์กิวเมนต์แรกด้วย property key ที่กำหนด สำหรับ Drawing object จะใช้ Drawing property lookup เดียวกับ object[property] ดังนั้น unknown properties และ destroyed Drawing objects จะคืนค่า nil the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้
+
+## ไวยากรณ์
+
+```lua
+getrenderproperty(object: any, property: any): any
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | ค่าที่จะถูก index เมื่อใช้ Drawing object จะใช้ RealDrawingObject __index handler |
+| `property` | `any` | Yes | property key ที่ใช้สำหรับ indexing โดย Drawing object properties ใช้ strings |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `propertyValue` | `any` | ค่าที่คืนจากการ index object ด้วย property หรือ nil เมื่อ Drawing __index handler ไม่มีค่าสำหรับ property นั้น |
+
+## ตัวอย่าง
+
+Read a Drawing property like direct indexing.
+
+```lua
+local line = Drawing.new("Line")
+line.Thickness = 3
+
+print(getrenderproperty(line, "Thickness"))
+print(getrenderproperty(line, "MissingProperty"))
+```

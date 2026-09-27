@@ -1,0 +1,40 @@
+---
+title: "Drawing.new"
+sidebarTitle: "Drawing.new"
+description: "Istenen turde yeni bir Drawing object olusturur ve Real tracked Drawing object list icine ekler. type string su tam desteklenen adlardan biri olmalidir: \"Line\", \"Text\", \"Circle\", \"Square\", \"Quad\", \"Triangle\", \"Image\". Eksik, non-string veya desteklenmeyen type values Lua error olusturur. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner."
+icon: "function"
+keywords: ["Drawing.new","Drawing"]
+---
+
+Istenen turde yeni bir Drawing object olusturur ve Real tracked Drawing object list icine ekler. type string su tam desteklenen adlardan biri olmalidir: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". Eksik, non-string veya desteklenmeyen type values Lua error olusturur. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner.
+
+## Söz dizimi
+
+```lua
+Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad" | "Triangle"): DrawingObject
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `objectType` | `"Image" \| "Line" \| "Text" \| "Circle" \| "Square" \| "Quad" \| "Triangle"` | Yes | Olusturulacak tam Drawing type name. Desteklenen degerler "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `object` | `DrawingObject` | Drawing object type ile olusturulan Drawing object. |
+
+## Örnek
+
+Görünür bir kare oluşturun ve temel çizim özelliklerini yapılandırın.
+
+```lua
+local square = Drawing.new("Square")
+square.Position = Vector2.new(120, 120)
+square.Size = Vector2.new(220, 120)
+square.Color = Color3.fromRGB(120, 170, 255)
+square.Filled = true
+square.Visible = true
+```

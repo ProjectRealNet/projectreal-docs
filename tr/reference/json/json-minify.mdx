@@ -1,0 +1,55 @@
+---
+title: "json.minify"
+sidebarTitle: "json.minify"
+description: "Bir JSON string degerini parse eder ve Real default non-pretty JSON encoder output ile tekrar encode eder."
+icon: "function"
+keywords: ["json.minify","JSON"]
+---
+
+Bir JSON string degerini parse eder ve Real default non-pretty JSON encoder output ile tekrar encode eder.
+
+## Söz dizimi
+
+```lua
+json.minify(json: string, options?: DecodeOptions): string
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | Minifying oncesinde parse edilen JSON string. Function bu argument degerini string type checking ile okur. |
+| `options` | `DecodeOptions` | No | Input JSON parsing sirasinda kullanilan optional decode options. boolean useNull ayarlar. table useNull ve maxDepth ayarlayabilir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `minified` | `string` | Input parsing ve default encode options ile re-encoding sonrasi uretilen JSON string. |
+
+## Tipler
+
+### DecodeOptions
+
+JSON ayrıştırma davranışını kontrol eder.
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Nil yerine kütüphanenin null sentinel'i ile JSON null'u temsil eder. |
+| `maxDepth` | `integer` | No | 1'den 4096'ya kadar kenetlenmiş maksimum yuvalama derinliğini ayarlar. |
+
+## Örnek
+
+Valid JSON parse eder ve default compact JSON output ile re-encode eder.
+
+```lua
+local formatted = [[{
+    "name": "Real",
+    "enabled": true,
+    "missing": null
+}]]
+
+print(json.minify(formatted, {
+    useNull = true,
+}))
+```

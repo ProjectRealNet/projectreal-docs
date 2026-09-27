@@ -1,0 +1,44 @@
+---
+title: "readfile"
+sidebarTitle: "readfile"
+description: "以 binary mode 读取 workspace 内的 existing regular file，并将其 bytes 作为 Lua string 返回。"
+icon: "function"
+keywords: ["readfile","Filesystem","readfileasync"]
+---
+
+以 binary mode 读取 workspace 内的 existing regular file，并将其 bytes 作为 Lua string 返回。
+
+## 语法
+
+```lua
+readfile(path: string): string
+```
+
+## 别名
+
+- `readfileasync`
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | File path 会在 separator normalization、workspace-boundary checks 和 filename/extension checks 之后解析到 workspace 内。Absolute paths 只有在解析到 workspace 内时才会被接受。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `content` | `string` | File contents 会作为带显式长度的 Lua string 返回。null bytes、line endings 和 BOM bytes 等 bytes 不会被 readfile 转换。 |
+
+## 示例
+
+从 existing workspace file 读取 bytes。
+
+```lua
+local path = "examples/config.json"
+writefile(path, '{"enabled":true}')
+
+local content = readfile(path)
+print(content)
+print(#content)
+```

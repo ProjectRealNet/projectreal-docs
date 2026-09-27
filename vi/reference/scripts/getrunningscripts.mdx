@@ -1,0 +1,21 @@
+---
+title: "getrunningscripts"
+sidebarTitle: "getrunningscripts"
+description: "Tra ve mot array table moi gom unique script Instances lay tu live Lua threads. Function khong nhan arguments. No di qua the live Luau thread list, doc tung thread node va bo qua entries khong co thread node, khong co weak thread ref, khong co LiveLuaRef, khong co Lua state, khong co object hoac co expired Script stored reference. Voi moi thread con lai, no lock scriptThread->object->Script(), deduplicate bang script reference, push Instance bang Instance cache va chen vao array indexes lien tiep bat dau tu 1. Function khong quet DataModel, khong kiem tra ClassName va khong sap xep result."
+icon: "function"
+keywords: ["getrunningscripts","Scripts"]
+---
+
+Tra ve mot array table moi gom unique script Instances lay tu live Lua threads. Function khong nhan arguments. No di qua the live Luau thread list, doc tung thread node va bo qua entries khong co thread node, khong co weak thread ref, khong co LiveLuaRef, khong co Lua state, khong co object hoac co expired Script stored reference. Voi moi thread con lai, no lock scriptThread->object->Script(), deduplicate bang script reference, push Instance bang Instance cache va chen vao array indexes lien tiep bat dau tu 1. Function khong quet DataModel, khong kiem tra ClassName va khong sap xep result.
+
+## Cú pháp
+
+```lua
+getrunningscripts(): table
+```
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `scripts` | `table` | Array table moi cua unique script Instance object values lien ket voi live Lua threads. |

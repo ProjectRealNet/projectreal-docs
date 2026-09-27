@@ -1,0 +1,55 @@
+---
+title: "json.minify"
+sidebarTitle: "json.minify"
+description: "Parses a JSON string and re-encodes it with Real's default non-pretty JSON encoder output."
+icon: "function"
+keywords: ["json.minify","JSON"]
+---
+
+Parses a JSON string and re-encodes it with Real's default non-pretty JSON encoder output.
+
+## Syntax
+
+```lua
+json.minify(json: string, options?: DecodeOptions): string
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string to parse before minifying. The function reads this argument with string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options used while parsing the input JSON. A boolean sets useNull. A table can set useNull and maxDepth. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `minified` | `string` | JSON string produced after parsing and re-encoding the input with default encode options. |
+
+## Types
+
+### DecodeOptions
+
+Controls JSON parsing behavior.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Represents JSON null with the library's null sentinel instead of nil. |
+| `maxDepth` | `integer` | No | Sets the maximum nesting depth, clamped from 1 to 4096. |
+
+## Example
+
+Parse valid JSON and re-encode it with default compact JSON output.
+
+```lua
+local formatted = [[{
+    "name": "Real",
+    "enabled": true,
+    "missing": null
+}]]
+
+print(json.minify(formatted, {
+    useNull = true,
+}))
+```

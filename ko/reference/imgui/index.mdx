@@ -1,0 +1,23 @@
+---
+title: "ImGui"
+description: "즉시 모드 창 및 콜백 기반 컨트롤."
+icon: "folder-code"
+---
+
+즉시 모드 창 및 콜백 기반 컨트롤.
+
+| 함수 탐색 | 설명 |
+| --- | --- |
+| [`imgui.create`](./imgui-create) | 추적되는 ImGui window record를 만들고 ImGuiWindow object를 반환합니다. title 인수가 생략되거나 nil이면 "REAL_IM_UI"가 사용됩니다. title은 현재 추적되는 ImGui windows 안에서 고유해야 합니다. 같은 title로 다른 tracked window를 만들면 Lua error가 발생합니다. |
+| [`imgui.setvsync`](./imgui-setvsync) | ImGui renderer의 vertical synchronization preference를 업데이트합니다. 현재 presentation path는 이 preference를 저장하지만 적용하지 않습니다. |
+| [`ImGuiWindow.Button`](./imguiwindow-button) | button element를 ImGuiWindow에 추가하고 callback을 저장합니다. 렌더링된 button이 클릭되면 callback은 queue에 들어가고 나중에 arguments 없이 호출됩니다. 이 method는 같은 ImGuiWindow object를 반환합니다. |
+| [`ImGuiWindow.Checkbox`](./imguiwindow-checkbox) | Appends a checkbox element to an ImGuiWindow. The callback is invoked with the new boolean value when the checkbox changes, and the method returns the same ImGuiWindow object. |
+| [`ImGuiWindow.CollapsingHeader`](./imguiwindow-collapsingheader) | collapsing header start marker를 추가하고, nested elements를 추가할 수 있도록 같은 ImGuiWindow object로 content callback을 즉시 호출한 다음 header end marker를 추가합니다. rendering 중 header가 collapsed 상태이면 nested elements를 건너뜁니다. callback errors는 잡히며 이 method에서 반환되지 않습니다. |
+| [`ImGuiWindow.ColorPicker`](./imguiwindow-colorpicker) | Appends a RGBA color editor to an ImGuiWindow and stores the callback. Missing or nil color components default to 1.0. When the rendered editor changes, the callback is queued and later invoked with red, green, blue, and alpha. The method returns the same ImGuiWindow object. |
+| [`ImGuiWindow.destroy`](./imguiwindow-destroy) | ImGuiWindow를 파괴합니다. object가 아직 window를 가리키고 있으면 이 method는 해당 window를 Real의 tracked ImGui window list에서 제거하고 stored element callbacks를 unreference하며 window record를 삭제하고 Instance reference를 nil로 설정합니다. 같은 object에서 destroy를 다시 호출하면 아무 작업도 하지 않고 반환됩니다. |
+| [`ImGuiWindow.InputText`](./imguiwindow-inputtext) | single-line ImGui InputText element를 ImGuiWindow에 추가하고 callback을 저장합니다. initial text는 optional string handling으로 읽고 요소의 fixed 256-byte text buffer에 복사됩니다. 렌더링된 input이 변경되면 callback은 queue에 들어가고 나중에 current string과 함께 호출됩니다. 이 method는 같은 ImGuiWindow object를 반환합니다. |
+| [`ImGuiWindow.SameLine`](./imguiwindow-sameline) | window에 SameLine layout marker를 추가합니다. rendering 중 Real은 element list의 해당 위치에서 a same-line layout marker을 호출하여 다음에 렌더링되는 item이 같은 행에서 이어질 수 있게 합니다. |
+| [`ImGuiWindow.Separator`](./imguiwindow-separator) | window에 Separator marker를 추가합니다. rendering 중 Real은 element list의 해당 위치에서 a separator를 호출합니다. |
+| [`ImGuiWindow.SliderFloat`](./imguiwindow-sliderfloat) | window에 SliderFloat element를 추가합니다. label, value, minimum, maximum은 인수 2부터 5에서 읽으며 숫자 인수는 number type checking로 검사됩니다. rendering 중 Real은 저장된 값과 범위로 a floating-point slider를 호출합니다. ImGui가 변경된 값을 보고하면 onChange는 queue에 들어가고 나중에 하나의 Lua number로 호출됩니다. Real은 이 closure에서 별도의 minimum &lt;= maximum 검사를 추가하지 않습니다. |
+| [`ImGuiWindow.SliderInt`](./imguiwindow-sliderint) | Adds an integer slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated integer value. |
+| [`ImGuiWindow.Text`](./imguiwindow-text) | window에 비대화형 Text element를 추가합니다. text 인수는 string type checking으로 읽고 element에 저장됩니다. rendering 중 Real은 a text element를 호출하므로 제공된 text는 ImGui format string이 아니라 string content로 사용됩니다. |

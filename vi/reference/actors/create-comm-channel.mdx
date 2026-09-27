@@ -1,0 +1,33 @@
+---
+title: "create_comm_channel"
+sidebarTitle: "create_comm_channel"
+description: "Tạo một BindableEvent mới bằng Instance.new, lưu Instance reference của nó trong communication channel list dưới numeric channel ID, rồi trả về ID cùng BindableEvent Instance. channel ID được tính từ current map size plus one. Nếu Instance.new(\"BindableEvent\") không để lại object value trên stack, function throw \"Failed to make a BindableEvent\"."
+icon: "function"
+keywords: ["create_comm_channel","Actors"]
+---
+
+Tạo một BindableEvent mới bằng Instance.new, lưu Instance reference của nó trong communication channel list dưới numeric channel ID, rồi trả về ID cùng BindableEvent Instance. channel ID được tính từ current map size plus one. Nếu Instance.new("BindableEvent") không để lại object value trên stack, function throw "Failed to make a BindableEvent".
+
+## Cú pháp
+
+```lua
+create_comm_channel(): integer | Instance
+```
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `channelId` | `integer` | Numeric channel ID được chèn vào communication channel list. |
+| `event` | `Instance` | BindableEvent Instance được lưu cho channel và trả về caller. |
+
+## Ví dụ
+
+Create a BindableEvent communication channel and keep the returned channel ID for later lookup.
+
+```lua
+local channelId, event = create_comm_channel()
+
+print(channelId)
+print(event)
+```

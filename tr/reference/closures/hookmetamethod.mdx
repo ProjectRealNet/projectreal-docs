@@ -1,0 +1,50 @@
+---
+title: "hookmetamethod"
+sidebarTitle: "hookmetamethod"
+description: "Bir value üzerinde metamethod function arar ve bu function değerini hookfunction üzerinden hook eder. First argument, raw metafield lookup tarafından kabul edilen herhangi bir value olabilir. Second argument string metamethod name olmalı ve third argument function replacement olmalıdır. raw metafield lookup named metafield bulamazsa function argument 2 için \"Metamethod doesn't exist\" üretir. Metafield varsa ancak function değilse argument 2 için \"Metamethod isn't a function\" üretir. Metafield function olduğunda hookmetamethod, found metamethod function değerini target olarak hookfunction çağırır ve hookfunction cloned original closure değerini döndürür."
+icon: "function"
+keywords: ["hookmetamethod","Closures"]
+---
+
+Bir value üzerinde metamethod function arar ve bu function değerini hookfunction üzerinden hook eder. First argument, raw metafield lookup tarafından kabul edilen herhangi bir value olabilir. Second argument string metamethod name olmalı ve third argument function replacement olmalıdır. raw metafield lookup named metafield bulamazsa function argument 2 için "Metamethod doesn't exist" üretir. Metafield varsa ancak function değilse argument 2 için "Metamethod isn't a function" üretir. Metafield function olduğunda hookmetamethod, found metamethod function değerini target olarak hookfunction çağırır ve hookfunction cloned original closure değerini döndürür.
+
+## Söz dizimi
+
+```lua
+hookmetamethod(object: any, metamethod: string, replacement: function): function
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | Metatable değeri raw metafield lookup ile incelenen value. |
+| `metamethod` | `string` | Yes | raw metafield lookup içine verilen Metafield name. |
+| `replacement` | `function` | Yes | Found metamethod function için replacement olarak hookfunction içine verilen Function. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `original` | `function` | hookfunction tarafından döndürülen cloned original metamethod closure. |
+
+## Örnek
+
+Hook an existing metamethod function.
+
+```lua
+local object = setmetatable({}, {
+    __index = function(_, key)
+        return key
+    end,
+})
+
+local original
+original = hookmetamethod(object, "__index", function(self, key)
+    if key == "Name" then
+        return "Real"
+    end
+
+    return original(self, key)
+end)
+```

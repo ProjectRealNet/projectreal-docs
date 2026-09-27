@@ -1,0 +1,21 @@
+---
+title: "getsignalwhitelist"
+sidebarTitle: "getsignalwhitelist"
+description: "Возвращает новую array table с шестью статическими whitelist entry, определенными в function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Каждый entry является table с string-полями Event и Parent. Function не принимает arguments и не проверяет текущее состояние игры."
+icon: "function"
+keywords: ["getsignalwhitelist","Signals"]
+---
+
+Возвращает новую array table с шестью статическими whitelist entry, определенными в function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Каждый entry является table с string-полями Event и Parent. Function не принимает arguments и не проверяет текущее состояние игры.
+
+## Синтаксис
+
+```lua
+getsignalwhitelist(): table
+```
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `signals` | `table` | Array table статических whitelist entry. Каждый entry имеет string-поля Event и Parent. |

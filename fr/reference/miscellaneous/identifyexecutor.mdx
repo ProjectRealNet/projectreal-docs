@@ -1,0 +1,31 @@
+---
+title: "identifyexecutor"
+sidebarTitle: "identifyexecutor"
+description: "Returns two strings: the executor name followed by the executor version."
+icon: "function"
+keywords: ["identifyexecutor","Miscellaneous"]
+---
+
+Returns two strings: the executor name followed by the executor version.
+
+## Syntaxe
+
+```lua
+identifyexecutor(): string | string
+```
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `executorName` | `string` | Executor name string. |
+| `executorVersion` | `string` | Executor version string. |
+
+## Exemple
+
+Read Real's executor name and version as two return values.
+
+```lua
+local name, version = identifyexecutor()
+print(name, version)
+```

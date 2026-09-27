@@ -1,0 +1,38 @@
+---
+title: "json.quote"
+sidebarTitle: "json.quote"
+description: "Escape string bang Real JSON string escaping rules va tra ve complete quoted JSON string literal."
+icon: "function"
+keywords: ["json.quote","JSON"]
+---
+
+Escape string bang Real JSON string escaping rules va tra ve complete quoted JSON string literal.
+
+## Cú pháp
+
+```lua
+json.quote(text: string): string
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | String se duoc quote. Function doc argument nay bang string type checking. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `quoted` | `string` | Complete JSON string literal gom opening va closing quote. Quotes, backslashes, common control characters va bytes below 0x20 duoc escape. |
+
+## Ví dụ
+
+Convert string thanh complete quoted JSON string literal.
+
+```lua
+local source = "Real Docs" .. string.char(10) .. [[Documentation "A"]]
+local quoted = json.quote(source)
+
+print(quoted)
+```

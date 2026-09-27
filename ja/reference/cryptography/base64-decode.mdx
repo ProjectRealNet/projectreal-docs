@@ -1,0 +1,48 @@
+---
+title: "base64_decode"
+sidebarTitle: "base64_decode"
+description: "Base64 decoder で Base64 入力をデコードし、デコードされたバイトを Lua string として返します。"
+icon: "function"
+keywords: ["base64_decode","Cryptography","base64decode","base64.decode","crypt.base64.decode","crypt.base64_decode","crypt.base64decode"]
+---
+
+Base64 decoder で Base64 入力をデコードし、デコードされたバイトを Lua string として返します。
+
+## 構文
+
+```lua
+base64_decode(data: string): string
+```
+
+## エイリアス
+
+- `base64decode`
+- `base64.decode`
+- `crypt.base64.decode`
+- `crypt.base64_decode`
+- `crypt.base64decode`
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Base64 decoder に渡される Base64 入力。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `decoded` | `string` | 明示的な長さを持つ Lua string として返されるデコード済みバイト。 |
+
+## 例
+
+Base64 データをデコードし、返された Lua string を読み取ります。
+
+```lua
+local encoded = base64_encode("hello world")
+local decoded = base64_decode(encoded)
+
+print(decoded)
+print(base64decode(encoded))
+print(base64.decode(encoded))
+```

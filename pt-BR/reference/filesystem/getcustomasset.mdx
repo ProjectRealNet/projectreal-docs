@@ -1,0 +1,44 @@
+---
+title: "getcustomasset"
+sidebarTitle: "getcustomasset"
+description: "Copia um regular workspace file existente para ExtraContent/<hwid>/ e retorna uma rbxasset:// string para o asset path copiado."
+icon: "function"
+keywords: ["getcustomasset","Filesystem","getsynasset"]
+---
+
+Copia um regular workspace file existente para ExtraContent/&lt;hwid>/ e retorna uma rbxasset:// string para o asset path copiado.
+
+## Sintaxe
+
+```lua
+getcustomasset(path: string): string
+```
+
+## Aliases
+
+- `getsynasset`
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path resolvido dentro do workspace apos separator normalization e workspace-boundary checks. O destino deve existir e ser um regular file; folders, invalid filenames, DOS device names e blocked extensions nao sao aceitos. |
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `assetId` | `string` | String no formato rbxasset://&lt;hwid>/&lt;workspace-relative-path>, usando forward slashes no relative path. |
+
+## Exemplo
+
+Copie um workspace file existente para o asset folder e imprima o rbxasset path retornado.
+
+```lua
+local path = "assets/example.txt"
+writefile(path, "asset bytes")
+
+local assetId = getcustomasset(path)
+print(assetId)
+print(getsynasset(path))
+```

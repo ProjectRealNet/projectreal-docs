@@ -1,0 +1,21 @@
+---
+title: "getscripts"
+sidebarTitle: "getscripts"
+description: "현재 Instance cache에 있는 script object 값을 반환합니다. 이 function은 arguments를 받지 않습니다. Instance cache 아래에 저장된 cache을 순회하고 value가 object인 entries만 고려합니다. 각 value의 ClassName field를 optional string handling으로 읽습니다. LocalScript와 ModuleScript entries는 포함됩니다. Script entries는 RunContext offset이 CLIENT 또는 PLUGIN과 같을 때만 포함됩니다. 다른 ClassName 값, string ClassName이 없는 entries, CoreScript entries는 건너뜁니다. 결과는 순차 Luau table입니다. function은 DataModel을 순회하지 않으며 sorted order를 보장하지 않습니다."
+icon: "function"
+keywords: ["getscripts","Scripts"]
+---
+
+현재 Instance cache에 있는 script object 값을 반환합니다. 이 function은 arguments를 받지 않습니다. Instance cache 아래에 저장된 cache을 순회하고 value가 object인 entries만 고려합니다. 각 value의 ClassName field를 optional string handling으로 읽습니다. LocalScript와 ModuleScript entries는 포함됩니다. Script entries는 RunContext offset이 CLIENT 또는 PLUGIN과 같을 때만 포함됩니다. 다른 ClassName 값, string ClassName이 없는 entries, CoreScript entries는 건너뜁니다. 결과는 순차 Luau table입니다. function은 DataModel을 순회하지 않으며 sorted order를 보장하지 않습니다.
+
+## 문법
+
+```lua
+getscripts(): { Instance }
+```
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `scripts` | `&#123; Instance &#125;` | Instance cache의 cached LocalScript, ModuleScript, 조건에 맞는 Script object 값으로 이루어진 sequential table입니다. |

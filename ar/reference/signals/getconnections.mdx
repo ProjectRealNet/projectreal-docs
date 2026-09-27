@@ -1,0 +1,44 @@
+---
+title: "getconnections"
+sidebarTitle: "getconnections"
+description: "يعيد array table من RealConnection closures لـ RBXScriptSignal. يجب أن يكون argument الأول object يحمل Luau type name بقيمة RBXScriptSignal. تقرأ function method باسم Connect من signal، وتوصل temporary blank callback، وتقرأ linked list بدءا من next reference الخاص بالاتصال المؤقت، ثم تفصل الاتصال المؤقت وتغلف كل connection reference صالح. إذا لم يتم العثور على connection reference بعد الاتصال المؤقت، تعيد table فارغة. يمكن أن تعيد underlying references المغلفة سابقا نفس cached closure table. getsignals و get_signal_cons هما aliases لنفس function."
+icon: "function"
+keywords: ["getconnections","Signals","getsignals","get_signal_cons"]
+---
+
+يعيد array table من RealConnection closures لـ RBXScriptSignal. يجب أن يكون argument الأول object يحمل Luau type name بقيمة RBXScriptSignal. تقرأ function method باسم Connect من signal، وتوصل temporary blank callback، وتقرأ linked list بدءا من next reference الخاص بالاتصال المؤقت، ثم تفصل الاتصال المؤقت وتغلف كل connection reference صالح. إذا لم يتم العثور على connection reference بعد الاتصال المؤقت، تعيد table فارغة. يمكن أن تعيد underlying references المغلفة سابقا نفس cached closure table. getsignals و get_signal_cons هما aliases لنفس function.
+
+## الصيغة
+
+```lua
+getconnections(signal: RBXScriptSignal): {RealConnection}
+```
+
+## أسماء بديلة
+
+- `getsignals`
+- `get_signal_cons`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | Signal المراد فحصه. object غير RBXScriptSignal يرفع type error، و signal بدون Connect field قابل للاستدعاء يرفع "Signal does not have 'Connect' method". |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `connections` | `&#123;RealConnection&#125;` | Array table من connection closure tables. يعرض كل closure fields و methods عبر methods، بما في ذلك Enabled و Disabled و LuaConnection و ForeignState و Function و Thread و Disconnect و Disable و Enable و Fire و Defer عندما تكون متاحة. |
+
+## مثال
+
+Inspect an RBXScriptSignal and list the wrapped connections Real can expose.
+
+```lua
+local Players = game:GetService("Players")
+
+for _, connection in ipairs(getconnections(Players.PlayerAdded)) do
+    print(connection.Enabled, connection.LuaConnection)
+end
+```

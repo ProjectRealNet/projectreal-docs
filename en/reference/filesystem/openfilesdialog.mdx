@@ -1,0 +1,62 @@
+---
+title: "openfilesdialog"
+sidebarTitle: "openfilesdialog"
+description: "Opens a Windows file-open dialog with Windows file picker with multi-select enabled and returns the selected files as file item values."
+icon: "function"
+keywords: ["openfilesdialog","Filesystem"]
+---
+
+Opens a Windows file-open dialog with Windows file picker with multi-select enabled and returns the selected files as file item values.
+
+## Syntax
+
+```lua
+openfilesdialog(options?: DialogOptions): { FileSystemItem } | nil
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. For openfilesdialog, title, defaultPath, and extensionFilter are used. extensionFilter is a table of extension strings; leading . or *. is stripped before each filter becomes *.&lt;extension>. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `files` | `&#123; FileSystemItem &#125; \| nil` | Array table of selected file items, or nil when the dialog is cancelled or no selected filesystem paths are returned. Dialog failures throw Failed to open file dialog. |
+
+## Types
+
+### DialogOptions
+
+Configures the Windows file or folder selection dialog.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Sets the dialog window title. |
+| `defaultPath` | `string` | No | Selects the directory shown when the dialog opens. |
+| `extensionFilter` | `&#123;string&#125;` | No | Limits selectable files to the listed extensions, with or without a leading dot. |
+| `suggestedName` | `string` | No | Provides the initial file name in save dialogs. |
+| `defaultExtension` | `string` | No | Sets the extension used when the entered file name has none. |
+
+## Example
+
+Let the user select one or more files and handle each selected file item.
+
+```lua
+local files = openfilesdialog({
+    title = "Choose source files",
+    defaultPath = ".",
+    extensionFilter = { "lua", "luau", "txt" },
+})
+
+if files then
+    for _, file in ipairs(files) do
+        print(file:GetName())
+        print(file:IsFile())
+    end
+else
+    print("No files selected")
+end
+```

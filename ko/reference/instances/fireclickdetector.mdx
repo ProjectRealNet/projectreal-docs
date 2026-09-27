@@ -1,0 +1,33 @@
+---
+title: "fireclickdetector"
+sidebarTitle: "fireclickdetector"
+description: "로컬 플레이어에 대해 ClickDetector interaction을 발생시킵니다. 첫 번째 인수는 ClassName이 ClickDetector인 Instance여야 합니다. distance는 선택 사항이며 기본값은 0입니다. clickOption은 선택 사항이고 대소문자를 구분하지 않고 비교되며 기본값은 \"mouseclick\"입니다. 지원되는 option은 \"mouseclick\", \"rightmouseclick\", \"mousehoverenter\", \"mousehoverleave\"입니다. click option은 distance를 float로 Roblox click helper에 전달하고, hover option은 distance를 무시합니다. Players 또는 Players.LocalPlayer를 사용할 수 없으면 function은 아무것도 발생시키지 않고 반환합니다. 알 수 없는 clickOption도 interaction을 발생시키지 않습니다. 이 function은 아무것도 반환하지 않습니다."
+icon: "function"
+keywords: ["fireclickdetector","Instances"]
+---
+
+로컬 플레이어에 대해 ClickDetector interaction을 발생시킵니다. 첫 번째 인수는 ClassName이 ClickDetector인 Instance여야 합니다. distance는 선택 사항이며 기본값은 0입니다. clickOption은 선택 사항이고 대소문자를 구분하지 않고 비교되며 기본값은 "mouseclick"입니다. 지원되는 option은 "mouseclick", "rightmouseclick", "mousehoverenter", "mousehoverleave"입니다. click option은 distance를 float로 Roblox click helper에 전달하고, hover option은 distance를 무시합니다. Players 또는 Players.LocalPlayer를 사용할 수 없으면 function은 아무것도 발생시키지 않고 반환합니다. 알 수 없는 clickOption도 interaction을 발생시키지 않습니다. 이 function은 아무것도 반환하지 않습니다.
+
+## 문법
+
+```lua
+fireclickdetector(detector: Instance, distance?: number, clickOption?: "mouseclick" | "rightmouseclick" | "mousehoverenter" | "mousehoverleave")
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `detector` | `Instance` | Yes | ClassName이 ClickDetector여야 하는 Instance입니다. |
+| `distance` | `number` | No | 선택적 distance 값입니다. 기본값은 0이며 "mouseclick" 및 "rightmouseclick"에서 float로 전달됩니다. |
+| `clickOption` | `"mouseclick" \| "rightmouseclick" \| "mousehoverenter" \| "mousehoverleave"` | No | 선택적 interaction selector입니다. string으로 읽고 대소문자를 구분하지 않고 비교하며 기본값은 "mouseclick"입니다. |
+
+## 예제
+
+ClickDetector에서 기본 "mouseclick" interaction을 발생시킵니다.
+
+```lua
+local detector = workspace.InteractivePart.ClickDetector
+
+fireclickdetector(detector)
+```

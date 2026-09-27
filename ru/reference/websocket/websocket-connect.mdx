@@ -1,0 +1,52 @@
+---
+title: "WebSocket.connect"
+sidebarTitle: "WebSocket.connect"
+description: "Создает два BindableEvents, открывает WebSocket client WebSocket connection к переданному URL и выполняет yield до завершения попытки подключения. При успехе возвращает WebSocket table с events OnMessage и OnClose, methods Send и Close из methods, а также connection state. Incoming message data вызывается через OnMessage как string. Когда receive loop завершается, OnClose вызывается без arguments. При ошибке подключения функция выбрасывает error string, начинающийся с \"WebSocket connection failed\"."
+icon: "function"
+keywords: ["WebSocket.connect","WebSocket","WebSocket.Connect","websocket.connect","websocket.Connect"]
+---
+
+Создает два BindableEvents, открывает WebSocket client WebSocket connection к переданному URL и выполняет yield до завершения попытки подключения. При успехе возвращает WebSocket table с events OnMessage и OnClose, methods Send и Close из methods, а также connection state. Incoming message data вызывается через OnMessage как string. Когда receive loop завершается, OnClose вызывается без arguments. При ошибке подключения функция выбрасывает error string, начинающийся с "WebSocket connection failed".
+
+## Синтаксис
+
+```lua
+WebSocket.connect(url: string): WebSocket
+```
+
+## Алиасы
+
+- `WebSocket.Connect`
+- `websocket.connect`
+- `websocket.Connect`
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `url` | `string` | Yes | URL string, передаваемый в CURLOPT_URL перед тем, как WebSocket client выполнит WebSocket connection attempt. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `socket` | `WebSocket` | WebSocket table, содержащая OnMessage, OnClose и connection state. Send и Close разрешаются через WebSocket object methods. |
+
+## Пример
+
+Откройте WebSocket, подключите OnMessage и OnClose, затем используйте socket methods для отправки и закрытия.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket.OnMessage:Connect(function(message)
+    print(message)
+end)
+
+socket.OnClose:Connect(function()
+    print("closed")
+end)
+
+socket:Send("hello")
+socket:Close()
+```

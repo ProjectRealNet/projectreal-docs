@@ -1,0 +1,62 @@
+---
+title: "openfilesdialog"
+sidebarTitle: "openfilesdialog"
+description: "Windows file picker 를 통해 multi-select 가 활성화된 Windows file-open dialog 를 열고 선택된 파일을 file item 값으로 반환합니다."
+icon: "function"
+keywords: ["openfilesdialog","Filesystem"]
+---
+
+Windows file picker 를 통해 multi-select 가 활성화된 Windows file-open dialog 를 열고 선택된 파일을 file item 값으로 반환합니다.
+
+## 문법
+
+```lua
+openfilesdialog(options?: DialogOptions): { FileSystemItem } | nil
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. openfilesdialog 에서는 title, defaultPath, extensionFilter 가 사용됩니다. extensionFilter 는 extension strings 의 table 입니다. 각 filter 가 *.&lt;extension> 이 되기 전에 앞의 . 또는 *. 가 제거됩니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `files` | `&#123; FileSystemItem &#125; \| nil` | 선택된 파일의 file item 값으로 이루어진 Array table 이거나, dialog 가 취소되었거나 selected filesystem paths 가 반환되지 않으면 nil 입니다. Dialog failures 는 Failed to open file dialog 를 throw 합니다. |
+
+## 타입
+
+### DialogOptions
+
+기본 파일 또는 폴더 선택 대화 상자를 구성합니다.
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `title` | `string` | No | 대화 상자 창 제목을 설정합니다. |
+| `defaultPath` | `string` | No | 대화 상자가 열릴 때 표시되는 디렉터리를 선택합니다. |
+| `extensionFilter` | `&#123;string&#125;` | No | 선택 가능한 파일을 앞에 점이 있거나 없이 나열된 확장자로 제한합니다. |
+| `suggestedName` | `string` | No | 저장 대화 상자에 초기 파일 이름을 제공합니다. |
+| `defaultExtension` | `string` | No | 입력한 파일 이름이 없을 때 사용되는 확장자를 설정합니다. |
+
+## 예제
+
+file picker 를 열어 하나 이상의 파일을 선택하고 각 selected file item 을 처리합니다.
+
+```lua
+local files = openfilesdialog({
+    title = "Choose source files",
+    defaultPath = ".",
+    extensionFilter = { "lua", "luau", "txt" },
+})
+
+if files then
+    for _, file in ipairs(files) do
+        print(file:GetName())
+        print(file:IsFile())
+    end
+else
+    print("No files selected")
+end
+```

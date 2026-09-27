@@ -1,0 +1,61 @@
+---
+title: "json.encodePretty"
+sidebarTitle: "json.encodePretty"
+description: "使用 Real JSON encoder 将 Lua value serializes 为 readable formatted JSON string。json.pretty 注册到同一个 function。"
+icon: "function"
+keywords: ["json.encodePretty","JSON"]
+---
+
+使用 Real JSON encoder 将 Lua value serializes 为 readable formatted JSON string。json.pretty 注册到同一个 function。
+
+## 语法
+
+```lua
+json.encodePretty(value: any, options?: EncodeOptions): string
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | 要 encoded 的 value。nil、booleans、numbers、strings、tables 和 json.null 会直接处理。Unsupported Lua types 会 encoded 为 null，除非 errorOnUnsupported 为 true。 |
+| `options` | `EncodeOptions` | No | Optional encode options。json.encodePretty 读取与 json.encode 相同的 options，然后强制 pretty 为 true。没有 options 时使用 two-space indent。number 设置 indent width 并 clamp 到 0.16，string 设置 indent text，table 可以设置 sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth 和 indent。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `json` | `string` | Readable formatted JSON string。Encoding errors 会作为 Luau errors 抛出。 |
+
+## 类型
+
+### EncodeOptions
+
+控制 JSON 序列化和格式设置。
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | 启用格式化的多行 JSON 输出。 |
+| `sortKeys` | `boolean` | No | 在编码之前对对象键进行排序。 |
+| `emptyTableAsArray` | `boolean` | No | 将空表编码为数组而不是对象。 |
+| `errorOnUnsupported` | `boolean` | No | 引发错误而不是替换不受支持的值。 |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | 将 NaN 和无限数编码为 JSON null。 |
+| `maxDepth` | `integer` | No | 设置最大嵌套深度，范围为 1 到 4096。 |
+| `indent` | `string` | No | 设置缩进字符串，限制为 32 个字符。 |
+
+## 示例
+
+将 JSON-compatible values encode 为 readable formatted JSON，并强制 pretty output on。
+
+```lua
+local text = json.encodePretty({
+    name = "Real",
+    version = 1,
+    features = json.array({ "docs", "examples" }),
+    missing = json.null,
+}, {
+    sortKeys = true,
+})
+
+print(text)
+```

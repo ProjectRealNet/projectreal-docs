@@ -1,0 +1,45 @@
+---
+title: "cloneref"
+sidebarTitle: "cloneref"
+description: "يدفع مرجع Instance جديدا لنفس مؤشر Instance الداخلي ويعيده."
+icon: "function"
+keywords: ["cloneref","Cache","clonereference"]
+---
+
+يدفع مرجع Instance جديدا لنفس مؤشر Instance الداخلي ويعيده.
+
+## الصيغة
+
+```lua
+cloneref(instance: Instance): Instance
+```
+
+## أسماء بديلة
+
+- `clonereference`
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object المستخدمة كمصدر للمرجع الجديد. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `reference` | `Instance` | مرجع Instance المعاد بعد تشغيل Instance cache مع مؤشر object الاصلي. |
+
+## مثال
+
+انشئ مرجع Instance اخر من Instance object موجودة.
+
+```lua
+local Players = game:GetService("Players")
+
+local reference = cloneref(Players)
+print(reference)
+
+local sameAlias = clonereference(Players)
+print(sameAlias)
+```

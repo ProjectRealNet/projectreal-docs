@@ -1,0 +1,41 @@
+---
+title: "cache.iscached"
+sidebarTitle: "cache.iscached"
+description: "ส่งคืนว่า Instance ที่กำหนดมีรายการ non-nil ใน Instance cache หรือไม่"
+icon: "function"
+keywords: ["cache.iscached","Cache"]
+---
+
+ส่งคืนว่า Instance ที่กำหนดมีรายการ non-nil ใน Instance cache หรือไม่
+
+## ไวยากรณ์
+
+```lua
+cache.iscached(instance: Instance): boolean
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance ที่ต้องตรวจสอบรายการ Instance cache |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `cached` | `boolean` | True เมื่อ cache มีรายการ non-nil สำหรับ Instance นั้น |
+
+## ตัวอย่าง
+
+ตรวจสอบว่า Instance มีรายการอยู่ใน Instance cache ของ Real ในขณะนี้หรือไม่
+
+```lua
+local Players = game:GetService("Players")
+
+local cached = cache.iscached(Players)
+print(cached)
+
+cache.invalidate(Players)
+print(cache.iscached(Players))
+```

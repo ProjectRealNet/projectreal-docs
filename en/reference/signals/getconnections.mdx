@@ -1,0 +1,44 @@
+---
+title: "getconnections"
+sidebarTitle: "getconnections"
+description: "Returns connection objects for an RBXScriptSignal. The first argument must be a valid RBXScriptSignal."
+icon: "function"
+keywords: ["getconnections","Signals","getsignals","get_signal_cons"]
+---
+
+Returns connection objects for an RBXScriptSignal. The first argument must be a valid RBXScriptSignal.
+
+## Syntax
+
+```lua
+getconnections(signal: RBXScriptSignal): {RealConnection}
+```
+
+## Aliases
+
+- `getsignals`
+- `get_signal_cons`
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | Signal to inspect. Non-RBXScriptSignal object raises a type error, and a signal without a callable Connect field raises "Signal does not have 'Connect' method". |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `connections` | `&#123;RealConnection&#125;` | Array table of connection objects. Available fields and methods may include Enabled, Disabled, Function, Thread, Disconnect, Disable, Enable, Fire, and Defer. |
+
+## Example
+
+Inspect an RBXScriptSignal and list the wrapped connections Real can expose.
+
+```lua
+local Players = game:GetService("Players")
+
+for _, connection in ipairs(getconnections(Players.PlayerAdded)) do
+    print(connection.Enabled, connection.LuaConnection)
+end
+```

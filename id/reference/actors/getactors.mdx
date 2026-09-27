@@ -1,0 +1,31 @@
+---
+title: "getactors"
+sidebarTitle: "getactors"
+description: "Mengembalikan array table berisi live Actor Instances yang di-resolve dari ScriptContext actor thread list. Function tidak menerima arguments. Function berjalan melalui actor thread list, mendekripsi setiap actor Lua state, menyimpan entries yang valid threads, lalu membaca thread data dan the associated Actor weak reference milik setiap thread. Hanya non-expired actor references yang di-push sebagai Instances. Entries tanpa container, tanpa Actor reference, dengan reference count <= 0, atau dengan expired actor reference dilewati."
+icon: "function"
+keywords: ["getactors","Actors"]
+---
+
+Mengembalikan array table berisi live Actor Instances yang di-resolve dari ScriptContext actor thread list. Function tidak menerima arguments. Function berjalan melalui actor thread list, mendekripsi setiap actor Lua state, menyimpan entries yang valid threads, lalu membaca thread data dan the associated Actor weak reference milik setiap thread. Hanya non-expired actor references yang di-push sebagai Instances. Entries tanpa container, tanpa Actor reference, dengan reference count &lt;= 0, atau dengan expired actor reference dilewati.
+
+## Sintaks
+
+```lua
+getactors(): {Instance}
+```
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `actors` | `&#123;Instance&#125;` | Array table berisi Actor Instances yang actor weak references-nya masih valid. |
+
+## Contoh
+
+List live Actor Instances resolved from actor threads.
+
+```lua
+for _, actor in ipairs(getactors()) do
+    print(actor)
+end
+```

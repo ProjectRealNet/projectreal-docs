@@ -1,0 +1,47 @@
+---
+title: "getscripthash"
+sidebarTitle: "getscripthash"
+description: "ส่งคืน uppercase SHA384 hex digest สำหรับ stored bytecode string ของ Roblox script object โดย argument ต้องเป็น object helper ร่วม GetBytecode รับค่า ClassName เป็น ModuleScript, LocalScript, CoreScript และ Script สำหรับ Script นั้น RunContext ต้องเป็น Client หากไม่มี ClassName function จะ throw \"Invalid Instance\" หาก ClassName ไม่ใช่ script classes ที่รองรับ จะ throw \"Script expected\" หากค่าเป็น Script ที่มี RunContext อื่น จะ throw \"Expected a Script with RunContext set to Client\" หาก embedded bytecode reference ไม่ถูกต้องหรือความยาว stored bytecode เป็น 8 bytes หรือน้อยกว่า function จะคืน nil ไม่เช่นนั้นจะ hash stored bytecode bytes ที่ตรงจริงด้วย SHA384 แล้วคืน uppercase hex string function ไม่เรียก DecompressBytecode และไม่ hash decompressed bytecode"
+icon: "function"
+keywords: ["getscripthash","Scripts"]
+---
+
+ส่งคืน uppercase SHA384 hex digest สำหรับ stored bytecode string ของ Roblox script object โดย argument ต้องเป็น object helper ร่วม GetBytecode รับค่า ClassName เป็น ModuleScript, LocalScript, CoreScript และ Script สำหรับ Script นั้น RunContext ต้องเป็น Client หากไม่มี ClassName function จะ throw "Invalid Instance" หาก ClassName ไม่ใช่ script classes ที่รองรับ จะ throw "Script expected" หากค่าเป็น Script ที่มี RunContext อื่น จะ throw "Expected a Script with RunContext set to Client" หาก embedded bytecode reference ไม่ถูกต้องหรือความยาว stored bytecode เป็น 8 bytes หรือน้อยกว่า function จะคืน nil ไม่เช่นนั้นจะ hash stored bytecode bytes ที่ตรงจริงด้วย SHA384 แล้วคืน uppercase hex string function ไม่เรียก DecompressBytecode และไม่ hash decompressed bytecode
+
+## ไวยากรณ์
+
+```lua
+getscripthash(script: userdata): string | nil
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | Script object ที่จะ hash ค่า ClassName ที่รองรับคือ ModuleScript, LocalScript, CoreScript และ Script ที่มี RunContext Client |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `hash` | `string \| nil` | Uppercase SHA384 hex digest ของ stored bytecode bytes หรือ nil เมื่อไม่มี embedded bytecode ที่ใช้ได้ |
+
+## ตัวอย่าง
+
+Hash the bytecode of a supported Roblox script Instance when bytecode is available.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local hash = getscripthash(targetScript)
+    print(hash)
+end
+```

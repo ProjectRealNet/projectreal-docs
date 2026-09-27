@@ -1,0 +1,47 @@
+---
+title: "getscripthash"
+sidebarTitle: "getscripthash"
+description: "يعيد uppercase SHA384 hex digest لسلسلة bytecode المخزنة في Roblox script object. يجب أن يكون argument من نوع object. يقبل Helper المشترك GetBytecode قيم ClassName وهي ModuleScript و LocalScript و CoreScript و Script. بالنسبة إلى Script يجب أن يكون RunContext هو Client. إذا كانت ClassName مفقودة، ترمي function الخطأ \"Invalid Instance\". إذا لم تكن ClassName إحدى فئات script المدعومة، ترمي الخطأ \"Script expected\". إذا كانت القيمة Script مع RunContext آخر، ترمي الخطأ \"Expected a Script with RunContext set to Client\". إذا كان embedded bytecode reference غير صالح أو كان طول stored bytecode يساوي 8 bytes أو أقل، تعيد function nil. وإلا فهي تحسب SHA384 للـ stored bytecode bytes نفسها وتعيد uppercase hex string. لا تستدعي function دالة DecompressBytecode ولا تحسب hash للـ decompressed bytecode."
+icon: "function"
+keywords: ["getscripthash","Scripts"]
+---
+
+يعيد uppercase SHA384 hex digest لسلسلة bytecode المخزنة في Roblox script object. يجب أن يكون argument من نوع object. يقبل Helper المشترك GetBytecode قيم ClassName وهي ModuleScript و LocalScript و CoreScript و Script. بالنسبة إلى Script يجب أن يكون RunContext هو Client. إذا كانت ClassName مفقودة، ترمي function الخطأ "Invalid Instance". إذا لم تكن ClassName إحدى فئات script المدعومة، ترمي الخطأ "Script expected". إذا كانت القيمة Script مع RunContext آخر، ترمي الخطأ "Expected a Script with RunContext set to Client". إذا كان embedded bytecode reference غير صالح أو كان طول stored bytecode يساوي 8 bytes أو أقل، تعيد function nil. وإلا فهي تحسب SHA384 للـ stored bytecode bytes نفسها وتعيد uppercase hex string. لا تستدعي function دالة DecompressBytecode ولا تحسب hash للـ decompressed bytecode.
+
+## الصيغة
+
+```lua
+getscripthash(script: userdata): string | nil
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `script` | `userdata` | Yes | Script object المطلوب حساب hash لها. قيم ClassName المدعومة هي ModuleScript و LocalScript و CoreScript و Script مع RunContext Client. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `hash` | `string \| nil` | Uppercase SHA384 hex digest للـ stored bytecode bytes، أو nil عندما لا يتوفر embedded bytecode قابل للاستخدام. |
+
+## مثال
+
+Hash the bytecode of a supported Roblox script Instance when bytecode is available.
+
+```lua
+local targetScript
+
+for _, descendant in ipairs(game:GetDescendants()) do
+    if descendant:IsA("LuaSourceContainer") then
+        targetScript = descendant
+        break
+    end
+end
+
+if targetScript then
+    local hash = getscripthash(targetScript)
+    print(hash)
+end
+```

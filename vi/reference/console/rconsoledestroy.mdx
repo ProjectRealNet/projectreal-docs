@@ -1,0 +1,29 @@
+---
+title: "rconsoledestroy"
+sidebarTitle: "rconsoledestroy"
+description: "Xóa Windows console screen buffer hiện tại, ẩn console window và tách process khỏi console bằng console detachment. Nếu không có console window, lời gọi sẽ trả về mà không làm gì."
+icon: "function"
+keywords: ["rconsoledestroy","Console","consoledestroy"]
+---
+
+Xóa Windows console screen buffer hiện tại, ẩn console window và tách process khỏi console bằng console detachment. Nếu không có console window, lời gọi sẽ trả về mà không làm gì.
+
+## Cú pháp
+
+```lua
+rconsoledestroy()
+```
+
+## Alias
+
+- `consoledestroy`
+
+## Ví dụ
+
+Clear and hide the current console, then detach from it.
+
+```lua
+rconsolecreate()
+rconsoleprint("Console closing")
+rconsoledestroy()
+```

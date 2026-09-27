@@ -1,0 +1,23 @@
+---
+title: "ImGui"
+description: "Jendela mode langsung dan kontrol berbasis panggilan balik."
+icon: "folder-code"
+---
+
+Jendela mode langsung dan kontrol berbasis panggilan balik.
+
+| Navigasi fungsi | Deskripsi |
+| --- | --- |
+| [`imgui.create`](./imgui-create) | Membuat ImGui window record yang dilacak dan mengembalikan ImGuiWindow object. Argumen title memakai "REAL_IM_UI" saat dihilangkan atau nil. Title harus unik di antara ImGui windows yang sedang dilacak; membuat tracked window lain dengan title yang sama menimbulkan Lua error. |
+| [`imgui.setvsync`](./imgui-setvsync) | Memperbarui vertical synchronization preference milik ImGui renderer. Presentation path saat ini menyimpan preference ini, tetapi tidak menerapkannya. |
+| [`ImGuiWindow.Button`](./imguiwindow-button) | Menambahkan button element ke ImGuiWindow dan menyimpan callback. Saat button yang dirender diklik, callback dimasukkan ke queue lalu dipanggil nanti tanpa arguments. Method ini mengembalikan ImGuiWindow object yang sama. |
+| [`ImGuiWindow.Checkbox`](./imguiwindow-checkbox) | Appends a checkbox element to an ImGuiWindow. The callback is invoked with the new boolean value when the checkbox changes, and the method returns the same ImGuiWindow object. |
+| [`ImGuiWindow.CollapsingHeader`](./imguiwindow-collapsingheader) | Menambahkan collapsing header start marker, langsung memanggil content callback dengan ImGuiWindow object yang sama agar dapat menambahkan nested elements, lalu menambahkan header end marker. Saat rendering, nested elements dilewati selama header collapsed. Callback errors ditangkap dan tidak dikembalikan oleh method ini. |
+| [`ImGuiWindow.ColorPicker`](./imguiwindow-colorpicker) | Appends a RGBA color editor to an ImGuiWindow and stores the callback. Missing or nil color components default to 1.0. When the rendered editor changes, the callback is queued and later invoked with red, green, blue, and alpha. The method returns the same ImGuiWindow object. |
+| [`ImGuiWindow.destroy`](./imguiwindow-destroy) | Menghancurkan ImGuiWindow. Jika object masih menunjuk ke window, method ini menghapus window tersebut dari tracked ImGui window list milik Real, melakukan unreference pada stored element callbacks, menghapus window record, dan mengatur Instance reference ke nil. Memanggil destroy lagi pada object yang sama kembali tanpa melakukan apa pun. |
+| [`ImGuiWindow.InputText`](./imguiwindow-inputtext) | Menambahkan single-line ImGui InputText element ke ImGuiWindow dan menyimpan callback. Initial text dibaca dengan optional string handling dan disalin ke fixed 256-byte text buffer milik elemen. Saat input yang dirender berubah, callback dimasukkan ke queue lalu dipanggil nanti dengan current string. Method ini mengembalikan ImGuiWindow object yang sama. |
+| [`ImGuiWindow.SameLine`](./imguiwindow-sameline) | Menambahkan SameLine layout marker ke window. Saat rendering, Real memanggil a same-line layout marker pada posisi itu di element list agar item yang dirender berikutnya dapat berlanjut pada baris yang sama. |
+| [`ImGuiWindow.Separator`](./imguiwindow-separator) | Menambahkan Separator marker ke window. Saat rendering, Real memanggil a separator pada posisi itu di element list. |
+| [`ImGuiWindow.SliderFloat`](./imguiwindow-sliderfloat) | Menambahkan SliderFloat element ke window. label, value, minimum, dan maximum dibaca dari argumen 2 sampai 5, dengan argumen numerik diperiksa oleh number type checking. Saat rendering, Real memanggil a floating-point slider dengan nilai dan rentang yang disimpan. Ketika ImGui melaporkan nilai berubah, onChange dimasukkan ke queue lalu dipanggil nanti dengan satu Lua number. Real tidak menambahkan validasi minimum &lt;= maximum terpisah di closure ini. |
+| [`ImGuiWindow.SliderInt`](./imguiwindow-sliderint) | Adds an integer slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated integer value. |
+| [`ImGuiWindow.Text`](./imguiwindow-text) | Menambahkan Text element non-interaktif ke window. Argumen text dibaca dengan string type checking dan disimpan pada element. Saat rendering, Real memanggil a text element, sehingga teks yang diberikan digunakan sebagai string content, bukan sebagai ImGui format string. |

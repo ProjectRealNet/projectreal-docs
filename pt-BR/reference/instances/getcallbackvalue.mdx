@@ -1,0 +1,48 @@
+---
+title: "getcallbackvalue"
+sidebarTitle: "getcallbackvalue"
+description: "Le uma Lua callback function armazenada em uma callback property em uma Instance. O primeiro argumento deve ser Instance object e o segundo argumento deve ser um string property name. O instance reference deve ser valido. O property name e resolvido por Roblox property metadata e deve apontar para uma property cujo tipo seja LUA_CALLBACK. Se o property descriptor estiver ausente, a property nao for LUA_CALLBACK, o callback field offset estiver ausente, nenhum callback estiver armazenado, LiveLuaRef estiver ausente, o callback pertencer a outro Lua global state, ou o valor referenciado nao for function, a function retorna nil. Ela tambem verifica o async callback field fallback quando o primeiro callback slot nao tem callback. A function nao atualiza a property."
+icon: "function"
+keywords: ["getcallbackvalue","Instances","getcallbackmember"]
+---
+
+Le uma Lua callback function armazenada em uma callback property em uma Instance. O primeiro argumento deve ser Instance object e o segundo argumento deve ser um string property name. O instance reference deve ser valido. O property name e resolvido por Roblox property metadata e deve apontar para uma property cujo tipo seja LUA_CALLBACK. Se o property descriptor estiver ausente, a property nao for LUA_CALLBACK, o callback field offset estiver ausente, nenhum callback estiver armazenado, LiveLuaRef estiver ausente, o callback pertencer a outro Lua global state, ou o valor referenciado nao for function, a function retorna nil. Ela tambem verifica o async callback field fallback quando o primeiro callback slot nao tem callback. A function nao atualiza a property.
+
+## Sintaxe
+
+```lua
+getcallbackvalue(instance: Instance, property: string): function | nil
+```
+
+## Aliases
+
+- `getcallbackmember`
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object em que a callback property sera inspecionada. Invalid Instance values geram argument error. |
+| `property` | `string` | Yes | string property name resolvido por Roblox property metadata. Apenas LUA_CALLBACK properties podem retornar uma function. |
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `callback` | `function \| nil` | Lua function armazenada pela callback property, ou nil quando a function nao consegue resolver uma function legivel. |
+
+## Exemplo
+
+Le a callback function armazenada em BindableFunction.OnInvoke.
+
+```lua
+local bindable = Instance.new("BindableFunction")
+bindable.OnInvoke = function(value)
+    return value * 2
+end
+
+local callback = getcallbackvalue(bindable, "OnInvoke")
+if callback then
+    print(callback(21))
+end
+```

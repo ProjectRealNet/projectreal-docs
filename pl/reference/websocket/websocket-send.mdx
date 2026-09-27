@@ -1,0 +1,34 @@
+---
+title: "WebSocket.Send"
+sidebarTitle: "WebSocket.Send"
+description: "Wysyła Lua string przez WebSocket object zwrócony przez WebSocket.connect. Method oczekuje WebSocket table jako pierwszego argument i message string jako drugiego argument. Odczytuje connection state obiektu, rzuca \"WebSocket state is missing\", jeśli tego object nie ma, wraca bez wysyłania, gdy state jest destroyed lub closed, i wywołuje curl_ws_send z CURLWS_TEXT domyślnie albo z CURLWS_BINARY, gdy opcjonalny trzeci argument to boolean true. Nie zwraca values i nie raportuje liczby wysłanych bytes."
+icon: "function"
+keywords: ["WebSocket.Send","WebSocket"]
+---
+
+Wysyła Lua string przez WebSocket object zwrócony przez WebSocket.connect. Method oczekuje WebSocket table jako pierwszego argument i message string jako drugiego argument. Odczytuje connection state obiektu, rzuca "WebSocket state is missing", jeśli tego object nie ma, wraca bez wysyłania, gdy state jest destroyed lub closed, i wywołuje curl_ws_send z CURLWS_TEXT domyślnie albo z CURLWS_BINARY, gdy opcjonalny trzeci argument to boolean true. Nie zwraca values i nie raportuje liczby wysłanych bytes.
+
+## Składnia
+
+```lua
+WebSocket.Send(socket: WebSocket, message: string, isBinary?: boolean)
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `socket` | `WebSocket` | Yes | WebSocket table zwrócona przez WebSocket.connect. Send jest rozwiązywane przez WebSocket object methods, więc udokumentowana forma wywołania to socket:Send(..). |
+| `message` | `string` | Yes | Lua string payload przekazywany do curl_ws_send wraz z explicit byte length. |
+| `isBinary` | `boolean` | No | Gdy ten argument istnieje i ma wartość true, Send używa CURLWS_BINARY. W przeciwnym razie używa CURLWS_TEXT. |
+
+## Przykład
+
+Send text or binary data through a WebSocket object returned by WebSocket.connect.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket:Send("hello")
+socket:Send(string.char(0, 1, 2, 3), true)
+```

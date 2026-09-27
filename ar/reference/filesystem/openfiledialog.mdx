@@ -1,0 +1,60 @@
+---
+title: "openfiledialog"
+sidebarTitle: "openfiledialog"
+description: "يفتح Windows file-open dialog عبر Windows file picker ويعيد الملف المحدد كـ file item."
+icon: "function"
+keywords: ["openfiledialog","Filesystem"]
+---
+
+يفتح Windows file-open dialog عبر Windows file picker ويعيد الملف المحدد كـ file item.
+
+## الصيغة
+
+```lua
+openfiledialog(options?: DialogOptions): FileSystemItem | nil
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. في openfiledialog يتم استخدام title و defaultPath و extensionFilter. extensionFilter هي table من extension strings؛ يتم حذف . او *. من البداية قبل ان يصبح كل filter بالشكل *.&lt;extension>. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Selected file item، او nil عندما يتم cancel للـ dialog او لا يتم ارجاع selected filesystem path. Dialog failures ترمي Failed to open file dialog. |
+
+## الأنواع
+
+### DialogOptions
+
+تكوين مربع حوار اختيار الملف أو المجلد الأصلي.
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `title` | `string` | No | يضبط عنوان نافذة الحوار. |
+| `defaultPath` | `string` | No | يحدد الدليل الذي يظهر عند فتح مربع الحوار. |
+| `extensionFilter` | `&#123;string&#125;` | No | يحد الملفات القابلة للتحديد من الامتدادات المدرجة، مع أو بدون نقطة بادئة. |
+| `suggestedName` | `string` | No | يوفر اسم الملف الأولي في مربعات حوار الحفظ. |
+| `defaultExtension` | `string` | No | يضبط الامتداد المستخدم عندما لا يكون اسم الملف الذي تم إدخاله خاليًا. |
+
+## مثال
+
+افتح file picker وتعامل مع selected file item او cancellation.
+
+```lua
+local file = openfiledialog({
+    title = "Choose a configuration",
+    defaultPath = ".",
+    extensionFilter = { "json", "txt" },
+})
+
+if file then
+    print(file:GetName())
+    print(file:IsFile())
+else
+    print("No file selected")
+end
+```

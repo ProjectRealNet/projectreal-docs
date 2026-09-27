@@ -1,0 +1,41 @@
+---
+title: "json.isNull"
+sidebarTitle: "json.isNull"
+description: "Value가 Real JSON null sentinel인 json.null인지 반환합니다."
+icon: "function"
+keywords: ["json.isNull","JSON"]
+---
+
+Value가 Real JSON null sentinel인 json.null인지 반환합니다.
+
+## 문법
+
+```lua
+json.isNull(value: any): boolean
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Inspect할 value입니다. json.null value만 true를 반환합니다. Lua nil 및 other values는 false를 반환합니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `isNull` | `boolean` | value가 exact json.null sentinel이면 true, otherwise false입니다. |
+
+## 예제
+
+value가 Lua nil이 아니라 json.null sentinel인지 check합니다.
+
+```lua
+local value = json.decode("null")
+
+if json.isNull(value) then
+    print("The value is JSON null")
+end
+
+print(json.isNull(nil))
+```

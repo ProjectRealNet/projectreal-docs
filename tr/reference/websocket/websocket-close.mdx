@@ -1,0 +1,31 @@
+---
+title: "WebSocket.Close"
+sidebarTitle: "WebSocket.Close"
+description: "WebSocket.connect tarafından döndürülen WebSocket object değerini kapatır. İlk argument bir table olmalıdır. Function object içindeki connection state değerini okur. live state varsa ve henüz destroyed veya closed değilse, isClosed değerini true yapar ve saklanan WebSocket connection üzerinden boş bir close frame frame gönderir. close code veya reason kabul etmez ve values döndürmez."
+icon: "function"
+keywords: ["WebSocket.Close","WebSocket"]
+---
+
+WebSocket.connect tarafından döndürülen WebSocket object değerini kapatır. İlk argument bir table olmalıdır. Function object içindeki connection state değerini okur. live state varsa ve henüz destroyed veya closed değilse, isClosed değerini true yapar ve saklanan WebSocket connection üzerinden boş bir close frame frame gönderir. close code veya reason kabul etmez ve values döndürmez.
+
+## Söz dizimi
+
+```lua
+WebSocket.Close(socket: WebSocket)
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `socket` | `WebSocket` | Yes | WebSocket.connect tarafından döndürülen WebSocket table. Function bu table içinde connection state bulunmasını bekler. |
+
+## Örnek
+
+Close a WebSocket object returned by WebSocket.connect.
+
+```lua
+local socket = WebSocket.connect("wss://example.com/socket")
+
+socket:Close()
+```

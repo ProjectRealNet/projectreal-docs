@@ -1,0 +1,13 @@
+{
+  "name": "projectreal-docs",
+  "private": true,
+  "scripts": {
+    "generate": "tsx scripts/generate-function-docs.mts",
+    "validate": "mint validate",
+    "check-links": "mint broken-links"
+  },
+  "devDependencies": {
+    "mint": "latest",
+    "tsx": "latest"
+  }
+}

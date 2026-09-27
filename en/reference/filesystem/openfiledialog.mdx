@@ -1,0 +1,60 @@
+---
+title: "openfiledialog"
+sidebarTitle: "openfiledialog"
+description: "Opens a Windows file-open dialog with Windows file picker and returns the selected file as a file item."
+icon: "function"
+keywords: ["openfiledialog","Filesystem"]
+---
+
+Opens a Windows file-open dialog with Windows file picker and returns the selected file as a file item.
+
+## Syntax
+
+```lua
+openfiledialog(options?: DialogOptions): FileSystemItem | nil
+```
+
+## Arguments
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. For openfiledialog, title, defaultPath, and extensionFilter are used. extensionFilter is a table of extension strings; leading . or *. is stripped before each filter becomes *.&lt;extension>. |
+
+## Returns
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `file` | `FileSystemItem \| nil` | Selected file item, or nil when the dialog is cancelled or no selected filesystem path is returned. Dialog failures throw Failed to open file dialog. |
+
+## Types
+
+### DialogOptions
+
+Configures the Windows file or folder selection dialog.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Sets the dialog window title. |
+| `defaultPath` | `string` | No | Selects the directory shown when the dialog opens. |
+| `extensionFilter` | `&#123;string&#125;` | No | Limits selectable files to the listed extensions, with or without a leading dot. |
+| `suggestedName` | `string` | No | Provides the initial file name in save dialogs. |
+| `defaultExtension` | `string` | No | Sets the extension used when the entered file name has none. |
+
+## Example
+
+Open a file picker and handle the selected file item or cancellation.
+
+```lua
+local file = openfiledialog({
+    title = "Choose a configuration",
+    defaultPath = ".",
+    extensionFilter = { "json", "txt" },
+})
+
+if file then
+    print(file:GetName())
+    print(file:IsFile())
+else
+    print("No file selected")
+end
+```

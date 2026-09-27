@@ -1,0 +1,40 @@
+---
+title: "getrenderproperty"
+sidebarTitle: "getrenderproperty"
+description: "첫 번째 인수를 지정한 property key로 인덱싱한 결과를 반환합니다. Drawing object의 경우 object[property]와 같은 Drawing property lookup를 사용하므로 unknown properties와 destroyed Drawing objects는 nil을 반환합니다. the Drawing API는 the required rendering environment is active가 true일 때만 이 API를 등록합니다. 이 검사가 false이면 initializer는 이러한 globals를 만들기 전에 반환됩니다."
+icon: "function"
+keywords: ["getrenderproperty","Drawing"]
+---
+
+첫 번째 인수를 지정한 property key로 인덱싱한 결과를 반환합니다. Drawing object의 경우 object[property]와 같은 Drawing property lookup를 사용하므로 unknown properties와 destroyed Drawing objects는 nil을 반환합니다. the Drawing API는 the required rendering environment is active가 true일 때만 이 API를 등록합니다. 이 검사가 false이면 initializer는 이러한 globals를 만들기 전에 반환됩니다.
+
+## 문법
+
+```lua
+getrenderproperty(object: any, property: any): any
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `object` | `any` | Yes | 인덱싱할 값입니다. Drawing object에서는 RealDrawingObject __index handler가 사용됩니다. |
+| `property` | `any` | Yes | 인덱싱에 사용되는 property key입니다. Drawing object properties는 strings 기반입니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `propertyValue` | `any` | object를 property로 인덱싱해 반환된 값 또는 Drawing __index handler에 해당 property 값이 없을 때 nil입니다. |
+
+## 예제
+
+Read a Drawing property like direct indexing.
+
+```lua
+local line = Drawing.new("Line")
+line.Thickness = 3
+
+print(getrenderproperty(line, "Thickness"))
+print(getrenderproperty(line, "MissingProperty"))
+```

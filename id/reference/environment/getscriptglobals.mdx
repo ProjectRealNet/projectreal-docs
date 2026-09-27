@@ -1,0 +1,32 @@
+---
+title: "getscriptglobals"
+sidebarTitle: "getscriptglobals"
+description: "Mengembalikan new table yang berisi current LUA_GLOBALSINDEX values untuk _G dan shared. Function tidak menerima arguments, membuat fresh table, menetapkan _G dari LUA_GLOBALSINDEX._G dan shared dari LUA_GLOBALSINDEX.shared, lalu mengembalikan exactly one value. Function tidak mengembalikan full global table, dan tidak ada alias yang terdaftar untuk getscriptglobals."
+icon: "function"
+keywords: ["getscriptglobals","Environment"]
+---
+
+Mengembalikan new table yang berisi current LUA_GLOBALSINDEX values untuk _G dan shared. Function tidak menerima arguments, membuat fresh table, menetapkan _G dari LUA_GLOBALSINDEX._G dan shared dari LUA_GLOBALSINDEX.shared, lalu mengembalikan exactly one value. Function tidak mengembalikan full global table, dan tidak ada alias yang terdaftar untuk getscriptglobals.
+
+## Sintaks
+
+```lua
+getscriptglobals(): table
+```
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `globals` | `table` | Fresh table dengan _G dan shared fields yang disalin dari LUA_GLOBALSINDEX. |
+
+## Contoh
+
+Read the _G and shared values copied from LUA_GLOBALSINDEX.
+
+```lua
+local globals = getscriptglobals()
+
+print(globals._G)
+print(globals.shared)
+```

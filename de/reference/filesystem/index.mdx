@@ -1,0 +1,25 @@
+---
+title: "Filesystem"
+description: "Dateien und Ordner lesen, schreiben und verwalten."
+icon: "folder-code"
+---
+
+Dateien und Ordner lesen, schreiben und verwalten.
+
+| Funktionsnavigation | Beschreibung |
+| --- | --- |
+| [`appendfile`](./appendfile) | Appends raw Lua string bytes to a workspace file using binary append mode. The file may be created if its parent folder exists. |
+| [`delfile`](./delfile) | Loescht eine vorhandene regular file innerhalb des workspace. |
+| [`delfolder`](./delfolder) | Loescht einen vorhandenen folder innerhalb des workspace rekursiv mit recursive folder deletion. |
+| [`getcustomasset`](./getcustomasset) | Kopiert eine vorhandene regular workspace file nach ExtraContent/&lt;hwid>/ und gibt einen rbxasset:// string fuer den kopierten asset path zurueck. |
+| [`isfile`](./isfile) | Returns whether a path resolved inside the workspace exists and is a regular file. |
+| [`isfolder`](./isfolder) | Returns whether a path resolved inside the workspace exists and is a directory. |
+| [`listfiles`](./listfiles) | Returns an array table of the direct children of an existing workspace directory. |
+| [`loadfile`](./loadfile) | Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it. |
+| [`makefolder`](./makefolder) | Erstellt ein directory innerhalb des workspace mit recursive folder creation, inklusive missing parent directories. |
+| [`openfiledialog`](./openfiledialog) | Oeffnet einen Windows file-open dialog ueber Windows file picker und gibt die ausgewaehlte Datei als file item zurueck. |
+| [`openfilesdialog`](./openfilesdialog) | Oeffnet einen Windows file-open dialog ueber Windows file picker mit aktiviertem multi-select und gibt die ausgewaehlten Dateien als file item-Werte zurueck. |
+| [`openfolderdialog`](./openfolderdialog) | Oeffnet einen Windows folder picker ueber Windows file picker mit folder selection mode und gibt den ausgewaehlten Ordner als file item zurueck. |
+| [`readfile`](./readfile) | Liest ein existing regular file innerhalb des workspace im binary mode und gibt seine bytes als Lua string zurueck. |
+| [`savefiledialog`](./savefiledialog) | Oeffnet einen Windows save dialog ueber Windows save dialog, schreibt die uebergebenen Lua string bytes in den selected path und gibt die saved file als file item zurueck. |
+| [`writefile`](./writefile) | Schreibt Lua string bytes in eine Datei innerhalb des workspace, erstellt missing parent directories und ersetzt die file contents, wenn die Datei bereits existiert. |

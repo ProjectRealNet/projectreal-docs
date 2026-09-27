@@ -1,0 +1,47 @@
+---
+title: "restorefunction"
+sidebarTitle: "restorefunction"
+description: "function hook operation değerini içeride çağırarak bir function değerini restore eder veya değiştirir ve values döndürmez. First argument function olmalıdır. Tek function argument ile function the saved original function arar; entry yoksa \"Function is not hooked\" üretir. Sonra hooked closure ve stored original closure ile function hook operation çağırır, Lua stack temizler ve stored original kullanıldığında restored closure değerini hook records içinden kaldırır. Second argument de function ise function firstFunction değerini kurulacak original function, secondFunction değerini patch edilecek closure olarak ele alır. Bu formda saklanan hook records degerine karsi missing-original check yapilmaz; saklanan deger yalnizca final remove check sirasinda karsilastirilir. için kullanılır. Non-function second arguments branch condition tarafından yok sayılır. restorefunc ve restoreclosure aynı function için aliases değerleridir."
+icon: "function"
+keywords: ["restorefunction","Closures","restorefunc","restoreclosure"]
+---
+
+function hook operation değerini içeride çağırarak bir function değerini restore eder veya değiştirir ve values döndürmez. First argument function olmalıdır. Tek function argument ile function the saved original function arar; entry yoksa "Function is not hooked" üretir. Sonra hooked closure ve stored original closure ile function hook operation çağırır, Lua stack temizler ve stored original kullanıldığında restored closure değerini hook records içinden kaldırır. Second argument de function ise function firstFunction değerini kurulacak original function, secondFunction değerini patch edilecek closure olarak ele alır. Bu formda saklanan hook records degerine karsi missing-original check yapilmaz; saklanan deger yalnizca final remove check sirasinda karsilastirilir. için kullanılır. Non-function second arguments branch condition tarafından yok sayılır. restorefunc ve restoreclosure aynı function için aliases değerleridir.
+
+## Söz dizimi
+
+```lua
+restorefunction(firstFunction: function, secondFunction?: function)
+```
+
+## Aliaslar
+
+- `restorefunc`
+- `restoreclosure`
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `firstFunction` | `function` | Yes | Tek argument ile hook records içinden restore edilecek hooked closure. Function second argument ile secondFunction içine kurulacak function. |
+| `secondFunction` | `function` | No | firstFunction ile patch edilecek optional closure. Bu branch yalnızca second argument function olduğunda kullanılır. |
+
+## Örnek
+
+Restore a hooked closure to its original function.
+
+```lua
+local function target()
+    return "original"
+end
+
+hookfunction(target, function()
+    return "hooked"
+end)
+
+print(target())
+
+restorefunction(target)
+
+print(target())
+```

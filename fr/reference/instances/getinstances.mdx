@@ -1,0 +1,21 @@
+---
+title: "getinstances"
+sidebarTitle: "getinstances"
+description: "Retourne une nouvelle array table contenant chaque object value actuellement stockee dans la Instance cache. La function ne prend aucun arguments. Elle ne filtre pas par Parent, ClassName, DataModel fieldship, nil-parent state ou Instance validity, sauf pour verifier que chaque registry value est object. Les entries sont copies dans la table retournee a des sequential numeric indexes commencant a 1. L iteration order vient de table iteration sur la cache et n est pas trie par l function."
+icon: "function"
+keywords: ["getinstances","Instances"]
+---
+
+Retourne une nouvelle array table contenant chaque object value actuellement stockee dans la Instance cache. La function ne prend aucun arguments. Elle ne filtre pas par Parent, ClassName, DataModel fieldship, nil-parent state ou Instance validity, sauf pour verifier que chaque registry value est object. Les entries sont copies dans la table retournee a des sequential numeric indexes commencant a 1. L iteration order vient de table iteration sur la cache et n est pas trie par l function.
+
+## Syntaxe
+
+```lua
+getinstances(): { Instance }
+```
+
+## Retours
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `instances` | `&#123; Instance &#125;` | Array table de object values copies depuis la Instance cache table. |

@@ -1,0 +1,39 @@
+---
+title: "json.values"
+sidebarTitle: "json.values"
+description: "Bir table icindeki direct values degerlerini JSON array olarak marked yeni bir table icinde dondurur. JSON kind marker entries atlanir."
+icon: "function"
+keywords: ["json.values","JSON"]
+---
+
+Bir table icindeki direct values degerlerini JSON array olarak marked yeni bir table icinde dondurur. JSON kind marker entries atlanir.
+
+## Söz dizimi
+
+```lua
+json.values(object: table): table
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | Enumerate edilecek table. Function bu argument degerini type checking ile kontrol eder. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `values` | `table` | Input table icindeki direct values degerlerini iceren new array-style table. Output JSON array olarak marked olur. Enumeration table iteration kullanir, bu yuzden function icinde ordering guarantee gorunmez. |
+
+## Örnek
+
+Bir table icindeki direct values degerlerini JSON array-marked table icine toplar.
+
+```lua
+local list = json.array({ "one", "two" })
+
+for _, value in ipairs(json.values(list)) do
+    print(value)
+end
+```

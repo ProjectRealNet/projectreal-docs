@@ -1,0 +1,41 @@
+---
+title: "json.isObject"
+sidebarTitle: "json.isObject"
+description: "Value가 Real JSON table detection에 의해 treated as a JSON object 되는지 반환합니다."
+icon: "function"
+keywords: ["json.isObject","JSON"]
+---
+
+Value가 Real JSON table detection에 의해 treated as a JSON object 되는지 반환합니다.
+
+## 문법
+
+```lua
+json.isObject(value: any): boolean
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Inspect할 value입니다. Non-table values는 false를 반환합니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `isObject` | `boolean` | value가 table marked as a JSON object이거나 Real JSON table detection이 table을 array로 분류하지 않으면 true입니다. Empty unmarked tables는 true를 반환합니다. |
+
+## 예제
+
+Table이 Real JSON encoder에 의해 treated as a JSON object 되는지 check합니다.
+
+```lua
+local record = json.object({ name = "Real" })
+local items = json.array({ "one", "two" })
+local empty = {}
+
+print(json.isObject(record))
+print(json.isObject(items))
+print(json.isObject(empty))
+```

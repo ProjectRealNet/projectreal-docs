@@ -1,0 +1,46 @@
+---
+title: "crypt.encrypt"
+sidebarTitle: "crypt.encrypt"
+description: "使用从 Base64 解码的 key，通过 AES CBC、ECB 或 CTR 加密 Lua string 字节，然后返回 Base64 ciphertext 和 IV 结果。"
+icon: "function"
+keywords: ["crypt.encrypt","Cryptography"]
+---
+
+使用从 Base64 解码的 key，通过 AES CBC、ECB 或 CTR 加密 Lua string 字节，然后返回 Base64 ciphertext 和 IV 结果。
+
+## 语法
+
+```lua
+crypt.encrypt(data: string, key: string, iv?: string, mode?: "CBC" | "ECB" | "CTR" | "AES-CBC" | "AES-ECB" | "AES-CTR"): string | string | nil
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | 从 Lua string 读取的 plaintext 字节。 |
+| `key` | `string` | Yes | 传递给 AES 前会被解码的 Base64 key。 |
+| `iv` | `string` | No | CBC 或 CTR 的可选 Base64 IV。CBC 或 CTR 省略时，会生成新的 AES block size IV。 |
+| `mode` | `"CBC" \| "ECB" \| "CTR" \| "AES-CBC" \| "AES-ECB" \| "AES-CTR"` | No | AES mode。如果存在 AES- prefix，会将其移除。默认值是 AES-CBC。CBC 和 ECB 使用 crypto library DEFAULT_PADDING；CTR 不使用 padding。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `ciphertext` | `string` | Base64-encoded ciphertext。 |
+| `initializationVector` | `string \| nil` | CBC 和 CTR 的 Base64-encoded IV；ECB 为 nil。 |
+
+## 示例
+
+加密一个 Lua string，并使用返回的 IV 解密返回的 ciphertext。
+
+```lua
+local key = crypt.generatekey()
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+local plaintext = crypt.decrypt(ciphertext, key, iv)
+
+print(ciphertext)
+print(iv)
+print(plaintext)
+```

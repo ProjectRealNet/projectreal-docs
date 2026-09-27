@@ -1,0 +1,44 @@
+---
+title: "getcustomasset"
+sidebarTitle: "getcustomasset"
+description: "存在する regular workspace file を ExtraContent/<hwid>/ にコピーし、コピーされた asset path の rbxasset:// string を返します。"
+icon: "function"
+keywords: ["getcustomasset","Filesystem","getsynasset"]
+---
+
+存在する regular workspace file を ExtraContent/&lt;hwid>/ にコピーし、コピーされた asset path の rbxasset:// string を返します。
+
+## 構文
+
+```lua
+getcustomasset(path: string): string
+```
+
+## エイリアス
+
+- `getsynasset`
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | separator normalization と workspace-boundary checks の後、workspace 内で解決される path。対象は存在する regular file である必要があります。folders、invalid filenames、DOS device names、blocked extensions は受け付けません。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `assetId` | `string` | rbxasset://&lt;hwid>/&lt;workspace-relative-path> 形式の String。relative path には forward slashes が使われます。 |
+
+## 例
+
+存在する workspace file を asset folder にコピーし、返された rbxasset path を出力します。
+
+```lua
+local path = "assets/example.txt"
+writefile(path, "asset bytes")
+
+local assetId = getcustomasset(path)
+print(assetId)
+print(getsynasset(path))
+```

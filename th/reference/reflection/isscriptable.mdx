@@ -1,0 +1,37 @@
+---
+title: "isscriptable"
+sidebarTitle: "isscriptable"
+description: "ตรวจสอบ scriptable flag ของ Roblox property บน Instance function จะคืนค่า scriptable ที่อยู่ใน cache ก่อน หากมีค่าสำหรับ instance reference และ property name เดียวกัน เมื่อเกิด cache miss จะ resolve property name ผ่าน Roblox property metadata และ Instance class descriptor หากไม่มี descriptor หรือ field ที่ resolve ได้ไม่มีอยู่หรือไม่ใช่ property entry function จะคืนค่า nil เมื่อพบ property entry function จะอ่าน scriptable state เก็บค่านั้นใน scriptable override cache สำหรับ instance และ property แล้วคืนค่า boolean function นี้ไม่เปลี่ยน scriptable flag"
+icon: "function"
+keywords: ["isscriptable","Reflection"]
+---
+
+ตรวจสอบ scriptable flag ของ Roblox property บน Instance function จะคืนค่า scriptable ที่อยู่ใน cache ก่อน หากมีค่าสำหรับ instance reference และ property name เดียวกัน เมื่อเกิด cache miss จะ resolve property name ผ่าน Roblox property metadata และ Instance class descriptor หากไม่มี descriptor หรือ field ที่ resolve ได้ไม่มีอยู่หรือไม่ใช่ property entry function จะคืนค่า nil เมื่อพบ property entry function จะอ่าน scriptable state เก็บค่านั้นใน scriptable override cache สำหรับ instance และ property แล้วคืนค่า boolean function นี้ไม่เปลี่ยน scriptable flag
+
+## ไวยากรณ์
+
+```lua
+isscriptable(instance: Instance, property: string): boolean | nil
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object ที่ต้องตรวจสอบ property scriptable state. |
+| `property` | `string` | Yes | Property name ที่ resolve ผ่าน Roblox property metadata และ Instance class descriptor. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `scriptable` | `boolean \| nil` | ค่า scriptable state จาก cache หรือค่าปัจจุบัน หรือ nil เมื่อ property descriptor/field ไม่มีอยู่หรือไม่ใช่ property entry. |
+
+## ตัวอย่าง
+
+Check whether a property is scriptable on an Instance.
+
+```lua
+local scriptable = isscriptable(workspace, "Name")
+print(scriptable)
+```

@@ -1,0 +1,47 @@
+---
+title: "lz4decompress"
+sidebarTitle: "lz4decompress"
+description: "Распаковывает raw LZ4 block bytes через LZ4 block decompression и возвращает raw decompressed bytes как строку Lua."
+icon: "function"
+keywords: ["lz4decompress","Cryptography","crypt.lz4decompress","crypt.lz4.decompress","lz4.decompress"]
+---
+
+Распаковывает raw LZ4 block bytes через LZ4 block decompression и возвращает raw decompressed bytes как строку Lua.
+
+## Синтаксис
+
+```lua
+lz4decompress(data: string, originalSize?: number): string
+```
+
+## Алиасы
+
+- `crypt.lz4decompress`
+- `crypt.lz4.decompress`
+- `lz4.decompress`
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Raw compressed bytes, передаваемые в LZ4 block decompression. |
+| `originalSize` | `number` | No | Output buffer size, передаваемый как dstCapacity. Для вывода lz4compress передайте исходную несжатую длину в bytes; если аргумент пропущен, используется длина сжатого ввода. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `decompressed` | `string` | Raw decompressed bytes, возвращаемые как строка Lua. Вывод может быть короче originalSize. |
+
+## Пример
+
+Распакуйте LZ4 bytes, передав исходный несжатый размер.
+
+```lua
+local source = "Real Docs"
+local compressed = lz4compress(source)
+local decompressed = lz4decompress(compressed, #source)
+
+print(decompressed)
+print(decompressed == source)
+```

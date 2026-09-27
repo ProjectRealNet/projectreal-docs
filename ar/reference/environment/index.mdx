@@ -1,0 +1,18 @@
+---
+title: "Environment"
+description: "الوصول إلى بيئات وقت التشغيل والكائنات المجمعة للقمامة."
+icon: "folder-code"
+---
+
+الوصول إلى بيئات وقت التشغيل والكائنات المجمعة للقمامة.
+
+| تنقل الدوال | الوصف |
+| --- | --- |
+| [`filtergc`](./filtergc) | يبحث في live garbage-collected tables أو functions التي تطابق filters المقدمة. يجب أن يكون filterType هو "table" أو "function". يجب أن تكون options من نوع table. |
+| [`getgc`](./getgc) | Returns an array table of live Luau garbage-collected objects visible to the API. Functions and userdata-like objects are included by default. Tables are included only when includeTables is true. get_gc_objects is an alias. |
+| [`getgenv`](./getgenv) | يرجع current executor environment table عبر pushing LUA_ENVIRONINDEX. لا تأخذ function أي arguments، وترجع exactly one value، ولا يوجد registered alias. Call-sites في repository تستخدم returned table لقراءة وكتابة shared executor globals مثل __siApiCache و saveinstance. |
+| [`getrenv`](./getrenv) | Returns the Roblox global environment table. The function takes no arguments and returns exactly one value. |
+| [`getscriptglobals`](./getscriptglobals) | يرجع new table تحتوي على current LUA_GLOBALSINDEX values للحقول _G و shared. لا تأخذ function أي arguments، تنشئ fresh table، تعين _G من LUA_GLOBALSINDEX._G و shared من LUA_GLOBALSINDEX.shared، وترجع exactly one value. لا ترجع full global table، ولا يوجد alias مسجل لـ getscriptglobals. |
+| [`gettenv`](./gettenv) | Returns the environment table stored on a Luau thread. getstateenv is an alias. |
+| [`setclipboard`](./setclipboard) | Writes one value to the Windows system clipboard as text. The value is converted to a string. The function returns no status value, whether the clipboard write succeeds or fails. toclipboard is an alias. |
+| [`setrbxclipboard`](./setrbxclipboard) | Writes a required string to the Windows clipboard using Roblox Studio clipboard data format. The function returns no status value, whether the clipboard write succeeds or fails. |

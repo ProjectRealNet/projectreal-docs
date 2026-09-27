@@ -1,0 +1,43 @@
+---
+title: "crypt.decrypt"
+sidebarTitle: "crypt.decrypt"
+description: "ถอดรหัส Base64 ciphertext ด้วย key ที่ decode จาก Base64 และ Base64 IV ที่ต้องมี โดยใช้ AES CBC หรือ ECB"
+icon: "function"
+keywords: ["crypt.decrypt","Cryptography"]
+---
+
+ถอดรหัส Base64 ciphertext ด้วย key ที่ decode จาก Base64 และ Base64 IV ที่ต้องมี โดยใช้ AES CBC หรือ ECB
+
+## ไวยากรณ์
+
+```lua
+crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES-CBC" | "AES-ECB"): string
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Base64 ciphertext ที่ถูก decode ก่อนถอดรหัส |
+| `key` | `string` | Yes | Base64 key ที่ถูก decode ก่อนส่งให้ AES |
+| `iv` | `string` | Yes | Base64 IV ที่ถูก decode ก่อนประมวลผล mode อาร์กิวเมนต์นี้จำเป็น รวมถึง ECB |
+| `mode` | `"CBC" \| "ECB" \| "AES-CBC" \| "AES-ECB"` | No | AES mode ถ้ามี prefix AES- จะถูกลบ ค่าเริ่มต้นคือ AES-CBC |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `plaintext` | `string` | byte plaintext ที่คืนค่าเป็น Lua string |
+
+## ตัวอย่าง
+
+ถอดรหัส ciphertext ที่ crypt.encrypt คืนค่าโดยใช้ IV ที่คืนมา
+
+```lua
+local key = crypt.generatekey()
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+local plaintext = crypt.decrypt(ciphertext, key, iv)
+
+print(plaintext)
+```

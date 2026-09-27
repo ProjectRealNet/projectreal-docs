@@ -1,0 +1,21 @@
+---
+title: "getrunningscripts"
+sidebarTitle: "getrunningscripts"
+description: "Возвращает новую array table с unique script Instances, взятыми из live Lua threads. Function не принимает arguments. Она проходит по the live Luau thread list, читает каждый thread node и пропускает entries без thread node, без weak thread ref, без LiveLuaRef, без Lua state, без object или с expired Script stored reference. Для каждого оставшегося thread она блокирует scriptThread->object->Script(), удаляет дубликаты по script reference, помещает Instance через Instance cache и вставляет его в последовательные array indexes, начиная с 1. Function не сканирует DataModel, не проверяет ClassName и не сортирует result."
+icon: "function"
+keywords: ["getrunningscripts","Scripts"]
+---
+
+Возвращает новую array table с unique script Instances, взятыми из live Lua threads. Function не принимает arguments. Она проходит по the live Luau thread list, читает каждый thread node и пропускает entries без thread node, без weak thread ref, без LiveLuaRef, без Lua state, без object или с expired Script stored reference. Для каждого оставшегося thread она блокирует scriptThread->object->Script(), удаляет дубликаты по script reference, помещает Instance через Instance cache и вставляет его в последовательные array indexes, начиная с 1. Function не сканирует DataModel, не проверяет ClassName и не сортирует result.
+
+## Синтаксис
+
+```lua
+getrunningscripts(): table
+```
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `scripts` | `table` | Новая array table с unique script Instance object values, связанными с live Lua threads. |

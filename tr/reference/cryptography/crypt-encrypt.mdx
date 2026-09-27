@@ -1,0 +1,46 @@
+---
+title: "crypt.encrypt"
+sidebarTitle: "crypt.encrypt"
+description: "Lua string byte degerlerini Base64 decode edilmis key ile AES CBC, ECB veya CTR kullanarak encrypt eder, sonra Base64 ciphertext ve IV sonucunu dondurur."
+icon: "function"
+keywords: ["crypt.encrypt","Cryptography"]
+---
+
+Lua string byte degerlerini Base64 decode edilmis key ile AES CBC, ECB veya CTR kullanarak encrypt eder, sonra Base64 ciphertext ve IV sonucunu dondurur.
+
+## Söz dizimi
+
+```lua
+crypt.encrypt(data: string, key: string, iv?: string, mode?: "CBC" | "ECB" | "CTR" | "AES-CBC" | "AES-ECB" | "AES-CTR"): string | string | nil
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Lua string icinden okunan plaintext byte degerleri. |
+| `key` | `string` | Yes | AES icine aktarilmadan once decode edilen Base64 key. |
+| `iv` | `string` | No | CBC veya CTR icin optional Base64 IV. CBC veya CTR icin verilmezse AES block size boyutunda yeni bir IV uretilir. |
+| `mode` | `"CBC" \| "ECB" \| "CTR" \| "AES-CBC" \| "AES-ECB" \| "AES-CTR"` | No | AES mode. Varsa AES- prefix kaldirilir. Varsayilan deger AES-CBC. CBC ve ECB crypto library DEFAULT_PADDING kullanir; CTR padding kullanmaz. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `ciphertext` | `string` | Base64-encoded ciphertext. |
+| `initializationVector` | `string \| nil` | CBC ve CTR icin Base64-encoded IV; ECB icin nil. |
+
+## Örnek
+
+Bir Lua string degerini encrypt et ve dondurulen ciphertext degerini dondurulen IV ile decrypt et.
+
+```lua
+local key = crypt.generatekey()
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+local plaintext = crypt.decrypt(ciphertext, key, iv)
+
+print(ciphertext)
+print(iv)
+print(plaintext)
+```

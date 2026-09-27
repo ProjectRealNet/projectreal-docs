@@ -1,0 +1,38 @@
+---
+title: "json.escape"
+sidebarTitle: "json.escape"
+description: "使用 Real JSON string escaping rules 对 string 执行 escape，并返回不带 surrounding quotes 的 escaped content。"
+icon: "function"
+keywords: ["json.escape","JSON"]
+---
+
+使用 Real JSON string escaping rules 对 string 执行 escape，并返回不带 surrounding quotes 的 escaped content。
+
+## 语法
+
+```lua
+json.escape(text: string): string
+```
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `text` | `string` | Yes | 要 escape 的 string。function 使用 string type checking 读取这个 argument。 |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `escaped` | `string` | 不带 opening 和 closing quote 的 escaped JSON string content。Quotes、backslashes、common control characters 和 bytes below 0x20 会被 escape。 |
+
+## 示例
+
+为 JSON string 内部 escape string，不添加 surrounding quotes。
+
+```lua
+local source = "line 1" .. string.char(10) .. [[line "2"]]
+local escaped = json.escape(source)
+
+print(escaped)
+```

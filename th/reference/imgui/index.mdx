@@ -1,0 +1,23 @@
+---
+title: "ImGui"
+description: "หน้าต่างโหมดทันทีและการควบคุมที่ขับเคลื่อนด้วยการโทรกลับ"
+icon: "folder-code"
+---
+
+หน้าต่างโหมดทันทีและการควบคุมที่ขับเคลื่อนด้วยการโทรกลับ
+
+| การนำทางฟังก์ชัน | คำอธิบาย |
+| --- | --- |
+| [`imgui.create`](./imgui-create) | สร้าง ImGui window record ที่ถูกติดตามและส่งคืน ImGuiWindow object อาร์กิวเมนต์ title ใช้ "REAL_IM_UI" เมื่อถูกละเว้นหรือเป็น nil title ต้องไม่ซ้ำใน ImGui windows ที่ถูกติดตามอยู่ตอนนี้ การสร้าง tracked window อีกอันด้วย title เดียวกันจะทำให้เกิด Lua error |
+| [`imgui.setvsync`](./imgui-setvsync) | อัปเดต vertical synchronization preference ของ ImGui renderer โดย presentation path ปัจจุบันเก็บ preference นี้ไว้แต่ไม่ได้ใช้งาน |
+| [`ImGuiWindow.Button`](./imguiwindow-button) | เพิ่ม button element ไปยัง ImGuiWindow และเก็บ callback เมื่อ button ที่ render แล้วถูกคลิก callback จะถูกใส่ใน queue และถูกเรียกภายหลังโดยไม่มี arguments method ส่งคืน ImGuiWindow object เดิม |
+| [`ImGuiWindow.Checkbox`](./imguiwindow-checkbox) | Appends a checkbox element to an ImGuiWindow. The callback is invoked with the new boolean value when the checkbox changes, and the method returns the same ImGuiWindow object. |
+| [`ImGuiWindow.CollapsingHeader`](./imguiwindow-collapsingheader) | เพิ่ม collapsing header start marker จากนั้นเรียก content callback ทันทีพร้อม ImGuiWindow object เดิมเพื่อให้เพิ่ม nested elements ได้ แล้วเพิ่ม header end marker ระหว่าง rendering nested elements จะถูกข้ามขณะที่ header collapsed callback errors จะถูกจับและไม่ถูกส่งคืนโดย method นี้ |
+| [`ImGuiWindow.ColorPicker`](./imguiwindow-colorpicker) | Appends a RGBA color editor to an ImGuiWindow and stores the callback. Missing or nil color components default to 1.0. When the rendered editor changes, the callback is queued and later invoked with red, green, blue, and alpha. The method returns the same ImGuiWindow object. |
+| [`ImGuiWindow.destroy`](./imguiwindow-destroy) | ทำลาย ImGuiWindow หาก object ยังชี้ไปยัง window method จะลบ window นั้นออกจาก tracked ImGui window list ของ Real ทำ unreference สำหรับ stored element callbacks ลบ window record และตั้ง Instance reference เป็น nil การเรียก destroy อีกครั้งบน object เดิมจะกลับโดยไม่ทำอะไร |
+| [`ImGuiWindow.InputText`](./imguiwindow-inputtext) | เพิ่ม single-line ImGui InputText element ไปยัง ImGuiWindow และเก็บ callback initial text ถูกอ่านด้วย optional string handling และคัดลอกลงใน fixed 256-byte text buffer ของ element เมื่อ input ที่ render แล้วเปลี่ยน callback จะถูกใส่ใน queue และถูกเรียกภายหลังพร้อม current string method ส่งคืน ImGuiWindow object เดิม |
+| [`ImGuiWindow.SameLine`](./imguiwindow-sameline) | เพิ่ม SameLine layout marker ไปยัง window ระหว่าง rendering Real จะเรียก a same-line layout marker ที่ตำแหน่งนั้นใน element list เพื่อให้ item ถัดไปที่ถูก render สามารถต่อในแถวเดียวกันได้ |
+| [`ImGuiWindow.Separator`](./imguiwindow-separator) | เพิ่ม Separator marker ไปยัง window ระหว่าง rendering Real จะเรียก a separator ที่ตำแหน่งนั้นใน element list |
+| [`ImGuiWindow.SliderFloat`](./imguiwindow-sliderfloat) | เพิ่ม SliderFloat element ไปยัง window โดยอ่าน label, value, minimum และ maximum จากอาร์กิวเมนต์ 2 ถึง 5 และตรวจอาร์กิวเมนต์ตัวเลขด้วย number type checking ระหว่าง rendering Real จะเรียก a floating-point slider ด้วย value และ range ที่เก็บไว้ เมื่อ ImGui รายงานว่า value เปลี่ยน onChange จะถูกใส่ใน queue และถูกเรียกภายหลังด้วย Lua number หนึ่งค่า Real ไม่เพิ่มการตรวจ minimum &lt;= maximum แยกต่างหากใน closure นี้ |
+| [`ImGuiWindow.SliderInt`](./imguiwindow-sliderint) | Adds an integer slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated integer value. |
+| [`ImGuiWindow.Text`](./imguiwindow-text) | เพิ่ม Text element แบบไม่โต้ตอบไปยัง window โดยอ่านอาร์กิวเมนต์ text ด้วย string type checking และเก็บไว้ใน element ระหว่าง rendering Real จะเรียก a text element ดังนั้น text ที่ส่งเข้ามาจะถูกใช้เป็น string content ไม่ใช่ ImGui format string |

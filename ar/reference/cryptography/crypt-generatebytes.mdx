@@ -1,0 +1,40 @@
+---
+title: "crypt.generatebytes"
+sidebarTitle: "crypt.generatebytes"
+description: "ينشئ بايتات عشوائية باستخدام random byte generator ويعيدها Base64-encoded كسلسلة Lua."
+icon: "function"
+keywords: ["crypt.generatebytes","Cryptography"]
+---
+
+ينشئ بايتات عشوائية باستخدام random byte generator ويعيدها Base64-encoded كسلسلة Lua.
+
+## الصيغة
+
+```lua
+crypt.generatebytes(size: number): string
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `size` | `number` | Yes | رقم يمر عبر integer conversion قبل التخصيص. القيم الاقل من او تساوي 0 يتم تغييرها إلى 1. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `encoded` | `string` | Base64 encoding للبايتات الخام التي تم إنشاؤها. طول السلسلة المعادة ليس عدد البايتات المطلوب. |
+
+## مثال
+
+انشئ بايتات وفك نتيجة Base64 عندما تحتاج إلى البايتات الخام.
+
+```lua
+local encoded = crypt.generatebytes(16)
+local raw = base64_decode(encoded)
+
+print(encoded)
+print(#encoded)
+print(#raw)
+```

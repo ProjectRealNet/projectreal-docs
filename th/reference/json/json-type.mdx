@@ -1,0 +1,39 @@
+---
+title: "json.type"
+sidebarTitle: "json.type"
+description: "ส่งคืน string type name สำหรับค่า json.null ส่งคืน \"null\" table ส่งคืน \"array\" หรือ \"object\" โดยใช้ table classification เดียวกับ json.isArray และ json.isObject ค่าอื่นส่งคืน runtime Lua type name result"
+icon: "function"
+keywords: ["json.type","JSON"]
+---
+
+ส่งคืน string type name สำหรับค่า json.null ส่งคืน "null" table ส่งคืน "array" หรือ "object" โดยใช้ table classification เดียวกับ json.isArray และ json.isObject ค่าอื่นส่งคืน runtime Lua type name result
+
+## ไวยากรณ์
+
+```lua
+json.type(value: any): string
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | ค่าที่จะ classify การส่ง no value จะคืน runtime type name สำหรับ stack value ที่ขาดหายไป |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `jsonType` | `string` | Type name string. JSON-specific returns ที่ตรวจสอบแล้วคือ "null", "array" และ "object" ค่า non-table และ non-json.null ใช้ Lua type name เช่น "nil", "boolean", "number", "integer", "string", "function", "object", "thread", "buffer", "class", "object", "vector" หรือ "no value" ตาม runtime value |
+
+## ตัวอย่าง
+
+ตรวจสอบ exact type string ที่ JSON helper ส่งคืน
+
+```lua
+print(json.type(json.array({ "red", "blue" })))
+print(json.type(json.object({ enabled = true })))
+print(json.type(json.null))
+print(json.type(nil))
+print(json.type())
+```

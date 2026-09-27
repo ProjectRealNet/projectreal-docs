@@ -1,0 +1,36 @@
+---
+title: "crypt.generatekey"
+sidebarTitle: "crypt.generatekey"
+description: "Menghasilkan 32 raw bytes acak dengan random byte generator dan mengembalikannya Base64-encoded sebagai string Lua."
+icon: "function"
+keywords: ["crypt.generatekey","Cryptography"]
+---
+
+Menghasilkan 32 raw bytes acak dengan random byte generator dan mengembalikannya Base64-encoded sebagai string Lua.
+
+## Sintaks
+
+```lua
+crypt.generatekey(): string
+```
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `key` | `string` | Base64 encoding dari 32 raw bytes yang dihasilkan. String yang dikembalikan bukan 32 karakter. |
+
+## Contoh
+
+Hasilkan Base64 key dan dekode untuk memeriksa jumlah raw bytes.
+
+```lua
+local key = crypt.generatekey()
+local raw = base64_decode(key)
+
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+print(key)
+print(#raw)
+print(ciphertext, iv)
+```

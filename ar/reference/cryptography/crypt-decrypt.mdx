@@ -1,0 +1,43 @@
+---
+title: "crypt.decrypt"
+sidebarTitle: "crypt.decrypt"
+description: "يفك تشفير Base64 ciphertext باستخدام مفتاح مفكوك من Base64 و Base64 IV مطلوب عبر AES CBC او ECB."
+icon: "function"
+keywords: ["crypt.decrypt","Cryptography"]
+---
+
+يفك تشفير Base64 ciphertext باستخدام مفتاح مفكوك من Base64 و Base64 IV مطلوب عبر AES CBC او ECB.
+
+## الصيغة
+
+```lua
+crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES-CBC" | "AES-ECB"): string
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `data` | `string` | Yes | Base64 ciphertext الذي يتم فكه قبل التشفير العكسي. |
+| `key` | `string` | Yes | مفتاح Base64 يتم فكه قبل تمريره إلى AES. |
+| `iv` | `string` | Yes | Base64 IV يتم فكه قبل معالجة mode. هذا الوسيط مطلوب، حتى مع ECB. |
+| `mode` | `"CBC" \| "ECB" \| "AES-CBC" \| "AES-ECB"` | No | AES mode. تتم إزالة بادئة AES- عند وجودها. القيمة الافتراضية هي AES-CBC. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `plaintext` | `string` | بايتات plaintext المعادة كسلسلة Lua. |
+
+## مثال
+
+فك تشفير ciphertext المعاد من crypt.encrypt باستخدام IV المعاد.
+
+```lua
+local key = crypt.generatekey()
+local ciphertext, iv = crypt.encrypt("hello world", key)
+
+local plaintext = crypt.decrypt(ciphertext, key, iv)
+
+print(plaintext)
+```

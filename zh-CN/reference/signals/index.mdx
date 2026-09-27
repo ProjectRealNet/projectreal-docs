@@ -1,0 +1,17 @@
+---
+title: "Signals"
+description: "信号连接和事件转发。"
+icon: "folder-code"
+---
+
+信号连接和事件转发。
+
+| 函数导航 | 说明 |
+| --- | --- |
+| [`cansignalreplicate`](./cansignalreplicate) | 检查 RBXScriptSignal 是否可以通过当前 NetworkClient replication layer 合法发送。该 function 会将第一个 argument 验证为 RBXScriptSignal，读取 signal 的 source instance 和 event descriptor，然后返回 replication layer signal replication validation 的 boolean 结果。如果解析到的 replication layer reference 值为 0，则返回 false。额外 arguments 不会被读取。此 function 只检查 signal，不会 fire 或 replicate 它。getsignalwhitelist 返回的 whitelist table 不会在此代码路径中使用。 |
+| [`firesignal`](./firesignal) | Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error. |
+| [`getconnections`](./getconnections) | 返回 RBXScriptSignal 的 RealConnection closures array table。第一个 argument 必须是 Luau type name 为 RBXScriptSignal 的 object。function 会读取 signal 的 Connect method，连接 temporary blank callback，从临时 connection 的 next reference 开始读取 linked list，断开临时 connection，并包装每个有效的 connection reference。如果临时 connection 后没有找到 connection reference，则返回空 table。以前包装过的 underlying references 可能返回同一个 cached closure table。getsignals 和 get_signal_cons 是同一个 function 的 aliases。 |
+| [`getsignalarguments`](./getsignalarguments) | 返回从 RBXScriptSignal event descriptor signature 读取的 type names array table。第一个 argument 必须是 Luau type name 为 RBXScriptSignal 的 object。该 function 会读取 signal 的 event descriptor，使用 function 的 argument stride 遍历 signature slots，读取每个 argument type reference，并为每个 slot push 解析出的 type name string。它不会返回 captured runtime argument values。如果 signature 无法读取或没有 push 任何 entries，返回的 table 会包含一个 fallback entry: "Variant"。 |
+| [`getsignalargumentsinfo`](./getsignalargumentsinfo) | 从 RBXScriptSignal 签名返回参数信息的 array table。它不返回捕获到的运行时参数值。 |
+| [`getsignalwhitelist`](./getsignalwhitelist) | 返回一个新的 array table，其中包含 function 定义的六个静态 whitelist entry: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent。每个 entry 都是带有 Event 和 Parent string field 的 table。此 function 不接受 arguments，也不会检查当前 game state。 |
+| [`replicatesignal`](./replicatesignal) | 调用 RBXScriptSignal 的 replication path。该函数读取 signal signature，将提供的 Lua arguments 转换为每个 signature type 对应的 Roblox signal values，截断超过 signature length 的额外 Lua arguments，然后调用 owning instance event invocation function。 |

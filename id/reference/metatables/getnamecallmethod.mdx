@@ -1,0 +1,37 @@
+---
+title: "getnamecallmethod"
+sidebarTitle: "getnamecallmethod"
+description: "Mengembalikan current Luau namecall atom yang disimpan di the current namecall method. Function tidak menerima arguments dan mengembalikan exactly one value. Jika the current namecall method ada, the current namecall method lebih besar dari 0, dan the current namecall method non-null, function push data itu sebagai string dengan string return. Jika tidak, function push nil. Function tidak memeriksa arguments, tidak menghitung method name dari target object, dan tidak memanggil metamethod apa pun. get_namecall_method adalah alias untuk getnamecallmethod."
+icon: "function"
+keywords: ["getnamecallmethod","Metatables","get_namecall_method"]
+---
+
+Mengembalikan current Luau namecall atom yang disimpan di the current namecall method. Function tidak menerima arguments dan mengembalikan exactly one value. Jika the current namecall method ada, the current namecall method lebih besar dari 0, dan the current namecall method non-null, function push data itu sebagai string dengan string return. Jika tidak, function push nil. Function tidak memeriksa arguments, tidak menghitung method name dari target object, dan tidak memanggil metamethod apa pun. get_namecall_method adalah alias untuk getnamecallmethod.
+
+## Sintaks
+
+```lua
+getnamecallmethod(): string | nil
+```
+
+## Alias
+
+- `get_namecall_method`
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `method` | `string \| nil` | Current the current namecall method data string saat ada dan non-empty; jika tidak nil. |
+
+## Contoh
+
+Read the current L->namecall string when Real is inside namecall handling.
+
+```lua
+local method = getnamecallmethod()
+print(method)
+
+local aliasMethod = get_namecall_method()
+print(aliasMethod)
+```

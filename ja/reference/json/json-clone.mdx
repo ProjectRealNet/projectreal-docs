@@ -1,0 +1,61 @@
+---
+title: "json.clone"
+sidebarTitle: "json.clone"
+description: "value を json.encode semantics で encoding し、generated JSON を Lua values に decoding し直して clone します。"
+icon: "function"
+keywords: ["json.clone","JSON"]
+---
+
+value を json.encode semantics で encoding し、generated JSON を Lua values に decoding し直して clone します。
+
+## 構文
+
+```lua
+json.clone(value: any, options?: EncodeOptions): any
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | encode と decode される Value。Supported JSON values は JSON を round-trip します。unsupported types は、encode options が error を要求しない限り null として encode されます。 |
+| `options` | `EncodeOptions` | No | encode step に渡される Optional encode options。sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth、pretty、indent など。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `clone` | `any` | encoded JSON から生成された Decoded value。Objects と arrays は decoder 由来の JSON kind markers を持つ new tables です。JSON null values は json.null になります。 |
+
+## 型
+
+### EncodeOptions
+
+JSON のシリアル化とフォーマットを制御します。
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `pretty` | `boolean` | No | フォーマットされた複数行の JSON 出力を有効にします。 |
+| `sortKeys` | `boolean` | No | エンコード前にオブジェクトキーをソートします。 |
+| `emptyTableAsArray` | `boolean` | No | 空のテーブルをオブジェクトではなく配列としてエンコードします。 |
+| `errorOnUnsupported` | `boolean` | No | サポートされていない値を置き換えるのではなく、エラーを発生させます。 |
+| `encodeInvalidNumbersAsNull` | `boolean` | No | NaN と無限数を JSON null としてエンコードします。 |
+| `maxDepth` | `integer` | No | ネストの最大の深さを 1 ～ 4096 の範囲で設定します。 |
+| `indent` | `string` | No | インデント文字列を設定します。32 文字に制限されます。 |
+
+## 例
+
+nested values を変更する前に、JSON-compatible value を json.encode と json.decode で round-trip します。
+
+```lua
+local original = {
+    profile = { name = "Guest" },
+}
+
+local copy = json.clone(original)
+copy.profile.name = "Developer"
+
+print(original.profile.name)
+print(copy.profile.name)
+print(json.type(copy))
+```

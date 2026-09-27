@@ -1,0 +1,55 @@
+---
+title: "json.validate"
+sidebarTitle: "json.validate"
+description: "Memvalidasi JSON string dengan parse satu complete JSON value. Saat success fungsi hanya mengembalikan true. Saat parse failure fungsi mengembalikan false plus parser error details."
+icon: "function"
+keywords: ["json.validate","JSON"]
+---
+
+Memvalidasi JSON string dengan parse satu complete JSON value. Saat success fungsi hanya mengembalikan true. Saat parse failure fungsi mengembalikan false plus parser error details.
+
+## Sintaks
+
+```lua
+json.validate(json: string, options?: DecodeOptions): boolean | string | nil | number | nil
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string yang akan di-validate. Function membaca argument ini dengan string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean mengatur useNull. table dapat mengatur useNull dan maxDepth. maxDepth di-clamp dari 1 sampai 4096. |
+
+## Return
+
+| Name | Type | Deskripsi |
+| --- | --- | --- |
+| `valid` | `boolean` | true saat parsing satu complete JSON value berhasil. false saat parsing gagal di dalam protected parse block. |
+| `errorMessage` | `string \| nil` | Error message saat parse failure. Message diberi prefix json.validate dan menyertakan near-position suffix. Return ini hanya ada saat failure. |
+| `errorPosition` | `number \| nil` | Parser byte position dari parser saat parse failure. Return ini hanya ada saat failure. |
+
+## Tipe
+
+### DecodeOptions
+
+Mengontrol perilaku penguraian JSON.
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Mewakili JSON null dengan penjaga null perpustakaan, bukan nihil. |
+| `maxDepth` | `integer` | No | Menyetel kedalaman sarang maksimum, dijepit dari 1 hingga 4096. |
+
+## Contoh
+
+Memeriksa apakah sebuah string berisi tepat satu complete JSON value.
+
+```lua
+print(json.validate('{"value":42}'))
+
+local valid, message, position = json.validate('{"value":42 trailing')
+
+if not valid then
+    warn(message, position)
+end
+```

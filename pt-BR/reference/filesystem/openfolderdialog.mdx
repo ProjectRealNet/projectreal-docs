@@ -1,0 +1,59 @@
+---
+title: "openfolderdialog"
+sidebarTitle: "openfolderdialog"
+description: "Abre um Windows folder picker por Windows file picker com folder selection mode e retorna a pasta selecionada como file item."
+icon: "function"
+keywords: ["openfolderdialog","Filesystem"]
+---
+
+Abre um Windows folder picker por Windows file picker com folder selection mode e retorna a pasta selecionada como file item.
+
+## Sintaxe
+
+```lua
+openfolderdialog(options?: DialogOptions): FileSystemItem | nil
+```
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. Em openfolderdialog, title e defaultPath sao usados. defaultPath so e aplicado quando resolve para um existing directory. extensionFilter e aceito pelo shared dialog options parser, mas folder selection e ativado com folder selection mode. |
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `folder` | `FileSystemItem \| nil` | Selected folder item, ou nil quando o dialog e cancelado. Dialog failures lancam Failed to open folder dialog. |
+
+## Tipos
+
+### DialogOptions
+
+Configura a caixa de diálogo de seleção de arquivo ou pasta nativa.
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `title` | `string` | No | Define o título da janela de diálogo. |
+| `defaultPath` | `string` | No | Seleciona o diretório mostrado quando a caixa de diálogo é aberta. |
+| `extensionFilter` | `&#123;string&#125;` | No | Limita os arquivos selecionáveis às extensões listadas, com ou sem um ponto inicial. |
+| `suggestedName` | `string` | No | Fornece o nome inicial do arquivo nas caixas de diálogo para salvar. |
+| `defaultExtension` | `string` | No | Define a extensão usada quando o nome do arquivo inserido não possui nenhuma. |
+
+## Exemplo
+
+Abra um folder picker e lide com o selected folder item ou cancellation.
+
+```lua
+local folder = openfolderdialog({
+    title = "Choose a folder",
+    defaultPath = ".",
+})
+
+if folder then
+    print(folder:GetName())
+    print(folder:IsFolder())
+else
+    print("No folder selected")
+end
+```

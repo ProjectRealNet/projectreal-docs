@@ -1,0 +1,47 @@
+---
+title: "getconstants"
+sidebarTitle: "getconstants"
+description: "Returns constants from a Lua function or stack level as a table keyed by one-based constant index. target must be a function or stack level number. Invalid stack levels raise \"Level out of range\". Non-function and non-number targets raise a type error expecting \"function or number\". C closures raise \"Lua function expected\". Nil, function, and table constants are absent from the returned table. debug.getconstants is an alias."
+icon: "function"
+keywords: ["getconstants","Debug","debug.getconstants"]
+---
+
+Returns constants from a Lua function or stack level as a table keyed by one-based constant index. target must be a function or stack level number. Invalid stack levels raise "Level out of range". Non-function and non-number targets raise a type error expecting "function or number". C closures raise "Lua function expected". Nil, function, and table constants are absent from the returned table. debug.getconstants is an alias.
+
+## 语法
+
+```lua
+getconstants(target: function | number): table
+```
+
+## 别名
+
+- `debug.getconstants`
+
+## 参数
+
+| Name | Type | Required | 说明 |
+| --- | --- | --- | --- |
+| `target` | `function \| number` | Yes | Lua function or stack level whose constants are returned. |
+
+## 返回值
+
+| Name | Type | 说明 |
+| --- | --- | --- |
+| `constants` | `table` | Table keyed by one-based constant indices. Indices for nil, function, and table constants are absent. |
+
+## 示例
+
+Read the Proto constants table for a Lua closure.
+
+```lua
+local function target()
+    return "ready"
+end
+
+local constants = getconstants(target)
+
+for index, value in pairs(constants) do
+    print(index, value)
+end
+```

@@ -1,0 +1,40 @@
+---
+title: "Drawing.new"
+sidebarTitle: "Drawing.new"
+description: "Tworzy nowe Drawing object zadanego typu i dodaje je do Real tracked Drawing object list. type string musi byc jedna z dokladnie obslugiwanych nazw: \"Line\", \"Text\", \"Circle\", \"Square\", \"Quad\", \"Triangle\", \"Image\". Brakujace wartosci, non-string lub nieobslugiwane type values powoduja Lua error. the Drawing API rejestruje te API tylko wtedy, gdy the required rendering environment is active ma wartosc true; gdy ten check ma wartosc false, initializer wraca przed utworzeniem tych globals."
+icon: "function"
+keywords: ["Drawing.new","Drawing"]
+---
+
+Tworzy nowe Drawing object zadanego typu i dodaje je do Real tracked Drawing object list. type string musi byc jedna z dokladnie obslugiwanych nazw: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". Brakujace wartosci, non-string lub nieobslugiwane type values powoduja Lua error. the Drawing API rejestruje te API tylko wtedy, gdy the required rendering environment is active ma wartosc true; gdy ten check ma wartosc false, initializer wraca przed utworzeniem tych globals.
+
+## Składnia
+
+```lua
+Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad" | "Triangle"): DrawingObject
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `objectType` | `"Image" \| "Line" \| "Text" \| "Circle" \| "Square" \| "Quad" \| "Triangle"` | Yes | Dokladna nazwa Drawing type do utworzenia. Obslugiwane wartosci to "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `object` | `DrawingObject` | Utworzone Drawing object z Drawing object type. |
+
+## Przykład
+
+Utwórz widoczny kwadrat i skonfiguruj jego podstawowe właściwości rysunku.
+
+```lua
+local square = Drawing.new("Square")
+square.Position = Vector2.new(120, 120)
+square.Size = Vector2.new(220, 120)
+square.Color = Color3.fromRGB(120, 170, 255)
+square.Filled = true
+square.Visible = true
+```

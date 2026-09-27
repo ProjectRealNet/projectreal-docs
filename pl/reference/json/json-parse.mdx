@@ -1,0 +1,53 @@
+---
+title: "json.parse"
+sidebarTitle: "json.parse"
+description: "Parsuje JSON string ta sama function co json.decode."
+icon: "function"
+keywords: ["json.parse","JSON"]
+---
+
+Parsuje JSON string ta sama function co json.decode.
+
+## Składnia
+
+```lua
+json.parse(json: string, options?: DecodeOptions): any
+```
+
+## Argumenty
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string do parse. Function czyta ten argument przez string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean ustawia useNull. table moze ustawic useNull i maxDepth. |
+
+## Zwroty
+
+| Name | Type | Opis |
+| --- | --- | --- |
+| `decoded` | `any` | Decoded value. JSON objects i arrays staja sie tables z JSON type markers, strings staja sie Lua strings, numbers staja sie Lua numbers, booleans staja sie booleans, a null staje sie json.null, chyba ze useNull jest false. |
+
+## Typy
+
+### DecodeOptions
+
+Kontroluje zachowanie analizy JSON.
+
+| Name | Type | Required | Opis |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Reprezentuje JSON null ze wskaźnikiem null biblioteki zamiast nil. |
+| `maxDepth` | `integer` | No | Ustawia maksymalną głębokość zagnieżdżenia, zaciśniętą w zakresie od 1 do 4096. |
+
+## Przykład
+
+Parse JSON ta sama function, ktorej uzywa json.decode.
+
+```lua
+local settings = json.parse('{"volume":0.75,"theme":"dark","missing":null}', {
+    useNull = true,
+})
+
+print(settings.volume)
+print(settings.theme)
+print(json.isNull(settings.missing))
+```

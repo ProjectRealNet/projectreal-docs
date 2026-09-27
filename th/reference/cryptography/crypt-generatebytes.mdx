@@ -1,0 +1,40 @@
+---
+title: "crypt.generatebytes"
+sidebarTitle: "crypt.generatebytes"
+description: "สร้าง byte แบบสุ่มด้วย random byte generator และคืนค่าเป็น Base64-encoded ในรูปแบบ Lua string"
+icon: "function"
+keywords: ["crypt.generatebytes","Cryptography"]
+---
+
+สร้าง byte แบบสุ่มด้วย random byte generator และคืนค่าเป็น Base64-encoded ในรูปแบบ Lua string
+
+## ไวยากรณ์
+
+```lua
+crypt.generatebytes(size: number): string
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `size` | `number` | Yes | ตัวเลขที่ผ่าน integer conversion ก่อน allocation ค่าที่น้อยกว่าหรือเท่ากับ 0 จะถูกเปลี่ยนเป็น 1 |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `encoded` | `string` | Base64 encoding ของ raw bytes ที่สร้างขึ้น ความยาวของ string ที่คืนค่าไม่ใช่จำนวน byte ที่ขอ |
+
+## ตัวอย่าง
+
+สร้าง bytes และ decode ผลลัพธ์ Base64 เมื่อต้องใช้ raw bytes
+
+```lua
+local encoded = crypt.generatebytes(16)
+local raw = base64_decode(encoded)
+
+print(encoded)
+print(#encoded)
+print(#raw)
+```

@@ -1,0 +1,43 @@
+---
+title: "isfolder"
+sidebarTitle: "isfolder"
+description: "Returns whether a path resolved inside the workspace exists and is a directory."
+icon: "function"
+keywords: ["isfolder","Filesystem"]
+---
+
+Returns whether a path resolved inside the workspace exists and is a directory.
+
+## الصيغة
+
+```lua
+isfolder(path: string): boolean
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `path` | `string` | Yes | Path resolved inside the workspace after separator normalization and workspace-boundary checks. Invalid or outside-workspace paths error before a boolean is returned. |
+
+## القيم الراجعة
+
+| Name | Type | الوصف |
+| --- | --- | --- |
+| `isFolder` | `boolean` | True only when the resolved path exists and is a directory; files and missing paths return false. |
+
+## مثال
+
+تحقق مما اذا كان workspace path يحل إلى directory موجود.
+
+```lua
+local folderPath = "examples"
+local filePath = "examples/config.json"
+
+makefolder(folderPath)
+writefile(filePath, "{}")
+
+print(isfolder(folderPath))
+print(isfolder(filePath))
+print(isfolder("examples/missing"))
+```

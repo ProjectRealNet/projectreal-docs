@@ -1,0 +1,55 @@
+---
+title: "json.validate"
+sidebarTitle: "json.validate"
+description: "Проверяет JSON string, выполняя parse одного complete JSON value. При success возвращает только true. При parse failure возвращает false плюс parser error details."
+icon: "function"
+keywords: ["json.validate","JSON"]
+---
+
+Проверяет JSON string, выполняя parse одного complete JSON value. При success возвращает только true. При parse failure возвращает false плюс parser error details.
+
+## Синтаксис
+
+```lua
+json.validate(json: string, options?: DecodeOptions): boolean | string | nil | number | nil
+```
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | JSON string для validate. Function читает этот argument через string type checking. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean задает useNull. table может задавать useNull и maxDepth. maxDepth clamp от 1 до 4096. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `valid` | `boolean` | true, если parsing одного complete JSON value успешен. false, если parsing не проходит внутри protected parse block. |
+| `errorMessage` | `string \| nil` | Error message при parse failure. Message имеет prefix json.validate и содержит near-position suffix. Этот return присутствует только при failure. |
+| `errorPosition` | `number \| nil` | Parser byte position из parser при parse failure. Этот return присутствует только при failure. |
+
+## Типы
+
+### DecodeOptions
+
+Управляет поведением анализа JSON.
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Представляет значение JSON null с нулевым контрольным значением библиотеки вместо nil. |
+| `maxDepth` | `integer` | No | Устанавливает максимальную глубину вложенности от 1 до 4096. |
+
+## Пример
+
+Проверяет, содержит ли string ровно один complete JSON value.
+
+```lua
+print(json.validate('{"value":42}'))
+
+local valid, message, position = json.validate('{"value":42 trailing')
+
+if not valid then
+    warn(message, position)
+end
+```

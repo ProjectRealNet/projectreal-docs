@@ -1,0 +1,53 @@
+---
+title: "json.parse"
+sidebarTitle: "json.parse"
+description: "JSON string degerini json.decode ile ayni function kullanarak parse eder."
+icon: "function"
+keywords: ["json.parse","JSON"]
+---
+
+JSON string degerini json.decode ile ayni function kullanarak parse eder.
+
+## Söz dizimi
+
+```lua
+json.parse(json: string, options?: DecodeOptions): any
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `json` | `string` | Yes | Parse edilecek JSON string. Function bu argument degerini string type checking ile okur. |
+| `options` | `DecodeOptions` | No | Optional decode options. boolean useNull ayarlar. table useNull ve maxDepth ayarlayabilir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `decoded` | `any` | Decoded value. JSON objects ve arrays JSON type markers iceren tables olur, strings Lua strings olur, numbers Lua numbers olur, booleans booleans olur ve null, useNull false degilse json.null olur. |
+
+## Tipler
+
+### DecodeOptions
+
+JSON ayrıştırma davranışını kontrol eder.
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `useNull` | `boolean` | No | Nil yerine kütüphanenin null sentinel'i ile JSON null'u temsil eder. |
+| `maxDepth` | `integer` | No | 1'den 4096'ya kadar kenetlenmiş maksimum yuvalama derinliğini ayarlar. |
+
+## Örnek
+
+JSON degerini json.decode tarafindan kullanilan ayni function ile parse et.
+
+```lua
+local settings = json.parse('{"volume":0.75,"theme":"dark","missing":null}', {
+    useNull = true,
+})
+
+print(settings.volume)
+print(settings.theme)
+print(json.isNull(settings.missing))
+```

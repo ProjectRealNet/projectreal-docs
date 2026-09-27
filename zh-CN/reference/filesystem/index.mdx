@@ -1,0 +1,25 @@
+---
+title: "Filesystem"
+description: "读取、写入和管理文件和文件夹。"
+icon: "folder-code"
+---
+
+读取、写入和管理文件和文件夹。
+
+| 函数导航 | 说明 |
+| --- | --- |
+| [`appendfile`](./appendfile) | Appends raw Lua string bytes to a workspace file using binary append mode. The file may be created if its parent folder exists. |
+| [`delfile`](./delfile) | 删除 workspace 内已存在的 regular file。 |
+| [`delfolder`](./delfolder) | 使用 recursive folder deletion 递归删除 workspace 内已存在的 folder。 |
+| [`getcustomasset`](./getcustomasset) | 将已存在的 regular workspace file 复制到 ExtraContent/&lt;hwid>/，并为复制后的 asset path 返回 rbxasset:// string。 |
+| [`isfile`](./isfile) | Returns whether a path resolved inside the workspace exists and is a regular file. |
+| [`isfolder`](./isfolder) | Returns whether a path resolved inside the workspace exists and is a directory. |
+| [`listfiles`](./listfiles) | Returns an array table of the direct children of an existing workspace directory. |
+| [`loadfile`](./loadfile) | Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it. |
+| [`makefolder`](./makefolder) | 使用 recursive folder creation 在 workspace 内创建 directory，包括 missing parent directories。 |
+| [`openfiledialog`](./openfiledialog) | 通过 Windows file picker 打开 Windows file-open dialog，并将所选文件作为 file item 返回。 |
+| [`openfilesdialog`](./openfilesdialog) | 通过 Windows file picker 打开启用 multi-select 的 Windows file-open dialog，并将选中的文件作为 file item 值返回。 |
+| [`openfolderdialog`](./openfolderdialog) | 通过 Windows file picker 和 folder selection mode 打开 Windows folder picker，并将选中的文件夹作为 file item 返回。 |
+| [`readfile`](./readfile) | 以 binary mode 读取 workspace 内的 existing regular file，并将其 bytes 作为 Lua string 返回。 |
+| [`savefiledialog`](./savefiledialog) | 通过 Windows save dialog 打开 Windows save dialog，将提供的 Lua string bytes 写入 selected path，并将 saved file 作为 file item 返回。 |
+| [`writefile`](./writefile) | 将 Lua string bytes 写入 workspace 内的文件，创建 missing parent directories，并在文件已存在时替换 file contents。 |

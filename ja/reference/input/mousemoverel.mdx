@@ -1,0 +1,22 @@
+---
+title: "mousemoverel"
+sidebarTitle: "mousemoverel"
+description: "Roblox window が active のとき、relative delta でマウスを移動します。x と y 引数は Lua numbers として検査され、integer conversion で変換された後、the requested mouse action 付きの mouse input に dx と dy として直接渡されます。この function は the requested mouse action を使わず、client-area conversion を行わず、何も返さず、isrbxactive が false になる場合は input を送信せずに戻ります。"
+icon: "function"
+keywords: ["mousemoverel","Input"]
+---
+
+Roblox window が active のとき、relative delta でマウスを移動します。x と y 引数は Lua numbers として検査され、integer conversion で変換された後、the requested mouse action 付きの mouse input に dx と dy として直接渡されます。この function は the requested mouse action を使わず、client-area conversion を行わず、何も返さず、isrbxactive が false になる場合は input を送信せずに戻ります。
+
+## 構文
+
+```lua
+mousemoverel(x: number, y: number)
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `x` | `number` | Yes | Lua number として読み取られ、mouse input に dx として渡される前に integer conversion で変換される relative X movement delta。 |
+| `y` | `number` | Yes | Lua number として読み取られ、mouse input に dy として渡される前に integer conversion で変換される relative Y movement delta。 |

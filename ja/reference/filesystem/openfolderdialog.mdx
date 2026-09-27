@@ -1,0 +1,59 @@
+---
+title: "openfolderdialog"
+sidebarTitle: "openfolderdialog"
+description: "Windows file picker と folder selection mode によって Windows folder picker を開き、選択されたフォルダーを file item として返します。"
+icon: "function"
+keywords: ["openfolderdialog","Filesystem"]
+---
+
+Windows file picker と folder selection mode によって Windows folder picker を開き、選択されたフォルダーを file item として返します。
+
+## 構文
+
+```lua
+openfolderdialog(options?: DialogOptions): FileSystemItem | nil
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `options` | `DialogOptions` | No | Optional table. openfolderdialog では title と defaultPath が使用されます。defaultPath は existing directory に解決された場合だけ適用されます。extensionFilter は shared dialog options parser に受け入れられますが、folder selection は folder selection mode で有効化されます。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `folder` | `FileSystemItem \| nil` | Selected folder item、または dialog がキャンセルされた場合は nil。Dialog failures は Failed to open folder dialog を throw します。 |
+
+## 型
+
+### DialogOptions
+
+ネイティブ ファイルまたはフォルダーの選択ダイアログを構成します。
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `title` | `string` | No | ダイアログウィンドウのタイトルを設定します。 |
+| `defaultPath` | `string` | No | ダイアログが開いたときに表示されるディレクトリを選択します。 |
+| `extensionFilter` | `&#123;string&#125;` | No | 先頭のドットの有無にかかわらず、選択可能なファイルをリストされた拡張子に制限します。 |
+| `suggestedName` | `string` | No | 保存ダイアログに初期ファイル名を指定します。 |
+| `defaultExtension` | `string` | No | 入力したファイル名に拡張子がない場合に使用する拡張子を設定します。 |
+
+## 例
+
+folder picker を開き、selected folder item または cancellation を処理します。
+
+```lua
+local folder = openfolderdialog({
+    title = "Choose a folder",
+    defaultPath = ".",
+})
+
+if folder then
+    print(folder:GetName())
+    print(folder:IsFolder())
+else
+    print("No folder selected")
+end
+```

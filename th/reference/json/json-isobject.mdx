@@ -1,0 +1,41 @@
+---
+title: "json.isObject"
+sidebarTitle: "json.isObject"
+description: "คืนว่า value ถูก treated as a JSON object โดย Real JSON table detection หรือไม่."
+icon: "function"
+keywords: ["json.isObject","JSON"]
+---
+
+คืนว่า value ถูก treated as a JSON object โดย Real JSON table detection หรือไม่.
+
+## ไวยากรณ์
+
+```lua
+json.isObject(value: any): boolean
+```
+
+## Arguments
+
+| Name | Type | Required | คำอธิบาย |
+| --- | --- | --- | --- |
+| `value` | `any` | Yes | Value ที่จะ inspect. Non-table values คืน false. |
+
+## Returns
+
+| Name | Type | คำอธิบาย |
+| --- | --- | --- |
+| `isObject` | `boolean` | true เมื่อ value เป็น table marked as a JSON object หรือเมื่อ Real JSON table detection ไม่จัด table เป็น array. Empty unmarked tables คืน true. |
+
+## ตัวอย่าง
+
+Check ว่า table ถูก treated as a JSON object โดย Real JSON encoder หรือไม่.
+
+```lua
+local record = json.object({ name = "Real" })
+local items = json.array({ "one", "two" })
+local empty = {}
+
+print(json.isObject(record))
+print(json.isObject(items))
+print(json.isObject(empty))
+```

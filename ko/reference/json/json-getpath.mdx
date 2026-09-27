@@ -1,0 +1,52 @@
+---
+title: "json.getPath"
+sidebarTitle: "json.getPath"
+description: "Dotted string path 또는 array table of keys를 사용해 table에서 nested value를 읽습니다."
+icon: "function"
+keywords: ["json.getPath","JSON","json.getpath"]
+---
+
+Dotted string path 또는 array table of keys를 사용해 table에서 nested value를 읽습니다.
+
+## 문법
+
+```lua
+json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
+```
+
+## 별칭
+
+- `json.getpath`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | 읽을 root table입니다. function은 이 argument가 table이어야 합니다. |
+| `path` | `string \| table` | Yes | 따라갈 path입니다. string은 dots로 split됩니다. integer string tokens는 raw array indexing으로 읽습니다. table path는 1부터 #path까지의 array entries를 keys로 사용합니다. |
+| `defaultValue` | `any` | No | Traversal이 path 완료 전에 nil 또는 non-table에 도달하면 반환되는 fallback value입니다. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `pathValue` | `any \| nil` | Requested path의 value입니다. path가 missing이면 제공된 경우 defaultValue를 반환하고, 아니면 nil을 반환합니다. |
+
+## 예제
+
+Dotted string path 또는 array table of keys에서 nested table value를 읽습니다.
+
+```lua
+local document = {
+    user = {
+        profile = { name = "Guest" },
+        items = { "first", "second" },
+    },
+}
+
+local name = json.getPath(document, { "user", "profile", "name" }, "Unknown")
+local second = json.getPath(document, "user.items.2")
+
+print(name)
+print(second)
+```

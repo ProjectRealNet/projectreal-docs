@@ -1,0 +1,42 @@
+---
+title: "getsignalarguments"
+sidebarTitle: "getsignalarguments"
+description: "Tra ve array table gom type names doc tu event descriptor signature cua RBXScriptSignal. Argument dau tien phai la object co Luau type name la RBXScriptSignal. Function doc event descriptor cua signal, di qua signature slots bang argument stride cua function, doc moi argument type reference, roi push type name string da resolve cho moi slot. Function khong tra ve captured runtime argument values. Neu khong doc duoc signature hoac khong co entries nao duoc push, table tra ve chua mot fallback entry: \"Variant\"."
+icon: "function"
+keywords: ["getsignalarguments","Signals"]
+---
+
+Tra ve array table gom type names doc tu event descriptor signature cua RBXScriptSignal. Argument dau tien phai la object co Luau type name la RBXScriptSignal. Function doc event descriptor cua signal, di qua signature slots bang argument stride cua function, doc moi argument type reference, roi push type name string da resolve cho moi slot. Function khong tra ve captured runtime argument values. Neu khong doc duoc signature hoac khong co entries nao duoc push, table tra ve chua mot fallback entry: "Variant".
+
+## Cú pháp
+
+```lua
+getsignalarguments(signal: RBXScriptSignal): {string}
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `signal` | `RBXScriptSignal` | Yes | Signal can kiem tra event descriptor signature. Userdata khong phai RBXScriptSignal gay type error. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `arguments` | `&#123;string&#125;` | Array table cua argument type name strings. Fallback table chua "Variant" duoc tra ve khi khong doc duoc signature data hoac khong tao duoc argument entries. |
+
+## Ví dụ
+
+Inspect an RBXScriptSignal signature and print the argument type names Real can read.
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remote = ReplicatedStorage:FindFirstChild("RemoteEvent")
+
+if remote then
+    for _, typeName in ipairs(getsignalarguments(remote.OnClientEvent)) do
+        print(typeName)
+    end
+end
+```

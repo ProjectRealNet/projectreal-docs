@@ -1,0 +1,40 @@
+---
+title: "compareinstances"
+sidebarTitle: "compareinstances"
+description: "2 つの Instance object 値に保存されている内部 Instance ポインタ値を比較します。"
+icon: "function"
+keywords: ["compareinstances","Cache"]
+---
+
+2 つの Instance object 値に保存されている内部 Instance ポインタ値を比較します。
+
+## 構文
+
+```lua
+compareinstances(first: Instance, second: Instance): boolean
+```
+
+## 引数
+
+| Name | Type | Required | 説明 |
+| --- | --- | --- | --- |
+| `first` | `Instance` | Yes | 比較する 1 つ目の Instance object。 |
+| `second` | `Instance` | Yes | 比較する 2 つ目の Instance object。 |
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `equal` | `boolean` | 両方の Instance object 値が同じ内部ポインタ値を含む場合は True。 |
+
+## 例
+
+2 つの Instance object 値に保存されている内部 Instance ポインタ値を比較します。
+
+```lua
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+print(compareinstances(Players, Players))
+print(compareinstances(Players, ReplicatedStorage))
+```

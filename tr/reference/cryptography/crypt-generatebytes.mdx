@@ -1,0 +1,40 @@
+---
+title: "crypt.generatebytes"
+sidebarTitle: "crypt.generatebytes"
+description: "random byte generator ile rastgele byte degerleri uretir ve bunlari Base64-encoded Lua string olarak dondurur."
+icon: "function"
+keywords: ["crypt.generatebytes","Cryptography"]
+---
+
+random byte generator ile rastgele byte degerleri uretir ve bunlari Base64-encoded Lua string olarak dondurur.
+
+## Söz dizimi
+
+```lua
+crypt.generatebytes(size: number): string
+```
+
+## Argümanlar
+
+| Name | Type | Required | Açıklama |
+| --- | --- | --- | --- |
+| `size` | `number` | Yes | Allocation oncesinde integer conversion icinden gecen sayi. 0 veya daha kucuk degerler 1 olarak degistirilir. |
+
+## Dönüşler
+
+| Name | Type | Açıklama |
+| --- | --- | --- |
+| `encoded` | `string` | Uretilen raw bytes icin Base64 encoding. Dondurulen string uzunlugu istenen byte sayisi degildir. |
+
+## Örnek
+
+Raw bytes gerektiginde byte uret ve Base64 sonucunu decode et.
+
+```lua
+local encoded = crypt.generatebytes(16)
+local raw = base64_decode(encoded)
+
+print(encoded)
+print(#encoded)
+print(#raw)
+```

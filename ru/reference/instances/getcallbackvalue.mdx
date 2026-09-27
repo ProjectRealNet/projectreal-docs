@@ -1,0 +1,48 @@
+---
+title: "getcallbackvalue"
+sidebarTitle: "getcallbackvalue"
+description: "Читает Lua callback function, сохраненную в callback property у Instance. Первый аргумент должен быть Instance object, а второй аргумент должен быть string property name. instance reference должен быть валидным. property name разрешается через Roblox property metadata и должен указывать на property с типом LUA_CALLBACK. Если property descriptor отсутствует, property не является LUA_CALLBACK, callback field offset отсутствует, callback не сохранен, LiveLuaRef отсутствует, callback принадлежит другому Lua global state, или указанное значение не является function, function возвращает nil. Она также проверяет async callback field fallback, когда первый callback slot не содержит callback. Function не обновляет property."
+icon: "function"
+keywords: ["getcallbackvalue","Instances","getcallbackmember"]
+---
+
+Читает Lua callback function, сохраненную в callback property у Instance. Первый аргумент должен быть Instance object, а второй аргумент должен быть string property name. instance reference должен быть валидным. property name разрешается через Roblox property metadata и должен указывать на property с типом LUA_CALLBACK. Если property descriptor отсутствует, property не является LUA_CALLBACK, callback field offset отсутствует, callback не сохранен, LiveLuaRef отсутствует, callback принадлежит другому Lua global state, или указанное значение не является function, function возвращает nil. Она также проверяет async callback field fallback, когда первый callback slot не содержит callback. Function не обновляет property.
+
+## Синтаксис
+
+```lua
+getcallbackvalue(instance: Instance, property: string): function | nil
+```
+
+## Алиасы
+
+- `getcallbackmember`
+
+## Аргументы
+
+| Name | Type | Required | Описание |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance object, у которого проверяется callback property. Invalid Instance values вызывают argument error. |
+| `property` | `string` | Yes | string property name, разрешаемый через Roblox property metadata. Только LUA_CALLBACK properties могут вернуть function. |
+
+## Возвраты
+
+| Name | Type | Описание |
+| --- | --- | --- |
+| `callback` | `function \| nil` | Lua function, сохраненная callback property, или nil, если function не может разрешить читаемую function. |
+
+## Пример
+
+Читает callback function, сохраненную в BindableFunction.OnInvoke.
+
+```lua
+local bindable = Instance.new("BindableFunction")
+bindable.OnInvoke = function(value)
+    return value * 2
+end
+
+local callback = getcallbackvalue(bindable, "OnInvoke")
+if callback then
+    print(callback(21))
+end
+```

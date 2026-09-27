@@ -1,0 +1,21 @@
+---
+title: "getsignalwhitelist"
+sidebarTitle: "getsignalwhitelist"
+description: "function で定義された 6 個の静的 whitelist entry を含む新しい array table を返します: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent。各 entry は Event と Parent の string field を持つ table です。この function は arguments を受け取らず、現在の game state を検査しません。"
+icon: "function"
+keywords: ["getsignalwhitelist","Signals"]
+---
+
+function で定義された 6 個の静的 whitelist entry を含む新しい array table を返します: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent。各 entry は Event と Parent の string field を持つ table です。この function は arguments を受け取らず、現在の game state を検査しません。
+
+## 構文
+
+```lua
+getsignalwhitelist(): table
+```
+
+## 戻り値
+
+| Name | Type | 説明 |
+| --- | --- | --- |
+| `signals` | `table` | 静的 whitelist entry の array table。各 entry には Event と Parent の string field があります。 |

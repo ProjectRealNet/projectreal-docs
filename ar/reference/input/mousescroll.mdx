@@ -1,0 +1,21 @@
+---
+title: "mousescroll"
+sidebarTitle: "mousescroll"
+description: "يرسل mouse wheel event عندما تكون Roblox window نشطة. يتم فحص وسيط amount كـ Lua number، وتحويله باستخدام integer conversion، وتمريره مباشرة كقيمة dwData إلى mouse input مع the requested mouse action. لا تقوم Real بتطبيع amount ولا تضيف movement data. لا تعيد function شيئا وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false."
+icon: "function"
+keywords: ["mousescroll","Input"]
+---
+
+يرسل mouse wheel event عندما تكون Roblox window نشطة. يتم فحص وسيط amount كـ Lua number، وتحويله باستخدام integer conversion، وتمريره مباشرة كقيمة dwData إلى mouse input مع the requested mouse action. لا تقوم Real بتطبيع amount ولا تضيف movement data. لا تعيد function شيئا وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false.
+
+## الصيغة
+
+```lua
+mousescroll(amount: number)
+```
+
+## الوسائط
+
+| Name | Type | Required | الوصف |
+| --- | --- | --- | --- |
+| `amount` | `number` | Yes | Wheel dwData value يقرأ كـ Lua number ويتم تحويله باستخدام integer conversion قبل تمريره إلى mouse input. |

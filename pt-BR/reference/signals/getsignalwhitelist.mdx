@@ -1,0 +1,21 @@
+---
+title: "getsignalwhitelist"
+sidebarTitle: "getsignalwhitelist"
+description: "Retorna uma nova array table com as seis entradas whitelist estaticas definidas pela function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Cada entry e uma table com campos string Event e Parent. A function nao aceita arguments e nao inspeciona o estado atual do jogo."
+icon: "function"
+keywords: ["getsignalwhitelist","Signals"]
+---
+
+Retorna uma nova array table com as seis entradas whitelist estaticas definidas pela function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Cada entry e uma table com campos string Event e Parent. A function nao aceita arguments e nao inspeciona o estado atual do jogo.
+
+## Sintaxe
+
+```lua
+getsignalwhitelist(): table
+```
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `signals` | `table` | Array table de entradas whitelist estaticas. Cada entry tem campos string Event e Parent. |

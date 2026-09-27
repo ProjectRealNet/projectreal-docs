@@ -1,0 +1,42 @@
+---
+title: "islclosure"
+sidebarTitle: "islclosure"
+description: "Returns whether the provided function is a Lua closure. The argument must be a function; passing a non-function raises a type error. isluaclosure is an alias."
+icon: "function"
+keywords: ["islclosure","Closures","isluaclosure"]
+---
+
+Returns whether the provided function is a Lua closure. The argument must be a function; passing a non-function raises a type error. isluaclosure is an alias.
+
+## 문법
+
+```lua
+islclosure(func: function): boolean
+```
+
+## 별칭
+
+- `isluaclosure`
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `func` | `function` | Yes | Function to test. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `isLClosure` | `boolean` | true when the function is a Lua closure; otherwise false. |
+
+## 예제
+
+Check whether a function is an L closure.
+
+```lua
+local function target()
+end
+
+print(islclosure(target))
+```

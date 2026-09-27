@@ -1,0 +1,40 @@
+---
+title: "compareinstances"
+sidebarTitle: "compareinstances"
+description: "Compara os valores internos de ponteiro Instance armazenados em dois valores Instance object."
+icon: "function"
+keywords: ["compareinstances","Cache"]
+---
+
+Compara os valores internos de ponteiro Instance armazenados em dois valores Instance object.
+
+## Sintaxe
+
+```lua
+compareinstances(first: Instance, second: Instance): boolean
+```
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `first` | `Instance` | Yes | Primeiro Instance object a comparar. |
+| `second` | `Instance` | Yes | Segundo Instance object a comparar. |
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `equal` | `boolean` | True quando os dois valores Instance object contem o mesmo valor interno de ponteiro. |
+
+## Exemplo
+
+Compare os valores internos de ponteiro Instance armazenados em dois valores Instance object.
+
+```lua
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+print(compareinstances(Players, Players))
+print(compareinstances(Players, ReplicatedStorage))
+```

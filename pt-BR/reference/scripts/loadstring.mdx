@@ -1,0 +1,43 @@
+---
+title: "loadstring"
+sidebarTitle: "loadstring"
+description: "Compiles a Luau source string and returns the loaded function. If loading fails, it returns nil and an error message. The returned function is not executed automatically."
+icon: "function"
+keywords: ["loadstring","Scripts"]
+---
+
+Compiles a Luau source string and returns the loaded function. If loading fails, it returns nil and an error message. The returned function is not executed automatically.
+
+## Sintaxe
+
+```lua
+loadstring(source: string, chunkName?: string): function | nil | string | nil
+```
+
+## Argumentos
+
+| Name | Type | Required | Descrição |
+| --- | --- | --- | --- |
+| `source` | `string` | Yes | Luau source string to compile. Embedded null bytes after the first null are not preserved. |
+| `chunkName` | `string` | No | Optional chunk name used for error reporting. Defaults to "@" when omitted or nil. |
+
+## Retornos
+
+| Name | Type | Descrição |
+| --- | --- | --- |
+| `chunk` | `function \| nil` | Loaded function when compilation and loading succeed, otherwise nil. |
+| `errorMessage` | `string \| nil` | Load error message when loading fails. Not returned on success. |
+
+## Exemplo
+
+Compile source text e trate um possivel compiler error.
+
+```lua
+local chunk, message = loadstring("return 6 * 7", "ExampleChunk")
+
+if chunk then
+    print(chunk())
+else
+    warn(message)
+end
+```

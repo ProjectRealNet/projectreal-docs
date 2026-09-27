@@ -1,0 +1,37 @@
+---
+title: "isscriptable"
+sidebarTitle: "isscriptable"
+description: "Instance의 Roblox property에 대한 scriptable flag를 확인합니다. 이 function은 같은 instance reference와 property name에 대해 cached scriptable value가 있으면 먼저 그 값을 반환합니다. cache miss이면 property name을 Roblox property metadata 및 Instance class descriptor로 해석합니다. descriptor가 없거나 해석된 field가 없거나 property entry가 아니면 function은 nil을 반환합니다. property entry를 찾으면 scriptable state을 읽고 그 값을 instance와 property의 scriptable override cache에 저장한 뒤 boolean을 반환합니다. 이 function은 scriptable flag를 변경하지 않습니다."
+icon: "function"
+keywords: ["isscriptable","Reflection"]
+---
+
+Instance의 Roblox property에 대한 scriptable flag를 확인합니다. 이 function은 같은 instance reference와 property name에 대해 cached scriptable value가 있으면 먼저 그 값을 반환합니다. cache miss이면 property name을 Roblox property metadata 및 Instance class descriptor로 해석합니다. descriptor가 없거나 해석된 field가 없거나 property entry가 아니면 function은 nil을 반환합니다. property entry를 찾으면 scriptable state을 읽고 그 값을 instance와 property의 scriptable override cache에 저장한 뒤 boolean을 반환합니다. 이 function은 scriptable flag를 변경하지 않습니다.
+
+## 문법
+
+```lua
+isscriptable(instance: Instance, property: string): boolean | nil
+```
+
+## 인수
+
+| Name | Type | Required | 설명 |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | property scriptable state를 확인할 Instance object. |
+| `property` | `string` | Yes | Roblox property metadata 및 Instance class descriptor로 해석되는 property name. |
+
+## 반환값
+
+| Name | Type | 설명 |
+| --- | --- | --- |
+| `scriptable` | `boolean \| nil` | cached 또는 현재 scriptable state 값입니다. property descriptor/field가 없거나 property entry가 아니면 nil입니다. |
+
+## 예제
+
+Check whether a property is scriptable on an Instance.
+
+```lua
+local scriptable = isscriptable(workspace, "Name")
+print(scriptable)
+```

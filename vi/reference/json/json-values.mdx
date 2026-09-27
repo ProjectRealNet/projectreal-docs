@@ -1,0 +1,39 @@
+---
+title: "json.values"
+sidebarTitle: "json.values"
+description: "Tra ve direct values tu table trong mot table moi marked as JSON array. JSON kind marker entries duoc bo qua."
+icon: "function"
+keywords: ["json.values","JSON"]
+---
+
+Tra ve direct values tu table trong mot table moi marked as JSON array. JSON kind marker entries duoc bo qua.
+
+## Cú pháp
+
+```lua
+json.values(object: table): table
+```
+
+## Đối số
+
+| Name | Type | Required | Mô tả |
+| --- | --- | --- | --- |
+| `object` | `table` | Yes | Table de enumerate. Function kiem tra argument nay bang type checking. |
+
+## Giá trị trả về
+
+| Name | Type | Mô tả |
+| --- | --- | --- |
+| `values` | `table` | New array-style table chua direct values tu input table. Output duoc marked as JSON array. Enumeration dung table iteration, nen khong thay ordering guarantee trong function. |
+
+## Ví dụ
+
+Gom direct values tu table vao JSON array-marked table.
+
+```lua
+local list = json.array({ "one", "two" })
+
+for _, value in ipairs(json.values(list)) do
+    print(value)
+end
+```

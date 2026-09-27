@@ -1,0 +1,33 @@
+---
+title: "cache.invalidate"
+sidebarTitle: "cache.invalidate"
+description: "Menghapus entri registry Instance cache yang di-cache untuk Instance yang diberikan."
+icon: "function"
+keywords: ["cache.invalidate","Cache"]
+---
+
+Menghapus entri registry Instance cache yang di-cache untuk Instance yang diberikan.
+
+## Sintaks
+
+```lua
+cache.invalidate(instance: Instance)
+```
+
+## Argumen
+
+| Name | Type | Required | Deskripsi |
+| --- | --- | --- | --- |
+| `instance` | `Instance` | Yes | Instance yang entri cache-nya harus dihapus. |
+
+## Contoh
+
+Hapus sebuah Instance dari cache Real dan periksa apakah entri cache masih ada.
+
+```lua
+local Players = game:GetService("Players")
+
+cache.invalidate(Players)
+
+print(cache.iscached(Players))
+```
