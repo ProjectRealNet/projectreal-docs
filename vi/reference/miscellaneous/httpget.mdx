@@ -1,28 +1,28 @@
 ---
 title: "HttpGet"
 sidebarTitle: "HttpGet"
-description: "Performs a GET request for game:HttpGet(url, cache) or game:HttpGetAsync(url, cache) and returns the response body string. The URL must pass Real's URL restrictions."
+description: "Performs a GET request for game:HttpGet(url, noCache) or game:HttpGetAsync(url, noCache) and returns the response body string. The URL must pass Real's URL restrictions."
 keywords: ["HttpGet","Miscellaneous"]
 ---
 
 <div className="real-function-page">
 
 ```lua
-HttpGet(context: DataModel, url: string, cache?: boolean | number): string
+HttpGet(context: DataModel, url: string, noCache?: boolean | number): string
 ```
 
 ## Đối số
 
 <ParamField path={"context"} type={"DataModel"} required>
-Method-call self value. Use game:HttpGet(url, cache) or game:HttpGetAsync(url, cache).
+Method-call self value. Use game:HttpGet(url, noCache) or game:HttpGetAsync(url, noCache).
 </ParamField>
 
 <ParamField path={"url"} type={"string"} required>
 URL string to request.
 </ParamField>
 
-<ParamField path={"cache"} type={"boolean | number"}>
-Optional cache control. true or numeric 1 enables the URL cache.
+<ParamField path={"noCache"} type={"boolean | number"}>
+Optional cache bypass. true or numeric 1 skips an existing cached response and performs a new request.
 </ParamField>
 
 ## Giá trị trả về

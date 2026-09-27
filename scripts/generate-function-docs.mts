@@ -37,6 +37,23 @@ const api = JSON.parse(await readFile(join(websiteRoot, 'src/data/executor-api.j
 };
 const localized = JSON.parse(await readFile(join(websiteRoot, 'src/data/executor-api-i18n.json'), 'utf8')) as Record<string, LocalizedDocs>;
 
+// The implementation names the third argument noCache and skips cache reads
+// when it is true/1. Keep the generated reference tied to runtime behavior
+// even while the website's older API snapshot still calls it cache.
+const httpGet = api.functions.find((fn) => fn.name === 'HttpGet');
+if (httpGet) {
+  httpGet.description = "Performs a GET request for game:HttpGet(url, noCache) or game:HttpGetAsync(url, noCache) and returns the response body string. The URL must pass Real's URL restrictions.";
+  const context = httpGet.arguments.find((arg) => arg.name === 'context');
+  if (context) {
+    context.description = 'Method-call self value. Use game:HttpGet(url, noCache) or game:HttpGetAsync(url, noCache).';
+  }
+  const noCache = httpGet.arguments.find((arg) => arg.name === 'cache');
+  if (noCache) {
+    noCache.name = 'noCache';
+    noCache.description = 'Optional cache bypass. true or numeric 1 skips an existing cached response and performs a new request.';
+  }
+}
+
 const locales = [
   ['en', 'English'], ['de', 'Deutsch'], ['es', 'Español'], ['fr', 'Français'],
   ['ar', 'العربية'], ['id', 'Bahasa Indonesia'], ['ja', '日本語'], ['ko', '한국어'],
@@ -104,7 +121,18 @@ function signature(fn: ApiFunction): string {
 }
 
 function localizedFunction(locale: string, fn: ApiFunction): LocalizedFunction {
-  return localized[locale]?.functions?.[fn.name] ?? {};
+  const details = localized[locale]?.functions?.[fn.name] ?? {};
+  if (fn.name !== 'HttpGet') return details;
+
+  return {
+    ...details,
+    description: fn.description,
+    arguments: {
+      ...details.arguments,
+      context: fn.arguments.find((arg) => arg.name === 'context')?.description ?? '',
+      noCache: fn.arguments.find((arg) => arg.name === 'noCache')?.description ?? '',
+    },
+  };
 }
 
 function relatedTypes(fn: ApiFunction): Array<[string, any]> {
@@ -133,7 +161,7 @@ for (const [locale, languageName] of locales) {
 ---
 title: ${yaml(tr(locale, 'docs_intro', 'Function reference'))}
 description: ${yaml(tr(locale, 'docs_intro_desc', 'Reference documentation for every function supported by Real.'))}
-icon: "/icons/book.svg"
+icon: "/icons/book.svg"${locale === 'en' ? '\n"og:image": "/images/social-preview.png"\n"twitter:image": "/images/social-preview.png"' : ''}
 ---
 
 <div className="real-index-page">
@@ -272,7 +300,7 @@ const config = {
   theme: 'mint',
   name: 'Real Function Reference',
   description: 'Complete multilingual function reference for Real.',
-  colors: { primary: '#737373', light: '#171717', dark: '#f5f5f5' },
+  colors: { primary: '#171717', light: '#f5f5f5', dark: '#090909' },
   favicon: '/favicon.png',
   logo: { light: '/logo/dark.svg', dark: '/logo/light.svg' },
   navigation: {

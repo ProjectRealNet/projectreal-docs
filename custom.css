@@ -19,6 +19,10 @@
   --real-text: #171717;
   --real-muted: rgba(23, 23, 23, 0.72);
   --real-faint: rgba(23, 23, 23, 0.52);
+  --real-active: rgba(0, 0, 0, 0.09);
+  --real-active-hover: rgba(0, 0, 0, 0.13);
+  --real-nav: rgba(255, 255, 255, 0.94);
+  --real-code: #f3f3f3;
 }
 
 html.dark {
@@ -32,6 +36,10 @@ html.dark {
   --real-text: #f5f5f7;
   --real-muted: rgba(245, 245, 247, 0.72);
   --real-faint: rgba(245, 245, 247, 0.56);
+  --real-active: rgba(255, 255, 255, 0.12);
+  --real-active-hover: rgba(255, 255, 255, 0.17);
+  --real-nav: rgba(9, 9, 9, 0.94);
+  --real-code: #0d0d0d;
 }
 
 html:not(.dark) { color-scheme: light; }
@@ -52,7 +60,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #navbar {
-  background: rgba(9, 9, 9, 0.94) !important;
+  background: var(--real-nav) !important;
   border-bottom: 1px solid var(--real-border) !important;
   backdrop-filter: blur(18px);
 }
@@ -166,9 +174,38 @@ body:has(#navigation-items li:is([id="/zh-CN"], [id^="/zh-CN/"])[data-active="tr
 #navigation-items li[data-active="true"] > a,
 #navigation-items li[data-active="true"] > button,
 #navigation-items a[aria-current="page"] {
-  color: #fff !important;
-  background: rgba(255, 255, 255, 0.1) !important;
+  color: var(--real-text) !important;
+  background: var(--real-active) !important;
   box-shadow: none !important;
+}
+
+[role="option"][aria-selected="true"],
+[role="menuitem"][aria-selected="true"],
+[role="menuitemradio"][aria-checked="true"],
+[role="menuitemcheckbox"][aria-checked="true"],
+[data-component-part="theme-preference-menu-item"][data-active="true"],
+[data-state="checked"][role="menuitem"],
+[data-state="active"][role="tab"] {
+  color: var(--real-text) !important;
+  background: var(--real-active) !important;
+}
+
+[role="option"][aria-selected="true"] svg,
+[role="menuitem"][aria-selected="true"] svg,
+[role="menuitemradio"][aria-checked="true"] svg,
+[role="menuitemcheckbox"][aria-checked="true"] svg,
+[data-component-part="theme-preference-menu-item"][data-active="true"] svg,
+[data-state="checked"][role="menuitem"] svg,
+[data-state="active"][role="tab"] svg {
+  color: var(--real-text) !important;
+}
+
+[role="option"][aria-selected="true"]:hover,
+[role="menuitem"][aria-selected="true"]:hover,
+[role="menuitemradio"][aria-checked="true"]:hover,
+[role="menuitemcheckbox"][aria-checked="true"]:hover,
+[data-component-part="theme-preference-menu-item"][data-active="true"]:hover {
+  background: var(--real-active-hover) !important;
 }
 
 #navigation-items img[src*="/icons/"] {
@@ -223,15 +260,15 @@ html.dark #navigation-items img[src*="/icons/"] {
 }
 
 #content a:not(.card) {
-  color: #fff;
-  text-decoration-color: rgba(255, 255, 255, 0.36);
+  color: var(--real-text);
+  text-decoration-color: var(--real-faint);
   text-underline-offset: 3px;
 }
 
 #content [data-component-part="code-block"] {
   border: 1px solid var(--real-border) !important;
   border-radius: 8px !important;
-  background: #0d0d0d !important;
+  background: var(--real-code) !important;
   box-shadow: none !important;
 }
 
@@ -244,7 +281,7 @@ html.dark #navigation-items img[src*="/icons/"] {
 #content code:not(pre code) {
   border: 1px solid var(--real-border);
   border-radius: 5px;
-  background: rgba(255, 255, 255, 0.07) !important;
+  background: var(--real-surface-hover) !important;
   color: var(--real-text) !important;
   font-family: var(--font-mono) !important;
 }
@@ -329,6 +366,23 @@ html.dark #content .real-index-page .card img[src*="/icons/"] {
   overflow: hidden;
 }
 
+html:not(.dark) #navbar #topbar-cta-button > a[href*="/download"],
+html:not(.dark) #navbar #topbar-cta-button > a[href*="/download"] > span {
+  border-color: #171717 !important;
+  background: #171717 !important;
+  color: #fff !important;
+}
+
+html:not(.dark) #navbar #topbar-cta-button > a[href*="/download"] span,
+html:not(.dark) #navbar #topbar-cta-button > a[href*="/download"] svg {
+  color: #fff !important;
+}
+
+html:not(.dark) #navbar #topbar-cta-button > a[href*="/download"]:hover,
+html:not(.dark) #navbar #topbar-cta-button > a[href*="/download"]:hover > span {
+  background: #303030 !important;
+}
+
 #navbar #topbar-cta-button > a[href*="/download"] > span {
   background: #fff !important;
   border-radius: 8px !important;
@@ -392,8 +446,8 @@ html.dark #content .real-index-page .card img[src*="/icons/"] {
   border-color: var(--real-border) !important;
 }
 
-::selection { color: #000; background: #fff; }
-*:focus-visible { outline-color: rgba(255, 255, 255, 0.8) !important; }
+::selection { color: var(--real-bg); background: var(--real-text); }
+*:focus-visible { outline-color: var(--real-text) !important; }
 
 @media (max-width: 1100px) {
   #content .real-index-page .card-group {
