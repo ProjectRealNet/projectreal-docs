@@ -2,13 +2,10 @@
 title: "WebSocket.connect"
 sidebarTitle: "WebSocket.connect"
 description: "Crée deux BindableEvents, ouvre une WebSocket client WebSocket connection vers l'URL fournie et yield jusqu'à la fin de la tentative de connexion. En cas de succès, elle renvoie une WebSocket table avec les events OnMessage et OnClose, les methods Send et Close fournis par la methods, et un connection state. Les incoming message data sont déclenchées with OnMessage sous forme de string. Quand la receive loop se termine, OnClose est déclenché sans arguments. En cas d'échec de connexion, la fonction lance un error string qui commence par \"WebSocket connection failed\"."
-icon: "function"
 keywords: ["WebSocket.connect","WebSocket","WebSocket.Connect","websocket.connect","websocket.Connect"]
 ---
 
-Crée deux BindableEvents, ouvre une WebSocket client WebSocket connection vers l'URL fournie et yield jusqu'à la fin de la tentative de connexion. En cas de succès, elle renvoie une WebSocket table avec les events OnMessage et OnClose, les methods Send et Close fournis par la methods, et un connection state. Les incoming message data sont déclenchées with OnMessage sous forme de string. Quand la receive loop se termine, OnClose est déclenché sans arguments. En cas d'échec de connexion, la fonction lance un error string qui commence par "WebSocket connection failed".
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 WebSocket.connect(url: string): WebSocket
@@ -22,15 +19,15 @@ WebSocket.connect(url: string): WebSocket
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `url` | `string` | Yes | URL string transmise à CURLOPT_URL avant que WebSocket client effectue le WebSocket connection attempt. |
+<ParamField path={"url"} type={"string"} required>
+URL string transmise à CURLOPT_URL avant que WebSocket client effectue le WebSocket connection attempt.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `socket` | `WebSocket` | WebSocket table contenant OnMessage, OnClose et connection state. Send et Close sont résolus with la WebSocket object methods. |
+<ResponseField name={"socket"} type={"WebSocket"}>
+WebSocket table contenant OnMessage, OnClose et connection state. Send et Close sont résolus with la WebSocket object methods.
+</ResponseField>
 
 ## Exemple
 
@@ -50,3 +47,6 @@ end)
 socket:Send("hello")
 socket:Close()
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "isnetworkowner"
 sidebarTitle: "isnetworkowner"
 description: "Bir Instance uzerinden hidden property \"NetworkOwnerV3\" degerini okuyup ilk donen degerin integer conversion ile donusturuldugunde 2 den buyuk olup olmadigini dondurur. Arguman Instance object olmalidir. Function iceride the hidden property reader cagirir ve bu cagridan gelen hatalari yakalamaz, bu nedenle Invalid Instance values, missing properties veya non-property metadata gethiddenproperty ile ayni hatalari uretebilir. Bir boolean dondurur. peer_id > 2 degerinin tam olarak local network ownership anlamina gelip gelmedigi: Nicht aus der Codebasis verifizierbar."
-icon: "function"
 keywords: ["isnetworkowner","Instances"]
 ---
 
-Bir Instance uzerinden hidden property "NetworkOwnerV3" degerini okuyup ilk donen degerin integer conversion ile donusturuldugunde 2 den buyuk olup olmadigini dondurur. Arguman Instance object olmalidir. Function iceride the hidden property reader cagirir ve bu cagridan gelen hatalari yakalamaz, bu nedenle Invalid Instance values, missing properties veya non-property metadata gethiddenproperty ile ayni hatalari uretebilir. Bir boolean dondurur. peer_id > 2 degerinin tam olarak local network ownership anlamina gelip gelmedigi: Nicht aus der Codebasis verifizierbar.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 isnetworkowner(instance: Instance): boolean
@@ -16,15 +13,15 @@ isnetworkowner(instance: Instance): boolean
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | property name "NetworkOwnerV3" ile the hidden property reader icine iletilen Instance object. |
+<ParamField path={"instance"} type={"Instance"} required>
+property name "NetworkOwnerV3" ile the hidden property reader icine iletilen Instance object.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `isOwner` | `boolean` | "NetworkOwnerV3" ilk donus degeri uzerindeki integer conversion 2 den buyukse true; aksi halde false. |
+<ResponseField name={"isOwner"} type={"boolean"}>
+"NetworkOwnerV3" ilk donus degeri uzerindeki integer conversion 2 den buyukse true; aksi halde false.
+</ResponseField>
 
 ## Örnek
 
@@ -38,3 +35,6 @@ if part then
     print(ownsNetwork)
 end
 ```
+
+
+</div>

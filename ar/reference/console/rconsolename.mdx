@@ -2,13 +2,10 @@
 title: "rconsolename"
 sidebarTitle: "rconsolename"
 description: "يضبط title الخاص بـ Windows console window الحالية باستخدام Windows console title update. يجب أن يكون argument الأول string ويتم فحصه قبل فحص وجود console. إذا لم تكن هناك console window بعد نجاح string check، يرجع الاستدعاء بدون أي إجراء."
-icon: "function"
 keywords: ["rconsolename","Console","consolename","rconsolesettitle","consolesettitle"]
 ---
 
-يضبط title الخاص بـ Windows console window الحالية باستخدام Windows console title update. يجب أن يكون argument الأول string ويتم فحصه قبل فحص وجود console. إذا لم تكن هناك console window بعد نجاح string check، يرجع الاستدعاء بدون أي إجراء.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 rconsolename(text: string)
@@ -22,9 +19,9 @@ rconsolename(text: string)
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | قيمة النص المستخدمة من قبل العملية. |
+<ParamField path={"text"} type={"string"} required>
+قيمة النص المستخدمة من قبل العملية.
+</ParamField>
 
 ## مثال
 
@@ -34,3 +31,6 @@ Set the current Windows console window title.
 rconsolecreate()
 rconsolename("Real Console")
 ```
+
+
+</div>

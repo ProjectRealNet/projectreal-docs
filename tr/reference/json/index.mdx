@@ -1,34 +1,88 @@
 ---
 title: "JSON"
 description: "JSON'u ayrıştırın, kodlayın, inceleyin ve dönüştürün."
-icon: "folder-code"
+icon: "/icons/code-circle-2.svg"
 ---
+
+<div className="real-category-page">
 
 JSON'u ayrıştırın, kodlayın, inceleyin ve dönüştürün.
 
-| Fonksiyon gezinmesi | Açıklama |
-| --- | --- |
-| [`json.array`](./json-array) | json.encode icin JSON array olarak isaretlenmis new table olusturur ve source table verildiginde 1.#source sequence degerini kopyalar. |
-| [`json.clone`](./json-clone) | Bir value degerini json.encode semantics ile encoding yapip generated JSON degerini tekrar Lua values olarak decoding ederek clone eder. |
-| [`json.decode`](./json-decode) | JSON string degerini Real JSON parser ile parse eder ve decoded arrays ile objects degerlerini JSON helpers icin isaretleyerek decoded Lua value dondurur. |
-| [`json.decodeSafe`](./json-decodesafe) | JSON degerini json.decode ile ayni parser kullanarak parse eder ve parse errors icin throw etmek yerine success flag dondurur. |
-| [`json.encode`](./json-encode) | Lua value degerini Real JSON encoder kullanarak JSON string olarak serialize eder. json.stringify ayni function icin kayitlidir. |
-| [`json.encodePretty`](./json-encodepretty) | Lua value, Real JSON encoder kullanilarak readable formatted JSON string olarak serializes edilir. json.pretty ayni function'a kayitlidir. |
-| [`json.escape`](./json-escape) | Bir string'i Real JSON string escaping rules ile escape eder ve surrounding quotes olmadan escaped content dondurur. |
-| [`json.format`](./json-format) | Bir JSON string degerini parse eder ve Real JSON parser ve encoder ile readable formatted JSON olarak tekrar encode eder. |
-| [`json.getPath`](./json-getpath) | Dotted string path veya array table of keys kullanarak table icinden nested value okur. |
-| [`json.isArray`](./json-isarray) | Bir value degerinin Real JSON table detection tarafindan treated as a JSON array olup olmadigini dondurur. |
-| [`json.isNull`](./json-isnull) | Bir value degerinin Real JSON null sentinel olan json.null olup olmadigini dondurur. |
-| [`json.isObject`](./json-isobject) | Bir value degerinin Real JSON table detection tarafindan treated as a JSON object olup olmadigini dondurur. |
-| [`json.keys`](./json-keys) | Bir table icindeki visible keys degerlerini new table marked as a JSON array olarak dondurur. |
-| [`json.minify`](./json-minify) | Bir JSON string degerini parse eder ve Real default non-pretty JSON encoder output ile tekrar encode eder. |
-| [`json.object`](./json-object) | Real JSON encoder tarafindan object olarak ele alinmasi icin new table marked as a JSON object olusturur. |
-| [`json.parse`](./json-parse) | JSON string degerini json.decode ile ayni function kullanarak parse eder. |
-| [`json.pretty`](./json-pretty) | Lua value, json.encodePretty ile ayni function kullanilarak readable formatted JSON string olarak serializes edilir. |
-| [`json.quote`](./json-quote) | Bir string'i Real JSON string escaping rules ile escape eder ve complete quoted JSON string literal dondurur. |
-| [`json.stringify`](./json-stringify) | Lua value degerini json.encode ile ayni function kullanarak JSON string olarak serialize eder. |
-| [`json.tryDecode`](./json-trydecode) | JSON string degerini json.decodeSafe ile ayni function kullanarak parse etmeyi dener ve parse errors icin status values dondurur. |
-| [`json.type`](./json-type) | Bir deger icin string type name dondurur. json.null "null" dondurur. Tablolar json.isArray ve json.isObject ile ayni table classification kullanarak "array" veya "object" dondurur. Diger degerler runtime Lua type name result dondurur. |
-| [`json.unescape`](./json-unescape) | Escaped string content veya complete quoted JSON string literal icinden JSON string escape sequences decode eder. Girdi full JSON document olarak degil, JSON string parser ile parse edilir. |
-| [`json.validate`](./json-validate) | Bir JSON string degerini tek bir complete JSON value parse ederek validate eder. Success durumunda yalnizca true dondurur. Parse failure durumunda false ve parser error details dondurur. |
-| [`json.values`](./json-values) | Bir table icindeki direct values degerlerini JSON array olarak marked yeni bir table icinde dondurur. JSON kind marker entries atlanir. |
+## Kullanılabilir fonksiyonlar
+
+<CardGroup cols={2}>
+<Card title="json.array" href="./json-array">
+json.encode icin JSON array olarak isaretlenmis new table olusturur ve source table verildiginde 1.#source sequence degerini kopyalar.
+</Card>
+<Card title="json.clone" href="./json-clone">
+Bir value degerini json.encode semantics ile encoding yapip generated JSON degerini tekrar Lua values olarak decoding ederek clone eder.
+</Card>
+<Card title="json.decode" href="./json-decode">
+JSON string degerini Real JSON parser ile parse eder ve decoded arrays ile objects degerlerini JSON helpers icin isaretleyerek decoded Lua value dondurur.
+</Card>
+<Card title="json.decodeSafe" href="./json-decodesafe">
+JSON degerini json.decode ile ayni parser kullanarak parse eder ve parse errors icin throw etmek yerine success flag dondurur.
+</Card>
+<Card title="json.encode" href="./json-encode">
+Lua value degerini Real JSON encoder kullanarak JSON string olarak serialize eder. json.stringify ayni function icin kayitlidir.
+</Card>
+<Card title="json.encodePretty" href="./json-encodepretty">
+Lua value, Real JSON encoder kullanilarak readable formatted JSON string olarak serializes edilir. json.pretty ayni function'a kayitlidir.
+</Card>
+<Card title="json.escape" href="./json-escape">
+Bir string'i Real JSON string escaping rules ile escape eder ve surrounding quotes olmadan escaped content dondurur.
+</Card>
+<Card title="json.format" href="./json-format">
+Bir JSON string degerini parse eder ve Real JSON parser ve encoder ile readable formatted JSON olarak tekrar encode eder.
+</Card>
+<Card title="json.getPath" href="./json-getpath">
+Dotted string path veya array table of keys kullanarak table icinden nested value okur.
+</Card>
+<Card title="json.isArray" href="./json-isarray">
+Bir value degerinin Real JSON table detection tarafindan treated as a JSON array olup olmadigini dondurur.
+</Card>
+<Card title="json.isNull" href="./json-isnull">
+Bir value degerinin Real JSON null sentinel olan json.null olup olmadigini dondurur.
+</Card>
+<Card title="json.isObject" href="./json-isobject">
+Bir value degerinin Real JSON table detection tarafindan treated as a JSON object olup olmadigini dondurur.
+</Card>
+<Card title="json.keys" href="./json-keys">
+Bir table icindeki visible keys degerlerini new table marked as a JSON array olarak dondurur.
+</Card>
+<Card title="json.minify" href="./json-minify">
+Bir JSON string degerini parse eder ve Real default non-pretty JSON encoder output ile tekrar encode eder.
+</Card>
+<Card title="json.object" href="./json-object">
+Real JSON encoder tarafindan object olarak ele alinmasi icin new table marked as a JSON object olusturur.
+</Card>
+<Card title="json.parse" href="./json-parse">
+JSON string degerini json.decode ile ayni function kullanarak parse eder.
+</Card>
+<Card title="json.pretty" href="./json-pretty">
+Lua value, json.encodePretty ile ayni function kullanilarak readable formatted JSON string olarak serializes edilir.
+</Card>
+<Card title="json.quote" href="./json-quote">
+Bir string'i Real JSON string escaping rules ile escape eder ve complete quoted JSON string literal dondurur.
+</Card>
+<Card title="json.stringify" href="./json-stringify">
+Lua value degerini json.encode ile ayni function kullanarak JSON string olarak serialize eder.
+</Card>
+<Card title="json.tryDecode" href="./json-trydecode">
+JSON string degerini json.decodeSafe ile ayni function kullanarak parse etmeyi dener ve parse errors icin status values dondurur.
+</Card>
+<Card title="json.type" href="./json-type">
+Bir deger icin string type name dondurur. json.null "null" dondurur. Tablolar json.isArray ve json.isObject ile ayni table classification kullanarak "array" veya "object" dondurur. Diger degerler runtime Lua type name result dondurur.
+</Card>
+<Card title="json.unescape" href="./json-unescape">
+Escaped string content veya complete quoted JSON string literal icinden JSON string escape sequences decode eder. Girdi full JSON document olarak degil, JSON string parser ile parse edilir.
+</Card>
+<Card title="json.validate" href="./json-validate">
+Bir JSON string degerini tek bir complete JSON value parse ederek validate eder. Success durumunda yalnizca true dondurur. Parse failure durumunda false ve parser error details dondurur.
+</Card>
+<Card title="json.values" href="./json-values">
+Bir table icindeki direct values degerlerini JSON array olarak marked yeni bir table icinde dondurur. JSON kind marker entries atlanir.
+</Card>
+</CardGroup>
+
+</div>

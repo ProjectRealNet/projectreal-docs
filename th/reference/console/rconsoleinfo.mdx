@@ -2,13 +2,10 @@
 title: "rconsoleinfo"
 sidebarTitle: "rconsoleinfo"
 description: "เขียนค่าจำนวนศูนย์ค่าหรือมากกว่าไปยัง Windows console ปัจจุบันผ่าน stdout หลังจากตั้งค่า console text attribute เป็น info text color ค่าแต่ละค่าถูกแปลงด้วย Lua string conversion คั่นด้วยอักขระ tab แล้ว reset text attribute หลังจากนั้น หากไม่มี console window การเรียกจะกลับโดยไม่แปลงหรือเขียนอะไร"
-icon: "function"
 keywords: ["rconsoleinfo","Console","consoleinfo"]
 ---
 
-เขียนค่าจำนวนศูนย์ค่าหรือมากกว่าไปยัง Windows console ปัจจุบันผ่าน stdout หลังจากตั้งค่า console text attribute เป็น info text color ค่าแต่ละค่าถูกแปลงด้วย Lua string conversion คั่นด้วยอักขระ tab แล้ว reset text attribute หลังจากนั้น หากไม่มี console window การเรียกจะกลับโดยไม่แปลงหรือเขียนอะไร
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 rconsoleinfo(...values?: ...any)
@@ -20,9 +17,9 @@ rconsoleinfo(...values?: ...any)
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | ค่าเสริม หากมี console แต่ละ value จะถูกแปลงด้วย Lua string conversion และรวมด้วยอักขระ tab ก่อนเขียน |
+<ParamField path={"...values"} type={"...any"}>
+ค่าเสริม หากมี console แต่ละ value จะถูกแปลงด้วย Lua string conversion และรวมด้วยอักขระ tab ก่อนเขียน
+</ParamField>
 
 ## ตัวอย่าง
 
@@ -33,3 +30,6 @@ rconsolecreate()
 rconsoleinfo("Connected", "
 ")
 ```
+
+
+</div>

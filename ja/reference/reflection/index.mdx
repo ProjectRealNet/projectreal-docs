@@ -1,14 +1,28 @@
 ---
 title: "Reflection"
 description: "インスタンスとプロパティのリフレクション ヘルパー。"
-icon: "folder-code"
+icon: "/icons/zoom-scan.svg"
 ---
+
+<div className="real-category-page">
 
 インスタンスとプロパティのリフレクション ヘルパー。
 
-| 関数ナビゲーション | 説明 |
-| --- | --- |
-| [`gethiddenproperty`](./gethiddenproperty) | non-scriptable properties を含め、reflection metadata 経由で Roblox property を読み取ります。最初の引数は Instance object、2 番目の引数は string property name である必要があります。instance reference は有効である必要があります。property descriptor が Roblox property metadata にない場合、この function は nil だけを返します。descriptor が存在しても property entry に解決されない場合は "Not a property" を発生させます。reflection types Bool、Int、Float、Double、String、SystemAddress、SharedString、Vector3 では getter を呼び、value と !IsScriptable() に等しい boolean を返します。SystemAddress は RemoteId.PeerId を integer として返します。SharedString は Content を string として返します。Vector3 は instance primitive Size offset から読み取り、touch data がない場合は "can't get value" を発生させます。他の property types は property scriptable flag を一時的に true にした後、normal Lua field access で読み取ります。BinaryString はその読み取り中だけ String として扱われます。original scriptable flag と BinaryString type は return 前に復元されます。 |
-| [`isscriptable`](./isscriptable) | Instance 上の Roblox property の scriptable flag を確認します。この function は、同じ instance reference と property name の cached scriptable value が存在する場合、まずそれを返します。cache miss の場合、property name は Roblox property metadata と Instance class descriptor で解決されます。descriptor が存在しない場合、または解決された field が存在しないか property entry ではない場合、この function は nil を返します。property entry が見つかった場合、scriptable state を読み取り、その値を instance と property の scriptable override cache に保存し、boolean を返します。この function は scriptable flag を変更しません。 |
-| [`sethiddenproperty`](./sethiddenproperty) | Sets a Roblox property with reflection metadata. The first argument must be Instance object, the second argument must be a string property name, and the third argument must be present. The instance reference must be valid. If the property descriptor is missing from Roblox property metadata, the function returns nil. If the descriptor exists but does not resolve to a property entry, it raises "Not a property". Bool values use luaL_checkboolean. Int and SystemAddress values use integer type checking, with SystemAddress writing RemoteId.PeerId. Float and Double values use number type checking. String, SharedString, and BinaryString values use string type checking before calling the setter. For other property types, the function temporarily calls setscriptable(instance, property, true), assigns instance[property] = value with normal Lua field assignment, then restores the original scriptable state with setscriptable(instance, property, isScriptable). On successful writes, the return value is a boolean equal to !IsScriptable() from before the write. |
-| [`setscriptable`](./setscriptable) | Roblox property の scriptable override を scriptable override cache に保存し、previous scriptable state を返します。最初の引数は Instance object、2 番目の引数は string property name、3 番目の引数は boolean である必要があります。同じ instance reference と property name の cache entry がすでに存在する場合、cached scriptable value は置き換えられ、古い cached value が返されます。cache miss の場合、property name は Roblox property metadata と Instance class descriptor で解決されます。descriptor が存在しない場合、または解決された field が存在しないか property entry ではない場合、この function は nil を返します。property entry が見つかった場合、function は scriptable state を読み取り、要求された boolean と property reference を scriptable override cache に保存し、previous scriptable state value を返します。GameIndexHook と GameNewIndexHook は後でこの cache を使用し、単一の indexed read または write の間だけ property field scriptable flag を一時的に設定し、その後 previous field flag を復元します。 |
+## 利用できる関数
+
+<CardGroup cols={2}>
+<Card title="gethiddenproperty" href="./gethiddenproperty">
+non-scriptable properties を含め、reflection metadata 経由で Roblox property を読み取ります。最初の引数は Instance object、2 番目の引数は string property name である必要があります。instance reference は有効である必要があります。property descriptor が Roblox property metadata にない場合、この function は nil だけを返します。descriptor が存在しても property entry に解決されない場合は "Not a property" を発生させます。reflection types Bool、Int、Float、Double、String、SystemAddress、SharedString、Vector3 では getter を呼び、value と !IsScriptable() に等しい boolean を返します。SystemAddress は RemoteId.PeerId を integer として返します。SharedString は Content を string として返します。Vector3 は instance primitive Size offset から読み取り、touch data がない場合は "can't get value" を発生させます。他の property types は property scriptable flag を一時的に true にした後、normal Lua field access で読み取ります。BinaryString はその読み取り中だけ String として扱われます。original scriptable flag と BinaryString type は return 前に復元されます。
+</Card>
+<Card title="isscriptable" href="./isscriptable">
+Instance 上の Roblox property の scriptable flag を確認します。この function は、同じ instance reference と property name の cached scriptable value が存在する場合、まずそれを返します。cache miss の場合、property name は Roblox property metadata と Instance class descriptor で解決されます。descriptor が存在しない場合、または解決された field が存在しないか property entry ではない場合、この function は nil を返します。property entry が見つかった場合、scriptable state を読み取り、その値を instance と property の scriptable override cache に保存し、boolean を返します。この function は scriptable flag を変更しません。
+</Card>
+<Card title="sethiddenproperty" href="./sethiddenproperty">
+Sets a Roblox property with reflection metadata. The first argument must be Instance object, the second argument must be a string property name, and the third argument must be present. The instance reference must be valid. If the property descriptor is missing from Roblox property metadata, the function returns nil. If the descriptor exists but does not resolve to a property entry, it raises "Not a property". Bool values use luaL_checkboolean. Int and SystemAddress values use integer type checking, with SystemAddress writing RemoteId.PeerId. Float and Double values use number type checking. String, SharedString, and BinaryString values use string type checking before calling the setter. For other property types, the function temporarily calls setscriptable(instance, property, true), assigns instance[property] = value with normal Lua field assignment, then restores the original scriptable state with setscriptable(instance, property, isScriptable). On successful writes, the return value is a boolean equal to !IsScriptable() from before the write.
+</Card>
+<Card title="setscriptable" href="./setscriptable">
+Roblox property の scriptable override を scriptable override cache に保存し、previous scriptable state を返します。最初の引数は Instance object、2 番目の引数は string property name、3 番目の引数は boolean である必要があります。同じ instance reference と property name の cache entry がすでに存在する場合、cached scriptable value は置き換えられ、古い cached value が返されます。cache miss の場合、property name は Roblox property metadata と Instance class descriptor で解決されます。descriptor が存在しない場合、または解決された field が存在しないか property entry ではない場合、この function は nil を返します。property entry が見つかった場合、function は scriptable state を読み取り、要求された boolean と property reference を scriptable override cache に保存し、previous scriptable state value を返します。GameIndexHook と GameNewIndexHook は後でこの cache を使用し、単一の indexed read または write の間だけ property field scriptable flag を一時的に設定し、その後 previous field flag を復元します。
+</Card>
+</CardGroup>
+
+</div>

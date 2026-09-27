@@ -2,13 +2,10 @@
 title: "getreferencedby"
 sidebarTitle: "getreferencedby"
 description: "Returns cached Instance values whose supported reference properties point to the provided Instance. The argument must be an Instance."
-icon: "function"
 keywords: ["getreferencedby","Scripts","getreferences"]
 ---
 
-Returns cached Instance values whose supported reference properties point to the provided Instance. The argument must be an Instance.
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 getreferencedby(instance: userdata): table
@@ -20,15 +17,15 @@ getreferencedby(instance: userdata): table
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `instance` | `userdata` | Yes | Target Instance to search references for. |
+<ParamField path={"instance"} type={"userdata"} required>
+Target Instance to search references for.
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `instances` | `table` | New array table of matching registered Instance object values. |
+<ResponseField name={"instances"} type={"table"}>
+New array table of matching registered Instance object values.
+</ResponseField>
 
 ## 例
 
@@ -41,3 +38,6 @@ for _, value in ipairs(references) do
     print(value)
 end
 ```
+
+
+</div>

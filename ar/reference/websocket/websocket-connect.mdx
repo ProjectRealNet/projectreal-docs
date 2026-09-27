@@ -2,13 +2,10 @@
 title: "WebSocket.connect"
 sidebarTitle: "WebSocket.connect"
 description: "تنشئ BindableEvents عددها اثنان، وتفتح WebSocket client WebSocket connection إلى URL المقدم، وتعمل yield حتى تنتهي محاولة الاتصال. عند النجاح، تعيد WebSocket table تحتوي OnMessage و OnClose events، و Send و Close methods من methods، و connection state. يتم إطلاق incoming message data عبر OnMessage كسلسلة string. عندما تنتهي receive loop، يتم إطلاق OnClose بدون arguments. عند فشل الاتصال، ترفع الدالة error string يبدأ بـ \"WebSocket connection failed\"."
-icon: "function"
 keywords: ["WebSocket.connect","WebSocket","WebSocket.Connect","websocket.connect","websocket.Connect"]
 ---
 
-تنشئ BindableEvents عددها اثنان، وتفتح WebSocket client WebSocket connection إلى URL المقدم، وتعمل yield حتى تنتهي محاولة الاتصال. عند النجاح، تعيد WebSocket table تحتوي OnMessage و OnClose events، و Send و Close methods من methods، و connection state. يتم إطلاق incoming message data عبر OnMessage كسلسلة string. عندما تنتهي receive loop، يتم إطلاق OnClose بدون arguments. عند فشل الاتصال، ترفع الدالة error string يبدأ بـ "WebSocket connection failed".
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 WebSocket.connect(url: string): WebSocket
@@ -22,15 +19,15 @@ WebSocket.connect(url: string): WebSocket
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `url` | `string` | Yes | URL string يتم تمريره إلى CURLOPT_URL قبل أن ينفذ WebSocket client محاولة WebSocket connection. |
+<ParamField path={"url"} type={"string"} required>
+URL string يتم تمريره إلى CURLOPT_URL قبل أن ينفذ WebSocket client محاولة WebSocket connection.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `socket` | `WebSocket` | WebSocket table تحتوي OnMessage و OnClose و connection state. يتم حل Send و Close عبر WebSocket object methods. |
+<ResponseField name={"socket"} type={"WebSocket"}>
+WebSocket table تحتوي OnMessage و OnClose و connection state. يتم حل Send و Close عبر WebSocket object methods.
+</ResponseField>
 
 ## مثال
 
@@ -50,3 +47,6 @@ end)
 socket:Send("hello")
 socket:Close()
 ```
+
+
+</div>

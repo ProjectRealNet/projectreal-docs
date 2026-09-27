@@ -2,13 +2,10 @@
 title: "setscriptable"
 sidebarTitle: "setscriptable"
 description: "تخزن scriptable override لخاصية Roblox property في scriptable override cache وترجع previous scriptable state. يجب أن يكون الوسيط الأول Instance object، والثاني string property name، والثالث boolean. إذا كان cache entry موجودا مسبقا لنفس instance reference و property name، يتم استبدال cached scriptable value وترجع function القيمة القديمة من cache. عند cache miss، يتم حل property name عبر Roblox property metadata و Instance class descriptor. إذا لم يوجد descriptor، أو كان field المحلول مفقودا أو ليس property entry، ترجع function nil. عندما يتم العثور على property entry، تقرأ function قيمة scriptable state، وتخزن boolean المطلوب مع property reference في scriptable override cache، ثم ترجع previous scriptable state value. يستخدم GameIndexHook و GameNewIndexHook هذا cache لاحقا عبر ضبط property field scriptable flag مؤقتا لقراءة أو كتابة indexed واحدة، ثم استعادة previous field flag."
-icon: "function"
 keywords: ["setscriptable","Reflection"]
 ---
 
-تخزن scriptable override لخاصية Roblox property في scriptable override cache وترجع previous scriptable state. يجب أن يكون الوسيط الأول Instance object، والثاني string property name، والثالث boolean. إذا كان cache entry موجودا مسبقا لنفس instance reference و property name، يتم استبدال cached scriptable value وترجع function القيمة القديمة من cache. عند cache miss، يتم حل property name عبر Roblox property metadata و Instance class descriptor. إذا لم يوجد descriptor، أو كان field المحلول مفقودا أو ليس property entry، ترجع function nil. عندما يتم العثور على property entry، تقرأ function قيمة scriptable state، وتخزن boolean المطلوب مع property reference في scriptable override cache، ثم ترجع previous scriptable state value. يستخدم GameIndexHook و GameNewIndexHook هذا cache لاحقا عبر ضبط property field scriptable flag مؤقتا لقراءة أو كتابة indexed واحدة، ثم استعادة previous field flag.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 setscriptable(instance: Instance, property: string, value: boolean): boolean | nil
@@ -16,17 +13,23 @@ setscriptable(instance: Instance, property: string, value: boolean): boolean | n
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object يستخدم كجزء من scriptable override cache key. |
-| `property` | `string` | Yes | Property name يتم حله عبر Roblox property metadata و Instance class descriptor عند cache miss. |
-| `value` | `boolean` | Yes | Scriptable override value يتم تخزينه في scriptable override cache. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object يستخدم كجزء من scriptable override cache key.
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+Property name يتم حله عبر Roblox property metadata و Instance class descriptor عند cache miss.
+</ParamField>
+
+<ParamField path={"value"} type={"boolean"} required>
+Scriptable override value يتم تخزينه في scriptable override cache.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `previousState` | `boolean \| nil` | Previous cached scriptable value، أو previous scriptable state value، أو nil عندما لا يمكن حل property إلى property entry. |
+<ResponseField name={"previousState"} type={"boolean | nil"}>
+Previous cached scriptable value، أو previous scriptable state value، أو nil عندما لا يمكن حل property إلى property entry.
+</ResponseField>
 
 ## مثال
 
@@ -40,3 +43,6 @@ if previous ~= nil then
     setscriptable(workspace, "Name", previous)
 end
 ```
+
+
+</div>

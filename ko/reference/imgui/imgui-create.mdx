@@ -2,13 +2,10 @@
 title: "imgui.create"
 sidebarTitle: "imgui.create"
 description: "추적되는 ImGui window record를 만들고 ImGuiWindow object를 반환합니다. title 인수가 생략되거나 nil이면 \"REAL_IM_UI\"가 사용됩니다. title은 현재 추적되는 ImGui windows 안에서 고유해야 합니다. 같은 title로 다른 tracked window를 만들면 Lua error가 발생합니다."
-icon: "function"
 keywords: ["imgui.create","ImGui"]
 ---
 
-추적되는 ImGui window record를 만들고 ImGuiWindow object를 반환합니다. title 인수가 생략되거나 nil이면 "REAL_IM_UI"가 사용됩니다. title은 현재 추적되는 ImGui windows 안에서 고유해야 합니다. 같은 title로 다른 tracked window를 만들면 Lua error가 발생합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 imgui.create(title?: string): ImGuiWindow
@@ -16,15 +13,15 @@ imgui.create(title?: string): ImGuiWindow
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `title` | `string` | No | Optional window title. 생략되거나 nil이면 "REAL_IM_UI"가 사용됩니다. 현재 추적되는 ImGui windows 안에서 중복된 title은 Lua error를 발생시킵니다. |
+<ParamField path={"title"} type={"string"}>
+Optional window title. 생략되거나 nil이면 "REAL_IM_UI"가 사용됩니다. 현재 추적되는 ImGui windows 안에서 중복된 title은 Lua error를 발생시킵니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | methods에 window methods가 등록된 ImGuiWindow object입니다. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+methods에 window methods가 등록된 ImGuiWindow object입니다.
+</ResponseField>
 
 ## 타입
 
@@ -76,3 +73,6 @@ window:CollapsingHeader("Advanced", function(section)
     section:Text("Advanced controls go here")
 end)
 ```
+
+
+</div>

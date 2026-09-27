@@ -2,13 +2,10 @@
 title: "openfolderdialog"
 sidebarTitle: "openfolderdialog"
 description: "Windows file picker と folder selection mode によって Windows folder picker を開き、選択されたフォルダーを file item として返します。"
-icon: "function"
 keywords: ["openfolderdialog","Filesystem"]
 ---
 
-Windows file picker と folder selection mode によって Windows folder picker を開き、選択されたフォルダーを file item として返します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 openfolderdialog(options?: DialogOptions): FileSystemItem | nil
@@ -16,15 +13,15 @@ openfolderdialog(options?: DialogOptions): FileSystemItem | nil
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `options` | `DialogOptions` | No | Optional table. openfolderdialog では title と defaultPath が使用されます。defaultPath は existing directory に解決された場合だけ適用されます。extensionFilter は shared dialog options parser に受け入れられますが、folder selection は folder selection mode で有効化されます。 |
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table. openfolderdialog では title と defaultPath が使用されます。defaultPath は existing directory に解決された場合だけ適用されます。extensionFilter は shared dialog options parser に受け入れられますが、folder selection は folder selection mode で有効化されます。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `folder` | `FileSystemItem \| nil` | Selected folder item、または dialog がキャンセルされた場合は nil。Dialog failures は Failed to open folder dialog を throw します。 |
+<ResponseField name={"folder"} type={"FileSystemItem | nil"}>
+Selected folder item、または dialog がキャンセルされた場合は nil。Dialog failures は Failed to open folder dialog を throw します。
+</ResponseField>
 
 ## 型
 
@@ -57,3 +54,6 @@ else
     print("No folder selected")
 end
 ```
+
+
+</div>

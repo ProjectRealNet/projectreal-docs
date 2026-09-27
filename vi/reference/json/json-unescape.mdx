@@ -2,13 +2,10 @@
 title: "json.unescape"
 sidebarTitle: "json.unescape"
 description: "Decode JSON string escape sequences tu escaped string content hoac tu complete quoted JSON string literal. Input duoc parse bang JSON string parser, khong phai full JSON document."
-icon: "function"
 keywords: ["json.unescape","JSON"]
 ---
 
-Decode JSON string escape sequences tu escaped string content hoac tu complete quoted JSON string literal. Input duoc parse bang JSON string parser, khong phai full JSON document.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 json.unescape(text: string): string
@@ -16,15 +13,15 @@ json.unescape(text: string): string
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | Escaped JSON string content, hoac complete quoted JSON string literal co first and last bytes la quotes. Function doc argument nay bang string type checking. |
+<ParamField path={"text"} type={"string"} required>
+Escaped JSON string content, hoac complete quoted JSON string literal co first and last bytes la quotes. Function doc argument nay bang string type checking.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `text` | `string` | Decoded string. Supported escapes gom \", \\, \/, \b, \f, \n, \r, \t va \uXXXX voi surrogate-pair handling. Invalid escapes, unescaped control characters, unterminated strings va trailing characters sau quoted literal se throw Luau error voi near-position suffix. |
+<ResponseField name={"text"} type={"string"}>
+Decoded string. Supported escapes gom \", \\, \/, \b, \f, \n, \r, \t va \uXXXX voi surrogate-pair handling. Invalid escapes, unescaped control characters, unterminated strings va trailing characters sau quoted literal se throw Luau error voi near-position suffix.
+</ResponseField>
 
 ## Ví dụ
 
@@ -36,3 +33,6 @@ local restored = json.unescape(escaped)
 
 print(restored)
 ```
+
+
+</div>

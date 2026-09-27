@@ -2,13 +2,10 @@
 title: "RealSignalConnection.Disconnect"
 sidebarTitle: "RealSignalConnection.Disconnect"
 description: "Disconnects a RealSignalConnection returned by Connect or Once. The method returns no values."
-icon: "function"
 keywords: ["RealSignalConnection.Disconnect","RealSignal"]
 ---
 
-Disconnects a RealSignalConnection returned by Connect or Once. The method returns no values.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 RealSignalConnection.Disconnect(connection: RealSignalConnection)
@@ -16,9 +13,9 @@ RealSignalConnection.Disconnect(connection: RealSignalConnection)
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `connection` | `RealSignalConnection` | Yes | Connection object returned by RealSignal.Connect or RealSignal.Once. |
+<ParamField path={"connection"} type={"RealSignalConnection"} required>
+Connection object returned by RealSignal.Connect or RealSignal.Once.
+</ParamField>
 
 ## Tipe
 
@@ -54,3 +51,6 @@ end)
 connection:Disconnect()
 signal:Fire()
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "json.isObject"
 sidebarTitle: "json.isObject"
 description: "Tra ve value co duoc treated as a JSON object boi Real JSON table detection hay khong."
-icon: "function"
 keywords: ["json.isObject","JSON"]
 ---
 
-Tra ve value co duoc treated as a JSON object boi Real JSON table detection hay khong.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 json.isObject(value: any): boolean
@@ -16,15 +13,15 @@ json.isObject(value: any): boolean
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value de inspect. Non-table values tra ve false. |
+<ParamField path={"value"} type={"any"} required>
+Value de inspect. Non-table values tra ve false.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `isObject` | `boolean` | true khi value la table marked as a JSON object hoac khi Real JSON table detection khong phan loai table la array. Empty unmarked tables tra ve true. |
+<ResponseField name={"isObject"} type={"boolean"}>
+true khi value la table marked as a JSON object hoac khi Real JSON table detection khong phan loai table la array. Empty unmarked tables tra ve true.
+</ResponseField>
 
 ## Ví dụ
 
@@ -39,3 +36,6 @@ print(json.isObject(record))
 print(json.isObject(items))
 print(json.isObject(empty))
 ```
+
+
+</div>

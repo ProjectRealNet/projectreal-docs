@@ -2,13 +2,10 @@
 title: "json.array"
 sidebarTitle: "json.array"
 description: "Создает new table, помеченную как JSON array для json.encode, копируя sequence 1.#source, если передана source table."
-icon: "function"
 keywords: ["json.array","JSON"]
 ---
 
-Создает new table, помеченную как JSON array для json.encode, копируя sequence 1.#source, если передана source table.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 json.array(source?: table): table
@@ -16,15 +13,15 @@ json.array(source?: table): table
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `source` | `table` | No | Optional source table. Если аргумент опущен или nil, json.array возвращает new empty array-marked table. Если передан, только numeric sequence entries от 1 with #source копируются в new table. |
+<ParamField path={"source"} type={"table"}>
+Optional source table. Если аргумент опущен или nil, json.array возвращает new empty array-marked table. Если передан, только numeric sequence entries от 1 with #source копируются в new table.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `array` | `table` | New table с JSON array marker. json.encode serializes ее как JSON array; original source table не возвращается. |
+<ResponseField name={"array"} type={"table"}>
+New table с JSON array marker. json.encode serializes ее как JSON array; original source table не возвращается.
+</ResponseField>
 
 ## Пример
 
@@ -38,3 +35,6 @@ print(json.encode(tags))
 print(json.encode(empty))
 print(json.type(empty))
 ```
+
+
+</div>

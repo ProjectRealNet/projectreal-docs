@@ -2,13 +2,10 @@
 title: "getnamecallmethod"
 sidebarTitle: "getnamecallmethod"
 description: "يرجع current Luau namecall atom المخزن في the current namecall method. لا تأخذ function أي arguments وترجع exactly one value. إذا كان the current namecall method موجودا، وكان the current namecall method أكبر من 0، وكان the current namecall method non-null، تدفع ذلك data كـ string باستخدام string return. وإلا تدفع nil. لا تفحص function arguments، ولا تحسب method name من target object، ولا تستدعي أي metamethod. get_namecall_method هو alias لـ getnamecallmethod."
-icon: "function"
 keywords: ["getnamecallmethod","Metatables","get_namecall_method"]
 ---
 
-يرجع current Luau namecall atom المخزن في the current namecall method. لا تأخذ function أي arguments وترجع exactly one value. إذا كان the current namecall method موجودا، وكان the current namecall method أكبر من 0، وكان the current namecall method non-null، تدفع ذلك data كـ string باستخدام string return. وإلا تدفع nil. لا تفحص function arguments، ولا تحسب method name من target object، ولا تستدعي أي metamethod. get_namecall_method هو alias لـ getnamecallmethod.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 getnamecallmethod(): string | nil
@@ -20,9 +17,9 @@ getnamecallmethod(): string | nil
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `method` | `string \| nil` | Current the current namecall method data string عندما يكون موجودا و non-empty؛ وإلا nil. |
+<ResponseField name={"method"} type={"string | nil"}>
+Current the current namecall method data string عندما يكون موجودا و non-empty؛ وإلا nil.
+</ResponseField>
 
 ## مثال
 
@@ -35,3 +32,6 @@ print(method)
 local aliasMethod = get_namecall_method()
 print(aliasMethod)
 ```
+
+
+</div>

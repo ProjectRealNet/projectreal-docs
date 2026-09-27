@@ -2,13 +2,10 @@
 title: "getsignalarguments"
 sidebarTitle: "getsignalarguments"
 description: "RBXScriptSignal event descriptor signature에서 읽은 type names의 array table을 반환합니다. 첫 번째 argument는 Luau type name이 RBXScriptSignal인 object여야 합니다. 이 function은 signal의 event descriptor를 읽고, function의 argument stride로 signature slots를 순회하며, 각 argument type reference를 읽은 다음 각 slot에 대해 확인된 type name string을 push합니다. captured runtime argument values는 반환하지 않습니다. signature를 읽을 수 없거나 entries가 push되지 않으면 반환된 table에는 fallback entry 하나인 \"Variant\"가 포함됩니다."
-icon: "function"
 keywords: ["getsignalarguments","Signals"]
 ---
 
-RBXScriptSignal event descriptor signature에서 읽은 type names의 array table을 반환합니다. 첫 번째 argument는 Luau type name이 RBXScriptSignal인 object여야 합니다. 이 function은 signal의 event descriptor를 읽고, function의 argument stride로 signature slots를 순회하며, 각 argument type reference를 읽은 다음 각 slot에 대해 확인된 type name string을 push합니다. captured runtime argument values는 반환하지 않습니다. signature를 읽을 수 없거나 entries가 push되지 않으면 반환된 table에는 fallback entry 하나인 "Variant"가 포함됩니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 getsignalarguments(signal: RBXScriptSignal): {string}
@@ -16,15 +13,15 @@ getsignalarguments(signal: RBXScriptSignal): {string}
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | event descriptor signature를 검사할 signal입니다. RBXScriptSignal이 아닌 object는 type error를 발생시킵니다. |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+event descriptor signature를 검사할 signal입니다. RBXScriptSignal이 아닌 object는 type error를 발생시킵니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `arguments` | `&#123;string&#125;` | argument type name strings의 array table입니다. signature data를 읽을 수 없거나 argument entries가 생성되지 않으면 "Variant"를 포함하는 fallback table이 반환됩니다. |
+<ResponseField name={"arguments"} type={"{string}"}>
+argument type name strings의 array table입니다. signature data를 읽을 수 없거나 argument entries가 생성되지 않으면 "Variant"를 포함하는 fallback table이 반환됩니다.
+</ResponseField>
 
 ## 예제
 
@@ -40,3 +37,6 @@ if remote then
     end
 end
 ```
+
+
+</div>

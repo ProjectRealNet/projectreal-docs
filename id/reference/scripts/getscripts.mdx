@@ -2,13 +2,10 @@
 title: "getscripts"
 sidebarTitle: "getscripts"
 description: "Mengembalikan nilai script object yang saat ini ada di Instance cache. Function ini tidak menerima arguments. Function mengiterasi cache yang disimpan di bawah key Instance cache lightobject dan hanya memeriksa entries yang value-nya object. Function membaca field ClassName setiap value dengan optional string handling. Entry LocalScript dan ModuleScript disertakan. Entry Script hanya disertakan saat RunContext offset-nya sama dengan CLIENT atau PLUGIN. Nilai ClassName lain, entries tanpa string ClassName, dan CoreScript dilewati. Hasilnya adalah Luau table berurutan. Function tidak menelusuri DataModel dan tidak menjamin sorted order."
-icon: "function"
 keywords: ["getscripts","Scripts"]
 ---
 
-Mengembalikan nilai script object yang saat ini ada di Instance cache. Function ini tidak menerima arguments. Function mengiterasi cache yang disimpan di bawah key Instance cache lightobject dan hanya memeriksa entries yang value-nya object. Function membaca field ClassName setiap value dengan optional string handling. Entry LocalScript dan ModuleScript disertakan. Entry Script hanya disertakan saat RunContext offset-nya sama dengan CLIENT atau PLUGIN. Nilai ClassName lain, entries tanpa string ClassName, dan CoreScript dilewati. Hasilnya adalah Luau table berurutan. Function tidak menelusuri DataModel dan tidak menjamin sorted order.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 getscripts(): { Instance }
@@ -16,6 +13,9 @@ getscripts(): { Instance }
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `scripts` | `&#123; Instance &#125;` | Sequential table berisi cached LocalScript, ModuleScript, dan nilai Script object yang memenuhi syarat dari Instance cache. |
+<ResponseField name={"scripts"} type={"{ Instance }"}>
+Sequential table berisi cached LocalScript, ModuleScript, dan nilai Script object yang memenuhi syarat dari Instance cache.
+</ResponseField>
+
+
+</div>

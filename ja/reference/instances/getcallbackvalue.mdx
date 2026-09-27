@@ -2,13 +2,10 @@
 title: "getcallbackvalue"
 sidebarTitle: "getcallbackvalue"
 description: "Instance 上の callback property に保存された Lua callback function を読み取ります。最初の引数は Instance object、2 番目の引数は string property name である必要があります。instance reference は有効である必要があります。property name は Roblox property metadata で解決され、型が LUA_CALLBACK の property を指す必要があります。property descriptor がない、property が LUA_CALLBACK ではない、callback field offset がない、callback が保存されていない、LiveLuaRef がない、callback が別の Lua global state に属する、または参照された値が function ではない場合、この function は nil を返します。最初の callback slot に callback がない場合は async callback field fallback も確認します。この function は property を更新しません。"
-icon: "function"
 keywords: ["getcallbackvalue","Instances","getcallbackmember"]
 ---
 
-Instance 上の callback property に保存された Lua callback function を読み取ります。最初の引数は Instance object、2 番目の引数は string property name である必要があります。instance reference は有効である必要があります。property name は Roblox property metadata で解決され、型が LUA_CALLBACK の property を指す必要があります。property descriptor がない、property が LUA_CALLBACK ではない、callback field offset がない、callback が保存されていない、LiveLuaRef がない、callback が別の Lua global state に属する、または参照された値が function ではない場合、この function は nil を返します。最初の callback slot に callback がない場合は async callback field fallback も確認します。この function は property を更新しません。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 getcallbackvalue(instance: Instance, property: string): function | nil
@@ -20,16 +17,19 @@ getcallbackvalue(instance: Instance, property: string): function | nil
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | callback property を検査する Instance object。Invalid Instance values は argument error を発生させます。 |
-| `property` | `string` | Yes | Roblox property metadata で解決される string property name。LUA_CALLBACK properties だけが function を返せます。 |
+<ParamField path={"instance"} type={"Instance"} required>
+callback property を検査する Instance object。Invalid Instance values は argument error を発生させます。
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+Roblox property metadata で解決される string property name。LUA_CALLBACK properties だけが function を返せます。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `callback` | `function \| nil` | callback property に保存された Lua function、または function が読み取り可能な function を解決できない場合は nil。 |
+<ResponseField name={"callback"} type={"function | nil"}>
+callback property に保存された Lua function、または function が読み取り可能な function を解決できない場合は nil。
+</ResponseField>
 
 ## 例
 
@@ -46,3 +46,6 @@ if callback then
     print(callback(21))
 end
 ```
+
+
+</div>

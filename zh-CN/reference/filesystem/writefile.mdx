@@ -2,13 +2,10 @@
 title: "writefile"
 sidebarTitle: "writefile"
 description: "将 Lua string bytes 写入 workspace 内的文件，创建 missing parent directories，并在文件已存在时替换 file contents。"
-icon: "function"
 keywords: ["writefile","Filesystem","writefileasync"]
 ---
 
-将 Lua string bytes 写入 workspace 内的文件，创建 missing parent directories，并在文件已存在时替换 file contents。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 writefile(path: string, content: string)
@@ -20,10 +17,13 @@ writefile(path: string, content: string)
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | File path 会在 separator normalization、workspace-boundary checks 和 filename/extension checks 之后解析到 workspace 内。Absolute paths 只有在解析到 workspace 内时才会被接受。 |
-| `content` | `string` | Yes | 要写入的 Lua string bytes。数据以 binary truncate mode 写入；writefile 不会添加 newlines、BOM bytes、null terminators 或其他 extra bytes。 |
+<ParamField path={"path"} type={"string"} required>
+File path 会在 separator normalization、workspace-boundary checks 和 filename/extension checks 之后解析到 workspace 内。Absolute paths 只有在解析到 workspace 内时才会被接受。
+</ParamField>
+
+<ParamField path={"content"} type={"string"} required>
+要写入的 Lua string bytes。数据以 binary truncate mode 写入；writefile 不会添加 newlines、BOM bytes、null terminators 或其他 extra bytes。
+</ParamField>
 
 ## 示例
 
@@ -38,3 +38,6 @@ print(readfile(path))
 writefile(path, "")
 print(#readfile(path))
 ```
+
+
+</div>

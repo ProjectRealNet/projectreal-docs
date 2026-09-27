@@ -2,13 +2,10 @@
 title: "rconsolename"
 sidebarTitle: "rconsolename"
 description: "Windows console title update で現在の Windows console window の title を設定します。最初の argument は string である必要があり、console existence check より前にチェックされます。string check が成功したあとに console window が存在しない場合、この呼び出しは何もせずに戻ります。"
-icon: "function"
 keywords: ["rconsolename","Console","consolename","rconsolesettitle","consolesettitle"]
 ---
 
-Windows console title update で現在の Windows console window の title を設定します。最初の argument は string である必要があり、console existence check より前にチェックされます。string check が成功したあとに console window が存在しない場合、この呼び出しは何もせずに戻ります。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 rconsolename(text: string)
@@ -22,9 +19,9 @@ rconsolename(text: string)
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | 操作で使用されるテキスト値。 |
+<ParamField path={"text"} type={"string"} required>
+操作で使用されるテキスト値。
+</ParamField>
 
 ## 例
 
@@ -34,3 +31,6 @@ Set the current Windows console window title.
 rconsolecreate()
 rconsolename("Real Console")
 ```
+
+
+</div>

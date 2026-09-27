@@ -2,13 +2,10 @@
 title: "imgui.create"
 sidebarTitle: "imgui.create"
 description: "创建一个被跟踪的 ImGui window record，并返回 ImGuiWindow object。当 title 参数省略或为 nil 时使用 \"REAL_IM_UI\"。title 在当前被跟踪的 ImGui windows 中必须唯一；使用相同 title 创建另一个 tracked window 会触发 Lua error。"
-icon: "function"
 keywords: ["imgui.create","ImGui"]
 ---
 
-创建一个被跟踪的 ImGui window record，并返回 ImGuiWindow object。当 title 参数省略或为 nil 时使用 "REAL_IM_UI"。title 在当前被跟踪的 ImGui windows 中必须唯一；使用相同 title 创建另一个 tracked window 会触发 Lua error。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 imgui.create(title?: string): ImGuiWindow
@@ -16,15 +13,15 @@ imgui.create(title?: string): ImGuiWindow
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `title` | `string` | No | Optional window title。省略或为 nil 时使用 "REAL_IM_UI"。当前被跟踪的 ImGui windows 中重复的 title 会触发 Lua error。 |
+<ParamField path={"title"} type={"string"}>
+Optional window title。省略或为 nil 时使用 "REAL_IM_UI"。当前被跟踪的 ImGui windows 中重复的 title 会触发 Lua error。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | ImGuiWindow object，其 methods 上注册了 window methods。 |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+ImGuiWindow object，其 methods 上注册了 window methods。
+</ResponseField>
 
 ## 类型
 
@@ -76,3 +73,6 @@ window:CollapsingHeader("Advanced", function(section)
     section:Text("Advanced controls go here")
 end)
 ```
+
+
+</div>

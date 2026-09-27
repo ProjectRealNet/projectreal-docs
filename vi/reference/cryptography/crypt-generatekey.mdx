@@ -2,13 +2,10 @@
 title: "crypt.generatekey"
 sidebarTitle: "crypt.generatekey"
 description: "Tao 32 raw bytes ngau nhien bang random byte generator va tra ve chung Base64-encoded duoi dang Lua string."
-icon: "function"
 keywords: ["crypt.generatekey","Cryptography"]
 ---
 
-Tao 32 raw bytes ngau nhien bang random byte generator va tra ve chung Base64-encoded duoi dang Lua string.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 crypt.generatekey(): string
@@ -16,9 +13,9 @@ crypt.generatekey(): string
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `key` | `string` | Base64 encoding cua 32 raw bytes da tao. String duoc tra ve khong dai 32 ky tu. |
+<ResponseField name={"key"} type={"string"}>
+Base64 encoding cua 32 raw bytes da tao. String duoc tra ve khong dai 32 ky tu.
+</ResponseField>
 
 ## Ví dụ
 
@@ -34,3 +31,6 @@ print(key)
 print(#raw)
 print(ciphertext, iv)
 ```
+
+
+</div>

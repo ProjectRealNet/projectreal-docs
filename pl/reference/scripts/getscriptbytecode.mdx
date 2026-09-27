@@ -2,13 +2,10 @@
 title: "getscriptbytecode"
 sidebarTitle: "getscriptbytecode"
 description: "Zwraca decompressed bytecode string dla Roblox script object. getscriptbytecode jest zarejestrowane na tej samej C++ function co dumpstring, wiec zachowanie jest identyczne. Argument musi byc object. Wspolny bytecode reader akceptuje wartosci ClassName ModuleScript, LocalScript, CoreScript i Script. Dla Script RunContext musi byc Client. Jesli ClassName brakuje, function rzuca \"Invalid Instance\". Jesli ClassName nie jest obslugiwana script class, rzuca \"Script expected\". Jesli wartosc jest Script z innym RunContext, rzuca \"Expected a Script with RunContext set to Client\". Jesli embedded bytecode reference jest nieprawidlowy albo dlugosc stored bytecode wynosi 8 bytes lub mniej, function zwraca nil. W przeciwnym razie dekompresuje stored bytecode przez DecompressBytecode i zwraca resulting bytes jako Luau string. Hash mismatch, too-short compressed data albo ZSTD decompression errors sa zwracane jako error text bytes przez DecompressBytecode zamiast byc wyrzucane tutaj."
-icon: "function"
 keywords: ["getscriptbytecode","Scripts"]
 ---
 
-Zwraca decompressed bytecode string dla Roblox script object. getscriptbytecode jest zarejestrowane na tej samej C++ function co dumpstring, wiec zachowanie jest identyczne. Argument musi byc object. Wspolny bytecode reader akceptuje wartosci ClassName ModuleScript, LocalScript, CoreScript i Script. Dla Script RunContext musi byc Client. Jesli ClassName brakuje, function rzuca "Invalid Instance". Jesli ClassName nie jest obslugiwana script class, rzuca "Script expected". Jesli wartosc jest Script z innym RunContext, rzuca "Expected a Script with RunContext set to Client". Jesli embedded bytecode reference jest nieprawidlowy albo dlugosc stored bytecode wynosi 8 bytes lub mniej, function zwraca nil. W przeciwnym razie dekompresuje stored bytecode przez DecompressBytecode i zwraca resulting bytes jako Luau string. Hash mismatch, too-short compressed data albo ZSTD decompression errors sa zwracane jako error text bytes przez DecompressBytecode zamiast byc wyrzucane tutaj.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 getscriptbytecode(script: userdata): string | nil
@@ -16,15 +13,15 @@ getscriptbytecode(script: userdata): string | nil
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | Script object do odczytu. Obslugiwane wartosci ClassName to ModuleScript, LocalScript, CoreScript oraz Script z RunContext Client. |
+<ParamField path={"script"} type={"userdata"} required>
+Script object do odczytu. Obslugiwane wartosci ClassName to ModuleScript, LocalScript, CoreScript oraz Script z RunContext Client.
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `bytecode` | `string \| nil` | Decompressed bytecode bytes jako Luau string, DecompressBytecode error text bytes albo nil, gdy nie ma uzytecznego embedded bytecode. |
+<ResponseField name={"bytecode"} type={"string | nil"}>
+Decompressed bytecode bytes jako Luau string, DecompressBytecode error text bytes albo nil, gdy nie ma uzytecznego embedded bytecode.
+</ResponseField>
 
 ## Przykład
 
@@ -45,3 +42,6 @@ if targetScript then
     print(bytecode)
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "writefile"
 sidebarTitle: "writefile"
 description: "Schreibt Lua string bytes in eine Datei innerhalb des workspace, erstellt missing parent directories und ersetzt die file contents, wenn die Datei bereits existiert."
-icon: "function"
 keywords: ["writefile","Filesystem","writefileasync"]
 ---
 
-Schreibt Lua string bytes in eine Datei innerhalb des workspace, erstellt missing parent directories und ersetzt die file contents, wenn die Datei bereits existiert.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 writefile(path: string, content: string)
@@ -20,10 +17,13 @@ writefile(path: string, content: string)
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | File path, der nach separator normalization, workspace-boundary checks und filename/extension checks innerhalb des workspace aufgeloest wird. Absolute paths werden nur akzeptiert, wenn sie innerhalb des workspace aufgeloest werden. |
-| `content` | `string` | Yes | Lua string bytes, die geschrieben werden. Die Daten werden im binary truncate mode geschrieben; writefile fuegt keine newlines, BOM bytes, null terminators oder andere extra bytes hinzu. |
+<ParamField path={"path"} type={"string"} required>
+File path, der nach separator normalization, workspace-boundary checks und filename/extension checks innerhalb des workspace aufgeloest wird. Absolute paths werden nur akzeptiert, wenn sie innerhalb des workspace aufgeloest werden.
+</ParamField>
+
+<ParamField path={"content"} type={"string"} required>
+Lua string bytes, die geschrieben werden. Die Daten werden im binary truncate mode geschrieben; writefile fuegt keine newlines, BOM bytes, null terminators oder andere extra bytes hinzu.
+</ParamField>
 
 ## Beispiel
 
@@ -38,3 +38,6 @@ print(readfile(path))
 writefile(path, "")
 print(#readfile(path))
 ```
+
+
+</div>

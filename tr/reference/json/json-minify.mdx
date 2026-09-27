@@ -2,13 +2,10 @@
 title: "json.minify"
 sidebarTitle: "json.minify"
 description: "Bir JSON string degerini parse eder ve Real default non-pretty JSON encoder output ile tekrar encode eder."
-icon: "function"
 keywords: ["json.minify","JSON"]
 ---
 
-Bir JSON string degerini parse eder ve Real default non-pretty JSON encoder output ile tekrar encode eder.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 json.minify(json: string, options?: DecodeOptions): string
@@ -16,16 +13,19 @@ json.minify(json: string, options?: DecodeOptions): string
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | Minifying oncesinde parse edilen JSON string. Function bu argument degerini string type checking ile okur. |
-| `options` | `DecodeOptions` | No | Input JSON parsing sirasinda kullanilan optional decode options. boolean useNull ayarlar. table useNull ve maxDepth ayarlayabilir. |
+<ParamField path={"json"} type={"string"} required>
+Minifying oncesinde parse edilen JSON string. Function bu argument degerini string type checking ile okur.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Input JSON parsing sirasinda kullanilan optional decode options. boolean useNull ayarlar. table useNull ve maxDepth ayarlayabilir.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `minified` | `string` | Input parsing ve default encode options ile re-encoding sonrasi uretilen JSON string. |
+<ResponseField name={"minified"} type={"string"}>
+Input parsing ve default encode options ile re-encoding sonrasi uretilen JSON string.
+</ResponseField>
 
 ## Tipler
 
@@ -53,3 +53,6 @@ print(json.minify(formatted, {
     useNull = true,
 }))
 ```
+
+
+</div>

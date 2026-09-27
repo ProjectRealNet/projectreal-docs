@@ -1,21 +1,49 @@
 ---
 title: "Cryptography"
 description: "エンコード、ハッシュ、暗号化、圧縮。"
-icon: "folder-code"
+icon: "/icons/key.svg"
 ---
+
+<div className="real-category-page">
 
 エンコード、ハッシュ、暗号化、圧縮。
 
-| 関数ナビゲーション | 説明 |
-| --- | --- |
-| [`base64_decode`](./base64-decode) | Base64 decoder で Base64 入力をデコードし、デコードされたバイトを Lua string として返します。 |
-| [`base64_encode`](./base64-encode) | Lua string のバイトを Base64 encoder でエンコードし、= padding を使い、改行は入れません。 |
-| [`crypt.decrypt`](./crypt-decrypt) | Base64 ciphertext を、Base64 からデコードされた key と必須の Base64 IV で AES CBC または ECB を使って復号します。 |
-| [`crypt.encrypt`](./crypt-encrypt) | Lua string のバイトを Base64 からデコードされた key で AES CBC、ECB、または CTR を使って暗号化し、Base64 ciphertext と IV 結果を返します。 |
-| [`crypt.generatebytes`](./crypt-generatebytes) | random byte generator でランダムバイトを生成し、Base64-encoded として Lua string で返します。 |
-| [`crypt.generatekey`](./crypt-generatekey) | random byte generator で 32 個のランダム raw bytes を生成し、Base64-encoded として Lua string で返します。 |
-| [`crypt.hash`](./crypt-hash) | サポートされている crypto library hash アルゴリズムで Lua string のバイトをハッシュし、lowercase hexadecimal digest を返します。 |
-| [`crypt.hmac`](./crypt-hmac) | Raw Lua string key を使って Lua string のバイトに crypto library HMAC を計算し、Base64 digest を返します。 |
-| [`crypt.random`](./crypt-random) | random byte generator で raw random bytes を生成し、Lua string として返します。 |
-| [`lz4compress`](./lz4compress) | Lua string のバイトを LZ4 block compression で圧縮し、raw compressed bytes を Lua string として返します。 |
-| [`lz4decompress`](./lz4decompress) | LZ4 block decompression で raw LZ4 block bytes を展開し、raw decompressed bytes を Lua 文字列として返します。 |
+## 利用できる関数
+
+<CardGroup cols={2}>
+<Card title="base64_decode" href="./base64-decode">
+Base64 decoder で Base64 入力をデコードし、デコードされたバイトを Lua string として返します。
+</Card>
+<Card title="base64_encode" href="./base64-encode">
+Lua string のバイトを Base64 encoder でエンコードし、= padding を使い、改行は入れません。
+</Card>
+<Card title="crypt.decrypt" href="./crypt-decrypt">
+Base64 ciphertext を、Base64 からデコードされた key と必須の Base64 IV で AES CBC または ECB を使って復号します。
+</Card>
+<Card title="crypt.encrypt" href="./crypt-encrypt">
+Lua string のバイトを Base64 からデコードされた key で AES CBC、ECB、または CTR を使って暗号化し、Base64 ciphertext と IV 結果を返します。
+</Card>
+<Card title="crypt.generatebytes" href="./crypt-generatebytes">
+random byte generator でランダムバイトを生成し、Base64-encoded として Lua string で返します。
+</Card>
+<Card title="crypt.generatekey" href="./crypt-generatekey">
+random byte generator で 32 個のランダム raw bytes を生成し、Base64-encoded として Lua string で返します。
+</Card>
+<Card title="crypt.hash" href="./crypt-hash">
+サポートされている crypto library hash アルゴリズムで Lua string のバイトをハッシュし、lowercase hexadecimal digest を返します。
+</Card>
+<Card title="crypt.hmac" href="./crypt-hmac">
+Raw Lua string key を使って Lua string のバイトに crypto library HMAC を計算し、Base64 digest を返します。
+</Card>
+<Card title="crypt.random" href="./crypt-random">
+random byte generator で raw random bytes を生成し、Lua string として返します。
+</Card>
+<Card title="lz4compress" href="./lz4compress">
+Lua string のバイトを LZ4 block compression で圧縮し、raw compressed bytes を Lua string として返します。
+</Card>
+<Card title="lz4decompress" href="./lz4decompress">
+LZ4 block decompression で raw LZ4 block bytes を展開し、raw decompressed bytes を Lua 文字列として返します。
+</Card>
+</CardGroup>
+
+</div>

@@ -2,13 +2,10 @@
 title: "json.quote"
 sidebarTitle: "json.quote"
 description: "Real JSON string escaping rules를 사용해 string을 escape하고 complete quoted JSON string literal을 반환합니다."
-icon: "function"
 keywords: ["json.quote","JSON"]
 ---
 
-Real JSON string escaping rules를 사용해 string을 escape하고 complete quoted JSON string literal을 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 json.quote(text: string): string
@@ -16,15 +13,15 @@ json.quote(text: string): string
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | Quote할 string입니다. function은 이 argument를 string type checking으로 읽습니다. |
+<ParamField path={"text"} type={"string"} required>
+Quote할 string입니다. function은 이 argument를 string type checking으로 읽습니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `quoted` | `string` | Opening 및 closing quote를 포함하는 complete JSON string literal입니다. Quotes, backslashes, common control characters, bytes below 0x20은 escape됩니다. |
+<ResponseField name={"quoted"} type={"string"}>
+Opening 및 closing quote를 포함하는 complete JSON string literal입니다. Quotes, backslashes, common control characters, bytes below 0x20은 escape됩니다.
+</ResponseField>
 
 ## 예제
 
@@ -36,3 +33,6 @@ local quoted = json.quote(source)
 
 print(quoted)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "cansignalreplicate"
 sidebarTitle: "cansignalreplicate"
 description: "Bir RBXScriptSignal degerinin gecerli NetworkClient replication layer uzerinden gonderilmesinin legal olup olmadigini denetler. Function ilk argument degerini RBXScriptSignal olarak dogrular, signal icin source instance ve event descriptor degerlerini okur, sonra replication layer signal replication validation sonucundaki boolean degerini dondurur. Cozumlenen replication layer reference degeri 0 ise false dondurur. Ek arguments okunmaz. Bu function yalnizca signal degerini denetler, onu fire veya replicate etmez. getsignalwhitelist tarafindan dondurulen whitelist table bu code path icinde kullanilmaz."
-icon: "function"
 keywords: ["cansignalreplicate","Signals"]
 ---
 
-Bir RBXScriptSignal degerinin gecerli NetworkClient replication layer uzerinden gonderilmesinin legal olup olmadigini denetler. Function ilk argument degerini RBXScriptSignal olarak dogrular, signal icin source instance ve event descriptor degerlerini okur, sonra replication layer signal replication validation sonucundaki boolean degerini dondurur. Cozumlenen replication layer reference degeri 0 ise false dondurur. Ek arguments okunmaz. Bu function yalnizca signal degerini denetler, onu fire veya replicate etmez. getsignalwhitelist tarafindan dondurulen whitelist table bu code path icinde kullanilmaz.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 cansignalreplicate(signal: RBXScriptSignal): boolean
@@ -16,15 +13,15 @@ cansignalreplicate(signal: RBXScriptSignal): boolean
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | Denetlenecek signal. Ilk argument, Luau type name degeri RBXScriptSignal olan object olmalidir. |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+Denetlenecek signal. Ilk argument, Luau type name degeri RBXScriptSignal olan object olmalidir.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `canReplicate` | `boolean` | replication layer signal replication validation denetiminin dondurdugu boolean, veya cozumlenen replication layer reference degeri 0 oldugunda false. |
+<ResponseField name={"canReplicate"} type={"boolean"}>
+replication layer signal replication validation denetiminin dondurdugu boolean, veya cozumlenen replication layer reference degeri 0 oldugunda false.
+</ResponseField>
 
 ## Örnek
 
@@ -38,3 +35,6 @@ if remote then
     print(cansignalreplicate(remote.OnClientEvent))
 end
 ```
+
+
+</div>

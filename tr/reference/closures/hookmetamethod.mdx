@@ -2,13 +2,10 @@
 title: "hookmetamethod"
 sidebarTitle: "hookmetamethod"
 description: "Bir value üzerinde metamethod function arar ve bu function değerini hookfunction üzerinden hook eder. First argument, raw metafield lookup tarafından kabul edilen herhangi bir value olabilir. Second argument string metamethod name olmalı ve third argument function replacement olmalıdır. raw metafield lookup named metafield bulamazsa function argument 2 için \"Metamethod doesn't exist\" üretir. Metafield varsa ancak function değilse argument 2 için \"Metamethod isn't a function\" üretir. Metafield function olduğunda hookmetamethod, found metamethod function değerini target olarak hookfunction çağırır ve hookfunction cloned original closure değerini döndürür."
-icon: "function"
 keywords: ["hookmetamethod","Closures"]
 ---
 
-Bir value üzerinde metamethod function arar ve bu function değerini hookfunction üzerinden hook eder. First argument, raw metafield lookup tarafından kabul edilen herhangi bir value olabilir. Second argument string metamethod name olmalı ve third argument function replacement olmalıdır. raw metafield lookup named metafield bulamazsa function argument 2 için "Metamethod doesn't exist" üretir. Metafield varsa ancak function değilse argument 2 için "Metamethod isn't a function" üretir. Metafield function olduğunda hookmetamethod, found metamethod function değerini target olarak hookfunction çağırır ve hookfunction cloned original closure değerini döndürür.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 hookmetamethod(object: any, metamethod: string, replacement: function): function
@@ -16,17 +13,23 @@ hookmetamethod(object: any, metamethod: string, replacement: function): function
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | Metatable değeri raw metafield lookup ile incelenen value. |
-| `metamethod` | `string` | Yes | raw metafield lookup içine verilen Metafield name. |
-| `replacement` | `function` | Yes | Found metamethod function için replacement olarak hookfunction içine verilen Function. |
+<ParamField path={"object"} type={"any"} required>
+Metatable değeri raw metafield lookup ile incelenen value.
+</ParamField>
+
+<ParamField path={"metamethod"} type={"string"} required>
+raw metafield lookup içine verilen Metafield name.
+</ParamField>
+
+<ParamField path={"replacement"} type={"function"} required>
+Found metamethod function için replacement olarak hookfunction içine verilen Function.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `original` | `function` | hookfunction tarafından döndürülen cloned original metamethod closure. |
+<ResponseField name={"original"} type={"function"}>
+hookfunction tarafından döndürülen cloned original metamethod closure.
+</ResponseField>
 
 ## Örnek
 
@@ -48,3 +51,6 @@ original = hookmetamethod(object, "__index", function(self, key)
     return original(self, key)
 end)
 ```
+
+
+</div>

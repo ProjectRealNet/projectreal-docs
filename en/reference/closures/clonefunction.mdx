@@ -2,13 +2,10 @@
 title: "clonefunction"
 sidebarTitle: "clonefunction"
 description: "Creates and returns a separate function value for the function passed as the first argument. The argument must be a function."
-icon: "function"
 keywords: ["clonefunction","Closures"]
 ---
 
-Creates and returns a separate function value for the function passed as the first argument. The argument must be a function.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 clonefunction(func: function): function
@@ -16,15 +13,15 @@ clonefunction(func: function): function
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `func` | `function` | Yes | Function to clone. Passing a non-function raises a type error. |
+<ParamField path={"func"} type={"function"} required>
+Function to clone. Passing a non-function raises a type error.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `clone` | `function` | New function produced by the newcclosure, C closure, or Luau closure clone path. |
+<ResponseField name={"clone"} type={"function"}>
+New function produced by the newcclosure, C closure, or Luau closure clone path.
+</ResponseField>
 
 ## Example
 
@@ -38,3 +35,6 @@ end
 local cloned = clonefunction(greet)
 print(cloned("Real"))
 ```
+
+
+</div>

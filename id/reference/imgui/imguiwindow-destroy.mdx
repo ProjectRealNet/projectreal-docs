@@ -2,13 +2,10 @@
 title: "ImGuiWindow.destroy"
 sidebarTitle: "ImGuiWindow.destroy"
 description: "Menghancurkan ImGuiWindow. Jika object masih menunjuk ke window, method ini menghapus window tersebut dari tracked ImGui window list milik Real, melakukan unreference pada stored element callbacks, menghapus window record, dan mengatur Instance reference ke nil. Memanggil destroy lagi pada object yang sama kembali tanpa melakukan apa pun."
-icon: "function"
 keywords: ["ImGuiWindow.destroy","ImGui"]
 ---
 
-Menghancurkan ImGuiWindow. Jika object masih menunjuk ke window, method ini menghapus window tersebut dari tracked ImGui window list milik Real, melakukan unreference pada stored element callbacks, menghapus window record, dan mengatur Instance reference ke nil. Memanggil destroy lagi pada object yang sama kembali tanpa melakukan apa pun.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.destroy(window: ImGuiWindow)
@@ -16,9 +13,9 @@ ImGuiWindow.destroy(window: ImGuiWindow)
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow object yang dikembalikan oleh imgui.create. Nilai non-ImGuiWindow menimbulkan Lua error. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow object yang dikembalikan oleh imgui.create. Nilai non-ImGuiWindow menimbulkan Lua error.
+</ParamField>
 
 ## Tipe
 
@@ -39,3 +36,6 @@ Pegangan dikembalikan oleh imgui.create. Metode pembuatan kontrol mengembalikan 
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Menambahkan penggeser bilangan bulat. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Menambahkan teks non-interaktif. |
 | `destroy` | `() -> ()` | Yes | Menghapus jendela dan melepaskan panggilan balik terdaftarnya. |
+
+
+</div>

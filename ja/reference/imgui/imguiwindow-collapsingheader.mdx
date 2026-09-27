@@ -2,13 +2,10 @@
 title: "ImGuiWindow.CollapsingHeader"
 sidebarTitle: "ImGuiWindow.CollapsingHeader"
 description: "collapsing header start marker を追加し、同じ ImGuiWindow object を渡して content callback を直ちに呼び出して nested elements を追加できるようにし、その後 header end marker を追加します。rendering 中、header が collapsed の間は nested elements がスキップされます。callback errors は捕捉され、この method から返されません。"
-icon: "function"
 keywords: ["ImGuiWindow.CollapsingHeader","ImGui"]
 ---
 
-collapsing header start marker を追加し、同じ ImGuiWindow object を渡して content callback を直ちに呼び出して nested elements を追加できるようにし、その後 header end marker を追加します。rendering 中、header が collapsed の間は nested elements がスキップされます。callback errors は捕捉され、この method から返されません。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.CollapsingHeader(window: ImGuiWindow, label: string, content: function): ImGuiWindow
@@ -16,17 +13,23 @@ ImGuiWindow.CollapsingHeader(window: ImGuiWindow, label: string, content: functi
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | imgui.create から返された ImGuiWindow object。破棄済みまたは無効な window は Lua error を発生させます。 |
-| `label` | `string` | Yes | 描画された ImGui collapsing header に渡される header label string。 |
-| `content` | `function` | Yes | 同じ ImGuiWindow object で直ちに呼び出される Function。Return values は無視されます。エラーは method によって捕捉されます。 |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+imgui.create から返された ImGuiWindow object。破棄済みまたは無効な window は Lua error を発生させます。
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+描画された ImGui collapsing header に渡される header label string。
+</ParamField>
+
+<ParamField path={"content"} type={"function"} required>
+同じ ImGuiWindow object で直ちに呼び出される Function。Return values は無視されます。エラーは method によって捕捉されます。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | 同じ ImGuiWindow object。method calls をチェーンできます。 |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+同じ ImGuiWindow object。method calls をチェーンできます。
+</ResponseField>
 
 ## 型
 
@@ -47,3 +50,6 @@ imgui.create によって返されるハンドル。コントロール構築メ�
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | 整数スライダーを追加します。 |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | 非対話型テキストを追加します。 |
 | `destroy` | `() -> ()` | Yes | ウィンドウを削除し、登録されているコールバックを解放します。 |
+
+
+</div>

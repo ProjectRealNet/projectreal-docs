@@ -2,13 +2,10 @@
 title: "replicatesignal"
 sidebarTitle: "replicatesignal"
 description: "RBXScriptSignal の replication path を呼び出します。この関数は signal signature を読み取り、渡された Lua arguments を各 signature type の Roblox signal values に変換し、signature length を超える余分な Lua arguments を切り捨ててから、owning instance event invocation function を呼び出します。"
-icon: "function"
 keywords: ["replicatesignal","Signals","replicateevent"]
 ---
 
-RBXScriptSignal の replication path を呼び出します。この関数は signal signature を読み取り、渡された Lua arguments を各 signature type の Roblox signal values に変換し、signature length を超える余分な Lua arguments を切り捨ててから、owning instance event invocation function を呼び出します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 replicatesignal(signal: RBXScriptSignal, ...arguments?: ...any)
@@ -20,10 +17,13 @@ replicatesignal(signal: RBXScriptSignal, ...arguments?: ...any)
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | owning instance event invocation function を呼び出す RBXScriptSignal。 |
-| `...arguments` | `...any` | No | signal signature に従って変換される Lua arguments。signature length を超える extra arguments は無視されます。 |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+owning instance event invocation function を呼び出す RBXScriptSignal。
+</ParamField>
+
+<ParamField path={"...arguments"} type={"...any"}>
+signal signature に従って変換される Lua arguments。signature length を超える extra arguments は無視されます。
+</ParamField>
 
 ## 例
 
@@ -37,3 +37,6 @@ if remote and remote:IsA("RemoteEvent") then
     replicatesignal(remote.OnClientEvent, "hello")
 end
 ```
+
+
+</div>

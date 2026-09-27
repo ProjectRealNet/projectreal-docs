@@ -2,13 +2,10 @@
 title: "rconsoleinfo"
 sidebarTitle: "rconsoleinfo"
 description: "Écrit zero ou plusieurs valeurs dans la Windows console actuelle with stdout après avoir défini le console text attribute sur info text color. Les valeurs sont converties avec Lua string conversion, séparées par des caractères tab, puis le text attribute est defini sur default console text color. Si aucune console window n’existe, l’appel revient sans convertir ni ecrire quoi que ce soit."
-icon: "function"
 keywords: ["rconsoleinfo","Console","consoleinfo"]
 ---
 
-Écrit zero ou plusieurs valeurs dans la Windows console actuelle with stdout après avoir défini le console text attribute sur info text color. Les valeurs sont converties avec Lua string conversion, séparées par des caractères tab, puis le text attribute est defini sur default console text color. Si aucune console window n’existe, l’appel revient sans convertir ni ecrire quoi que ce soit.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 rconsoleinfo(...values?: ...any)
@@ -20,9 +17,9 @@ rconsoleinfo(...values?: ...any)
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | Valeurs optionnelles. Si une console existe, chaque value est convertie avec Lua string conversion et jointe avec des caracteres tab avant l ecriture. |
+<ParamField path={"...values"} type={"...any"}>
+Valeurs optionnelles. Si une console existe, chaque value est convertie avec Lua string conversion et jointe avec des caracteres tab avant l ecriture.
+</ParamField>
 
 ## Exemple
 
@@ -33,3 +30,6 @@ rconsolecreate()
 rconsoleinfo("Connected", "
 ")
 ```
+
+
+</div>

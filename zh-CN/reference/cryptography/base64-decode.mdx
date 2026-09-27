@@ -2,13 +2,10 @@
 title: "base64_decode"
 sidebarTitle: "base64_decode"
 description: "使用 Base64 decoder 解码 Base64 输入，并将解码后的字节作为 Lua string 返回。"
-icon: "function"
 keywords: ["base64_decode","Cryptography","base64decode","base64.decode","crypt.base64.decode","crypt.base64_decode","crypt.base64decode"]
 ---
 
-使用 Base64 decoder 解码 Base64 输入，并将解码后的字节作为 Lua string 返回。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 base64_decode(data: string): string
@@ -24,15 +21,15 @@ base64_decode(data: string): string
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | 传递给 Base64 decoder 的 Base64 输入。 |
+<ParamField path={"data"} type={"string"} required>
+传递给 Base64 decoder 的 Base64 输入。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `decoded` | `string` | 以显式长度的 Lua string 返回的解码字节。 |
+<ResponseField name={"decoded"} type={"string"}>
+以显式长度的 Lua string 返回的解码字节。
+</ResponseField>
 
 ## 示例
 
@@ -46,3 +43,6 @@ print(decoded)
 print(base64decode(encoded))
 print(base64.decode(encoded))
 ```
+
+
+</div>

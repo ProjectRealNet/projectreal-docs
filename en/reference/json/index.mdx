@@ -1,34 +1,88 @@
 ---
 title: "JSON"
 description: "Parse, encode, inspect, and transform JSON."
-icon: "folder-code"
+icon: "/icons/code-circle-2.svg"
 ---
+
+<div className="real-category-page">
 
 Parse, encode, inspect, and transform JSON.
 
-| Function navigation | Description |
-| --- | --- |
-| [`json.array`](./json-array) | Creates a new table marked as a JSON array for json.encode, copying the 1.#source sequence when a source table is provided. |
-| [`json.clone`](./json-clone) | Clones a value by encoding it with json.encode semantics and decoding the generated JSON back into Lua values. |
-| [`json.decode`](./json-decode) | Parses a JSON string with Real's JSON parser and returns the decoded Lua value, marking decoded arrays and objects for the JSON helpers. |
-| [`json.decodeSafe`](./json-decodesafe) | Parses JSON with the same parsing behavior as json.decode and returns a success flag instead of throwing for parse errors. |
-| [`json.encode`](./json-encode) | Serializes a Lua value to a JSON string as JSON. json.stringify is registered to the same function. |
-| [`json.encodePretty`](./json-encodepretty) | Serializes a Lua value to a readable formatted JSON string as JSON. json.pretty is registered to the same function. |
-| [`json.escape`](./json-escape) | Escapes a string using Real's JSON string escaping rules and returns the escaped content without surrounding quotes. |
-| [`json.format`](./json-format) | Parses a JSON string and re-encodes it as readable formatted JSON using Real's JSON parser and encoder. |
-| [`json.getPath`](./json-getpath) | Reads a nested value from a table using a dotted string path or an array table of keys. |
-| [`json.isArray`](./json-isarray) | Returns whether a value is treated as a JSON array by Real's JSON table detection. |
-| [`json.isNull`](./json-isnull) | Returns whether a value is Real's JSON null sentinel, json.null. |
-| [`json.isObject`](./json-isobject) | Returns whether a value is treated as a JSON object by Real's JSON table detection. |
-| [`json.keys`](./json-keys) | Returns the visible keys of a table in a new table marked as a JSON array. |
-| [`json.minify`](./json-minify) | Parses a JSON string and re-encodes it with Real's default non-pretty JSON encoder output. |
-| [`json.object`](./json-object) | Creates a new table marked as a JSON object so Real's JSON encoder treats it as an object. |
-| [`json.parse`](./json-parse) | Parses a JSON string like json.decode. |
-| [`json.pretty`](./json-pretty) | Serializes a Lua value to a readable formatted JSON string like json.encodePretty. |
-| [`json.quote`](./json-quote) | Escapes a string using Real's JSON string escaping rules and returns a complete quoted JSON string literal. |
-| [`json.stringify`](./json-stringify) | Serializes a Lua value to a JSON string like json.encode. |
-| [`json.tryDecode`](./json-trydecode) | Attempts to parse a JSON string like json.decodeSafe and returns status values for parse errors. |
-| [`json.type`](./json-type) | Returns a string type name for a value. json.null returns "null". Tables return "array" or "object" using the same table classification as json.isArray and json.isObject. Other values return the runtime Lua type name result. |
-| [`json.unescape`](./json-unescape) | Decodes JSON string escape sequences from escaped string content or from a complete quoted JSON string literal. The input is parsed with the JSON string parser, not as a full JSON document. |
-| [`json.validate`](./json-validate) | Validates a JSON string by parsing one complete JSON value. On success it returns only true. On parse failure it returns false plus parser error details. |
-| [`json.values`](./json-values) | Returns the direct values from a table in a new JSON array table. JSON metadata entries are not included. |
+## Available functions
+
+<CardGroup cols={2}>
+<Card title="json.array" href="./json-array">
+Creates a new table marked as a JSON array for json.encode, copying the 1.#source sequence when a source table is provided.
+</Card>
+<Card title="json.clone" href="./json-clone">
+Clones a value by encoding it with json.encode semantics and decoding the generated JSON back into Lua values.
+</Card>
+<Card title="json.decode" href="./json-decode">
+Parses a JSON string with Real's JSON parser and returns the decoded Lua value, marking decoded arrays and objects for the JSON helpers.
+</Card>
+<Card title="json.decodeSafe" href="./json-decodesafe">
+Parses JSON with the same parsing behavior as json.decode and returns a success flag instead of throwing for parse errors.
+</Card>
+<Card title="json.encode" href="./json-encode">
+Serializes a Lua value to a JSON string as JSON. json.stringify is registered to the same function.
+</Card>
+<Card title="json.encodePretty" href="./json-encodepretty">
+Serializes a Lua value to a readable formatted JSON string as JSON. json.pretty is registered to the same function.
+</Card>
+<Card title="json.escape" href="./json-escape">
+Escapes a string using Real's JSON string escaping rules and returns the escaped content without surrounding quotes.
+</Card>
+<Card title="json.format" href="./json-format">
+Parses a JSON string and re-encodes it as readable formatted JSON using Real's JSON parser and encoder.
+</Card>
+<Card title="json.getPath" href="./json-getpath">
+Reads a nested value from a table using a dotted string path or an array table of keys.
+</Card>
+<Card title="json.isArray" href="./json-isarray">
+Returns whether a value is treated as a JSON array by Real's JSON table detection.
+</Card>
+<Card title="json.isNull" href="./json-isnull">
+Returns whether a value is Real's JSON null sentinel, json.null.
+</Card>
+<Card title="json.isObject" href="./json-isobject">
+Returns whether a value is treated as a JSON object by Real's JSON table detection.
+</Card>
+<Card title="json.keys" href="./json-keys">
+Returns the visible keys of a table in a new table marked as a JSON array.
+</Card>
+<Card title="json.minify" href="./json-minify">
+Parses a JSON string and re-encodes it with Real's default non-pretty JSON encoder output.
+</Card>
+<Card title="json.object" href="./json-object">
+Creates a new table marked as a JSON object so Real's JSON encoder treats it as an object.
+</Card>
+<Card title="json.parse" href="./json-parse">
+Parses a JSON string like json.decode.
+</Card>
+<Card title="json.pretty" href="./json-pretty">
+Serializes a Lua value to a readable formatted JSON string like json.encodePretty.
+</Card>
+<Card title="json.quote" href="./json-quote">
+Escapes a string using Real's JSON string escaping rules and returns a complete quoted JSON string literal.
+</Card>
+<Card title="json.stringify" href="./json-stringify">
+Serializes a Lua value to a JSON string like json.encode.
+</Card>
+<Card title="json.tryDecode" href="./json-trydecode">
+Attempts to parse a JSON string like json.decodeSafe and returns status values for parse errors.
+</Card>
+<Card title="json.type" href="./json-type">
+Returns a string type name for a value. json.null returns "null". Tables return "array" or "object" using the same table classification as json.isArray and json.isObject. Other values return the runtime Lua type name result.
+</Card>
+<Card title="json.unescape" href="./json-unescape">
+Decodes JSON string escape sequences from escaped string content or from a complete quoted JSON string literal. The input is parsed with the JSON string parser, not as a full JSON document.
+</Card>
+<Card title="json.validate" href="./json-validate">
+Validates a JSON string by parsing one complete JSON value. On success it returns only true. On parse failure it returns false plus parser error details.
+</Card>
+<Card title="json.values" href="./json-values">
+Returns the direct values from a table in a new JSON array table. JSON metadata entries are not included.
+</Card>
+</CardGroup>
+
+</div>

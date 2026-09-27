@@ -2,13 +2,10 @@
 title: "json.clone"
 sidebarTitle: "json.clone"
 description: "ينسخ value عبر encoding باستخدام json.encode semantics ثم decoding للـ generated JSON مرة أخرى إلى Lua values."
-icon: "function"
 keywords: ["json.clone","JSON"]
 ---
 
-ينسخ value عبر encoding باستخدام json.encode semantics ثم decoding للـ generated JSON مرة أخرى إلى Lua values.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 json.clone(value: any, options?: EncodeOptions): any
@@ -16,16 +13,19 @@ json.clone(value: any, options?: EncodeOptions): any
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value يتم encode و decode لها. Supported JSON values تعمل round-trip عبر JSON؛ unsupported types تتحول إلى null إلا إذا طلبت encode options خطأ. |
-| `options` | `EncodeOptions` | No | Optional encode options تمرر إلى encode step، مثل sortKeys و emptyTableAsArray و errorOnUnsupported و encodeInvalidNumbersAsNull و maxDepth و pretty و indent. |
+<ParamField path={"value"} type={"any"} required>
+Value يتم encode و decode لها. Supported JSON values تعمل round-trip عبر JSON؛ unsupported types تتحول إلى null إلا إذا طلبت encode options خطأ.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options تمرر إلى encode step، مثل sortKeys و emptyTableAsArray و errorOnUnsupported و encodeInvalidNumbersAsNull و maxDepth و pretty و indent.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `clone` | `any` | Decoded value الناتجة من encoded JSON. Objects و arrays تصبح new tables مع JSON kind markers من decoder؛ JSON null values تتحول إلى json.null. |
+<ResponseField name={"clone"} type={"any"}>
+Decoded value الناتجة من encoded JSON. Objects و arrays تصبح new tables مع JSON kind markers من decoder؛ JSON null values تتحول إلى json.null.
+</ResponseField>
 
 ## الأنواع
 
@@ -59,3 +59,6 @@ print(original.profile.name)
 print(copy.profile.name)
 print(json.type(copy))
 ```
+
+
+</div>

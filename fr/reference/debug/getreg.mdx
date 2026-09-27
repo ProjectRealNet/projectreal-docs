@@ -2,13 +2,10 @@
 title: "getreg"
 sidebarTitle: "getreg"
 description: "Returns the current Lua registry table. The function takes no arguments and returns the registry table directly."
-icon: "function"
 keywords: ["getreg","Debug","getregistry","debug.getreg","debug.getregistry"]
 ---
 
-Returns the current Lua registry table. The function takes no arguments and returns the registry table directly.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 getreg(): table
@@ -22,9 +19,9 @@ getreg(): table
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `registry` | `table` | The current Lua registry table. |
+<ResponseField name={"registry"} type={"table"}>
+The current Lua registry table.
+</ResponseField>
 
 ## Exemple
 
@@ -38,3 +35,6 @@ print(type(getregistry()))
 print(type(debug.getreg()))
 print(type(debug.getregistry()))
 ```
+
+
+</div>

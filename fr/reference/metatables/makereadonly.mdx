@@ -2,13 +2,10 @@
 title: "makereadonly"
 sidebarTitle: "makereadonly"
 description: "Marks a table as readonly and returns no values."
-icon: "function"
 keywords: ["makereadonly","Metatables"]
 ---
 
-Marks a table as readonly and returns no values.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 makereadonly(target: table)
@@ -16,9 +13,9 @@ makereadonly(target: table)
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `target` | `table` | Yes | Table to mark as readonly. |
+<ParamField path={"target"} type={"table"} required>
+Table to mark as readonly.
+</ParamField>
 
 ## Exemple
 
@@ -31,3 +28,6 @@ makereadonly(target)
 
 print(isreadonly(target))
 ```
+
+
+</div>

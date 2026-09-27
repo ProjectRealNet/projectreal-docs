@@ -2,13 +2,10 @@
 title: "isrbxactive"
 sidebarTitle: "isrbxactive"
 description: "Mengembalikan apakah current foreground window adalah Roblox window yang ditemukan oleh Real. Real menemukan window itu dengan enumerating windows untuk proses saat ini dan memilih window dengan class name Roblox window. Function ini tidak menerima arguments dan mengembalikan false saat tidak ada foreground window atau matching Roblox window."
-icon: "function"
 keywords: ["isrbxactive","Input","isgameactive","iswindowactive"]
 ---
 
-Mengembalikan apakah current foreground window adalah Roblox window yang ditemukan oleh Real. Real menemukan window itu dengan enumerating windows untuk proses saat ini dan memilih window dengan class name Roblox window. Function ini tidak menerima arguments dan mengembalikan false saat tidak ada foreground window atau matching Roblox window.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 isrbxactive(): boolean
@@ -21,6 +18,9 @@ isrbxactive(): boolean
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `active` | `boolean` | True saat GetForegroundWindow() mengembalikan HWND yang sama dengan cached atau newly found Roblox window window untuk proses saat ini. |
+<ResponseField name={"active"} type={"boolean"}>
+True saat GetForegroundWindow() mengembalikan HWND yang sama dengan cached atau newly found Roblox window window untuk proses saat ini.
+</ResponseField>
+
+
+</div>

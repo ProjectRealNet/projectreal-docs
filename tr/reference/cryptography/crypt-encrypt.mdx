@@ -2,13 +2,10 @@
 title: "crypt.encrypt"
 sidebarTitle: "crypt.encrypt"
 description: "Lua string byte degerlerini Base64 decode edilmis key ile AES CBC, ECB veya CTR kullanarak encrypt eder, sonra Base64 ciphertext ve IV sonucunu dondurur."
-icon: "function"
 keywords: ["crypt.encrypt","Cryptography"]
 ---
 
-Lua string byte degerlerini Base64 decode edilmis key ile AES CBC, ECB veya CTR kullanarak encrypt eder, sonra Base64 ciphertext ve IV sonucunu dondurur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 crypt.encrypt(data: string, key: string, iv?: string, mode?: "CBC" | "ECB" | "CTR" | "AES-CBC" | "AES-ECB" | "AES-CTR"): string | string | nil
@@ -16,19 +13,31 @@ crypt.encrypt(data: string, key: string, iv?: string, mode?: "CBC" | "ECB" | "CT
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Lua string icinden okunan plaintext byte degerleri. |
-| `key` | `string` | Yes | AES icine aktarilmadan once decode edilen Base64 key. |
-| `iv` | `string` | No | CBC veya CTR icin optional Base64 IV. CBC veya CTR icin verilmezse AES block size boyutunda yeni bir IV uretilir. |
-| `mode` | `"CBC" \| "ECB" \| "CTR" \| "AES-CBC" \| "AES-ECB" \| "AES-CTR"` | No | AES mode. Varsa AES- prefix kaldirilir. Varsayilan deger AES-CBC. CBC ve ECB crypto library DEFAULT_PADDING kullanir; CTR padding kullanmaz. |
+<ParamField path={"data"} type={"string"} required>
+Lua string icinden okunan plaintext byte degerleri.
+</ParamField>
+
+<ParamField path={"key"} type={"string"} required>
+AES icine aktarilmadan once decode edilen Base64 key.
+</ParamField>
+
+<ParamField path={"iv"} type={"string"}>
+CBC veya CTR icin optional Base64 IV. CBC veya CTR icin verilmezse AES block size boyutunda yeni bir IV uretilir.
+</ParamField>
+
+<ParamField path={"mode"} type={"\"CBC\" | \"ECB\" | \"CTR\" | \"AES-CBC\" | \"AES-ECB\" | \"AES-CTR\""}>
+AES mode. Varsa AES- prefix kaldirilir. Varsayilan deger AES-CBC. CBC ve ECB crypto library DEFAULT_PADDING kullanir; CTR padding kullanmaz.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `ciphertext` | `string` | Base64-encoded ciphertext. |
-| `initializationVector` | `string \| nil` | CBC ve CTR icin Base64-encoded IV; ECB icin nil. |
+<ResponseField name={"ciphertext"} type={"string"}>
+Base64-encoded ciphertext.
+</ResponseField>
+
+<ResponseField name={"initializationVector"} type={"string | nil"}>
+CBC ve CTR icin Base64-encoded IV; ECB icin nil.
+</ResponseField>
 
 ## Örnek
 
@@ -44,3 +53,6 @@ print(ciphertext)
 print(iv)
 print(plaintext)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "Drawing.new"
 sidebarTitle: "Drawing.new"
 description: "요청된 타입의 새 Drawing object를 만들고 Real tracked Drawing object list에 추가합니다. type string은 지원되는 정확한 이름 \"Line\", \"Text\", \"Circle\", \"Square\", \"Quad\", \"Triangle\", \"Image\" 중 하나여야 합니다. 누락된 값, non-string, 지원되지 않는 type values는 Lua error를 발생시킵니다. the Drawing API는 the required rendering environment is active가 true일 때만 이 API를 등록합니다. 이 검사가 false이면 initializer는 이러한 globals를 만들기 전에 반환됩니다."
-icon: "function"
 keywords: ["Drawing.new","Drawing"]
 ---
 
-요청된 타입의 새 Drawing object를 만들고 Real tracked Drawing object list에 추가합니다. type string은 지원되는 정확한 이름 "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image" 중 하나여야 합니다. 누락된 값, non-string, 지원되지 않는 type values는 Lua error를 발생시킵니다. the Drawing API는 the required rendering environment is active가 true일 때만 이 API를 등록합니다. 이 검사가 false이면 initializer는 이러한 globals를 만들기 전에 반환됩니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad" | "Triangle"): DrawingObject
@@ -16,15 +13,15 @@ Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad"
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `objectType` | `"Image" \| "Line" \| "Text" \| "Circle" \| "Square" \| "Quad" \| "Triangle"` | Yes | 생성할 정확한 Drawing type name입니다. 지원되는 값은 "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image"입니다. |
+<ParamField path={"objectType"} type={"\"Image\" | \"Line\" | \"Text\" | \"Circle\" | \"Square\" | \"Quad\" | \"Triangle\""} required>
+생성할 정확한 Drawing type name입니다. 지원되는 값은 "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image"입니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `object` | `DrawingObject` | Drawing object type이 있는 생성된 Drawing object입니다. |
+<ResponseField name={"object"} type={"DrawingObject"}>
+Drawing object type이 있는 생성된 Drawing object입니다.
+</ResponseField>
 
 ## 예제
 
@@ -38,3 +35,6 @@ square.Color = Color3.fromRGB(120, 170, 255)
 square.Filled = true
 square.Visible = true
 ```
+
+
+</div>

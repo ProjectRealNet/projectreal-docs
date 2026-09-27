@@ -2,13 +2,10 @@
 title: "json.isArray"
 sidebarTitle: "json.isArray"
 description: "คืนว่า value ถูก treated as a JSON array โดย Real JSON table detection หรือไม่."
-icon: "function"
 keywords: ["json.isArray","JSON"]
 ---
 
-คืนว่า value ถูก treated as a JSON array โดย Real JSON table detection หรือไม่.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 json.isArray(value: any): boolean
@@ -16,15 +13,15 @@ json.isArray(value: any): boolean
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value ที่จะ inspect. Non-table values คืน false. |
+<ParamField path={"value"} type={"any"} required>
+Value ที่จะ inspect. Non-table values คืน false.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `isArray` | `boolean` | true เมื่อ value เป็น table marked as a JSON array หรือ unmarked table ที่มี contiguous positive integer keys จาก 1 ถึง maximum index. Empty unmarked tables คืน false. |
+<ResponseField name={"isArray"} type={"boolean"}>
+true เมื่อ value เป็น table marked as a JSON array หรือ unmarked table ที่มี contiguous positive integer keys จาก 1 ถึง maximum index. Empty unmarked tables คืน false.
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -39,3 +36,6 @@ print(json.isArray(items))
 print(json.isArray(record))
 print(json.isArray(inferred))
 ```
+
+
+</div>

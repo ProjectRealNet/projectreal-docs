@@ -2,13 +2,10 @@
 title: "ImGuiWindow.InputText"
 sidebarTitle: "ImGuiWindow.InputText"
 description: "เพิ่ม single-line ImGui InputText element ไปยัง ImGuiWindow และเก็บ callback initial text ถูกอ่านด้วย optional string handling และคัดลอกลงใน fixed 256-byte text buffer ของ element เมื่อ input ที่ render แล้วเปลี่ยน callback จะถูกใส่ใน queue และถูกเรียกภายหลังพร้อม current string method ส่งคืน ImGuiWindow object เดิม"
-icon: "function"
 keywords: ["ImGuiWindow.InputText","ImGui"]
 ---
 
-เพิ่ม single-line ImGui InputText element ไปยัง ImGuiWindow และเก็บ callback initial text ถูกอ่านด้วย optional string handling และคัดลอกลงใน fixed 256-byte text buffer ของ element เมื่อ input ที่ render แล้วเปลี่ยน callback จะถูกใส่ใน queue และถูกเรียกภายหลังพร้อม current string method ส่งคืน ImGuiWindow object เดิม
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.InputText(window: ImGuiWindow, label: string, text?: string, onChange: function): ImGuiWindow
@@ -16,18 +13,27 @@ ImGuiWindow.InputText(window: ImGuiWindow, label: string, text?: string, onChang
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow object ที่ส่งคืนโดย imgui.create window ที่ถูกทำลายหรือไม่ถูกต้องจะทำให้เกิด Lua error |
-| `label` | `string` | Yes | Input label string ที่ส่งไปยัง ImGui InputText widget ที่ render แล้ว |
-| `text` | `string` | No | Initial text อ่านด้วย optional string handling ส่ง nil ที่นี่เมื่อคุณต้องการ default empty string แต่ยังส่ง onChange เป็น argument 4 |
-| `onChange` | `function` | Yes | Function ที่เก็บไว้สำหรับ input นี้และถูกเรียกพร้อม current string หลังจาก edit event ถูกประมวลผล ต้องส่งเป็น argument 4 |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow object ที่ส่งคืนโดย imgui.create window ที่ถูกทำลายหรือไม่ถูกต้องจะทำให้เกิด Lua error
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+Input label string ที่ส่งไปยัง ImGui InputText widget ที่ render แล้ว
+</ParamField>
+
+<ParamField path={"text"} type={"string"}>
+Initial text อ่านด้วย optional string handling ส่ง nil ที่นี่เมื่อคุณต้องการ default empty string แต่ยังส่ง onChange เป็น argument 4
+</ParamField>
+
+<ParamField path={"onChange"} type={"function"} required>
+Function ที่เก็บไว้สำหรับ input นี้และถูกเรียกพร้อม current string หลังจาก edit event ถูกประมวลผล ต้องส่งเป็น argument 4
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | ImGuiWindow object เดิม ทำให้สามารถ chain method calls ได้ |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+ImGuiWindow object เดิม ทำให้สามารถ chain method calls ได้
+</ResponseField>
 
 ## Types
 
@@ -48,3 +54,6 @@ ImGuiWindow.InputText(window: ImGuiWindow, label: string, text?: string, onChang
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | เพิ่มแถบเลื่อนจำนวนเต็มต่อท้าย |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | ต่อท้ายข้อความที่ไม่โต้ตอบ |
 | `destroy` | `() -> ()` | Yes | ลบหน้าต่างและปล่อยการเรียกกลับที่ลงทะเบียนไว้ |
+
+
+</div>

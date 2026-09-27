@@ -2,13 +2,10 @@
 title: "delfile"
 sidebarTitle: "delfile"
 description: "Workspace icindeki mevcut bir regular file degerini siler."
-icon: "function"
 keywords: ["delfile","Filesystem"]
 ---
 
-Workspace icindeki mevcut bir regular file degerini siler.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 delfile(path: string)
@@ -16,9 +13,9 @@ delfile(path: string)
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | Separator normalization ve workspace-boundary checks sonrasinda workspace icinde cozumlenen path. Hedef mevcut olmali ve regular file olmalidir; folders kabul edilmez. |
+<ParamField path={"path"} type={"string"} required>
+Separator normalization ve workspace-boundary checks sonrasinda workspace icinde cozumlenen path. Hedef mevcut olmali ve regular file olmalidir; folders kabul edilmez.
+</ParamField>
 
 ## Örnek
 
@@ -31,3 +28,6 @@ writefile(path, "temporary")
 delfile(path)
 print(isfile(path))
 ```
+
+
+</div>

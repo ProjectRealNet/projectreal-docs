@@ -2,13 +2,10 @@
 title: "rconsolewarn"
 sidebarTitle: "rconsolewarn"
 description: "Ecrit zero ou plusieurs valeurs dans la Windows console actuelle with stdout avec le warning console text attribute. Si aucune console window n existe, l appel retourne sans convertir ni ecrire quoi que ce soit. Quand une console existe, chaque argument est converti avec Lua string conversion, joint avec des caracteres tab, puis ecrit with runtime value. Si Lua string conversion leve une erreur, rconsolewarn ne la capture pas. La function definit le console text attribute sur FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY avant l ecriture, puis sur default console text color apres. Elle n ajoute pas de newline, n ajoute pas de warning prefix, ne cree pas et n affiche pas la console, et n appelle pas Luau warn ni Roblox Output. consolewarn est un alias de la meme function."
-icon: "function"
 keywords: ["rconsolewarn","Console","consolewarn"]
 ---
 
-Ecrit zero ou plusieurs valeurs dans la Windows console actuelle with stdout avec le warning console text attribute. Si aucune console window n existe, l appel retourne sans convertir ni ecrire quoi que ce soit. Quand une console existe, chaque argument est converti avec Lua string conversion, joint avec des caracteres tab, puis ecrit with runtime value. Si Lua string conversion leve une erreur, rconsolewarn ne la capture pas. La function definit le console text attribute sur FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY avant l ecriture, puis sur default console text color apres. Elle n ajoute pas de newline, n ajoute pas de warning prefix, ne cree pas et n affiche pas la console, et n appelle pas Luau warn ni Roblox Output. consolewarn est un alias de la meme function.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 rconsolewarn(...values?: ...any)
@@ -20,9 +17,9 @@ rconsolewarn(...values?: ...any)
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | Valeurs optionnelles. Si une console existe, chaque value est convertie avec Lua string conversion et jointe avec des caracteres tab avant l ecriture. |
+<ParamField path={"...values"} type={"...any"}>
+Valeurs optionnelles. Si une console existe, chaque value est convertie avec Lua string conversion et jointe avec des caracteres tab avant l ecriture.
+</ParamField>
 
 ## Exemple
 
@@ -33,3 +30,6 @@ rconsolecreate()
 rconsolewarn("Retrying request", 3)
 rconsolewarn("\n")
 ```
+
+
+</div>

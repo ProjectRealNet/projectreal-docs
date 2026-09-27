@@ -2,13 +2,10 @@
 title: "json.pretty"
 sidebarTitle: "json.pretty"
 description: "json.encodePretty와 같은 function을 사용해 Lua value를 readable formatted JSON string으로 serializes합니다."
-icon: "function"
 keywords: ["json.pretty","JSON"]
 ---
 
-json.encodePretty와 같은 function을 사용해 Lua value를 readable formatted JSON string으로 serializes합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 json.pretty(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.pretty(value: any, options?: EncodeOptions): string
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Encoded할 value입니다. nil, booleans, numbers, strings, tables, json.null은 직접 처리됩니다. Unsupported Lua types는 errorOnUnsupported가 true가 아니면 null로 encoded됩니다. |
-| `options` | `EncodeOptions` | No | Optional encode options입니다. json.pretty는 json.encodePretty와 같은 options를 읽은 뒤 pretty를 true로 강제합니다. options가 없으면 two-space indent를 사용합니다. number는 0.16으로 clamp된 indent width를 설정하고, string은 indent text를 설정하며, table은 sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, indent를 설정할 수 있습니다. |
+<ParamField path={"value"} type={"any"} required>
+Encoded할 value입니다. nil, booleans, numbers, strings, tables, json.null은 직접 처리됩니다. Unsupported Lua types는 errorOnUnsupported가 true가 아니면 null로 encoded됩니다.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options입니다. json.pretty는 json.encodePretty와 같은 options를 읽은 뒤 pretty를 true로 강제합니다. options가 없으면 two-space indent를 사용합니다. number는 0.16으로 clamp된 indent width를 설정하고, string은 indent text를 설정하며, table은 sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, indent를 설정할 수 있습니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `json` | `string` | Readable formatted JSON string입니다. Encoding errors는 Luau errors로 throw됩니다. |
+<ResponseField name={"json"} type={"string"}>
+Readable formatted JSON string입니다. Encoding errors는 Luau errors로 throw됩니다.
+</ResponseField>
 
 ## 타입
 
@@ -58,3 +58,6 @@ local text = json.pretty({
 
 print(text)
 ```
+
+
+</div>

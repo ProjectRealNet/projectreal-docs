@@ -2,13 +2,10 @@
 title: "json.encodePretty"
 sidebarTitle: "json.encodePretty"
 description: "Serialise un Lua value en JSON string formate et lisible avec Real JSON encoder. json.pretty est enregistre sur la meme function."
-icon: "function"
 keywords: ["json.encodePretty","JSON"]
 ---
 
-Serialise un Lua value en JSON string formate et lisible avec Real JSON encoder. json.pretty est enregistre sur la meme function.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 json.encodePretty(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.encodePretty(value: any, options?: EncodeOptions): string
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value a encoder. nil, booleans, numbers, strings, tables et json.null sont geres directement. Unsupported Lua types sont encoded en null sauf si errorOnUnsupported vaut true. |
-| `options` | `EncodeOptions` | No | Optional encode options. json.encodePretty lit les memes options que json.encode, puis force pretty a true. Sans options, il utilise un two-space indent. Un number definit la indent width avec clamp a 0.16, un string definit le indent text, et une table peut definir sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth et indent. |
+<ParamField path={"value"} type={"any"} required>
+Value a encoder. nil, booleans, numbers, strings, tables et json.null sont geres directement. Unsupported Lua types sont encoded en null sauf si errorOnUnsupported vaut true.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options. json.encodePretty lit les memes options que json.encode, puis force pretty a true. Sans options, il utilise un two-space indent. Un number definit la indent width avec clamp a 0.16, un string definit le indent text, et une table peut definir sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth et indent.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `json` | `string` | JSON string formate et lisible. Encoding errors sont lancees comme Luau errors. |
+<ResponseField name={"json"} type={"string"}>
+JSON string formate et lisible. Encoding errors sont lancees comme Luau errors.
+</ResponseField>
 
 ## Types
 
@@ -59,3 +59,6 @@ local text = json.encodePretty({
 
 print(text)
 ```
+
+
+</div>

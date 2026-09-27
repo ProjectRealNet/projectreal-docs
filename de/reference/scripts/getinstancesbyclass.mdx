@@ -2,13 +2,10 @@
 title: "getinstancesbyclass"
 sidebarTitle: "getinstancesbyclass"
 description: "Gibt instances aus der Instance cache table zurueck, deren ClassName field exakt mit dem angeforderten string uebereinstimmt. Das erste Argument wird mit string type checking gelesen. Ein empty string wirft \"ClassName required\". Die function erstellt eine neue array table, iteriert die cache unter Instance cache, behaelt nur values mit Lua type object, liest das ClassName field jedes object value und vergleicht es per strcmp mit dem angeforderten className. Treffer werden sequential ab index 1 eingefuegt. Der Match ist exact und case-sensitive. Die function verwendet kein IsA, schliesst keine subclasses ein, macht keinen walk descendants, filtert nicht nach Parent und sortiert das result nicht. getinstancesofclass ist ein alias fuer dieselbe function."
-icon: "function"
 keywords: ["getinstancesbyclass","Scripts","getinstancesofclass"]
 ---
 
-Gibt instances aus der Instance cache table zurueck, deren ClassName field exakt mit dem angeforderten string uebereinstimmt. Das erste Argument wird mit string type checking gelesen. Ein empty string wirft "ClassName required". Die function erstellt eine neue array table, iteriert die cache unter Instance cache, behaelt nur values mit Lua type object, liest das ClassName field jedes object value und vergleicht es per strcmp mit dem angeforderten className. Treffer werden sequential ab index 1 eingefuegt. Der Match ist exact und case-sensitive. Die function verwendet kein IsA, schliesst keine subclasses ein, macht keinen walk descendants, filtert nicht nach Parent und sortiert das result nicht. getinstancesofclass ist ein alias fuer dieselbe function.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getinstancesbyclass(className: string): table
@@ -20,12 +17,15 @@ getinstancesbyclass(className: string): table
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `className` | `string` | Yes | Exact ClassName string zum Abgleichen. Empty strings werfen "ClassName required". |
+<ParamField path={"className"} type={"string"} required>
+Exact ClassName string zum Abgleichen. Empty strings werfen "ClassName required".
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `instances` | `table` | New array table mit matching object values aus der Instance cache table. |
+<ResponseField name={"instances"} type={"table"}>
+New array table mit matching object values aus der Instance cache table.
+</ResponseField>
+
+
+</div>

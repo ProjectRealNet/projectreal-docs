@@ -2,13 +2,10 @@
 title: "get_comm_channel"
 sidebarTitle: "get_comm_channel"
 description: "communication channel list で channel ID を検索し、保存されている BindableEvent Instance を返します。最初の argument は number である必要があり、lookup の前に integer conversion で変換されます。その ID の entry が存在しない場合、この function は nil を返します。"
-icon: "function"
 keywords: ["get_comm_channel","Actors"]
 ---
 
-communication channel list で channel ID を検索し、保存されている BindableEvent Instance を返します。最初の argument は number である必要があり、lookup の前に integer conversion で変換されます。その ID の entry が存在しない場合、この function は nil を返します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 get_comm_channel(channelId: number): Instance | nil
@@ -16,15 +13,15 @@ get_comm_channel(channelId: number): Instance | nil
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `channelId` | `number` | Yes | integer conversion で変換され、communication channel list で検索される channel ID。 |
+<ParamField path={"channelId"} type={"number"} required>
+integer conversion で変換され、communication channel list で検索される channel ID。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `event` | `Instance \| nil` | channel ID に保存されている BindableEvent Instance、または ID が communication channels に存在しない場合は nil。 |
+<ResponseField name={"event"} type={"Instance | nil"}>
+channel ID に保存されている BindableEvent Instance、または ID が communication channels に存在しない場合は nil。
+</ResponseField>
 
 ## 例
 
@@ -36,3 +33,6 @@ local event = get_comm_channel(channelId)
 
 print(event)
 ```
+
+
+</div>

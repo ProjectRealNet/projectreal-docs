@@ -2,13 +2,10 @@
 title: "restorefunction"
 sidebarTitle: "restorefunction"
 description: "Restores a hooked function, or replaces one function with another when two function arguments are provided. The first argument must be a function."
-icon: "function"
 keywords: ["restorefunction","Closures","restorefunc","restoreclosure"]
 ---
 
-Restores a hooked function, or replaces one function with another when two function arguments are provided. The first argument must be a function.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 restorefunction(firstFunction: function, secondFunction?: function)
@@ -21,10 +18,13 @@ restorefunction(firstFunction: function, secondFunction?: function)
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `firstFunction` | `function` | Yes | With one argument, the hooked function to restore. With two function arguments, the function to replace. |
-| `secondFunction` | `function` | No | Optional closure to patch with firstFunction. This branch is used only when the second argument is a function. |
+<ParamField path={"firstFunction"} type={"function"} required>
+With one argument, the hooked function to restore. With two function arguments, the function to replace.
+</ParamField>
+
+<ParamField path={"secondFunction"} type={"function"}>
+Optional closure to patch with firstFunction. This branch is used only when the second argument is a function.
+</ParamField>
 
 ## Example
 
@@ -45,3 +45,6 @@ restorefunction(target)
 
 print(target())
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "RakNet.is_enabled"
 sidebarTitle: "RakNet.is_enabled"
 description: "Boolean field on the RakNet table. It is true only when RakNet support is enabled for the current Real session. When it is false, the RakNet table is still present, but the send, hook, signal, priority, and reliability fields are not registered."
-icon: "function"
 keywords: ["RakNet.is_enabled","RakNet","raknet.is_enabled"]
 ---
 
-Boolean field on the RakNet table. It is true only when RakNet support is enabled for the current Real session. When it is false, the RakNet table is still present, but the send, hook, signal, priority, and reliability fields are not registered.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 RakNet.is_enabled(): boolean
@@ -20,9 +17,9 @@ RakNet.is_enabled(): boolean
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `enabled` | `boolean` | true when the RakNet API surface was registered for this session; false otherwise. |
+<ResponseField name={"enabled"} type={"boolean"}>
+true when the RakNet API surface was registered for this session; false otherwise.
+</ResponseField>
 
 ## Örnek
 
@@ -36,3 +33,6 @@ end
 
 print(RakNet.is_enabled)
 ```
+
+
+</div>

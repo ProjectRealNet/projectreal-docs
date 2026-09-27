@@ -2,13 +2,10 @@
 title: "base64_decode"
 sidebarTitle: "base64_decode"
 description: "Decodes Base64 input with Base64 decoder and returns the decoded bytes as a Lua string."
-icon: "function"
 keywords: ["base64_decode","Cryptography","base64decode","base64.decode","crypt.base64.decode","crypt.base64_decode","crypt.base64decode"]
 ---
 
-Decodes Base64 input with Base64 decoder and returns the decoded bytes as a Lua string.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 base64_decode(data: string): string
@@ -24,15 +21,15 @@ base64_decode(data: string): string
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Base64 input passed to Base64 decoder. |
+<ParamField path={"data"} type={"string"} required>
+Base64 input passed to Base64 decoder.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `decoded` | `string` | Decoded bytes returned as a Lua string with explicit length. |
+<ResponseField name={"decoded"} type={"string"}>
+Decoded bytes returned as a Lua string with explicit length.
+</ResponseField>
 
 ## Example
 
@@ -46,3 +43,6 @@ print(decoded)
 print(base64decode(encoded))
 print(base64.decode(encoded))
 ```
+
+
+</div>

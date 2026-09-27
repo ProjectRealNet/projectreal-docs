@@ -2,13 +2,10 @@
 title: "getcallbackvalue"
 sidebarTitle: "getcallbackvalue"
 description: "Odczytuje Lua callback function zapisana w callback property na Instance. Pierwszy argument musi byc Instance object, a drugi argument musi byc string property name. instance reference musi byc poprawny. property name jest rozwiazywany przez Roblox property metadata i musi wskazywac property typu LUA_CALLBACK. Jesli property descriptor nie istnieje, property nie jest LUA_CALLBACK, callback field offset nie istnieje, nie zapisano callback, LiveLuaRef nie istnieje, callback nalezy do innego Lua global state albo wskazana wartosc nie jest function, function zwraca nil. Sprawdza tez async callback field fallback, gdy pierwszy callback slot nie ma callback. Function nie aktualizuje property."
-icon: "function"
 keywords: ["getcallbackvalue","Instances","getcallbackmember"]
 ---
 
-Odczytuje Lua callback function zapisana w callback property na Instance. Pierwszy argument musi byc Instance object, a drugi argument musi byc string property name. instance reference musi byc poprawny. property name jest rozwiazywany przez Roblox property metadata i musi wskazywac property typu LUA_CALLBACK. Jesli property descriptor nie istnieje, property nie jest LUA_CALLBACK, callback field offset nie istnieje, nie zapisano callback, LiveLuaRef nie istnieje, callback nalezy do innego Lua global state albo wskazana wartosc nie jest function, function zwraca nil. Sprawdza tez async callback field fallback, gdy pierwszy callback slot nie ma callback. Function nie aktualizuje property.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 getcallbackvalue(instance: Instance, property: string): function | nil
@@ -20,16 +17,19 @@ getcallbackvalue(instance: Instance, property: string): function | nil
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object, na ktorym sprawdzana jest callback property. Invalid Instance values rzucaja argument error. |
-| `property` | `string` | Yes | string property name rozwiazywany przez Roblox property metadata. Tylko LUA_CALLBACK properties moga zwrocic function. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object, na ktorym sprawdzana jest callback property. Invalid Instance values rzucaja argument error.
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+string property name rozwiazywany przez Roblox property metadata. Tylko LUA_CALLBACK properties moga zwrocic function.
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `callback` | `function \| nil` | Lua function zapisana przez callback property, albo nil, gdy function nie moze rozwiazac czytelnej function. |
+<ResponseField name={"callback"} type={"function | nil"}>
+Lua function zapisana przez callback property, albo nil, gdy function nie moze rozwiazac czytelnej function.
+</ResponseField>
 
 ## Przykład
 
@@ -46,3 +46,6 @@ if callback then
     print(callback(21))
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "rconsoleprint"
 sidebarTitle: "rconsoleprint"
 description: "เขียนค่าจำนวนศูนย์ค่าหรือมากกว่าไปยัง Windows console ปัจจุบันผ่าน stdout โดยไม่เปลี่ยน console text attribute ค่าแต่ละค่าถูกแปลงด้วย Lua string conversion และคั่นด้วยอักขระ tab function ไม่เพิ่ม newline หากไม่มี console window การเรียกจะกลับโดยไม่แปลงหรือเขียนอะไร"
-icon: "function"
 keywords: ["rconsoleprint","Console","consoleprint","rconsolewrite","consolewrite"]
 ---
 
-เขียนค่าจำนวนศูนย์ค่าหรือมากกว่าไปยัง Windows console ปัจจุบันผ่าน stdout โดยไม่เปลี่ยน console text attribute ค่าแต่ละค่าถูกแปลงด้วย Lua string conversion และคั่นด้วยอักขระ tab function ไม่เพิ่ม newline หากไม่มี console window การเรียกจะกลับโดยไม่แปลงหรือเขียนอะไร
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 rconsoleprint(...values?: ...any)
@@ -22,9 +19,9 @@ rconsoleprint(...values?: ...any)
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | ค่าเสริม หากมี console แต่ละ value จะถูกแปลงด้วย Lua string conversion และรวมด้วยอักขระ tab ก่อนเขียน |
+<ParamField path={"...values"} type={"...any"}>
+ค่าเสริม หากมี console แต่ละ value จะถูกแปลงด้วย Lua string conversion และรวมด้วยอักขระ tab ก่อนเขียน
+</ParamField>
 
 ## ตัวอย่าง
 
@@ -37,3 +34,6 @@ rconsoleprint("Loading", "
 rconsoleprint("User", "	", 42, "
 ")
 ```
+
+
+</div>

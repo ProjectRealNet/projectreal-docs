@@ -2,13 +2,10 @@
 title: "rconsoleinput"
 sidebarTitle: "rconsoleinput"
 description: "Melakukan yield saat membaca satu line dari stdin dengan console input setelah fieldsihkan state console input dan mengabaikan input hingga newline berikutnya. string yang dikembalikan didorong dengan string return dan tidak menyertakan newline penutup. Jika tidak ada console window, panggilan kembali tanpa values."
-icon: "function"
 keywords: ["rconsoleinput","Console","consoleinput"]
 ---
 
-Melakukan yield saat membaca satu line dari stdin dengan console input setelah fieldsihkan state console input dan mengabaikan input hingga newline berikutnya. string yang dikembalikan didorong dengan string return dan tidak menyertakan newline penutup. Jika tidak ada console window, panggilan kembali tanpa values.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 rconsoleinput(): string
@@ -20,9 +17,9 @@ rconsoleinput(): string
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `input` | `string` | Baris teks dibaca dari konsol. |
+<ResponseField name={"input"} type={"string"}>
+Baris teks dibaca dari konsol.
+</ResponseField>
 
 ## Contoh
 
@@ -35,3 +32,6 @@ local name = rconsoleinput()
 rconsoleprint("Hello, ", name, "
 ")
 ```
+
+
+</div>

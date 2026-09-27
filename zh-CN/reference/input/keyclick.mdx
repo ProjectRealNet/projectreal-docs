@@ -2,13 +2,10 @@
 title: "keyclick"
 sidebarTitle: "keyclick"
 description: "当 Roblox window active 时，发送 key down event，然后发送 key up event。keyCode 参数会作为 Lua number 检查，通过 integer conversion 转换，再使用 Windows key mapping 从 Windows virtual-key code 映射到 scan code，并通过带 KEYEVENTF_SCANCODE 的 keyboard input 发送。如果 isrbxactive 会为 false，该 function 会直接返回，不发送 input。"
-icon: "function"
 keywords: ["keyclick","Input","keytap"]
 ---
 
-当 Roblox window active 时，发送 key down event，然后发送 key up event。keyCode 参数会作为 Lua number 检查，通过 integer conversion 转换，再使用 Windows key mapping 从 Windows virtual-key code 映射到 scan code，并通过带 KEYEVENTF_SCANCODE 的 keyboard input 发送。如果 isrbxactive 会为 false，该 function 会直接返回，不发送 input。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 keyclick(keyCode: number)
@@ -20,6 +17,9 @@ keyclick(keyCode: number)
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `keyCode` | `number` | Yes | 作为 Lua number 读取，并在调用 Windows key mapping 前通过 integer conversion 转换的 Windows virtual-key code。 |
+<ParamField path={"keyCode"} type={"number"} required>
+作为 Lua number 读取，并在调用 Windows key mapping 前通过 integer conversion 转换的 Windows virtual-key code。
+</ParamField>
+
+
+</div>

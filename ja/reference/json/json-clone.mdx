@@ -2,13 +2,10 @@
 title: "json.clone"
 sidebarTitle: "json.clone"
 description: "value を json.encode semantics で encoding し、generated JSON を Lua values に decoding し直して clone します。"
-icon: "function"
 keywords: ["json.clone","JSON"]
 ---
 
-value を json.encode semantics で encoding し、generated JSON を Lua values に decoding し直して clone します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 json.clone(value: any, options?: EncodeOptions): any
@@ -16,16 +13,19 @@ json.clone(value: any, options?: EncodeOptions): any
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | encode と decode される Value。Supported JSON values は JSON を round-trip します。unsupported types は、encode options が error を要求しない限り null として encode されます。 |
-| `options` | `EncodeOptions` | No | encode step に渡される Optional encode options。sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth、pretty、indent など。 |
+<ParamField path={"value"} type={"any"} required>
+encode と decode される Value。Supported JSON values は JSON を round-trip します。unsupported types は、encode options が error を要求しない限り null として encode されます。
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+encode step に渡される Optional encode options。sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth、pretty、indent など。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `clone` | `any` | encoded JSON から生成された Decoded value。Objects と arrays は decoder 由来の JSON kind markers を持つ new tables です。JSON null values は json.null になります。 |
+<ResponseField name={"clone"} type={"any"}>
+encoded JSON から生成された Decoded value。Objects と arrays は decoder 由来の JSON kind markers を持つ new tables です。JSON null values は json.null になります。
+</ResponseField>
 
 ## 型
 
@@ -59,3 +59,6 @@ print(original.profile.name)
 print(copy.profile.name)
 print(json.type(copy))
 ```
+
+
+</div>

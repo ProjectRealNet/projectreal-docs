@@ -2,13 +2,10 @@
 title: "setscriptable"
 sidebarTitle: "setscriptable"
 description: "Menyimpan scriptable override untuk Roblox property di scriptable override cache dan mengembalikan previous scriptable state. Argumen pertama harus Instance object, argumen kedua harus string property name, dan argumen ketiga harus boolean. Jika cache entry sudah ada untuk instance reference dan property name yang sama, cached scriptable value diganti dan nilai cache lama dikembalikan. Saat cache miss, property name diselesaikan melalui Roblox property metadata dan Instance class descriptor. Jika descriptor tidak ada, atau field yang ditemukan hilang atau bukan property entry, function mengembalikan nil. Saat property entry ditemukan, function membaca scriptable state, menyimpan boolean yang diminta plus property reference di scriptable override cache, lalu mengembalikan previous scriptable state value. GameIndexHook dan GameNewIndexHook kemudian memakai cache ini dengan sementara mengatur property field scriptable flag untuk satu indexed read atau write, lalu memulihkan previous field flag."
-icon: "function"
 keywords: ["setscriptable","Reflection"]
 ---
 
-Menyimpan scriptable override untuk Roblox property di scriptable override cache dan mengembalikan previous scriptable state. Argumen pertama harus Instance object, argumen kedua harus string property name, dan argumen ketiga harus boolean. Jika cache entry sudah ada untuk instance reference dan property name yang sama, cached scriptable value diganti dan nilai cache lama dikembalikan. Saat cache miss, property name diselesaikan melalui Roblox property metadata dan Instance class descriptor. Jika descriptor tidak ada, atau field yang ditemukan hilang atau bukan property entry, function mengembalikan nil. Saat property entry ditemukan, function membaca scriptable state, menyimpan boolean yang diminta plus property reference di scriptable override cache, lalu mengembalikan previous scriptable state value. GameIndexHook dan GameNewIndexHook kemudian memakai cache ini dengan sementara mengatur property field scriptable flag untuk satu indexed read atau write, lalu memulihkan previous field flag.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 setscriptable(instance: Instance, property: string, value: boolean): boolean | nil
@@ -16,17 +13,23 @@ setscriptable(instance: Instance, property: string, value: boolean): boolean | n
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object yang digunakan sebagai bagian dari scriptable override cache key. |
-| `property` | `string` | Yes | Property name yang diselesaikan melalui Roblox property metadata dan Instance class descriptor saat cache miss. |
-| `value` | `boolean` | Yes | Scriptable override value yang disimpan di scriptable override cache. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object yang digunakan sebagai bagian dari scriptable override cache key.
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+Property name yang diselesaikan melalui Roblox property metadata dan Instance class descriptor saat cache miss.
+</ParamField>
+
+<ParamField path={"value"} type={"boolean"} required>
+Scriptable override value yang disimpan di scriptable override cache.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `previousState` | `boolean \| nil` | Previous cached scriptable value, previous scriptable state value, atau nil jika property tidak dapat diselesaikan menjadi property entry. |
+<ResponseField name={"previousState"} type={"boolean | nil"}>
+Previous cached scriptable value, previous scriptable state value, atau nil jika property tidak dapat diselesaikan menjadi property entry.
+</ResponseField>
 
 ## Contoh
 
@@ -40,3 +43,6 @@ if previous ~= nil then
     setscriptable(workspace, "Name", previous)
 end
 ```
+
+
+</div>

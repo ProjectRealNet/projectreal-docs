@@ -2,13 +2,10 @@
 title: "mousescroll"
 sidebarTitle: "mousescroll"
 description: "Envia un mouse wheel event cuando la Roblox window esta activa. El argumento amount se comprueba como Lua number, se convierte con integer conversion y se pasa directamente como valor dwData a mouse input con the requested mouse action. Real no normaliza amount ni agrega movement data. La function no devuelve nada y vuelve sin enviar input cuando isrbxactive seria false."
-icon: "function"
 keywords: ["mousescroll","Input"]
 ---
 
-Envia un mouse wheel event cuando la Roblox window esta activa. El argumento amount se comprueba como Lua number, se convierte con integer conversion y se pasa directamente como valor dwData a mouse input con the requested mouse action. Real no normaliza amount ni agrega movement data. La function no devuelve nada y vuelve sin enviar input cuando isrbxactive seria false.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 mousescroll(amount: number)
@@ -16,6 +13,9 @@ mousescroll(amount: number)
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `amount` | `number` | Yes | Wheel dwData value leido como Lua number y convertido con integer conversion antes de pasarse a mouse input. |
+<ParamField path={"amount"} type={"number"} required>
+Wheel dwData value leido como Lua number y convertido con integer conversion antes de pasarse a mouse input.
+</ParamField>
+
+
+</div>

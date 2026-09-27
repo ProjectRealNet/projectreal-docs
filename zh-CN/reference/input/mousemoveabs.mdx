@@ -2,13 +2,10 @@
 title: "mousemoveabs"
 sidebarTitle: "mousemoveabs"
 description: "当 Roblox window active 时，使用 Windows absolute mouse input 移动 mouse。x 和 y 参数会作为 Lua numbers 检查，并通过 integer conversion 转换。Real 将它们视为 relative to active foreground window client area 的坐标，使用 ClientToScreen 加上该 client area 的 screen position，再使用 GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 和 integer math 缩放，然后调用带 the requested mouse action 的 mouse input。如果 isrbxactive 会为 false，该 function 会直接返回，不发送 input。"
-icon: "function"
 keywords: ["mousemoveabs","Input"]
 ---
 
-当 Roblox window active 时，使用 Windows absolute mouse input 移动 mouse。x 和 y 参数会作为 Lua numbers 检查，并通过 integer conversion 转换。Real 将它们视为 relative to active foreground window client area 的坐标，使用 ClientToScreen 加上该 client area 的 screen position，再使用 GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 和 integer math 缩放，然后调用带 the requested mouse action 的 mouse input。如果 isrbxactive 会为 false，该 function 会直接返回，不发送 input。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 mousemoveabs(x: number, y: number)
@@ -16,7 +13,13 @@ mousemoveabs(x: number, y: number)
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `x` | `number` | Yes | 作为 Lua number 读取，并在 screen-position 与 absolute-input scaling 步骤前通过 integer conversion 转换的 client-area X coordinate。 |
-| `y` | `number` | Yes | 作为 Lua number 读取，并在 screen-position 与 absolute-input scaling 步骤前通过 integer conversion 转换的 client-area Y coordinate。 |
+<ParamField path={"x"} type={"number"} required>
+作为 Lua number 读取，并在 screen-position 与 absolute-input scaling 步骤前通过 integer conversion 转换的 client-area X coordinate。
+</ParamField>
+
+<ParamField path={"y"} type={"number"} required>
+作为 Lua number 读取，并在 screen-position 与 absolute-input scaling 步骤前通过 integer conversion 转换的 client-area Y coordinate。
+</ParamField>
+
+
+</div>

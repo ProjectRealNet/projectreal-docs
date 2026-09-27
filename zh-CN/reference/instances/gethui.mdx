@@ -2,13 +2,10 @@
 title: "gethui"
 sidebarTitle: "gethui"
 description: "返回 game:CoreGui lookup.RobloxGui。function 不接受 arguments。如果 CoreGui lookup 返回 nil，或该值上的 RobloxGui 为 nil，function 会返回 nil。function 不会创建 container，也不会使用 cached CoreGui 值。"
-icon: "function"
 keywords: ["gethui","Instances","gethiddenui","gethiddengui","get_hidden_ui","get_hidden_gui"]
 ---
 
-返回 game:CoreGui lookup.RobloxGui。function 不接受 arguments。如果 CoreGui lookup 返回 nil，或该值上的 RobloxGui 为 nil，function 会返回 nil。function 不会创建 container，也不会使用 cached CoreGui 值。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 gethui(): Instance | nil
@@ -23,6 +20,9 @@ gethui(): Instance | nil
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `robloxGui` | `Instance \| nil` | 从 CoreGui 读取的 RobloxGui 值，或 CoreGui 或 RobloxGui 不可用时的 nil。 |
+<ResponseField name={"robloxGui"} type={"Instance | nil"}>
+从 CoreGui 读取的 RobloxGui 值，或 CoreGui 或 RobloxGui 不可用时的 nil。
+</ResponseField>
+
+
+</div>

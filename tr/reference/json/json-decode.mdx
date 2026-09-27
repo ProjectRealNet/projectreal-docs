@@ -2,13 +2,10 @@
 title: "json.decode"
 sidebarTitle: "json.decode"
 description: "JSON string degerini Real JSON parser ile parse eder ve decoded arrays ile objects degerlerini JSON helpers icin isaretleyerek decoded Lua value dondurur."
-icon: "function"
 keywords: ["json.decode","JSON"]
 ---
 
-JSON string degerini Real JSON parser ile parse eder ve decoded arrays ile objects degerlerini JSON helpers icin isaretleyerek decoded Lua value dondurur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 json.decode(json: string, options?: DecodeOptions): any
@@ -16,16 +13,19 @@ json.decode(json: string, options?: DecodeOptions): any
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | Parse edilecek JSON text. parser optional surrounding whitespace iceren tek bir JSON value kabul eder ve invalid syntax veya trailing non-whitespace characters bulursa hata firlatir. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean useNull degerini dogrudan ayarlar. table useNull ve maxDepth ayarlayabilir; maxDepth 1 ile 4096 arasinda clamp edilir. |
+<ParamField path={"json"} type={"string"} required>
+Parse edilecek JSON text. parser optional surrounding whitespace iceren tek bir JSON value kabul eder ve invalid syntax veya trailing non-whitespace characters bulursa hata firlatir.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean useNull degerini dogrudan ayarlar. table useNull ve maxDepth ayarlayabilir; maxDepth 1 ile 4096 arasinda clamp edilir.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `decoded` | `any` | Decoded value. JSON objects ve arrays JSON type markers iceren tables olur, strings Lua strings olur, numbers Lua numbers olur, booleans booleans olur ve null, useNull false degilse json.null olur. |
+<ResponseField name={"decoded"} type={"any"}>
+Decoded value. JSON objects ve arrays JSON type markers iceren tables olur, strings Lua strings olur, numbers Lua numbers olur, booleans booleans olur ve null, useNull false degilse json.null olur.
+</ResponseField>
 
 ## Tipler
 
@@ -50,3 +50,6 @@ print(value.tags[1])
 print(json.type(value))
 print(json.isNull(value.missing))
 ```
+
+
+</div>

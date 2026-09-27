@@ -2,13 +2,10 @@
 title: "crypt.generatekey"
 sidebarTitle: "crypt.generatekey"
 description: "Menghasilkan 32 raw bytes acak dengan random byte generator dan mengembalikannya Base64-encoded sebagai string Lua."
-icon: "function"
 keywords: ["crypt.generatekey","Cryptography"]
 ---
 
-Menghasilkan 32 raw bytes acak dengan random byte generator dan mengembalikannya Base64-encoded sebagai string Lua.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 crypt.generatekey(): string
@@ -16,9 +13,9 @@ crypt.generatekey(): string
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `key` | `string` | Base64 encoding dari 32 raw bytes yang dihasilkan. String yang dikembalikan bukan 32 karakter. |
+<ResponseField name={"key"} type={"string"}>
+Base64 encoding dari 32 raw bytes yang dihasilkan. String yang dikembalikan bukan 32 karakter.
+</ResponseField>
 
 ## Contoh
 
@@ -34,3 +31,6 @@ print(key)
 print(#raw)
 print(ciphertext, iv)
 ```
+
+
+</div>

@@ -1,21 +1,49 @@
 ---
 title: "Cryptography"
 description: "Encodage, hachage, cryptage et compression."
-icon: "folder-code"
+icon: "/icons/key.svg"
 ---
+
+<div className="real-category-page">
 
 Encodage, hachage, cryptage et compression.
 
-| Navigation des fonctions | Description |
-| --- | --- |
-| [`base64_decode`](./base64-decode) | Decode une entree Base64 avec Base64 decoder et renvoie les octets decodes sous forme de chaine Lua. |
-| [`base64_encode`](./base64-encode) | Encode les octets d une chaine Lua avec Base64 encoder, avec = padding et sans sauts de ligne. |
-| [`crypt.decrypt`](./crypt-decrypt) | Dechiffre un Base64 ciphertext avec une key decodee depuis Base64 et un Base64 IV requis en utilisant AES CBC ou ECB. |
-| [`crypt.encrypt`](./crypt-encrypt) | Chiffre les octets d une chaine Lua avec AES CBC, ECB ou CTR avec une key decodee depuis Base64, puis renvoie Base64 ciphertext et le resultat IV. |
-| [`crypt.generatebytes`](./crypt-generatebytes) | Genere des octets aleatoires avec random byte generator et les renvoie Base64-encoded sous forme de chaine Lua. |
-| [`crypt.generatekey`](./crypt-generatekey) | Genere 32 raw bytes aleatoires avec random byte generator et les renvoie Base64-encoded sous forme de chaine Lua. |
-| [`crypt.hash`](./crypt-hash) | Hash les octets d une chaine Lua avec un algorithme crypto library hash pris en charge et renvoie un lowercase hexadecimal digest. |
-| [`crypt.hmac`](./crypt-hmac) | Calcule un crypto library HMAC sur les octets d une chaine Lua avec une raw Lua string key et renvoie un Base64 digest. |
-| [`crypt.random`](./crypt-random) | Genere des raw random bytes avec random byte generator et les renvoie sous forme de chaine Lua. |
-| [`lz4compress`](./lz4compress) | Compresse les octets d une chaine Lua avec LZ4 block compression et renvoie les raw compressed bytes sous forme de chaine Lua. |
-| [`lz4decompress`](./lz4decompress) | Decompresse des raw LZ4 block bytes avec LZ4 block decompression et renvoie des raw decompressed bytes sous forme de chaine Lua. |
+## Fonctions disponibles
+
+<CardGroup cols={2}>
+<Card title="base64_decode" href="./base64-decode">
+Decode une entree Base64 avec Base64 decoder et renvoie les octets decodes sous forme de chaine Lua.
+</Card>
+<Card title="base64_encode" href="./base64-encode">
+Encode les octets d une chaine Lua avec Base64 encoder, avec = padding et sans sauts de ligne.
+</Card>
+<Card title="crypt.decrypt" href="./crypt-decrypt">
+Dechiffre un Base64 ciphertext avec une key decodee depuis Base64 et un Base64 IV requis en utilisant AES CBC ou ECB.
+</Card>
+<Card title="crypt.encrypt" href="./crypt-encrypt">
+Chiffre les octets d une chaine Lua avec AES CBC, ECB ou CTR avec une key decodee depuis Base64, puis renvoie Base64 ciphertext et le resultat IV.
+</Card>
+<Card title="crypt.generatebytes" href="./crypt-generatebytes">
+Genere des octets aleatoires avec random byte generator et les renvoie Base64-encoded sous forme de chaine Lua.
+</Card>
+<Card title="crypt.generatekey" href="./crypt-generatekey">
+Genere 32 raw bytes aleatoires avec random byte generator et les renvoie Base64-encoded sous forme de chaine Lua.
+</Card>
+<Card title="crypt.hash" href="./crypt-hash">
+Hash les octets d une chaine Lua avec un algorithme crypto library hash pris en charge et renvoie un lowercase hexadecimal digest.
+</Card>
+<Card title="crypt.hmac" href="./crypt-hmac">
+Calcule un crypto library HMAC sur les octets d une chaine Lua avec une raw Lua string key et renvoie un Base64 digest.
+</Card>
+<Card title="crypt.random" href="./crypt-random">
+Genere des raw random bytes avec random byte generator et les renvoie sous forme de chaine Lua.
+</Card>
+<Card title="lz4compress" href="./lz4compress">
+Compresse les octets d une chaine Lua avec LZ4 block compression et renvoie les raw compressed bytes sous forme de chaine Lua.
+</Card>
+<Card title="lz4decompress" href="./lz4decompress">
+Decompresse des raw LZ4 block bytes avec LZ4 block decompression et renvoie des raw decompressed bytes sous forme de chaine Lua.
+</Card>
+</CardGroup>
+
+</div>

@@ -2,13 +2,10 @@
 title: "delfolder"
 sidebarTitle: "delfolder"
 description: "workspace 안에 있는 기존 folder를 recursive folder deletion로 recursive 삭제합니다."
-icon: "function"
 keywords: ["delfolder","Filesystem"]
 ---
 
-workspace 안에 있는 기존 folder를 recursive folder deletion로 recursive 삭제합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 delfolder(path: string)
@@ -16,9 +13,9 @@ delfolder(path: string)
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | separator normalization 및 workspace-boundary checks 후 workspace 안에서 해석되는 path입니다. 대상은 존재하는 directory여야 합니다. files는 허용되지 않습니다. |
+<ParamField path={"path"} type={"string"} required>
+separator normalization 및 workspace-boundary checks 후 workspace 안에서 해석되는 path입니다. 대상은 존재하는 directory여야 합니다. files는 허용되지 않습니다.
+</ParamField>
 
 ## 예제
 
@@ -32,3 +29,6 @@ writefile(path .. "/note.txt", "temporary")
 delfolder(path)
 print(isfolder(path))
 ```
+
+
+</div>

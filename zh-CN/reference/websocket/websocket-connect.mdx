@@ -2,13 +2,10 @@
 title: "WebSocket.connect"
 sidebarTitle: "WebSocket.connect"
 description: "创建两个 BindableEvents，打开到给定 URL 的 WebSocket client WebSocket connection，并 yield 直到连接尝试完成。成功时，它返回一个 WebSocket table，其中包含 OnMessage 和 OnClose events、由 methods 提供的 Send 和 Close methods，以及 connection state。incoming message data 会作为 string 通过 OnMessage 触发。receive loop 结束时，OnClose 会在没有 arguments 的情况下触发。连接失败时，该函数会抛出以 \"WebSocket connection failed\" 开头的 error string。"
-icon: "function"
 keywords: ["WebSocket.connect","WebSocket","WebSocket.Connect","websocket.connect","websocket.Connect"]
 ---
 
-创建两个 BindableEvents，打开到给定 URL 的 WebSocket client WebSocket connection，并 yield 直到连接尝试完成。成功时，它返回一个 WebSocket table，其中包含 OnMessage 和 OnClose events、由 methods 提供的 Send 和 Close methods，以及 connection state。incoming message data 会作为 string 通过 OnMessage 触发。receive loop 结束时，OnClose 会在没有 arguments 的情况下触发。连接失败时，该函数会抛出以 "WebSocket connection failed" 开头的 error string。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 WebSocket.connect(url: string): WebSocket
@@ -22,15 +19,15 @@ WebSocket.connect(url: string): WebSocket
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `url` | `string` | Yes | 在 WebSocket client 执行 WebSocket connection attempt 之前传给 CURLOPT_URL 的 URL string。 |
+<ParamField path={"url"} type={"string"} required>
+在 WebSocket client 执行 WebSocket connection attempt 之前传给 CURLOPT_URL 的 URL string。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `socket` | `WebSocket` | 包含 OnMessage、OnClose 和 connection state 的 WebSocket table。Send 和 Close 通过 WebSocket object methods 解析。 |
+<ResponseField name={"socket"} type={"WebSocket"}>
+包含 OnMessage、OnClose 和 connection state 的 WebSocket table。Send 和 Close 通过 WebSocket object methods 解析。
+</ResponseField>
 
 ## 示例
 
@@ -50,3 +47,6 @@ end)
 socket:Send("hello")
 socket:Close()
 ```
+
+
+</div>

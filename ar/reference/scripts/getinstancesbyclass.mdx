@@ -2,13 +2,10 @@
 title: "getinstancesbyclass"
 sidebarTitle: "getinstancesbyclass"
 description: "ترجع instances من Instance cache table التي يطابق ClassName field لها string المطلوب بالضبط. تتم قراءة الوسيط الأول باستخدام string type checking. Empty string يطلق \"ClassName required\". تنشئ function array table جديدة، وتكرر cache المخزنة تحت Instance cache، وتبقي فقط values التي يكون Lua type لها object، وتقرأ ClassName field لكل object value، وتقارنه باستخدام strcmp مع className المطلوب. تتم إضافة matches بشكل sequential بدءا من index 1. المطابقة exact و case-sensitive. لا تستخدم function دالة IsA، ولا تشمل subclasses، ولا تقوم بـ walk descendants، ولا تقوم بتصفية Parent، ولا ترتب النتيجة. getinstancesofclass هو alias لنفس function."
-icon: "function"
 keywords: ["getinstancesbyclass","Scripts","getinstancesofclass"]
 ---
 
-ترجع instances من Instance cache table التي يطابق ClassName field لها string المطلوب بالضبط. تتم قراءة الوسيط الأول باستخدام string type checking. Empty string يطلق "ClassName required". تنشئ function array table جديدة، وتكرر cache المخزنة تحت Instance cache، وتبقي فقط values التي يكون Lua type لها object، وتقرأ ClassName field لكل object value، وتقارنه باستخدام strcmp مع className المطلوب. تتم إضافة matches بشكل sequential بدءا من index 1. المطابقة exact و case-sensitive. لا تستخدم function دالة IsA، ولا تشمل subclasses، ولا تقوم بـ walk descendants، ولا تقوم بتصفية Parent، ولا ترتب النتيجة. getinstancesofclass هو alias لنفس function.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 getinstancesbyclass(className: string): table
@@ -20,12 +17,15 @@ getinstancesbyclass(className: string): table
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `className` | `string` | Yes | Exact ClassName string للمطابقة. Empty strings تطلق "ClassName required". |
+<ParamField path={"className"} type={"string"} required>
+Exact ClassName string للمطابقة. Empty strings تطلق "ClassName required".
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `instances` | `table` | New array table تحتوي على matching object values من Instance cache table. |
+<ResponseField name={"instances"} type={"table"}>
+New array table تحتوي على matching object values من Instance cache table.
+</ResponseField>
+
+
+</div>

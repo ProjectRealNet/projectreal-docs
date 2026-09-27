@@ -2,13 +2,10 @@
 title: "compareinstances"
 sidebarTitle: "compareinstances"
 description: "Membandingkan nilai reference Instance yang disimpan dalam dua nilai Instance object."
-icon: "function"
 keywords: ["compareinstances","Cache"]
 ---
 
-Membandingkan nilai reference Instance yang disimpan dalam dua nilai Instance object.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 compareinstances(first: Instance, second: Instance): boolean
@@ -16,16 +13,19 @@ compareinstances(first: Instance, second: Instance): boolean
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `first` | `Instance` | Yes | Instance object pertama untuk dibandingkan. |
-| `second` | `Instance` | Yes | Instance object kedua untuk dibandingkan. |
+<ParamField path={"first"} type={"Instance"} required>
+Instance object pertama untuk dibandingkan.
+</ParamField>
+
+<ParamField path={"second"} type={"Instance"} required>
+Instance object kedua untuk dibandingkan.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `equal` | `boolean` | True saat kedua nilai Instance object berisi nilai reference yang sama. |
+<ResponseField name={"equal"} type={"boolean"}>
+True saat kedua nilai Instance object berisi nilai reference yang sama.
+</ResponseField>
 
 ## Contoh
 
@@ -38,3 +38,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 print(compareinstances(Players, Players))
 print(compareinstances(Players, ReplicatedStorage))
 ```
+
+
+</div>

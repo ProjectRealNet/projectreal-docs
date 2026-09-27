@@ -1,17 +1,37 @@
 ---
 title: "Signals"
 description: "Сигнальные соединения и пересылка событий."
-icon: "folder-code"
+icon: "/icons/brand-signal.svg"
 ---
+
+<div className="real-category-page">
 
 Сигнальные соединения и пересылка событий.
 
-| Навигация по функциям | Описание |
-| --- | --- |
-| [`cansignalreplicate`](./cansignalreplicate) | Проверяет, является ли RBXScriptSignal допустимым для отправки через текущий NetworkClient replication layer. Function проверяет первый argument как RBXScriptSignal, читает source instance и event descriptor сигнала, затем возвращает boolean результат replication layer signal replication validation. Если разрешенное значение указателя replication layer равно 0, возвращает false. Дополнительные arguments не читаются. Эта function только проверяет signal и не запускает и не реплицирует его. Таблица whitelist, возвращаемая getsignalwhitelist, в этом пути кода не используется. |
-| [`firesignal`](./firesignal) | Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error. |
-| [`getconnections`](./getconnections) | Возвращает array table из RealConnection closures для RBXScriptSignal. Первый argument должен быть object с Luau type name RBXScriptSignal. Function читает Connect method сигнала, подключает temporary blank callback, читает linked list начиная с next reference временного соединения, отключает временное соединение и оборачивает каждый допустимый connection reference. Если после временного соединения connection reference не найден, возвращает пустую table. Ранее обернутые underlying references могут возвращать ту же cached closure table. getsignals и get_signal_cons являются aliases той же function. |
-| [`getsignalarguments`](./getsignalarguments) | Возвращает array table из type names, прочитанных из event descriptor signature для RBXScriptSignal. Первый argument должен быть object с Luau type name RBXScriptSignal. Function читает event descriptor сигнала, проходит signature slots с argument stride из function, читает каждый argument type reference и помещает разрешенный type name string для каждого slot. Она не возвращает captured runtime argument values. Если signature не удается прочитать или entries не добавлены, возвращаемая table содержит один fallback entry: "Variant". |
-| [`getsignalargumentsinfo`](./getsignalargumentsinfo) | Возвращает array table с информацией об аргументах из сигнатуры RBXScriptSignal. Функция не возвращает захваченные значения аргументов времени выполнения. |
-| [`getsignalwhitelist`](./getsignalwhitelist) | Возвращает новую array table с шестью статическими whitelist entry, определенными в function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Каждый entry является table с string-полями Event и Parent. Function не принимает arguments и не проверяет текущее состояние игры. |
-| [`replicatesignal`](./replicatesignal) | Вызывает replication path для RBXScriptSignal. Функция читает signal signature, преобразует переданные Lua arguments в Roblox signal values для каждого signature type, обрезает лишние Lua arguments за пределами signature length, затем вызывает owning instance event invocation function. |
+## Доступные функции
+
+<CardGroup cols={2}>
+<Card title="cansignalreplicate" href="./cansignalreplicate">
+Проверяет, является ли RBXScriptSignal допустимым для отправки через текущий NetworkClient replication layer. Function проверяет первый argument как RBXScriptSignal, читает source instance и event descriptor сигнала, затем возвращает boolean результат replication layer signal replication validation. Если разрешенное значение указателя replication layer равно 0, возвращает false. Дополнительные arguments не читаются. Эта function только проверяет signal и не запускает и не реплицирует его. Таблица whitelist, возвращаемая getsignalwhitelist, в этом пути кода не используется.
+</Card>
+<Card title="firesignal" href="./firesignal">
+Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error.
+</Card>
+<Card title="getconnections" href="./getconnections">
+Возвращает array table из RealConnection closures для RBXScriptSignal. Первый argument должен быть object с Luau type name RBXScriptSignal. Function читает Connect method сигнала, подключает temporary blank callback, читает linked list начиная с next reference временного соединения, отключает временное соединение и оборачивает каждый допустимый connection reference. Если после временного соединения connection reference не найден, возвращает пустую table. Ранее обернутые underlying references могут возвращать ту же cached closure table. getsignals и get_signal_cons являются aliases той же function.
+</Card>
+<Card title="getsignalarguments" href="./getsignalarguments">
+Возвращает array table из type names, прочитанных из event descriptor signature для RBXScriptSignal. Первый argument должен быть object с Luau type name RBXScriptSignal. Function читает event descriptor сигнала, проходит signature slots с argument stride из function, читает каждый argument type reference и помещает разрешенный type name string для каждого slot. Она не возвращает captured runtime argument values. Если signature не удается прочитать или entries не добавлены, возвращаемая table содержит один fallback entry: "Variant".
+</Card>
+<Card title="getsignalargumentsinfo" href="./getsignalargumentsinfo">
+Возвращает array table с информацией об аргументах из сигнатуры RBXScriptSignal. Функция не возвращает захваченные значения аргументов времени выполнения.
+</Card>
+<Card title="getsignalwhitelist" href="./getsignalwhitelist">
+Возвращает новую array table с шестью статическими whitelist entry, определенными в function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Каждый entry является table с string-полями Event и Parent. Function не принимает arguments и не проверяет текущее состояние игры.
+</Card>
+<Card title="replicatesignal" href="./replicatesignal">
+Вызывает replication path для RBXScriptSignal. Функция читает signal signature, преобразует переданные Lua arguments в Roblox signal values для каждого signature type, обрезает лишние Lua arguments за пределами signature length, затем вызывает owning instance event invocation function.
+</Card>
+</CardGroup>
+
+</div>

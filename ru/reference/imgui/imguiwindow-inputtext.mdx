@@ -2,13 +2,10 @@
 title: "ImGuiWindow.InputText"
 sidebarTitle: "ImGuiWindow.InputText"
 description: "Добавляет single-line ImGui InputText element в ImGuiWindow и сохраняет callback. Initial text читается через optional string handling и копируется в fixed 256-byte text buffer элемента. Когда отрисованный input изменяется, callback помещается в queue и позже вызывается с current string. Method возвращает тот же ImGuiWindow object."
-icon: "function"
 keywords: ["ImGuiWindow.InputText","ImGui"]
 ---
 
-Добавляет single-line ImGui InputText element в ImGuiWindow и сохраняет callback. Initial text читается через optional string handling и копируется в fixed 256-byte text buffer элемента. Когда отрисованный input изменяется, callback помещается в queue и позже вызывается с current string. Method возвращает тот же ImGuiWindow object.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.InputText(window: ImGuiWindow, label: string, text?: string, onChange: function): ImGuiWindow
@@ -16,18 +13,27 @@ ImGuiWindow.InputText(window: ImGuiWindow, label: string, text?: string, onChang
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow object, возвращенный imgui.create. Уничтоженный или недействительный window вызывает Lua error. |
-| `label` | `string` | Yes | Input label string, передаваемый в отрисованный ImGui InputText widget. |
-| `text` | `string` | No | Initial text, читаемый через optional string handling. Передайте здесь nil, если нужен default empty string и при этом onChange передается как argument 4. |
-| `onChange` | `function` | Yes | Function, сохраненная для этого input и вызываемая с current string после обработки edit event. Ее нужно передать как argument 4. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow object, возвращенный imgui.create. Уничтоженный или недействительный window вызывает Lua error.
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+Input label string, передаваемый в отрисованный ImGui InputText widget.
+</ParamField>
+
+<ParamField path={"text"} type={"string"}>
+Initial text, читаемый через optional string handling. Передайте здесь nil, если нужен default empty string и при этом onChange передается как argument 4.
+</ParamField>
+
+<ParamField path={"onChange"} type={"function"} required>
+Function, сохраненная для этого input и вызываемая с current string после обработки edit event. Ее нужно передать как argument 4.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | Тот же ImGuiWindow object, что позволяет объединять method calls в цепочку. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+Тот же ImGuiWindow object, что позволяет объединять method calls в цепочку.
+</ResponseField>
 
 ## Типы
 
@@ -48,3 +54,6 @@ ImGuiWindow.InputText(window: ImGuiWindow, label: string, text?: string, onChang
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Добавляет целочисленный ползунок. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Добавляет неинтерактивный текст. |
 | `destroy` | `() -> ()` | Yes | Удаляет окно и освобождает зарегистрированные обратные вызовы. |
+
+
+</div>

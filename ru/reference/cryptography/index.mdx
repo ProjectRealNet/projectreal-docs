@@ -1,21 +1,49 @@
 ---
 title: "Cryptography"
 description: "Кодирование, хеширование, шифрование и сжатие."
-icon: "folder-code"
+icon: "/icons/key.svg"
 ---
+
+<div className="real-category-page">
 
 Кодирование, хеширование, шифрование и сжатие.
 
-| Навигация по функциям | Описание |
-| --- | --- |
-| [`base64_decode`](./base64-decode) | Декодирует ввод Base64 через Base64 decoder и возвращает декодированные байты как Lua string. |
-| [`base64_encode`](./base64-encode) | Кодирует байты Lua string через Base64 encoder, используя = padding и без переносов строк. |
-| [`crypt.decrypt`](./crypt-decrypt) | Расшифровывает Base64 ciphertext с key, декодированным из Base64, и обязательным Base64 IV, используя AES CBC или ECB. |
-| [`crypt.encrypt`](./crypt-encrypt) | Шифрует байты Lua string через AES CBC, ECB или CTR с key, декодированным из Base64, затем возвращает Base64 ciphertext и результат IV. |
-| [`crypt.generatebytes`](./crypt-generatebytes) | Генерирует случайные байты через random byte generator и возвращает их Base64-encoded как Lua string. |
-| [`crypt.generatekey`](./crypt-generatekey) | Генерирует 32 случайных raw bytes через random byte generator и возвращает их Base64-encoded как Lua string. |
-| [`crypt.hash`](./crypt-hash) | Хэширует байты Lua string поддерживаемым алгоритмом crypto library hash и возвращает lowercase hexadecimal digest. |
-| [`crypt.hmac`](./crypt-hmac) | Вычисляет crypto library HMAC по байтам Lua string с raw Lua string key и возвращает Base64 digest. |
-| [`crypt.random`](./crypt-random) | Генерирует raw random bytes через random byte generator и возвращает их как Lua string. |
-| [`lz4compress`](./lz4compress) | Сжимает байты Lua string через LZ4 block compression и возвращает raw compressed bytes как Lua string. |
-| [`lz4decompress`](./lz4decompress) | Распаковывает raw LZ4 block bytes через LZ4 block decompression и возвращает raw decompressed bytes как строку Lua. |
+## Доступные функции
+
+<CardGroup cols={2}>
+<Card title="base64_decode" href="./base64-decode">
+Декодирует ввод Base64 через Base64 decoder и возвращает декодированные байты как Lua string.
+</Card>
+<Card title="base64_encode" href="./base64-encode">
+Кодирует байты Lua string через Base64 encoder, используя = padding и без переносов строк.
+</Card>
+<Card title="crypt.decrypt" href="./crypt-decrypt">
+Расшифровывает Base64 ciphertext с key, декодированным из Base64, и обязательным Base64 IV, используя AES CBC или ECB.
+</Card>
+<Card title="crypt.encrypt" href="./crypt-encrypt">
+Шифрует байты Lua string через AES CBC, ECB или CTR с key, декодированным из Base64, затем возвращает Base64 ciphertext и результат IV.
+</Card>
+<Card title="crypt.generatebytes" href="./crypt-generatebytes">
+Генерирует случайные байты через random byte generator и возвращает их Base64-encoded как Lua string.
+</Card>
+<Card title="crypt.generatekey" href="./crypt-generatekey">
+Генерирует 32 случайных raw bytes через random byte generator и возвращает их Base64-encoded как Lua string.
+</Card>
+<Card title="crypt.hash" href="./crypt-hash">
+Хэширует байты Lua string поддерживаемым алгоритмом crypto library hash и возвращает lowercase hexadecimal digest.
+</Card>
+<Card title="crypt.hmac" href="./crypt-hmac">
+Вычисляет crypto library HMAC по байтам Lua string с raw Lua string key и возвращает Base64 digest.
+</Card>
+<Card title="crypt.random" href="./crypt-random">
+Генерирует raw random bytes через random byte generator и возвращает их как Lua string.
+</Card>
+<Card title="lz4compress" href="./lz4compress">
+Сжимает байты Lua string через LZ4 block compression и возвращает raw compressed bytes как Lua string.
+</Card>
+<Card title="lz4decompress" href="./lz4decompress">
+Распаковывает raw LZ4 block bytes через LZ4 block decompression и возвращает raw decompressed bytes как строку Lua.
+</Card>
+</CardGroup>
+
+</div>

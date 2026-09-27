@@ -2,13 +2,10 @@
 title: "makefolder"
 sidebarTitle: "makefolder"
 description: "สร้าง directory ภายใน workspace ด้วย recursive folder creation รวมถึง missing parent directories"
-icon: "function"
 keywords: ["makefolder","Filesystem"]
 ---
 
-สร้าง directory ภายใน workspace ด้วย recursive folder creation รวมถึง missing parent directories
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 makefolder(path: string)
@@ -16,9 +13,9 @@ makefolder(path: string)
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | Directory path ที่ถูก resolve ภายใน workspace หลัง separator normalization และ workspace-boundary checks empty, invalid หรือ outside-workspace paths จะเกิด error ก่อนพยายามสร้าง |
+<ParamField path={"path"} type={"string"} required>
+Directory path ที่ถูก resolve ภายใน workspace หลัง separator normalization และ workspace-boundary checks empty, invalid หรือ outside-workspace paths จะเกิด error ก่อนพยายามสร้าง
+</ParamField>
 
 ## ตัวอย่าง
 
@@ -30,3 +27,6 @@ local path = "examples/generated/nested"
 makefolder(path)
 print(isfolder(path))
 ```
+
+
+</div>

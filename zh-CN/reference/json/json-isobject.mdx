@@ -2,13 +2,10 @@
 title: "json.isObject"
 sidebarTitle: "json.isObject"
 description: "返回 value 是否会被 Real JSON table detection treated as a JSON object。"
-icon: "function"
 keywords: ["json.isObject","JSON"]
 ---
 
-返回 value 是否会被 Real JSON table detection treated as a JSON object。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 json.isObject(value: any): boolean
@@ -16,15 +13,15 @@ json.isObject(value: any): boolean
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | 要 inspect 的 value。Non-table values 返回 false。 |
+<ParamField path={"value"} type={"any"} required>
+要 inspect 的 value。Non-table values 返回 false。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `isObject` | `boolean` | 当 value 是 table marked as a JSON object，或 Real JSON table detection 没有把 table 分类为 array 时返回 true。Empty unmarked tables 返回 true。 |
+<ResponseField name={"isObject"} type={"boolean"}>
+当 value 是 table marked as a JSON object，或 Real JSON table detection 没有把 table 分类为 array 时返回 true。Empty unmarked tables 返回 true。
+</ResponseField>
 
 ## 示例
 
@@ -39,3 +36,6 @@ print(json.isObject(record))
 print(json.isObject(items))
 print(json.isObject(empty))
 ```
+
+
+</div>

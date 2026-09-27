@@ -2,13 +2,10 @@
 title: "getscriptthread"
 sidebarTitle: "getscriptthread"
 description: "ส่งคืน Lua thread ที่เกี่ยวข้องกับ script object เมื่อ Real หาได้ argument ต้องเป็น object function อ่าน field ClassName ของค่าและ throw \"not a valid Instance\" หาก field นั้นไม่ใช่ string ค่า ClassName ที่รับคือ Script, LocalScript และ ModuleScript ค่าอื่นจะ throw \"Script expected\" ก่อนอื่นจะตรวจ ScriptThreadCache ของ Real ด้วย script reference หาก cache hit จะคืน cached Luau thread เป็น thread หาก cache miss ค่า Script ต้องมี RunContext Client ไม่เช่นนั้น function จะ throw \"Expected a Script with RunContext set to Client\" จากนั้นจะเดินผ่าน the live Luau thread list ตาม first weak thread reference ของแต่ละ thread node ไปยัง LiveLuaRef ข้าม missing thread data หรือ expired Script stored references และเทียบ script reference แต่ละตัวกับ script ที่ขอ หากพบ match จะคืน Luau thread นั้นเป็น thread หากไม่พบ match จะคืน nil"
-icon: "function"
 keywords: ["getscriptthread","Scripts"]
 ---
 
-ส่งคืน Lua thread ที่เกี่ยวข้องกับ script object เมื่อ Real หาได้ argument ต้องเป็น object function อ่าน field ClassName ของค่าและ throw "not a valid Instance" หาก field นั้นไม่ใช่ string ค่า ClassName ที่รับคือ Script, LocalScript และ ModuleScript ค่าอื่นจะ throw "Script expected" ก่อนอื่นจะตรวจ ScriptThreadCache ของ Real ด้วย script reference หาก cache hit จะคืน cached Luau thread เป็น thread หาก cache miss ค่า Script ต้องมี RunContext Client ไม่เช่นนั้น function จะ throw "Expected a Script with RunContext set to Client" จากนั้นจะเดินผ่าน the live Luau thread list ตาม first weak thread reference ของแต่ละ thread node ไปยัง LiveLuaRef ข้าม missing thread data หรือ expired Script stored references และเทียบ script reference แต่ละตัวกับ script ที่ขอ หากพบ match จะคืน Luau thread นั้นเป็น thread หากไม่พบ match จะคืน nil
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 getscriptthread(script: userdata): thread | nil
@@ -16,15 +13,15 @@ getscriptthread(script: userdata): thread | nil
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | Script object ที่จะค้นหา ค่า ClassName ที่รับคือ Script, LocalScript และ ModuleScript |
+<ParamField path={"script"} type={"userdata"} required>
+Script object ที่จะค้นหา ค่า ClassName ที่รับคือ Script, LocalScript และ ModuleScript
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `thread` | `thread \| nil` | Lua thread ที่เกี่ยวข้อง หรือ nil เมื่อไม่พบ matching live thread |
+<ResponseField name={"thread"} type={"thread | nil"}>
+Lua thread ที่เกี่ยวข้อง หรือ nil เมื่อไม่พบ matching live thread
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -45,3 +42,6 @@ if targetScript then
     print(thread)
 end
 ```
+
+
+</div>

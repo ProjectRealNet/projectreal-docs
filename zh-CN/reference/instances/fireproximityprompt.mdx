@@ -2,13 +2,10 @@
 title: "fireproximityprompt"
 sidebarTitle: "fireproximityprompt"
 description: "通过 Real 的 ProximityPrompt trigger 触发 ProximityPrompt。prompt 参数必须是 object，并且 ClassName 字段等于 \"ProximityPrompt\"。如果值不是 object，调用会抛出 type error。如果 ClassName 缺失或不是 string，会抛出 \"Invalid Instance\"。如果 ClassName 不是 \"ProximityPrompt\"，会抛出 \"ProximityPrompt expected\"。function 不接受 optional arguments，也不返回任何内容。"
-icon: "function"
 keywords: ["fireproximityprompt","Instances"]
 ---
 
-通过 Real 的 ProximityPrompt trigger 触发 ProximityPrompt。prompt 参数必须是 object，并且 ClassName 字段等于 "ProximityPrompt"。如果值不是 object，调用会抛出 type error。如果 ClassName 缺失或不是 string，会抛出 "Invalid Instance"。如果 ClassName 不是 "ProximityPrompt"，会抛出 "ProximityPrompt expected"。function 不接受 optional arguments，也不返回任何内容。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 fireproximityprompt(prompt: Instance)
@@ -16,9 +13,9 @@ fireproximityprompt(prompt: Instance)
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `prompt` | `Instance` | Yes | ClassName 必须为 ProximityPrompt 的 Instance。 |
+<ParamField path={"prompt"} type={"Instance"} required>
+ClassName 必须为 ProximityPrompt 的 Instance。
+</ParamField>
 
 ## 示例
 
@@ -29,3 +26,6 @@ local prompt = workspace.InteractivePart.ProximityPrompt
 
 fireproximityprompt(prompt)
 ```
+
+
+</div>

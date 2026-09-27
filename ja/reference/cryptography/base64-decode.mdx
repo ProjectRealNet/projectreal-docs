@@ -2,13 +2,10 @@
 title: "base64_decode"
 sidebarTitle: "base64_decode"
 description: "Base64 decoder で Base64 入力をデコードし、デコードされたバイトを Lua string として返します。"
-icon: "function"
 keywords: ["base64_decode","Cryptography","base64decode","base64.decode","crypt.base64.decode","crypt.base64_decode","crypt.base64decode"]
 ---
 
-Base64 decoder で Base64 入力をデコードし、デコードされたバイトを Lua string として返します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 base64_decode(data: string): string
@@ -24,15 +21,15 @@ base64_decode(data: string): string
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Base64 decoder に渡される Base64 入力。 |
+<ParamField path={"data"} type={"string"} required>
+Base64 decoder に渡される Base64 入力。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `decoded` | `string` | 明示的な長さを持つ Lua string として返されるデコード済みバイト。 |
+<ResponseField name={"decoded"} type={"string"}>
+明示的な長さを持つ Lua string として返されるデコード済みバイト。
+</ResponseField>
 
 ## 例
 
@@ -46,3 +43,6 @@ print(decoded)
 print(base64decode(encoded))
 print(base64.decode(encoded))
 ```
+
+
+</div>

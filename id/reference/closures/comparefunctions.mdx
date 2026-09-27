@@ -2,13 +2,10 @@
 title: "comparefunctions"
 sidebarTitle: "comparefunctions"
 description: "Membandingkan dua function values berdasarkan function identity. Kedua arguments harus berupa functions. Function mengembalikan boolean result dari function identity(L, 1) == function identity(L, 2). Function tidak membandingkan function bytecode, source, behavior, hashes, upvalues, atau newcclosure mappings. comparefunction adalah alias untuk function yang sama."
-icon: "function"
 keywords: ["comparefunctions","Closures","comparefunction"]
 ---
 
-Membandingkan dua function values berdasarkan function identity. Kedua arguments harus berupa functions. Function mengembalikan boolean result dari function identity(L, 1) == function identity(L, 2). Function tidak membandingkan function bytecode, source, behavior, hashes, upvalues, atau newcclosure mappings. comparefunction adalah alias untuk function yang sama.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 comparefunctions(func1: function, func2: function): boolean
@@ -20,16 +17,19 @@ comparefunctions(func1: function, func2: function): boolean
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `func1` | `function` | Yes | First function value yang dikonversi dengan function identity. |
-| `func2` | `function` | Yes | Second function value yang dikonversi dengan function identity. |
+<ParamField path={"func1"} type={"function"} required>
+First function value yang dikonversi dengan function identity.
+</ParamField>
+
+<ParamField path={"func2"} type={"function"} required>
+Second function value yang dikonversi dengan function identity.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `equal` | `boolean` | true saat kedua function values resolve ke function identity yang sama; jika tidak, false. |
+<ResponseField name={"equal"} type={"boolean"}>
+true saat kedua function values resolve ke function identity yang sama; jika tidak, false.
+</ResponseField>
 
 ## Contoh
 
@@ -43,3 +43,6 @@ end
 local same = comparefunctions(sample, sample)
 print(same)
 ```
+
+
+</div>

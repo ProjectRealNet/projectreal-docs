@@ -2,13 +2,10 @@
 title: "base64_encode"
 sidebarTitle: "base64_encode"
 description: "Mengenkode byte Lua string dengan Base64 encoder, memakai = padding dan tanpa line break."
-icon: "function"
 keywords: ["base64_encode","Cryptography","base64encode","base64.encode","crypt.base64.encode","crypt.base64_encode","crypt.base64encode"]
 ---
 
-Mengenkode byte Lua string dengan Base64 encoder, memakai = padding dan tanpa line break.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 base64_encode(data: string): string
@@ -24,15 +21,15 @@ base64_encode(data: string): string
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Byte Lua string yang diteruskan ke Base64 encoder. |
+<ParamField path={"data"} type={"string"} required>
+Byte Lua string yang diteruskan ke Base64 encoder.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `encoded` | `string` | Output Base64 yang dikembalikan sebagai string Lua. |
+<ResponseField name={"encoded"} type={"string"}>
+Output Base64 yang dikembalikan sebagai string Lua.
+</ResponseField>
 
 ## Contoh
 
@@ -45,3 +42,6 @@ print(encoded)
 print(base64encode("hello world"))
 print(base64.encode("hello world"))
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "openfiledialog"
 sidebarTitle: "openfiledialog"
 description: "Windows file picker 経由で Windows file-open dialog を開き、選択されたファイルを file item として返します。"
-icon: "function"
 keywords: ["openfiledialog","Filesystem"]
 ---
 
-Windows file picker 経由で Windows file-open dialog を開き、選択されたファイルを file item として返します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 openfiledialog(options?: DialogOptions): FileSystemItem | nil
@@ -16,15 +13,15 @@ openfiledialog(options?: DialogOptions): FileSystemItem | nil
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `options` | `DialogOptions` | No | Optional table。openfiledialog では title、defaultPath、extensionFilter が使われます。extensionFilter は extension strings の table です。各 filter が *.&lt;extension> になる前に、先頭の . または *. は削除されます。 |
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table。openfiledialog では title、defaultPath、extensionFilter が使われます。extensionFilter は extension strings の table です。各 filter が *.&lt;extension> になる前に、先頭の . または *. は削除されます。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `file` | `FileSystemItem \| nil` | Selected file item。dialog が cancel された場合、または selected filesystem path が返らない場合は nil。Dialog failures は Failed to open file dialog を throw します。 |
+<ResponseField name={"file"} type={"FileSystemItem | nil"}>
+Selected file item。dialog が cancel された場合、または selected filesystem path が返らない場合は nil。Dialog failures は Failed to open file dialog を throw します。
+</ResponseField>
 
 ## 型
 
@@ -58,3 +55,6 @@ else
     print("No file selected")
 end
 ```
+
+
+</div>

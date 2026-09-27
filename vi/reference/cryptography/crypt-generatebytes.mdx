@@ -2,13 +2,10 @@
 title: "crypt.generatebytes"
 sidebarTitle: "crypt.generatebytes"
 description: "Tao byte ngau nhien bang random byte generator va tra ve chung Base64-encoded duoi dang Lua string."
-icon: "function"
 keywords: ["crypt.generatebytes","Cryptography"]
 ---
 
-Tao byte ngau nhien bang random byte generator va tra ve chung Base64-encoded duoi dang Lua string.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 crypt.generatebytes(size: number): string
@@ -16,15 +13,15 @@ crypt.generatebytes(size: number): string
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `size` | `number` | Yes | So duoc dua qua integer conversion truoc khi allocation. Cac gia tri nho hon hoac bang 0 duoc doi thanh 1. |
+<ParamField path={"size"} type={"number"} required>
+So duoc dua qua integer conversion truoc khi allocation. Cac gia tri nho hon hoac bang 0 duoc doi thanh 1.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `encoded` | `string` | Base64 encoding cua raw bytes da tao. Do dai string duoc tra ve khong phai so byte da yeu cau. |
+<ResponseField name={"encoded"} type={"string"}>
+Base64 encoding cua raw bytes da tao. Do dai string duoc tra ve khong phai so byte da yeu cau.
+</ResponseField>
 
 ## Ví dụ
 
@@ -38,3 +35,6 @@ print(encoded)
 print(#encoded)
 print(#raw)
 ```
+
+
+</div>

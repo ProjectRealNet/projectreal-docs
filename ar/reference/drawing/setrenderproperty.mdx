@@ -2,13 +2,10 @@
 title: "setrenderproperty"
 sidebarTitle: "setrenderproperty"
 description: "يسند value إلى object[property]. بالنسبة إلى Drawing object، يستخدم نفس Drawing property assignment مثل direct property assignment. يتم تجاهل unknown Drawing properties، ولا يتم تغيير destroyed Drawing objects. يجب أن يكون الوسيط الثالث موجودا. يسجل the Drawing API هذه API فقط عندما تكون the required rendering environment is active true؛ عندما يكون هذا الفحص false، يرجع initializer قبل إنشاء هذه globals."
-icon: "function"
 keywords: ["setrenderproperty","Drawing"]
 ---
 
-يسند value إلى object[property]. بالنسبة إلى Drawing object، يستخدم نفس Drawing property assignment مثل direct property assignment. يتم تجاهل unknown Drawing properties، ولا يتم تغيير destroyed Drawing objects. يجب أن يكون الوسيط الثالث موجودا. يسجل the Drawing API هذه API فقط عندما تكون the required rendering environment is active true؛ عندما يكون هذا الفحص false، يرجع initializer قبل إنشاء هذه globals.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 setrenderproperty(object: any, property: any, value: any)
@@ -16,11 +13,17 @@ setrenderproperty(object: any, property: any, value: any)
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | القيمة التي سيتم فهرستها والإسناد إليها. مع Drawing object، يتم استخدام RealDrawingObject __newindex handler. |
-| `property` | `any` | Yes | property key المستخدم للإسناد. خصائص Drawing object تعتمد على strings. |
-| `value` | `any` | Yes | القيمة التي يتم إسنادها إلى object[property]. يجب تمرير هذا الوسيط؛ nil ما زالت قيمة ممررة. |
+<ParamField path={"object"} type={"any"} required>
+القيمة التي سيتم فهرستها والإسناد إليها. مع Drawing object، يتم استخدام RealDrawingObject __newindex handler.
+</ParamField>
+
+<ParamField path={"property"} type={"any"} required>
+property key المستخدم للإسناد. خصائص Drawing object تعتمد على strings.
+</ParamField>
+
+<ParamField path={"value"} type={"any"} required>
+القيمة التي يتم إسنادها إلى object[property]. يجب تمرير هذا الوسيط؛ nil ما زالت قيمة ممررة.
+</ParamField>
 
 ## مثال
 
@@ -34,3 +37,6 @@ setrenderproperty(line, "Visible", true)
 print(line.Thickness)
 print(line.Visible)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "json.pretty"
 sidebarTitle: "json.pretty"
 description: "Serializes Lua value เป็น readable formatted JSON string โดยใช้ function เดียวกับ json.encodePretty."
-icon: "function"
 keywords: ["json.pretty","JSON"]
 ---
 
-Serializes Lua value เป็น readable formatted JSON string โดยใช้ function เดียวกับ json.encodePretty.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 json.pretty(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.pretty(value: any, options?: EncodeOptions): string
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value ที่จะ encoded. nil, booleans, numbers, strings, tables และ json.null ถูกจัดการโดยตรง. Unsupported Lua types จะ encoded เป็น null เว้นแต่ errorOnUnsupported เป็น true. |
-| `options` | `EncodeOptions` | No | Optional encode options. json.pretty อ่าน options เดียวกับ json.encodePretty แล้วบังคับ pretty เป็น true. ถ้าไม่มี options จะใช้ two-space indent. number ตั้งค่า indent width โดย clamp เป็น 0.16, string ตั้งค่า indent text, และ table ตั้งค่า sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth และ indent ได้. |
+<ParamField path={"value"} type={"any"} required>
+Value ที่จะ encoded. nil, booleans, numbers, strings, tables และ json.null ถูกจัดการโดยตรง. Unsupported Lua types จะ encoded เป็น null เว้นแต่ errorOnUnsupported เป็น true.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options. json.pretty อ่าน options เดียวกับ json.encodePretty แล้วบังคับ pretty เป็น true. ถ้าไม่มี options จะใช้ two-space indent. number ตั้งค่า indent width โดย clamp เป็น 0.16, string ตั้งค่า indent text, และ table ตั้งค่า sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth และ indent ได้.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `json` | `string` | Readable formatted JSON string. Encoding errors ถูก throw เป็น Luau errors. |
+<ResponseField name={"json"} type={"string"}>
+Readable formatted JSON string. Encoding errors ถูก throw เป็น Luau errors.
+</ResponseField>
 
 ## Types
 
@@ -58,3 +58,6 @@ local text = json.pretty({
 
 print(text)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "openfiledialog"
 sidebarTitle: "openfiledialog"
 description: "Abre um Windows file-open dialog por Windows file picker e retorna o arquivo selecionado como file item."
-icon: "function"
 keywords: ["openfiledialog","Filesystem"]
 ---
 
-Abre um Windows file-open dialog por Windows file picker e retorna o arquivo selecionado como file item.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 openfiledialog(options?: DialogOptions): FileSystemItem | nil
@@ -16,15 +13,15 @@ openfiledialog(options?: DialogOptions): FileSystemItem | nil
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `options` | `DialogOptions` | No | Optional table. Para openfiledialog, title, defaultPath e extensionFilter sao usados. extensionFilter e uma table de extension strings; . ou *. inicial e removido antes de cada filter virar *.&lt;extension>. |
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table. Para openfiledialog, title, defaultPath e extensionFilter sao usados. extensionFilter e uma table de extension strings; . ou *. inicial e removido antes de cada filter virar *.&lt;extension>.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `file` | `FileSystemItem \| nil` | Selected file item, ou nil quando o dialog e cancelado ou nenhum selected filesystem path e retornado. Dialog failures lancam Failed to open file dialog. |
+<ResponseField name={"file"} type={"FileSystemItem | nil"}>
+Selected file item, ou nil quando o dialog e cancelado ou nenhum selected filesystem path e retornado. Dialog failures lancam Failed to open file dialog.
+</ResponseField>
 
 ## Tipos
 
@@ -58,3 +55,6 @@ else
     print("No file selected")
 end
 ```
+
+
+</div>

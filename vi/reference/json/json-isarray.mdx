@@ -2,13 +2,10 @@
 title: "json.isArray"
 sidebarTitle: "json.isArray"
 description: "Tra ve value co duoc treated as a JSON array boi Real JSON table detection hay khong."
-icon: "function"
 keywords: ["json.isArray","JSON"]
 ---
 
-Tra ve value co duoc treated as a JSON array boi Real JSON table detection hay khong.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 json.isArray(value: any): boolean
@@ -16,15 +13,15 @@ json.isArray(value: any): boolean
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value de inspect. Non-table values tra ve false. |
+<ParamField path={"value"} type={"any"} required>
+Value de inspect. Non-table values tra ve false.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `isArray` | `boolean` | true khi value la table marked as a JSON array hoac unmarked table co contiguous positive integer keys tu 1 den maximum index. Empty unmarked tables tra ve false. |
+<ResponseField name={"isArray"} type={"boolean"}>
+true khi value la table marked as a JSON array hoac unmarked table co contiguous positive integer keys tu 1 den maximum index. Empty unmarked tables tra ve false.
+</ResponseField>
 
 ## Ví dụ
 
@@ -39,3 +36,6 @@ print(json.isArray(items))
 print(json.isArray(record))
 print(json.isArray(inferred))
 ```
+
+
+</div>

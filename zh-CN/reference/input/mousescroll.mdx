@@ -2,13 +2,10 @@
 title: "mousescroll"
 sidebarTitle: "mousescroll"
 description: "当 Roblox window active 时，发送 mouse wheel event。amount 参数会作为 Lua number 检查，通过 integer conversion 转换，并作为 dwData 值直接传给带 the requested mouse action 的 mouse input。Real 不会 normalize amount，也不会添加 movement data。该 function 不返回任何值，并且当 isrbxactive 会为 false 时直接返回，不发送 input。"
-icon: "function"
 keywords: ["mousescroll","Input"]
 ---
 
-当 Roblox window active 时，发送 mouse wheel event。amount 参数会作为 Lua number 检查，通过 integer conversion 转换，并作为 dwData 值直接传给带 the requested mouse action 的 mouse input。Real 不会 normalize amount，也不会添加 movement data。该 function 不返回任何值，并且当 isrbxactive 会为 false 时直接返回，不发送 input。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 mousescroll(amount: number)
@@ -16,6 +13,9 @@ mousescroll(amount: number)
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `amount` | `number` | Yes | 作为 Lua number 读取，并在传给 mouse input 前通过 integer conversion 转换的 wheel dwData value。 |
+<ParamField path={"amount"} type={"number"} required>
+作为 Lua number 读取，并在传给 mouse input 前通过 integer conversion 转换的 wheel dwData value。
+</ParamField>
+
+
+</div>

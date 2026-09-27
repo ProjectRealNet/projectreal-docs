@@ -1,15 +1,31 @@
 ---
 title: "Drawing"
 description: "การวาดวัตถุและคุณสมบัติของวัตถุ"
-icon: "folder-code"
+icon: "/icons/pencil.svg"
 ---
+
+<div className="real-category-page">
 
 การวาดวัตถุและคุณสมบัติของวัตถุ
 
-| การนำทางฟังก์ชัน | คำอธิบาย |
-| --- | --- |
-| [`cleardrawcache`](./cleardrawcache) | ล้าง Real global Drawing object list โดย Drawing object ที่ถูกติดตามแต่ละตัวจะถูกทำเครื่องหมายเป็น destroyed, image resources จะถูกปล่อยเมื่อมีอยู่ และ object list จะถูกทำให้ว่าง Lua references ที่มีอยู่ไปยัง Drawing objects ที่ถูกล้างอาจยังคงอยู่ แต่ objects จะไม่ถือเป็น active Drawing objects อีกต่อไป the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้ |
-| [`Drawing.new`](./drawing-new) | สร้าง Drawing object ใหม่ตามชนิดที่ร้องขอและเพิ่มเข้าไปใน Real tracked Drawing object list ค่า type string ต้องเป็นหนึ่งในชื่อที่รองรับแบบตรงตัว: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image" ค่าที่หายไป, non-string หรือ type values ที่ไม่รองรับจะทำให้เกิด Lua error the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้ |
-| [`getrenderproperty`](./getrenderproperty) | คืนผลลัพธ์จากการ index อาร์กิวเมนต์แรกด้วย property key ที่กำหนด สำหรับ Drawing object จะใช้ Drawing property lookup เดียวกับ object[property] ดังนั้น unknown properties และ destroyed Drawing objects จะคืนค่า nil the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้ |
-| [`isrenderobj`](./isrenderobj) | คืนค่าว่า value เป็น object ที่มี Drawing object type หรือไม่ นี่เป็นเพียง methods check เท่านั้น ไม่ได้ตรวจว่า Drawing object ภายในยัง active, tracked หรือ destroyed อยู่หรือไม่ the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้ |
-| [`setrenderproperty`](./setrenderproperty) | กำหนด value ให้กับ object[property] สำหรับ Drawing object จะใช้ Drawing property assignment เดียวกับ direct property assignment โดย unknown Drawing properties จะถูกละเว้น และ destroyed Drawing objects จะไม่ถูกเปลี่ยนแปลง ต้องมีอาร์กิวเมนต์ที่สาม the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้ |
+## ฟังก์ชันที่ใช้ได้
+
+<CardGroup cols={2}>
+<Card title="cleardrawcache" href="./cleardrawcache">
+ล้าง Real global Drawing object list โดย Drawing object ที่ถูกติดตามแต่ละตัวจะถูกทำเครื่องหมายเป็น destroyed, image resources จะถูกปล่อยเมื่อมีอยู่ และ object list จะถูกทำให้ว่าง Lua references ที่มีอยู่ไปยัง Drawing objects ที่ถูกล้างอาจยังคงอยู่ แต่ objects จะไม่ถือเป็น active Drawing objects อีกต่อไป the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้
+</Card>
+<Card title="Drawing.new" href="./drawing-new">
+สร้าง Drawing object ใหม่ตามชนิดที่ร้องขอและเพิ่มเข้าไปใน Real tracked Drawing object list ค่า type string ต้องเป็นหนึ่งในชื่อที่รองรับแบบตรงตัว: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image" ค่าที่หายไป, non-string หรือ type values ที่ไม่รองรับจะทำให้เกิด Lua error the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้
+</Card>
+<Card title="getrenderproperty" href="./getrenderproperty">
+คืนผลลัพธ์จากการ index อาร์กิวเมนต์แรกด้วย property key ที่กำหนด สำหรับ Drawing object จะใช้ Drawing property lookup เดียวกับ object[property] ดังนั้น unknown properties และ destroyed Drawing objects จะคืนค่า nil the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้
+</Card>
+<Card title="isrenderobj" href="./isrenderobj">
+คืนค่าว่า value เป็น object ที่มี Drawing object type หรือไม่ นี่เป็นเพียง methods check เท่านั้น ไม่ได้ตรวจว่า Drawing object ภายในยัง active, tracked หรือ destroyed อยู่หรือไม่ the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้
+</Card>
+<Card title="setrenderproperty" href="./setrenderproperty">
+กำหนด value ให้กับ object[property] สำหรับ Drawing object จะใช้ Drawing property assignment เดียวกับ direct property assignment โดย unknown Drawing properties จะถูกละเว้น และ destroyed Drawing objects จะไม่ถูกเปลี่ยนแปลง ต้องมีอาร์กิวเมนต์ที่สาม the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้
+</Card>
+</CardGroup>
+
+</div>

@@ -2,13 +2,10 @@
 title: "json.parse"
 sidebarTitle: "json.parse"
 description: "使用与 json.decode 相同的 function parse JSON string。"
-icon: "function"
 keywords: ["json.parse","JSON"]
 ---
 
-使用与 json.decode 相同的 function parse JSON string。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 json.parse(json: string, options?: DecodeOptions): any
@@ -16,16 +13,19 @@ json.parse(json: string, options?: DecodeOptions): any
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | 要 parse 的 JSON string。function 使用 string type checking 读取这个 argument。 |
-| `options` | `DecodeOptions` | No | Optional decode options。boolean 设置 useNull。table 可以设置 useNull 和 maxDepth。 |
+<ParamField path={"json"} type={"string"} required>
+要 parse 的 JSON string。function 使用 string type checking 读取这个 argument。
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options。boolean 设置 useNull。table 可以设置 useNull 和 maxDepth。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `decoded` | `any` | Decoded value。JSON objects 和 arrays 会变成带有 JSON type markers 的 tables，strings 变成 Lua strings，numbers 变成 Lua numbers，booleans 变成 booleans，null 会变成 json.null，除非 useNull 为 false。 |
+<ResponseField name={"decoded"} type={"any"}>
+Decoded value。JSON objects 和 arrays 会变成带有 JSON type markers 的 tables，strings 变成 Lua strings，numbers 变成 Lua numbers，booleans 变成 booleans，null 会变成 json.null，除非 useNull 为 false。
+</ResponseField>
 
 ## 类型
 
@@ -51,3 +51,6 @@ print(settings.volume)
 print(settings.theme)
 print(json.isNull(settings.missing))
 ```
+
+
+</div>

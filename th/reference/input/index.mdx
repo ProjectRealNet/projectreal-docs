@@ -1,23 +1,55 @@
 ---
 title: "Input"
 description: "เหตุการณ์การป้อนข้อมูลด้วยแป้นพิมพ์และเมาส์"
-icon: "folder-code"
+icon: "/icons/mouse.svg"
 ---
+
+<div className="real-category-page">
 
 เหตุการณ์การป้อนข้อมูลด้วยแป้นพิมพ์และเมาส์
 
-| การนำทางฟังก์ชัน | คำอธิบาย |
-| --- | --- |
-| [`isrbxactive`](./isrbxactive) | คืนค่าว่า current foreground window เป็น Roblox window ที่ Real พบหรือไม่ Real หา window นั้นโดย enumerating windows ของ process ปัจจุบันและเลือก window ที่มี class name เป็น Roblox window function นี้ไม่รับ arguments และคืน false เมื่อไม่มี foreground window หรือ matching Roblox window |
-| [`keyclick`](./keyclick) | ส่ง key down event ตามด้วย key up event เมื่อ Roblox window active อาร์กิวเมนต์ keyCode ถูกตรวจเป็น Lua number แปลงด้วย integer conversion map จาก Windows virtual-key code เป็น scan code ด้วย Windows key mapping และส่งผ่าน keyboard input พร้อม KEYEVENTF_SCANCODE หาก isrbxactive จะเป็น false function จะ return โดยไม่ส่ง input |
-| [`keypress`](./keypress) | ส่ง key down event เมื่อ Roblox window active อาร์กิวเมนต์ keyCode ถูกตรวจเป็น Lua number แปลงด้วย integer conversion map จาก Windows virtual-key code เป็น scan code ด้วย Windows key mapping และส่งผ่าน keyboard input พร้อม KEYEVENTF_SCANCODE function นี้ไม่ส่ง key up event หาก isrbxactive จะเป็น false function จะ return โดยไม่ส่ง input |
-| [`keyrelease`](./keyrelease) | ส่ง key up event เมื่อ Roblox window active อาร์กิวเมนต์ keyCode ถูกตรวจเป็น Lua number แปลงด้วย integer conversion map จาก Windows virtual-key code เป็น scan code ด้วย Windows key mapping และส่งผ่าน keyboard input พร้อม KEYEVENTF_SCANCODE \| KEYEVENTF_KEYUP function นี้ไม่ส่ง key down event หาก isrbxactive จะเป็น false function จะ return โดยไม่ส่ง input |
-| [`mouse1click`](./mouse1click) | ส่ง left mouse down event และ left mouse up event เมื่อ Roblox window active Real เรียก mouse input ด้วย the requested mouse action โดยไม่มี movement หรือ wheel data function นี้ไม่รับ arguments ไม่คืนค่า และ return โดยไม่ส่ง input เมื่อ isrbxactive จะเป็น false |
-| [`mouse1press`](./mouse1press) | ส่ง left mouse down event เมื่อ Roblox window active Real เรียก mouse input ด้วย the requested mouse action โดยไม่มี movement หรือ wheel data function นี้ไม่รับ arguments ไม่คืนค่า ไม่ส่ง left mouse up event คู่กัน และ return โดยไม่ส่ง input เมื่อ isrbxactive จะเป็น false |
-| [`mouse1release`](./mouse1release) | ส่ง left mouse up event เมื่อ Roblox window active Real เรียก mouse input ด้วย the requested mouse action โดยไม่มี movement หรือ wheel data function นี้ไม่รับ arguments ไม่คืนค่า ไม่ส่ง left mouse down event คู่กัน และ return โดยไม่ส่ง input เมื่อ isrbxactive จะเป็น false |
-| [`mouse2click`](./mouse2click) | ส่ง right mouse down event และ right mouse up event เมื่อ Roblox window active Real เรียก mouse input ด้วย the requested mouse action โดยไม่มี movement หรือ wheel data function นี้ไม่รับ arguments ไม่คืนค่า และ return โดยไม่ส่ง input เมื่อ isrbxactive จะเป็น false |
-| [`mouse2press`](./mouse2press) | ส่ง right mouse down event เมื่อ Roblox window active Real เรียก mouse input ด้วย the requested mouse action โดยไม่มี movement หรือ wheel data function นี้ไม่รับ arguments ไม่คืนค่า ไม่ส่ง right mouse up event คู่กัน และ return โดยไม่ส่ง input เมื่อ isrbxactive จะเป็น false |
-| [`mouse2release`](./mouse2release) | ส่ง right mouse up event เมื่อ Roblox window active Real เรียก mouse input ด้วย the requested mouse action โดยไม่มี movement หรือ wheel data function นี้ไม่รับ arguments ไม่คืนค่า ไม่ส่ง right mouse down event คู่กัน และ return โดยไม่ส่ง input เมื่อ isrbxactive จะเป็น false |
-| [`mousemoveabs`](./mousemoveabs) | เลื่อน mouse ด้วย Windows absolute mouse input เมื่อ Roblox window active อาร์กิวเมนต์ x และ y ถูกตรวจเป็น Lua numbers และแปลงด้วย integer conversion Real ถือว่าเป็น coordinates relative to active foreground window client area เพิ่ม screen position ของ client area นั้นด้วย ClientToScreen scale ด้วย GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 และ integer math แล้วเรียก mouse input ด้วย the requested mouse action หาก isrbxactive จะเป็น false function จะ return โดยไม่ส่ง input |
-| [`mousemoverel`](./mousemoverel) | เลื่อน mouse ด้วย relative delta เมื่อ Roblox window active อาร์กิวเมนต์ x และ y ถูกตรวจเป็น Lua numbers และแปลงด้วย integer conversion จากนั้นส่งตรงไปยัง mouse input พร้อม the requested mouse action เป็น dx และ dy function นี้ไม่ใช้ the requested mouse action ไม่ทำ client-area conversion ไม่คืนค่า และ return โดยไม่ส่ง input เมื่อ isrbxactive จะเป็น false |
-| [`mousescroll`](./mousescroll) | ส่ง mouse wheel event เมื่อ Roblox window active อาร์กิวเมนต์ amount ถูกตรวจเป็น Lua number แปลงด้วย integer conversion และส่งตรงเป็นค่า dwData ไปยัง mouse input พร้อม the requested mouse action Real ไม่ normalize amount และไม่เพิ่ม movement data function นี้ไม่คืนค่าและ return โดยไม่ส่ง input เมื่อ isrbxactive จะเป็น false |
+## ฟังก์ชันที่ใช้ได้
+
+<CardGroup cols={2}>
+<Card title="isrbxactive" href="./isrbxactive">
+คืนค่าว่า current foreground window เป็น Roblox window ที่ Real พบหรือไม่ Real หา window นั้นโดย enumerating windows ของ process ปัจจุบันและเลือก window ที่มี class name เป็น Roblox window function นี้ไม่รับ arguments และคืน false เมื่อไม่มี foreground window หรือ matching Roblox window
+</Card>
+<Card title="keyclick" href="./keyclick">
+ส่ง key down event ตามด้วย key up event เมื่อ Roblox window active อาร์กิวเมนต์ keyCode ถูกตรวจเป็น Lua number แปลงด้วย integer conversion map จาก Windows virtual-key code เป็น scan code ด้วย Windows key mapping และส่งผ่าน keyboard input พร้อม KEYEVENTF_SCANCODE หาก isrbxactive จะเป็น false function จะ return โดยไม่ส่ง input
+</Card>
+<Card title="keypress" href="./keypress">
+ส่ง key down event เมื่อ Roblox window active อาร์กิวเมนต์ keyCode ถูกตรวจเป็น Lua number แปลงด้วย integer conversion map จาก Windows virtual-key code เป็น scan code ด้วย Windows key mapping และส่งผ่าน keyboard input พร้อม KEYEVENTF_SCANCODE function นี้ไม่ส่ง key up event หาก isrbxactive จะเป็น false function จะ return โดยไม่ส่ง input
+</Card>
+<Card title="keyrelease" href="./keyrelease">
+ส่ง key up event เมื่อ Roblox window active อาร์กิวเมนต์ keyCode ถูกตรวจเป็น Lua number แปลงด้วย integer conversion map จาก Windows virtual-key code เป็น scan code ด้วย Windows key mapping และส่งผ่าน keyboard input พร้อม KEYEVENTF_SCANCODE | KEYEVENTF_KEYUP function นี้ไม่ส่ง key down event หาก isrbxactive จะเป็น false function จะ return โดยไม่ส่ง input
+</Card>
+<Card title="mouse1click" href="./mouse1click">
+ส่ง left mouse down event และ left mouse up event เมื่อ Roblox window active Real เรียก mouse input ด้วย the requested mouse action โดยไม่มี movement หรือ wheel data function นี้ไม่รับ arguments ไม่คืนค่า และ return โดยไม่ส่ง input เมื่อ isrbxactive จะเป็น false
+</Card>
+<Card title="mouse1press" href="./mouse1press">
+ส่ง left mouse down event เมื่อ Roblox window active Real เรียก mouse input ด้วย the requested mouse action โดยไม่มี movement หรือ wheel data function นี้ไม่รับ arguments ไม่คืนค่า ไม่ส่ง left mouse up event คู่กัน และ return โดยไม่ส่ง input เมื่อ isrbxactive จะเป็น false
+</Card>
+<Card title="mouse1release" href="./mouse1release">
+ส่ง left mouse up event เมื่อ Roblox window active Real เรียก mouse input ด้วย the requested mouse action โดยไม่มี movement หรือ wheel data function นี้ไม่รับ arguments ไม่คืนค่า ไม่ส่ง left mouse down event คู่กัน และ return โดยไม่ส่ง input เมื่อ isrbxactive จะเป็น false
+</Card>
+<Card title="mouse2click" href="./mouse2click">
+ส่ง right mouse down event และ right mouse up event เมื่อ Roblox window active Real เรียก mouse input ด้วย the requested mouse action โดยไม่มี movement หรือ wheel data function นี้ไม่รับ arguments ไม่คืนค่า และ return โดยไม่ส่ง input เมื่อ isrbxactive จะเป็น false
+</Card>
+<Card title="mouse2press" href="./mouse2press">
+ส่ง right mouse down event เมื่อ Roblox window active Real เรียก mouse input ด้วย the requested mouse action โดยไม่มี movement หรือ wheel data function นี้ไม่รับ arguments ไม่คืนค่า ไม่ส่ง right mouse up event คู่กัน และ return โดยไม่ส่ง input เมื่อ isrbxactive จะเป็น false
+</Card>
+<Card title="mouse2release" href="./mouse2release">
+ส่ง right mouse up event เมื่อ Roblox window active Real เรียก mouse input ด้วย the requested mouse action โดยไม่มี movement หรือ wheel data function นี้ไม่รับ arguments ไม่คืนค่า ไม่ส่ง right mouse down event คู่กัน และ return โดยไม่ส่ง input เมื่อ isrbxactive จะเป็น false
+</Card>
+<Card title="mousemoveabs" href="./mousemoveabs">
+เลื่อน mouse ด้วย Windows absolute mouse input เมื่อ Roblox window active อาร์กิวเมนต์ x และ y ถูกตรวจเป็น Lua numbers และแปลงด้วย integer conversion Real ถือว่าเป็น coordinates relative to active foreground window client area เพิ่ม screen position ของ client area นั้นด้วย ClientToScreen scale ด้วย GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 และ integer math แล้วเรียก mouse input ด้วย the requested mouse action หาก isrbxactive จะเป็น false function จะ return โดยไม่ส่ง input
+</Card>
+<Card title="mousemoverel" href="./mousemoverel">
+เลื่อน mouse ด้วย relative delta เมื่อ Roblox window active อาร์กิวเมนต์ x และ y ถูกตรวจเป็น Lua numbers และแปลงด้วย integer conversion จากนั้นส่งตรงไปยัง mouse input พร้อม the requested mouse action เป็น dx และ dy function นี้ไม่ใช้ the requested mouse action ไม่ทำ client-area conversion ไม่คืนค่า และ return โดยไม่ส่ง input เมื่อ isrbxactive จะเป็น false
+</Card>
+<Card title="mousescroll" href="./mousescroll">
+ส่ง mouse wheel event เมื่อ Roblox window active อาร์กิวเมนต์ amount ถูกตรวจเป็น Lua number แปลงด้วย integer conversion และส่งตรงเป็นค่า dwData ไปยัง mouse input พร้อม the requested mouse action Real ไม่ normalize amount และไม่เพิ่ม movement data function นี้ไม่คืนค่าและ return โดยไม่ส่ง input เมื่อ isrbxactive จะเป็น false
+</Card>
+</CardGroup>
+
+</div>

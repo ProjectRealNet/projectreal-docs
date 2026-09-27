@@ -2,13 +2,10 @@
 title: "Drawing.new"
 sidebarTitle: "Drawing.new"
 description: "要求された型の新しい Drawing object を作成し、Real tracked Drawing object list に追加します。type string は、サポートされている正確な名前 \"Line\", \"Text\", \"Circle\", \"Square\", \"Quad\", \"Triangle\", \"Image\" のいずれかである必要があります。欠落した値、non-string、またはサポートされていない type values は Lua error を発生させます。 the Drawing API は the required rendering environment is active が true の場合だけこの API を登録します。このチェックが false の場合、initializer はこれらの globals を作成する前に戻ります。"
-icon: "function"
 keywords: ["Drawing.new","Drawing"]
 ---
 
-要求された型の新しい Drawing object を作成し、Real tracked Drawing object list に追加します。type string は、サポートされている正確な名前 "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image" のいずれかである必要があります。欠落した値、non-string、またはサポートされていない type values は Lua error を発生させます。 the Drawing API は the required rendering environment is active が true の場合だけこの API を登録します。このチェックが false の場合、initializer はこれらの globals を作成する前に戻ります。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad" | "Triangle"): DrawingObject
@@ -16,15 +13,15 @@ Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad"
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `objectType` | `"Image" \| "Line" \| "Text" \| "Circle" \| "Square" \| "Quad" \| "Triangle"` | Yes | 作成する正確な Drawing type name。サポートされる値は "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image" です。 |
+<ParamField path={"objectType"} type={"\"Image\" | \"Line\" | \"Text\" | \"Circle\" | \"Square\" | \"Quad\" | \"Triangle\""} required>
+作成する正確な Drawing type name。サポートされる値は "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image" です。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `object` | `DrawingObject` | Drawing object type を持つ作成済み Drawing object。 |
+<ResponseField name={"object"} type={"DrawingObject"}>
+Drawing object type を持つ作成済み Drawing object。
+</ResponseField>
 
 ## 例
 
@@ -38,3 +35,6 @@ square.Color = Color3.fromRGB(120, 170, 255)
 square.Filled = true
 square.Visible = true
 ```
+
+
+</div>

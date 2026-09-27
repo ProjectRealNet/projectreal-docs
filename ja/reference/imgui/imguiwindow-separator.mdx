@@ -2,13 +2,10 @@
 title: "ImGuiWindow.Separator"
 sidebarTitle: "ImGuiWindow.Separator"
 description: "window に Separator marker を追加します。rendering 中、Real は element list のその位置で a separator を呼び出します。"
-icon: "function"
 keywords: ["ImGuiWindow.Separator","ImGui"]
 ---
 
-window に Separator marker を追加します。rendering 中、Real は element list のその位置で a separator を呼び出します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.Separator(window: ImGuiWindow): ImGuiWindow
@@ -16,15 +13,15 @@ ImGuiWindow.Separator(window: ImGuiWindow): ImGuiWindow
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | imgui.create が返した ImGuiWindow。object が無効、またはすでに destroy されている場合、この method は Lua error を発生させます。 |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+imgui.create が返した ImGuiWindow。object が無効、またはすでに destroy されている場合、この method は Lua error を発生させます。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | 同じ ImGuiWindow object。method 呼び出しを連鎖できます。 |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+同じ ImGuiWindow object。method 呼び出しを連鎖できます。
+</ResponseField>
 
 ## 型
 
@@ -45,3 +42,6 @@ imgui.create によって返されるハンドル。コントロール構築メ�
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | 整数スライダーを追加します。 |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | 非対話型テキストを追加します。 |
 | `destroy` | `() -> ()` | Yes | ウィンドウを削除し、登録されているコールバックを解放します。 |
+
+
+</div>

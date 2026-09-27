@@ -2,13 +2,10 @@
 title: "saveinstance"
 sidebarTitle: "saveinstance"
 description: "Serializes the DataModel or a selected Instance to a Roblox XML place or model file and returns the saved path string. The root can be passed as the first argument, supplied as options.Object, or omitted to use game. FilePath, Path, or FileName can select the output name. The function may yield while loading the API dump before saving."
-icon: "function"
 keywords: ["saveinstance","SaveInstance","SaveInstance","save_instance"]
 ---
 
-Serializes the DataModel or a selected Instance to a Roblox XML place or model file and returns the saved path string. The root can be passed as the first argument, supplied as options.Object, or omitted to use game. FilePath, Path, or FileName can select the output name. The function may yield while loading the API dump before saving.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 saveinstance(rootOrOptions?: Instance | SaveInstanceOptions, options?: SaveInstanceOptions): string
@@ -21,16 +18,19 @@ saveinstance(rootOrOptions?: Instance | SaveInstanceOptions, options?: SaveInsta
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `rootOrOptions` | `Instance \| SaveInstanceOptions` | No | Optional root Instance to save, or the options table when no root is passed separately. |
-| `options` | `SaveInstanceOptions` | No | Optional save options table. Used as argument 2 when argument 1 is an Instance. |
+<ParamField path={"rootOrOptions"} type={"Instance | SaveInstanceOptions"}>
+Optional root Instance to save, or the options table when no root is passed separately.
+</ParamField>
+
+<ParamField path={"options"} type={"SaveInstanceOptions"}>
+Optional save options table. Used as argument 2 when argument 1 is an Instance.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `path` | `string` | Filesystem path string of the saved .rbxlx, .rbxl, .rbxmx, or .rbxm file. |
+<ResponseField name={"path"} type={"string"}>
+Filesystem path string of the saved .rbxlx, .rbxl, .rbxmx, or .rbxm file.
+</ResponseField>
 
 ## Types
 
@@ -75,3 +75,6 @@ local outputPath = saveinstance(model, {
 print(outputPath)
 model:Destroy()
 ```
+
+
+</div>

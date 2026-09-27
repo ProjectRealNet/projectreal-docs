@@ -2,13 +2,10 @@
 title: "ImGuiWindow.CollapsingHeader"
 sidebarTitle: "ImGuiWindow.CollapsingHeader"
 description: "Menambahkan collapsing header start marker, langsung memanggil content callback dengan ImGuiWindow object yang sama agar dapat menambahkan nested elements, lalu menambahkan header end marker. Saat rendering, nested elements dilewati selama header collapsed. Callback errors ditangkap dan tidak dikembalikan oleh method ini."
-icon: "function"
 keywords: ["ImGuiWindow.CollapsingHeader","ImGui"]
 ---
 
-Menambahkan collapsing header start marker, langsung memanggil content callback dengan ImGuiWindow object yang sama agar dapat menambahkan nested elements, lalu menambahkan header end marker. Saat rendering, nested elements dilewati selama header collapsed. Callback errors ditangkap dan tidak dikembalikan oleh method ini.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.CollapsingHeader(window: ImGuiWindow, label: string, content: function): ImGuiWindow
@@ -16,17 +13,23 @@ ImGuiWindow.CollapsingHeader(window: ImGuiWindow, label: string, content: functi
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow object yang dikembalikan oleh imgui.create. Window yang sudah dihancurkan atau tidak valid menimbulkan Lua error. |
-| `label` | `string` | Yes | Header label string yang diteruskan ke ImGui collapsing header yang dirender. |
-| `content` | `function` | Yes | Function yang langsung dipanggil dengan ImGuiWindow object yang sama. Return values diabaikan; error ditangkap oleh method. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow object yang dikembalikan oleh imgui.create. Window yang sudah dihancurkan atau tidak valid menimbulkan Lua error.
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+Header label string yang diteruskan ke ImGui collapsing header yang dirender.
+</ParamField>
+
+<ParamField path={"content"} type={"function"} required>
+Function yang langsung dipanggil dengan ImGuiWindow object yang sama. Return values diabaikan; error ditangkap oleh method.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | ImGuiWindow object yang sama, sehingga method calls dapat dirangkai. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+ImGuiWindow object yang sama, sehingga method calls dapat dirangkai.
+</ResponseField>
 
 ## Tipe
 
@@ -47,3 +50,6 @@ Pegangan dikembalikan oleh imgui.create. Metode pembuatan kontrol mengembalikan 
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Menambahkan penggeser bilangan bulat. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Menambahkan teks non-interaktif. |
 | `destroy` | `() -> ()` | Yes | Menghapus jendela dan melepaskan panggilan balik terdaftarnya. |
+
+
+</div>

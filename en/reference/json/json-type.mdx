@@ -2,13 +2,10 @@
 title: "json.type"
 sidebarTitle: "json.type"
 description: "Returns a string type name for a value. json.null returns \"null\". Tables return \"array\" or \"object\" using the same table classification as json.isArray and json.isObject. Other values return the runtime Lua type name result."
-icon: "function"
 keywords: ["json.type","JSON"]
 ---
 
-Returns a string type name for a value. json.null returns "null". Tables return "array" or "object" using the same table classification as json.isArray and json.isObject. Other values return the runtime Lua type name result.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 json.type(value: any): string
@@ -16,15 +13,15 @@ json.type(value: any): string
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value to classify. Passing no value returns the runtime type name for a missing stack value. |
+<ParamField path={"value"} type={"any"} required>
+Value to classify. Passing no value returns the runtime type name for a missing stack value.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `jsonType` | `string` | Type name string. Verified JSON-specific returns are "null", "array", and "object". Non-table, non-json.null values use Lua type name, such as "nil", "boolean", "number", "integer", "string", "function", "object", "thread", "buffer", "class", "object", "vector", or "no value" depending on the runtime value. |
+<ResponseField name={"jsonType"} type={"string"}>
+Type name string. Verified JSON-specific returns are "null", "array", and "object". Non-table, non-json.null values use Lua type name, such as "nil", "boolean", "number", "integer", "string", "function", "object", "thread", "buffer", "class", "object", "vector", or "no value" depending on the runtime value.
+</ResponseField>
 
 ## Example
 
@@ -37,3 +34,6 @@ print(json.type(json.null))
 print(json.type(nil))
 print(json.type())
 ```
+
+
+</div>

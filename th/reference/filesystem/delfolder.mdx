@@ -2,13 +2,10 @@
 title: "delfolder"
 sidebarTitle: "delfolder"
 description: "ลบ folder ที่มีอยู่ภายใน workspace แบบ recursive ด้วย recursive folder deletion"
-icon: "function"
 keywords: ["delfolder","Filesystem"]
 ---
 
-ลบ folder ที่มีอยู่ภายใน workspace แบบ recursive ด้วย recursive folder deletion
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 delfolder(path: string)
@@ -16,9 +13,9 @@ delfolder(path: string)
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | Path ที่ถูก resolve ภายใน workspace หลัง separator normalization และ workspace-boundary checks เป้าหมายต้องมีอยู่และเป็น directory; files ไม่ถูกยอมรับ |
+<ParamField path={"path"} type={"string"} required>
+Path ที่ถูก resolve ภายใน workspace หลัง separator normalization และ workspace-boundary checks เป้าหมายต้องมีอยู่และเป็น directory; files ไม่ถูกยอมรับ
+</ParamField>
 
 ## ตัวอย่าง
 
@@ -32,3 +29,6 @@ writefile(path .. "/note.txt", "temporary")
 delfolder(path)
 print(isfolder(path))
 ```
+
+
+</div>

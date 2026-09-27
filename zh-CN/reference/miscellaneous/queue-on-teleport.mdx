@@ -2,13 +2,10 @@
 title: "queue_on_teleport"
 sidebarTitle: "queue_on_teleport"
 description: "Queues a source string to run after a later teleport initialization. The function returns no values."
-icon: "function"
 keywords: ["queue_on_teleport","Miscellaneous","queueonteleport","queue_on_tp","queueontp"]
 ---
 
-Queues a source string to run after a later teleport initialization. The function returns no values.
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 queue_on_teleport(source: string)
@@ -22,9 +19,9 @@ queue_on_teleport(source: string)
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `source` | `string` | Yes | Source string to queue for a later teleport initialization. |
+<ParamField path={"source"} type={"string"} required>
+Source string to queue for a later teleport initialization.
+</ParamField>
 
 ## 示例
 
@@ -33,3 +30,6 @@ Store a source string so it can run during a later teleport initialization.
 ```lua
 queue_on_teleport("print('queued after teleport')")
 ```
+
+
+</div>

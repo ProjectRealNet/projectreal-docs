@@ -2,13 +2,10 @@
 title: "isparallel"
 sidebarTitle: "isparallel"
 description: "Mengembalikan boolean dari ScriptContext DataModel milik Luau thread saat ini. Function tidak menerima arguments. Function membaca the current parallel execution status, yang mengembalikan parallel execution status. Jika the current DataModel tidak mengembalikan DataModel, function mengembalikan false. checkparallel adalah alias untuk function yang sama."
-icon: "function"
 keywords: ["isparallel","Actors","checkparallel"]
 ---
 
-Mengembalikan boolean dari ScriptContext DataModel milik Luau thread saat ini. Function tidak menerima arguments. Function membaca the current parallel execution status, yang mengembalikan parallel execution status. Jika the current DataModel tidak mengembalikan DataModel, function mengembalikan false. checkparallel adalah alias untuk function yang sama.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 isparallel(): boolean
@@ -20,9 +17,9 @@ isparallel(): boolean
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `parallel` | `boolean` | true saat parallel execution status pada DataModel saat ini disetel; false saat flag tidak disetel atau tidak ada DataModel yang tersedia. |
+<ResponseField name={"parallel"} type={"boolean"}>
+true saat parallel execution status pada DataModel saat ini disetel; false saat flag tidak disetel atau tidak ada DataModel yang tersedia.
+</ResponseField>
 
 ## Contoh
 
@@ -34,3 +31,6 @@ print(parallel)
 
 print(checkparallel())
 ```
+
+
+</div>

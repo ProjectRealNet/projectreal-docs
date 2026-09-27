@@ -2,13 +2,10 @@
 title: "getcustomasset"
 sidebarTitle: "getcustomasset"
 description: "기존 regular workspace file을 ExtraContent/<hwid>/로 복사하고 복사된 asset path에 대한 rbxasset:// string을 반환합니다."
-icon: "function"
 keywords: ["getcustomasset","Filesystem","getsynasset"]
 ---
 
-기존 regular workspace file을 ExtraContent/&lt;hwid>/로 복사하고 복사된 asset path에 대한 rbxasset:// string을 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 getcustomasset(path: string): string
@@ -20,15 +17,15 @@ getcustomasset(path: string): string
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | separator normalization 및 workspace-boundary checks 후 workspace 안에서 해석되는 path입니다. 대상은 존재하는 regular file이어야 합니다. folders, invalid filenames, DOS device names, blocked extensions는 허용되지 않습니다. |
+<ParamField path={"path"} type={"string"} required>
+separator normalization 및 workspace-boundary checks 후 workspace 안에서 해석되는 path입니다. 대상은 존재하는 regular file이어야 합니다. folders, invalid filenames, DOS device names, blocked extensions는 허용되지 않습니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `assetId` | `string` | rbxasset://&lt;hwid>/&lt;workspace-relative-path> 형식의 String입니다. relative path에는 forward slashes를 사용합니다. |
+<ResponseField name={"assetId"} type={"string"}>
+rbxasset://&lt;hwid>/&lt;workspace-relative-path> 형식의 String입니다. relative path에는 forward slashes를 사용합니다.
+</ResponseField>
 
 ## 예제
 
@@ -42,3 +39,6 @@ local assetId = getcustomasset(path)
 print(assetId)
 print(getsynasset(path))
 ```
+
+
+</div>

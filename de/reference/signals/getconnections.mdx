@@ -2,13 +2,10 @@
 title: "getconnections"
 sidebarTitle: "getconnections"
 description: "Gibt eine array table von RealConnection closures für ein RBXScriptSignal zurück. Das erste argument muss object sein, dessen Luau type name RBXScriptSignal ist. Die function liest die Connect method des signal, verbindet einen temporary blank callback, liest die linked list ab dem next reference der temporären Verbindung, trennt die temporäre Verbindung und wrapped jeden gültigen connection reference. Wenn nach der temporären Verbindung kein connection reference gefunden wird, gibt sie eine leere table zurück. Bereits gewrappte underlying references können dieselbe cached closure table zurückgeben. getsignals und get_signal_cons sind aliases für dieselbe function."
-icon: "function"
 keywords: ["getconnections","Signals","getsignals","get_signal_cons"]
 ---
 
-Gibt eine array table von RealConnection closures für ein RBXScriptSignal zurück. Das erste argument muss object sein, dessen Luau type name RBXScriptSignal ist. Die function liest die Connect method des signal, verbindet einen temporary blank callback, liest die linked list ab dem next reference der temporären Verbindung, trennt die temporäre Verbindung und wrapped jeden gültigen connection reference. Wenn nach der temporären Verbindung kein connection reference gefunden wird, gibt sie eine leere table zurück. Bereits gewrappte underlying references können dieselbe cached closure table zurückgeben. getsignals und get_signal_cons sind aliases für dieselbe function.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getconnections(signal: RBXScriptSignal): {RealConnection}
@@ -21,15 +18,15 @@ getconnections(signal: RBXScriptSignal): {RealConnection}
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | Zu prüfendes Signal. Nicht-RBXScriptSignal object löst einen type error aus, und ein signal ohne aufrufbares Connect field löst "Signal does not have 'Connect' method" aus. |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+Zu prüfendes Signal. Nicht-RBXScriptSignal object löst einen type error aus, und ein signal ohne aufrufbares Connect field löst "Signal does not have 'Connect' method" aus.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `connections` | `&#123;RealConnection&#125;` | Array table von connection closure tables. Jeder closure stellt fields und methods über seine methods bereit, darunter Enabled, Disabled, LuaConnection, ForeignState, Function, Thread, Disconnect, Disable, Enable, Fire und Defer, wenn verfügbar. |
+<ResponseField name={"connections"} type={"{RealConnection}"}>
+Array table von connection closure tables. Jeder closure stellt fields und methods über seine methods bereit, darunter Enabled, Disabled, LuaConnection, ForeignState, Function, Thread, Disconnect, Disable, Enable, Fire und Defer, wenn verfügbar.
+</ResponseField>
 
 ## Beispiel
 
@@ -42,3 +39,6 @@ for _, connection in ipairs(getconnections(Players.PlayerAdded)) do
     print(connection.Enabled, connection.LuaConnection)
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "json.encodePretty"
 sidebarTitle: "json.encodePretty"
 description: "Lua value を Real JSON encoder で readable formatted JSON string に serializes します。json.pretty は同じ function に登録されています。"
-icon: "function"
 keywords: ["json.encodePretty","JSON"]
 ---
 
-Lua value を Real JSON encoder で readable formatted JSON string に serializes します。json.pretty は同じ function に登録されています。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 json.encodePretty(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.encodePretty(value: any, options?: EncodeOptions): string
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Encoded する value。nil、booleans、numbers、strings、tables、json.null は直接処理されます。Unsupported Lua types は errorOnUnsupported が true でない限り null として encoded されます。 |
-| `options` | `EncodeOptions` | No | Optional encode options。json.encodePretty は json.encode と同じ options を読み、その後 pretty を true に強制します。options がない場合は two-space indent を使います。number は 0.16 に clamp された indent width を設定し、string は indent text を設定し、table は sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth、indent を設定できます。 |
+<ParamField path={"value"} type={"any"} required>
+Encoded する value。nil、booleans、numbers、strings、tables、json.null は直接処理されます。Unsupported Lua types は errorOnUnsupported が true でない限り null として encoded されます。
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options。json.encodePretty は json.encode と同じ options を読み、その後 pretty を true に強制します。options がない場合は two-space indent を使います。number は 0.16 に clamp された indent width を設定し、string は indent text を設定し、table は sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth、indent を設定できます。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `json` | `string` | Readable formatted JSON string。Encoding errors は Luau errors として throw されます。 |
+<ResponseField name={"json"} type={"string"}>
+Readable formatted JSON string。Encoding errors は Luau errors として throw されます。
+</ResponseField>
 
 ## 型
 
@@ -59,3 +59,6 @@ local text = json.encodePretty({
 
 print(text)
 ```
+
+
+</div>

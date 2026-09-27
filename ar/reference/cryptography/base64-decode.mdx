@@ -2,13 +2,10 @@
 title: "base64_decode"
 sidebarTitle: "base64_decode"
 description: "يفك ترميز إدخال Base64 باستخدام Base64 decoder ويعيد البايتات المفكوكة كسلسلة Lua."
-icon: "function"
 keywords: ["base64_decode","Cryptography","base64decode","base64.decode","crypt.base64.decode","crypt.base64_decode","crypt.base64decode"]
 ---
 
-يفك ترميز إدخال Base64 باستخدام Base64 decoder ويعيد البايتات المفكوكة كسلسلة Lua.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 base64_decode(data: string): string
@@ -24,15 +21,15 @@ base64_decode(data: string): string
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | إدخال Base64 الذي يمرر إلى Base64 decoder. |
+<ParamField path={"data"} type={"string"} required>
+إدخال Base64 الذي يمرر إلى Base64 decoder.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `decoded` | `string` | البايتات المفكوكة التي تعاد كسلسلة Lua بطول صريح. |
+<ResponseField name={"decoded"} type={"string"}>
+البايتات المفكوكة التي تعاد كسلسلة Lua بطول صريح.
+</ResponseField>
 
 ## مثال
 
@@ -46,3 +43,6 @@ print(decoded)
 print(base64decode(encoded))
 print(base64.decode(encoded))
 ```
+
+
+</div>

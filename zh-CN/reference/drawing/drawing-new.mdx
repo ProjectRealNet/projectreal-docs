@@ -2,13 +2,10 @@
 title: "Drawing.new"
 sidebarTitle: "Drawing.new"
 description: "创建请求类型的新 Drawing object，并将其添加到 Real tracked Drawing object list。type string 必须是以下精确支持名称之一: \"Line\", \"Text\", \"Circle\", \"Square\", \"Quad\", \"Triangle\", \"Image\"。缺失值、non-string 或不支持的 type values 会引发 Lua error。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。"
-icon: "function"
 keywords: ["Drawing.new","Drawing"]
 ---
 
-创建请求类型的新 Drawing object，并将其添加到 Real tracked Drawing object list。type string 必须是以下精确支持名称之一: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image"。缺失值、non-string 或不支持的 type values 会引发 Lua error。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad" | "Triangle"): DrawingObject
@@ -16,15 +13,15 @@ Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad"
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `objectType` | `"Image" \| "Line" \| "Text" \| "Circle" \| "Square" \| "Quad" \| "Triangle"` | Yes | 要创建的精确 Drawing type name。支持的值为 "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image"。 |
+<ParamField path={"objectType"} type={"\"Image\" | \"Line\" | \"Text\" | \"Circle\" | \"Square\" | \"Quad\" | \"Triangle\""} required>
+要创建的精确 Drawing type name。支持的值为 "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image"。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `object` | `DrawingObject` | 带有 Drawing object type 的已创建 Drawing object。 |
+<ResponseField name={"object"} type={"DrawingObject"}>
+带有 Drawing object type 的已创建 Drawing object。
+</ResponseField>
 
 ## 示例
 
@@ -38,3 +35,6 @@ square.Color = Color3.fromRGB(120, 170, 255)
 square.Filled = true
 square.Visible = true
 ```
+
+
+</div>

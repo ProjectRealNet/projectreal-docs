@@ -2,13 +2,10 @@
 title: "json.decode"
 sidebarTitle: "json.decode"
 description: "Parses a JSON string with Real's JSON parser and returns the decoded Lua value, marking decoded arrays and objects for the JSON helpers."
-icon: "function"
 keywords: ["json.decode","JSON"]
 ---
 
-Parses a JSON string with Real's JSON parser and returns the decoded Lua value, marking decoded arrays and objects for the JSON helpers.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 json.decode(json: string, options?: DecodeOptions): any
@@ -16,16 +13,19 @@ json.decode(json: string, options?: DecodeOptions): any
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON text to parse. The parser accepts one JSON value with optional surrounding whitespace and throws when invalid syntax or trailing non-whitespace characters are found. |
-| `options` | `DecodeOptions` | No | Optional decode options. A boolean sets useNull directly. A table can set useNull and maxDepth; maxDepth is clamped from 1 to 4096. |
+<ParamField path={"json"} type={"string"} required>
+JSON text to parse. The parser accepts one JSON value with optional surrounding whitespace and throws when invalid syntax or trailing non-whitespace characters are found.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. A boolean sets useNull directly. A table can set useNull and maxDepth; maxDepth is clamped from 1 to 4096.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `decoded` | `any` | Decoded value. JSON objects and arrays become tables with JSON type markers, strings become Lua strings, numbers become Lua numbers, booleans become booleans, and null becomes json.null unless useNull is false. |
+<ResponseField name={"decoded"} type={"any"}>
+Decoded value. JSON objects and arrays become tables with JSON type markers, strings become Lua strings, numbers become Lua numbers, booleans become booleans, and null becomes json.null unless useNull is false.
+</ResponseField>
 
 ## Types
 
@@ -50,3 +50,6 @@ print(value.tags[1])
 print(json.type(value))
 print(json.isNull(value.missing))
 ```
+
+
+</div>

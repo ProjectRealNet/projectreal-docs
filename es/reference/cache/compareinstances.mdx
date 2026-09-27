@@ -2,13 +2,10 @@
 title: "compareinstances"
 sidebarTitle: "compareinstances"
 description: "Compara los valores internos de puntero Instance almacenados en dos valores Instance object."
-icon: "function"
 keywords: ["compareinstances","Cache"]
 ---
 
-Compara los valores internos de puntero Instance almacenados en dos valores Instance object.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 compareinstances(first: Instance, second: Instance): boolean
@@ -16,16 +13,19 @@ compareinstances(first: Instance, second: Instance): boolean
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `first` | `Instance` | Yes | Primer Instance object que se compara. |
-| `second` | `Instance` | Yes | Segundo Instance object que se compara. |
+<ParamField path={"first"} type={"Instance"} required>
+Primer Instance object que se compara.
+</ParamField>
+
+<ParamField path={"second"} type={"Instance"} required>
+Segundo Instance object que se compara.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `equal` | `boolean` | True cuando ambos valores Instance object contienen el mismo valor interno de puntero. |
+<ResponseField name={"equal"} type={"boolean"}>
+True cuando ambos valores Instance object contienen el mismo valor interno de puntero.
+</ResponseField>
 
 ## Ejemplo
 
@@ -38,3 +38,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 print(compareinstances(Players, Players))
 print(compareinstances(Players, ReplicatedStorage))
 ```
+
+
+</div>

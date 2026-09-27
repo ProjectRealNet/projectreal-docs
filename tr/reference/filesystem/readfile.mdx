@@ -2,13 +2,10 @@
 title: "readfile"
 sidebarTitle: "readfile"
 description: "workspace icindeki existing regular file degerini binary mode ile okur ve bytes degerlerini Lua string olarak dondurur."
-icon: "function"
 keywords: ["readfile","Filesystem","readfileasync"]
 ---
 
-workspace icindeki existing regular file degerini binary mode ile okur ve bytes degerlerini Lua string olarak dondurur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 readfile(path: string): string
@@ -20,15 +17,15 @@ readfile(path: string): string
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | separator normalization, workspace-boundary checks ve filename/extension checks sonrasinda workspace icinde cozulun File path. Absolute paths yalnizca workspace icinde resolve olursa kabul edilir. |
+<ParamField path={"path"} type={"string"} required>
+separator normalization, workspace-boundary checks ve filename/extension checks sonrasinda workspace icinde cozulun File path. Absolute paths yalnizca workspace icinde resolve olursa kabul edilir.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `content` | `string` | File contents acik uzunluklu Lua string olarak dondurulur. null bytes, line endings ve BOM bytes gibi bytes degerleri readfile tarafindan transform edilmez. |
+<ResponseField name={"content"} type={"string"}>
+File contents acik uzunluklu Lua string olarak dondurulur. null bytes, line endings ve BOM bytes gibi bytes degerleri readfile tarafindan transform edilmez.
+</ResponseField>
 
 ## Örnek
 
@@ -42,3 +39,6 @@ local content = readfile(path)
 print(content)
 print(#content)
 ```
+
+
+</div>

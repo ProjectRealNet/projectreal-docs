@@ -2,13 +2,10 @@
 title: "rconsoleinput"
 sidebarTitle: "rconsoleinput"
 description: "console input state를 지우고 다음 newline까지 input을 무시한 뒤 console input으로 stdin에서 하나의 line을 읽는 동안 yield합니다. 반환되는 string은 string return으로 push되며 끝 newline은 포함하지 않습니다. console window가 없으면 호출은 values 없이 반환됩니다."
-icon: "function"
 keywords: ["rconsoleinput","Console","consoleinput"]
 ---
 
-console input state를 지우고 다음 newline까지 input을 무시한 뒤 console input으로 stdin에서 하나의 line을 읽는 동안 yield합니다. 반환되는 string은 string return으로 push되며 끝 newline은 포함하지 않습니다. console window가 없으면 호출은 values 없이 반환됩니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 rconsoleinput(): string
@@ -20,9 +17,9 @@ rconsoleinput(): string
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `input` | `string` | 콘솔에서 읽은 텍스트 줄입니다. |
+<ResponseField name={"input"} type={"string"}>
+콘솔에서 읽은 텍스트 줄입니다.
+</ResponseField>
 
 ## 예제
 
@@ -35,3 +32,6 @@ local name = rconsoleinput()
 rconsoleprint("Hello, ", name, "
 ")
 ```
+
+
+</div>

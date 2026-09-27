@@ -2,13 +2,10 @@
 title: "getscriptglobals"
 sidebarTitle: "getscriptglobals"
 description: "_G 및 shared의 current LUA_GLOBALSINDEX values가 담긴 new table을 반환합니다. 이 function은 arguments를 받지 않고 fresh table을 만들며, _G를 LUA_GLOBALSINDEX._G에서, shared를 LUA_GLOBALSINDEX.shared에서 할당한 뒤 exactly one value를 반환합니다. full global table은 반환하지 않으며 getscriptglobals에 등록된 alias는 없습니다."
-icon: "function"
 keywords: ["getscriptglobals","Environment"]
 ---
 
-_G 및 shared의 current LUA_GLOBALSINDEX values가 담긴 new table을 반환합니다. 이 function은 arguments를 받지 않고 fresh table을 만들며, _G를 LUA_GLOBALSINDEX._G에서, shared를 LUA_GLOBALSINDEX.shared에서 할당한 뒤 exactly one value를 반환합니다. full global table은 반환하지 않으며 getscriptglobals에 등록된 alias는 없습니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 getscriptglobals(): table
@@ -16,9 +13,9 @@ getscriptglobals(): table
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `globals` | `table` | LUA_GLOBALSINDEX에서 복사된 _G 및 shared fields가 있는 fresh table. |
+<ResponseField name={"globals"} type={"table"}>
+LUA_GLOBALSINDEX에서 복사된 _G 및 shared fields가 있는 fresh table.
+</ResponseField>
 
 ## 예제
 
@@ -30,3 +27,6 @@ local globals = getscriptglobals()
 print(globals._G)
 print(globals.shared)
 ```
+
+
+</div>

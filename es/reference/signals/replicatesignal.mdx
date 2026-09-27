@@ -2,13 +2,10 @@
 title: "replicatesignal"
 sidebarTitle: "replicatesignal"
 description: "Invoca la replication path para un RBXScriptSignal. La función lee la signal signature, convierte los Lua arguments proporcionados en Roblox signal values para cada signature type, recorta los Lua arguments extra después de la signature length y luego llama a la owning instance event invocation function."
-icon: "function"
 keywords: ["replicatesignal","Signals","replicateevent"]
 ---
 
-Invoca la replication path para un RBXScriptSignal. La función lee la signal signature, convierte los Lua arguments proporcionados en Roblox signal values para cada signature type, recorta los Lua arguments extra después de la signature length y luego llama a la owning instance event invocation function.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 replicatesignal(signal: RBXScriptSignal, ...arguments?: ...any)
@@ -20,10 +17,13 @@ replicatesignal(signal: RBXScriptSignal, ...arguments?: ...any)
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | El RBXScriptSignal cuya owning instance event invocation function se debe llamar. |
-| `...arguments` | `...any` | No | Lua arguments convertidos según la signal signature. Los extra arguments después de la signature length se ignoran. |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+El RBXScriptSignal cuya owning instance event invocation function se debe llamar.
+</ParamField>
+
+<ParamField path={"...arguments"} type={"...any"}>
+Lua arguments convertidos según la signal signature. Los extra arguments después de la signature length se ignoran.
+</ParamField>
 
 ## Ejemplo
 
@@ -37,3 +37,6 @@ if remote and remote:IsA("RemoteEvent") then
     replicatesignal(remote.OnClientEvent, "hello")
 end
 ```
+
+
+</div>

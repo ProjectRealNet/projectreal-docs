@@ -2,13 +2,10 @@
 title: "WebSocket.Close"
 sidebarTitle: "WebSocket.Close"
 description: "Закрывает WebSocket object, возвращенный WebSocket.connect. Первый argument должен быть table. Функция читает field connection state объекта. Если live state существует и еще не destroyed или closed, она устанавливает isClosed в true и отправляет пустой close frame frame через сохраненный WebSocket connection. Она не принимает close code или reason и не возвращает values."
-icon: "function"
 keywords: ["WebSocket.Close","WebSocket"]
 ---
 
-Закрывает WebSocket object, возвращенный WebSocket.connect. Первый argument должен быть table. Функция читает field connection state объекта. Если live state существует и еще не destroyed или closed, она устанавливает isClosed в true и отправляет пустой close frame frame через сохраненный WebSocket connection. Она не принимает close code или reason и не возвращает values.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 WebSocket.Close(socket: WebSocket)
@@ -16,9 +13,9 @@ WebSocket.Close(socket: WebSocket)
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `socket` | `WebSocket` | Yes | WebSocket table, возвращенная WebSocket.connect. Function ожидает, что эта table содержит connection state. |
+<ParamField path={"socket"} type={"WebSocket"} required>
+WebSocket table, возвращенная WebSocket.connect. Function ожидает, что эта table содержит connection state.
+</ParamField>
 
 ## Пример
 
@@ -29,3 +26,6 @@ local socket = WebSocket.connect("wss://example.com/socket")
 
 socket:Close()
 ```
+
+
+</div>

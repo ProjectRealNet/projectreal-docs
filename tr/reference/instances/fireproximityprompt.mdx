@@ -2,13 +2,10 @@
 title: "fireproximityprompt"
 sidebarTitle: "fireproximityprompt"
 description: "Real ProximityPrompt trigger uzerinden bir ProximityPrompt tetikler. prompt argumani ClassName alani \"ProximityPrompt\" olan object olmalidir. Deger object degilse cagri type error uretir. ClassName yoksa veya string degilse \"Invalid Instance\" uretir. ClassName \"ProximityPrompt\" degilse \"ProximityPrompt expected\" uretir. Function optional arguments almaz ve herhangi bir deger dondurmez."
-icon: "function"
 keywords: ["fireproximityprompt","Instances"]
 ---
 
-Real ProximityPrompt trigger uzerinden bir ProximityPrompt tetikler. prompt argumani ClassName alani "ProximityPrompt" olan object olmalidir. Deger object degilse cagri type error uretir. ClassName yoksa veya string degilse "Invalid Instance" uretir. ClassName "ProximityPrompt" degilse "ProximityPrompt expected" uretir. Function optional arguments almaz ve herhangi bir deger dondurmez.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 fireproximityprompt(prompt: Instance)
@@ -16,9 +13,9 @@ fireproximityprompt(prompt: Instance)
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `prompt` | `Instance` | Yes | ClassName degeri ProximityPrompt olmasi gereken Instance. |
+<ParamField path={"prompt"} type={"Instance"} required>
+ClassName degeri ProximityPrompt olmasi gereken Instance.
+</ParamField>
 
 ## Örnek
 
@@ -29,3 +26,6 @@ local prompt = workspace.InteractivePart.ProximityPrompt
 
 fireproximityprompt(prompt)
 ```
+
+
+</div>

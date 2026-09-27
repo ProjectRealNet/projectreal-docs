@@ -2,13 +2,10 @@
 title: "crypt.generatebytes"
 sidebarTitle: "crypt.generatebytes"
 description: "Gera bytes aleatorios com random byte generator e os retorna Base64-encoded como uma string Lua."
-icon: "function"
 keywords: ["crypt.generatebytes","Cryptography"]
 ---
 
-Gera bytes aleatorios com random byte generator e os retorna Base64-encoded como uma string Lua.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 crypt.generatebytes(size: number): string
@@ -16,15 +13,15 @@ crypt.generatebytes(size: number): string
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `size` | `number` | Yes | Numero passado por integer conversion antes da alocacao. Valores menores ou iguais a 0 sao alterados para 1. |
+<ParamField path={"size"} type={"number"} required>
+Numero passado por integer conversion antes da alocacao. Valores menores ou iguais a 0 sao alterados para 1.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `encoded` | `string` | Base64 encoding dos raw bytes gerados. O comprimento da string retornada nao e a contagem de bytes solicitada. |
+<ResponseField name={"encoded"} type={"string"}>
+Base64 encoding dos raw bytes gerados. O comprimento da string retornada nao e a contagem de bytes solicitada.
+</ResponseField>
 
 ## Exemplo
 
@@ -38,3 +35,6 @@ print(encoded)
 print(#encoded)
 print(#raw)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "firetouchinterest"
 sidebarTitle: "firetouchinterest"
 description: "Loest Real touch interest event fuer zwei BasePart instances aus. Die ersten beiden Argumente muessen Instance object sein und beide Werte muessen IsA(\"BasePart\") bestehen. Das Argument state ist erforderlich und muss number oder boolean sein. Wenn state eine number ist, wird nur 1 zu true und jede andere number zu false. Wenn state ein boolean ist, wird der boolean-Wert direkt weitergegeben. Wenn eines der beiden Teile keinen touch data hat oder das erste Teil keinen overlap reference hat, kehrt die function zurueck, ohne etwas auszuloesen. Die function gibt nichts zurueck. Die genaue begin/end-Bedeutung des an den helper uebergebenen boolean ist: Nicht aus der Codebasis verifizierbar."
-icon: "function"
 keywords: ["firetouchinterest","Instances","firetouchtransmitter"]
 ---
 
-Loest Real touch interest event fuer zwei BasePart instances aus. Die ersten beiden Argumente muessen Instance object sein und beide Werte muessen IsA("BasePart") bestehen. Das Argument state ist erforderlich und muss number oder boolean sein. Wenn state eine number ist, wird nur 1 zu true und jede andere number zu false. Wenn state ein boolean ist, wird der boolean-Wert direkt weitergegeben. Wenn eines der beiden Teile keinen touch data hat oder das erste Teil keinen overlap reference hat, kehrt die function zurueck, ohne etwas auszuloesen. Die function gibt nichts zurueck. Die genaue begin/end-Bedeutung des an den helper uebergebenen boolean ist: Nicht aus der Codebasis verifizierbar.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
@@ -20,11 +17,17 @@ firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `partA` | `Instance` | Yes | Erste Instance object. Muss IsA("BasePart") bestehen. Ihr touch data und overlap reference werden fuer den call verwendet. |
-| `partB` | `Instance` | Yes | Zweite Instance object. Muss IsA("BasePart") bestehen. Ihr touch data wird fuer den call verwendet. |
-| `state` | `number \| boolean` | Yes | Erforderlicher state-Wert. Numbers werden mit state == 1 konvertiert; booleans werden direkt weitergegeben. |
+<ParamField path={"partA"} type={"Instance"} required>
+Erste Instance object. Muss IsA("BasePart") bestehen. Ihr touch data und overlap reference werden fuer den call verwendet.
+</ParamField>
+
+<ParamField path={"partB"} type={"Instance"} required>
+Zweite Instance object. Muss IsA("BasePart") bestehen. Ihr touch data wird fuer den call verwendet.
+</ParamField>
+
+<ParamField path={"state"} type={"number | boolean"} required>
+Erforderlicher state-Wert. Numbers werden mit state == 1 konvertiert; booleans werden direkt weitergegeben.
+</ParamField>
 
 ## Beispiel
 
@@ -38,3 +41,6 @@ local targetPart = workspace.TouchTarget
 
 firetouchinterest(rootPart, targetPart, true)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "getactorthreads"
 sidebarTitle: "getactorthreads"
 description: "Mengembalikan array table berisi Luau threads dari actor thread list. Function tidak menerima arguments. Function membaca actor list bounds dari ScriptContext, menelusuri setiap actor state entry, mendekripsi stored global state menjadi Luau thread, dan hanya menyertakan entries yang valid threads."
-icon: "function"
 keywords: ["getactorthreads","Actors","getactorstates"]
 ---
 
-Mengembalikan array table berisi Luau threads dari actor thread list. Function tidak menerima arguments. Function membaca actor list bounds dari ScriptContext, menelusuri setiap actor state entry, mendekripsi stored global state menjadi Luau thread, dan hanya menyertakan entries yang valid threads.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 getactorthreads(): {thread}
@@ -20,9 +17,9 @@ getactorthreads(): {thread}
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `threads` | `&#123;thread&#125;` | Array table berisi actor Luau thread values yang di-push sebagai Luau threads. |
+<ResponseField name={"threads"} type={"{thread}"}>
+Array table berisi actor Luau thread values yang di-push sebagai Luau threads.
+</ResponseField>
 
 ## Contoh
 
@@ -33,3 +30,6 @@ for _, thread in ipairs(getactorthreads()) do
     print(thread)
 end
 ```
+
+
+</div>

@@ -1,34 +1,88 @@
 ---
 title: "JSON"
 description: "Analysez, encodez, inspectez et transformez JSON."
-icon: "folder-code"
+icon: "/icons/code-circle-2.svg"
 ---
+
+<div className="real-category-page">
 
 Analysez, encodez, inspectez et transformez JSON.
 
-| Navigation des fonctions | Description |
-| --- | --- |
-| [`json.array`](./json-array) | Cree une new table marquee comme JSON array pour json.encode, en copiant la sequence 1.#source lorsqu une source table est fournie. |
-| [`json.clone`](./json-clone) | Clone un value en l encodant avec json.encode semantics puis en decodant le generated JSON en Lua values. |
-| [`json.decode`](./json-decode) | Parse un JSON string avec Real JSON parser et renvoie le decoded Lua value, en marquant decoded arrays et objects pour les JSON helpers. |
-| [`json.decodeSafe`](./json-decodesafe) | Parse JSON avec le meme parser que json.decode et renvoie un success flag au lieu de lancer pour les parse errors. |
-| [`json.encode`](./json-encode) | Serialise un Lua value en JSON string avec Real JSON encoder. json.stringify est enregistre sur la meme function. |
-| [`json.encodePretty`](./json-encodepretty) | Serialise un Lua value en JSON string formate et lisible avec Real JSON encoder. json.pretty est enregistre sur la meme function. |
-| [`json.escape`](./json-escape) | Escape un string avec Real JSON string escaping rules et renvoie le escaped content sans surrounding quotes. |
-| [`json.format`](./json-format) | Parse un JSON string puis le re-encode en readable formatted JSON avec Real JSON parser et encoder. |
-| [`json.getPath`](./json-getpath) | Lit une nested value depuis une table avec un dotted string path ou une array table of keys. |
-| [`json.isArray`](./json-isarray) | Renvoie si une value est treated as a JSON array par Real JSON table detection. |
-| [`json.isNull`](./json-isnull) | Renvoie si une value est le Real JSON null sentinel, json.null. |
-| [`json.isObject`](./json-isobject) | Renvoie si une value est treated as a JSON object par Real JSON table detection. |
-| [`json.keys`](./json-keys) | Renvoie les visible keys d'une table dans une new table marked as a JSON array. |
-| [`json.minify`](./json-minify) | Parse un JSON string puis le re-encode avec Real default non-pretty JSON encoder output. |
-| [`json.object`](./json-object) | Cree une new table marked as a JSON object pour que Real JSON encoder la traite comme object. |
-| [`json.parse`](./json-parse) | Parse un JSON string avec la meme function que json.decode. |
-| [`json.pretty`](./json-pretty) | Serialise un Lua value en readable formatted JSON string avec la meme function que json.encodePretty. |
-| [`json.quote`](./json-quote) | Escape un string avec Real JSON string escaping rules et renvoie un complete quoted JSON string literal. |
-| [`json.stringify`](./json-stringify) | Serialise un Lua value en JSON string avec la meme function que json.encode. |
-| [`json.tryDecode`](./json-trydecode) | Tente de parse un JSON string avec la meme function que json.decodeSafe et renvoie des status values pour parse errors. |
-| [`json.type`](./json-type) | Retourne un string type name pour une valeur. json.null retourne "null". Les tables retournent "array" ou "object" avec la meme table classification que json.isArray et json.isObject. Les autres valeurs retournent le runtime Lua type name result. |
-| [`json.unescape`](./json-unescape) | Decode les JSON string escape sequences depuis escaped string content ou depuis un complete quoted JSON string literal. L entree est parsee avec le JSON string parser, pas comme full JSON document. |
-| [`json.validate`](./json-validate) | Valide un JSON string en parsant une seule complete JSON value. En success, retourne seulement true. En parse failure, retourne false avec parser error details. |
-| [`json.values`](./json-values) | Retourne les direct values d une table dans une nouvelle table marked as JSON array. Les JSON type marker entries sont ignorees. |
+## Fonctions disponibles
+
+<CardGroup cols={2}>
+<Card title="json.array" href="./json-array">
+Cree une new table marquee comme JSON array pour json.encode, en copiant la sequence 1.#source lorsqu une source table est fournie.
+</Card>
+<Card title="json.clone" href="./json-clone">
+Clone un value en l encodant avec json.encode semantics puis en decodant le generated JSON en Lua values.
+</Card>
+<Card title="json.decode" href="./json-decode">
+Parse un JSON string avec Real JSON parser et renvoie le decoded Lua value, en marquant decoded arrays et objects pour les JSON helpers.
+</Card>
+<Card title="json.decodeSafe" href="./json-decodesafe">
+Parse JSON avec le meme parser que json.decode et renvoie un success flag au lieu de lancer pour les parse errors.
+</Card>
+<Card title="json.encode" href="./json-encode">
+Serialise un Lua value en JSON string avec Real JSON encoder. json.stringify est enregistre sur la meme function.
+</Card>
+<Card title="json.encodePretty" href="./json-encodepretty">
+Serialise un Lua value en JSON string formate et lisible avec Real JSON encoder. json.pretty est enregistre sur la meme function.
+</Card>
+<Card title="json.escape" href="./json-escape">
+Escape un string avec Real JSON string escaping rules et renvoie le escaped content sans surrounding quotes.
+</Card>
+<Card title="json.format" href="./json-format">
+Parse un JSON string puis le re-encode en readable formatted JSON avec Real JSON parser et encoder.
+</Card>
+<Card title="json.getPath" href="./json-getpath">
+Lit une nested value depuis une table avec un dotted string path ou une array table of keys.
+</Card>
+<Card title="json.isArray" href="./json-isarray">
+Renvoie si une value est treated as a JSON array par Real JSON table detection.
+</Card>
+<Card title="json.isNull" href="./json-isnull">
+Renvoie si une value est le Real JSON null sentinel, json.null.
+</Card>
+<Card title="json.isObject" href="./json-isobject">
+Renvoie si une value est treated as a JSON object par Real JSON table detection.
+</Card>
+<Card title="json.keys" href="./json-keys">
+Renvoie les visible keys d'une table dans une new table marked as a JSON array.
+</Card>
+<Card title="json.minify" href="./json-minify">
+Parse un JSON string puis le re-encode avec Real default non-pretty JSON encoder output.
+</Card>
+<Card title="json.object" href="./json-object">
+Cree une new table marked as a JSON object pour que Real JSON encoder la traite comme object.
+</Card>
+<Card title="json.parse" href="./json-parse">
+Parse un JSON string avec la meme function que json.decode.
+</Card>
+<Card title="json.pretty" href="./json-pretty">
+Serialise un Lua value en readable formatted JSON string avec la meme function que json.encodePretty.
+</Card>
+<Card title="json.quote" href="./json-quote">
+Escape un string avec Real JSON string escaping rules et renvoie un complete quoted JSON string literal.
+</Card>
+<Card title="json.stringify" href="./json-stringify">
+Serialise un Lua value en JSON string avec la meme function que json.encode.
+</Card>
+<Card title="json.tryDecode" href="./json-trydecode">
+Tente de parse un JSON string avec la meme function que json.decodeSafe et renvoie des status values pour parse errors.
+</Card>
+<Card title="json.type" href="./json-type">
+Retourne un string type name pour une valeur. json.null retourne "null". Les tables retournent "array" ou "object" avec la meme table classification que json.isArray et json.isObject. Les autres valeurs retournent le runtime Lua type name result.
+</Card>
+<Card title="json.unescape" href="./json-unescape">
+Decode les JSON string escape sequences depuis escaped string content ou depuis un complete quoted JSON string literal. L entree est parsee avec le JSON string parser, pas comme full JSON document.
+</Card>
+<Card title="json.validate" href="./json-validate">
+Valide un JSON string en parsant une seule complete JSON value. En success, retourne seulement true. En parse failure, retourne false avec parser error details.
+</Card>
+<Card title="json.values" href="./json-values">
+Retourne les direct values d une table dans une nouvelle table marked as JSON array. Les JSON type marker entries sont ignorees.
+</Card>
+</CardGroup>
+
+</div>

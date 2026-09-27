@@ -2,13 +2,10 @@
 title: "RealSignal.Wait"
 sidebarTitle: "RealSignal.Wait"
 description: "Yields the current thread until the RealSignal is fired, then resumes with the arguments passed to Fire. It errors when called from a context that cannot yield."
-icon: "function"
 keywords: ["RealSignal.Wait","RealSignal"]
 ---
 
-Yields the current thread until the RealSignal is fired, then resumes with the arguments passed to Fire. It errors when called from a context that cannot yield.
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 RealSignal.Wait(signal: RealSignal): ....any
@@ -16,15 +13,15 @@ RealSignal.Wait(signal: RealSignal): ....any
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `signal` | `RealSignal` | Yes | Signal object returned by Signal.new. |
+<ParamField path={"signal"} type={"RealSignal"} required>
+Signal object returned by Signal.new.
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `...values` | `....any` | All values passed to the Fire call that resumed the waiter. |
+<ResponseField name={"...values"} type={"....any"}>
+All values passed to the Fire call that resumed the waiter.
+</ResponseField>
 
 ## 类型
 
@@ -54,3 +51,6 @@ end)
 local status, count = signal:Wait()
 print(status, count)
 ```
+
+
+</div>

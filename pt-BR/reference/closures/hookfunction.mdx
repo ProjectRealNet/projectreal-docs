@@ -2,13 +2,10 @@
 title: "hookfunction"
 sidebarTitle: "hookfunction"
 description: "Faz hook de uma target function com uma replacement function e retorna uma cloned copy da original target closure. Ambos arguments devem ser functions. A function primeiro faz flush de pending C function swaps, faz cloning do target por function cloning, adiciona a replacement closure ou seu mapped newcclosure target a hidden stack tracking, chama FixCallstack para target e cloned original, e então aplica patch na target closure pelo C closure, Luau closure ou newcclosure-specific path. Se target ainda não estiver em hook records, o cloned original é armazenado ali para restorefunction. A returned function é a cloned original closure."
-icon: "function"
 keywords: ["hookfunction","Closures","hookfunc","replaceclosure","detourfunction","detour_function"]
 ---
 
-Faz hook de uma target function com uma replacement function e retorna uma cloned copy da original target closure. Ambos arguments devem ser functions. A function primeiro faz flush de pending C function swaps, faz cloning do target por function cloning, adiciona a replacement closure ou seu mapped newcclosure target a hidden stack tracking, chama FixCallstack para target e cloned original, e então aplica patch na target closure pelo C closure, Luau closure ou newcclosure-specific path. Se target ainda não estiver em hook records, o cloned original é armazenado ali para restorefunction. A returned function é a cloned original closure.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 hookfunction(target: function, replacement: function): function
@@ -23,16 +20,19 @@ hookfunction(target: function, replacement: function): function
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `target` | `function` | Yes | Function que receberá patch. Passar uma non-function gera um type error. |
-| `replacement` | `function` | Yes | Function cuja function é install ou map em target. Passar uma non-function gera um type error. |
+<ParamField path={"target"} type={"function"} required>
+Function que receberá patch. Passar uma non-function gera um type error.
+</ParamField>
+
+<ParamField path={"replacement"} type={"function"} required>
+Function cuja function é install ou map em target. Passar uma non-function gera um type error.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `original` | `function` | Cloned copy da original target closure criada antes de instalar o hook. |
+<ResponseField name={"original"} type={"function"}>
+Cloned copy da original target closure criada antes de instalar o hook.
+</ResponseField>
 
 ## Exemplo
 
@@ -48,3 +48,6 @@ original = hookfunction(target, function(value)
     return original(value) * 2
 end)
 ```
+
+
+</div>

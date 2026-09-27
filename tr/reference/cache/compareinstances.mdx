@@ -2,13 +2,10 @@
 title: "compareinstances"
 sidebarTitle: "compareinstances"
 description: "Iki Instance object degerinde saklanan dahili Instance reference degerlerini karsilastirir."
-icon: "function"
 keywords: ["compareinstances","Cache"]
 ---
 
-Iki Instance object degerinde saklanan dahili Instance reference degerlerini karsilastirir.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 compareinstances(first: Instance, second: Instance): boolean
@@ -16,16 +13,19 @@ compareinstances(first: Instance, second: Instance): boolean
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `first` | `Instance` | Yes | Karsilastirilacak ilk Instance object. |
-| `second` | `Instance` | Yes | Karsilastirilacak ikinci Instance object. |
+<ParamField path={"first"} type={"Instance"} required>
+Karsilastirilacak ilk Instance object.
+</ParamField>
+
+<ParamField path={"second"} type={"Instance"} required>
+Karsilastirilacak ikinci Instance object.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `equal` | `boolean` | Iki Instance object degeri ayni dahili reference degerini iceriyorsa True. |
+<ResponseField name={"equal"} type={"boolean"}>
+Iki Instance object degeri ayni dahili reference degerini iceriyorsa True.
+</ResponseField>
 
 ## Örnek
 
@@ -38,3 +38,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 print(compareinstances(Players, Players))
 print(compareinstances(Players, ReplicatedStorage))
 ```
+
+
+</div>

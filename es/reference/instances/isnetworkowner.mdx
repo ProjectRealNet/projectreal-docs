@@ -2,13 +2,10 @@
 title: "isnetworkowner"
 sidebarTitle: "isnetworkowner"
 description: "Devuelve el resultado de leer la hidden property \"NetworkOwnerV3\" de una Instance y comprobar si el primer valor devuelto, convertido con integer conversion, es mayor que 2. El argumento debe ser Instance object. La function llama internamente a the hidden property reader y no captura errores de esa llamada, por lo que Invalid Instance values, missing properties o non-property metadata pueden lanzar los mismos errores que gethiddenproperty. Devuelve un boolean. Si peer_id > 2 significa exactamente local network ownership es: Nicht aus der Codebasis verifizierbar."
-icon: "function"
 keywords: ["isnetworkowner","Instances"]
 ---
 
-Devuelve el resultado de leer la hidden property "NetworkOwnerV3" de una Instance y comprobar si el primer valor devuelto, convertido con integer conversion, es mayor que 2. El argumento debe ser Instance object. La function llama internamente a the hidden property reader y no captura errores de esa llamada, por lo que Invalid Instance values, missing properties o non-property metadata pueden lanzar los mismos errores que gethiddenproperty. Devuelve un boolean. Si peer_id > 2 significa exactamente local network ownership es: Nicht aus der Codebasis verifizierbar.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 isnetworkowner(instance: Instance): boolean
@@ -16,15 +13,15 @@ isnetworkowner(instance: Instance): boolean
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object pasada a the hidden property reader con el property name "NetworkOwnerV3". |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object pasada a the hidden property reader con el property name "NetworkOwnerV3".
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `isOwner` | `boolean` | true cuando integer conversion sobre el primer valor devuelto de "NetworkOwnerV3" es mayor que 2; de lo contrario false. |
+<ResponseField name={"isOwner"} type={"boolean"}>
+true cuando integer conversion sobre el primer valor devuelto de "NetworkOwnerV3" es mayor que 2; de lo contrario false.
+</ResponseField>
 
 ## Ejemplo
 
@@ -38,3 +35,6 @@ if part then
     print(ownsNetwork)
 end
 ```
+
+
+</div>

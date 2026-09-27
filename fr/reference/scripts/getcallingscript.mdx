@@ -2,13 +2,10 @@
 title: "getcallingscript"
 sidebarTitle: "getcallingscript"
 description: "Renvoie le script stocke sur le current Luau thread object. La function n accepte aucun arguments. Elle lit the current thread script, qui est un stored reference. Si ce stored reference n est pas expired, la function pousse la script Instance avec Instance cache et la renvoie. Si le stored reference est expired, la function renvoie nil. L function n inspecte pas le Lua call stack, ne cherche pas d ancestor scripts et ne verifie pas le script ClassName."
-icon: "function"
 keywords: ["getcallingscript","Scripts"]
 ---
 
-Renvoie le script stocke sur le current Luau thread object. La function n accepte aucun arguments. Elle lit the current thread script, qui est un stored reference. Si ce stored reference n est pas expired, la function pousse la script Instance avec Instance cache et la renvoie. Si le stored reference est expired, la function renvoie nil. L function n inspecte pas le Lua call stack, ne cherche pas d ancestor scripts et ne verifie pas le script ClassName.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 getcallingscript(): Instance | nil
@@ -16,6 +13,9 @@ getcallingscript(): Instance | nil
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `script` | `Instance \| nil` | Script Instance provenant du current Luau thread object stored reference, ou nil lorsque ce stored reference est expired. |
+<ResponseField name={"script"} type={"Instance | nil"}>
+Script Instance provenant du current Luau thread object stored reference, ou nil lorsque ce stored reference est expired.
+</ResponseField>
+
+
+</div>

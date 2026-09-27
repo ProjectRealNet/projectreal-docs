@@ -2,13 +2,10 @@
 title: "json.minify"
 sidebarTitle: "json.minify"
 description: "Parse JSON string แล้ว re-encode ด้วย Real default non-pretty JSON encoder output."
-icon: "function"
 keywords: ["json.minify","JSON"]
 ---
 
-Parse JSON string แล้ว re-encode ด้วย Real default non-pretty JSON encoder output.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 json.minify(json: string, options?: DecodeOptions): string
@@ -16,16 +13,19 @@ json.minify(json: string, options?: DecodeOptions): string
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string ที่ถูก parse ก่อน minifying. function อ่าน argument นี้ด้วย string type checking. |
-| `options` | `DecodeOptions` | No | Optional decode options ที่ใช้ระหว่าง parsing input JSON. boolean ตั้งค่า useNull. table ตั้งค่า useNull และ maxDepth ได้. |
+<ParamField path={"json"} type={"string"} required>
+JSON string ที่ถูก parse ก่อน minifying. function อ่าน argument นี้ด้วย string type checking.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options ที่ใช้ระหว่าง parsing input JSON. boolean ตั้งค่า useNull. table ตั้งค่า useNull และ maxDepth ได้.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `minified` | `string` | JSON string ที่สร้างหลัง parsing และ re-encoding input ด้วย default encode options. |
+<ResponseField name={"minified"} type={"string"}>
+JSON string ที่สร้างหลัง parsing และ re-encoding input ด้วย default encode options.
+</ResponseField>
 
 ## Types
 
@@ -53,3 +53,6 @@ print(json.minify(formatted, {
     useNull = true,
 }))
 ```
+
+
+</div>

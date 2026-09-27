@@ -2,13 +2,10 @@
 title: "cache.iscached"
 sidebarTitle: "cache.iscached"
 description: "返回给定 Instance 在 Instance cache 中是否有 non-nil 条目。"
-icon: "function"
 keywords: ["cache.iscached","Cache"]
 ---
 
-返回给定 Instance 在 Instance cache 中是否有 non-nil 条目。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 cache.iscached(instance: Instance): boolean
@@ -16,15 +13,15 @@ cache.iscached(instance: Instance): boolean
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | 要检查其 Instance cache 条目的 Instance。 |
+<ParamField path={"instance"} type={"Instance"} required>
+要检查其 Instance cache 条目的 Instance。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `cached` | `boolean` | 当 cache 包含该 Instance 的 non-nil 条目时返回 True。 |
+<ResponseField name={"cached"} type={"boolean"}>
+当 cache 包含该 Instance 的 non-nil 条目时返回 True。
+</ResponseField>
 
 ## 示例
 
@@ -39,3 +36,6 @@ print(cached)
 cache.invalidate(Players)
 print(cache.iscached(Players))
 ```
+
+
+</div>

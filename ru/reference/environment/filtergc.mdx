@@ -2,13 +2,10 @@
 title: "filtergc"
 sidebarTitle: "filtergc"
 description: "Ищет live garbage-collected tables или functions, совпадающие с переданными filters. filterType должен быть \"table\" или \"function\". options должен быть table."
-icon: "function"
 keywords: ["filtergc","Environment"]
 ---
 
-Ищет live garbage-collected tables или functions, совпадающие с переданными filters. filterType должен быть "table" или "function". options должен быть table.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 filtergc(filterType: string, options: table, returnOne?: boolean): table | function | nil
@@ -16,17 +13,23 @@ filtergc(filterType: string, options: table, returnOne?: boolean): table | funct
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `filterType` | `string` | Yes | Искомый GC object type. Значение переводится в lowercase и должно быть "table" или "function". |
-| `options` | `table` | Yes | Filter table. function searches читают Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants и Upvalues. table searches читают Metatable, Keys, Values и KeyValuePairs. |
-| `returnOne` | `boolean` | No | Optional optional boolean handling flag. Когда true, возвращает первый matching object или nil вместо array table. |
+<ParamField path={"filterType"} type={"string"} required>
+Искомый GC object type. Значение переводится в lowercase и должно быть "table" или "function".
+</ParamField>
+
+<ParamField path={"options"} type={"table"} required>
+Filter table. function searches читают Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants и Upvalues. table searches читают Metatable, Keys, Values и KeyValuePairs.
+</ParamField>
+
+<ParamField path={"returnOne"} type={"boolean"}>
+Optional optional boolean handling flag. Когда true, возвращает первый matching object или nil вместо array table.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `result` | `table \| function \| nil` | Когда returnOne равен false или omitted, array table of matches. Когда returnOne равен true, первый matching table/function object или nil. |
+<ResponseField name={"result"} type={"table | function | nil"}>
+Когда returnOne равен false или omitted, array table of matches. Когда returnOne равен true, первый matching table/function object или nil.
+</ResponseField>
 
 ## Пример
 
@@ -54,3 +57,6 @@ local first = filtergc("table", {
 
 print(first ~= nil)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "identifyexecutor"
 sidebarTitle: "identifyexecutor"
 description: "Returns two strings: the executor name followed by the executor version."
-icon: "function"
 keywords: ["identifyexecutor","Miscellaneous"]
 ---
 
-Returns two strings: the executor name followed by the executor version.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 identifyexecutor(): string | string
@@ -16,10 +13,13 @@ identifyexecutor(): string | string
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `executorName` | `string` | Executor name string. |
-| `executorVersion` | `string` | Executor version string. |
+<ResponseField name={"executorName"} type={"string"}>
+Executor name string.
+</ResponseField>
+
+<ResponseField name={"executorVersion"} type={"string"}>
+Executor version string.
+</ResponseField>
 
 ## Beispiel
 
@@ -29,3 +29,6 @@ Read Real's executor name and version as two return values.
 local name, version = identifyexecutor()
 print(name, version)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "mousemoverel"
 sidebarTitle: "mousemoverel"
 description: "Di chuyen mouse theo relative delta khi Roblox window active. Doi so x va y duoc kiem tra la Lua numbers va chuyen doi bang integer conversion, sau do truyen truc tiep vao mouse input voi the requested mouse action lam dx va dy. Function nay khong dung the requested mouse action, khong thuc hien client-area conversion, khong tra ve gi va tra ve ma khong gui input khi isrbxactive se la false."
-icon: "function"
 keywords: ["mousemoverel","Input"]
 ---
 
-Di chuyen mouse theo relative delta khi Roblox window active. Doi so x va y duoc kiem tra la Lua numbers va chuyen doi bang integer conversion, sau do truyen truc tiep vao mouse input voi the requested mouse action lam dx va dy. Function nay khong dung the requested mouse action, khong thuc hien client-area conversion, khong tra ve gi va tra ve ma khong gui input khi isrbxactive se la false.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 mousemoverel(x: number, y: number)
@@ -16,7 +13,13 @@ mousemoverel(x: number, y: number)
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `x` | `number` | Yes | Relative X movement delta duoc doc nhu Lua number va chuyen doi bang integer conversion truoc khi truyen lam dx vao mouse input. |
-| `y` | `number` | Yes | Relative Y movement delta duoc doc nhu Lua number va chuyen doi bang integer conversion truoc khi truyen lam dy vao mouse input. |
+<ParamField path={"x"} type={"number"} required>
+Relative X movement delta duoc doc nhu Lua number va chuyen doi bang integer conversion truoc khi truyen lam dx vao mouse input.
+</ParamField>
+
+<ParamField path={"y"} type={"number"} required>
+Relative Y movement delta duoc doc nhu Lua number va chuyen doi bang integer conversion truoc khi truyen lam dy vao mouse input.
+</ParamField>
+
+
+</div>

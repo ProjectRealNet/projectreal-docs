@@ -2,13 +2,10 @@
 title: "setrenderproperty"
 sidebarTitle: "setrenderproperty"
 description: "value를 object[property]에 할당합니다. Drawing object의 경우 direct property assignment와 같은 Drawing property assignment를 사용합니다. unknown Drawing properties는 무시되고 destroyed Drawing objects는 변경되지 않습니다. 세 번째 인수는 있어야 합니다. the Drawing API는 the required rendering environment is active가 true일 때만 이 API를 등록합니다. 이 검사가 false이면 initializer는 이러한 globals를 만들기 전에 반환됩니다."
-icon: "function"
 keywords: ["setrenderproperty","Drawing"]
 ---
 
-value를 object[property]에 할당합니다. Drawing object의 경우 direct property assignment와 같은 Drawing property assignment를 사용합니다. unknown Drawing properties는 무시되고 destroyed Drawing objects는 변경되지 않습니다. 세 번째 인수는 있어야 합니다. the Drawing API는 the required rendering environment is active가 true일 때만 이 API를 등록합니다. 이 검사가 false이면 initializer는 이러한 globals를 만들기 전에 반환됩니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 setrenderproperty(object: any, property: any, value: any)
@@ -16,11 +13,17 @@ setrenderproperty(object: any, property: any, value: any)
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | 인덱싱되고 할당될 값입니다. Drawing object에서는 RealDrawingObject __newindex handler가 사용됩니다. |
-| `property` | `any` | Yes | 할당에 사용되는 property key입니다. Drawing object properties는 strings 기반입니다. |
-| `value` | `any` | Yes | object[property]에 할당되는 값입니다. 이 인수는 제공되어야 하며 nil도 제공된 값입니다. |
+<ParamField path={"object"} type={"any"} required>
+인덱싱되고 할당될 값입니다. Drawing object에서는 RealDrawingObject __newindex handler가 사용됩니다.
+</ParamField>
+
+<ParamField path={"property"} type={"any"} required>
+할당에 사용되는 property key입니다. Drawing object properties는 strings 기반입니다.
+</ParamField>
+
+<ParamField path={"value"} type={"any"} required>
+object[property]에 할당되는 값입니다. 이 인수는 제공되어야 하며 nil도 제공된 값입니다.
+</ParamField>
 
 ## 예제
 
@@ -34,3 +37,6 @@ setrenderproperty(line, "Visible", true)
 print(line.Thickness)
 print(line.Visible)
 ```
+
+
+</div>

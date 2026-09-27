@@ -2,13 +2,10 @@
 title: "restorefunction"
 sidebarTitle: "restorefunction"
 description: "Memulihkan atau mengganti function dengan memanggil function hook operation secara dan tidak mengembalikan values. First argument harus berupa function. Dengan satu function argument, function mencari the saved original function; jika tidak ada entry, function memunculkan \"Function is not hooked\". Lalu function memanggil function hook operation dengan hooked closure dan stored original closure, fieldsihkan Lua stack, dan menghapus restored closure dari hook records saat stored original digunakan. Jika second argument juga function, function memperlakukan firstFunction sebagai original function yang akan dipasang dan secondFunction sebagai closure yang akan di-patch. Dalam bentuk itu, tidak ada missing-original check terhadap nilai hook records yang tersimpan; nilai tersimpan hanya dibandingkan selama final remove check. Non-function second arguments diabaikan oleh branch condition. restorefunc dan restoreclosure adalah aliases untuk function yang sama."
-icon: "function"
 keywords: ["restorefunction","Closures","restorefunc","restoreclosure"]
 ---
 
-Memulihkan atau mengganti function dengan memanggil function hook operation secara dan tidak mengembalikan values. First argument harus berupa function. Dengan satu function argument, function mencari the saved original function; jika tidak ada entry, function memunculkan "Function is not hooked". Lalu function memanggil function hook operation dengan hooked closure dan stored original closure, fieldsihkan Lua stack, dan menghapus restored closure dari hook records saat stored original digunakan. Jika second argument juga function, function memperlakukan firstFunction sebagai original function yang akan dipasang dan secondFunction sebagai closure yang akan di-patch. Dalam bentuk itu, tidak ada missing-original check terhadap nilai hook records yang tersimpan; nilai tersimpan hanya dibandingkan selama final remove check. Non-function second arguments diabaikan oleh branch condition. restorefunc dan restoreclosure adalah aliases untuk function yang sama.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 restorefunction(firstFunction: function, secondFunction?: function)
@@ -21,10 +18,13 @@ restorefunction(firstFunction: function, secondFunction?: function)
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `firstFunction` | `function` | Yes | Dengan satu argument, hooked closure yang dipulihkan dari hook records. Dengan function second argument, function yang dipasang ke secondFunction. |
-| `secondFunction` | `function` | No | Closure opsional yang di-patch dengan firstFunction. Branch ini hanya digunakan saat second argument berupa function. |
+<ParamField path={"firstFunction"} type={"function"} required>
+Dengan satu argument, hooked closure yang dipulihkan dari hook records. Dengan function second argument, function yang dipasang ke secondFunction.
+</ParamField>
+
+<ParamField path={"secondFunction"} type={"function"}>
+Closure opsional yang di-patch dengan firstFunction. Branch ini hanya digunakan saat second argument berupa function.
+</ParamField>
 
 ## Contoh
 
@@ -45,3 +45,6 @@ restorefunction(target)
 
 print(target())
 ```
+
+
+</div>

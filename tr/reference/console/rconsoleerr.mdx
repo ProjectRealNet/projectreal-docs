@@ -2,13 +2,10 @@
 title: "rconsoleerr"
 sidebarTitle: "rconsoleerr"
 description: "console text attribute error text color olarak ayarlandıktan sonra stdout üzerinden geçerli Windows console içine sifir veya daha fazla deger yazar. Değerler Lua string conversion ile dönüştürülür, tab karakterleriyle ayrılır ve text attribute daha sonra default console text color olarak ayarlanir. console window yoksa çağrı herhangi bir seyi donusturmeden veya yazmadan doner."
-icon: "function"
 keywords: ["rconsoleerr","Console","consoleerr"]
 ---
 
-console text attribute error text color olarak ayarlandıktan sonra stdout üzerinden geçerli Windows console içine sifir veya daha fazla deger yazar. Değerler Lua string conversion ile dönüştürülür, tab karakterleriyle ayrılır ve text attribute daha sonra default console text color olarak ayarlanir. console window yoksa çağrı herhangi bir seyi donusturmeden veya yazmadan doner.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 rconsoleerr(...values?: ...any)
@@ -20,9 +17,9 @@ rconsoleerr(...values?: ...any)
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | Istege bagli degerler. console varsa her value Lua string conversion ile donusturulur ve yazmadan once tab karakterleriyle birlestirilir. |
+<ParamField path={"...values"} type={"...any"}>
+Istege bagli degerler. console varsa her value Lua string conversion ile donusturulur ve yazmadan once tab karakterleriyle birlestirilir.
+</ParamField>
 
 ## Örnek
 
@@ -33,3 +30,6 @@ rconsolecreate()
 rconsoleerr("Request failed", 500, "
 ")
 ```
+
+
+</div>

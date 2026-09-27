@@ -2,13 +2,10 @@
 title: "comparefunctions"
 sidebarTitle: "comparefunctions"
 description: "Porównuje dwa function values przez ich function identity. Oba arguments muszą być functions. Function zwraca boolean result z function identity(L, 1) == function identity(L, 2). Nie porównuje function bytecode, source, behavior, hashes, upvalues ani newcclosure mappings. comparefunction jest alias dla tej samej function."
-icon: "function"
 keywords: ["comparefunctions","Closures","comparefunction"]
 ---
 
-Porównuje dwa function values przez ich function identity. Oba arguments muszą być functions. Function zwraca boolean result z function identity(L, 1) == function identity(L, 2). Nie porównuje function bytecode, source, behavior, hashes, upvalues ani newcclosure mappings. comparefunction jest alias dla tej samej function.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 comparefunctions(func1: function, func2: function): boolean
@@ -20,16 +17,19 @@ comparefunctions(func1: function, func2: function): boolean
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `func1` | `function` | Yes | First function value konwertowana przez function identity. |
-| `func2` | `function` | Yes | Second function value konwertowana przez function identity. |
+<ParamField path={"func1"} type={"function"} required>
+First function value konwertowana przez function identity.
+</ParamField>
+
+<ParamField path={"func2"} type={"function"} required>
+Second function value konwertowana przez function identity.
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `equal` | `boolean` | true, gdy oba function values rozwiązują się do tego samego function identity; w przeciwnym razie false. |
+<ResponseField name={"equal"} type={"boolean"}>
+true, gdy oba function values rozwiązują się do tego samego function identity; w przeciwnym razie false.
+</ResponseField>
 
 ## Przykład
 
@@ -43,3 +43,6 @@ end
 local same = comparefunctions(sample, sample)
 print(same)
 ```
+
+
+</div>

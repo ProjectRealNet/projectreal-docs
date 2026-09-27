@@ -2,13 +2,10 @@
 title: "json.encodePretty"
 sidebarTitle: "json.encodePretty"
 description: "使用 Real JSON encoder 将 Lua value serializes 为 readable formatted JSON string。json.pretty 注册到同一个 function。"
-icon: "function"
 keywords: ["json.encodePretty","JSON"]
 ---
 
-使用 Real JSON encoder 将 Lua value serializes 为 readable formatted JSON string。json.pretty 注册到同一个 function。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 json.encodePretty(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.encodePretty(value: any, options?: EncodeOptions): string
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | 要 encoded 的 value。nil、booleans、numbers、strings、tables 和 json.null 会直接处理。Unsupported Lua types 会 encoded 为 null，除非 errorOnUnsupported 为 true。 |
-| `options` | `EncodeOptions` | No | Optional encode options。json.encodePretty 读取与 json.encode 相同的 options，然后强制 pretty 为 true。没有 options 时使用 two-space indent。number 设置 indent width 并 clamp 到 0.16，string 设置 indent text，table 可以设置 sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth 和 indent。 |
+<ParamField path={"value"} type={"any"} required>
+要 encoded 的 value。nil、booleans、numbers、strings、tables 和 json.null 会直接处理。Unsupported Lua types 会 encoded 为 null，除非 errorOnUnsupported 为 true。
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options。json.encodePretty 读取与 json.encode 相同的 options，然后强制 pretty 为 true。没有 options 时使用 two-space indent。number 设置 indent width 并 clamp 到 0.16，string 设置 indent text，table 可以设置 sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth 和 indent。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `json` | `string` | Readable formatted JSON string。Encoding errors 会作为 Luau errors 抛出。 |
+<ResponseField name={"json"} type={"string"}>
+Readable formatted JSON string。Encoding errors 会作为 Luau errors 抛出。
+</ResponseField>
 
 ## 类型
 
@@ -59,3 +59,6 @@ local text = json.encodePretty({
 
 print(text)
 ```
+
+
+</div>

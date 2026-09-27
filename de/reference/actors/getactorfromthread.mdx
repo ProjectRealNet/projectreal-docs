@@ -2,13 +2,10 @@
 title: "getactorfromthread"
 sidebarTitle: "getactorfromthread"
 description: "Gibt die Actor Instance zurück, die mit einem Luau thread verbunden ist. Das erste argument muss ein thread sein. Die function liest den thread data des thread, verlangt Actor reference und einen positiven container count und liest dann the associated Actor. Wenn die actor weak reference gültig ist, wird sie als Instance gepusht; andernfalls gibt die function nil zurück."
-icon: "function"
 keywords: ["getactorfromthread","Actors","getactorfromstate"]
 ---
 
-Gibt die Actor Instance zurück, die mit einem Luau thread verbunden ist. Das erste argument muss ein thread sein. Die function liest den thread data des thread, verlangt Actor reference und einen positiven container count und liest dann the associated Actor. Wenn die actor weak reference gültig ist, wird sie als Instance gepusht; andernfalls gibt die function nil zurück.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getactorfromthread(thread: thread): Instance | nil
@@ -20,15 +17,15 @@ getactorfromthread(thread: thread): Instance | nil
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `thread` | `thread` | Yes | Luau thread, dessen thread data auf eine associated Actor weak reference geprüft werden soll. |
+<ParamField path={"thread"} type={"thread"} required>
+Luau thread, dessen thread data auf eine associated Actor weak reference geprüft werden soll.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `actor` | `Instance \| nil` | Actor Instance, die aus der the associated Actor weak reference des thread aufgelöst wurde, oder nil, wenn keine valid actor reference vorhanden ist. |
+<ResponseField name={"actor"} type={"Instance | nil"}>
+Actor Instance, die aus der the associated Actor weak reference des thread aufgelöst wurde, oder nil, wenn keine valid actor reference vorhanden ist.
+</ResponseField>
 
 ## Beispiel
 
@@ -40,3 +37,6 @@ for _, thread in ipairs(getactorthreads()) do
     print(actor)
 end
 ```
+
+
+</div>

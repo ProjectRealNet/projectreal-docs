@@ -2,13 +2,10 @@
 title: "getactorthreads"
 sidebarTitle: "getactorthreads"
 description: "คืน array table ของ Luau threads จาก actor thread list function นี้ไม่รับ arguments อ่าน actor list bounds จาก ScriptContext เดินผ่านแต่ละ actor state entry, decrypt stored global state เป็น Luau thread และรวมเฉพาะ entries ที่เป็น valid threads"
-icon: "function"
 keywords: ["getactorthreads","Actors","getactorstates"]
 ---
 
-คืน array table ของ Luau threads จาก actor thread list function นี้ไม่รับ arguments อ่าน actor list bounds จาก ScriptContext เดินผ่านแต่ละ actor state entry, decrypt stored global state เป็น Luau thread และรวมเฉพาะ entries ที่เป็น valid threads
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 getactorthreads(): {thread}
@@ -20,9 +17,9 @@ getactorthreads(): {thread}
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `threads` | `&#123;thread&#125;` | Array table ของ actor Luau thread values ที่ถูก push เป็น Luau threads. |
+<ResponseField name={"threads"} type={"{thread}"}>
+Array table ของ actor Luau thread values ที่ถูก push เป็น Luau threads.
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -33,3 +30,6 @@ for _, thread in ipairs(getactorthreads()) do
     print(thread)
 end
 ```
+
+
+</div>

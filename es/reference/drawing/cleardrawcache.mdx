@@ -2,13 +2,10 @@
 title: "cleardrawcache"
 sidebarTitle: "cleardrawcache"
 description: "Limpia Real global Drawing object list. Cada Drawing object rastreado se marca como destroyed, los image resources se liberan cuando existen y la object list se vacia. Las Lua references existentes a Drawing objects limpiados pueden seguir existiendo, pero los objects ya no se consideran active Drawing objects. the Drawing API registra esta API solo cuando the required rendering environment is active es true; cuando esa comprobacion es false, el initializer vuelve antes de crear estos globals."
-icon: "function"
 keywords: ["cleardrawcache","Drawing"]
 ---
 
-Limpia Real global Drawing object list. Cada Drawing object rastreado se marca como destroyed, los image resources se liberan cuando existen y la object list se vacia. Las Lua references existentes a Drawing objects limpiados pueden seguir existiendo, pero los objects ya no se consideran active Drawing objects. the Drawing API registra esta API solo cuando the required rendering environment is active es true; cuando esa comprobacion es false, el initializer vuelve antes de crear estos globals.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 cleardrawcache()
@@ -25,3 +22,6 @@ square.Visible = true
 cleardrawcache()
 print(square.Visible)
 ```
+
+
+</div>

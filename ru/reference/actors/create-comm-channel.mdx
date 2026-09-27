@@ -2,13 +2,10 @@
 title: "create_comm_channel"
 sidebarTitle: "create_comm_channel"
 description: "Создает новый BindableEvent через Instance.new, сохраняет его Instance reference во communication channel list под numeric channel ID и возвращает ID вместе с BindableEvent Instance. channel ID вычисляется как current map size plus one. Если Instance.new(\"BindableEvent\") не оставляет object value на stack, function выбрасывает \"Failed to make a BindableEvent\"."
-icon: "function"
 keywords: ["create_comm_channel","Actors"]
 ---
 
-Создает новый BindableEvent через Instance.new, сохраняет его Instance reference во communication channel list под numeric channel ID и возвращает ID вместе с BindableEvent Instance. channel ID вычисляется как current map size plus one. Если Instance.new("BindableEvent") не оставляет object value на stack, function выбрасывает "Failed to make a BindableEvent".
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 create_comm_channel(): integer | Instance
@@ -16,10 +13,13 @@ create_comm_channel(): integer | Instance
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `channelId` | `integer` | Numeric channel ID, вставленный во communication channel list. |
-| `event` | `Instance` | BindableEvent Instance, сохраненный для channel и возвращенный caller. |
+<ResponseField name={"channelId"} type={"integer"}>
+Numeric channel ID, вставленный во communication channel list.
+</ResponseField>
+
+<ResponseField name={"event"} type={"Instance"}>
+BindableEvent Instance, сохраненный для channel и возвращенный caller.
+</ResponseField>
 
 ## Пример
 
@@ -31,3 +31,6 @@ local channelId, event = create_comm_channel()
 print(channelId)
 print(event)
 ```
+
+
+</div>

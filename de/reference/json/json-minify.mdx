@@ -2,13 +2,10 @@
 title: "json.minify"
 sidebarTitle: "json.minify"
 description: "Parsed einen JSON string und encoded ihn mit Real default non-pretty JSON encoder output neu."
-icon: "function"
 keywords: ["json.minify","JSON"]
 ---
 
-Parsed einen JSON string und encoded ihn mit Real default non-pretty JSON encoder output neu.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 json.minify(json: string, options?: DecodeOptions): string
@@ -16,16 +13,19 @@ json.minify(json: string, options?: DecodeOptions): string
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string, der vor dem minifying parsed wird. Die function liest dieses argument mit string type checking. |
-| `options` | `DecodeOptions` | No | Optional decode options fuer das parsing des input JSON. Ein boolean setzt useNull. Eine table kann useNull und maxDepth setzen. |
+<ParamField path={"json"} type={"string"} required>
+JSON string, der vor dem minifying parsed wird. Die function liest dieses argument mit string type checking.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options fuer das parsing des input JSON. Ein boolean setzt useNull. Eine table kann useNull und maxDepth setzen.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `minified` | `string` | JSON string, der nach parsing und re-encoding des input mit default encode options erzeugt wird. |
+<ResponseField name={"minified"} type={"string"}>
+JSON string, der nach parsing und re-encoding des input mit default encode options erzeugt wird.
+</ResponseField>
 
 ## Typen
 
@@ -53,3 +53,6 @@ print(json.minify(formatted, {
     useNull = true,
 }))
 ```
+
+
+</div>

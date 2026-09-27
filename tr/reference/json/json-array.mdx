@@ -2,13 +2,10 @@
 title: "json.array"
 sidebarTitle: "json.array"
 description: "json.encode icin JSON array olarak isaretlenmis new table olusturur ve source table verildiginde 1.#source sequence degerini kopyalar."
-icon: "function"
 keywords: ["json.array","JSON"]
 ---
 
-json.encode icin JSON array olarak isaretlenmis new table olusturur ve source table verildiginde 1.#source sequence degerini kopyalar.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 json.array(source?: table): table
@@ -16,15 +13,15 @@ json.array(source?: table): table
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `source` | `table` | No | Optional source table. Atlanirsa veya nil ise json.array new empty array-marked table dondurur. Verilirse, yalnizca 1 with #source arasindaki numeric sequence entries new table icine kopyalanir. |
+<ParamField path={"source"} type={"table"}>
+Optional source table. Atlanirsa veya nil ise json.array new empty array-marked table dondurur. Verilirse, yalnizca 1 with #source arasindaki numeric sequence entries new table icine kopyalanir.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `array` | `table` | JSON array marker iceren new table. json.encode bunu JSON array olarak serializes eder; original source table dondurulmez. |
+<ResponseField name={"array"} type={"table"}>
+JSON array marker iceren new table. json.encode bunu JSON array olarak serializes eder; original source table dondurulmez.
+</ResponseField>
 
 ## Örnek
 
@@ -38,3 +35,6 @@ print(json.encode(tags))
 print(json.encode(empty))
 print(json.type(empty))
 ```
+
+
+</div>

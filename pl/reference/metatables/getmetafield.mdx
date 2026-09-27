@@ -2,13 +2,10 @@
 title: "getmetafield"
 sidebarTitle: "getmetafield"
 description: "Returns a raw metafield value from the target metatable. target may be any value, and field must be a string. The function does not call the metafield, does not invoke __index lookup, and returns nil when the metatable or field is missing."
-icon: "function"
 keywords: ["getmetafield","Metatables"]
 ---
 
-Returns a raw metafield value from the target metatable. target may be any value, and field must be a string. The function does not call the metafield, does not invoke __index lookup, and returns nil when the metatable or field is missing.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 getmetafield(target: any, field: string): any | nil
@@ -16,16 +13,19 @@ getmetafield(target: any, field: string): any | nil
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `target` | `any` | Yes | Value whose metatable is inspected. |
-| `field` | `string` | Yes | Metafield name to read. |
+<ParamField path={"target"} type={"any"} required>
+Value whose metatable is inspected.
+</ParamField>
+
+<ParamField path={"field"} type={"string"} required>
+Metafield name to read.
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `fieldValue` | `any \| nil` | Raw metafield value when present; otherwise nil. |
+<ResponseField name={"fieldValue"} type={"any | nil"}>
+Raw metafield value when present; otherwise nil.
+</ResponseField>
 
 ## Przykład
 
@@ -45,3 +45,6 @@ local field = getmetafield(target, "__index")
 print(type(field))
 print(getmetafield(target, "__newindex"))
 ```
+
+
+</div>

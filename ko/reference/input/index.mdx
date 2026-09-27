@@ -1,23 +1,55 @@
 ---
 title: "Input"
 description: "키보드 및 마우스 입력 이벤트."
-icon: "folder-code"
+icon: "/icons/mouse.svg"
 ---
+
+<div className="real-category-page">
 
 키보드 및 마우스 입력 이벤트.
 
-| 함수 탐색 | 설명 |
-| --- | --- |
-| [`isrbxactive`](./isrbxactive) | current foreground window가 Real이 찾은 Roblox window인지 반환합니다. Real은 현재 프로세스의 windows를 enumerating하고 class name이 Roblox window인 window를 선택하여 해당 window를 찾습니다. 이 function은 arguments를 받지 않으며 foreground window 또는 matching Roblox window가 없으면 false를 반환합니다. |
-| [`keyclick`](./keyclick) | Roblox window가 active일 때 key down event 다음에 key up event를 보냅니다. keyCode 인수는 Lua number로 검사되고 integer conversion로 변환되며 Windows key mapping를 통해 Windows virtual-key code에서 scan code로 매핑된 뒤 KEYEVENTF_SCANCODE와 함께 keyboard input로 전송됩니다. isrbxactive가 false라면 function은 input을 보내지 않고 반환합니다. |
-| [`keypress`](./keypress) | Roblox window가 active일 때 key down event를 보냅니다. keyCode 인수는 Lua number로 검사되고 integer conversion로 변환되며 Windows key mapping를 통해 Windows virtual-key code에서 scan code로 매핑된 뒤 KEYEVENTF_SCANCODE와 함께 keyboard input로 전송됩니다. 이 function은 key up event를 보내지 않습니다. isrbxactive가 false라면 function은 input을 보내지 않고 반환합니다. |
-| [`keyrelease`](./keyrelease) | Roblox window가 active일 때 key up event를 보냅니다. keyCode 인수는 Lua number로 검사되고 integer conversion로 변환되며 Windows key mapping를 통해 Windows virtual-key code에서 scan code로 매핑된 뒤 KEYEVENTF_SCANCODE \| KEYEVENTF_KEYUP와 함께 keyboard input로 전송됩니다. 이 function은 key down event를 보내지 않습니다. isrbxactive가 false라면 function은 input을 보내지 않고 반환합니다. |
-| [`mouse1click`](./mouse1click) | Roblox window가 active일 때 left mouse down event와 left mouse up event를 보냅니다. Real은 the requested mouse action 및 movement 또는 wheel data 없이 mouse input를 호출합니다. 이 function은 arguments를 받지 않고 아무것도 반환하지 않으며 isrbxactive가 false라면 input을 보내지 않고 반환합니다. |
-| [`mouse1press`](./mouse1press) | Roblox window가 active일 때 left mouse down event를 보냅니다. Real은 the requested mouse action 및 movement 또는 wheel data 없이 mouse input를 호출합니다. 이 function은 arguments를 받지 않고 아무것도 반환하지 않으며 대응하는 left mouse up event를 보내지 않고 isrbxactive가 false라면 input을 보내지 않고 반환합니다. |
-| [`mouse1release`](./mouse1release) | Roblox window가 active일 때 left mouse up event를 보냅니다. Real은 the requested mouse action 및 movement 또는 wheel data 없이 mouse input를 호출합니다. 이 function은 arguments를 받지 않고 아무것도 반환하지 않으며 대응하는 left mouse down event를 보내지 않고 isrbxactive가 false라면 input을 보내지 않고 반환합니다. |
-| [`mouse2click`](./mouse2click) | Roblox window가 active일 때 right mouse down event와 right mouse up event를 보냅니다. Real은 the requested mouse action 및 movement 또는 wheel data 없이 mouse input를 호출합니다. 이 function은 arguments를 받지 않고 아무것도 반환하지 않으며 isrbxactive가 false라면 input을 보내지 않고 반환합니다. |
-| [`mouse2press`](./mouse2press) | Roblox window가 active일 때 right mouse down event를 보냅니다. Real은 the requested mouse action 및 movement 또는 wheel data 없이 mouse input를 호출합니다. 이 function은 arguments를 받지 않고 아무것도 반환하지 않으며 대응하는 right mouse up event를 보내지 않고 isrbxactive가 false라면 input을 보내지 않고 반환합니다. |
-| [`mouse2release`](./mouse2release) | Roblox window가 active일 때 right mouse up event를 보냅니다. Real은 the requested mouse action 및 movement 또는 wheel data 없이 mouse input를 호출합니다. 이 function은 arguments를 받지 않고 아무것도 반환하지 않으며 대응하는 right mouse down event를 보내지 않고 isrbxactive가 false라면 input을 보내지 않고 반환합니다. |
-| [`mousemoveabs`](./mousemoveabs) | Roblox window가 active일 때 Windows absolute mouse input으로 mouse를 이동합니다. x 및 y 인수는 Lua numbers로 검사되고 integer conversion로 변환됩니다. Real은 이를 active foreground window client area 기준 좌표로 처리하고 ClientToScreen으로 해당 client area의 screen position을 더한 뒤 GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1과 integer math로 scaling하고 the requested mouse action와 함께 mouse input를 호출합니다. isrbxactive가 false라면 function은 input을 보내지 않고 반환합니다. |
-| [`mousemoverel`](./mousemoverel) | Roblox window가 active일 때 relative delta만큼 mouse를 이동합니다. x 및 y 인수는 Lua numbers로 검사되고 integer conversion로 변환된 뒤 the requested mouse action와 함께 mouse input에 dx 및 dy로 직접 전달됩니다. 이 function은 the requested mouse action를 사용하지 않고 client-area conversion을 수행하지 않으며 아무것도 반환하지 않고 isrbxactive가 false라면 input을 보내지 않고 반환합니다. |
-| [`mousescroll`](./mousescroll) | Roblox window가 active일 때 mouse wheel event를 보냅니다. amount 인수는 Lua number로 검사되고 integer conversion로 변환된 뒤 the requested mouse action과 함께 mouse input에 dwData 값으로 직접 전달됩니다. Real은 amount를 정규화하지 않고 movement data를 추가하지 않습니다. 이 function은 아무것도 반환하지 않으며 isrbxactive가 false라면 input을 보내지 않고 반환합니다. |
+## 사용 가능한 함수
+
+<CardGroup cols={2}>
+<Card title="isrbxactive" href="./isrbxactive">
+current foreground window가 Real이 찾은 Roblox window인지 반환합니다. Real은 현재 프로세스의 windows를 enumerating하고 class name이 Roblox window인 window를 선택하여 해당 window를 찾습니다. 이 function은 arguments를 받지 않으며 foreground window 또는 matching Roblox window가 없으면 false를 반환합니다.
+</Card>
+<Card title="keyclick" href="./keyclick">
+Roblox window가 active일 때 key down event 다음에 key up event를 보냅니다. keyCode 인수는 Lua number로 검사되고 integer conversion로 변환되며 Windows key mapping를 통해 Windows virtual-key code에서 scan code로 매핑된 뒤 KEYEVENTF_SCANCODE와 함께 keyboard input로 전송됩니다. isrbxactive가 false라면 function은 input을 보내지 않고 반환합니다.
+</Card>
+<Card title="keypress" href="./keypress">
+Roblox window가 active일 때 key down event를 보냅니다. keyCode 인수는 Lua number로 검사되고 integer conversion로 변환되며 Windows key mapping를 통해 Windows virtual-key code에서 scan code로 매핑된 뒤 KEYEVENTF_SCANCODE와 함께 keyboard input로 전송됩니다. 이 function은 key up event를 보내지 않습니다. isrbxactive가 false라면 function은 input을 보내지 않고 반환합니다.
+</Card>
+<Card title="keyrelease" href="./keyrelease">
+Roblox window가 active일 때 key up event를 보냅니다. keyCode 인수는 Lua number로 검사되고 integer conversion로 변환되며 Windows key mapping를 통해 Windows virtual-key code에서 scan code로 매핑된 뒤 KEYEVENTF_SCANCODE | KEYEVENTF_KEYUP와 함께 keyboard input로 전송됩니다. 이 function은 key down event를 보내지 않습니다. isrbxactive가 false라면 function은 input을 보내지 않고 반환합니다.
+</Card>
+<Card title="mouse1click" href="./mouse1click">
+Roblox window가 active일 때 left mouse down event와 left mouse up event를 보냅니다. Real은 the requested mouse action 및 movement 또는 wheel data 없이 mouse input를 호출합니다. 이 function은 arguments를 받지 않고 아무것도 반환하지 않으며 isrbxactive가 false라면 input을 보내지 않고 반환합니다.
+</Card>
+<Card title="mouse1press" href="./mouse1press">
+Roblox window가 active일 때 left mouse down event를 보냅니다. Real은 the requested mouse action 및 movement 또는 wheel data 없이 mouse input를 호출합니다. 이 function은 arguments를 받지 않고 아무것도 반환하지 않으며 대응하는 left mouse up event를 보내지 않고 isrbxactive가 false라면 input을 보내지 않고 반환합니다.
+</Card>
+<Card title="mouse1release" href="./mouse1release">
+Roblox window가 active일 때 left mouse up event를 보냅니다. Real은 the requested mouse action 및 movement 또는 wheel data 없이 mouse input를 호출합니다. 이 function은 arguments를 받지 않고 아무것도 반환하지 않으며 대응하는 left mouse down event를 보내지 않고 isrbxactive가 false라면 input을 보내지 않고 반환합니다.
+</Card>
+<Card title="mouse2click" href="./mouse2click">
+Roblox window가 active일 때 right mouse down event와 right mouse up event를 보냅니다. Real은 the requested mouse action 및 movement 또는 wheel data 없이 mouse input를 호출합니다. 이 function은 arguments를 받지 않고 아무것도 반환하지 않으며 isrbxactive가 false라면 input을 보내지 않고 반환합니다.
+</Card>
+<Card title="mouse2press" href="./mouse2press">
+Roblox window가 active일 때 right mouse down event를 보냅니다. Real은 the requested mouse action 및 movement 또는 wheel data 없이 mouse input를 호출합니다. 이 function은 arguments를 받지 않고 아무것도 반환하지 않으며 대응하는 right mouse up event를 보내지 않고 isrbxactive가 false라면 input을 보내지 않고 반환합니다.
+</Card>
+<Card title="mouse2release" href="./mouse2release">
+Roblox window가 active일 때 right mouse up event를 보냅니다. Real은 the requested mouse action 및 movement 또는 wheel data 없이 mouse input를 호출합니다. 이 function은 arguments를 받지 않고 아무것도 반환하지 않으며 대응하는 right mouse down event를 보내지 않고 isrbxactive가 false라면 input을 보내지 않고 반환합니다.
+</Card>
+<Card title="mousemoveabs" href="./mousemoveabs">
+Roblox window가 active일 때 Windows absolute mouse input으로 mouse를 이동합니다. x 및 y 인수는 Lua numbers로 검사되고 integer conversion로 변환됩니다. Real은 이를 active foreground window client area 기준 좌표로 처리하고 ClientToScreen으로 해당 client area의 screen position을 더한 뒤 GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1과 integer math로 scaling하고 the requested mouse action와 함께 mouse input를 호출합니다. isrbxactive가 false라면 function은 input을 보내지 않고 반환합니다.
+</Card>
+<Card title="mousemoverel" href="./mousemoverel">
+Roblox window가 active일 때 relative delta만큼 mouse를 이동합니다. x 및 y 인수는 Lua numbers로 검사되고 integer conversion로 변환된 뒤 the requested mouse action와 함께 mouse input에 dx 및 dy로 직접 전달됩니다. 이 function은 the requested mouse action를 사용하지 않고 client-area conversion을 수행하지 않으며 아무것도 반환하지 않고 isrbxactive가 false라면 input을 보내지 않고 반환합니다.
+</Card>
+<Card title="mousescroll" href="./mousescroll">
+Roblox window가 active일 때 mouse wheel event를 보냅니다. amount 인수는 Lua number로 검사되고 integer conversion로 변환된 뒤 the requested mouse action과 함께 mouse input에 dwData 값으로 직접 전달됩니다. Real은 amount를 정규화하지 않고 movement data를 추가하지 않습니다. 이 function은 아무것도 반환하지 않으며 isrbxactive가 false라면 input을 보내지 않고 반환합니다.
+</Card>
+</CardGroup>
+
+</div>

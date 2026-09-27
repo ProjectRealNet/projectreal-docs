@@ -2,13 +2,10 @@
 title: "ishiddenstack"
 sidebarTitle: "ishiddenstack"
 description: "Returns whether a function, or the function at a stack level, is marked as hidden. target must be a function or stack level number. Invalid stack levels raise \"Level out of range\". isstackhidden is an alias."
-icon: "function"
 keywords: ["ishiddenstack","Closures","isstackhidden"]
 ---
 
-Returns whether a function, or the function at a stack level, is marked as hidden. target must be a function or stack level number. Invalid stack levels raise "Level out of range". isstackhidden is an alias.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 ishiddenstack(target: function | number): boolean
@@ -20,15 +17,15 @@ ishiddenstack(target: function | number): boolean
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `target` | `function \| number` | Yes | Function or stack level number to check. |
+<ParamField path={"target"} type={"function | number"} required>
+Function or stack level number to check.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `hidden` | `boolean` | true when the resolved function is marked as hidden; otherwise false. |
+<ResponseField name={"hidden"} type={"boolean"}>
+true when the resolved function is marked as hidden; otherwise false.
+</ResponseField>
 
 ## 예제
 
@@ -40,3 +37,6 @@ end
 
 print(ishiddenstack(target))
 ```
+
+
+</div>

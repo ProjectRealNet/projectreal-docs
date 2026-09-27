@@ -2,13 +2,10 @@
 title: "hasmetafield"
 sidebarTitle: "hasmetafield"
 description: "Returns whether the target value has a non-nil raw metafield with the requested name. The function does not call the metafield, does not invoke __index lookup, and does not change readonly state."
-icon: "function"
 keywords: ["hasmetafield","Metatables"]
 ---
 
-Returns whether the target value has a non-nil raw metafield with the requested name. The function does not call the metafield, does not invoke __index lookup, and does not change readonly state.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 hasmetafield(target: any, field: string): boolean
@@ -16,16 +13,19 @@ hasmetafield(target: any, field: string): boolean
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `target` | `any` | Yes | Value whose metatable is inspected. |
-| `field` | `string` | Yes | Metafield name to check. |
+<ParamField path={"target"} type={"any"} required>
+Value whose metatable is inspected.
+</ParamField>
+
+<ParamField path={"field"} type={"string"} required>
+Metafield name to check.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `hasField` | `boolean` | true when the raw metafield exists and is non-nil; otherwise false. |
+<ResponseField name={"hasField"} type={"boolean"}>
+true when the raw metafield exists and is non-nil; otherwise false.
+</ResponseField>
 
 ## Ejemplo
 
@@ -42,3 +42,6 @@ setrawmetatable(target, meta)
 print(hasmetafield(target, "__index"))
 print(hasmetafield(target, "__newindex"))
 ```
+
+
+</div>

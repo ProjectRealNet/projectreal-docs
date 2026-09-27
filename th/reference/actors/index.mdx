@@ -1,20 +1,46 @@
 ---
 title: "Actors"
 description: "บริบทการดำเนินการและการสื่อสารของนักแสดง"
-icon: "folder-code"
+icon: "/icons/device-heart-monitor.svg"
 ---
+
+<div className="real-category-page">
 
 บริบทการดำเนินการและการสื่อสารของนักแสดง
 
-| การนำทางฟังก์ชัน | คำอธิบาย |
-| --- | --- |
-| [`create_comm_channel`](./create-comm-channel) | สร้าง BindableEvent ใหม่ด้วย Instance.new เก็บ Instance reference ของมันไว้ใน communication channel list ภายใต้ numeric channel ID แล้วคืน ID พร้อม BindableEvent Instance channel ID คำนวณจาก current map size plus one หาก Instance.new("BindableEvent") ไม่เหลือ object value บน stack, function จะ throw "Failed to make a BindableEvent" |
-| [`get_comm_channel`](./get-comm-channel) | ค้นหา channel ID ใน communication channel list และคืน BindableEvent Instance ที่เก็บไว้ argument แรกต้องเป็น number และถูกแปลงด้วย integer conversion ก่อน lookup หากไม่มี entry สำหรับ ID นั้น function จะคืน nil |
-| [`getactorfromthread`](./getactorfromthread) | คืน Actor Instance ที่เชื่อมกับ Luau thread argument แรกต้องเป็น thread function อ่าน thread data ของ thread ต้องมี Actor reference และ positive container count จากนั้นอ่าน the associated Actor หาก actor weak reference valid จะ push เป็น Instance มิฉะนั้น function คืน nil |
-| [`getactors`](./getactors) | คืน array table ของ live Actor Instances ที่ resolve จาก ScriptContext actor thread list function นี้ไม่รับ arguments เดินผ่าน actor thread list, decrypt แต่ละ actor Lua state, เก็บ entries ที่เป็น valid threads จากนั้นอ่าน thread data และ the associated Actor weak reference ของแต่ละ thread เฉพาะ non-expired actor references เท่านั้นที่ถูก push เป็น Instances entries ที่ไม่มี container, ไม่มี Actor reference, มี reference count &lt;= 0 หรือมี expired actor reference จะถูกข้าม |
-| [`getactorthreads`](./getactorthreads) | คืน array table ของ Luau threads จาก actor thread list function นี้ไม่รับ arguments อ่าน actor list bounds จาก ScriptContext เดินผ่านแต่ละ actor state entry, decrypt stored global state เป็น Luau thread และรวมเฉพาะ entries ที่เป็น valid threads |
-| [`getcurrentactor`](./getcurrentactor) | คืน Actor Instance ที่เชื่อมกับ Luau thread ปัจจุบัน function นี้ไม่รับ arguments resolve current Luau thread ผ่าน actor resolver เดียวกับที่ getactorfromthread ใช้: ต้องมี thread data, ต้องมี Actor reference, reference count ต้องมากกว่า 0 และ the associated Actor ต้องมี non-expired weak reference หากไม่มี valid actor reference function จะคืน nil |
-| [`getdeletedactors`](./getdeletedactors) | คืน array table ของ Luau threads จาก actor list ที่ thread data มี Actor reference, reference count มากกว่า 0 และ the associated Actor เป็น expired weak reference function นี้ไม่รับ arguments และไม่คืน Actor Instance values |
-| [`isparallel`](./isparallel) | คืน boolean จาก ScriptContext DataModel ของ Luau thread ปัจจุบัน function นี้ไม่รับ arguments อ่าน the current parallel execution status ซึ่งคืน parallel execution status หาก the current DataModel ไม่คืน DataModel function จะคืน false checkparallel เป็น alias ของ function เดียวกัน |
-| [`run_on_actor`](./run-on-actor) | Runs Luau source on the thread associated with a target Actor Instance. The first argument must be an Instance whose ClassName is Actor, and the second argument must be a non-empty source string. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonactor is an alias. |
-| [`run_on_thread`](./run-on-thread) | Runs Luau source on a specific Luau thread. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonthread is an alias. |
+## ฟังก์ชันที่ใช้ได้
+
+<CardGroup cols={2}>
+<Card title="create_comm_channel" href="./create-comm-channel">
+สร้าง BindableEvent ใหม่ด้วย Instance.new เก็บ Instance reference ของมันไว้ใน communication channel list ภายใต้ numeric channel ID แล้วคืน ID พร้อม BindableEvent Instance channel ID คำนวณจาก current map size plus one หาก Instance.new("BindableEvent") ไม่เหลือ object value บน stack, function จะ throw "Failed to make a BindableEvent"
+</Card>
+<Card title="get_comm_channel" href="./get-comm-channel">
+ค้นหา channel ID ใน communication channel list และคืน BindableEvent Instance ที่เก็บไว้ argument แรกต้องเป็น number และถูกแปลงด้วย integer conversion ก่อน lookup หากไม่มี entry สำหรับ ID นั้น function จะคืน nil
+</Card>
+<Card title="getactorfromthread" href="./getactorfromthread">
+คืน Actor Instance ที่เชื่อมกับ Luau thread argument แรกต้องเป็น thread function อ่าน thread data ของ thread ต้องมี Actor reference และ positive container count จากนั้นอ่าน the associated Actor หาก actor weak reference valid จะ push เป็น Instance มิฉะนั้น function คืน nil
+</Card>
+<Card title="getactors" href="./getactors">
+คืน array table ของ live Actor Instances ที่ resolve จาก ScriptContext actor thread list function นี้ไม่รับ arguments เดินผ่าน actor thread list, decrypt แต่ละ actor Lua state, เก็บ entries ที่เป็น valid threads จากนั้นอ่าน thread data และ the associated Actor weak reference ของแต่ละ thread เฉพาะ non-expired actor references เท่านั้นที่ถูก push เป็น Instances entries ที่ไม่มี container, ไม่มี Actor reference, มี reference count &lt;= 0 หรือมี expired actor reference จะถูกข้าม
+</Card>
+<Card title="getactorthreads" href="./getactorthreads">
+คืน array table ของ Luau threads จาก actor thread list function นี้ไม่รับ arguments อ่าน actor list bounds จาก ScriptContext เดินผ่านแต่ละ actor state entry, decrypt stored global state เป็น Luau thread และรวมเฉพาะ entries ที่เป็น valid threads
+</Card>
+<Card title="getcurrentactor" href="./getcurrentactor">
+คืน Actor Instance ที่เชื่อมกับ Luau thread ปัจจุบัน function นี้ไม่รับ arguments resolve current Luau thread ผ่าน actor resolver เดียวกับที่ getactorfromthread ใช้: ต้องมี thread data, ต้องมี Actor reference, reference count ต้องมากกว่า 0 และ the associated Actor ต้องมี non-expired weak reference หากไม่มี valid actor reference function จะคืน nil
+</Card>
+<Card title="getdeletedactors" href="./getdeletedactors">
+คืน array table ของ Luau threads จาก actor list ที่ thread data มี Actor reference, reference count มากกว่า 0 และ the associated Actor เป็น expired weak reference function นี้ไม่รับ arguments และไม่คืน Actor Instance values
+</Card>
+<Card title="isparallel" href="./isparallel">
+คืน boolean จาก ScriptContext DataModel ของ Luau thread ปัจจุบัน function นี้ไม่รับ arguments อ่าน the current parallel execution status ซึ่งคืน parallel execution status หาก the current DataModel ไม่คืน DataModel function จะคืน false checkparallel เป็น alias ของ function เดียวกัน
+</Card>
+<Card title="run_on_actor" href="./run-on-actor">
+Runs Luau source on the thread associated with a target Actor Instance. The first argument must be an Instance whose ClassName is Actor, and the second argument must be a non-empty source string. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonactor is an alias.
+</Card>
+<Card title="run_on_thread" href="./run-on-thread">
+Runs Luau source on a specific Luau thread. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonthread is an alias.
+</Card>
+</CardGroup>
+
+</div>

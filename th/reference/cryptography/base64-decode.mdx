@@ -2,13 +2,10 @@
 title: "base64_decode"
 sidebarTitle: "base64_decode"
 description: "ถอดรหัสอินพุต Base64 ด้วย Base64 decoder และคืนค่า byte ที่ถอดรหัสแล้วเป็น Lua string"
-icon: "function"
 keywords: ["base64_decode","Cryptography","base64decode","base64.decode","crypt.base64.decode","crypt.base64_decode","crypt.base64decode"]
 ---
 
-ถอดรหัสอินพุต Base64 ด้วย Base64 decoder และคืนค่า byte ที่ถอดรหัสแล้วเป็น Lua string
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 base64_decode(data: string): string
@@ -24,15 +21,15 @@ base64_decode(data: string): string
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | อินพุต Base64 ที่ส่งให้ Base64 decoder |
+<ParamField path={"data"} type={"string"} required>
+อินพุต Base64 ที่ส่งให้ Base64 decoder
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `decoded` | `string` | byte ที่ถอดรหัสแล้วซึ่งคืนค่าเป็น Lua string พร้อมความยาวแบบ explicit |
+<ResponseField name={"decoded"} type={"string"}>
+byte ที่ถอดรหัสแล้วซึ่งคืนค่าเป็น Lua string พร้อมความยาวแบบ explicit
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -46,3 +43,6 @@ print(decoded)
 print(base64decode(encoded))
 print(base64.decode(encoded))
 ```
+
+
+</div>

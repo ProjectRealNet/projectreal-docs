@@ -1,18 +1,40 @@
 ---
 title: "Instances"
 description: "اكتشاف مثيل والمساعدين التفاعل."
-icon: "folder-code"
+icon: "/icons/stack.svg"
 ---
+
+<div className="real-category-page">
 
 اكتشاف مثيل والمساعدين التفاعل.
 
-| تنقل الدوال | الوصف |
-| --- | --- |
-| [`fireclickdetector`](./fireclickdetector) | يطلق تفاعل ClickDetector للاعب المحلي. يجب أن يكون الوسيط الأول Instance تكون ClassName الخاصة به ClickDetector. distance اختياري وقيمته الافتراضية 0. clickOption اختياري، وتتم مقارنته بدون حساسية لحالة الأحرف، وقيمته الافتراضية "mouseclick". الخيارات المدعومة هي "mouseclick" و "rightmouseclick" و "mousehoverenter" و "mousehoverleave". خيارات النقر تمرر distance كـ float إلى Roblox click helper، بينما خيارات hover تتجاهل distance. إذا لم تكن Players أو Players.LocalPlayer متاحة، تعود function بدون إطلاق أي شيء. أي clickOption غير معروف لا ينتج أي تفاعل أيضا. لا ترجع function أي شيء. |
-| [`fireproximityprompt`](./fireproximityprompt) | يشغل ProximityPrompt عبر Real ProximityPrompt trigger. يجب أن يكون وسيط prompt عبارة عن object لديه حقل ClassName يساوي "ProximityPrompt". إذا لم تكن القيمة object، يطلق الاستدعاء type error. إذا كان ClassName مفقودا أو ليس string، يطلق "Invalid Instance". إذا لم يكن ClassName هو "ProximityPrompt"، يطلق "ProximityPrompt expected". لا تأخذ function أي optional arguments ولا ترجع أي شيء. |
-| [`firetouchinterest`](./firetouchinterest) | يطلق Real touch interest event لاثنين من BasePart instances. يجب أن يكون أول وسيطين Instance object ويجب أن ينجح كلاهما في IsA("BasePart"). وسيط state مطلوب ويجب أن يكون number أو boolean. عندما يكون state رقميا، تصبح القيمة 1 فقط true وكل رقم آخر يصبح false. عندما يكون state boolean، يتم تمرير قيمته كما هي. إذا لم يكن لأي جزء touch data، أو لم يكن للجزء الأول overlap reference، تعود function بدون إطلاق أي شيء. لا ترجع function أي شيء. معنى begin/end الدقيق للـ boolean الممرر إلى helper هو: Nicht aus der Codebasis verifizierbar. |
-| [`getcallbackvalue`](./getcallbackvalue) | يقرأ Lua callback function مخزنة في callback property على Instance. يجب أن يكون الوسيط الأول Instance object ويجب أن يكون الوسيط الثاني string property name. يجب أن يكون instance reference صالحا. يتم حل property name عبر Roblox property metadata ويجب أن يشير إلى property نوعها LUA_CALLBACK. إذا كان property descriptor مفقودا، أو لم تكن property هي LUA_CALLBACK، أو كان callback field offset مفقودا، أو لم يتم تخزين callback، أو كان LiveLuaRef مفقودا، أو كان callback ينتمي إلى Lua global state مختلف، أو لم تكن القيمة المشار إليها function، ترجع function nil. كما تفحص async callback field fallback عندما لا يحتوي callback slot الأول على callback. لا تقوم function بتحديث property. |
-| [`gethui`](./gethui) | يرجع game:CoreGui lookup.RobloxGui. لا تأخذ function أي arguments. إذا أرجع CoreGui lookup قيمة nil، أو إذا كان RobloxGui على تلك القيمة nil، ترجع function nil. لا تنشئ function أي container ولا تستخدم قيمة CoreGui المخزنة. |
-| [`getinstances`](./getinstances) | ترجع array table جديدة تحتوي على كل object value مخزنة حاليا في Instance cache. لا تأخذ function أي arguments. لا تقوم بالتصفية حسب Parent أو ClassName أو DataModel fieldship أو nil-parent state أو Instance validity باستثناء التحقق من أن كل registry value هو object. يتم نسخ entries إلى الجدول المرجع عند sequential numeric indexes تبدأ من 1. يأتي iteration order من table iteration على cache ولا يتم فرزه بواسطة function. |
-| [`getnilinstances`](./getnilinstances) | Returns a new array table containing cached Instance values whose Parent field is nil. The function takes no arguments. It does not sort the returned entries. |
-| [`isnetworkowner`](./isnetworkowner) | ترجع نتيجة قراءة hidden property "NetworkOwnerV3" من Instance والتحقق مما إذا كانت أول قيمة مرجعة، بعد تحويلها باستخدام integer conversion، أكبر من 2. يجب أن يكون الوسيط Instance object. تستدعي function داخليا the hidden property reader ولا تلتقط الأخطاء من ذلك الاستدعاء، لذلك يمكن أن تطلق Invalid Instance values أو missing properties أو non-property metadata نفس أخطاء gethiddenproperty. ترجع boolean واحدا. ما إذا كان peer_id > 2 يعني بالضبط local network ownership هو: Nicht aus der Codebasis verifizierbar. |
+## الدوال المتاحة
+
+<CardGroup cols={2}>
+<Card title="fireclickdetector" href="./fireclickdetector">
+يطلق تفاعل ClickDetector للاعب المحلي. يجب أن يكون الوسيط الأول Instance تكون ClassName الخاصة به ClickDetector. distance اختياري وقيمته الافتراضية 0. clickOption اختياري، وتتم مقارنته بدون حساسية لحالة الأحرف، وقيمته الافتراضية "mouseclick". الخيارات المدعومة هي "mouseclick" و "rightmouseclick" و "mousehoverenter" و "mousehoverleave". خيارات النقر تمرر distance كـ float إلى Roblox click helper، بينما خيارات hover تتجاهل distance. إذا لم تكن Players أو Players.LocalPlayer متاحة، تعود function بدون إطلاق أي شيء. أي clickOption غير معروف لا ينتج أي تفاعل أيضا. لا ترجع function أي شيء.
+</Card>
+<Card title="fireproximityprompt" href="./fireproximityprompt">
+يشغل ProximityPrompt عبر Real ProximityPrompt trigger. يجب أن يكون وسيط prompt عبارة عن object لديه حقل ClassName يساوي "ProximityPrompt". إذا لم تكن القيمة object، يطلق الاستدعاء type error. إذا كان ClassName مفقودا أو ليس string، يطلق "Invalid Instance". إذا لم يكن ClassName هو "ProximityPrompt"، يطلق "ProximityPrompt expected". لا تأخذ function أي optional arguments ولا ترجع أي شيء.
+</Card>
+<Card title="firetouchinterest" href="./firetouchinterest">
+يطلق Real touch interest event لاثنين من BasePart instances. يجب أن يكون أول وسيطين Instance object ويجب أن ينجح كلاهما في IsA("BasePart"). وسيط state مطلوب ويجب أن يكون number أو boolean. عندما يكون state رقميا، تصبح القيمة 1 فقط true وكل رقم آخر يصبح false. عندما يكون state boolean، يتم تمرير قيمته كما هي. إذا لم يكن لأي جزء touch data، أو لم يكن للجزء الأول overlap reference، تعود function بدون إطلاق أي شيء. لا ترجع function أي شيء. معنى begin/end الدقيق للـ boolean الممرر إلى helper هو: Nicht aus der Codebasis verifizierbar.
+</Card>
+<Card title="getcallbackvalue" href="./getcallbackvalue">
+يقرأ Lua callback function مخزنة في callback property على Instance. يجب أن يكون الوسيط الأول Instance object ويجب أن يكون الوسيط الثاني string property name. يجب أن يكون instance reference صالحا. يتم حل property name عبر Roblox property metadata ويجب أن يشير إلى property نوعها LUA_CALLBACK. إذا كان property descriptor مفقودا، أو لم تكن property هي LUA_CALLBACK، أو كان callback field offset مفقودا، أو لم يتم تخزين callback، أو كان LiveLuaRef مفقودا، أو كان callback ينتمي إلى Lua global state مختلف، أو لم تكن القيمة المشار إليها function، ترجع function nil. كما تفحص async callback field fallback عندما لا يحتوي callback slot الأول على callback. لا تقوم function بتحديث property.
+</Card>
+<Card title="gethui" href="./gethui">
+يرجع game:CoreGui lookup.RobloxGui. لا تأخذ function أي arguments. إذا أرجع CoreGui lookup قيمة nil، أو إذا كان RobloxGui على تلك القيمة nil، ترجع function nil. لا تنشئ function أي container ولا تستخدم قيمة CoreGui المخزنة.
+</Card>
+<Card title="getinstances" href="./getinstances">
+ترجع array table جديدة تحتوي على كل object value مخزنة حاليا في Instance cache. لا تأخذ function أي arguments. لا تقوم بالتصفية حسب Parent أو ClassName أو DataModel fieldship أو nil-parent state أو Instance validity باستثناء التحقق من أن كل registry value هو object. يتم نسخ entries إلى الجدول المرجع عند sequential numeric indexes تبدأ من 1. يأتي iteration order من table iteration على cache ولا يتم فرزه بواسطة function.
+</Card>
+<Card title="getnilinstances" href="./getnilinstances">
+Returns a new array table containing cached Instance values whose Parent field is nil. The function takes no arguments. It does not sort the returned entries.
+</Card>
+<Card title="isnetworkowner" href="./isnetworkowner">
+ترجع نتيجة قراءة hidden property "NetworkOwnerV3" من Instance والتحقق مما إذا كانت أول قيمة مرجعة، بعد تحويلها باستخدام integer conversion، أكبر من 2. يجب أن يكون الوسيط Instance object. تستدعي function داخليا the hidden property reader ولا تلتقط الأخطاء من ذلك الاستدعاء، لذلك يمكن أن تطلق Invalid Instance values أو missing properties أو non-property metadata نفس أخطاء gethiddenproperty. ترجع boolean واحدا. ما إذا كان peer_id > 2 يعني بالضبط local network ownership هو: Nicht aus der Codebasis verifizierbar.
+</Card>
+</CardGroup>
+
+</div>

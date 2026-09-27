@@ -2,13 +2,10 @@
 title: "getsignalwhitelist"
 sidebarTitle: "getsignalwhitelist"
 description: "Function tarafindan tanimlanan alti statik whitelist entry degerini iceren yeni bir array table dondurur: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Her entry, Event ve Parent string field degerlerine sahip bir table degeridir. Function arguments kabul etmez ve gecerli game state degerini incelemez."
-icon: "function"
 keywords: ["getsignalwhitelist","Signals"]
 ---
 
-Function tarafindan tanimlanan alti statik whitelist entry degerini iceren yeni bir array table dondurur: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Her entry, Event ve Parent string field degerlerine sahip bir table degeridir. Function arguments kabul etmez ve gecerli game state degerini incelemez.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 getsignalwhitelist(): table
@@ -16,6 +13,9 @@ getsignalwhitelist(): table
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `signals` | `table` | Statik whitelist entry degerlerinden olusan array table. Her entry Event ve Parent string field degerlerine sahiptir. |
+<ResponseField name={"signals"} type={"table"}>
+Statik whitelist entry degerlerinden olusan array table. Her entry Event ve Parent string field degerlerine sahiptir.
+</ResponseField>
+
+
+</div>

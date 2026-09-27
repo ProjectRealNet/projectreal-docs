@@ -2,13 +2,10 @@
 title: "messagebox"
 sidebarTitle: "messagebox"
 description: "Shows a Windows message box with text, caption, and numeric flags, then returns the integer result code."
-icon: "function"
 keywords: ["messagebox","Miscellaneous"]
 ---
 
-Shows a Windows message box with text, caption, and numeric flags, then returns the integer result code.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 messagebox(text: string, caption: string, flags: number): integer
@@ -16,17 +13,23 @@ messagebox(text: string, caption: string, flags: number): integer
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | Message text. |
-| `caption` | `string` | Yes | Window caption. |
-| `flags` | `number` | Yes | Numeric message box flags. |
+<ParamField path={"text"} type={"string"} required>
+Message text.
+</ParamField>
+
+<ParamField path={"caption"} type={"string"} required>
+Window caption.
+</ParamField>
+
+<ParamField path={"flags"} type={"number"} required>
+Numeric message box flags.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `result` | `integer` | Integer result code returned by the message box. |
+<ResponseField name={"result"} type={"integer"}>
+Integer result code returned by the message box.
+</ResponseField>
 
 ## Ejemplo
 
@@ -36,3 +39,6 @@ Show a Windows message box and read the integer result code returned by the dial
 local result = messagebox("Real is ready.", "Real", 0)
 print(result)
 ```
+
+
+</div>

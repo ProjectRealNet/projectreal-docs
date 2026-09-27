@@ -2,13 +2,10 @@
 title: "gethui"
 sidebarTitle: "gethui"
 description: "game:CoreGui lookup.RobloxGui を返します。この function は arguments を取りません。CoreGui lookup が nil を返す場合、またはその値の RobloxGui が nil の場合、この function は nil を返します。function は container を作成せず、cached CoreGui 値も使用しません。"
-icon: "function"
 keywords: ["gethui","Instances","gethiddenui","gethiddengui","get_hidden_ui","get_hidden_gui"]
 ---
 
-game:CoreGui lookup.RobloxGui を返します。この function は arguments を取りません。CoreGui lookup が nil を返す場合、またはその値の RobloxGui が nil の場合、この function は nil を返します。function は container を作成せず、cached CoreGui 値も使用しません。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 gethui(): Instance | nil
@@ -23,6 +20,9 @@ gethui(): Instance | nil
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `robloxGui` | `Instance \| nil` | CoreGui から読み取られた RobloxGui 値、または CoreGui か RobloxGui が利用できない場合は nil。 |
+<ResponseField name={"robloxGui"} type={"Instance | nil"}>
+CoreGui から読み取られた RobloxGui 値、または CoreGui か RobloxGui が利用できない場合は nil。
+</ResponseField>
+
+
+</div>

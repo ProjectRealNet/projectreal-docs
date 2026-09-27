@@ -2,13 +2,10 @@
 title: "getscriptthread"
 sidebarTitle: "getscriptthread"
 description: "Возвращает Lua thread, связанный с script object, когда Real может его найти. Argument должен быть object. Function читает поле ClassName у значения и вызывает \"not a valid Instance\", если это поле не является string. Допустимые значения ClassName: Script, LocalScript и ModuleScript; любое другое значение вызывает \"Script expected\". Сначала она проверяет ScriptThreadCache Real по script reference. При cache hit возвращает сохраненный Luau thread как thread. При cache miss значения Script должны иметь RunContext Client, иначе function вызывает \"Expected a Script with RunContext set to Client\". Затем она проходит по the live Luau thread list, следует по first weak thread reference каждого thread node к LiveLuaRef, пропускает missing thread data или expired Script stored references и сравнивает каждый script reference с запрошенным script. Если найден match, возвращает этот Luau thread как thread. Если match не найден, возвращает nil."
-icon: "function"
 keywords: ["getscriptthread","Scripts"]
 ---
 
-Возвращает Lua thread, связанный с script object, когда Real может его найти. Argument должен быть object. Function читает поле ClassName у значения и вызывает "not a valid Instance", если это поле не является string. Допустимые значения ClassName: Script, LocalScript и ModuleScript; любое другое значение вызывает "Script expected". Сначала она проверяет ScriptThreadCache Real по script reference. При cache hit возвращает сохраненный Luau thread как thread. При cache miss значения Script должны иметь RunContext Client, иначе function вызывает "Expected a Script with RunContext set to Client". Затем она проходит по the live Luau thread list, следует по first weak thread reference каждого thread node к LiveLuaRef, пропускает missing thread data или expired Script stored references и сравнивает каждый script reference с запрошенным script. Если найден match, возвращает этот Luau thread как thread. Если match не найден, возвращает nil.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 getscriptthread(script: userdata): thread | nil
@@ -16,15 +13,15 @@ getscriptthread(script: userdata): thread | nil
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | Script object для поиска. Допустимые значения ClassName: Script, LocalScript и ModuleScript. |
+<ParamField path={"script"} type={"userdata"} required>
+Script object для поиска. Допустимые значения ClassName: Script, LocalScript и ModuleScript.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `thread` | `thread \| nil` | Связанный Lua thread, или nil, если matching live thread не найден. |
+<ResponseField name={"thread"} type={"thread | nil"}>
+Связанный Lua thread, или nil, если matching live thread не найден.
+</ResponseField>
 
 ## Пример
 
@@ -45,3 +42,6 @@ if targetScript then
     print(thread)
 end
 ```
+
+
+</div>

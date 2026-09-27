@@ -2,13 +2,10 @@
 title: "ImGuiWindow.Button"
 sidebarTitle: "ImGuiWindow.Button"
 description: "Добавляет button element в ImGuiWindow и сохраняет callback. Когда отрисованный button получает клик, callback помещается в queue и позже вызывается без arguments. Method возвращает тот же ImGuiWindow object."
-icon: "function"
 keywords: ["ImGuiWindow.Button","ImGui"]
 ---
 
-Добавляет button element в ImGuiWindow и сохраняет callback. Когда отрисованный button получает клик, callback помещается в queue и позже вызывается без arguments. Method возвращает тот же ImGuiWindow object.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.Button(window: ImGuiWindow, label: string, onClick: function): ImGuiWindow
@@ -16,17 +13,23 @@ ImGuiWindow.Button(window: ImGuiWindow, label: string, onClick: function): ImGui
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow object, возвращенный imgui.create. Уничтоженный или недействительный window вызывает Lua error. |
-| `label` | `string` | Yes | Button label string, передаваемый в отрисованный ImGui button. |
-| `onClick` | `function` | Yes | Function, сохраненная для этого button и вызываемая без arguments после обработки click event. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow object, возвращенный imgui.create. Уничтоженный или недействительный window вызывает Lua error.
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+Button label string, передаваемый в отрисованный ImGui button.
+</ParamField>
+
+<ParamField path={"onClick"} type={"function"} required>
+Function, сохраненная для этого button и вызываемая без arguments после обработки click event.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | Тот же ImGuiWindow object, что позволяет объединять method calls в цепочку. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+Тот же ImGuiWindow object, что позволяет объединять method calls в цепочку.
+</ResponseField>
 
 ## Типы
 
@@ -47,3 +50,6 @@ ImGuiWindow.Button(window: ImGuiWindow, label: string, onClick: function): ImGui
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Добавляет целочисленный ползунок. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Добавляет неинтерактивный текст. |
 | `destroy` | `() -> ()` | Yes | Удаляет окно и освобождает зарегистрированные обратные вызовы. |
+
+
+</div>

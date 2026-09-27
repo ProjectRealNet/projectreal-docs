@@ -2,13 +2,10 @@
 title: "crypt.hash"
 sidebarTitle: "crypt.hash"
 description: "Lua string byte degerlerini desteklenen bir crypto library hash algoritmasi ile hash eder ve lowercase hexadecimal digest dondurur."
-icon: "function"
 keywords: ["crypt.hash","Cryptography"]
 ---
 
-Lua string byte degerlerini desteklenen bir crypto library hash algoritmasi ile hash eder ve lowercase hexadecimal digest dondurur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 crypt.hash(data: string, algorithm?: "sha256" | "sha1" | "sha224" | "sha384" | "sha512" | "md5" | "sha3-224" | "sha3-256" | "sha3-384" | "sha3-512"): string
@@ -16,16 +13,19 @@ crypt.hash(data: string, algorithm?: "sha256" | "sha1" | "sha224" | "sha384" | "
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | crypto library HashFilter icine aktarilan Lua string byte degerleri. |
-| `algorithm` | `"sha256" \| "sha1" \| "sha224" \| "sha384" \| "sha512" \| "md5" \| "sha3-224" \| "sha3-256" \| "sha3-384" \| "sha3-512"` | No | Case-sensitive hash algoritma adi. Varsayilan deger sha256. |
+<ParamField path={"data"} type={"string"} required>
+crypto library HashFilter icine aktarilan Lua string byte degerleri.
+</ParamField>
+
+<ParamField path={"algorithm"} type={"\"sha256\" | \"sha1\" | \"sha224\" | \"sha384\" | \"sha512\" | \"md5\" | \"sha3-224\" | \"sha3-256\" | \"sha3-384\" | \"sha3-512\""}>
+Case-sensitive hash algoritma adi. Varsayilan deger sha256.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `digest` | `string` | Prefix veya separators olmayan lowercase hexadecimal digest. |
+<ResponseField name={"digest"} type={"string"}>
+Prefix veya separators olmayan lowercase hexadecimal digest.
+</ResponseField>
 
 ## Örnek
 
@@ -38,3 +38,6 @@ local sha3Digest = crypt.hash("hello world", "sha3-256")
 print(defaultDigest)
 print(sha3Digest)
 ```
+
+
+</div>

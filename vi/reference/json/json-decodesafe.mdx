@@ -2,13 +2,10 @@
 title: "json.decodeSafe"
 sidebarTitle: "json.decodeSafe"
 description: "Parse JSON bang cung parser voi json.decode va tra ve success flag thay vi throw cho parse errors."
-icon: "function"
 keywords: ["json.decodeSafe","JSON"]
 ---
 
-Parse JSON bang cung parser voi json.decode va tra ve success flag thay vi throw cho parse errors.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
@@ -16,19 +13,31 @@ json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | st
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON text de parse. argument nay duoc kiem tra la string truoc khi parse errors duoc catch. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean dat useNull truc tiep. table co the dat useNull va maxDepth; maxDepth duoc clamp tu 1 den 4096. Invalid option argument types duoc kiem tra truoc khi parse errors duoc catch. |
+<ParamField path={"json"} type={"string"} required>
+JSON text de parse. argument nay duoc kiem tra la string truoc khi parse errors duoc catch.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean dat useNull truc tiep. table co the dat useNull va maxDepth; maxDepth duoc clamp tu 1 den 4096. Invalid option argument types duoc kiem tra truoc khi parse errors duoc catch.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `success` | `boolean` | True khi parsing thanh cong, false khi parser bao error. |
-| `decoded` | `any \| nil` | Decoded value khi thanh cong, nil khi parse failure. JSON false hop le tra ve success la true va decoded la false, vi vay hay kiem tra success return value. |
-| `errorMessage` | `string \| nil` | Error message khi parse failure, nguoc lai nil. message bao gom json.decodeSafe prefix va parser position. |
-| `errorPosition` | `number \| nil` | Parser byte position khi parse failure, nguoc lai nil. |
+<ResponseField name={"success"} type={"boolean"}>
+True khi parsing thanh cong, false khi parser bao error.
+</ResponseField>
+
+<ResponseField name={"decoded"} type={"any | nil"}>
+Decoded value khi thanh cong, nil khi parse failure. JSON false hop le tra ve success la true va decoded la false, vi vay hay kiem tra success return value.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+Error message khi parse failure, nguoc lai nil. message bao gom json.decodeSafe prefix va parser position.
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+Parser byte position khi parse failure, nguoc lai nil.
+</ResponseField>
 
 ## Kiểu
 
@@ -57,3 +66,6 @@ if not parsed then
     warn(message, position)
 end
 ```
+
+
+</div>

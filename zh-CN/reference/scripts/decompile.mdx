@@ -2,13 +2,10 @@
 title: "decompile"
 sidebarTitle: "decompile"
 description: "对 Roblox script 执行 decompile，并在 bytecode 可用时返回生成的 source text。argument 必须是受支持的 script Instance。如果没有可用的 bytecode，该 function 返回 nil。"
-icon: "function"
 keywords: ["decompile","Scripts"]
 ---
 
-对 Roblox script 执行 decompile，并在 bytecode 可用时返回生成的 source text。argument 必须是受支持的 script Instance。如果没有可用的 bytecode，该 function 返回 nil。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 decompile(script: userdata): string | nil
@@ -16,15 +13,15 @@ decompile(script: userdata): string | nil
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | 要 decompile 的 Script object。支持的 ClassName 值为 ModuleScript、LocalScript、CoreScript，以及 RunContext Client 的 Script。 |
+<ParamField path={"script"} type={"userdata"} required>
+要 decompile 的 Script object。支持的 ClassName 值为 ModuleScript、LocalScript、CoreScript，以及 RunContext Client 的 Script。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `source` | `string \| nil` | Decompiler output string、caught decompiler exception text，或没有 usable embedded bytecode 时的 nil。 |
+<ResponseField name={"source"} type={"string | nil"}>
+Decompiler output string、caught decompiler exception text，或没有 usable embedded bytecode 时的 nil。
+</ResponseField>
 
 ## 示例
 
@@ -48,3 +45,6 @@ if targetScript then
     end
 end
 ```
+
+
+</div>

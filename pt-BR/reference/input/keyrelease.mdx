@@ -2,13 +2,10 @@
 title: "keyrelease"
 sidebarTitle: "keyrelease"
 description: "Envia um key up event quando a Roblox window esta ativa. O argumento keyCode e verificado como Lua number, convertido com integer conversion, mapeado de Windows virtual-key code para scan code com Windows key mapping, e enviado por keyboard input com KEYEVENTF_SCANCODE | KEYEVENTF_KEYUP. Esta function nao envia um key down event. Se isrbxactive seria false, a function retorna sem enviar input."
-icon: "function"
 keywords: ["keyrelease","Input"]
 ---
 
-Envia um key up event quando a Roblox window esta ativa. O argumento keyCode e verificado como Lua number, convertido com integer conversion, mapeado de Windows virtual-key code para scan code com Windows key mapping, e enviado por keyboard input com KEYEVENTF_SCANCODE | KEYEVENTF_KEYUP. Esta function nao envia um key down event. Se isrbxactive seria false, a function retorna sem enviar input.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 keyrelease(keyCode: number)
@@ -16,6 +13,9 @@ keyrelease(keyCode: number)
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `keyCode` | `number` | Yes | Windows virtual-key code lido como Lua number e convertido com integer conversion antes de Windows key mapping ser chamado. |
+<ParamField path={"keyCode"} type={"number"} required>
+Windows virtual-key code lido como Lua number e convertido com integer conversion antes de Windows key mapping ser chamado.
+</ParamField>
+
+
+</div>

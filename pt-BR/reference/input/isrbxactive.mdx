@@ -2,13 +2,10 @@
 title: "isrbxactive"
 sidebarTitle: "isrbxactive"
 description: "Retorna se a current foreground window e a Roblox window encontrada pela Real. Real encontra essa janela fazendo enumerating windows do processo atual e selecionando uma window cujo class name e Roblox window. A function nao recebe arguments e retorna false quando nao ha foreground window ou matching Roblox window disponivel."
-icon: "function"
 keywords: ["isrbxactive","Input","isgameactive","iswindowactive"]
 ---
 
-Retorna se a current foreground window e a Roblox window encontrada pela Real. Real encontra essa janela fazendo enumerating windows do processo atual e selecionando uma window cujo class name e Roblox window. A function nao recebe arguments e retorna false quando nao ha foreground window ou matching Roblox window disponivel.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 isrbxactive(): boolean
@@ -21,6 +18,9 @@ isrbxactive(): boolean
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `active` | `boolean` | True quando GetForegroundWindow() retorna o mesmo HWND que a cached ou newly found Roblox window window do processo atual. |
+<ResponseField name={"active"} type={"boolean"}>
+True quando GetForegroundWindow() retorna o mesmo HWND que a cached ou newly found Roblox window window do processo atual.
+</ResponseField>
+
+
+</div>

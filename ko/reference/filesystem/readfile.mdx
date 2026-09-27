@@ -2,13 +2,10 @@
 title: "readfile"
 sidebarTitle: "readfile"
 description: "workspace 안의 existing regular file 을 binary mode 로 읽고 해당 bytes 를 Lua string 으로 반환합니다."
-icon: "function"
 keywords: ["readfile","Filesystem","readfileasync"]
 ---
 
-workspace 안의 existing regular file 을 binary mode 로 읽고 해당 bytes 를 Lua string 으로 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 readfile(path: string): string
@@ -20,15 +17,15 @@ readfile(path: string): string
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | separator normalization, workspace-boundary checks, filename/extension checks 후 workspace 안으로 resolve 되는 File path 입니다. Absolute paths 는 workspace 안으로 resolve 될 때만 허용됩니다. |
+<ParamField path={"path"} type={"string"} required>
+separator normalization, workspace-boundary checks, filename/extension checks 후 workspace 안으로 resolve 되는 File path 입니다. Absolute paths 는 workspace 안으로 resolve 될 때만 허용됩니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `content` | `string` | File contents 는 명시적 길이를 가진 Lua string 으로 반환됩니다. null bytes, line endings, BOM bytes 같은 bytes 는 readfile 에 의해 변환되지 않습니다. |
+<ResponseField name={"content"} type={"string"}>
+File contents 는 명시적 길이를 가진 Lua string 으로 반환됩니다. null bytes, line endings, BOM bytes 같은 bytes 는 readfile 에 의해 변환되지 않습니다.
+</ResponseField>
 
 ## 예제
 
@@ -42,3 +39,6 @@ local content = readfile(path)
 print(content)
 print(#content)
 ```
+
+
+</div>

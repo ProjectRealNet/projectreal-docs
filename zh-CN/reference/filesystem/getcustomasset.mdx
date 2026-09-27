@@ -2,13 +2,10 @@
 title: "getcustomasset"
 sidebarTitle: "getcustomasset"
 description: "将已存在的 regular workspace file 复制到 ExtraContent/<hwid>/，并为复制后的 asset path 返回 rbxasset:// string。"
-icon: "function"
 keywords: ["getcustomasset","Filesystem","getsynasset"]
 ---
 
-将已存在的 regular workspace file 复制到 ExtraContent/&lt;hwid>/，并为复制后的 asset path 返回 rbxasset:// string。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 getcustomasset(path: string): string
@@ -20,15 +17,15 @@ getcustomasset(path: string): string
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | 经过 separator normalization 和 workspace-boundary checks 后在 workspace 内解析的 path。目标必须存在并且是 regular file；不接受 folders、invalid filenames、DOS device names 和 blocked extensions。 |
+<ParamField path={"path"} type={"string"} required>
+经过 separator normalization 和 workspace-boundary checks 后在 workspace 内解析的 path。目标必须存在并且是 regular file；不接受 folders、invalid filenames、DOS device names 和 blocked extensions。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `assetId` | `string` | 格式为 rbxasset://&lt;hwid>/&lt;workspace-relative-path> 的 String，relative path 使用 forward slashes。 |
+<ResponseField name={"assetId"} type={"string"}>
+格式为 rbxasset://&lt;hwid>/&lt;workspace-relative-path> 的 String，relative path 使用 forward slashes。
+</ResponseField>
 
 ## 示例
 
@@ -42,3 +39,6 @@ local assetId = getcustomasset(path)
 print(assetId)
 print(getsynasset(path))
 ```
+
+
+</div>

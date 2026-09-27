@@ -2,13 +2,10 @@
 title: "fireproximityprompt"
 sidebarTitle: "fireproximityprompt"
 description: "Activa un ProximityPrompt mediante el ProximityPrompt trigger de Real. El argumento prompt debe ser object con un campo ClassName igual a \"ProximityPrompt\". Si el valor no es object, la llamada lanza un type error. Si ClassName falta o no es string, lanza \"Invalid Instance\". Si ClassName no es \"ProximityPrompt\", lanza \"ProximityPrompt expected\". La function no toma optional arguments y no devuelve nada."
-icon: "function"
 keywords: ["fireproximityprompt","Instances"]
 ---
 
-Activa un ProximityPrompt mediante el ProximityPrompt trigger de Real. El argumento prompt debe ser object con un campo ClassName igual a "ProximityPrompt". Si el valor no es object, la llamada lanza un type error. Si ClassName falta o no es string, lanza "Invalid Instance". Si ClassName no es "ProximityPrompt", lanza "ProximityPrompt expected". La function no toma optional arguments y no devuelve nada.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 fireproximityprompt(prompt: Instance)
@@ -16,9 +13,9 @@ fireproximityprompt(prompt: Instance)
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `prompt` | `Instance` | Yes | Instance cuyo ClassName debe ser ProximityPrompt. |
+<ParamField path={"prompt"} type={"Instance"} required>
+Instance cuyo ClassName debe ser ProximityPrompt.
+</ParamField>
 
 ## Ejemplo
 
@@ -29,3 +26,6 @@ local prompt = workspace.InteractivePart.ProximityPrompt
 
 fireproximityprompt(prompt)
 ```
+
+
+</div>

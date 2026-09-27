@@ -2,13 +2,10 @@
 title: "comparefunctions"
 sidebarTitle: "comparefunctions"
 description: "Сравнивает два function values по их function identity. Оба arguments должны быть functions. Function возвращает boolean result выражения function identity(L, 1) == function identity(L, 2). Она не сравнивает function bytecode, source, behavior, hashes, upvalues или newcclosure mappings. comparefunction является alias для той же function."
-icon: "function"
 keywords: ["comparefunctions","Closures","comparefunction"]
 ---
 
-Сравнивает два function values по их function identity. Оба arguments должны быть functions. Function возвращает boolean result выражения function identity(L, 1) == function identity(L, 2). Она не сравнивает function bytecode, source, behavior, hashes, upvalues или newcclosure mappings. comparefunction является alias для той же function.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 comparefunctions(func1: function, func2: function): boolean
@@ -20,16 +17,19 @@ comparefunctions(func1: function, func2: function): boolean
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `func1` | `function` | Yes | First function value, преобразуемое через function identity. |
-| `func2` | `function` | Yes | Second function value, преобразуемое через function identity. |
+<ParamField path={"func1"} type={"function"} required>
+First function value, преобразуемое через function identity.
+</ParamField>
+
+<ParamField path={"func2"} type={"function"} required>
+Second function value, преобразуемое через function identity.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `equal` | `boolean` | true, когда оба function values resolve в один и тот же function identity; иначе false. |
+<ResponseField name={"equal"} type={"boolean"}>
+true, когда оба function values resolve в один и тот же function identity; иначе false.
+</ResponseField>
 
 ## Пример
 
@@ -43,3 +43,6 @@ end
 local same = comparefunctions(sample, sample)
 print(same)
 ```
+
+
+</div>

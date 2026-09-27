@@ -2,13 +2,10 @@
 title: "isnetworkowner"
 sidebarTitle: "isnetworkowner"
 description: "ترجع نتيجة قراءة hidden property \"NetworkOwnerV3\" من Instance والتحقق مما إذا كانت أول قيمة مرجعة، بعد تحويلها باستخدام integer conversion، أكبر من 2. يجب أن يكون الوسيط Instance object. تستدعي function داخليا the hidden property reader ولا تلتقط الأخطاء من ذلك الاستدعاء، لذلك يمكن أن تطلق Invalid Instance values أو missing properties أو non-property metadata نفس أخطاء gethiddenproperty. ترجع boolean واحدا. ما إذا كان peer_id > 2 يعني بالضبط local network ownership هو: Nicht aus der Codebasis verifizierbar."
-icon: "function"
 keywords: ["isnetworkowner","Instances"]
 ---
 
-ترجع نتيجة قراءة hidden property "NetworkOwnerV3" من Instance والتحقق مما إذا كانت أول قيمة مرجعة، بعد تحويلها باستخدام integer conversion، أكبر من 2. يجب أن يكون الوسيط Instance object. تستدعي function داخليا the hidden property reader ولا تلتقط الأخطاء من ذلك الاستدعاء، لذلك يمكن أن تطلق Invalid Instance values أو missing properties أو non-property metadata نفس أخطاء gethiddenproperty. ترجع boolean واحدا. ما إذا كان peer_id > 2 يعني بالضبط local network ownership هو: Nicht aus der Codebasis verifizierbar.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 isnetworkowner(instance: Instance): boolean
@@ -16,15 +13,15 @@ isnetworkowner(instance: Instance): boolean
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object يتم تمريرها إلى the hidden property reader مع property name "NetworkOwnerV3". |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object يتم تمريرها إلى the hidden property reader مع property name "NetworkOwnerV3".
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `isOwner` | `boolean` | true عندما يكون integer conversion على أول قيمة مرجعة من "NetworkOwnerV3" أكبر من 2؛ وإلا false. |
+<ResponseField name={"isOwner"} type={"boolean"}>
+true عندما يكون integer conversion على أول قيمة مرجعة من "NetworkOwnerV3" أكبر من 2؛ وإلا false.
+</ResponseField>
 
 ## مثال
 
@@ -38,3 +35,6 @@ if part then
     print(ownsNetwork)
 end
 ```
+
+
+</div>

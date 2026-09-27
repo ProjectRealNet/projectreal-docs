@@ -2,13 +2,10 @@
 title: "isfolder"
 sidebarTitle: "isfolder"
 description: "Returns whether a path resolved inside the workspace exists and is a directory."
-icon: "function"
 keywords: ["isfolder","Filesystem"]
 ---
 
-Returns whether a path resolved inside the workspace exists and is a directory.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 isfolder(path: string): boolean
@@ -16,15 +13,15 @@ isfolder(path: string): boolean
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | Path resolved inside the workspace after separator normalization and workspace-boundary checks. Invalid or outside-workspace paths error before a boolean is returned. |
+<ParamField path={"path"} type={"string"} required>
+Path resolved inside the workspace after separator normalization and workspace-boundary checks. Invalid or outside-workspace paths error before a boolean is returned.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `isFolder` | `boolean` | True only when the resolved path exists and is a directory; files and missing paths return false. |
+<ResponseField name={"isFolder"} type={"boolean"}>
+True only when the resolved path exists and is a directory; files and missing paths return false.
+</ResponseField>
 
 ## Contoh
 
@@ -41,3 +38,6 @@ print(isfolder(folderPath))
 print(isfolder(filePath))
 print(isfolder("examples/missing"))
 ```
+
+
+</div>

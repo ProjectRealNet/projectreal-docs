@@ -2,13 +2,10 @@
 title: "getdeletedactors"
 sidebarTitle: "getdeletedactors"
 description: "thread data değeri Actor reference içeren, reference count değeri 0 değerinden büyük olan ve the associated Actor değeri expired weak reference olan actor list içindeki Luau threads için bir array table döndürür. Function arguments almaz. Actor Instance values döndürmez."
-icon: "function"
 keywords: ["getdeletedactors","Actors"]
 ---
 
-thread data değeri Actor reference içeren, reference count değeri 0 değerinden büyük olan ve the associated Actor değeri expired weak reference olan actor list içindeki Luau threads için bir array table döndürür. Function arguments almaz. Actor Instance values döndürmez.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 getdeletedactors(): table
@@ -16,9 +13,9 @@ getdeletedactors(): table
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `threads` | `table` | Actor weak reference değeri expired olan actor entries için Luau thread values içeren array table. |
+<ResponseField name={"threads"} type={"table"}>
+Actor weak reference değeri expired olan actor entries için Luau thread values içeren array table.
+</ResponseField>
 
 ## Örnek
 
@@ -31,3 +28,6 @@ for _, thread in ipairs(deletedActorThreads) do
     print(thread)
 end
 ```
+
+
+</div>

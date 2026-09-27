@@ -2,13 +2,10 @@
 title: "crypt.decrypt"
 sidebarTitle: "crypt.decrypt"
 description: "Mendekripsi Base64 ciphertext dengan key yang didekode dari Base64 dan Base64 IV wajib memakai AES CBC atau ECB."
-icon: "function"
 keywords: ["crypt.decrypt","Cryptography"]
 ---
 
-Mendekripsi Base64 ciphertext dengan key yang didekode dari Base64 dan Base64 IV wajib memakai AES CBC atau ECB.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES-CBC" | "AES-ECB"): string
@@ -16,18 +13,27 @@ crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Base64 ciphertext yang didekode sebelum dekripsi. |
-| `key` | `string` | Yes | Key Base64 yang didekode sebelum diteruskan ke AES. |
-| `iv` | `string` | Yes | Base64 IV yang didekode sebelum pemrosesan mode. Argumen ini wajib, termasuk untuk ECB. |
-| `mode` | `"CBC" \| "ECB" \| "AES-CBC" \| "AES-ECB"` | No | AES mode. Prefix AES- dihapus jika ada. Default-nya AES-CBC. |
+<ParamField path={"data"} type={"string"} required>
+Base64 ciphertext yang didekode sebelum dekripsi.
+</ParamField>
+
+<ParamField path={"key"} type={"string"} required>
+Key Base64 yang didekode sebelum diteruskan ke AES.
+</ParamField>
+
+<ParamField path={"iv"} type={"string"} required>
+Base64 IV yang didekode sebelum pemrosesan mode. Argumen ini wajib, termasuk untuk ECB.
+</ParamField>
+
+<ParamField path={"mode"} type={"\"CBC\" | \"ECB\" | \"AES-CBC\" | \"AES-ECB\""}>
+AES mode. Prefix AES- dihapus jika ada. Default-nya AES-CBC.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `plaintext` | `string` | Byte plaintext yang dikembalikan sebagai string Lua. |
+<ResponseField name={"plaintext"} type={"string"}>
+Byte plaintext yang dikembalikan sebagai string Lua.
+</ResponseField>
 
 ## Contoh
 
@@ -41,3 +47,6 @@ local plaintext = crypt.decrypt(ciphertext, key, iv)
 
 print(plaintext)
 ```
+
+
+</div>

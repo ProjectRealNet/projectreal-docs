@@ -1,15 +1,31 @@
 ---
 title: "Cache"
 description: "التخزين المؤقت المرجعي ومقارنة المثيلات."
-icon: "folder-code"
+icon: "/icons/database.svg"
 ---
+
+<div className="real-category-page">
 
 التخزين المؤقت المرجعي ومقارنة المثيلات.
 
-| تنقل الدوال | الوصف |
-| --- | --- |
-| [`cache.invalidate`](./cache-invalidate) | يزيل إدخال سجل Instance cache المخزن مؤقتا للـ Instance المحددة. |
-| [`cache.iscached`](./cache-iscached) | يعيد ما إذا كانت Instance المحددة لديها إدخال غير nil في Instance cache. |
-| [`cache.replace`](./cache-replace) | Sets the cached Instance entry for one Instance to another Instance. |
-| [`cloneref`](./cloneref) | يدفع مرجع Instance جديدا لنفس مؤشر Instance الداخلي ويعيده. |
-| [`compareinstances`](./compareinstances) | يقارن قيم مؤشر Instance الداخلية المخزنة في قيمتي Instance object. |
+## الدوال المتاحة
+
+<CardGroup cols={2}>
+<Card title="cache.invalidate" href="./cache-invalidate">
+يزيل إدخال سجل Instance cache المخزن مؤقتا للـ Instance المحددة.
+</Card>
+<Card title="cache.iscached" href="./cache-iscached">
+يعيد ما إذا كانت Instance المحددة لديها إدخال غير nil في Instance cache.
+</Card>
+<Card title="cache.replace" href="./cache-replace">
+Sets the cached Instance entry for one Instance to another Instance.
+</Card>
+<Card title="cloneref" href="./cloneref">
+يدفع مرجع Instance جديدا لنفس مؤشر Instance الداخلي ويعيده.
+</Card>
+<Card title="compareinstances" href="./compareinstances">
+يقارن قيم مؤشر Instance الداخلية المخزنة في قيمتي Instance object.
+</Card>
+</CardGroup>
+
+</div>

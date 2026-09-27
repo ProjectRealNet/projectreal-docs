@@ -2,13 +2,10 @@
 title: "crypt.hmac"
 sidebarTitle: "crypt.hmac"
 description: "Raw Lua string key를 사용해 Lua string 바이트에 crypto library HMAC을 계산하고 Base64 digest를 반환합니다."
-icon: "function"
 keywords: ["crypt.hmac","Cryptography"]
 ---
 
-Raw Lua string key를 사용해 Lua string 바이트에 crypto library HMAC을 계산하고 Base64 digest를 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 crypt.hmac(key: string, data: string, algorithm?: "sha256" | "sha1" | "sha224" | "sha384" | "sha512" | "md5"): string
@@ -16,17 +13,23 @@ crypt.hmac(key: string, data: string, algorithm?: "sha256" | "sha1" | "sha224" |
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `key` | `string` | Yes | HMAC key로 사용되는 raw Lua string 바이트입니다. key는 Base64-decode되지 않습니다. |
-| `data` | `string` | Yes | HMAC calculation에 전달되는 Lua string 바이트입니다. |
-| `algorithm` | `"sha256" \| "sha1" \| "sha224" \| "sha384" \| "sha512" \| "md5"` | No | Case-sensitive HMAC algorithm 이름입니다. 기본값은 sha256입니다. |
+<ParamField path={"key"} type={"string"} required>
+HMAC key로 사용되는 raw Lua string 바이트입니다. key는 Base64-decode되지 않습니다.
+</ParamField>
+
+<ParamField path={"data"} type={"string"} required>
+HMAC calculation에 전달되는 Lua string 바이트입니다.
+</ParamField>
+
+<ParamField path={"algorithm"} type={"\"sha256\" | \"sha1\" | \"sha224\" | \"sha384\" | \"sha512\" | \"md5\""}>
+Case-sensitive HMAC algorithm 이름입니다. 기본값은 sha256입니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `digest` | `string` | line breaks가 없는 Base64-encoded HMAC output입니다. |
+<ResponseField name={"digest"} type={"string"}>
+line breaks가 없는 Base64-encoded HMAC output입니다.
+</ResponseField>
 
 ## 예제
 
@@ -39,3 +42,6 @@ local digest = crypt.hmac(key, data, "sha256")
 
 print(digest)
 ```
+
+
+</div>

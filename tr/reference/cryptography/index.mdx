@@ -1,21 +1,49 @@
 ---
 title: "Cryptography"
 description: "Kodlama, karma, şifreleme ve sıkıştırma."
-icon: "folder-code"
+icon: "/icons/key.svg"
 ---
+
+<div className="real-category-page">
 
 Kodlama, karma, şifreleme ve sıkıştırma.
 
-| Fonksiyon gezinmesi | Açıklama |
-| --- | --- |
-| [`base64_decode`](./base64-decode) | Base64 girdisini Base64 decoder ile decode eder ve decode edilen byte degerlerini Lua string olarak dondurur. |
-| [`base64_encode`](./base64-encode) | Lua string byte degerlerini Base64 encoder ile encode eder, = padding kullanir ve satir sonu eklemez. |
-| [`crypt.decrypt`](./crypt-decrypt) | Base64 ciphertext degerini Base64 decode edilmis key ve gerekli Base64 IV ile AES CBC veya ECB kullanarak decrypt eder. |
-| [`crypt.encrypt`](./crypt-encrypt) | Lua string byte degerlerini Base64 decode edilmis key ile AES CBC, ECB veya CTR kullanarak encrypt eder, sonra Base64 ciphertext ve IV sonucunu dondurur. |
-| [`crypt.generatebytes`](./crypt-generatebytes) | random byte generator ile rastgele byte degerleri uretir ve bunlari Base64-encoded Lua string olarak dondurur. |
-| [`crypt.generatekey`](./crypt-generatekey) | random byte generator ile 32 rastgele raw bytes uretir ve bunlari Base64-encoded Lua string olarak dondurur. |
-| [`crypt.hash`](./crypt-hash) | Lua string byte degerlerini desteklenen bir crypto library hash algoritmasi ile hash eder ve lowercase hexadecimal digest dondurur. |
-| [`crypt.hmac`](./crypt-hmac) | Raw Lua string key kullanarak Lua string byte degerleri uzerinde crypto library HMAC hesaplar ve Base64 digest dondurur. |
-| [`crypt.random`](./crypt-random) | random byte generator ile raw random bytes uretir ve bunlari Lua string olarak dondurur. |
-| [`lz4compress`](./lz4compress) | Lua string byte degerlerini LZ4 block compression ile sikistirir ve raw compressed bytes degerlerini Lua string olarak dondurur. |
-| [`lz4decompress`](./lz4decompress) | Raw LZ4 block bytes degerini LZ4 block decompression ile acar ve raw decompressed bytes degerini Lua string olarak dondurur. |
+## Kullanılabilir fonksiyonlar
+
+<CardGroup cols={2}>
+<Card title="base64_decode" href="./base64-decode">
+Base64 girdisini Base64 decoder ile decode eder ve decode edilen byte degerlerini Lua string olarak dondurur.
+</Card>
+<Card title="base64_encode" href="./base64-encode">
+Lua string byte degerlerini Base64 encoder ile encode eder, = padding kullanir ve satir sonu eklemez.
+</Card>
+<Card title="crypt.decrypt" href="./crypt-decrypt">
+Base64 ciphertext degerini Base64 decode edilmis key ve gerekli Base64 IV ile AES CBC veya ECB kullanarak decrypt eder.
+</Card>
+<Card title="crypt.encrypt" href="./crypt-encrypt">
+Lua string byte degerlerini Base64 decode edilmis key ile AES CBC, ECB veya CTR kullanarak encrypt eder, sonra Base64 ciphertext ve IV sonucunu dondurur.
+</Card>
+<Card title="crypt.generatebytes" href="./crypt-generatebytes">
+random byte generator ile rastgele byte degerleri uretir ve bunlari Base64-encoded Lua string olarak dondurur.
+</Card>
+<Card title="crypt.generatekey" href="./crypt-generatekey">
+random byte generator ile 32 rastgele raw bytes uretir ve bunlari Base64-encoded Lua string olarak dondurur.
+</Card>
+<Card title="crypt.hash" href="./crypt-hash">
+Lua string byte degerlerini desteklenen bir crypto library hash algoritmasi ile hash eder ve lowercase hexadecimal digest dondurur.
+</Card>
+<Card title="crypt.hmac" href="./crypt-hmac">
+Raw Lua string key kullanarak Lua string byte degerleri uzerinde crypto library HMAC hesaplar ve Base64 digest dondurur.
+</Card>
+<Card title="crypt.random" href="./crypt-random">
+random byte generator ile raw random bytes uretir ve bunlari Lua string olarak dondurur.
+</Card>
+<Card title="lz4compress" href="./lz4compress">
+Lua string byte degerlerini LZ4 block compression ile sikistirir ve raw compressed bytes degerlerini Lua string olarak dondurur.
+</Card>
+<Card title="lz4decompress" href="./lz4decompress">
+Raw LZ4 block bytes degerini LZ4 block decompression ile acar ve raw decompressed bytes degerini Lua string olarak dondurur.
+</Card>
+</CardGroup>
+
+</div>

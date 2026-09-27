@@ -1,15 +1,31 @@
 ---
 title: "Cache"
 description: "Mise en cache des références et comparaison des instances."
-icon: "folder-code"
+icon: "/icons/database.svg"
 ---
+
+<div className="real-category-page">
 
 Mise en cache des références et comparaison des instances.
 
-| Navigation des fonctions | Description |
-| --- | --- |
-| [`cache.invalidate`](./cache-invalidate) | Supprime l'entree de registre Instance cache mise en cache pour l'Instance donnee. |
-| [`cache.iscached`](./cache-iscached) | Indique si l'Instance donnee possede une entree non nil dans le Instance cache. |
-| [`cache.replace`](./cache-replace) | Sets the cached Instance entry for one Instance to another Instance. |
-| [`cloneref`](./cloneref) | Pousse une nouvelle reference Instance pour le meme pointeur Instance sous-jacent et la renvoie. |
-| [`compareinstances`](./compareinstances) | Compare les valeurs internes du pointeur Instance stockees dans deux valeurs Instance object. |
+## Fonctions disponibles
+
+<CardGroup cols={2}>
+<Card title="cache.invalidate" href="./cache-invalidate">
+Supprime l'entree de registre Instance cache mise en cache pour l'Instance donnee.
+</Card>
+<Card title="cache.iscached" href="./cache-iscached">
+Indique si l'Instance donnee possede une entree non nil dans le Instance cache.
+</Card>
+<Card title="cache.replace" href="./cache-replace">
+Sets the cached Instance entry for one Instance to another Instance.
+</Card>
+<Card title="cloneref" href="./cloneref">
+Pousse une nouvelle reference Instance pour le meme pointeur Instance sous-jacent et la renvoie.
+</Card>
+<Card title="compareinstances" href="./compareinstances">
+Compare les valeurs internes du pointeur Instance stockees dans deux valeurs Instance object.
+</Card>
+</CardGroup>
+
+</div>

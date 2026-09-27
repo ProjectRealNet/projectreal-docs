@@ -2,13 +2,10 @@
 title: "json.decode"
 sidebarTitle: "json.decode"
 description: "Parse un JSON string avec Real JSON parser et renvoie le decoded Lua value, en marquant decoded arrays et objects pour les JSON helpers."
-icon: "function"
 keywords: ["json.decode","JSON"]
 ---
 
-Parse un JSON string avec Real JSON parser et renvoie le decoded Lua value, en marquant decoded arrays et objects pour les JSON helpers.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 json.decode(json: string, options?: DecodeOptions): any
@@ -16,16 +13,19 @@ json.decode(json: string, options?: DecodeOptions): any
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON text a parser. Le parser accepte une seule JSON value avec optional surrounding whitespace et lance une erreur en cas de invalid syntax ou trailing non-whitespace characters. |
-| `options` | `DecodeOptions` | No | Optional decode options. Un boolean definit useNull directement. Une table peut definir useNull et maxDepth; maxDepth est clamp de 1 a 4096. |
+<ParamField path={"json"} type={"string"} required>
+JSON text a parser. Le parser accepte une seule JSON value avec optional surrounding whitespace et lance une erreur en cas de invalid syntax ou trailing non-whitespace characters.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. Un boolean definit useNull directement. Une table peut definir useNull et maxDepth; maxDepth est clamp de 1 a 4096.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `decoded` | `any` | Decoded value. JSON objects et arrays deviennent des tables avec JSON type markers, strings deviennent Lua strings, numbers deviennent Lua numbers, booleans deviennent booleans, et null devient json.null sauf si useNull est false. |
+<ResponseField name={"decoded"} type={"any"}>
+Decoded value. JSON objects et arrays deviennent des tables avec JSON type markers, strings deviennent Lua strings, numbers deviennent Lua numbers, booleans deviennent booleans, et null devient json.null sauf si useNull est false.
+</ResponseField>
 
 ## Types
 
@@ -50,3 +50,6 @@ print(value.tags[1])
 print(json.type(value))
 print(json.isNull(value.missing))
 ```
+
+
+</div>

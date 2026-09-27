@@ -2,13 +2,10 @@
 title: "cache.invalidate"
 sidebarTitle: "cache.invalidate"
 description: "يزيل إدخال سجل Instance cache المخزن مؤقتا للـ Instance المحددة."
-icon: "function"
 keywords: ["cache.invalidate","Cache"]
 ---
 
-يزيل إدخال سجل Instance cache المخزن مؤقتا للـ Instance المحددة.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 cache.invalidate(instance: Instance)
@@ -16,9 +13,9 @@ cache.invalidate(instance: Instance)
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance التي يجب إزالة إدخال السجل المخزن مؤقتا لها. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance التي يجب إزالة إدخال السجل المخزن مؤقتا لها.
+</ParamField>
 
 ## مثال
 
@@ -31,3 +28,6 @@ cache.invalidate(Players)
 
 print(cache.iscached(Players))
 ```
+
+
+</div>

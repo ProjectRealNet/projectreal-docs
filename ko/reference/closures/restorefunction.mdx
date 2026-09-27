@@ -2,13 +2,10 @@
 title: "restorefunction"
 sidebarTitle: "restorefunction"
 description: "내부적으로 function hook operation을 호출해 function를 복원하거나 교체하며 values를 반환하지 않습니다. first argument는 function이어야 합니다. function argument가 하나이면 function은 the saved original function를 조회합니다. entry가 없으면 \"Function is not hooked\"를 발생시킵니다. 그런 다음 hooked closure와 stored original closure로 function hook operation을 호출하고 Lua stack을 비우며, stored original이 사용된 경우 restored closure를 hook records에서 제거합니다. second argument도 function이면 function은 firstFunction을 설치할 original function으로, secondFunction을 patch할 closure로 취급합니다. 이 형태에서는 저장된 hook records 값에 대해 missing-original check를 수행하지 않습니다. 저장된 값은 final remove check 중에만 비교됩니다.에만 사용됩니다. non-function second arguments는 branch condition에 의해 무시됩니다. restorefunc 및 restoreclosure는 같은 function의 aliases입니다."
-icon: "function"
 keywords: ["restorefunction","Closures","restorefunc","restoreclosure"]
 ---
 
-내부적으로 function hook operation을 호출해 function를 복원하거나 교체하며 values를 반환하지 않습니다. first argument는 function이어야 합니다. function argument가 하나이면 function은 the saved original function를 조회합니다. entry가 없으면 "Function is not hooked"를 발생시킵니다. 그런 다음 hooked closure와 stored original closure로 function hook operation을 호출하고 Lua stack을 비우며, stored original이 사용된 경우 restored closure를 hook records에서 제거합니다. second argument도 function이면 function은 firstFunction을 설치할 original function으로, secondFunction을 patch할 closure로 취급합니다. 이 형태에서는 저장된 hook records 값에 대해 missing-original check를 수행하지 않습니다. 저장된 값은 final remove check 중에만 비교됩니다.에만 사용됩니다. non-function second arguments는 branch condition에 의해 무시됩니다. restorefunc 및 restoreclosure는 같은 function의 aliases입니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 restorefunction(firstFunction: function, secondFunction?: function)
@@ -21,10 +18,13 @@ restorefunction(firstFunction: function, secondFunction?: function)
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `firstFunction` | `function` | Yes | argument 하나에서는 hook records에서 복원할 hooked closure입니다. function second argument가 있으면 secondFunction에 설치할 function입니다. |
-| `secondFunction` | `function` | No | firstFunction으로 patch할 optional closure입니다. 이 branch는 second argument가 function일 때만 사용됩니다. |
+<ParamField path={"firstFunction"} type={"function"} required>
+argument 하나에서는 hook records에서 복원할 hooked closure입니다. function second argument가 있으면 secondFunction에 설치할 function입니다.
+</ParamField>
+
+<ParamField path={"secondFunction"} type={"function"}>
+firstFunction으로 patch할 optional closure입니다. 이 branch는 second argument가 function일 때만 사용됩니다.
+</ParamField>
 
 ## 예제
 
@@ -45,3 +45,6 @@ restorefunction(target)
 
 print(target())
 ```
+
+
+</div>

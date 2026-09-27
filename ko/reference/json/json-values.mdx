@@ -2,13 +2,10 @@
 title: "json.values"
 sidebarTitle: "json.values"
 description: "table의 direct values를 JSON array로 marked된 새 table로 반환합니다. JSON type marker entries는 건너뜁니다."
-icon: "function"
 keywords: ["json.values","JSON"]
 ---
 
-table의 direct values를 JSON array로 marked된 새 table로 반환합니다. JSON type marker entries는 건너뜁니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 json.values(object: table): table
@@ -16,15 +13,15 @@ json.values(object: table): table
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `object` | `table` | Yes | enumerate할 table입니다. function은 이 argument를 type checking으로 검사합니다. |
+<ParamField path={"object"} type={"table"} required>
+enumerate할 table입니다. function은 이 argument를 type checking으로 검사합니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `values` | `table` | input table의 direct values를 포함하는 new array-style table입니다. output은 JSON array로 marked됩니다. Enumeration은 table iteration를 사용하므로 function에서 ordering guarantee는 보이지 않습니다. |
+<ResponseField name={"values"} type={"table"}>
+input table의 direct values를 포함하는 new array-style table입니다. output은 JSON array로 marked됩니다. Enumeration은 table iteration를 사용하므로 function에서 ordering guarantee는 보이지 않습니다.
+</ResponseField>
 
 ## 예제
 
@@ -37,3 +34,6 @@ for _, value in ipairs(json.values(list)) do
     print(value)
 end
 ```
+
+
+</div>

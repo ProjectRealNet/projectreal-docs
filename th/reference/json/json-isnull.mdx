@@ -2,13 +2,10 @@
 title: "json.isNull"
 sidebarTitle: "json.isNull"
 description: "คืนว่า value เป็น Real JSON null sentinel คือ json.null หรือไม่."
-icon: "function"
 keywords: ["json.isNull","JSON"]
 ---
 
-คืนว่า value เป็น Real JSON null sentinel คือ json.null หรือไม่.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 json.isNull(value: any): boolean
@@ -16,15 +13,15 @@ json.isNull(value: any): boolean
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value ที่จะ inspect. เฉพาะ json.null value เท่านั้นที่คืน true; Lua nil และ other values คืน false. |
+<ParamField path={"value"} type={"any"} required>
+Value ที่จะ inspect. เฉพาะ json.null value เท่านั้นที่คืน true; Lua nil และ other values คืน false.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `isNull` | `boolean` | true เมื่อ value เป็น exact json.null sentinel, otherwise false. |
+<ResponseField name={"isNull"} type={"boolean"}>
+true เมื่อ value เป็น exact json.null sentinel, otherwise false.
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -39,3 +36,6 @@ end
 
 print(json.isNull(nil))
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "ImGuiWindow.CollapsingHeader"
 sidebarTitle: "ImGuiWindow.CollapsingHeader"
 description: "Anexa um collapsing header start marker, chama imediatamente o content callback com o mesmo ImGuiWindow object para que ele possa anexar nested elements, e depois anexa um header end marker. Durante rendering, nested elements sao pulados enquanto o header esta collapsed. Callback errors sao capturados e nao retornados por esta method."
-icon: "function"
 keywords: ["ImGuiWindow.CollapsingHeader","ImGui"]
 ---
 
-Anexa um collapsing header start marker, chama imediatamente o content callback com o mesmo ImGuiWindow object para que ele possa anexar nested elements, e depois anexa um header end marker. Durante rendering, nested elements sao pulados enquanto o header esta collapsed. Callback errors sao capturados e nao retornados por esta method.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.CollapsingHeader(window: ImGuiWindow, label: string, content: function): ImGuiWindow
@@ -16,17 +13,23 @@ ImGuiWindow.CollapsingHeader(window: ImGuiWindow, label: string, content: functi
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow object retornado por imgui.create. Um window destruido ou invalido gera um Lua error. |
-| `label` | `string` | Yes | Header label string passado ao ImGui collapsing header renderizado. |
-| `content` | `function` | Yes | Function invocada imediatamente com o mesmo ImGuiWindow object. Return values sao ignorados; erros sao capturados pela method. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow object retornado por imgui.create. Um window destruido ou invalido gera um Lua error.
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+Header label string passado ao ImGui collapsing header renderizado.
+</ParamField>
+
+<ParamField path={"content"} type={"function"} required>
+Function invocada imediatamente com o mesmo ImGuiWindow object. Return values sao ignorados; erros sao capturados pela method.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | O mesmo ImGuiWindow object, permitindo encadear method calls. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+O mesmo ImGuiWindow object, permitindo encadear method calls.
+</ResponseField>
 
 ## Tipos
 
@@ -47,3 +50,6 @@ Identificador retornado por imgui.create. Os métodos de construção de control
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Acrescenta um controle deslizante inteiro. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Acrescenta texto não interativo. |
 | `destroy` | `() -> ()` | Yes | Remove a janela e libera seus retornos de chamada registrados. |
+
+
+</div>

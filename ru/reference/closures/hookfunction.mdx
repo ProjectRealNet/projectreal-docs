@@ -2,13 +2,10 @@
 title: "hookfunction"
 sidebarTitle: "hookfunction"
 description: "Делает hook для target function через replacement function и возвращает cloned copy original target closure. Оба arguments должны быть functions. Function сначала flush-ит pending C function swaps, делает cloning target через function cloning, добавляет replacement closure или ее mapped newcclosure target в hidden stack tracking, вызывает FixCallstack для target и cloned original, затем patch-ит target closure через C closure, Luau closure или newcclosure-specific path. Если target еще нет в hook records, cloned original сохраняется там для restorefunction. Returned function является cloned original closure."
-icon: "function"
 keywords: ["hookfunction","Closures","hookfunc","replaceclosure","detourfunction","detour_function"]
 ---
 
-Делает hook для target function через replacement function и возвращает cloned copy original target closure. Оба arguments должны быть functions. Function сначала flush-ит pending C function swaps, делает cloning target через function cloning, добавляет replacement closure или ее mapped newcclosure target в hidden stack tracking, вызывает FixCallstack для target и cloned original, затем patch-ит target closure через C closure, Luau closure или newcclosure-specific path. Если target еще нет в hook records, cloned original сохраняется там для restorefunction. Returned function является cloned original closure.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 hookfunction(target: function, replacement: function): function
@@ -23,16 +20,19 @@ hookfunction(target: function, replacement: function): function
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `target` | `function` | Yes | Function для patch. Передача non-function вызывает type error. |
-| `replacement` | `function` | Yes | Function, чья function install или map на target. Передача non-function вызывает type error. |
+<ParamField path={"target"} type={"function"} required>
+Function для patch. Передача non-function вызывает type error.
+</ParamField>
+
+<ParamField path={"replacement"} type={"function"} required>
+Function, чья function install или map на target. Передача non-function вызывает type error.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `original` | `function` | Cloned copy original target closure, созданная до установки hook. |
+<ResponseField name={"original"} type={"function"}>
+Cloned copy original target closure, созданная до установки hook.
+</ResponseField>
 
 ## Пример
 
@@ -48,3 +48,6 @@ original = hookfunction(target, function(value)
     return original(value) * 2
 end)
 ```
+
+
+</div>

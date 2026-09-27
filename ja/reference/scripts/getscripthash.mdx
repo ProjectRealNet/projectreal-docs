@@ -2,13 +2,10 @@
 title: "getscripthash"
 sidebarTitle: "getscripthash"
 description: "Roblox script object の stored bytecode string に対する uppercase SHA384 hex digest を返します。argument は object である必要があります。共有 bytecode reader は ClassName 値 ModuleScript、LocalScript、CoreScript、Script を受け付けます。Script では RunContext が Client である必要があります。ClassName がない場合、function は \"Invalid Instance\" を投げます。ClassName が対応する script classes のいずれでもない場合、\"Script expected\" を投げます。値が別の RunContext を持つ Script の場合、\"Expected a Script with RunContext set to Client\" を投げます。embedded bytecode reference が無効、または stored bytecode の長さが 8 bytes 以下の場合、function は nil を返します。それ以外では、正確な stored bytecode bytes を SHA384 で hash し、uppercase hex string を返します。function は DecompressBytecode を呼び出さず、decompressed bytecode を hash しません。"
-icon: "function"
 keywords: ["getscripthash","Scripts"]
 ---
 
-Roblox script object の stored bytecode string に対する uppercase SHA384 hex digest を返します。argument は object である必要があります。共有 bytecode reader は ClassName 値 ModuleScript、LocalScript、CoreScript、Script を受け付けます。Script では RunContext が Client である必要があります。ClassName がない場合、function は "Invalid Instance" を投げます。ClassName が対応する script classes のいずれでもない場合、"Script expected" を投げます。値が別の RunContext を持つ Script の場合、"Expected a Script with RunContext set to Client" を投げます。embedded bytecode reference が無効、または stored bytecode の長さが 8 bytes 以下の場合、function は nil を返します。それ以外では、正確な stored bytecode bytes を SHA384 で hash し、uppercase hex string を返します。function は DecompressBytecode を呼び出さず、decompressed bytecode を hash しません。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 getscripthash(script: userdata): string | nil
@@ -16,15 +13,15 @@ getscripthash(script: userdata): string | nil
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | Hash する Script object。対応する ClassName 値は ModuleScript、LocalScript、CoreScript、RunContext Client の Script です。 |
+<ParamField path={"script"} type={"userdata"} required>
+Hash する Script object。対応する ClassName 値は ModuleScript、LocalScript、CoreScript、RunContext Client の Script です。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `hash` | `string \| nil` | stored bytecode bytes の uppercase SHA384 hex digest、または利用可能な embedded bytecode がない場合は nil。 |
+<ResponseField name={"hash"} type={"string | nil"}>
+stored bytecode bytes の uppercase SHA384 hex digest、または利用可能な embedded bytecode がない場合は nil。
+</ResponseField>
 
 ## 例
 
@@ -45,3 +42,6 @@ if targetScript then
     print(hash)
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "rconsoleinfo"
 sidebarTitle: "rconsoleinfo"
 description: "console text attribute를 info text color로 설정한 뒤 stdout을 통해 현재 Windows console에 0개 이상의 값을 씁니다. 값은 Lua string conversion으로 변환되고 tab 문자로 구분되며, 이후 text attribute는 default console text color로 설정됩니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다."
-icon: "function"
 keywords: ["rconsoleinfo","Console","consoleinfo"]
 ---
 
-console text attribute를 info text color로 설정한 뒤 stdout을 통해 현재 Windows console에 0개 이상의 값을 씁니다. 값은 Lua string conversion으로 변환되고 tab 문자로 구분되며, 이후 text attribute는 default console text color로 설정됩니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 rconsoleinfo(...values?: ...any)
@@ -20,9 +17,9 @@ rconsoleinfo(...values?: ...any)
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | 선택적 값입니다. console이 있으면 각 value는 Lua string conversion으로 변환되고 쓰기 전에 tab 문자로 결합됩니다. |
+<ParamField path={"...values"} type={"...any"}>
+선택적 값입니다. console이 있으면 각 value는 Lua string conversion으로 변환되고 쓰기 전에 tab 문자로 결합됩니다.
+</ParamField>
 
 ## 예제
 
@@ -33,3 +30,6 @@ rconsolecreate()
 rconsoleinfo("Connected", "
 ")
 ```
+
+
+</div>

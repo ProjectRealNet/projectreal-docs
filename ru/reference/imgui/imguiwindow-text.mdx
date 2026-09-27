@@ -2,13 +2,10 @@
 title: "ImGuiWindow.Text"
 sidebarTitle: "ImGuiWindow.Text"
 description: "Добавляет в окно неинтерактивный Text element. Аргумент text читается через string type checking и сохраняется в element. Во время rendering Real вызывает a text element, поэтому переданный text используется как string content, а не как ImGui format string."
-icon: "function"
 keywords: ["ImGuiWindow.Text","ImGui"]
 ---
 
-Добавляет в окно неинтерактивный Text element. Аргумент text читается через string type checking и сохраняется в element. Во время rendering Real вызывает a text element, поэтому переданный text используется как string content, а не как ImGui format string.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.Text(window: ImGuiWindow, text: string): ImGuiWindow
@@ -16,16 +13,19 @@ ImGuiWindow.Text(window: ImGuiWindow, text: string): ImGuiWindow
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow, возвращенное imgui.create. Если object недействительна или уже была destroy, method вызывает Lua error. |
-| `text` | `string` | Yes | Text content, читаемый через string type checking и отображаемый Text element. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow, возвращенное imgui.create. Если object недействительна или уже была destroy, method вызывает Lua error.
+</ParamField>
+
+<ParamField path={"text"} type={"string"} required>
+Text content, читаемый через string type checking и отображаемый Text element.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | Та же ImGuiWindow object, позволяющая цепочкой вызывать method. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+Та же ImGuiWindow object, позволяющая цепочкой вызывать method.
+</ResponseField>
 
 ## Типы
 
@@ -46,3 +46,6 @@ ImGuiWindow.Text(window: ImGuiWindow, text: string): ImGuiWindow
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Добавляет целочисленный ползунок. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Добавляет неинтерактивный текст. |
 | `destroy` | `() -> ()` | Yes | Удаляет окно и освобождает зарегистрированные обратные вызовы. |
+
+
+</div>

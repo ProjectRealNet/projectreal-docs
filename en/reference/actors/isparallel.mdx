@@ -2,13 +2,10 @@
 title: "isparallel"
 sidebarTitle: "isparallel"
 description: "Returns a boolean from the current Luau thread's ScriptContext DataModel. The function takes no arguments. It reads the current current parallel execution status. If the current DataModel returns no DataModel, the function returns false. checkparallel is an alias for the same function."
-icon: "function"
 keywords: ["isparallel","Actors","checkparallel"]
 ---
 
-Returns a boolean from the current Luau thread's ScriptContext DataModel. The function takes no arguments. It reads the current current parallel execution status. If the current DataModel returns no DataModel, the function returns false. checkparallel is an alias for the same function.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 isparallel(): boolean
@@ -20,9 +17,9 @@ isparallel(): boolean
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `parallel` | `boolean` | true when the current execution context is parallel; false when the flag is not set or the status cannot be resolved. |
+<ResponseField name={"parallel"} type={"boolean"}>
+true when the current execution context is parallel; false when the flag is not set or the status cannot be resolved.
+</ResponseField>
 
 ## Example
 
@@ -34,3 +31,6 @@ print(parallel)
 
 print(checkparallel())
 ```
+
+
+</div>

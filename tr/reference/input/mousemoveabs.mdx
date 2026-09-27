@@ -2,13 +2,10 @@
 title: "mousemoveabs"
 sidebarTitle: "mousemoveabs"
 description: "Roblox window active oldugunda Windows absolute mouse input kullanarak mouse hareket ettirir. x ve y argumanlari Lua numbers olarak kontrol edilir ve integer conversion ile donusturulur. Real bunlari active foreground window client area icine gore koordinatlar olarak ele alir, ClientToScreen ile bu client area screen position degerini ekler, GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 ve integer math ile scale eder, ardindan the requested mouse action ile mouse input cagirir. isrbxactive false olacaksa function input gondermeden doner."
-icon: "function"
 keywords: ["mousemoveabs","Input"]
 ---
 
-Roblox window active oldugunda Windows absolute mouse input kullanarak mouse hareket ettirir. x ve y argumanlari Lua numbers olarak kontrol edilir ve integer conversion ile donusturulur. Real bunlari active foreground window client area icine gore koordinatlar olarak ele alir, ClientToScreen ile bu client area screen position degerini ekler, GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 ve integer math ile scale eder, ardindan the requested mouse action ile mouse input cagirir. isrbxactive false olacaksa function input gondermeden doner.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 mousemoveabs(x: number, y: number)
@@ -16,7 +13,13 @@ mousemoveabs(x: number, y: number)
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `x` | `number` | Yes | Screen-position ve absolute-input scaling adimindan once Lua number olarak okunan ve integer conversion ile donusturulen client-area X coordinate. |
-| `y` | `number` | Yes | Screen-position ve absolute-input scaling adimindan once Lua number olarak okunan ve integer conversion ile donusturulen client-area Y coordinate. |
+<ParamField path={"x"} type={"number"} required>
+Screen-position ve absolute-input scaling adimindan once Lua number olarak okunan ve integer conversion ile donusturulen client-area X coordinate.
+</ParamField>
+
+<ParamField path={"y"} type={"number"} required>
+Screen-position ve absolute-input scaling adimindan once Lua number olarak okunan ve integer conversion ile donusturulen client-area Y coordinate.
+</ParamField>
+
+
+</div>

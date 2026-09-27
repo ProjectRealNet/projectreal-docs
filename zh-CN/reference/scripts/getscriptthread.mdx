@@ -2,13 +2,10 @@
 title: "getscriptthread"
 sidebarTitle: "getscriptthread"
 description: "当 Real 可以找到时，返回与 script object 关联的 Lua thread。argument 必须是 object。该 function 会读取该值的 ClassName field，如果该 field 不是 string，会抛出 \"not a valid Instance\"。接受的 ClassName 值是 Script、LocalScript 和 ModuleScript；任何其他值都会抛出 \"Script expected\"。它首先通过 script reference 检查 Real 的 ScriptThreadCache。cache hit 时，返回缓存的 Luau thread 作为 thread。cache miss 时，Script 值必须具有 RunContext Client，否则 function 会抛出 \"Expected a Script with RunContext set to Client\"。然后它遍历 the live Luau thread list，沿着每个 thread node 的 first weak thread reference 到 LiveLuaRef，跳过 missing thread data 或 expired Script stored references，并将每个 script reference 与请求的 script 比较。如果找到 match，则返回该 Luau thread 作为 thread。如果没有找到 match，则返回 nil。"
-icon: "function"
 keywords: ["getscriptthread","Scripts"]
 ---
 
-当 Real 可以找到时，返回与 script object 关联的 Lua thread。argument 必须是 object。该 function 会读取该值的 ClassName field，如果该 field 不是 string，会抛出 "not a valid Instance"。接受的 ClassName 值是 Script、LocalScript 和 ModuleScript；任何其他值都会抛出 "Script expected"。它首先通过 script reference 检查 Real 的 ScriptThreadCache。cache hit 时，返回缓存的 Luau thread 作为 thread。cache miss 时，Script 值必须具有 RunContext Client，否则 function 会抛出 "Expected a Script with RunContext set to Client"。然后它遍历 the live Luau thread list，沿着每个 thread node 的 first weak thread reference 到 LiveLuaRef，跳过 missing thread data 或 expired Script stored references，并将每个 script reference 与请求的 script 比较。如果找到 match，则返回该 Luau thread 作为 thread。如果没有找到 match，则返回 nil。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 getscriptthread(script: userdata): thread | nil
@@ -16,15 +13,15 @@ getscriptthread(script: userdata): thread | nil
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | 要查找的 Script object。接受的 ClassName 值是 Script、LocalScript 和 ModuleScript。 |
+<ParamField path={"script"} type={"userdata"} required>
+要查找的 Script object。接受的 ClassName 值是 Script、LocalScript 和 ModuleScript。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `thread` | `thread \| nil` | 关联的 Lua thread，或找不到 matching live thread 时为 nil。 |
+<ResponseField name={"thread"} type={"thread | nil"}>
+关联的 Lua thread，或找不到 matching live thread 时为 nil。
+</ResponseField>
 
 ## 示例
 
@@ -45,3 +42,6 @@ if targetScript then
     print(thread)
 end
 ```
+
+
+</div>

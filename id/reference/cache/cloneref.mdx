@@ -2,13 +2,10 @@
 title: "cloneref"
 sidebarTitle: "cloneref"
 description: "Mendorong referensi Instance baru untuk reference Instance dasar yang sama dan mengembalikannya."
-icon: "function"
 keywords: ["cloneref","Cache","clonereference"]
 ---
 
-Mendorong referensi Instance baru untuk reference Instance dasar yang sama dan mengembalikannya.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 cloneref(instance: Instance): Instance
@@ -20,15 +17,15 @@ cloneref(instance: Instance): Instance
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object yang digunakan sebagai sumber untuk referensi baru. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object yang digunakan sebagai sumber untuk referensi baru.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `reference` | `Instance` | Referensi Instance yang dikembalikan setelah Instance cache berjalan dengan reference object asli. |
+<ResponseField name={"reference"} type={"Instance"}>
+Referensi Instance yang dikembalikan setelah Instance cache berjalan dengan reference object asli.
+</ResponseField>
 
 ## Contoh
 
@@ -43,3 +40,6 @@ print(reference)
 local sameAlias = clonereference(Players)
 print(sameAlias)
 ```
+
+
+</div>

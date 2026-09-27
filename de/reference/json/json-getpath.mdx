@@ -2,13 +2,10 @@
 title: "json.getPath"
 sidebarTitle: "json.getPath"
 description: "Liest einen nested value aus einer table mit einem dotted string path oder einer array table of keys."
-icon: "function"
 keywords: ["json.getPath","JSON","json.getpath"]
 ---
 
-Liest einen nested value aus einer table mit einem dotted string path oder einer array table of keys.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
@@ -20,17 +17,23 @@ json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `object` | `table` | Yes | Root table, aus der gelesen wird. Die function verlangt, dass dieses argument eine table ist. |
-| `path` | `string \| table` | Yes | Path, dem gefolgt wird. Ein string wird an dots gesplittet; integer string tokens werden mit raw array indexing gelesen. Eine table path nutzt ihre array entries von 1 bis #path als keys. |
-| `defaultValue` | `any` | No | Fallback value, der zurueckgegeben wird, wenn traversal nil erreicht oder vor Abschluss des path auf eine non-table trifft. |
+<ParamField path={"object"} type={"table"} required>
+Root table, aus der gelesen wird. Die function verlangt, dass dieses argument eine table ist.
+</ParamField>
+
+<ParamField path={"path"} type={"string | table"} required>
+Path, dem gefolgt wird. Ein string wird an dots gesplittet; integer string tokens werden mit raw array indexing gelesen. Eine table path nutzt ihre array entries von 1 bis #path als keys.
+</ParamField>
+
+<ParamField path={"defaultValue"} type={"any"}>
+Fallback value, der zurueckgegeben wird, wenn traversal nil erreicht oder vor Abschluss des path auf eine non-table trifft.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `pathValue` | `any \| nil` | Value am requested path. Wenn der path fehlt, wird defaultValue zurueckgegeben, wenn er angegeben wurde, sonst nil. |
+<ResponseField name={"pathValue"} type={"any | nil"}>
+Value am requested path. Wenn der path fehlt, wird defaultValue zurueckgegeben, wenn er angegeben wurde, sonst nil.
+</ResponseField>
 
 ## Beispiel
 
@@ -50,3 +53,6 @@ local second = json.getPath(document, "user.items.2")
 print(name)
 print(second)
 ```
+
+
+</div>

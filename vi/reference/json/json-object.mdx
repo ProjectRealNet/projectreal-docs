@@ -2,13 +2,10 @@
 title: "json.object"
 sidebarTitle: "json.object"
 description: "Tao new table marked as a JSON object de Real JSON encoder xu ly nhu object."
-icon: "function"
 keywords: ["json.object","JSON"]
 ---
 
-Tao new table marked as a JSON object de Real JSON encoder xu ly nhu object.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 json.object(source?: table): table
@@ -16,15 +13,15 @@ json.object(source?: table): table
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `source` | `table` | No | Optional source table de copy vao new object table. Neu omitted hoac nil, tra ve empty object table. |
+<ParamField path={"source"} type={"table"}>
+Optional source table de copy vao new object table. Neu omitted hoac nil, tra ve empty object table.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `object` | `table` | New table marked voi Real JSON object marker. Source entries duoc copy, tru Real JSON type marker. |
+<ResponseField name={"object"} type={"table"}>
+New table marked voi Real JSON object marker. Source entries duoc copy, tru Real JSON type marker.
+</ResponseField>
 
 ## Ví dụ
 
@@ -40,3 +37,6 @@ local empty = json.object()
 print(json.encode(profile))
 print(json.encode(empty))
 ```
+
+
+</div>

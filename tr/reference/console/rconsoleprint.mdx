@@ -2,13 +2,10 @@
 title: "rconsoleprint"
 sidebarTitle: "rconsoleprint"
 description: "console text attribute değerini değiştirmeden stdout üzerinden geçerli Windows console içine sifir veya daha fazla deger yazar. Değerler Lua string conversion ile dönüştürülür ve tab karakterleriyle ayrılır. function newline eklemez. console window yoksa çağrı herhangi bir seyi donusturmeden veya yazmadan doner."
-icon: "function"
 keywords: ["rconsoleprint","Console","consoleprint","rconsolewrite","consolewrite"]
 ---
 
-console text attribute değerini değiştirmeden stdout üzerinden geçerli Windows console içine sifir veya daha fazla deger yazar. Değerler Lua string conversion ile dönüştürülür ve tab karakterleriyle ayrılır. function newline eklemez. console window yoksa çağrı herhangi bir seyi donusturmeden veya yazmadan doner.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 rconsoleprint(...values?: ...any)
@@ -22,9 +19,9 @@ rconsoleprint(...values?: ...any)
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | Istege bagli degerler. console varsa her value Lua string conversion ile donusturulur ve yazmadan once tab karakterleriyle birlestirilir. |
+<ParamField path={"...values"} type={"...any"}>
+Istege bagli degerler. console varsa her value Lua string conversion ile donusturulur ve yazmadan once tab karakterleriyle birlestirilir.
+</ParamField>
 
 ## Örnek
 
@@ -37,3 +34,6 @@ rconsoleprint("Loading", "
 rconsoleprint("User", "	", 42, "
 ")
 ```
+
+
+</div>

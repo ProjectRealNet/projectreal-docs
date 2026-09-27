@@ -2,13 +2,10 @@
 title: "isrbxactive"
 sidebarTitle: "isrbxactive"
 description: "current foreground window が Real によって見つかった Roblox window かどうかを返します。Real は現在のプロセスの windows を enumerating し、class name が Roblox window の window を選択してその window を見つけます。この function は arguments を受け取らず、foreground window または matching Roblox window が利用できない場合は false を返します。"
-icon: "function"
 keywords: ["isrbxactive","Input","isgameactive","iswindowactive"]
 ---
 
-current foreground window が Real によって見つかった Roblox window かどうかを返します。Real は現在のプロセスの windows を enumerating し、class name が Roblox window の window を選択してその window を見つけます。この function は arguments を受け取らず、foreground window または matching Roblox window が利用できない場合は false を返します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 isrbxactive(): boolean
@@ -21,6 +18,9 @@ isrbxactive(): boolean
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `active` | `boolean` | GetForegroundWindow() が、現在のプロセス用に cached または newly found された Roblox window window と同じ HWND を返す場合は True。 |
+<ResponseField name={"active"} type={"boolean"}>
+GetForegroundWindow() が、現在のプロセス用に cached または newly found された Roblox window window と同じ HWND を返す場合は True。
+</ResponseField>
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "isrenderobj"
 sidebarTitle: "isrenderobj"
 description: "Degerin Drawing object type iceren object olup olmadigini dondurur. Bu yalnizca methods check yapar; alttaki Drawing object hala active, tracked veya destroyed mi kontrol etmez. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner."
-icon: "function"
 keywords: ["isrenderobj","Drawing"]
 ---
 
-Degerin Drawing object type iceren object olup olmadigini dondurur. Bu yalnizca methods check yapar; alttaki Drawing object hala active, tracked veya destroyed mi kontrol etmez. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 isrenderobj(object: any): boolean
@@ -16,15 +13,15 @@ isrenderobj(object: any): boolean
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | Test edilecek deger. Drawing object type olmayan non-object values ve object false dondurur. |
+<ParamField path={"object"} type={"any"} required>
+Test edilecek deger. Drawing object type olmayan non-object values ve object false dondurur.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `isDrawingObject` | `boolean` | Deger methods degeri RealDrawingObject ile eslesen object oldugunda True; aksi halde false. |
+<ResponseField name={"isDrawingObject"} type={"boolean"}>
+Deger methods degeri RealDrawingObject ile eslesen object oldugunda True; aksi halde false.
+</ResponseField>
 
 ## Örnek
 
@@ -38,3 +35,6 @@ square:Destroy()
 print(isrenderobj(square))
 print(isrenderobj({}))
 ```
+
+
+</div>

@@ -1,15 +1,31 @@
 ---
 title: "Cache"
 description: "Referans önbelleğe alma ve örnek karşılaştırma."
-icon: "folder-code"
+icon: "/icons/database.svg"
 ---
+
+<div className="real-category-page">
 
 Referans önbelleğe alma ve örnek karşılaştırma.
 
-| Fonksiyon gezinmesi | Açıklama |
-| --- | --- |
-| [`cache.invalidate`](./cache-invalidate) | Verilen Instance icin cachelenen Instance cache girdisini kaldirir. |
-| [`cache.iscached`](./cache-iscached) | Verilen Instance icin Instance cache icinde non-nil bir girdi olup olmadigini dondurur. |
-| [`cache.replace`](./cache-replace) | Sets the cached Instance entry for one Instance to another Instance. |
-| [`cloneref`](./cloneref) | Ayni temel Instance reference icin yeni bir Instance referansi push eder ve onu dondurur. |
-| [`compareinstances`](./compareinstances) | Iki Instance object degerinde saklanan dahili Instance reference degerlerini karsilastirir. |
+## Kullanılabilir fonksiyonlar
+
+<CardGroup cols={2}>
+<Card title="cache.invalidate" href="./cache-invalidate">
+Verilen Instance icin cachelenen Instance cache girdisini kaldirir.
+</Card>
+<Card title="cache.iscached" href="./cache-iscached">
+Verilen Instance icin Instance cache icinde non-nil bir girdi olup olmadigini dondurur.
+</Card>
+<Card title="cache.replace" href="./cache-replace">
+Sets the cached Instance entry for one Instance to another Instance.
+</Card>
+<Card title="cloneref" href="./cloneref">
+Ayni temel Instance reference icin yeni bir Instance referansi push eder ve onu dondurur.
+</Card>
+<Card title="compareinstances" href="./compareinstances">
+Iki Instance object degerinde saklanan dahili Instance reference degerlerini karsilastirir.
+</Card>
+</CardGroup>
+
+</div>

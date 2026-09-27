@@ -2,13 +2,10 @@
 title: "getscriptbytecode"
 sidebarTitle: "getscriptbytecode"
 description: "返回 Roblox script object 的 decompressed bytecode string。getscriptbytecode 注册到与 dumpstring 相同的 C++ function，因此行为完全相同。argument 必须是 object。共享的 bytecode reader 接受 ClassName 值 ModuleScript、LocalScript、CoreScript 和 Script。对于 Script，RunContext 必须是 Client。如果缺少 ClassName，function 抛出 \"Invalid Instance\"。如果 ClassName 不是受支持的 script class，则抛出 \"Script expected\"。如果该值是其他 RunContext 的 Script，则抛出 \"Expected a Script with RunContext set to Client\"。如果 embedded bytecode reference 无效，或 stored bytecode 长度为 8 bytes 或更少，function 返回 nil。否则，它会用 DecompressBytecode 解压 stored bytecode，并把 resulting bytes 作为 Luau string 返回。Hash mismatch、too-short compressed data 或 ZSTD decompression errors 会由 DecompressBytecode 作为 error text bytes 返回，而不是在这里抛出。"
-icon: "function"
 keywords: ["getscriptbytecode","Scripts"]
 ---
 
-返回 Roblox script object 的 decompressed bytecode string。getscriptbytecode 注册到与 dumpstring 相同的 C++ function，因此行为完全相同。argument 必须是 object。共享的 bytecode reader 接受 ClassName 值 ModuleScript、LocalScript、CoreScript 和 Script。对于 Script，RunContext 必须是 Client。如果缺少 ClassName，function 抛出 "Invalid Instance"。如果 ClassName 不是受支持的 script class，则抛出 "Script expected"。如果该值是其他 RunContext 的 Script，则抛出 "Expected a Script with RunContext set to Client"。如果 embedded bytecode reference 无效，或 stored bytecode 长度为 8 bytes 或更少，function 返回 nil。否则，它会用 DecompressBytecode 解压 stored bytecode，并把 resulting bytes 作为 Luau string 返回。Hash mismatch、too-short compressed data 或 ZSTD decompression errors 会由 DecompressBytecode 作为 error text bytes 返回，而不是在这里抛出。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 getscriptbytecode(script: userdata): string | nil
@@ -16,15 +13,15 @@ getscriptbytecode(script: userdata): string | nil
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | 要读取的 Script object。支持的 ClassName 值为 ModuleScript、LocalScript、CoreScript，以及 RunContext Client 的 Script。 |
+<ParamField path={"script"} type={"userdata"} required>
+要读取的 Script object。支持的 ClassName 值为 ModuleScript、LocalScript、CoreScript，以及 RunContext Client 的 Script。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `bytecode` | `string \| nil` | 作为 Luau string 的 decompressed bytecode bytes、DecompressBytecode error text bytes，或没有可用 embedded bytecode 时的 nil。 |
+<ResponseField name={"bytecode"} type={"string | nil"}>
+作为 Luau string 的 decompressed bytecode bytes、DecompressBytecode error text bytes，或没有可用 embedded bytecode 时的 nil。
+</ResponseField>
 
 ## 示例
 
@@ -45,3 +42,6 @@ if targetScript then
     print(bytecode)
 end
 ```
+
+
+</div>

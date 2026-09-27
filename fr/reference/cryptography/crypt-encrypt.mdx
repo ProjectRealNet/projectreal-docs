@@ -2,13 +2,10 @@
 title: "crypt.encrypt"
 sidebarTitle: "crypt.encrypt"
 description: "Chiffre les octets d une chaine Lua avec AES CBC, ECB ou CTR avec une key decodee depuis Base64, puis renvoie Base64 ciphertext et le resultat IV."
-icon: "function"
 keywords: ["crypt.encrypt","Cryptography"]
 ---
 
-Chiffre les octets d une chaine Lua avec AES CBC, ECB ou CTR avec une key decodee depuis Base64, puis renvoie Base64 ciphertext et le resultat IV.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 crypt.encrypt(data: string, key: string, iv?: string, mode?: "CBC" | "ECB" | "CTR" | "AES-CBC" | "AES-ECB" | "AES-CTR"): string | string | nil
@@ -16,19 +13,31 @@ crypt.encrypt(data: string, key: string, iv?: string, mode?: "CBC" | "ECB" | "CT
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Octets plaintext lus depuis une chaine Lua. |
-| `key` | `string` | Yes | Base64 key decodee avant d etre transmise a AES. |
-| `iv` | `string` | No | Base64 IV optionnel pour CBC ou CTR. S il est omis avec CBC ou CTR, un nouvel IV de taille AES block size est genere. |
-| `mode` | `"CBC" \| "ECB" \| "CTR" \| "AES-CBC" \| "AES-ECB" \| "AES-CTR"` | No | AES mode. Le prefixe AES- est supprime quand il est present. La valeur par defaut est AES-CBC. CBC et ECB utilisent crypto library DEFAULT_PADDING; CTR n utilise pas de padding. |
+<ParamField path={"data"} type={"string"} required>
+Octets plaintext lus depuis une chaine Lua.
+</ParamField>
+
+<ParamField path={"key"} type={"string"} required>
+Base64 key decodee avant d etre transmise a AES.
+</ParamField>
+
+<ParamField path={"iv"} type={"string"}>
+Base64 IV optionnel pour CBC ou CTR. S il est omis avec CBC ou CTR, un nouvel IV de taille AES block size est genere.
+</ParamField>
+
+<ParamField path={"mode"} type={"\"CBC\" | \"ECB\" | \"CTR\" | \"AES-CBC\" | \"AES-ECB\" | \"AES-CTR\""}>
+AES mode. Le prefixe AES- est supprime quand il est present. La valeur par defaut est AES-CBC. CBC et ECB utilisent crypto library DEFAULT_PADDING; CTR n utilise pas de padding.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `ciphertext` | `string` | Base64-encoded ciphertext. |
-| `initializationVector` | `string \| nil` | Base64-encoded IV pour CBC et CTR; nil pour ECB. |
+<ResponseField name={"ciphertext"} type={"string"}>
+Base64-encoded ciphertext.
+</ResponseField>
+
+<ResponseField name={"initializationVector"} type={"string | nil"}>
+Base64-encoded IV pour CBC et CTR; nil pour ECB.
+</ResponseField>
 
 ## Exemple
 
@@ -44,3 +53,6 @@ print(ciphertext)
 print(iv)
 print(plaintext)
 ```
+
+
+</div>

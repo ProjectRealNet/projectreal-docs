@@ -2,13 +2,10 @@
 title: "getsignalarguments"
 sidebarTitle: "getsignalarguments"
 description: "返回从 RBXScriptSignal event descriptor signature 读取的 type names array table。第一个 argument 必须是 Luau type name 为 RBXScriptSignal 的 object。该 function 会读取 signal 的 event descriptor，使用 function 的 argument stride 遍历 signature slots，读取每个 argument type reference，并为每个 slot push 解析出的 type name string。它不会返回 captured runtime argument values。如果 signature 无法读取或没有 push 任何 entries，返回的 table 会包含一个 fallback entry: \"Variant\"。"
-icon: "function"
 keywords: ["getsignalarguments","Signals"]
 ---
 
-返回从 RBXScriptSignal event descriptor signature 读取的 type names array table。第一个 argument 必须是 Luau type name 为 RBXScriptSignal 的 object。该 function 会读取 signal 的 event descriptor，使用 function 的 argument stride 遍历 signature slots，读取每个 argument type reference，并为每个 slot push 解析出的 type name string。它不会返回 captured runtime argument values。如果 signature 无法读取或没有 push 任何 entries，返回的 table 会包含一个 fallback entry: "Variant"。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 getsignalarguments(signal: RBXScriptSignal): {string}
@@ -16,15 +13,15 @@ getsignalarguments(signal: RBXScriptSignal): {string}
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | 要检查 event descriptor signature 的 signal。非 RBXScriptSignal object 会抛出 type error。 |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+要检查 event descriptor signature 的 signal。非 RBXScriptSignal object 会抛出 type error。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `arguments` | `&#123;string&#125;` | argument type name strings 的 array table。当 signature data 无法读取或没有生成 argument entries 时，会返回包含 "Variant" 的 fallback table。 |
+<ResponseField name={"arguments"} type={"{string}"}>
+argument type name strings 的 array table。当 signature data 无法读取或没有生成 argument entries 时，会返回包含 "Variant" 的 fallback table。
+</ResponseField>
 
 ## 示例
 
@@ -40,3 +37,6 @@ if remote then
     end
 end
 ```
+
+
+</div>

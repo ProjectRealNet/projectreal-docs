@@ -2,13 +2,10 @@
 title: "json.decodeSafe"
 sidebarTitle: "json.decodeSafe"
 description: "Parsea JSON con el mismo parser que json.decode y devuelve un success flag en lugar de lanzar para parse errors."
-icon: "function"
 keywords: ["json.decodeSafe","JSON"]
 ---
 
-Parsea JSON con el mismo parser que json.decode y devuelve un success flag en lugar de lanzar para parse errors.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
@@ -16,19 +13,31 @@ json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | st
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON text para parsear. Este argument se comprueba como string antes de capturar parse errors. |
-| `options` | `DecodeOptions` | No | Optional decode options. Un boolean establece useNull directamente. Una table puede establecer useNull y maxDepth; maxDepth se clampa de 1 a 4096. Invalid option argument types se comprueban antes de capturar parse errors. |
+<ParamField path={"json"} type={"string"} required>
+JSON text para parsear. Este argument se comprueba como string antes de capturar parse errors.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. Un boolean establece useNull directamente. Una table puede establecer useNull y maxDepth; maxDepth se clampa de 1 a 4096. Invalid option argument types se comprueban antes de capturar parse errors.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `success` | `boolean` | True cuando parsing tiene exito, false cuando el parser informa un error. |
-| `decoded` | `any \| nil` | Decoded value en exito, nil en parse failure. JSON false valido devuelve success como true y decoded como false, asi que comprueba el success return value. |
-| `errorMessage` | `string \| nil` | Error message en parse failure, si no nil. El mensaje incluye el json.decodeSafe prefix y parser position. |
-| `errorPosition` | `number \| nil` | Parser byte position en parse failure, si no nil. |
+<ResponseField name={"success"} type={"boolean"}>
+True cuando parsing tiene exito, false cuando el parser informa un error.
+</ResponseField>
+
+<ResponseField name={"decoded"} type={"any | nil"}>
+Decoded value en exito, nil en parse failure. JSON false valido devuelve success como true y decoded como false, asi que comprueba el success return value.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+Error message en parse failure, si no nil. El mensaje incluye el json.decodeSafe prefix y parser position.
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+Parser byte position en parse failure, si no nil.
+</ResponseField>
 
 ## Tipos
 
@@ -57,3 +66,6 @@ if not parsed then
     warn(message, position)
 end
 ```
+
+
+</div>

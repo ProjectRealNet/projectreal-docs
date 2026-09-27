@@ -1,21 +1,49 @@
 ---
 title: "Console"
 description: "런타임 출력 및 콘솔 제어."
-icon: "folder-code"
+icon: "/icons/file-code.svg"
 ---
+
+<div className="real-category-page">
 
 런타임 출력 및 콘솔 제어.
 
-| 함수 탐색 | 설명 |
-| --- | --- |
-| [`rconsoleclear`](./rconsoleclear) | console window가 있으면 current Windows console screen buffer를 지웁니다. console window가 없으면 call은 아무 작업 없이 반환됩니다. |
-| [`rconsolecreate`](./rconsolecreate) | console window가 없으면 process에 Windows console을 allocate합니다. console window가 이미 있으면 call은 아무 작업 없이 반환됩니다. allocation 후 function은 stdout을 console output로, stdin을 console input로 redirect합니다. |
-| [`rconsoledestroy`](./rconsoledestroy) | 현재 Windows console screen buffer를 지우고 console window를 숨긴 다음 console detachment로 프로세스를 console에서 분리합니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다. |
-| [`rconsoleerr`](./rconsoleerr) | console text attribute를 error text color로 설정한 뒤 stdout을 통해 현재 Windows console에 0개 이상의 값을 씁니다. 값은 Lua string conversion으로 변환되고 tab 문자로 구분되며, 이후 text attribute는 default console text color로 설정됩니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다. |
-| [`rconsolehide`](./rconsolehide) | Windows console visibility update와 hide mode를 사용해 현재 Windows console window를 숨깁니다. 이 function은 console detachment을 호출하지 않으므로 console에서 분리하거나 console을 파괴하지 않습니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다. |
-| [`rconsoleinfo`](./rconsoleinfo) | console text attribute를 info text color로 설정한 뒤 stdout을 통해 현재 Windows console에 0개 이상의 값을 씁니다. 값은 Lua string conversion으로 변환되고 tab 문자로 구분되며, 이후 text attribute는 default console text color로 설정됩니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다. |
-| [`rconsoleinput`](./rconsoleinput) | console input state를 지우고 다음 newline까지 input을 무시한 뒤 console input으로 stdin에서 하나의 line을 읽는 동안 yield합니다. 반환되는 string은 string return으로 push되며 끝 newline은 포함하지 않습니다. console window가 없으면 호출은 values 없이 반환됩니다. |
-| [`rconsolename`](./rconsolename) | Windows console title update로 현재 Windows console window의 title을 설정합니다. 첫 번째 argument는 string이어야 하며 console existence check 전에 검사됩니다. string check가 성공한 뒤 console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다. |
-| [`rconsoleprint`](./rconsoleprint) | console text attribute를 변경하지 않고 stdout을 통해 현재 Windows console에 0개 이상의 값을 씁니다. 값은 Lua string conversion으로 변환되고 tab 문자로 구분됩니다. 이 function은 newline을 추가하지 않습니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다. |
-| [`rconsoleshow`](./rconsoleshow) | Windows console visibility update에서 show mode를 사용해 현재 Windows console window를 표시합니다. 이 function은 console을 생성하지 않습니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다. |
-| [`rconsolewarn`](./rconsolewarn) | warning console text attribute로 현재 Windows console에 stdout을 통해 0개 이상의 값을 씁니다. console window가 없으면 호출은 아무것도 변환하거나 쓰지 않고 반환됩니다. console이 있으면 각 argument는 Lua string conversion으로 변환되고 tab 문자로 결합된 뒤 runtime value을 통해 쓰입니다. Lua string conversion이 error를 발생시키면 rconsolewarn은 이를 잡지 않습니다. 이 function은 쓰기 전에 console text attribute를 FOREGROUND_RED \| FOREGROUND_GREEN \| FOREGROUND_INTENSITY로 설정하고, 이후 default console text color로 설정합니다. newline이나 warning prefix를 추가하지 않고, console을 만들거나 표시하지 않으며, Luau warn 또는 Roblox Output을 호출하지 않습니다. consolewarn은 같은 function의 alias입니다. |
+## 사용 가능한 함수
+
+<CardGroup cols={2}>
+<Card title="rconsoleclear" href="./rconsoleclear">
+console window가 있으면 current Windows console screen buffer를 지웁니다. console window가 없으면 call은 아무 작업 없이 반환됩니다.
+</Card>
+<Card title="rconsolecreate" href="./rconsolecreate">
+console window가 없으면 process에 Windows console을 allocate합니다. console window가 이미 있으면 call은 아무 작업 없이 반환됩니다. allocation 후 function은 stdout을 console output로, stdin을 console input로 redirect합니다.
+</Card>
+<Card title="rconsoledestroy" href="./rconsoledestroy">
+현재 Windows console screen buffer를 지우고 console window를 숨긴 다음 console detachment로 프로세스를 console에서 분리합니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다.
+</Card>
+<Card title="rconsoleerr" href="./rconsoleerr">
+console text attribute를 error text color로 설정한 뒤 stdout을 통해 현재 Windows console에 0개 이상의 값을 씁니다. 값은 Lua string conversion으로 변환되고 tab 문자로 구분되며, 이후 text attribute는 default console text color로 설정됩니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다.
+</Card>
+<Card title="rconsolehide" href="./rconsolehide">
+Windows console visibility update와 hide mode를 사용해 현재 Windows console window를 숨깁니다. 이 function은 console detachment을 호출하지 않으므로 console에서 분리하거나 console을 파괴하지 않습니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다.
+</Card>
+<Card title="rconsoleinfo" href="./rconsoleinfo">
+console text attribute를 info text color로 설정한 뒤 stdout을 통해 현재 Windows console에 0개 이상의 값을 씁니다. 값은 Lua string conversion으로 변환되고 tab 문자로 구분되며, 이후 text attribute는 default console text color로 설정됩니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다.
+</Card>
+<Card title="rconsoleinput" href="./rconsoleinput">
+console input state를 지우고 다음 newline까지 input을 무시한 뒤 console input으로 stdin에서 하나의 line을 읽는 동안 yield합니다. 반환되는 string은 string return으로 push되며 끝 newline은 포함하지 않습니다. console window가 없으면 호출은 values 없이 반환됩니다.
+</Card>
+<Card title="rconsolename" href="./rconsolename">
+Windows console title update로 현재 Windows console window의 title을 설정합니다. 첫 번째 argument는 string이어야 하며 console existence check 전에 검사됩니다. string check가 성공한 뒤 console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다.
+</Card>
+<Card title="rconsoleprint" href="./rconsoleprint">
+console text attribute를 변경하지 않고 stdout을 통해 현재 Windows console에 0개 이상의 값을 씁니다. 값은 Lua string conversion으로 변환되고 tab 문자로 구분됩니다. 이 function은 newline을 추가하지 않습니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다.
+</Card>
+<Card title="rconsoleshow" href="./rconsoleshow">
+Windows console visibility update에서 show mode를 사용해 현재 Windows console window를 표시합니다. 이 function은 console을 생성하지 않습니다. console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다.
+</Card>
+<Card title="rconsolewarn" href="./rconsolewarn">
+warning console text attribute로 현재 Windows console에 stdout을 통해 0개 이상의 값을 씁니다. console window가 없으면 호출은 아무것도 변환하거나 쓰지 않고 반환됩니다. console이 있으면 각 argument는 Lua string conversion으로 변환되고 tab 문자로 결합된 뒤 runtime value을 통해 쓰입니다. Lua string conversion이 error를 발생시키면 rconsolewarn은 이를 잡지 않습니다. 이 function은 쓰기 전에 console text attribute를 FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY로 설정하고, 이후 default console text color로 설정합니다. newline이나 warning prefix를 추가하지 않고, console을 만들거나 표시하지 않으며, Luau warn 또는 Roblox Output을 호출하지 않습니다. consolewarn은 같은 function의 alias입니다.
+</Card>
+</CardGroup>
+
+</div>

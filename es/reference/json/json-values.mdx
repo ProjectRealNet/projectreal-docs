@@ -2,13 +2,10 @@
 title: "json.values"
 sidebarTitle: "json.values"
 description: "Devuelve los direct values de una table en una nueva table marked as JSON array. Se omiten los JSON type marker entries."
-icon: "function"
 keywords: ["json.values","JSON"]
 ---
 
-Devuelve los direct values de una table en una nueva table marked as JSON array. Se omiten los JSON type marker entries.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 json.values(object: table): table
@@ -16,15 +13,15 @@ json.values(object: table): table
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `object` | `table` | Yes | Table que se va a enumerate. La function comprueba este argument con type checking. |
+<ParamField path={"object"} type={"table"} required>
+Table que se va a enumerate. La function comprueba este argument con type checking.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `values` | `table` | New array-style table que contiene los direct values de la input table. El output queda marked as JSON array. Enumeration usa table iteration, por lo que no hay ordering guarantee visible en la function. |
+<ResponseField name={"values"} type={"table"}>
+New array-style table que contiene los direct values de la input table. El output queda marked as JSON array. Enumeration usa table iteration, por lo que no hay ordering guarantee visible en la function.
+</ResponseField>
 
 ## Ejemplo
 
@@ -37,3 +34,6 @@ for _, value in ipairs(json.values(list)) do
     print(value)
 end
 ```
+
+
+</div>

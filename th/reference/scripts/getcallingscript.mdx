@@ -2,13 +2,10 @@
 title: "getcallingscript"
 sidebarTitle: "getcallingscript"
 description: "คืน script ที่เก็บอยู่บน current Luau thread object function นี้ไม่รับ arguments อ่าน the current thread script ซึ่งเป็น stored reference หาก stored reference นั้นไม่ expired function จะ push script Instance ด้วย Instance cache และคืนค่านั้น หาก stored reference expired function จะคืน nil function ไม่ตรวจ Lua call stack ไม่ค้นหา ancestor scripts และไม่ตรวจ script ClassName"
-icon: "function"
 keywords: ["getcallingscript","Scripts"]
 ---
 
-คืน script ที่เก็บอยู่บน current Luau thread object function นี้ไม่รับ arguments อ่าน the current thread script ซึ่งเป็น stored reference หาก stored reference นั้นไม่ expired function จะ push script Instance ด้วย Instance cache และคืนค่านั้น หาก stored reference expired function จะคืน nil function ไม่ตรวจ Lua call stack ไม่ค้นหา ancestor scripts และไม่ตรวจ script ClassName
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 getcallingscript(): Instance | nil
@@ -16,6 +13,9 @@ getcallingscript(): Instance | nil
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `script` | `Instance \| nil` | Script Instance จาก current Luau thread object stored reference หรือ nil เมื่อ stored reference นั้น expired. |
+<ResponseField name={"script"} type={"Instance | nil"}>
+Script Instance จาก current Luau thread object stored reference หรือ nil เมื่อ stored reference นั้น expired.
+</ResponseField>
+
+
+</div>

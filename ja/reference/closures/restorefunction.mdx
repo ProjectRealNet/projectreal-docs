@@ -2,13 +2,10 @@
 title: "restorefunction"
 sidebarTitle: "restorefunction"
 description: "内部で function hook operation を呼び出して function を復元または置き換え、values は返しません。first argument は function である必要があります。function argument が 1 つの場合、function は the saved original function を検索します。entry が存在しない場合は \"Function is not hooked\" を発生させます。その後、hooked closure と stored original closure で function hook operation を呼び出し、Lua stack をクリアし、stored original が使われた場合は restored closure を hook records から削除します。second argument も function の場合、function は firstFunction をインストールする original function、secondFunction を patch する closure として扱います。この形式では、保存された hook records 値に対する missing-original check は行われません。保存された値は final remove check でのみ比較されます。 にのみ使われます。non-function second arguments は branch condition によって無視されます。restorefunc と restoreclosure は同じ function の aliases です。"
-icon: "function"
 keywords: ["restorefunction","Closures","restorefunc","restoreclosure"]
 ---
 
-内部で function hook operation を呼び出して function を復元または置き換え、values は返しません。first argument は function である必要があります。function argument が 1 つの場合、function は the saved original function を検索します。entry が存在しない場合は "Function is not hooked" を発生させます。その後、hooked closure と stored original closure で function hook operation を呼び出し、Lua stack をクリアし、stored original が使われた場合は restored closure を hook records から削除します。second argument も function の場合、function は firstFunction をインストールする original function、secondFunction を patch する closure として扱います。この形式では、保存された hook records 値に対する missing-original check は行われません。保存された値は final remove check でのみ比較されます。 にのみ使われます。non-function second arguments は branch condition によって無視されます。restorefunc と restoreclosure は同じ function の aliases です。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 restorefunction(firstFunction: function, secondFunction?: function)
@@ -21,10 +18,13 @@ restorefunction(firstFunction: function, secondFunction?: function)
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `firstFunction` | `function` | Yes | 1 つの argument では hook records から復元する hooked closure。function second argument がある場合は secondFunction にインストールする function。 |
-| `secondFunction` | `function` | No | firstFunction で patch する optional closure。この branch は second argument が function の場合にのみ使われます。 |
+<ParamField path={"firstFunction"} type={"function"} required>
+1 つの argument では hook records から復元する hooked closure。function second argument がある場合は secondFunction にインストールする function。
+</ParamField>
+
+<ParamField path={"secondFunction"} type={"function"}>
+firstFunction で patch する optional closure。この branch は second argument が function の場合にのみ使われます。
+</ParamField>
 
 ## 例
 
@@ -45,3 +45,6 @@ restorefunction(target)
 
 print(target())
 ```
+
+
+</div>

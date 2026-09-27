@@ -2,13 +2,10 @@
 title: "json.type"
 sidebarTitle: "json.type"
 description: "返回值的 string type name。json.null 返回 \"null\"。table 使用与 json.isArray 和 json.isObject 相同的 table classification 返回 \"array\" 或 \"object\"。其他值返回 runtime Lua type name result。"
-icon: "function"
 keywords: ["json.type","JSON"]
 ---
 
-返回值的 string type name。json.null 返回 "null"。table 使用与 json.isArray 和 json.isObject 相同的 table classification 返回 "array" 或 "object"。其他值返回 runtime Lua type name result。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 json.type(value: any): string
@@ -16,15 +13,15 @@ json.type(value: any): string
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | 要 classify 的值。传入 no value 会返回缺失 stack value 的 runtime type name。 |
+<ParamField path={"value"} type={"any"} required>
+要 classify 的值。传入 no value 会返回缺失 stack value 的 runtime type name。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `jsonType` | `string` | Type name string。已验证的 JSON-specific returns 是 "null"、"array" 和 "object"。non-table、non-json.null 值使用 Lua type name，例如 "nil"、"boolean"、"number"、"integer"、"string"、"function"、"object"、"thread"、"buffer"、"class"、"object"、"vector" 或 "no value"，取决于 runtime value。 |
+<ResponseField name={"jsonType"} type={"string"}>
+Type name string。已验证的 JSON-specific returns 是 "null"、"array" 和 "object"。non-table、non-json.null 值使用 Lua type name，例如 "nil"、"boolean"、"number"、"integer"、"string"、"function"、"object"、"thread"、"buffer"、"class"、"object"、"vector" 或 "no value"，取决于 runtime value。
+</ResponseField>
 
 ## 示例
 
@@ -37,3 +34,6 @@ print(json.type(json.null))
 print(json.type(nil))
 print(json.type())
 ```
+
+
+</div>

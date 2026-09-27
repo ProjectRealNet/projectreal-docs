@@ -2,13 +2,10 @@
 title: "rconsoleerr"
 sidebarTitle: "rconsoleerr"
 description: "Writes zero or more values to the current Windows console with stdout after setting the console text attribute to error text color. Values are converted to strings, separated with tabs, and the text attribute is set to default console text color afterward. If no console window exists, the call returns without converting or writing anything."
-icon: "function"
 keywords: ["rconsoleerr","Console","consoleerr"]
 ---
 
-Writes zero or more values to the current Windows console with stdout after setting the console text attribute to error text color. Values are converted to strings, separated with tabs, and the text attribute is set to default console text color afterward. If no console window exists, the call returns without converting or writing anything.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 rconsoleerr(...values?: ...any)
@@ -20,9 +17,9 @@ rconsoleerr(...values?: ...any)
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | Optional values. If a console exists, each value is converted to strings and joined with tab characters before writing. |
+<ParamField path={"...values"} type={"...any"}>
+Optional values. If a console exists, each value is converted to strings and joined with tab characters before writing.
+</ParamField>
 
 ## Example
 
@@ -33,3 +30,6 @@ rconsolecreate()
 rconsoleerr("Request failed", 500, "
 ")
 ```
+
+
+</div>

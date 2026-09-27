@@ -2,13 +2,10 @@
 title: "crypt.generatekey"
 sidebarTitle: "crypt.generatekey"
 description: "random byte generator で 32 個のランダム raw bytes を生成し、Base64-encoded として Lua string で返します。"
-icon: "function"
 keywords: ["crypt.generatekey","Cryptography"]
 ---
 
-random byte generator で 32 個のランダム raw bytes を生成し、Base64-encoded として Lua string で返します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 crypt.generatekey(): string
@@ -16,9 +13,9 @@ crypt.generatekey(): string
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `key` | `string` | 生成された 32 raw bytes の Base64 encoding。返される string は 32 文字ではありません。 |
+<ResponseField name={"key"} type={"string"}>
+生成された 32 raw bytes の Base64 encoding。返される string は 32 文字ではありません。
+</ResponseField>
 
 ## 例
 
@@ -34,3 +31,6 @@ print(key)
 print(#raw)
 print(ciphertext, iv)
 ```
+
+
+</div>

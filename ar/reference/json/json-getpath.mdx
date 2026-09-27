@@ -2,13 +2,10 @@
 title: "json.getPath"
 sidebarTitle: "json.getPath"
 description: "يقرأ nested value من table باستخدام dotted string path او array table of keys."
-icon: "function"
 keywords: ["json.getPath","JSON","json.getpath"]
 ---
 
-يقرأ nested value من table باستخدام dotted string path او array table of keys.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
@@ -20,17 +17,23 @@ json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `object` | `table` | Yes | Root table التي يتم القراءة منها. Function تتطلب ان يكون هذا argument من نوع table. |
-| `path` | `string \| table` | Yes | Path التي يتم اتباعها. string يتم split لها على dots؛ integer string tokens تقرأ باستخدام raw array indexing. table path تستخدم array entries من 1 الى #path كـ keys. |
-| `defaultValue` | `any` | No | Fallback value يرجع عندما يصل traversal الى nil او non-table قبل اكتمال path. |
+<ParamField path={"object"} type={"table"} required>
+Root table التي يتم القراءة منها. Function تتطلب ان يكون هذا argument من نوع table.
+</ParamField>
+
+<ParamField path={"path"} type={"string | table"} required>
+Path التي يتم اتباعها. string يتم split لها على dots؛ integer string tokens تقرأ باستخدام raw array indexing. table path تستخدم array entries من 1 الى #path كـ keys.
+</ParamField>
+
+<ParamField path={"defaultValue"} type={"any"}>
+Fallback value يرجع عندما يصل traversal الى nil او non-table قبل اكتمال path.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `pathValue` | `any \| nil` | Value عند requested path. اذا كانت path مفقودة، يرجع defaultValue عندما يتم توفيره، وإلا nil. |
+<ResponseField name={"pathValue"} type={"any | nil"}>
+Value عند requested path. اذا كانت path مفقودة، يرجع defaultValue عندما يتم توفيره، وإلا nil.
+</ResponseField>
 
 ## مثال
 
@@ -50,3 +53,6 @@ local second = json.getPath(document, "user.items.2")
 print(name)
 print(second)
 ```
+
+
+</div>

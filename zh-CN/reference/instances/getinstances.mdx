@@ -2,13 +2,10 @@
 title: "getinstances"
 sidebarTitle: "getinstances"
 description: "返回一个新的 array table，其中包含当前存储在 Instance cache 中的每个 object value。function 不接受 arguments。除了检查每个 registry value 是否为 object 外，它不会按 Parent、ClassName、DataModel fieldship、nil-parent state 或 Instance validity 过滤。entries 会复制到返回表中，从 1 开始使用 sequential numeric indexes。iteration order 来自对 cache 的 table iteration，function 不会排序。"
-icon: "function"
 keywords: ["getinstances","Instances"]
 ---
 
-返回一个新的 array table，其中包含当前存储在 Instance cache 中的每个 object value。function 不接受 arguments。除了检查每个 registry value 是否为 object 外，它不会按 Parent、ClassName、DataModel fieldship、nil-parent state 或 Instance validity 过滤。entries 会复制到返回表中，从 1 开始使用 sequential numeric indexes。iteration order 来自对 cache 的 table iteration，function 不会排序。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 getinstances(): { Instance }
@@ -16,6 +13,9 @@ getinstances(): { Instance }
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `instances` | `&#123; Instance &#125;` | 从 Instance cache table 复制的 object values 组成的 array table。 |
+<ResponseField name={"instances"} type={"{ Instance }"}>
+从 Instance cache table 复制的 object values 组成的 array table。
+</ResponseField>
+
+
+</div>

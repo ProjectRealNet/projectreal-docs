@@ -2,13 +2,10 @@
 title: "replicatesignal"
 sidebarTitle: "replicatesignal"
 description: "เรียก replication path สำหรับ RBXScriptSignal ฟังก์ชันอ่าน signal signature แปลง Lua arguments ที่ส่งมาเป็น Roblox signal values สำหรับแต่ละ signature type ตัด Lua arguments ส่วนเกินที่เกิน signature length แล้วเรียก owning instance event invocation function"
-icon: "function"
 keywords: ["replicatesignal","Signals","replicateevent"]
 ---
 
-เรียก replication path สำหรับ RBXScriptSignal ฟังก์ชันอ่าน signal signature แปลง Lua arguments ที่ส่งมาเป็น Roblox signal values สำหรับแต่ละ signature type ตัด Lua arguments ส่วนเกินที่เกิน signature length แล้วเรียก owning instance event invocation function
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 replicatesignal(signal: RBXScriptSignal, ...arguments?: ...any)
@@ -20,10 +17,13 @@ replicatesignal(signal: RBXScriptSignal, ...arguments?: ...any)
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | RBXScriptSignal ที่ต้องเรียก owning instance event invocation function |
-| `...arguments` | `...any` | No | Lua arguments ที่ถูกแปลงตาม signal signature ระบบจะละเว้น extra arguments ที่เกิน signature length |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+RBXScriptSignal ที่ต้องเรียก owning instance event invocation function
+</ParamField>
+
+<ParamField path={"...arguments"} type={"...any"}>
+Lua arguments ที่ถูกแปลงตาม signal signature ระบบจะละเว้น extra arguments ที่เกิน signature length
+</ParamField>
 
 ## ตัวอย่าง
 
@@ -37,3 +37,6 @@ if remote and remote:IsA("RemoteEvent") then
     replicatesignal(remote.OnClientEvent, "hello")
 end
 ```
+
+
+</div>

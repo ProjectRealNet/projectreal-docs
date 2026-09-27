@@ -2,13 +2,10 @@
 title: "json.unescape"
 sidebarTitle: "json.unescape"
 description: "escaped string content 또는 complete quoted JSON string literal에서 JSON string escape sequences를 디코드합니다. 입력은 full JSON document가 아니라 JSON string parser로 parse됩니다."
-icon: "function"
 keywords: ["json.unescape","JSON"]
 ---
 
-escaped string content 또는 complete quoted JSON string literal에서 JSON string escape sequences를 디코드합니다. 입력은 full JSON document가 아니라 JSON string parser로 parse됩니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 json.unescape(text: string): string
@@ -16,15 +13,15 @@ json.unescape(text: string): string
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | Escaped JSON string content 또는 first and last bytes가 quotes인 complete quoted JSON string literal입니다. function은 이 argument를 string type checking으로 읽습니다. |
+<ParamField path={"text"} type={"string"} required>
+Escaped JSON string content 또는 first and last bytes가 quotes인 complete quoted JSON string literal입니다. function은 이 argument를 string type checking으로 읽습니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `text` | `string` | Decoded string입니다. Supported escapes는 \", \\, \/, \b, \f, \n, \r, \t 및 surrogate-pair handling이 있는 \uXXXX입니다. Invalid escapes, unescaped control characters, unterminated strings, quoted literal 뒤의 trailing characters는 near-position suffix가 있는 Luau error를 발생시킵니다. |
+<ResponseField name={"text"} type={"string"}>
+Decoded string입니다. Supported escapes는 \", \\, \/, \b, \f, \n, \r, \t 및 surrogate-pair handling이 있는 \uXXXX입니다. Invalid escapes, unescaped control characters, unterminated strings, quoted literal 뒤의 trailing characters는 near-position suffix가 있는 Luau error를 발생시킵니다.
+</ResponseField>
 
 ## 예제
 
@@ -36,3 +33,6 @@ local restored = json.unescape(escaped)
 
 print(restored)
 ```
+
+
+</div>

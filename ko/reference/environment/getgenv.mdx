@@ -2,13 +2,10 @@
 title: "getgenv"
 sidebarTitle: "getgenv"
 description: "LUA_ENVIRONINDEX를 push하여 current executor environment table을 반환합니다. 이 function은 arguments를 받지 않고 exactly one value를 반환하며 registered alias가 없습니다. repository의 call-sites는 returned table을 사용해 __siApiCache 및 saveinstance 같은 shared executor globals를 읽고 씁니다."
-icon: "function"
 keywords: ["getgenv","Environment"]
 ---
 
-LUA_ENVIRONINDEX를 push하여 current executor environment table을 반환합니다. 이 function은 arguments를 받지 않고 exactly one value를 반환하며 registered alias가 없습니다. repository의 call-sites는 returned table을 사용해 __siApiCache 및 saveinstance 같은 shared executor globals를 읽고 씁니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 getgenv(): table
@@ -16,9 +13,9 @@ getgenv(): table
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `environment` | `table` | 이 state의 LUA_ENVIRONINDEX에 현재 저장된 table. |
+<ResponseField name={"environment"} type={"table"}>
+이 state의 LUA_ENVIRONINDEX에 현재 저장된 table.
+</ResponseField>
 
 ## 예제
 
@@ -31,3 +28,6 @@ env.RealDocsValue = "ready"
 
 print(getgenv().RealDocsValue)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "getfflag"
 sidebarTitle: "getfflag"
 description: "Reads a Roblox fast flag by exact name and returns its value as a string. Missing or unsupported flags return nil."
-icon: "function"
 keywords: ["getfflag","Miscellaneous"]
 ---
 
-Reads a Roblox fast flag by exact name and returns its value as a string. Missing or unsupported flags return nil.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 getfflag(name: string): string | nil
@@ -16,15 +13,15 @@ getfflag(name: string): string | nil
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `name` | `string` | Yes | Exact fast flag name to read. |
+<ParamField path={"name"} type={"string"} required>
+Exact fast flag name to read.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `flagValue` | `string \| nil` | String form of the flag value, or nil when the flag is missing or unsupported. |
+<ResponseField name={"flagValue"} type={"string | nil"}>
+String form of the flag value, or nil when the flag is missing or unsupported.
+</ResponseField>
 
 ## Ejemplo
 
@@ -37,3 +34,6 @@ if value ~= nil then
     print(value)
 end
 ```
+
+
+</div>

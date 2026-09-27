@@ -2,13 +2,10 @@
 title: "WebSocket.Close"
 sidebarTitle: "WebSocket.Close"
 description: "WebSocket.connect が返した WebSocket object を閉じます。最初の argument は table である必要があります。この関数は object の connection state を読み取ります。live state が存在し、まだ destroyed または closed でない場合、isClosed を true に設定し、保存された WebSocket connection を通して空の close frame frame を送信します。close code や reason は受け取らず、values は返しません。"
-icon: "function"
 keywords: ["WebSocket.Close","WebSocket"]
 ---
 
-WebSocket.connect が返した WebSocket object を閉じます。最初の argument は table である必要があります。この関数は object の connection state を読み取ります。live state が存在し、まだ destroyed または closed でない場合、isClosed を true に設定し、保存された WebSocket connection を通して空の close frame frame を送信します。close code や reason は受け取らず、values は返しません。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 WebSocket.Close(socket: WebSocket)
@@ -16,9 +13,9 @@ WebSocket.Close(socket: WebSocket)
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `socket` | `WebSocket` | Yes | WebSocket.connect が返した WebSocket table。function はこの table に connection state が含まれることを期待します。 |
+<ParamField path={"socket"} type={"WebSocket"} required>
+WebSocket.connect が返した WebSocket table。function はこの table に connection state が含まれることを期待します。
+</ParamField>
 
 ## 例
 
@@ -29,3 +26,6 @@ local socket = WebSocket.connect("wss://example.com/socket")
 
 socket:Close()
 ```
+
+
+</div>

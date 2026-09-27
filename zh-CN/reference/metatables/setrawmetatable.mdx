@@ -2,13 +2,10 @@
 title: "setrawmetatable"
 sidebarTitle: "setrawmetatable"
 description: "Sets the metatable for a target value and returns the original target. metatable must be a table or nil; nil clears the metatable. debug.setmethods is an alias for setrawmethods."
-icon: "function"
 keywords: ["setrawmetatable","Metatables","debug.setmetatable"]
 ---
 
-Sets the metatable for a target value and returns the original target. metatable must be a table or nil; nil clears the metatable. debug.setmethods is an alias for setrawmethods.
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 setrawmetatable(target: any, metatable: table | nil): any
@@ -20,16 +17,19 @@ setrawmetatable(target: any, metatable: table | nil): any
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `target` | `any` | Yes | Value whose metatable is changed. |
-| `metatable` | `table \| nil` | Yes | New metatable, or nil to clear the metatable. Other types raise "nil or table". |
+<ParamField path={"target"} type={"any"} required>
+Value whose metatable is changed.
+</ParamField>
+
+<ParamField path={"metatable"} type={"table | nil"} required>
+New metatable, or nil to clear the metatable. Other types raise "nil or table".
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `target` | `any` | The original target value. |
+<ResponseField name={"target"} type={"any"}>
+The original target value.
+</ResponseField>
 
 ## 示例
 
@@ -46,3 +46,6 @@ print(getrawmetatable(target) == meta)
 debug.setmetatable(target, nil)
 print(getrawmetatable(target))
 ```
+
+
+</div>

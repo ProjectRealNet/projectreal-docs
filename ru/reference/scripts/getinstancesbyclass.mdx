@@ -2,13 +2,10 @@
 title: "getinstancesbyclass"
 sidebarTitle: "getinstancesbyclass"
 description: "Возвращает instances из Instance cache table, у которых ClassName field точно совпадает с запрошенным string. Первый аргумент читается через string type checking. Empty string вызывает \"ClassName required\". Function создает новую array table, итерирует cache, сохраненную под Instance cache, оставляет только values, чей Lua type является object, читает ClassName field каждого object value и сравнивает его через strcmp с запрошенным className. Matches вставляются sequential, начиная с index 1. Совпадение exact и case-sensitive. Function не использует IsA, не включает subclasses, не делает walk descendants, не фильтрует по Parent и не сортирует result. getinstancesofclass является alias той же function."
-icon: "function"
 keywords: ["getinstancesbyclass","Scripts","getinstancesofclass"]
 ---
 
-Возвращает instances из Instance cache table, у которых ClassName field точно совпадает с запрошенным string. Первый аргумент читается через string type checking. Empty string вызывает "ClassName required". Function создает новую array table, итерирует cache, сохраненную под Instance cache, оставляет только values, чей Lua type является object, читает ClassName field каждого object value и сравнивает его через strcmp с запрошенным className. Matches вставляются sequential, начиная с index 1. Совпадение exact и case-sensitive. Function не использует IsA, не включает subclasses, не делает walk descendants, не фильтрует по Parent и не сортирует result. getinstancesofclass является alias той же function.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 getinstancesbyclass(className: string): table
@@ -20,12 +17,15 @@ getinstancesbyclass(className: string): table
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `className` | `string` | Yes | Exact ClassName string для совпадения. Empty strings вызывают "ClassName required". |
+<ParamField path={"className"} type={"string"} required>
+Exact ClassName string для совпадения. Empty strings вызывают "ClassName required".
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `instances` | `table` | New array table, содержащая matching object values из Instance cache table. |
+<ResponseField name={"instances"} type={"table"}>
+New array table, содержащая matching object values из Instance cache table.
+</ResponseField>
+
+
+</div>

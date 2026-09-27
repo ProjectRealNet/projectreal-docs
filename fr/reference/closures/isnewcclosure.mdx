@@ -2,13 +2,10 @@
 title: "isnewcclosure"
 sidebarTitle: "isnewcclosure"
 description: "Returns whether the provided function is a newcclosure-created C closure. The first argument must be a function; passing a non-function raises a type error. Documented usage is a single function argument; extra arguments are not part of the supported signature."
-icon: "function"
 keywords: ["isnewcclosure","Closures"]
 ---
 
-Returns whether the provided function is a newcclosure-created C closure. The first argument must be a function; passing a non-function raises a type error. Documented usage is a single function argument; extra arguments are not part of the supported signature.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 isnewcclosure(func: function): boolean
@@ -16,15 +13,15 @@ isnewcclosure(func: function): boolean
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `func` | `function` | Yes | Function to check. Use a single function argument. |
+<ParamField path={"func"} type={"function"} required>
+Function to check. Use a single function argument.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `isNewCClosure` | `boolean` | true when the function is a newcclosure-created C closure; otherwise false. |
+<ResponseField name={"isNewCClosure"} type={"boolean"}>
+true when the function is a newcclosure-created C closure; otherwise false.
+</ResponseField>
 
 ## Exemple
 
@@ -39,3 +36,6 @@ local wrapped = newcclosure(target)
 print(isnewcclosure(target))
 print(isnewcclosure(wrapped))
 ```
+
+
+</div>

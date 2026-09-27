@@ -2,13 +2,10 @@
 title: "create_comm_channel"
 sidebarTitle: "create_comm_channel"
 description: "Instance.new で新しい BindableEvent を作成し、その Instance reference を numeric channel ID の下で communication channel list に保存し、ID と BindableEvent Instance を返します。channel ID は current map size plus one から計算されます。Instance.new(\"BindableEvent\") が stack に object value を残さない場合、この function は \"Failed to make a BindableEvent\" を発生させます。"
-icon: "function"
 keywords: ["create_comm_channel","Actors"]
 ---
 
-Instance.new で新しい BindableEvent を作成し、その Instance reference を numeric channel ID の下で communication channel list に保存し、ID と BindableEvent Instance を返します。channel ID は current map size plus one から計算されます。Instance.new("BindableEvent") が stack に object value を残さない場合、この function は "Failed to make a BindableEvent" を発生させます。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 create_comm_channel(): integer | Instance
@@ -16,10 +13,13 @@ create_comm_channel(): integer | Instance
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `channelId` | `integer` | communication channel list に挿入される numeric channel ID。 |
-| `event` | `Instance` | channel 用に保存され、caller に返される BindableEvent Instance。 |
+<ResponseField name={"channelId"} type={"integer"}>
+communication channel list に挿入される numeric channel ID。
+</ResponseField>
+
+<ResponseField name={"event"} type={"Instance"}>
+channel 用に保存され、caller に返される BindableEvent Instance。
+</ResponseField>
 
 ## 例
 
@@ -31,3 +31,6 @@ local channelId, event = create_comm_channel()
 print(channelId)
 print(event)
 ```
+
+
+</div>

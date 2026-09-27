@@ -2,13 +2,10 @@
 title: "rconsolewarn"
 sidebarTitle: "rconsolewarn"
 description: "warning console text attribute を使い、現在の Windows console へ stdout 経由で 0 個以上の値を書き込みます。console window が存在しない場合、この呼び出しは何も変換せず、何も書き込まずに戻ります。console が存在する場合、各 argument は Lua string conversion で変換され、tab 文字で結合され、runtime value 経由で書き込まれます。Lua string conversion が error を発生させた場合、rconsolewarn はそれを捕捉しません。この function は書き込み前に console text attribute を FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY に設定し、その後 default console text color に設定します。newline や warning prefix は追加せず、console の作成や表示も行わず、Luau warn や Roblox Output も呼び出しません。consolewarn は同じ function の alias です。"
-icon: "function"
 keywords: ["rconsolewarn","Console","consolewarn"]
 ---
 
-warning console text attribute を使い、現在の Windows console へ stdout 経由で 0 個以上の値を書き込みます。console window が存在しない場合、この呼び出しは何も変換せず、何も書き込まずに戻ります。console が存在する場合、各 argument は Lua string conversion で変換され、tab 文字で結合され、runtime value 経由で書き込まれます。Lua string conversion が error を発生させた場合、rconsolewarn はそれを捕捉しません。この function は書き込み前に console text attribute を FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY に設定し、その後 default console text color に設定します。newline や warning prefix は追加せず、console の作成や表示も行わず、Luau warn や Roblox Output も呼び出しません。consolewarn は同じ function の alias です。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 rconsolewarn(...values?: ...any)
@@ -20,9 +17,9 @@ rconsolewarn(...values?: ...any)
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | 任意の値。console が存在する場合、各 value は Lua string conversion で変換され、書き込み前に tab 文字で結合されます。 |
+<ParamField path={"...values"} type={"...any"}>
+任意の値。console が存在する場合、各 value は Lua string conversion で変換され、書き込み前に tab 文字で結合されます。
+</ParamField>
 
 ## 例
 
@@ -33,3 +30,6 @@ rconsolecreate()
 rconsolewarn("Retrying request", 3)
 rconsolewarn("\n")
 ```
+
+
+</div>

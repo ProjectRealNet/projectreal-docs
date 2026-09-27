@@ -2,13 +2,10 @@
 title: "getactorthreads"
 sidebarTitle: "getactorthreads"
 description: "تعيد array table من Luau threads من actor thread list. لا تأخذ function أي arguments. تقرأ actor list bounds من ScriptContext، وتمشي عبر كل actor state entry، وتفك تشفير stored global state إلى Luau thread، ولا تضيف إلا entries التي تكون valid threads."
-icon: "function"
 keywords: ["getactorthreads","Actors","getactorstates"]
 ---
 
-تعيد array table من Luau threads من actor thread list. لا تأخذ function أي arguments. تقرأ actor list bounds من ScriptContext، وتمشي عبر كل actor state entry، وتفك تشفير stored global state إلى Luau thread، ولا تضيف إلا entries التي تكون valid threads.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 getactorthreads(): {thread}
@@ -20,9 +17,9 @@ getactorthreads(): {thread}
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `threads` | `&#123;thread&#125;` | Array table من actor Luau thread values التي يتم push لها كـ Luau threads. |
+<ResponseField name={"threads"} type={"{thread}"}>
+Array table من actor Luau thread values التي يتم push لها كـ Luau threads.
+</ResponseField>
 
 ## مثال
 
@@ -33,3 +30,6 @@ for _, thread in ipairs(getactorthreads()) do
     print(thread)
 end
 ```
+
+
+</div>

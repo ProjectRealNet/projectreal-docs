@@ -2,13 +2,10 @@
 title: "dumpstring"
 sidebarTitle: "dumpstring"
 description: "Roblox script object の decompressed bytecode string を返します。dumpstring は getscriptbytecode と同じ C++ function に登録されているため、動作は同一です。argument は object である必要があります。共有 bytecode reader は ClassName values ModuleScript、LocalScript、CoreScript、Script を受け入れます。Script では RunContext が Client である必要があります。ClassName がない場合、この function は \"Invalid Instance\" を発生させます。ClassName が対応する script class ではない場合、\"Script expected\" を発生させます。値が別の RunContext の Script の場合、\"Expected a Script with RunContext set to Client\" を発生させます。embedded bytecode reference が無効、または stored bytecode の長さが 8 bytes 以下の場合、この function は nil を返します。それ以外の場合、DecompressBytecode で stored bytecode を展開し、resulting bytes を Luau string として返します。Hash mismatch、too-short compressed data、ZSTD decompression errors はここで発生せず、DecompressBytecode によって error text bytes として返されます。"
-icon: "function"
 keywords: ["dumpstring","Scripts"]
 ---
 
-Roblox script object の decompressed bytecode string を返します。dumpstring は getscriptbytecode と同じ C++ function に登録されているため、動作は同一です。argument は object である必要があります。共有 bytecode reader は ClassName values ModuleScript、LocalScript、CoreScript、Script を受け入れます。Script では RunContext が Client である必要があります。ClassName がない場合、この function は "Invalid Instance" を発生させます。ClassName が対応する script class ではない場合、"Script expected" を発生させます。値が別の RunContext の Script の場合、"Expected a Script with RunContext set to Client" を発生させます。embedded bytecode reference が無効、または stored bytecode の長さが 8 bytes 以下の場合、この function は nil を返します。それ以外の場合、DecompressBytecode で stored bytecode を展開し、resulting bytes を Luau string として返します。Hash mismatch、too-short compressed data、ZSTD decompression errors はここで発生せず、DecompressBytecode によって error text bytes として返されます。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 dumpstring(script: userdata): string | nil
@@ -16,15 +13,15 @@ dumpstring(script: userdata): string | nil
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | 読み取る Script object。対応する ClassName values は ModuleScript、LocalScript、CoreScript、RunContext Client の Script です。 |
+<ParamField path={"script"} type={"userdata"} required>
+読み取る Script object。対応する ClassName values は ModuleScript、LocalScript、CoreScript、RunContext Client の Script です。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `bytecode` | `string \| nil` | Luau string としての decompressed bytecode bytes、DecompressBytecode error text bytes、または usable embedded bytecode がない場合は nil。 |
+<ResponseField name={"bytecode"} type={"string | nil"}>
+Luau string としての decompressed bytecode bytes、DecompressBytecode error text bytes、または usable embedded bytecode がない場合は nil。
+</ResponseField>
 
 ## 例
 
@@ -45,3 +42,6 @@ if targetScript then
     print(bytecode)
 end
 ```
+
+
+</div>

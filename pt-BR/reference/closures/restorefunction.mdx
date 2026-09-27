@@ -2,13 +2,10 @@
 title: "restorefunction"
 sidebarTitle: "restorefunction"
 description: "Restaura ou substitui uma function chamando function hook operation internamente e não retorna values. O first argument deve ser uma function. Com um function argument, a function procura the saved original function; se nenhum entry existir, gera \"Function is not hooked\". Em seguida chama function hook operation com a hooked closure e a stored original closure, limpa o Lua stack e remove a restored closure de hook records quando a stored original foi usada. Se o second argument também for uma function, a function trata firstFunction como a original function a instalar e secondFunction como a closure a corrigir. Nessa forma, nenhum missing-original check e feito contra o valor armazenado em hook records; o valor armazenado e apenas comparado durante o final remove check. Non-function second arguments são ignorados pela branch condition. restorefunc e restoreclosure são aliases da mesma function."
-icon: "function"
 keywords: ["restorefunction","Closures","restorefunc","restoreclosure"]
 ---
 
-Restaura ou substitui uma function chamando function hook operation internamente e não retorna values. O first argument deve ser uma function. Com um function argument, a function procura the saved original function; se nenhum entry existir, gera "Function is not hooked". Em seguida chama function hook operation com a hooked closure e a stored original closure, limpa o Lua stack e remove a restored closure de hook records quando a stored original foi usada. Se o second argument também for uma function, a function trata firstFunction como a original function a instalar e secondFunction como a closure a corrigir. Nessa forma, nenhum missing-original check e feito contra o valor armazenado em hook records; o valor armazenado e apenas comparado durante o final remove check. Non-function second arguments são ignorados pela branch condition. restorefunc e restoreclosure são aliases da mesma function.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 restorefunction(firstFunction: function, secondFunction?: function)
@@ -21,10 +18,13 @@ restorefunction(firstFunction: function, secondFunction?: function)
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `firstFunction` | `function` | Yes | Com um argument, a hooked closure restaurada de hook records. Com um function second argument, a function instalada em secondFunction. |
-| `secondFunction` | `function` | No | Closure opcional corrigida com firstFunction. Esse branch só é usado quando o second argument é uma function. |
+<ParamField path={"firstFunction"} type={"function"} required>
+Com um argument, a hooked closure restaurada de hook records. Com um function second argument, a function instalada em secondFunction.
+</ParamField>
+
+<ParamField path={"secondFunction"} type={"function"}>
+Closure opcional corrigida com firstFunction. Esse branch só é usado quando o second argument é uma function.
+</ParamField>
 
 ## Exemplo
 
@@ -45,3 +45,6 @@ restorefunction(target)
 
 print(target())
 ```
+
+
+</div>

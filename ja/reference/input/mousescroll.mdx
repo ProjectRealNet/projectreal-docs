@@ -2,13 +2,10 @@
 title: "mousescroll"
 sidebarTitle: "mousescroll"
 description: "Roblox window が active のとき、mouse wheel event を送信します。amount 引数は Lua number として検査され、integer conversion で変換され、the requested mouse action 付きの mouse input に dwData 値として直接渡されます。Real は amount を正規化せず、movement data も追加しません。この function は何も返さず、isrbxactive が false になる場合は input を送信せずに戻ります。"
-icon: "function"
 keywords: ["mousescroll","Input"]
 ---
 
-Roblox window が active のとき、mouse wheel event を送信します。amount 引数は Lua number として検査され、integer conversion で変換され、the requested mouse action 付きの mouse input に dwData 値として直接渡されます。Real は amount を正規化せず、movement data も追加しません。この function は何も返さず、isrbxactive が false になる場合は input を送信せずに戻ります。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 mousescroll(amount: number)
@@ -16,6 +13,9 @@ mousescroll(amount: number)
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `amount` | `number` | Yes | Lua number として読み取られ、mouse input に渡される前に integer conversion で変換される wheel dwData value。 |
+<ParamField path={"amount"} type={"number"} required>
+Lua number として読み取られ、mouse input に渡される前に integer conversion で変換される wheel dwData value。
+</ParamField>
+
+
+</div>

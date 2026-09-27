@@ -2,13 +2,10 @@
 title: "get_comm_channel"
 sidebarTitle: "get_comm_channel"
 description: "Ищет channel ID во communication channel list и возвращает сохраненный BindableEvent Instance. Первый argument должен быть number и преобразуется через integer conversion перед lookup. Если entry для этого ID не существует, function возвращает nil."
-icon: "function"
 keywords: ["get_comm_channel","Actors"]
 ---
 
-Ищет channel ID во communication channel list и возвращает сохраненный BindableEvent Instance. Первый argument должен быть number и преобразуется через integer conversion перед lookup. Если entry для этого ID не существует, function возвращает nil.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 get_comm_channel(channelId: number): Instance | nil
@@ -16,15 +13,15 @@ get_comm_channel(channelId: number): Instance | nil
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `channelId` | `number` | Yes | Channel ID, преобразуемый через integer conversion и ищущийся во communication channel list. |
+<ParamField path={"channelId"} type={"number"} required>
+Channel ID, преобразуемый через integer conversion и ищущийся во communication channel list.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `event` | `Instance \| nil` | Сохраненный BindableEvent Instance для channel ID, или nil, если ID отсутствует в communication channels. |
+<ResponseField name={"event"} type={"Instance | nil"}>
+Сохраненный BindableEvent Instance для channel ID, или nil, если ID отсутствует в communication channels.
+</ResponseField>
 
 ## Пример
 
@@ -36,3 +33,6 @@ local event = get_comm_channel(channelId)
 
 print(event)
 ```
+
+
+</div>

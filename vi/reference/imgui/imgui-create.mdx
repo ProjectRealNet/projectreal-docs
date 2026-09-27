@@ -2,13 +2,10 @@
 title: "imgui.create"
 sidebarTitle: "imgui.create"
 description: "Tao mot ImGui window record duoc theo doi va tra ve ImGuiWindow object. Doi so title dung \"REAL_IM_UI\" khi bi bo qua hoac la nil. Title phai la duy nhat trong cac ImGui windows dang duoc theo doi; tao tracked window khac voi cung title se gay Lua error."
-icon: "function"
 keywords: ["imgui.create","ImGui"]
 ---
 
-Tao mot ImGui window record duoc theo doi va tra ve ImGuiWindow object. Doi so title dung "REAL_IM_UI" khi bi bo qua hoac la nil. Title phai la duy nhat trong cac ImGui windows dang duoc theo doi; tao tracked window khac voi cung title se gay Lua error.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 imgui.create(title?: string): ImGuiWindow
@@ -16,15 +13,15 @@ imgui.create(title?: string): ImGuiWindow
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `title` | `string` | No | Optional window title. Khi bi bo qua hoac la nil, "REAL_IM_UI" duoc dung. Title trung lap trong cac ImGui windows dang duoc theo doi se gay Lua error. |
+<ParamField path={"title"} type={"string"}>
+Optional window title. Khi bi bo qua hoac la nil, "REAL_IM_UI" duoc dung. Title trung lap trong cac ImGui windows dang duoc theo doi se gay Lua error.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | ImGuiWindow object voi window methods duoc dang ky tren methods cua no. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+ImGuiWindow object voi window methods duoc dang ky tren methods cua no.
+</ResponseField>
 
 ## Kiểu
 
@@ -76,3 +73,6 @@ window:CollapsingHeader("Advanced", function(section)
     section:Text("Advanced controls go here")
 end)
 ```
+
+
+</div>

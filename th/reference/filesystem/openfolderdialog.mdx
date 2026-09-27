@@ -2,13 +2,10 @@
 title: "openfolderdialog"
 sidebarTitle: "openfolderdialog"
 description: "เปิด Windows folder picker ผ่าน Windows file picker พร้อม folder selection mode และคืนโฟลเดอร์ที่เลือกเป็น file item"
-icon: "function"
 keywords: ["openfolderdialog","Filesystem"]
 ---
 
-เปิด Windows folder picker ผ่าน Windows file picker พร้อม folder selection mode และคืนโฟลเดอร์ที่เลือกเป็น file item
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 openfolderdialog(options?: DialogOptions): FileSystemItem | nil
@@ -16,15 +13,15 @@ openfolderdialog(options?: DialogOptions): FileSystemItem | nil
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `options` | `DialogOptions` | No | Optional table. สำหรับ openfolderdialog จะใช้ title และ defaultPath. defaultPath จะถูกใช้เฉพาะเมื่อ resolve เป็น existing directory. extensionFilter ถูกยอมรับโดย shared dialog options parser แต่ folder selection ถูกเปิดด้วย folder selection mode. |
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table. สำหรับ openfolderdialog จะใช้ title และ defaultPath. defaultPath จะถูกใช้เฉพาะเมื่อ resolve เป็น existing directory. extensionFilter ถูกยอมรับโดย shared dialog options parser แต่ folder selection ถูกเปิดด้วย folder selection mode.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `folder` | `FileSystemItem \| nil` | Selected folder item หรือ nil เมื่อ dialog ถูกยกเลิก. Dialog failures จะ throw Failed to open folder dialog. |
+<ResponseField name={"folder"} type={"FileSystemItem | nil"}>
+Selected folder item หรือ nil เมื่อ dialog ถูกยกเลิก. Dialog failures จะ throw Failed to open folder dialog.
+</ResponseField>
 
 ## Types
 
@@ -57,3 +54,6 @@ else
     print("No folder selected")
 end
 ```
+
+
+</div>

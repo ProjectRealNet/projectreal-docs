@@ -2,13 +2,10 @@
 title: "json.clone"
 sidebarTitle: "json.clone"
 description: "Clona um value fazendo encoding com json.encode semantics e depois decoding do generated JSON de volta para Lua values."
-icon: "function"
 keywords: ["json.clone","JSON"]
 ---
 
-Clona um value fazendo encoding com json.encode semantics e depois decoding do generated JSON de volta para Lua values.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 json.clone(value: any, options?: EncodeOptions): any
@@ -16,16 +13,19 @@ json.clone(value: any, options?: EncodeOptions): any
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value para encode e decode. Supported JSON values fazem round-trip por JSON; unsupported types sao codificados como null, a menos que encode options solicitem um erro. |
-| `options` | `EncodeOptions` | No | Optional encode options passadas para o encode step, como sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty e indent. |
+<ParamField path={"value"} type={"any"} required>
+Value para encode e decode. Supported JSON values fazem round-trip por JSON; unsupported types sao codificados como null, a menos que encode options solicitem um erro.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options passadas para o encode step, como sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty e indent.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `clone` | `any` | Decoded value produzido a partir do encoded JSON. Objects e arrays sao new tables com JSON kind markers do decoder; JSON null values viram json.null. |
+<ResponseField name={"clone"} type={"any"}>
+Decoded value produzido a partir do encoded JSON. Objects e arrays sao new tables com JSON kind markers do decoder; JSON null values viram json.null.
+</ResponseField>
 
 ## Tipos
 
@@ -59,3 +59,6 @@ print(original.profile.name)
 print(copy.profile.name)
 print(json.type(copy))
 ```
+
+
+</div>

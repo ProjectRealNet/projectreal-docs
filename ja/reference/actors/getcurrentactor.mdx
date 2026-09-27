@@ -2,13 +2,10 @@
 title: "getcurrentactor"
 sidebarTitle: "getcurrentactor"
 description: "現在の Luau thread に関連付けられた Actor Instance を返します。この function は arguments を取りません。getactorfromthread と同じ actor resolver で現在の Luau thread を解決します。thread data が存在し、Actor reference が存在し、reference count が 0 より大きく、the associated Actor が non-expired weak reference を保持している必要があります。valid actor reference がない場合、この function は nil を返します。"
-icon: "function"
 keywords: ["getcurrentactor","Actors","get_current_actor"]
 ---
 
-現在の Luau thread に関連付けられた Actor Instance を返します。この function は arguments を取りません。getactorfromthread と同じ actor resolver で現在の Luau thread を解決します。thread data が存在し、Actor reference が存在し、reference count が 0 より大きく、the associated Actor が non-expired weak reference を保持している必要があります。valid actor reference がない場合、この function は nil を返します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 getcurrentactor(): Instance | nil
@@ -20,9 +17,9 @@ getcurrentactor(): Instance | nil
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `actor` | `Instance \| nil` | 現在の thread の the associated Actor weak reference から解決された Actor Instance、または valid actor reference がない場合は nil。 |
+<ResponseField name={"actor"} type={"Instance | nil"}>
+現在の thread の the associated Actor weak reference から解決された Actor Instance、または valid actor reference がない場合は nil。
+</ResponseField>
 
 ## 例
 
@@ -33,3 +30,6 @@ local actor = getcurrentactor()
 
 print(actor)
 ```
+
+
+</div>

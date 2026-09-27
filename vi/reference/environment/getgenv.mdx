@@ -2,13 +2,10 @@
 title: "getgenv"
 sidebarTitle: "getgenv"
 description: "Tra ve current executor environment table bang cach pushing LUA_ENVIRONINDEX. Function khong nhan arguments, tra ve exactly one value, va khong co registered alias. Call-sites trong repository dung returned table de doc va ghi shared executor globals nhu __siApiCache va saveinstance."
-icon: "function"
 keywords: ["getgenv","Environment"]
 ---
 
-Tra ve current executor environment table bang cach pushing LUA_ENVIRONINDEX. Function khong nhan arguments, tra ve exactly one value, va khong co registered alias. Call-sites trong repository dung returned table de doc va ghi shared executor globals nhu __siApiCache va saveinstance.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 getgenv(): table
@@ -16,9 +13,9 @@ getgenv(): table
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `environment` | `table` | Table hien duoc luu tai LUA_ENVIRONINDEX cho state nay. |
+<ResponseField name={"environment"} type={"table"}>
+Table hien duoc luu tai LUA_ENVIRONINDEX cho state nay.
+</ResponseField>
 
 ## Ví dụ
 
@@ -31,3 +28,6 @@ env.RealDocsValue = "ready"
 
 print(getgenv().RealDocsValue)
 ```
+
+
+</div>

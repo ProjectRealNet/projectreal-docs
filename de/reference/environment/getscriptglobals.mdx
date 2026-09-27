@@ -2,13 +2,10 @@
 title: "getscriptglobals"
 sidebarTitle: "getscriptglobals"
 description: "Gibt eine new table zurück, die die current LUA_GLOBALSINDEX values für _G und shared enthält. Die function nimmt keine arguments, erstellt eine fresh table, weist _G aus LUA_GLOBALSINDEX._G und shared aus LUA_GLOBALSINDEX.shared zu und gibt exactly one value zurück. Sie gibt nicht die full global table zurück, und für getscriptglobals ist kein alias registriert."
-icon: "function"
 keywords: ["getscriptglobals","Environment"]
 ---
 
-Gibt eine new table zurück, die die current LUA_GLOBALSINDEX values für _G und shared enthält. Die function nimmt keine arguments, erstellt eine fresh table, weist _G aus LUA_GLOBALSINDEX._G und shared aus LUA_GLOBALSINDEX.shared zu und gibt exactly one value zurück. Sie gibt nicht die full global table zurück, und für getscriptglobals ist kein alias registriert.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getscriptglobals(): table
@@ -16,9 +13,9 @@ getscriptglobals(): table
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `globals` | `table` | Fresh table mit _G und shared fields, die aus LUA_GLOBALSINDEX kopiert wurden. |
+<ResponseField name={"globals"} type={"table"}>
+Fresh table mit _G und shared fields, die aus LUA_GLOBALSINDEX kopiert wurden.
+</ResponseField>
 
 ## Beispiel
 
@@ -30,3 +27,6 @@ local globals = getscriptglobals()
 print(globals._G)
 print(globals.shared)
 ```
+
+
+</div>

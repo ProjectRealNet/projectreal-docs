@@ -2,13 +2,10 @@
 title: "keypress"
 sidebarTitle: "keypress"
 description: "Mengirim key down event saat Roblox window aktif. Argumen keyCode diperiksa sebagai Lua number, dikonversi dengan integer conversion, dipetakan dari Windows virtual-key code ke scan code dengan Windows key mapping, lalu dikirim melalui keyboard input dengan KEYEVENTF_SCANCODE. Function ini tidak mengirim key up event. Jika isrbxactive bernilai false, function kembali tanpa mengirim input."
-icon: "function"
 keywords: ["keypress","Input"]
 ---
 
-Mengirim key down event saat Roblox window aktif. Argumen keyCode diperiksa sebagai Lua number, dikonversi dengan integer conversion, dipetakan dari Windows virtual-key code ke scan code dengan Windows key mapping, lalu dikirim melalui keyboard input dengan KEYEVENTF_SCANCODE. Function ini tidak mengirim key up event. Jika isrbxactive bernilai false, function kembali tanpa mengirim input.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 keypress(keyCode: number)
@@ -16,6 +13,9 @@ keypress(keyCode: number)
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `keyCode` | `number` | Yes | Windows virtual-key code yang dibaca sebagai Lua number dan dikonversi dengan integer conversion sebelum Windows key mapping dipanggil. |
+<ParamField path={"keyCode"} type={"number"} required>
+Windows virtual-key code yang dibaca sebagai Lua number dan dikonversi dengan integer conversion sebelum Windows key mapping dipanggil.
+</ParamField>
+
+
+</div>

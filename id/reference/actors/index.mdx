@@ -1,20 +1,46 @@
 ---
 title: "Actors"
 description: "Konteks eksekusi dan komunikasi aktor."
-icon: "folder-code"
+icon: "/icons/device-heart-monitor.svg"
 ---
+
+<div className="real-category-page">
 
 Konteks eksekusi dan komunikasi aktor.
 
-| Navigasi fungsi | Deskripsi |
-| --- | --- |
-| [`create_comm_channel`](./create-comm-channel) | Membuat BindableEvent baru dengan Instance.new, menyimpan Instance reference-nya di communication channel list dengan numeric channel ID, lalu mengembalikan ID dan BindableEvent Instance. Channel ID dihitung dari current map size plus one. Jika Instance.new("BindableEvent") tidak meninggalkan object value di stack, function melempar "Failed to make a BindableEvent". |
-| [`get_comm_channel`](./get-comm-channel) | Mencari channel ID di communication channel list dan mengembalikan BindableEvent Instance yang tersimpan. Argument pertama harus number dan dikonversi dengan integer conversion sebelum lookup. Jika tidak ada entry untuk ID tersebut, function mengembalikan nil. |
-| [`getactorfromthread`](./getactorfromthread) | Mengembalikan Actor Instance yang terkait dengan Luau thread. Argument pertama harus thread. Function membaca thread data milik thread, membutuhkan Actor reference dan positive container count, lalu membaca the associated Actor. Jika actor weak reference valid, nilainya di-push sebagai Instance; jika tidak, function mengembalikan nil. |
-| [`getactors`](./getactors) | Mengembalikan array table berisi live Actor Instances yang di-resolve dari ScriptContext actor thread list. Function tidak menerima arguments. Function berjalan melalui actor thread list, mendekripsi setiap actor Lua state, menyimpan entries yang valid threads, lalu membaca thread data dan the associated Actor weak reference milik setiap thread. Hanya non-expired actor references yang di-push sebagai Instances. Entries tanpa container, tanpa Actor reference, dengan reference count &lt;= 0, atau dengan expired actor reference dilewati. |
-| [`getactorthreads`](./getactorthreads) | Mengembalikan array table berisi Luau threads dari actor thread list. Function tidak menerima arguments. Function membaca actor list bounds dari ScriptContext, menelusuri setiap actor state entry, mendekripsi stored global state menjadi Luau thread, dan hanya menyertakan entries yang valid threads. |
-| [`getcurrentactor`](./getcurrentactor) | Mengembalikan Actor Instance yang terkait dengan Luau thread saat ini. Function tidak menerima arguments. Function me-resolve Luau thread saat ini melalui actor resolver yang sama seperti getactorfromthread: thread data harus ada, Actor reference harus ada, reference count harus lebih besar dari 0, dan the associated Actor harus berisi non-expired weak reference. Jika tidak ada valid actor reference, function mengembalikan nil. |
-| [`getdeletedactors`](./getdeletedactors) | Mengembalikan array table berisi Luau threads dari actor list yang thread data-nya memiliki Actor reference, reference count lebih besar dari 0, dan the associated Actor adalah expired weak reference. Function tidak menerima arguments. Function tidak mengembalikan Actor Instance values. |
-| [`isparallel`](./isparallel) | Mengembalikan boolean dari ScriptContext DataModel milik Luau thread saat ini. Function tidak menerima arguments. Function membaca the current parallel execution status, yang mengembalikan parallel execution status. Jika the current DataModel tidak mengembalikan DataModel, function mengembalikan false. checkparallel adalah alias untuk function yang sama. |
-| [`run_on_actor`](./run-on-actor) | Runs Luau source on the thread associated with a target Actor Instance. The first argument must be an Instance whose ClassName is Actor, and the second argument must be a non-empty source string. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonactor is an alias. |
-| [`run_on_thread`](./run-on-thread) | Runs Luau source on a specific Luau thread. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonthread is an alias. |
+## Fungsi yang tersedia
+
+<CardGroup cols={2}>
+<Card title="create_comm_channel" href="./create-comm-channel">
+Membuat BindableEvent baru dengan Instance.new, menyimpan Instance reference-nya di communication channel list dengan numeric channel ID, lalu mengembalikan ID dan BindableEvent Instance. Channel ID dihitung dari current map size plus one. Jika Instance.new("BindableEvent") tidak meninggalkan object value di stack, function melempar "Failed to make a BindableEvent".
+</Card>
+<Card title="get_comm_channel" href="./get-comm-channel">
+Mencari channel ID di communication channel list dan mengembalikan BindableEvent Instance yang tersimpan. Argument pertama harus number dan dikonversi dengan integer conversion sebelum lookup. Jika tidak ada entry untuk ID tersebut, function mengembalikan nil.
+</Card>
+<Card title="getactorfromthread" href="./getactorfromthread">
+Mengembalikan Actor Instance yang terkait dengan Luau thread. Argument pertama harus thread. Function membaca thread data milik thread, membutuhkan Actor reference dan positive container count, lalu membaca the associated Actor. Jika actor weak reference valid, nilainya di-push sebagai Instance; jika tidak, function mengembalikan nil.
+</Card>
+<Card title="getactors" href="./getactors">
+Mengembalikan array table berisi live Actor Instances yang di-resolve dari ScriptContext actor thread list. Function tidak menerima arguments. Function berjalan melalui actor thread list, mendekripsi setiap actor Lua state, menyimpan entries yang valid threads, lalu membaca thread data dan the associated Actor weak reference milik setiap thread. Hanya non-expired actor references yang di-push sebagai Instances. Entries tanpa container, tanpa Actor reference, dengan reference count &lt;= 0, atau dengan expired actor reference dilewati.
+</Card>
+<Card title="getactorthreads" href="./getactorthreads">
+Mengembalikan array table berisi Luau threads dari actor thread list. Function tidak menerima arguments. Function membaca actor list bounds dari ScriptContext, menelusuri setiap actor state entry, mendekripsi stored global state menjadi Luau thread, dan hanya menyertakan entries yang valid threads.
+</Card>
+<Card title="getcurrentactor" href="./getcurrentactor">
+Mengembalikan Actor Instance yang terkait dengan Luau thread saat ini. Function tidak menerima arguments. Function me-resolve Luau thread saat ini melalui actor resolver yang sama seperti getactorfromthread: thread data harus ada, Actor reference harus ada, reference count harus lebih besar dari 0, dan the associated Actor harus berisi non-expired weak reference. Jika tidak ada valid actor reference, function mengembalikan nil.
+</Card>
+<Card title="getdeletedactors" href="./getdeletedactors">
+Mengembalikan array table berisi Luau threads dari actor list yang thread data-nya memiliki Actor reference, reference count lebih besar dari 0, dan the associated Actor adalah expired weak reference. Function tidak menerima arguments. Function tidak mengembalikan Actor Instance values.
+</Card>
+<Card title="isparallel" href="./isparallel">
+Mengembalikan boolean dari ScriptContext DataModel milik Luau thread saat ini. Function tidak menerima arguments. Function membaca the current parallel execution status, yang mengembalikan parallel execution status. Jika the current DataModel tidak mengembalikan DataModel, function mengembalikan false. checkparallel adalah alias untuk function yang sama.
+</Card>
+<Card title="run_on_actor" href="./run-on-actor">
+Runs Luau source on the thread associated with a target Actor Instance. The first argument must be an Instance whose ClassName is Actor, and the second argument must be a non-empty source string. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonactor is an alias.
+</Card>
+<Card title="run_on_thread" href="./run-on-thread">
+Runs Luau source on a specific Luau thread. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonthread is an alias.
+</Card>
+</CardGroup>
+
+</div>

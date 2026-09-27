@@ -2,13 +2,10 @@
 title: "isexecutorclosure"
 sidebarTitle: "isexecutorclosure"
 description: "Returns whether the provided function is classified as executor-owned. The argument must be a function. The function does not inspect source text, debug names, bytecode hashes, or call stack ownership."
-icon: "function"
 keywords: ["isexecutorclosure","Closures","isexploitfunction","isourclosure","checkclosure"]
 ---
 
-Returns whether the provided function is classified as executor-owned. The argument must be a function. The function does not inspect source text, debug names, bytecode hashes, or call stack ownership.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 isexecutorclosure(func: function): boolean
@@ -22,15 +19,15 @@ isexecutorclosure(func: function): boolean
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `func` | `function` | Yes | Function to classify. Passing a non-function raises a type error. |
+<ParamField path={"func"} type={"function"} required>
+Function to classify. Passing a non-function raises a type error.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `isExecutorClosure` | `boolean` | true when the function is classified as executor-owned; otherwise false. |
+<ResponseField name={"isExecutorClosure"} type={"boolean"}>
+true when the function is classified as executor-owned; otherwise false.
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -40,3 +37,6 @@ Classify a closure with Real's executor-closure checks.
 local result = isexecutorclosure(print)
 print(result)
 ```
+
+
+</div>

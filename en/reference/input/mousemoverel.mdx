@@ -2,13 +2,10 @@
 title: "mousemoverel"
 sidebarTitle: "mousemoverel"
 description: "Moves the mouse by a relative delta when the Roblox window is active. The x and y arguments are checked as Lua numbers and converted to an integer, then passed directly to mouse input with the requested mouse action as dx and dy. The function does not use the requested mouse action, does not perform client-area conversion, returns nothing, and returns without sending input when isrbxactive would be false."
-icon: "function"
 keywords: ["mousemoverel","Input"]
 ---
 
-Moves the mouse by a relative delta when the Roblox window is active. The x and y arguments are checked as Lua numbers and converted to an integer, then passed directly to mouse input with the requested mouse action as dx and dy. The function does not use the requested mouse action, does not perform client-area conversion, returns nothing, and returns without sending input when isrbxactive would be false.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 mousemoverel(x: number, y: number)
@@ -16,7 +13,13 @@ mousemoverel(x: number, y: number)
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `x` | `number` | Yes | Relative X movement delta read as a Lua number and converted to an integer before being passed as dx to mouse input. |
-| `y` | `number` | Yes | Relative Y movement delta read as a Lua number and converted to an integer before being passed as dy to mouse input. |
+<ParamField path={"x"} type={"number"} required>
+Relative X movement delta read as a Lua number and converted to an integer before being passed as dx to mouse input.
+</ParamField>
+
+<ParamField path={"y"} type={"number"} required>
+Relative Y movement delta read as a Lua number and converted to an integer before being passed as dy to mouse input.
+</ParamField>
+
+
+</div>

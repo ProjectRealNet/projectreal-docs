@@ -2,13 +2,10 @@
 title: "comparefunctions"
 sidebarTitle: "comparefunctions"
 description: "เปรียบเทียบ function values สองค่าโดยใช้ function identity ของมัน arguments ทั้งสองต้องเป็น functions function จะคืน boolean result ของ function identity(L, 1) == function identity(L, 2) ไม่เปรียบเทียบ function bytecode, source, behavior, hashes, upvalues หรือ newcclosure mappings comparefunction เป็น alias ของ function เดียวกัน"
-icon: "function"
 keywords: ["comparefunctions","Closures","comparefunction"]
 ---
 
-เปรียบเทียบ function values สองค่าโดยใช้ function identity ของมัน arguments ทั้งสองต้องเป็น functions function จะคืน boolean result ของ function identity(L, 1) == function identity(L, 2) ไม่เปรียบเทียบ function bytecode, source, behavior, hashes, upvalues หรือ newcclosure mappings comparefunction เป็น alias ของ function เดียวกัน
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 comparefunctions(func1: function, func2: function): boolean
@@ -20,16 +17,19 @@ comparefunctions(func1: function, func2: function): boolean
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `func1` | `function` | Yes | First function value ที่แปลงด้วย function identity |
-| `func2` | `function` | Yes | Second function value ที่แปลงด้วย function identity |
+<ParamField path={"func1"} type={"function"} required>
+First function value ที่แปลงด้วย function identity
+</ParamField>
+
+<ParamField path={"func2"} type={"function"} required>
+Second function value ที่แปลงด้วย function identity
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `equal` | `boolean` | true เมื่อ function values ทั้งสอง resolve เป็น function identity เดียวกัน; มิฉะนั้น false |
+<ResponseField name={"equal"} type={"boolean"}>
+true เมื่อ function values ทั้งสอง resolve เป็น function identity เดียวกัน; มิฉะนั้น false
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -43,3 +43,6 @@ end
 local same = comparefunctions(sample, sample)
 print(same)
 ```
+
+
+</div>

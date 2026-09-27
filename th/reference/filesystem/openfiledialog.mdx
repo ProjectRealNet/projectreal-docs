@@ -2,13 +2,10 @@
 title: "openfiledialog"
 sidebarTitle: "openfiledialog"
 description: "เปิด Windows file-open dialog ผ่าน Windows file picker และคืนไฟล์ที่เลือกเป็น file item"
-icon: "function"
 keywords: ["openfiledialog","Filesystem"]
 ---
 
-เปิด Windows file-open dialog ผ่าน Windows file picker และคืนไฟล์ที่เลือกเป็น file item
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 openfiledialog(options?: DialogOptions): FileSystemItem | nil
@@ -16,15 +13,15 @@ openfiledialog(options?: DialogOptions): FileSystemItem | nil
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `options` | `DialogOptions` | No | Optional table สำหรับ openfiledialog จะใช้ title, defaultPath และ extensionFilter extensionFilter คือ table ของ extension strings; . หรือ *. ที่ขึ้นต้นจะถูกลบก่อนที่แต่ละ filter จะกลายเป็น *.&lt;extension> |
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table สำหรับ openfiledialog จะใช้ title, defaultPath และ extensionFilter extensionFilter คือ table ของ extension strings; . หรือ *. ที่ขึ้นต้นจะถูกลบก่อนที่แต่ละ filter จะกลายเป็น *.&lt;extension>
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `file` | `FileSystemItem \| nil` | Selected file item หรือ nil เมื่อ dialog ถูก cancel หรือไม่มี selected filesystem path ถูกคืน Dialog failures จะ throw Failed to open file dialog |
+<ResponseField name={"file"} type={"FileSystemItem | nil"}>
+Selected file item หรือ nil เมื่อ dialog ถูก cancel หรือไม่มี selected filesystem path ถูกคืน Dialog failures จะ throw Failed to open file dialog
+</ResponseField>
 
 ## Types
 
@@ -58,3 +55,6 @@ else
     print("No file selected")
 end
 ```
+
+
+</div>

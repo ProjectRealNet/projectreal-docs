@@ -2,13 +2,10 @@
 title: "json.escape"
 sidebarTitle: "json.escape"
 description: "Escape un string avec Real JSON string escaping rules et renvoie le escaped content sans surrounding quotes."
-icon: "function"
 keywords: ["json.escape","JSON"]
 ---
 
-Escape un string avec Real JSON string escaping rules et renvoie le escaped content sans surrounding quotes.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 json.escape(text: string): string
@@ -16,15 +13,15 @@ json.escape(text: string): string
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | String a escape. L'function lit cet argument avec string type checking. |
+<ParamField path={"text"} type={"string"} required>
+String a escape. L'function lit cet argument avec string type checking.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `escaped` | `string` | Escaped JSON string content sans opening et closing quote. Quotes, backslashes, common control characters et bytes below 0x20 sont escaped. |
+<ResponseField name={"escaped"} type={"string"}>
+Escaped JSON string content sans opening et closing quote. Quotes, backslashes, common control characters et bytes below 0x20 sont escaped.
+</ResponseField>
 
 ## Exemple
 
@@ -36,3 +33,6 @@ local escaped = json.escape(source)
 
 print(escaped)
 ```
+
+
+</div>

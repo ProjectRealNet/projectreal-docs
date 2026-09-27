@@ -2,13 +2,10 @@
 title: "json.decodeSafe"
 sidebarTitle: "json.decodeSafe"
 description: "يفسر JSON باستخدام نفس parser مثل json.decode ويعيد success flag بدلا من الرمي عند parse errors."
-icon: "function"
 keywords: ["json.decodeSafe","JSON"]
 ---
 
-يفسر JSON باستخدام نفس parser مثل json.decode ويعيد success flag بدلا من الرمي عند parse errors.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
@@ -16,19 +13,31 @@ json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | st
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON text للتفسير. يتم فحص هذا argument كـ string قبل catch لـ parse errors. |
-| `options` | `DecodeOptions` | No | Optional decode options. قيمة boolean تضبط useNull مباشرة. table يمكن أن تضبط useNull و maxDepth؛ يتم clamp لـ maxDepth من 1 إلى 4096. Invalid option argument types يتم فحصها قبل catch لـ parse errors. |
+<ParamField path={"json"} type={"string"} required>
+JSON text للتفسير. يتم فحص هذا argument كـ string قبل catch لـ parse errors.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. قيمة boolean تضبط useNull مباشرة. table يمكن أن تضبط useNull و maxDepth؛ يتم clamp لـ maxDepth من 1 إلى 4096. Invalid option argument types يتم فحصها قبل catch لـ parse errors.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `success` | `boolean` | True عندما ينجح parsing، و false عندما يبلغ parser عن error. |
-| `decoded` | `any \| nil` | Decoded value عند النجاح، و nil عند parse failure. JSON false صالح يعيد success كـ true و decoded كـ false، لذلك افحص success return value. |
-| `errorMessage` | `string \| nil` | Error message عند parse failure، وإلا nil. الرسالة تتضمن json.decodeSafe prefix و parser position. |
-| `errorPosition` | `number \| nil` | Parser byte position عند parse failure، وإلا nil. |
+<ResponseField name={"success"} type={"boolean"}>
+True عندما ينجح parsing، و false عندما يبلغ parser عن error.
+</ResponseField>
+
+<ResponseField name={"decoded"} type={"any | nil"}>
+Decoded value عند النجاح، و nil عند parse failure. JSON false صالح يعيد success كـ true و decoded كـ false، لذلك افحص success return value.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+Error message عند parse failure، وإلا nil. الرسالة تتضمن json.decodeSafe prefix و parser position.
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+Parser byte position عند parse failure، وإلا nil.
+</ResponseField>
 
 ## الأنواع
 
@@ -57,3 +66,6 @@ if not parsed then
     warn(message, position)
 end
 ```
+
+
+</div>

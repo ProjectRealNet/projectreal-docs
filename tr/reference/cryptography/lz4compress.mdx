@@ -2,13 +2,10 @@
 title: "lz4compress"
 sidebarTitle: "lz4compress"
 description: "Lua string byte degerlerini LZ4 block compression ile sikistirir ve raw compressed bytes degerlerini Lua string olarak dondurur."
-icon: "function"
 keywords: ["lz4compress","Cryptography","crypt.lz4compress","crypt.lz4.compress","lz4.compress"]
 ---
 
-Lua string byte degerlerini LZ4 block compression ile sikistirir ve raw compressed bytes degerlerini Lua string olarak dondurur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 lz4compress(data: string): string
@@ -22,15 +19,15 @@ lz4compress(data: string): string
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | LZ4 block compression icine aktarilan Lua string byte degerleri. |
+<ParamField path={"data"} type={"string"} required>
+LZ4 block compression icine aktarilan Lua string byte degerleri.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `compressed` | `string` | Lua string olarak dondurulen raw compressed bytes. original size output icinde saklanmaz. |
+<ResponseField name={"compressed"} type={"string"}>
+Lua string olarak dondurulen raw compressed bytes. original size output icinde saklanmaz.
+</ResponseField>
 
 ## Örnek
 
@@ -43,3 +40,6 @@ local restored = lz4decompress(compressed, #source)
 
 print(#source, #compressed, restored == source)
 ```
+
+
+</div>

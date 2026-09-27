@@ -2,13 +2,10 @@
 title: "iscclosure"
 sidebarTitle: "iscclosure"
 description: "Returns whether the provided function is a C closure. The argument must be a function; passing any other type raises a type error. The function does not inspect executor ownership, source, bytecode, or upvalues."
-icon: "function"
 keywords: ["iscclosure","Closures"]
 ---
 
-Returns whether the provided function is a C closure. The argument must be a function; passing any other type raises a type error. The function does not inspect executor ownership, source, bytecode, or upvalues.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 iscclosure(func: function): boolean
@@ -16,15 +13,15 @@ iscclosure(func: function): boolean
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `func` | `function` | Yes | Function value passed to C closure check. |
+<ParamField path={"func"} type={"function"} required>
+Function value passed to C closure check.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `isCClosure` | `boolean` | true when C closure check returns true for the function; otherwise false. |
+<ResponseField name={"isCClosure"} type={"boolean"}>
+true when C closure check returns true for the function; otherwise false.
+</ResponseField>
 
 ## Contoh
 
@@ -34,3 +31,6 @@ Check whether a function is a C closure.
 local result = iscclosure(print)
 print(result)
 ```
+
+
+</div>

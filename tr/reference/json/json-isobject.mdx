@@ -2,13 +2,10 @@
 title: "json.isObject"
 sidebarTitle: "json.isObject"
 description: "Bir value degerinin Real JSON table detection tarafindan treated as a JSON object olup olmadigini dondurur."
-icon: "function"
 keywords: ["json.isObject","JSON"]
 ---
 
-Bir value degerinin Real JSON table detection tarafindan treated as a JSON object olup olmadigini dondurur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 json.isObject(value: any): boolean
@@ -16,15 +13,15 @@ json.isObject(value: any): boolean
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Inspect edilecek value. Non-table values false dondurur. |
+<ParamField path={"value"} type={"any"} required>
+Inspect edilecek value. Non-table values false dondurur.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `isObject` | `boolean` | value, table marked as a JSON object ise veya Real JSON table detection table degerini array olarak siniflandirmiyorsa true. Empty unmarked tables true dondurur. |
+<ResponseField name={"isObject"} type={"boolean"}>
+value, table marked as a JSON object ise veya Real JSON table detection table degerini array olarak siniflandirmiyorsa true. Empty unmarked tables true dondurur.
+</ResponseField>
 
 ## Örnek
 
@@ -39,3 +36,6 @@ print(json.isObject(record))
 print(json.isObject(items))
 print(json.isObject(empty))
 ```
+
+
+</div>

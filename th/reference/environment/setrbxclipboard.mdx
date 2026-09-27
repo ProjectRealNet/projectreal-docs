@@ -2,13 +2,10 @@
 title: "setrbxclipboard"
 sidebarTitle: "setrbxclipboard"
 description: "Writes a required string to the Windows clipboard using Roblox Studio clipboard data format. The function returns no status value, whether the clipboard write succeeds or fails."
-icon: "function"
 keywords: ["setrbxclipboard","Environment"]
 ---
 
-Writes a required string to the Windows clipboard using Roblox Studio clipboard data format. The function returns no status value, whether the clipboard write succeeds or fails.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 setrbxclipboard(text: string)
@@ -16,9 +13,9 @@ setrbxclipboard(text: string)
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | String written to the Roblox Studio clipboard data format. |
+<ParamField path={"text"} type={"string"} required>
+String written to the Roblox Studio clipboard data format.
+</ParamField>
 
 ## ตัวอย่าง
 
@@ -27,3 +24,6 @@ Write a string with Real's registered Roblox Studio clipboard format.
 ```lua
 setrbxclipboard("Real clipboard data")
 ```
+
+
+</div>

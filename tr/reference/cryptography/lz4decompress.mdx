@@ -2,13 +2,10 @@
 title: "lz4decompress"
 sidebarTitle: "lz4decompress"
 description: "Raw LZ4 block bytes degerini LZ4 block decompression ile acar ve raw decompressed bytes degerini Lua string olarak dondurur."
-icon: "function"
 keywords: ["lz4decompress","Cryptography","crypt.lz4decompress","crypt.lz4.decompress","lz4.decompress"]
 ---
 
-Raw LZ4 block bytes degerini LZ4 block decompression ile acar ve raw decompressed bytes degerini Lua string olarak dondurur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 lz4decompress(data: string, originalSize?: number): string
@@ -22,16 +19,19 @@ lz4decompress(data: string, originalSize?: number): string
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | LZ4 block decompression fonksiyonuna verilen raw compressed bytes. |
-| `originalSize` | `number` | No | dstCapacity olarak verilen output buffer size. lz4compress output icin orijinal sikistirilmamis byte uzunlugunu verin; atlanirsa sikistirilmis input uzunlugu kullanilir. |
+<ParamField path={"data"} type={"string"} required>
+LZ4 block decompression fonksiyonuna verilen raw compressed bytes.
+</ParamField>
+
+<ParamField path={"originalSize"} type={"number"}>
+dstCapacity olarak verilen output buffer size. lz4compress output icin orijinal sikistirilmamis byte uzunlugunu verin; atlanirsa sikistirilmis input uzunlugu kullanilir.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `decompressed` | `string` | Lua string olarak dondurulen raw decompressed bytes. Output, originalSize degerinden daha kisa olabilir. |
+<ResponseField name={"decompressed"} type={"string"}>
+Lua string olarak dondurulen raw decompressed bytes. Output, originalSize degerinden daha kisa olabilir.
+</ResponseField>
 
 ## Örnek
 
@@ -45,3 +45,6 @@ local decompressed = lz4decompress(compressed, #source)
 print(decompressed)
 print(decompressed == source)
 ```
+
+
+</div>

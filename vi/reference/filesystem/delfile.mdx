@@ -2,13 +2,10 @@
 title: "delfile"
 sidebarTitle: "delfile"
 description: "Xoa mot regular file dang ton tai ben trong workspace."
-icon: "function"
 keywords: ["delfile","Filesystem"]
 ---
 
-Xoa mot regular file dang ton tai ben trong workspace.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 delfile(path: string)
@@ -16,9 +13,9 @@ delfile(path: string)
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | Path duoc resolve ben trong workspace sau separator normalization va workspace-boundary checks. Target phai ton tai va la regular file; folders khong duoc chap nhan. |
+<ParamField path={"path"} type={"string"} required>
+Path duoc resolve ben trong workspace sau separator normalization va workspace-boundary checks. Target phai ton tai va la regular file; folders khong duoc chap nhan.
+</ParamField>
 
 ## Ví dụ
 
@@ -31,3 +28,6 @@ writefile(path, "temporary")
 delfile(path)
 print(isfile(path))
 ```
+
+
+</div>

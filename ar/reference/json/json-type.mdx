@@ -2,13 +2,10 @@
 title: "json.type"
 sidebarTitle: "json.type"
 description: "ترجع string type name لقيمة. json.null يرجع \"null\". الجداول ترجع \"array\" أو \"object\" باستخدام نفس table classification مثل json.isArray و json.isObject. القيم الأخرى ترجع runtime Lua type name result."
-icon: "function"
 keywords: ["json.type","JSON"]
 ---
 
-ترجع string type name لقيمة. json.null يرجع "null". الجداول ترجع "array" أو "object" باستخدام نفس table classification مثل json.isArray و json.isObject. القيم الأخرى ترجع runtime Lua type name result.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 json.type(value: any): string
@@ -16,15 +13,15 @@ json.type(value: any): string
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | القيمة التي يتم classify لها. تمرير no value يرجع runtime type name لقيمة stack مفقودة. |
+<ParamField path={"value"} type={"any"} required>
+القيمة التي يتم classify لها. تمرير no value يرجع runtime type name لقيمة stack مفقودة.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `jsonType` | `string` | Type name string. القيم JSON-specific المثبتة هي "null" و "array" و "object". القيم غير table وغير json.null تستخدم Lua type name، مثل "nil" أو "boolean" أو "number" أو "integer" أو "string" أو "function" أو "object" أو "thread" أو "buffer" أو "class" أو "object" أو "vector" أو "no value" حسب runtime value. |
+<ResponseField name={"jsonType"} type={"string"}>
+Type name string. القيم JSON-specific المثبتة هي "null" و "array" و "object". القيم غير table وغير json.null تستخدم Lua type name، مثل "nil" أو "boolean" أو "number" أو "integer" أو "string" أو "function" أو "object" أو "thread" أو "buffer" أو "class" أو "object" أو "vector" أو "no value" حسب runtime value.
+</ResponseField>
 
 ## مثال
 
@@ -37,3 +34,6 @@ print(json.type(json.null))
 print(json.type(nil))
 print(json.type())
 ```
+
+
+</div>

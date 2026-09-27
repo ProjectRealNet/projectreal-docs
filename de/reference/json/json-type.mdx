@@ -2,13 +2,10 @@
 title: "json.type"
 sidebarTitle: "json.type"
 description: "Gibt einen string type name fuer einen Wert zurueck. json.null gibt \"null\" zurueck. Tabellen geben \"array\" oder \"object\" mit derselben table classification wie json.isArray und json.isObject zurueck. Andere Werte geben das runtime Lua type name result zurueck."
-icon: "function"
 keywords: ["json.type","JSON"]
 ---
 
-Gibt einen string type name fuer einen Wert zurueck. json.null gibt "null" zurueck. Tabellen geben "array" oder "object" mit derselben table classification wie json.isArray und json.isObject zurueck. Andere Werte geben das runtime Lua type name result zurueck.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 json.type(value: any): string
@@ -16,15 +13,15 @@ json.type(value: any): string
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Wert, der classified wird. Wenn no value uebergeben wird, wird der runtime type name fuer einen fehlenden stack value zurueckgegeben. |
+<ParamField path={"value"} type={"any"} required>
+Wert, der classified wird. Wenn no value uebergeben wird, wird der runtime type name fuer einen fehlenden stack value zurueckgegeben.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `jsonType` | `string` | Type name string. Verifizierte JSON-specific returns sind "null", "array" und "object". Non-table, non-json.null Werte verwenden Lua type name, zum Beispiel "nil", "boolean", "number", "integer", "string", "function", "object", "thread", "buffer", "class", "object", "vector" oder "no value", je nach runtime value. |
+<ResponseField name={"jsonType"} type={"string"}>
+Type name string. Verifizierte JSON-specific returns sind "null", "array" und "object". Non-table, non-json.null Werte verwenden Lua type name, zum Beispiel "nil", "boolean", "number", "integer", "string", "function", "object", "thread", "buffer", "class", "object", "vector" oder "no value", je nach runtime value.
+</ResponseField>
 
 ## Beispiel
 
@@ -37,3 +34,6 @@ print(json.type(json.null))
 print(json.type(nil))
 print(json.type())
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "getactorfromthread"
 sidebarTitle: "getactorfromthread"
 description: "Luau thread와 연결된 Actor Instance를 반환합니다. 첫 번째 argument는 thread여야 합니다. function은 thread의 thread data를 읽고 Actor reference 및 positive container count를 요구한 다음 the associated Actor를 읽습니다. actor weak reference가 유효하면 Instance로 push하고, 그렇지 않으면 function은 nil을 반환합니다."
-icon: "function"
 keywords: ["getactorfromthread","Actors","getactorfromstate"]
 ---
 
-Luau thread와 연결된 Actor Instance를 반환합니다. 첫 번째 argument는 thread여야 합니다. function은 thread의 thread data를 읽고 Actor reference 및 positive container count를 요구한 다음 the associated Actor를 읽습니다. actor weak reference가 유효하면 Instance로 push하고, 그렇지 않으면 function은 nil을 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 getactorfromthread(thread: thread): Instance | nil
@@ -20,15 +17,15 @@ getactorfromthread(thread: thread): Instance | nil
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `thread` | `thread` | Yes | associated Actor weak reference를 찾기 위해 thread data를 확인할 Luau thread입니다. |
+<ParamField path={"thread"} type={"thread"} required>
+associated Actor weak reference를 찾기 위해 thread data를 확인할 Luau thread입니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `actor` | `Instance \| nil` | thread의 the associated Actor weak reference에서 resolve된 Actor Instance, 또는 valid actor reference가 없을 때 nil입니다. |
+<ResponseField name={"actor"} type={"Instance | nil"}>
+thread의 the associated Actor weak reference에서 resolve된 Actor Instance, 또는 valid actor reference가 없을 때 nil입니다.
+</ResponseField>
 
 ## 예제
 
@@ -40,3 +37,6 @@ for _, thread in ipairs(getactorthreads()) do
     print(actor)
 end
 ```
+
+
+</div>

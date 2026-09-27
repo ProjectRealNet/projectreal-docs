@@ -2,13 +2,10 @@
 title: "cleardrawcache"
 sidebarTitle: "cleardrawcache"
 description: "Real global Drawing object list를 비웁니다. 추적 중인 각 Drawing object는 destroyed로 표시되고, image resources가 있으면 해제되며, object list가 비워집니다. 정리된 Drawing objects에 대한 기존 Lua references는 남아 있을 수 있지만, 해당 objects는 더 이상 active Drawing objects로 간주되지 않습니다. the Drawing API는 the required rendering environment is active가 true일 때만 이 API를 등록합니다. 이 검사가 false이면 initializer는 이러한 globals를 만들기 전에 반환됩니다."
-icon: "function"
 keywords: ["cleardrawcache","Drawing"]
 ---
 
-Real global Drawing object list를 비웁니다. 추적 중인 각 Drawing object는 destroyed로 표시되고, image resources가 있으면 해제되며, object list가 비워집니다. 정리된 Drawing objects에 대한 기존 Lua references는 남아 있을 수 있지만, 해당 objects는 더 이상 active Drawing objects로 간주되지 않습니다. the Drawing API는 the required rendering environment is active가 true일 때만 이 API를 등록합니다. 이 검사가 false이면 initializer는 이러한 globals를 만들기 전에 반환됩니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 cleardrawcache()
@@ -25,3 +22,6 @@ square.Visible = true
 cleardrawcache()
 print(square.Visible)
 ```
+
+
+</div>

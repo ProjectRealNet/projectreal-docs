@@ -1,23 +1,55 @@
 ---
 title: "Input"
 description: "События ввода с клавиатуры и мыши."
-icon: "folder-code"
+icon: "/icons/mouse.svg"
 ---
+
+<div className="real-category-page">
 
 События ввода с клавиатуры и мыши.
 
-| Навигация по функциям | Описание |
-| --- | --- |
-| [`isrbxactive`](./isrbxactive) | Возвращает, является ли current foreground window окном Roblox window, найденным Real. Real находит это окно через enumerating windows текущего процесса и выбирает window, у которого class name равен Roblox window. Function не принимает arguments и возвращает false, если foreground window или matching Roblox window недоступны. |
-| [`keyclick`](./keyclick) | Отправляет key down event, затем key up event, когда Roblox window active. Аргумент keyCode проверяется как Lua number, преобразуется через integer conversion, сопоставляется из Windows virtual-key code в scan code через Windows key mapping и отправляется через keyboard input с KEYEVENTF_SCANCODE. Если isrbxactive вернул бы false, function возвращается без отправки input. |
-| [`keypress`](./keypress) | Отправляет key down event, когда Roblox window active. Аргумент keyCode проверяется как Lua number, преобразуется через integer conversion, сопоставляется из Windows virtual-key code в scan code через Windows key mapping и отправляется через keyboard input с KEYEVENTF_SCANCODE. Эта function не отправляет key up event. Если isrbxactive вернул бы false, function возвращается без отправки input. |
-| [`keyrelease`](./keyrelease) | Отправляет key up event, когда Roblox window active. Аргумент keyCode проверяется как Lua number, преобразуется через integer conversion, сопоставляется из Windows virtual-key code в scan code через Windows key mapping и отправляется через keyboard input с KEYEVENTF_SCANCODE \| KEYEVENTF_KEYUP. Эта function не отправляет key down event. Если isrbxactive вернул бы false, function возвращается без отправки input. |
-| [`mouse1click`](./mouse1click) | Отправляет left mouse down event и left mouse up event, когда Roblox window active. Real вызывает mouse input с the requested mouse action и без movement или wheel data. Function не принимает arguments, ничего не возвращает и возвращается без отправки input, когда isrbxactive вернул бы false. |
-| [`mouse1press`](./mouse1press) | Отправляет left mouse down event, когда Roblox window active. Real вызывает mouse input с the requested mouse action и без movement или wheel data. Function не принимает arguments, ничего не возвращает, не отправляет соответствующий left mouse up event и возвращается без отправки input, когда isrbxactive вернул бы false. |
-| [`mouse1release`](./mouse1release) | Отправляет left mouse up event, когда Roblox window active. Real вызывает mouse input с the requested mouse action и без movement или wheel data. Function не принимает arguments, ничего не возвращает, не отправляет соответствующий left mouse down event и возвращается без отправки input, когда isrbxactive вернул бы false. |
-| [`mouse2click`](./mouse2click) | Отправляет right mouse down event и right mouse up event, когда Roblox window active. Real вызывает mouse input с the requested mouse action и без movement или wheel data. Function не принимает arguments, ничего не возвращает и возвращается без отправки input, когда isrbxactive вернул бы false. |
-| [`mouse2press`](./mouse2press) | Отправляет right mouse down event, когда Roblox window active. Real вызывает mouse input с the requested mouse action и без movement или wheel data. Function не принимает arguments, ничего не возвращает, не отправляет соответствующий right mouse up event и возвращается без отправки input, когда isrbxactive вернул бы false. |
-| [`mouse2release`](./mouse2release) | Отправляет right mouse up event, когда Roblox window active. Real вызывает mouse input с the requested mouse action и без movement или wheel data. Function не принимает arguments, ничего не возвращает, не отправляет соответствующий right mouse down event и возвращается без отправки input, когда isrbxactive вернул бы false. |
-| [`mousemoveabs`](./mousemoveabs) | Перемещает мышь через Windows absolute mouse input, когда Roblox window active. Аргументы x и y проверяются как Lua numbers и преобразуются через integer conversion. Real рассматривает их как координаты relative to active foreground window client area, добавляет screen position этой client area через ClientToScreen, масштабирует их с помощью GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 и integer math, затем вызывает mouse input с the requested mouse action. Если isrbxactive вернул бы false, function возвращается без отправки input. |
-| [`mousemoverel`](./mousemoverel) | Перемещает мышь на relative delta, когда Roblox window active. Аргументы x и y проверяются как Lua numbers и преобразуются через integer conversion, затем напрямую передаются в mouse input с the requested mouse action как dx и dy. Function не использует the requested mouse action, не выполняет client-area conversion, ничего не возвращает и возвращается без отправки input, когда isrbxactive вернул бы false. |
-| [`mousescroll`](./mousescroll) | Отправляет mouse wheel event, когда Roblox window active. Аргумент amount проверяется как Lua number, преобразуется через integer conversion и напрямую передается как значение dwData в mouse input с the requested mouse action. Real не нормализует amount и не добавляет movement data. Function ничего не возвращает и возвращается без отправки input, когда isrbxactive вернул бы false. |
+## Доступные функции
+
+<CardGroup cols={2}>
+<Card title="isrbxactive" href="./isrbxactive">
+Возвращает, является ли current foreground window окном Roblox window, найденным Real. Real находит это окно через enumerating windows текущего процесса и выбирает window, у которого class name равен Roblox window. Function не принимает arguments и возвращает false, если foreground window или matching Roblox window недоступны.
+</Card>
+<Card title="keyclick" href="./keyclick">
+Отправляет key down event, затем key up event, когда Roblox window active. Аргумент keyCode проверяется как Lua number, преобразуется через integer conversion, сопоставляется из Windows virtual-key code в scan code через Windows key mapping и отправляется через keyboard input с KEYEVENTF_SCANCODE. Если isrbxactive вернул бы false, function возвращается без отправки input.
+</Card>
+<Card title="keypress" href="./keypress">
+Отправляет key down event, когда Roblox window active. Аргумент keyCode проверяется как Lua number, преобразуется через integer conversion, сопоставляется из Windows virtual-key code в scan code через Windows key mapping и отправляется через keyboard input с KEYEVENTF_SCANCODE. Эта function не отправляет key up event. Если isrbxactive вернул бы false, function возвращается без отправки input.
+</Card>
+<Card title="keyrelease" href="./keyrelease">
+Отправляет key up event, когда Roblox window active. Аргумент keyCode проверяется как Lua number, преобразуется через integer conversion, сопоставляется из Windows virtual-key code в scan code через Windows key mapping и отправляется через keyboard input с KEYEVENTF_SCANCODE | KEYEVENTF_KEYUP. Эта function не отправляет key down event. Если isrbxactive вернул бы false, function возвращается без отправки input.
+</Card>
+<Card title="mouse1click" href="./mouse1click">
+Отправляет left mouse down event и left mouse up event, когда Roblox window active. Real вызывает mouse input с the requested mouse action и без movement или wheel data. Function не принимает arguments, ничего не возвращает и возвращается без отправки input, когда isrbxactive вернул бы false.
+</Card>
+<Card title="mouse1press" href="./mouse1press">
+Отправляет left mouse down event, когда Roblox window active. Real вызывает mouse input с the requested mouse action и без movement или wheel data. Function не принимает arguments, ничего не возвращает, не отправляет соответствующий left mouse up event и возвращается без отправки input, когда isrbxactive вернул бы false.
+</Card>
+<Card title="mouse1release" href="./mouse1release">
+Отправляет left mouse up event, когда Roblox window active. Real вызывает mouse input с the requested mouse action и без movement или wheel data. Function не принимает arguments, ничего не возвращает, не отправляет соответствующий left mouse down event и возвращается без отправки input, когда isrbxactive вернул бы false.
+</Card>
+<Card title="mouse2click" href="./mouse2click">
+Отправляет right mouse down event и right mouse up event, когда Roblox window active. Real вызывает mouse input с the requested mouse action и без movement или wheel data. Function не принимает arguments, ничего не возвращает и возвращается без отправки input, когда isrbxactive вернул бы false.
+</Card>
+<Card title="mouse2press" href="./mouse2press">
+Отправляет right mouse down event, когда Roblox window active. Real вызывает mouse input с the requested mouse action и без movement или wheel data. Function не принимает arguments, ничего не возвращает, не отправляет соответствующий right mouse up event и возвращается без отправки input, когда isrbxactive вернул бы false.
+</Card>
+<Card title="mouse2release" href="./mouse2release">
+Отправляет right mouse up event, когда Roblox window active. Real вызывает mouse input с the requested mouse action и без movement или wheel data. Function не принимает arguments, ничего не возвращает, не отправляет соответствующий right mouse down event и возвращается без отправки input, когда isrbxactive вернул бы false.
+</Card>
+<Card title="mousemoveabs" href="./mousemoveabs">
+Перемещает мышь через Windows absolute mouse input, когда Roblox window active. Аргументы x и y проверяются как Lua numbers и преобразуются через integer conversion. Real рассматривает их как координаты relative to active foreground window client area, добавляет screen position этой client area через ClientToScreen, масштабирует их с помощью GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 и integer math, затем вызывает mouse input с the requested mouse action. Если isrbxactive вернул бы false, function возвращается без отправки input.
+</Card>
+<Card title="mousemoverel" href="./mousemoverel">
+Перемещает мышь на relative delta, когда Roblox window active. Аргументы x и y проверяются как Lua numbers и преобразуются через integer conversion, затем напрямую передаются в mouse input с the requested mouse action как dx и dy. Function не использует the requested mouse action, не выполняет client-area conversion, ничего не возвращает и возвращается без отправки input, когда isrbxactive вернул бы false.
+</Card>
+<Card title="mousescroll" href="./mousescroll">
+Отправляет mouse wheel event, когда Roblox window active. Аргумент amount проверяется как Lua number, преобразуется через integer conversion и напрямую передается как значение dwData в mouse input с the requested mouse action. Real не нормализует amount и не добавляет movement data. Function ничего не возвращает и возвращается без отправки input, когда isrbxactive вернул бы false.
+</Card>
+</CardGroup>
+
+</div>

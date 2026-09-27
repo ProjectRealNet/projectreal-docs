@@ -2,13 +2,10 @@
 title: "savefiledialog"
 sidebarTitle: "savefiledialog"
 description: "Mo Windows save dialog thong qua Windows save dialog, ghi Lua string bytes duoc cung cap vao selected path va tra ve saved file duoi dang file item."
-icon: "function"
 keywords: ["savefiledialog","Filesystem"]
 ---
 
-Mo Windows save dialog thong qua Windows save dialog, ghi Lua string bytes duoc cung cap vao selected path va tra ve saved file duoi dang file item.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
@@ -16,16 +13,19 @@ savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `content` | `string` | Yes | Lua string bytes de ghi vao selected file. Tep duoc mo o binary truncate mode sau khi nguoi dung xac nhan path. |
-| `options` | `DialogOptions` | No | Optional table. savefiledialog dung title, defaultPath, extensionFilter, suggestedName va defaultExtension. extensionFilter la table gom extension strings; dau . hoac *. o dau se bi loai bo truoc khi moi filter thanh *.&lt;extension>. defaultExtension loai bo leading . characters truoc khi duoc truyen vao SetDefaultExtension. |
+<ParamField path={"content"} type={"string"} required>
+Lua string bytes de ghi vao selected file. Tep duoc mo o binary truncate mode sau khi nguoi dung xac nhan path.
+</ParamField>
+
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table. savefiledialog dung title, defaultPath, extensionFilter, suggestedName va defaultExtension. extensionFilter la table gom extension strings; dau . hoac *. o dau se bi loai bo truoc khi moi filter thanh *.&lt;extension>. defaultExtension loai bo leading . characters truoc khi duoc truyen vao SetDefaultExtension.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `file` | `FileSystemItem \| nil` | Saved file item, hoac nil khi dialog bi huy. Dialog or write failures se throw Failed to save file. |
+<ResponseField name={"file"} type={"FileSystemItem | nil"}>
+Saved file item, hoac nil khi dialog bi huy. Dialog or write failures se throw Failed to save file.
+</ResponseField>
 
 ## Kiểu
 
@@ -60,3 +60,6 @@ else
     print("No file saved")
 end
 ```
+
+
+</div>

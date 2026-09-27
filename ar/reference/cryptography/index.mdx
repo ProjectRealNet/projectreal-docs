@@ -1,21 +1,49 @@
 ---
 title: "Cryptography"
 description: "التشفير والتجزئة والتشفير والضغط."
-icon: "folder-code"
+icon: "/icons/key.svg"
 ---
+
+<div className="real-category-page">
 
 التشفير والتجزئة والتشفير والضغط.
 
-| تنقل الدوال | الوصف |
-| --- | --- |
-| [`base64_decode`](./base64-decode) | يفك ترميز إدخال Base64 باستخدام Base64 decoder ويعيد البايتات المفكوكة كسلسلة Lua. |
-| [`base64_encode`](./base64-encode) | يشفر بايتات Lua string باستخدام Base64 encoder، مع = padding وبدون فواصل اسطر. |
-| [`crypt.decrypt`](./crypt-decrypt) | يفك تشفير Base64 ciphertext باستخدام مفتاح مفكوك من Base64 و Base64 IV مطلوب عبر AES CBC او ECB. |
-| [`crypt.encrypt`](./crypt-encrypt) | يشفر بايتات Lua string باستخدام AES CBC او ECB او CTR مع key مفكوك من Base64، ثم يعيد Base64 ciphertext ونتيجة IV. |
-| [`crypt.generatebytes`](./crypt-generatebytes) | ينشئ بايتات عشوائية باستخدام random byte generator ويعيدها Base64-encoded كسلسلة Lua. |
-| [`crypt.generatekey`](./crypt-generatekey) | ينشئ 32 بايت خام عشوائي باستخدام random byte generator ويعيدها Base64-encoded كسلسلة Lua. |
-| [`crypt.hash`](./crypt-hash) | يحسب hash لبايتات Lua string باستخدام خوارزمية crypto library hash مدعومة ويعيد lowercase hexadecimal digest. |
-| [`crypt.hmac`](./crypt-hmac) | يحسب crypto library HMAC على بايتات Lua string باستخدام raw Lua string key ويعيد Base64 digest. |
-| [`crypt.random`](./crypt-random) | ينشئ raw random bytes باستخدام random byte generator ويعيدها كسلسلة Lua. |
-| [`lz4compress`](./lz4compress) | يضغط بايتات Lua string باستخدام LZ4 block compression ويعيد raw compressed bytes كسلسلة Lua. |
-| [`lz4decompress`](./lz4decompress) | يفك ضغط raw LZ4 block bytes باستخدام LZ4 block decompression ويعيد raw decompressed bytes كسلسلة Lua. |
+## الدوال المتاحة
+
+<CardGroup cols={2}>
+<Card title="base64_decode" href="./base64-decode">
+يفك ترميز إدخال Base64 باستخدام Base64 decoder ويعيد البايتات المفكوكة كسلسلة Lua.
+</Card>
+<Card title="base64_encode" href="./base64-encode">
+يشفر بايتات Lua string باستخدام Base64 encoder، مع = padding وبدون فواصل اسطر.
+</Card>
+<Card title="crypt.decrypt" href="./crypt-decrypt">
+يفك تشفير Base64 ciphertext باستخدام مفتاح مفكوك من Base64 و Base64 IV مطلوب عبر AES CBC او ECB.
+</Card>
+<Card title="crypt.encrypt" href="./crypt-encrypt">
+يشفر بايتات Lua string باستخدام AES CBC او ECB او CTR مع key مفكوك من Base64، ثم يعيد Base64 ciphertext ونتيجة IV.
+</Card>
+<Card title="crypt.generatebytes" href="./crypt-generatebytes">
+ينشئ بايتات عشوائية باستخدام random byte generator ويعيدها Base64-encoded كسلسلة Lua.
+</Card>
+<Card title="crypt.generatekey" href="./crypt-generatekey">
+ينشئ 32 بايت خام عشوائي باستخدام random byte generator ويعيدها Base64-encoded كسلسلة Lua.
+</Card>
+<Card title="crypt.hash" href="./crypt-hash">
+يحسب hash لبايتات Lua string باستخدام خوارزمية crypto library hash مدعومة ويعيد lowercase hexadecimal digest.
+</Card>
+<Card title="crypt.hmac" href="./crypt-hmac">
+يحسب crypto library HMAC على بايتات Lua string باستخدام raw Lua string key ويعيد Base64 digest.
+</Card>
+<Card title="crypt.random" href="./crypt-random">
+ينشئ raw random bytes باستخدام random byte generator ويعيدها كسلسلة Lua.
+</Card>
+<Card title="lz4compress" href="./lz4compress">
+يضغط بايتات Lua string باستخدام LZ4 block compression ويعيد raw compressed bytes كسلسلة Lua.
+</Card>
+<Card title="lz4decompress" href="./lz4decompress">
+يفك ضغط raw LZ4 block bytes باستخدام LZ4 block decompression ويعيد raw decompressed bytes كسلسلة Lua.
+</Card>
+</CardGroup>
+
+</div>

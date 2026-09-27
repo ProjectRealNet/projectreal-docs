@@ -2,13 +2,10 @@
 title: "json.unescape"
 sidebarTitle: "json.unescape"
 description: "Dekodiert JSON string escape sequences aus escaped string content oder aus einem complete quoted JSON string literal. Die Eingabe wird mit dem JSON string parser geparsed, nicht als full JSON document."
-icon: "function"
 keywords: ["json.unescape","JSON"]
 ---
 
-Dekodiert JSON string escape sequences aus escaped string content oder aus einem complete quoted JSON string literal. Die Eingabe wird mit dem JSON string parser geparsed, nicht als full JSON document.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 json.unescape(text: string): string
@@ -16,15 +13,15 @@ json.unescape(text: string): string
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | Escaped JSON string content oder ein complete quoted JSON string literal, dessen first and last bytes quotes sind. Die function liest dieses argument mit string type checking. |
+<ParamField path={"text"} type={"string"} required>
+Escaped JSON string content oder ein complete quoted JSON string literal, dessen first and last bytes quotes sind. Die function liest dieses argument mit string type checking.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `text` | `string` | Decoded string. Supported escapes sind \", \\, \/, \b, \f, \n, \r, \t und \uXXXX mit surrogate-pair handling. Invalid escapes, unescaped control characters, unterminated strings und trailing characters nach einem quoted literal werfen einen Luau error mit near-position suffix. |
+<ResponseField name={"text"} type={"string"}>
+Decoded string. Supported escapes sind \", \\, \/, \b, \f, \n, \r, \t und \uXXXX mit surrogate-pair handling. Invalid escapes, unescaped control characters, unterminated strings und trailing characters nach einem quoted literal werfen einen Luau error mit near-position suffix.
+</ResponseField>
 
 ## Beispiel
 
@@ -36,3 +33,6 @@ local restored = json.unescape(escaped)
 
 print(restored)
 ```
+
+
+</div>

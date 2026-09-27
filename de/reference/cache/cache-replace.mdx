@@ -2,13 +2,10 @@
 title: "cache.replace"
 sidebarTitle: "cache.replace"
 description: "Sets the cached Instance entry for one Instance to another Instance."
-icon: "function"
 keywords: ["cache.replace","Cache"]
 ---
 
-Sets the cached Instance entry for one Instance to another Instance.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 cache.replace(instance: Instance, replacement: Instance)
@@ -16,10 +13,13 @@ cache.replace(instance: Instance, replacement: Instance)
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance whose Instance cache entry should be replaced. |
-| `replacement` | `Instance` | Yes | Instance value to store in the cache entry for the first argument. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance whose Instance cache entry should be replaced.
+</ParamField>
+
+<ParamField path={"replacement"} type={"Instance"} required>
+Instance value to store in the cache entry for the first argument.
+</ParamField>
 
 ## Beispiel
 
@@ -33,3 +33,6 @@ cache.replace(Players, ReplicatedStorage)
 
 print(cache.iscached(Players))
 ```
+
+
+</div>

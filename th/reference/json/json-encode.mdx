@@ -2,13 +2,10 @@
 title: "json.encode"
 sidebarTitle: "json.encode"
 description: "serialize Lua value เป็น JSON string ด้วย Real JSON encoder. json.stringify ถูก register ไปยัง function เดียวกัน"
-icon: "function"
 keywords: ["json.encode","JSON"]
 ---
 
-serialize Lua value เป็น JSON string ด้วย Real JSON encoder. json.stringify ถูก register ไปยัง function เดียวกัน
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 json.encode(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.encode(value: any, options?: EncodeOptions): string
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value ที่จะ encode. nil, booleans, numbers, strings, tables และ json.null ถูกจัดการโดยตรง. Unsupported Lua types จะถูก encode เป็น null เว้นแต่ errorOnUnsupported เป็น true. |
-| `options` | `EncodeOptions` | No | Optional encode options. boolean toggle pretty output. number เปิด pretty output ด้วยจำนวน spaces ที่ clamp เป็น 0.16. string เปิด pretty output ด้วย indent นั้น. table สามารถตั้ง pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth และ indent. |
+<ParamField path={"value"} type={"any"} required>
+Value ที่จะ encode. nil, booleans, numbers, strings, tables และ json.null ถูกจัดการโดยตรง. Unsupported Lua types จะถูก encode เป็น null เว้นแต่ errorOnUnsupported เป็น true.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options. boolean toggle pretty output. number เปิด pretty output ด้วยจำนวน spaces ที่ clamp เป็น 0.16. string เปิด pretty output ด้วย indent นั้น. table สามารถตั้ง pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth และ indent.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `json` | `string` | Encoded JSON string. Encoding errors จะ throw เป็น Luau errors. |
+<ResponseField name={"json"} type={"string"}>
+Encoded JSON string. Encoding errors จะ throw เป็น Luau errors.
+</ResponseField>
 
 ## Types
 
@@ -61,3 +61,6 @@ local text = json.encode(payload, {
 
 print(text)
 ```
+
+
+</div>

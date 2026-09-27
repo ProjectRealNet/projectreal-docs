@@ -2,13 +2,10 @@
 title: "getcustomasset"
 sidebarTitle: "getcustomasset"
 description: "ينسخ regular workspace file موجودا إلى ExtraContent/<hwid>/ ويعيد rbxasset:// string لمسار asset المنسوخ."
-icon: "function"
 keywords: ["getcustomasset","Filesystem","getsynasset"]
 ---
 
-ينسخ regular workspace file موجودا إلى ExtraContent/&lt;hwid>/ ويعيد rbxasset:// string لمسار asset المنسوخ.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 getcustomasset(path: string): string
@@ -20,15 +17,15 @@ getcustomasset(path: string): string
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | Path يتم حله داخل workspace بعد separator normalization وفحص workspace-boundary. يجب ان يكون الهدف موجودا وان يكون regular file؛ folders و invalid filenames و DOS device names و blocked extensions غير مقبولة. |
+<ParamField path={"path"} type={"string"} required>
+Path يتم حله داخل workspace بعد separator normalization وفحص workspace-boundary. يجب ان يكون الهدف موجودا وان يكون regular file؛ folders و invalid filenames و DOS device names و blocked extensions غير مقبولة.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `assetId` | `string` | String بالشكل rbxasset://&lt;hwid>/&lt;workspace-relative-path> مع استخدام forward slashes في relative path. |
+<ResponseField name={"assetId"} type={"string"}>
+String بالشكل rbxasset://&lt;hwid>/&lt;workspace-relative-path> مع استخدام forward slashes في relative path.
+</ResponseField>
 
 ## مثال
 
@@ -42,3 +39,6 @@ local assetId = getcustomasset(path)
 print(assetId)
 print(getsynasset(path))
 ```
+
+
+</div>

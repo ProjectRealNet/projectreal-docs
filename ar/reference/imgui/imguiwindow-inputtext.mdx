@@ -2,13 +2,10 @@
 title: "ImGuiWindow.InputText"
 sidebarTitle: "ImGuiWindow.InputText"
 description: "يلحق single-line ImGui InputText element بـ ImGuiWindow ويخزن callback. يتم قراءة initial text باستخدام optional string handling ونسخه إلى fixed 256-byte text buffer الخاص بالعنصر. عندما يتغير input المعروض، يتم وضع callback في queue ثم استدعاؤه لاحقا مع current string. تعيد method نفس ImGuiWindow object."
-icon: "function"
 keywords: ["ImGuiWindow.InputText","ImGui"]
 ---
 
-يلحق single-line ImGui InputText element بـ ImGuiWindow ويخزن callback. يتم قراءة initial text باستخدام optional string handling ونسخه إلى fixed 256-byte text buffer الخاص بالعنصر. عندما يتغير input المعروض، يتم وضع callback في queue ثم استدعاؤه لاحقا مع current string. تعيد method نفس ImGuiWindow object.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.InputText(window: ImGuiWindow, label: string, text?: string, onChange: function): ImGuiWindow
@@ -16,18 +13,27 @@ ImGuiWindow.InputText(window: ImGuiWindow, label: string, text?: string, onChang
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow object المعادة من imgui.create. Window مدمرة أو غير صالحة ترفع Lua error. |
-| `label` | `string` | Yes | Input label string الذي يمرر إلى ImGui InputText widget المعروض. |
-| `text` | `string` | No | Initial text يقرأ باستخدام optional string handling. مرر nil هنا عندما تريد default empty string مع الاستمرار في تمرير onChange كـ argument 4. |
-| `onChange` | `function` | Yes | Function مخزنة لهذا input ويتم استدعاؤها مع current string بعد معالجة edit event. يجب تمريرها كـ argument 4. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow object المعادة من imgui.create. Window مدمرة أو غير صالحة ترفع Lua error.
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+Input label string الذي يمرر إلى ImGui InputText widget المعروض.
+</ParamField>
+
+<ParamField path={"text"} type={"string"}>
+Initial text يقرأ باستخدام optional string handling. مرر nil هنا عندما تريد default empty string مع الاستمرار في تمرير onChange كـ argument 4.
+</ParamField>
+
+<ParamField path={"onChange"} type={"function"} required>
+Function مخزنة لهذا input ويتم استدعاؤها مع current string بعد معالجة edit event. يجب تمريرها كـ argument 4.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | نفس ImGuiWindow object، مما يسمح بتسلسل method calls. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+نفس ImGuiWindow object، مما يسمح بتسلسل method calls.
+</ResponseField>
 
 ## الأنواع
 
@@ -48,3 +54,6 @@ ImGuiWindow.InputText(window: ImGuiWindow, label: string, text?: string, onChang
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | إلحاق شريط تمرير عدد صحيح. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | إلحاق نص غير تفاعلي. |
 | `destroy` | `() -> ()` | Yes | إزالة النافذة وتحرير عمليات الاسترجاعات المسجلة الخاصة بها. |
+
+
+</div>

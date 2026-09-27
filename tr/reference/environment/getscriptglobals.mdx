@@ -2,13 +2,10 @@
 title: "getscriptglobals"
 sidebarTitle: "getscriptglobals"
 description: "_G ve shared icin current LUA_GLOBALSINDEX values iceren new table dondurur. Function arguments almaz, fresh table olusturur, _G degerini LUA_GLOBALSINDEX._G uzerinden ve shared degerini LUA_GLOBALSINDEX.shared uzerinden atar, sonra exactly one value dondurur. full global table dondurmez ve getscriptglobals icin kayitli alias yoktur."
-icon: "function"
 keywords: ["getscriptglobals","Environment"]
 ---
 
-_G ve shared icin current LUA_GLOBALSINDEX values iceren new table dondurur. Function arguments almaz, fresh table olusturur, _G degerini LUA_GLOBALSINDEX._G uzerinden ve shared degerini LUA_GLOBALSINDEX.shared uzerinden atar, sonra exactly one value dondurur. full global table dondurmez ve getscriptglobals icin kayitli alias yoktur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 getscriptglobals(): table
@@ -16,9 +13,9 @@ getscriptglobals(): table
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `globals` | `table` | LUA_GLOBALSINDEX uzerinden kopyalanan _G ve shared fields iceren fresh table. |
+<ResponseField name={"globals"} type={"table"}>
+LUA_GLOBALSINDEX uzerinden kopyalanan _G ve shared fields iceren fresh table.
+</ResponseField>
 
 ## Örnek
 
@@ -30,3 +27,6 @@ local globals = getscriptglobals()
 print(globals._G)
 print(globals.shared)
 ```
+
+
+</div>

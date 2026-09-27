@@ -2,13 +2,10 @@
 title: "json.format"
 sidebarTitle: "json.format"
 description: "Parsea un JSON string y lo vuelve a encode como readable formatted JSON usando Real JSON parser y encoder."
-icon: "function"
 keywords: ["json.format","JSON"]
 ---
 
-Parsea un JSON string y lo vuelve a encode como readable formatted JSON usando Real JSON parser y encoder.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
@@ -16,17 +13,23 @@ json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeO
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string que se parsea antes del formatting. La function lee este argument con string type checking. |
-| `encodeOptions` | `EncodeOptions` | No | Optional encode options pasadas al re-encode step. json.format lee las mismas encode options que json.encode y luego fuerza pretty a true. |
-| `decodeOptions` | `DecodeOptions` | No | Optional decode options usadas durante el parsing del input JSON. Un boolean define useNull. Una table puede definir useNull y maxDepth. |
+<ParamField path={"json"} type={"string"} required>
+JSON string que se parsea antes del formatting. La function lee este argument con string type checking.
+</ParamField>
+
+<ParamField path={"encodeOptions"} type={"EncodeOptions"}>
+Optional encode options pasadas al re-encode step. json.format lee las mismas encode options que json.encode y luego fuerza pretty a true.
+</ParamField>
+
+<ParamField path={"decodeOptions"} type={"DecodeOptions"}>
+Optional decode options usadas durante el parsing del input JSON. Un boolean define useNull. Una table puede definir useNull y maxDepth.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `formatted` | `string` | Readable formatted JSON string producido despues de parsing y re-encoding del input. |
+<ResponseField name={"formatted"} type={"string"}>
+Readable formatted JSON string producido despues de parsing y re-encoding del input.
+</ResponseField>
 
 ## Tipos
 
@@ -68,3 +71,6 @@ local formatted = json.format(compact, {
 
 print(formatted)
 ```
+
+
+</div>

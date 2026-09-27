@@ -1,23 +1,55 @@
 ---
 title: "ImGui"
 description: "Immediate-mode windows and callback-driven controls."
-icon: "folder-code"
+icon: "/icons/device-desktop.svg"
 ---
+
+<div className="real-category-page">
 
 Immediate-mode windows and callback-driven controls.
 
-| Function navigation | Description |
-| --- | --- |
-| [`imgui.create`](./imgui-create) | Creates a tracked ImGui window record and returns an ImGuiWindow object. The title argument defaults to "REAL_IM_UI" when omitted or nil. The title must be unique among currently tracked ImGui windows; creating another tracked window with the same title raises a Lua error. |
-| [`imgui.setvsync`](./imgui-setvsync) | Updates the ImGui renderer's vertical-synchronization preference. The current presentation path stores this preference but does not apply it. |
-| [`ImGuiWindow.Button`](./imguiwindow-button) | Appends a button element to an ImGuiWindow and stores the callback. When the rendered button is clicked, the callback is queued and later invoked without arguments. The method returns the same ImGuiWindow object. |
-| [`ImGuiWindow.Checkbox`](./imguiwindow-checkbox) | Appends a checkbox element to an ImGuiWindow. The callback is invoked with the new boolean value when the checkbox changes, and the method returns the same ImGuiWindow object. |
-| [`ImGuiWindow.CollapsingHeader`](./imguiwindow-collapsingheader) | Appends a collapsing header start marker, immediately calls the content callback with the same ImGuiWindow object so it can append nested elements, then appends a header end marker. During rendering, nested elements are skipped while the header is collapsed. Callback errors are caught and not returned by this method. |
-| [`ImGuiWindow.ColorPicker`](./imguiwindow-colorpicker) | Appends a RGBA color editor to an ImGuiWindow and stores the callback. Missing or nil color components default to 1.0. When the rendered editor changes, the callback is queued and later invoked with red, green, blue, and alpha. The method returns the same ImGuiWindow object. |
-| [`ImGuiWindow.destroy`](./imguiwindow-destroy) | Destroys an ImGuiWindow. If the object still points to a window, the method removes that window from Real's tracked ImGui window list, unreferences stored element callbacks, deletes the window record, and sets the Instance reference to nil. Calling destroy again on the same object returns without doing anything. |
-| [`ImGuiWindow.InputText`](./imguiwindow-inputtext) | Appends a single-line ImGui InputText element to an ImGuiWindow and stores the callback. The initial text is read with optional string handling and copied into the element's fixed 256-byte text buffer. When the rendered input changes, the callback is queued and later invoked with the current string. The method returns the same ImGuiWindow object. |
-| [`ImGuiWindow.SameLine`](./imguiwindow-sameline) | Adds a layout marker so the next rendered item can continue on the same row. |
-| [`ImGuiWindow.Separator`](./imguiwindow-separator) | Adds a separator line to the window. |
-| [`ImGuiWindow.SliderFloat`](./imguiwindow-sliderfloat) | Adds a floating-point slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated numeric value. |
-| [`ImGuiWindow.SliderInt`](./imguiwindow-sliderint) | Adds an integer slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated integer value. |
-| [`ImGuiWindow.Text`](./imguiwindow-text) | Adds non-interactive text to the window. The text argument must be a string. |
+## Available functions
+
+<CardGroup cols={2}>
+<Card title="imgui.create" href="./imgui-create">
+Creates a tracked ImGui window record and returns an ImGuiWindow object. The title argument defaults to "REAL_IM_UI" when omitted or nil. The title must be unique among currently tracked ImGui windows; creating another tracked window with the same title raises a Lua error.
+</Card>
+<Card title="imgui.setvsync" href="./imgui-setvsync">
+Updates the ImGui renderer's vertical-synchronization preference. The current presentation path stores this preference but does not apply it.
+</Card>
+<Card title="ImGuiWindow.Button" href="./imguiwindow-button">
+Appends a button element to an ImGuiWindow and stores the callback. When the rendered button is clicked, the callback is queued and later invoked without arguments. The method returns the same ImGuiWindow object.
+</Card>
+<Card title="ImGuiWindow.Checkbox" href="./imguiwindow-checkbox">
+Appends a checkbox element to an ImGuiWindow. The callback is invoked with the new boolean value when the checkbox changes, and the method returns the same ImGuiWindow object.
+</Card>
+<Card title="ImGuiWindow.CollapsingHeader" href="./imguiwindow-collapsingheader">
+Appends a collapsing header start marker, immediately calls the content callback with the same ImGuiWindow object so it can append nested elements, then appends a header end marker. During rendering, nested elements are skipped while the header is collapsed. Callback errors are caught and not returned by this method.
+</Card>
+<Card title="ImGuiWindow.ColorPicker" href="./imguiwindow-colorpicker">
+Appends a RGBA color editor to an ImGuiWindow and stores the callback. Missing or nil color components default to 1.0. When the rendered editor changes, the callback is queued and later invoked with red, green, blue, and alpha. The method returns the same ImGuiWindow object.
+</Card>
+<Card title="ImGuiWindow.destroy" href="./imguiwindow-destroy">
+Destroys an ImGuiWindow. If the object still points to a window, the method removes that window from Real's tracked ImGui window list, unreferences stored element callbacks, deletes the window record, and sets the Instance reference to nil. Calling destroy again on the same object returns without doing anything.
+</Card>
+<Card title="ImGuiWindow.InputText" href="./imguiwindow-inputtext">
+Appends a single-line ImGui InputText element to an ImGuiWindow and stores the callback. The initial text is read with optional string handling and copied into the element's fixed 256-byte text buffer. When the rendered input changes, the callback is queued and later invoked with the current string. The method returns the same ImGuiWindow object.
+</Card>
+<Card title="ImGuiWindow.SameLine" href="./imguiwindow-sameline">
+Adds a layout marker so the next rendered item can continue on the same row.
+</Card>
+<Card title="ImGuiWindow.Separator" href="./imguiwindow-separator">
+Adds a separator line to the window.
+</Card>
+<Card title="ImGuiWindow.SliderFloat" href="./imguiwindow-sliderfloat">
+Adds a floating-point slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated numeric value.
+</Card>
+<Card title="ImGuiWindow.SliderInt" href="./imguiwindow-sliderint">
+Adds an integer slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated integer value.
+</Card>
+<Card title="ImGuiWindow.Text" href="./imguiwindow-text">
+Adds non-interactive text to the window. The text argument must be a string.
+</Card>
+</CardGroup>
+
+</div>

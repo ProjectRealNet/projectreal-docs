@@ -2,13 +2,10 @@
 title: "json.format"
 sidebarTitle: "json.format"
 description: "JSON string を parse し、Real JSON parser と encoder で readable formatted JSON として re-encode します。"
-icon: "function"
 keywords: ["json.format","JSON"]
 ---
 
-JSON string を parse し、Real JSON parser と encoder で readable formatted JSON として re-encode します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
@@ -16,17 +13,23 @@ json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeO
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | Formatting の前に parse される JSON string。function はこの argument を string type checking で読みます。 |
-| `encodeOptions` | `EncodeOptions` | No | Re-encode step に渡される optional encode options。json.format は json.encode と同じ encode options を読み、その後 pretty を true に強制します。 |
-| `decodeOptions` | `DecodeOptions` | No | Input JSON の parsing 中に使われる optional decode options。boolean は useNull を設定します。table は useNull と maxDepth を設定できます。 |
+<ParamField path={"json"} type={"string"} required>
+Formatting の前に parse される JSON string。function はこの argument を string type checking で読みます。
+</ParamField>
+
+<ParamField path={"encodeOptions"} type={"EncodeOptions"}>
+Re-encode step に渡される optional encode options。json.format は json.encode と同じ encode options を読み、その後 pretty を true に強制します。
+</ParamField>
+
+<ParamField path={"decodeOptions"} type={"DecodeOptions"}>
+Input JSON の parsing 中に使われる optional decode options。boolean は useNull を設定します。table は useNull と maxDepth を設定できます。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `formatted` | `string` | Input の parsing と re-encoding 後に生成される readable formatted JSON string。 |
+<ResponseField name={"formatted"} type={"string"}>
+Input の parsing と re-encoding 後に生成される readable formatted JSON string。
+</ResponseField>
 
 ## 型
 
@@ -68,3 +71,6 @@ local formatted = json.format(compact, {
 
 print(formatted)
 ```
+
+
+</div>

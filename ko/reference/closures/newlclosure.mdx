@@ -2,13 +2,10 @@
 title: "newlclosure"
 sidebarTitle: "newlclosure"
 description: "Returns a Luau closure that calls the provided function. The first argument must be a function."
-icon: "function"
 keywords: ["newlclosure","Closures"]
 ---
 
-Returns a Luau closure that calls the provided function. The first argument must be a function.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 newlclosure(func: function, debugName?: string): function
@@ -16,16 +13,19 @@ newlclosure(func: function, debugName?: string): function
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `func` | `function` | Yes | Function called by the returned Luau closure. |
-| `debugName` | `string` | No | Optional debug name for the generated closure. |
+<ParamField path={"func"} type={"function"} required>
+Function called by the returned Luau closure.
+</ParamField>
+
+<ParamField path={"debugName"} type={"string"}>
+Optional debug name for the generated closure.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `closure` | `function` | Generated Luau closure that executes return the original function(..) and forwards arguments to the original function. |
+<ResponseField name={"closure"} type={"function"}>
+Generated Luau closure that executes return the original function(..) and forwards arguments to the original function.
+</ResponseField>
 
 ## 예제
 
@@ -41,3 +41,6 @@ local wrapped = newlclosure(add, "add")
 print(wrapped(2, 3))
 print(islclosure(wrapped))
 ```
+
+
+</div>

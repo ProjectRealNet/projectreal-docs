@@ -2,13 +2,10 @@
 title: "sethiddenproperty"
 sidebarTitle: "sethiddenproperty"
 description: "Sets a Roblox property with reflection metadata. The first argument must be Instance object, the second argument must be a string property name, and the third argument must be present. The instance reference must be valid. If the property descriptor is missing from Roblox property metadata, the function returns nil. If the descriptor exists but does not resolve to a property entry, it raises \"Not a property\". Bool values use luaL_checkboolean. Int and SystemAddress values use integer type checking, with SystemAddress writing RemoteId.PeerId. Float and Double values use number type checking. String, SharedString, and BinaryString values use string type checking before calling the setter. For other property types, the function temporarily calls setscriptable(instance, property, true), assigns instance[property] = value with normal Lua field assignment, then restores the original scriptable state with setscriptable(instance, property, isScriptable). On successful writes, the return value is a boolean equal to !IsScriptable() from before the write."
-icon: "function"
 keywords: ["sethiddenproperty","Reflection"]
 ---
 
-Sets a Roblox property with reflection metadata. The first argument must be Instance object, the second argument must be a string property name, and the third argument must be present. The instance reference must be valid. If the property descriptor is missing from Roblox property metadata, the function returns nil. If the descriptor exists but does not resolve to a property entry, it raises "Not a property". Bool values use luaL_checkboolean. Int and SystemAddress values use integer type checking, with SystemAddress writing RemoteId.PeerId. Float and Double values use number type checking. String, SharedString, and BinaryString values use string type checking before calling the setter. For other property types, the function temporarily calls setscriptable(instance, property, true), assigns instance[property] = value with normal Lua field assignment, then restores the original scriptable state with setscriptable(instance, property, isScriptable). On successful writes, the return value is a boolean equal to !IsScriptable() from before the write.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 sethiddenproperty(instance: Instance, property: string, value: any): boolean | nil
@@ -16,17 +13,23 @@ sethiddenproperty(instance: Instance, property: string, value: any): boolean | n
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object whose property should be written. Invalid Instance values raise an argument error. |
-| `property` | `string` | Yes | Property name resolved with Roblox property metadata and the Instance class descriptor. |
-| `value` | `any` | Yes | Value to write. The accepted value type depends on the resolved reflection type. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object whose property should be written. Invalid Instance values raise an argument error.
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+Property name resolved with Roblox property metadata and the Instance class descriptor.
+</ParamField>
+
+<ParamField path={"value"} type={"any"} required>
+Value to write. The accepted value type depends on the resolved reflection type.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `wasHidden` | `boolean \| nil` | Boolean equal to !IsScriptable() before a successful write, or nil when no property descriptor exists. |
+<ResponseField name={"wasHidden"} type={"boolean | nil"}>
+Boolean equal to !IsScriptable() before a successful write, or nil when no property descriptor exists.
+</ResponseField>
 
 ## Beispiel
 
@@ -36,3 +39,6 @@ Set a property value even when normal script access is limited.
 local previous = sethiddenproperty(workspace, "Name", workspace.Name)
 print(previous)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "mousemoverel"
 sidebarTitle: "mousemoverel"
 description: "当 Roblox window active 时，按 relative delta 移动 mouse。x 和 y 参数会作为 Lua numbers 检查，并通过 integer conversion 转换，然后作为 dx 和 dy 直接传给带 the requested mouse action 的 mouse input。该 function 不使用 the requested mouse action，不执行 client-area conversion，不返回任何值，并且当 isrbxactive 会为 false 时直接返回，不发送 input。"
-icon: "function"
 keywords: ["mousemoverel","Input"]
 ---
 
-当 Roblox window active 时，按 relative delta 移动 mouse。x 和 y 参数会作为 Lua numbers 检查，并通过 integer conversion 转换，然后作为 dx 和 dy 直接传给带 the requested mouse action 的 mouse input。该 function 不使用 the requested mouse action，不执行 client-area conversion，不返回任何值，并且当 isrbxactive 会为 false 时直接返回，不发送 input。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 mousemoverel(x: number, y: number)
@@ -16,7 +13,13 @@ mousemoverel(x: number, y: number)
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `x` | `number` | Yes | 作为 Lua number 读取，并在作为 dx 传给 mouse input 前通过 integer conversion 转换的 relative X movement delta。 |
-| `y` | `number` | Yes | 作为 Lua number 读取，并在作为 dy 传给 mouse input 前通过 integer conversion 转换的 relative Y movement delta。 |
+<ParamField path={"x"} type={"number"} required>
+作为 Lua number 读取，并在作为 dx 传给 mouse input 前通过 integer conversion 转换的 relative X movement delta。
+</ParamField>
+
+<ParamField path={"y"} type={"number"} required>
+作为 Lua number 读取，并在作为 dy 传给 mouse input 前通过 integer conversion 转换的 relative Y movement delta。
+</ParamField>
+
+
+</div>

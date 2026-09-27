@@ -2,13 +2,10 @@
 title: "rconsoleerr"
 sidebarTitle: "rconsoleerr"
 description: "Menulis nol atau beberapa nilai ke Windows console saat ini melalui stdout setelah mengatur console text attribute ke error text color. Nilai dikonversi dengan Lua string conversion, dipisahkan dengan karakter tab, dan text attribute diatur ke default console text color setelahnya. Jika tidak ada console window, panggilan kembali tanpa mengonversi atau menulis apa pun."
-icon: "function"
 keywords: ["rconsoleerr","Console","consoleerr"]
 ---
 
-Menulis nol atau beberapa nilai ke Windows console saat ini melalui stdout setelah mengatur console text attribute ke error text color. Nilai dikonversi dengan Lua string conversion, dipisahkan dengan karakter tab, dan text attribute diatur ke default console text color setelahnya. Jika tidak ada console window, panggilan kembali tanpa mengonversi atau menulis apa pun.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 rconsoleerr(...values?: ...any)
@@ -20,9 +17,9 @@ rconsoleerr(...values?: ...any)
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | Nilai opsional. Jika console ada, setiap value dikonversi dengan Lua string conversion dan digabungkan dengan karakter tab sebelum ditulis. |
+<ParamField path={"...values"} type={"...any"}>
+Nilai opsional. Jika console ada, setiap value dikonversi dengan Lua string conversion dan digabungkan dengan karakter tab sebelum ditulis.
+</ParamField>
 
 ## Contoh
 
@@ -33,3 +30,6 @@ rconsolecreate()
 rconsoleerr("Request failed", 500, "
 ")
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "getinstancesbyclass"
 sidebarTitle: "getinstancesbyclass"
 description: "Returns instances from the Instance cache table whose ClassName field exactly matches the requested string. The first argument is required to be a string. An empty string raises \"ClassName required\". The function creates a new array table, iterates the cache stored under Instance cache, keeps only values whose Lua type is object, reads each object value's ClassName field, and compares it with strcmp against the requested className. Matches are inserted sequentially starting at index 1. The match is exact and case-sensitive. The function does not use IsA, does not include subclasses, does not walk descendants, does not filter by Parent, and does not sort the result. getinstancesofclass is an alias for the same function."
-icon: "function"
 keywords: ["getinstancesbyclass","Scripts","getinstancesofclass"]
 ---
 
-Returns instances from the Instance cache table whose ClassName field exactly matches the requested string. The first argument is required to be a string. An empty string raises "ClassName required". The function creates a new array table, iterates the cache stored under Instance cache, keeps only values whose Lua type is object, reads each object value's ClassName field, and compares it with strcmp against the requested className. Matches are inserted sequentially starting at index 1. The match is exact and case-sensitive. The function does not use IsA, does not include subclasses, does not walk descendants, does not filter by Parent, and does not sort the result. getinstancesofclass is an alias for the same function.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getinstancesbyclass(className: string): table
@@ -20,12 +17,15 @@ getinstancesbyclass(className: string): table
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `className` | `string` | Yes | Exact ClassName string to match. Empty strings raise "ClassName required". |
+<ParamField path={"className"} type={"string"} required>
+Exact ClassName string to match. Empty strings raise "ClassName required".
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `instances` | `table` | New array table containing matching object values from the Instance cache table. |
+<ResponseField name={"instances"} type={"table"}>
+New array table containing matching object values from the Instance cache table.
+</ResponseField>
+
+
+</div>

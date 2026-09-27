@@ -2,13 +2,10 @@
 title: "hookfunction"
 sidebarTitle: "hookfunction"
 description: "用 replacement function hook 一个 target function，并返回 original target closure 的 cloned copy。两个 arguments 都必须是 functions。function 首先 flush pending C function swaps，通过 function cloning cloning target，将 replacement closure 或它的 mapped newcclosure target 添加到 hidden stack tracking，对 target 和 cloned original 调用 FixCallstack，然后通过 C closure, Luau closure 或 newcclosure-specific path patch target closure。如果 target 尚未在 hook records 中，则 cloned original 会存储在那里供 restorefunction 使用。returned function 是 cloned original closure。"
-icon: "function"
 keywords: ["hookfunction","Closures","hookfunc","replaceclosure","detourfunction","detour_function"]
 ---
 
-用 replacement function hook 一个 target function，并返回 original target closure 的 cloned copy。两个 arguments 都必须是 functions。function 首先 flush pending C function swaps，通过 function cloning cloning target，将 replacement closure 或它的 mapped newcclosure target 添加到 hidden stack tracking，对 target 和 cloned original 调用 FixCallstack，然后通过 C closure, Luau closure 或 newcclosure-specific path patch target closure。如果 target 尚未在 hook records 中，则 cloned original 会存储在那里供 restorefunction 使用。returned function 是 cloned original closure。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 hookfunction(target: function, replacement: function): function
@@ -23,16 +20,19 @@ hookfunction(target: function, replacement: function): function
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `target` | `function` | Yes | 要 patch 的 Function。传入 non-function 会产生 type error。 |
-| `replacement` | `function` | Yes | 其 function 会 install 或 map 到 target 的 Function。传入 non-function 会产生 type error。 |
+<ParamField path={"target"} type={"function"} required>
+要 patch 的 Function。传入 non-function 会产生 type error。
+</ParamField>
+
+<ParamField path={"replacement"} type={"function"} required>
+其 function 会 install 或 map 到 target 的 Function。传入 non-function 会产生 type error。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `original` | `function` | 在 hook install 前创建的 original target closure 的 cloned copy。 |
+<ResponseField name={"original"} type={"function"}>
+在 hook install 前创建的 original target closure 的 cloned copy。
+</ResponseField>
 
 ## 示例
 
@@ -48,3 +48,6 @@ original = hookfunction(target, function(value)
     return original(value) * 2
 end)
 ```
+
+
+</div>

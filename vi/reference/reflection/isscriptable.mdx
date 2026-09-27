@@ -2,13 +2,10 @@
 title: "isscriptable"
 sidebarTitle: "isscriptable"
 description: "Kiem tra scriptable flag cua Roblox property tren Instance. Function truoc tien tra ve gia tri scriptable trong cache neu co cho cung instance reference va property name. Khi cache miss, property name duoc resolve qua Roblox property metadata va Instance class descriptor. Neu khong co descriptor, hoac field duoc resolve bi thieu hoac khong phai property entry, function tra ve nil. Khi tim thay property entry, function doc scriptable state, luu gia tri do vao scriptable override cache cho instance va property, roi tra ve boolean. Function khong thay doi scriptable flag."
-icon: "function"
 keywords: ["isscriptable","Reflection"]
 ---
 
-Kiem tra scriptable flag cua Roblox property tren Instance. Function truoc tien tra ve gia tri scriptable trong cache neu co cho cung instance reference va property name. Khi cache miss, property name duoc resolve qua Roblox property metadata va Instance class descriptor. Neu khong co descriptor, hoac field duoc resolve bi thieu hoac khong phai property entry, function tra ve nil. Khi tim thay property entry, function doc scriptable state, luu gia tri do vao scriptable override cache cho instance va property, roi tra ve boolean. Function khong thay doi scriptable flag.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 isscriptable(instance: Instance, property: string): boolean | nil
@@ -16,16 +13,19 @@ isscriptable(instance: Instance, property: string): boolean | nil
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object co property scriptable state can duoc kiem tra. |
-| `property` | `string` | Yes | Property name duoc resolve qua Roblox property metadata va Instance class descriptor. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object co property scriptable state can duoc kiem tra.
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+Property name duoc resolve qua Roblox property metadata va Instance class descriptor.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `scriptable` | `boolean \| nil` | Gia tri scriptable state trong cache hoac hien tai, hoac nil khi property descriptor/field bi thieu hoac khong phai property entry. |
+<ResponseField name={"scriptable"} type={"boolean | nil"}>
+Gia tri scriptable state trong cache hoac hien tai, hoac nil khi property descriptor/field bi thieu hoac khong phai property entry.
+</ResponseField>
 
 ## Ví dụ
 
@@ -35,3 +35,6 @@ Check whether a property is scriptable on an Instance.
 local scriptable = isscriptable(workspace, "Name")
 print(scriptable)
 ```
+
+
+</div>

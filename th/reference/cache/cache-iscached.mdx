@@ -2,13 +2,10 @@
 title: "cache.iscached"
 sidebarTitle: "cache.iscached"
 description: "ส่งคืนว่า Instance ที่กำหนดมีรายการ non-nil ใน Instance cache หรือไม่"
-icon: "function"
 keywords: ["cache.iscached","Cache"]
 ---
 
-ส่งคืนว่า Instance ที่กำหนดมีรายการ non-nil ใน Instance cache หรือไม่
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 cache.iscached(instance: Instance): boolean
@@ -16,15 +13,15 @@ cache.iscached(instance: Instance): boolean
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance ที่ต้องตรวจสอบรายการ Instance cache |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance ที่ต้องตรวจสอบรายการ Instance cache
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `cached` | `boolean` | True เมื่อ cache มีรายการ non-nil สำหรับ Instance นั้น |
+<ResponseField name={"cached"} type={"boolean"}>
+True เมื่อ cache มีรายการ non-nil สำหรับ Instance นั้น
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -39,3 +36,6 @@ print(cached)
 cache.invalidate(Players)
 print(cache.iscached(Players))
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "getconnections"
 sidebarTitle: "getconnections"
 description: "RBXScriptSignal の RealConnection closures を array table として返します。最初の argument は、Luau type name が RBXScriptSignal の object である必要があります。function は signal の Connect method を読み取り、temporary blank callback を接続し、その一時 connection の next reference から linked list を読み取り、一時 connection を切断して、有効な connection reference ごとに closure を作ります。一時 connection の後に connection reference が見つからない場合は空の table を返します。以前に closure 化された underlying references は、同じ cached closure table を返すことがあります。getsignals と get_signal_cons は同じ function の aliases です。"
-icon: "function"
 keywords: ["getconnections","Signals","getsignals","get_signal_cons"]
 ---
 
-RBXScriptSignal の RealConnection closures を array table として返します。最初の argument は、Luau type name が RBXScriptSignal の object である必要があります。function は signal の Connect method を読み取り、temporary blank callback を接続し、その一時 connection の next reference から linked list を読み取り、一時 connection を切断して、有効な connection reference ごとに closure を作ります。一時 connection の後に connection reference が見つからない場合は空の table を返します。以前に closure 化された underlying references は、同じ cached closure table を返すことがあります。getsignals と get_signal_cons は同じ function の aliases です。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 getconnections(signal: RBXScriptSignal): {RealConnection}
@@ -21,15 +18,15 @@ getconnections(signal: RBXScriptSignal): {RealConnection}
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | 調べる signal。RBXScriptSignal ではない object は type error を発生させ、呼び出し可能な Connect field がない signal は "Signal does not have 'Connect' method" を発生させます。 |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+調べる signal。RBXScriptSignal ではない object は type error を発生させ、呼び出し可能な Connect field がない signal は "Signal does not have 'Connect' method" を発生させます。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `connections` | `&#123;RealConnection&#125;` | connection closure tables の array table。各 closure は methods を通じて fields と methods を公開し、利用可能な場合は Enabled, Disabled, LuaConnection, ForeignState, Function, Thread, Disconnect, Disable, Enable, Fire, Defer を含みます。 |
+<ResponseField name={"connections"} type={"{RealConnection}"}>
+connection closure tables の array table。各 closure は methods を通じて fields と methods を公開し、利用可能な場合は Enabled, Disabled, LuaConnection, ForeignState, Function, Thread, Disconnect, Disable, Enable, Fire, Defer を含みます。
+</ResponseField>
 
 ## 例
 
@@ -42,3 +39,6 @@ for _, connection in ipairs(getconnections(Players.PlayerAdded)) do
     print(connection.Enabled, connection.LuaConnection)
 end
 ```
+
+
+</div>

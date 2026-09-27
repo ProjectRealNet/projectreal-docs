@@ -2,13 +2,10 @@
 title: "crypt.encrypt"
 sidebarTitle: "crypt.encrypt"
 description: "Ma hoa cac byte cua Lua string bang AES CBC, ECB hoac CTR voi key da decode tu Base64, sau do tra ve Base64 ciphertext va ket qua IV."
-icon: "function"
 keywords: ["crypt.encrypt","Cryptography"]
 ---
 
-Ma hoa cac byte cua Lua string bang AES CBC, ECB hoac CTR voi key da decode tu Base64, sau do tra ve Base64 ciphertext va ket qua IV.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 crypt.encrypt(data: string, key: string, iv?: string, mode?: "CBC" | "ECB" | "CTR" | "AES-CBC" | "AES-ECB" | "AES-CTR"): string | string | nil
@@ -16,19 +13,31 @@ crypt.encrypt(data: string, key: string, iv?: string, mode?: "CBC" | "ECB" | "CT
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Cac byte plaintext duoc doc tu Lua string. |
-| `key` | `string` | Yes | Base64 key duoc decode truoc khi truyen vao AES. |
-| `iv` | `string` | No | Base64 IV optional cho CBC hoac CTR. Khi bo qua voi CBC hoac CTR, mot IV moi co AES block size se duoc tao. |
-| `mode` | `"CBC" \| "ECB" \| "CTR" \| "AES-CBC" \| "AES-ECB" \| "AES-CTR"` | No | AES mode. Prefix AES- se bi xoa khi co. Mac dinh la AES-CBC. CBC va ECB dung crypto library DEFAULT_PADDING; CTR khong dung padding. |
+<ParamField path={"data"} type={"string"} required>
+Cac byte plaintext duoc doc tu Lua string.
+</ParamField>
+
+<ParamField path={"key"} type={"string"} required>
+Base64 key duoc decode truoc khi truyen vao AES.
+</ParamField>
+
+<ParamField path={"iv"} type={"string"}>
+Base64 IV optional cho CBC hoac CTR. Khi bo qua voi CBC hoac CTR, mot IV moi co AES block size se duoc tao.
+</ParamField>
+
+<ParamField path={"mode"} type={"\"CBC\" | \"ECB\" | \"CTR\" | \"AES-CBC\" | \"AES-ECB\" | \"AES-CTR\""}>
+AES mode. Prefix AES- se bi xoa khi co. Mac dinh la AES-CBC. CBC va ECB dung crypto library DEFAULT_PADDING; CTR khong dung padding.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `ciphertext` | `string` | Base64-encoded ciphertext. |
-| `initializationVector` | `string \| nil` | Base64-encoded IV cho CBC va CTR; nil cho ECB. |
+<ResponseField name={"ciphertext"} type={"string"}>
+Base64-encoded ciphertext.
+</ResponseField>
+
+<ResponseField name={"initializationVector"} type={"string | nil"}>
+Base64-encoded IV cho CBC va CTR; nil cho ECB.
+</ResponseField>
 
 ## Ví dụ
 
@@ -44,3 +53,6 @@ print(ciphertext)
 print(iv)
 print(plaintext)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "base64_encode"
 sidebarTitle: "base64_encode"
 description: "เข้ารหัส byte ของ Lua string ด้วย Base64 encoder โดยใช้ = padding และไม่มี line break"
-icon: "function"
 keywords: ["base64_encode","Cryptography","base64encode","base64.encode","crypt.base64.encode","crypt.base64_encode","crypt.base64encode"]
 ---
 
-เข้ารหัส byte ของ Lua string ด้วย Base64 encoder โดยใช้ = padding และไม่มี line break
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 base64_encode(data: string): string
@@ -24,15 +21,15 @@ base64_encode(data: string): string
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | byte ของ Lua string ที่ส่งให้ Base64 encoder |
+<ParamField path={"data"} type={"string"} required>
+byte ของ Lua string ที่ส่งให้ Base64 encoder
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `encoded` | `string` | เอาต์พุต Base64 ที่คืนค่าเป็น Lua string |
+<ResponseField name={"encoded"} type={"string"}>
+เอาต์พุต Base64 ที่คืนค่าเป็น Lua string
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -45,3 +42,6 @@ print(encoded)
 print(base64encode("hello world"))
 print(base64.encode("hello world"))
 ```
+
+
+</div>

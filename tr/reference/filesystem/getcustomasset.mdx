@@ -2,13 +2,10 @@
 title: "getcustomasset"
 sidebarTitle: "getcustomasset"
 description: "Mevcut bir regular workspace file degerini ExtraContent/<hwid>/ konumuna kopyalar ve kopyalanan asset path icin rbxasset:// string dondurur."
-icon: "function"
 keywords: ["getcustomasset","Filesystem","getsynasset"]
 ---
 
-Mevcut bir regular workspace file degerini ExtraContent/&lt;hwid>/ konumuna kopyalar ve kopyalanan asset path icin rbxasset:// string dondurur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 getcustomasset(path: string): string
@@ -20,15 +17,15 @@ getcustomasset(path: string): string
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | Separator normalization ve workspace-boundary checks sonrasinda workspace icinde cozumlenen path. Hedef mevcut olmali ve regular file olmalidir; folders, invalid filenames, DOS device names ve blocked extensions kabul edilmez. |
+<ParamField path={"path"} type={"string"} required>
+Separator normalization ve workspace-boundary checks sonrasinda workspace icinde cozumlenen path. Hedef mevcut olmali ve regular file olmalidir; folders, invalid filenames, DOS device names ve blocked extensions kabul edilmez.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `assetId` | `string` | rbxasset://&lt;hwid>/&lt;workspace-relative-path> biciminde String. relative path icin forward slashes kullanilir. |
+<ResponseField name={"assetId"} type={"string"}>
+rbxasset://&lt;hwid>/&lt;workspace-relative-path> biciminde String. relative path icin forward slashes kullanilir.
+</ResponseField>
 
 ## Örnek
 
@@ -42,3 +39,6 @@ local assetId = getcustomasset(path)
 print(assetId)
 print(getsynasset(path))
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "hookfunction"
 sidebarTitle: "hookfunction"
 description: "Replaces the behavior of a target function with a replacement function and returns a callable copy of the original behavior. Both arguments must be functions."
-icon: "function"
 keywords: ["hookfunction","Closures","hookfunc","replaceclosure","detourfunction","detour_function"]
 ---
 
-Replaces the behavior of a target function with a replacement function and returns a callable copy of the original behavior. Both arguments must be functions.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 hookfunction(target: function, replacement: function): function
@@ -23,16 +20,19 @@ hookfunction(target: function, replacement: function): function
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `target` | `function` | Yes | Function to patch. Passing a non-function raises a type error. |
-| `replacement` | `function` | Yes | Function whose function is installed into or mapped onto target. Passing a non-function raises a type error. |
+<ParamField path={"target"} type={"function"} required>
+Function to patch. Passing a non-function raises a type error.
+</ParamField>
+
+<ParamField path={"replacement"} type={"function"} required>
+Function whose function is installed into or mapped onto target. Passing a non-function raises a type error.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `original` | `function` | Callable copy of the original target behavior before the hook was installed. |
+<ResponseField name={"original"} type={"function"}>
+Callable copy of the original target behavior before the hook was installed.
+</ResponseField>
 
 ## Example
 
@@ -48,3 +48,6 @@ original = hookfunction(target, function(value)
     return original(value) * 2
 end)
 ```
+
+
+</div>

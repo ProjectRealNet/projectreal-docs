@@ -1,23 +1,55 @@
 ---
 title: "Input"
 description: "Sự kiện nhập bàn phím và chuột."
-icon: "folder-code"
+icon: "/icons/mouse.svg"
 ---
+
+<div className="real-category-page">
 
 Sự kiện nhập bàn phím và chuột.
 
-| Điều hướng hàm | Mô tả |
-| --- | --- |
-| [`isrbxactive`](./isrbxactive) | Tra ve viec current foreground window co phai Roblox window ma Real tim thay hay khong. Real tim window do bang cach enumerating windows cho process hien tai va chon window co class name la Roblox window. Function nay khong nhan arguments va tra ve false khi khong co foreground window hoac matching Roblox window. |
-| [`keyclick`](./keyclick) | Gui key down event roi key up event khi Roblox window active. Doi so keyCode duoc kiem tra la Lua number, chuyen doi bang integer conversion, map tu Windows virtual-key code sang scan code bang Windows key mapping, va gui qua keyboard input voi KEYEVENTF_SCANCODE. Neu isrbxactive se la false, function tra ve ma khong gui input. |
-| [`keypress`](./keypress) | Gui key down event khi Roblox window active. Doi so keyCode duoc kiem tra la Lua number, chuyen doi bang integer conversion, map tu Windows virtual-key code sang scan code bang Windows key mapping, va gui qua keyboard input voi KEYEVENTF_SCANCODE. Function nay khong gui key up event. Neu isrbxactive se la false, function tra ve ma khong gui input. |
-| [`keyrelease`](./keyrelease) | Gui key up event khi Roblox window active. Doi so keyCode duoc kiem tra la Lua number, chuyen doi bang integer conversion, map tu Windows virtual-key code sang scan code bang Windows key mapping, va gui qua keyboard input voi KEYEVENTF_SCANCODE \| KEYEVENTF_KEYUP. Function nay khong gui key down event. Neu isrbxactive se la false, function tra ve ma khong gui input. |
-| [`mouse1click`](./mouse1click) | Gui left mouse down event va left mouse up event khi Roblox window active. Real goi mouse input voi the requested mouse action va khong co movement hoac wheel data. Function nay khong nhan arguments, khong tra ve gi va tra ve ma khong gui input khi isrbxactive se la false. |
-| [`mouse1press`](./mouse1press) | Gui left mouse down event khi Roblox window active. Real goi mouse input voi the requested mouse action va khong co movement hoac wheel data. Function nay khong nhan arguments, khong tra ve gi, khong gui left mouse up event tuong ung va tra ve ma khong gui input khi isrbxactive se la false. |
-| [`mouse1release`](./mouse1release) | Gui left mouse up event khi Roblox window active. Real goi mouse input voi the requested mouse action va khong co movement hoac wheel data. Function nay khong nhan arguments, khong tra ve gi, khong gui left mouse down event tuong ung va tra ve ma khong gui input khi isrbxactive se la false. |
-| [`mouse2click`](./mouse2click) | Gui right mouse down event va right mouse up event khi Roblox window active. Real goi mouse input voi the requested mouse action va khong co movement hoac wheel data. Function nay khong nhan arguments, khong tra ve gi va tra ve ma khong gui input khi isrbxactive se la false. |
-| [`mouse2press`](./mouse2press) | Gui right mouse down event khi Roblox window active. Real goi mouse input voi the requested mouse action va khong co movement hoac wheel data. Function nay khong nhan arguments, khong tra ve gi, khong gui right mouse up event tuong ung va tra ve ma khong gui input khi isrbxactive se la false. |
-| [`mouse2release`](./mouse2release) | Gui right mouse up event khi Roblox window active. Real goi mouse input voi the requested mouse action va khong co movement hoac wheel data. Function nay khong nhan arguments, khong tra ve gi, khong gui right mouse down event tuong ung va tra ve ma khong gui input khi isrbxactive se la false. |
-| [`mousemoveabs`](./mousemoveabs) | Di chuyen mouse bang Windows absolute mouse input khi Roblox window active. Doi so x va y duoc kiem tra la Lua numbers va chuyen doi bang integer conversion. Real xem chung la toa do relative to active foreground window client area, cong screen position cua client area do bang ClientToScreen, scale bang GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 va integer math, roi goi mouse input voi the requested mouse action. Neu isrbxactive se la false, function tra ve ma khong gui input. |
-| [`mousemoverel`](./mousemoverel) | Di chuyen mouse theo relative delta khi Roblox window active. Doi so x va y duoc kiem tra la Lua numbers va chuyen doi bang integer conversion, sau do truyen truc tiep vao mouse input voi the requested mouse action lam dx va dy. Function nay khong dung the requested mouse action, khong thuc hien client-area conversion, khong tra ve gi va tra ve ma khong gui input khi isrbxactive se la false. |
-| [`mousescroll`](./mousescroll) | Gui mouse wheel event khi Roblox window active. Doi so amount duoc kiem tra la Lua number, chuyen doi bang integer conversion va truyen truc tiep lam gia tri dwData vao mouse input voi the requested mouse action. Real khong normalize amount va khong them movement data. Function khong tra ve gi va tra ve ma khong gui input khi isrbxactive se la false. |
+## Hàm có sẵn
+
+<CardGroup cols={2}>
+<Card title="isrbxactive" href="./isrbxactive">
+Tra ve viec current foreground window co phai Roblox window ma Real tim thay hay khong. Real tim window do bang cach enumerating windows cho process hien tai va chon window co class name la Roblox window. Function nay khong nhan arguments va tra ve false khi khong co foreground window hoac matching Roblox window.
+</Card>
+<Card title="keyclick" href="./keyclick">
+Gui key down event roi key up event khi Roblox window active. Doi so keyCode duoc kiem tra la Lua number, chuyen doi bang integer conversion, map tu Windows virtual-key code sang scan code bang Windows key mapping, va gui qua keyboard input voi KEYEVENTF_SCANCODE. Neu isrbxactive se la false, function tra ve ma khong gui input.
+</Card>
+<Card title="keypress" href="./keypress">
+Gui key down event khi Roblox window active. Doi so keyCode duoc kiem tra la Lua number, chuyen doi bang integer conversion, map tu Windows virtual-key code sang scan code bang Windows key mapping, va gui qua keyboard input voi KEYEVENTF_SCANCODE. Function nay khong gui key up event. Neu isrbxactive se la false, function tra ve ma khong gui input.
+</Card>
+<Card title="keyrelease" href="./keyrelease">
+Gui key up event khi Roblox window active. Doi so keyCode duoc kiem tra la Lua number, chuyen doi bang integer conversion, map tu Windows virtual-key code sang scan code bang Windows key mapping, va gui qua keyboard input voi KEYEVENTF_SCANCODE | KEYEVENTF_KEYUP. Function nay khong gui key down event. Neu isrbxactive se la false, function tra ve ma khong gui input.
+</Card>
+<Card title="mouse1click" href="./mouse1click">
+Gui left mouse down event va left mouse up event khi Roblox window active. Real goi mouse input voi the requested mouse action va khong co movement hoac wheel data. Function nay khong nhan arguments, khong tra ve gi va tra ve ma khong gui input khi isrbxactive se la false.
+</Card>
+<Card title="mouse1press" href="./mouse1press">
+Gui left mouse down event khi Roblox window active. Real goi mouse input voi the requested mouse action va khong co movement hoac wheel data. Function nay khong nhan arguments, khong tra ve gi, khong gui left mouse up event tuong ung va tra ve ma khong gui input khi isrbxactive se la false.
+</Card>
+<Card title="mouse1release" href="./mouse1release">
+Gui left mouse up event khi Roblox window active. Real goi mouse input voi the requested mouse action va khong co movement hoac wheel data. Function nay khong nhan arguments, khong tra ve gi, khong gui left mouse down event tuong ung va tra ve ma khong gui input khi isrbxactive se la false.
+</Card>
+<Card title="mouse2click" href="./mouse2click">
+Gui right mouse down event va right mouse up event khi Roblox window active. Real goi mouse input voi the requested mouse action va khong co movement hoac wheel data. Function nay khong nhan arguments, khong tra ve gi va tra ve ma khong gui input khi isrbxactive se la false.
+</Card>
+<Card title="mouse2press" href="./mouse2press">
+Gui right mouse down event khi Roblox window active. Real goi mouse input voi the requested mouse action va khong co movement hoac wheel data. Function nay khong nhan arguments, khong tra ve gi, khong gui right mouse up event tuong ung va tra ve ma khong gui input khi isrbxactive se la false.
+</Card>
+<Card title="mouse2release" href="./mouse2release">
+Gui right mouse up event khi Roblox window active. Real goi mouse input voi the requested mouse action va khong co movement hoac wheel data. Function nay khong nhan arguments, khong tra ve gi, khong gui right mouse down event tuong ung va tra ve ma khong gui input khi isrbxactive se la false.
+</Card>
+<Card title="mousemoveabs" href="./mousemoveabs">
+Di chuyen mouse bang Windows absolute mouse input khi Roblox window active. Doi so x va y duoc kiem tra la Lua numbers va chuyen doi bang integer conversion. Real xem chung la toa do relative to active foreground window client area, cong screen position cua client area do bang ClientToScreen, scale bang GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 va integer math, roi goi mouse input voi the requested mouse action. Neu isrbxactive se la false, function tra ve ma khong gui input.
+</Card>
+<Card title="mousemoverel" href="./mousemoverel">
+Di chuyen mouse theo relative delta khi Roblox window active. Doi so x va y duoc kiem tra la Lua numbers va chuyen doi bang integer conversion, sau do truyen truc tiep vao mouse input voi the requested mouse action lam dx va dy. Function nay khong dung the requested mouse action, khong thuc hien client-area conversion, khong tra ve gi va tra ve ma khong gui input khi isrbxactive se la false.
+</Card>
+<Card title="mousescroll" href="./mousescroll">
+Gui mouse wheel event khi Roblox window active. Doi so amount duoc kiem tra la Lua number, chuyen doi bang integer conversion va truyen truc tiep lam gia tri dwData vao mouse input voi the requested mouse action. Real khong normalize amount va khong them movement data. Function khong tra ve gi va tra ve ma khong gui input khi isrbxactive se la false.
+</Card>
+</CardGroup>
+
+</div>

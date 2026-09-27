@@ -2,13 +2,10 @@
 title: "run_on_actor"
 sidebarTitle: "run_on_actor"
 description: "Runs Luau source on the thread associated with a target Actor Instance. The first argument must be an Instance whose ClassName is Actor, and the second argument must be a non-empty source string. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonactor is an alias."
-icon: "function"
 keywords: ["run_on_actor","Actors","runonactor"]
 ---
 
-Runs Luau source on the thread associated with a target Actor Instance. The first argument must be an Instance whose ClassName is Actor, and the second argument must be a non-empty source string. Extra arguments after source are passed to the dispatched source when supported. The call returns no values and does not return values produced by the dispatched source. runonactor is an alias.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 run_on_actor(actor: Instance, source: string, ...arguments?: ...any)
@@ -20,11 +17,17 @@ run_on_actor(actor: Instance, source: string, ...arguments?: ...any)
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `actor` | `Instance` | Yes | Actor Instance whose thread should run the source. The value must be an Instance with ClassName Actor. |
-| `source` | `string` | Yes | Non-empty Luau source string to run on the Actor thread. |
-| `...arguments` | `...any` | No | Additional values passed to the dispatched source when supported. Unsupported values are passed as nil. |
+<ParamField path={"actor"} type={"Instance"} required>
+Actor Instance whose thread should run the source. The value must be an Instance with ClassName Actor.
+</ParamField>
+
+<ParamField path={"source"} type={"string"} required>
+Non-empty Luau source string to run on the Actor thread.
+</ParamField>
+
+<ParamField path={"...arguments"} type={"...any"}>
+Additional values passed to the dispatched source when supported. Unsupported values are passed as nil.
+</ParamField>
 
 ## Example
 
@@ -39,3 +42,6 @@ if actor then
     ]])
 end
 ```
+
+
+</div>

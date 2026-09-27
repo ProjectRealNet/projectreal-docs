@@ -2,13 +2,10 @@
 title: "decompile"
 sidebarTitle: "decompile"
 description: "Roblox script를 decompile하고 bytecode를 사용할 수 있으면 생성된 source text를 반환합니다. argument는 지원되는 script Instance여야 합니다. 사용할 수 있는 bytecode가 없으면 function은 nil을 반환합니다."
-icon: "function"
 keywords: ["decompile","Scripts"]
 ---
 
-Roblox script를 decompile하고 bytecode를 사용할 수 있으면 생성된 source text를 반환합니다. argument는 지원되는 script Instance여야 합니다. 사용할 수 있는 bytecode가 없으면 function은 nil을 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 decompile(script: userdata): string | nil
@@ -16,15 +13,15 @@ decompile(script: userdata): string | nil
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | decompile할 Script object입니다. 지원되는 ClassName values는 ModuleScript, LocalScript, CoreScript, RunContext Client인 Script입니다. |
+<ParamField path={"script"} type={"userdata"} required>
+decompile할 Script object입니다. 지원되는 ClassName values는 ModuleScript, LocalScript, CoreScript, RunContext Client인 Script입니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `source` | `string \| nil` | Decompiler output string, caught decompiler exception text, 또는 usable embedded bytecode가 없으면 nil입니다. |
+<ResponseField name={"source"} type={"string | nil"}>
+Decompiler output string, caught decompiler exception text, 또는 usable embedded bytecode가 없으면 nil입니다.
+</ResponseField>
 
 ## 예제
 
@@ -48,3 +45,6 @@ if targetScript then
     end
 end
 ```
+
+
+</div>

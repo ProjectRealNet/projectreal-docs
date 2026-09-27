@@ -2,13 +2,10 @@
 title: "ImGuiWindow.SameLine"
 sidebarTitle: "ImGuiWindow.SameLine"
 description: "Dodaje SameLine layout marker do okna. Podczas rendering Real wywoluje a same-line layout marker w tym miejscu element list, aby nastepny renderowany element mogl kontynuowac w tym samym wierszu."
-icon: "function"
 keywords: ["ImGuiWindow.SameLine","ImGui"]
 ---
 
-Dodaje SameLine layout marker do okna. Podczas rendering Real wywoluje a same-line layout marker w tym miejscu element list, aby nastepny renderowany element mogl kontynuowac w tym samym wierszu.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.SameLine(window: ImGuiWindow): ImGuiWindow
@@ -16,15 +13,15 @@ ImGuiWindow.SameLine(window: ImGuiWindow): ImGuiWindow
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow zwrocone przez imgui.create. Jesli object jest nieprawidlowa albo zostala juz zniszczona, method rzuca Lua error. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow zwrocone przez imgui.create. Jesli object jest nieprawidlowa albo zostala juz zniszczona, method rzuca Lua error.
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | Ta sama ImGuiWindow object, co pozwala lancuchowo wywolywac method. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+Ta sama ImGuiWindow object, co pozwala lancuchowo wywolywac method.
+</ResponseField>
 
 ## Typy
 
@@ -45,3 +42,6 @@ Uchwyt zwrócony przez imgui.create. Metody budowania kontroli zwracają ten sam
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Dołącza suwak liczb całkowitych. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Dołącza tekst nieinteraktywny. |
 | `destroy` | `() -> ()` | Yes | Usuwa okno i zwalnia zarejestrowane wywołania zwrotne. |
+
+
+</div>

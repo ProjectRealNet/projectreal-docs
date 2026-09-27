@@ -2,13 +2,10 @@
 title: "json.parse"
 sidebarTitle: "json.parse"
 description: "Parse JSON string bang cung function nhu json.decode."
-icon: "function"
 keywords: ["json.parse","JSON"]
 ---
 
-Parse JSON string bang cung function nhu json.decode.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 json.parse(json: string, options?: DecodeOptions): any
@@ -16,16 +13,19 @@ json.parse(json: string, options?: DecodeOptions): any
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string de parse. Function doc argument nay bang string type checking. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean dat useNull. table co the dat useNull va maxDepth. |
+<ParamField path={"json"} type={"string"} required>
+JSON string de parse. Function doc argument nay bang string type checking.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean dat useNull. table co the dat useNull va maxDepth.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `decoded` | `any` | Decoded value. JSON objects va arrays tro thanh tables voi JSON type markers, strings tro thanh Lua strings, numbers tro thanh Lua numbers, booleans tro thanh booleans, va null tro thanh json.null tru khi useNull la false. |
+<ResponseField name={"decoded"} type={"any"}>
+Decoded value. JSON objects va arrays tro thanh tables voi JSON type markers, strings tro thanh Lua strings, numbers tro thanh Lua numbers, booleans tro thanh booleans, va null tro thanh json.null tru khi useNull la false.
+</ResponseField>
 
 ## Kiểu
 
@@ -51,3 +51,6 @@ print(settings.volume)
 print(settings.theme)
 print(json.isNull(settings.missing))
 ```
+
+
+</div>

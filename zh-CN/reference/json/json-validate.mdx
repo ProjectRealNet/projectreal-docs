@@ -2,13 +2,10 @@
 title: "json.validate"
 sidebarTitle: "json.validate"
 description: "通过 parse 一个 complete JSON value 来验证 JSON string。success 时只返回 true。parse failure 时返回 false 以及 parser error details。"
-icon: "function"
 keywords: ["json.validate","JSON"]
 ---
 
-通过 parse 一个 complete JSON value 来验证 JSON string。success 时只返回 true。parse failure 时返回 false 以及 parser error details。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 json.validate(json: string, options?: DecodeOptions): boolean | string | nil | number | nil
@@ -16,18 +13,27 @@ json.validate(json: string, options?: DecodeOptions): boolean | string | nil | n
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | 要 validate 的 JSON string。function 使用 string type checking 读取此 argument。 |
-| `options` | `DecodeOptions` | No | Optional decode options。boolean 设置 useNull。table 可以设置 useNull 和 maxDepth。maxDepth 会 clamp 到 1 到 4096。 |
+<ParamField path={"json"} type={"string"} required>
+要 validate 的 JSON string。function 使用 string type checking 读取此 argument。
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options。boolean 设置 useNull。table 可以设置 useNull 和 maxDepth。maxDepth 会 clamp 到 1 到 4096。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `valid` | `boolean` | 当一个 complete JSON value parsing 成功时为 true。当 parsing 在 protected parse block 中失败时为 false。 |
-| `errorMessage` | `string \| nil` | parse failure 时的 Error message。message 使用 json.validate 作为 prefix，并包含 near-position suffix。此 return 只在 failure 时存在。 |
-| `errorPosition` | `number \| nil` | parse failure 时来自 parser 的 Parser byte position。此 return 只在 failure 时存在。 |
+<ResponseField name={"valid"} type={"boolean"}>
+当一个 complete JSON value parsing 成功时为 true。当 parsing 在 protected parse block 中失败时为 false。
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+parse failure 时的 Error message。message 使用 json.validate 作为 prefix，并包含 near-position suffix。此 return 只在 failure 时存在。
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+parse failure 时来自 parser 的 Parser byte position。此 return 只在 failure 时存在。
+</ResponseField>
 
 ## 类型
 
@@ -53,3 +59,6 @@ if not valid then
     warn(message, position)
 end
 ```
+
+
+</div>

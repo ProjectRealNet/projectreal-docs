@@ -2,13 +2,10 @@
 title: "json.encode"
 sidebarTitle: "json.encode"
 description: "Melakukan serialize Lua value menjadi JSON string memakai Real JSON encoder. json.stringify didaftarkan ke function yang sama."
-icon: "function"
 keywords: ["json.encode","JSON"]
 ---
 
-Melakukan serialize Lua value menjadi JSON string memakai Real JSON encoder. json.stringify didaftarkan ke function yang sama.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 json.encode(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.encode(value: any, options?: EncodeOptions): string
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value yang di-encode. nil, booleans, numbers, strings, tables, dan json.null ditangani langsung. Unsupported Lua types di-encode sebagai null kecuali errorOnUnsupported true. |
-| `options` | `EncodeOptions` | No | Optional encode options. boolean mengubah pretty output. number mengaktifkan pretty output dengan jumlah spaces yang di-clamp ke 0.16. string mengaktifkan pretty output dengan indent tersebut. table dapat mengatur pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, dan indent. |
+<ParamField path={"value"} type={"any"} required>
+Value yang di-encode. nil, booleans, numbers, strings, tables, dan json.null ditangani langsung. Unsupported Lua types di-encode sebagai null kecuali errorOnUnsupported true.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options. boolean mengubah pretty output. number mengaktifkan pretty output dengan jumlah spaces yang di-clamp ke 0.16. string mengaktifkan pretty output dengan indent tersebut. table dapat mengatur pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, dan indent.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `json` | `string` | Encoded JSON string. Encoding errors dilempar sebagai Luau errors. |
+<ResponseField name={"json"} type={"string"}>
+Encoded JSON string. Encoding errors dilempar sebagai Luau errors.
+</ResponseField>
 
 ## Tipe
 
@@ -61,3 +61,6 @@ local text = json.encode(payload, {
 
 print(text)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "rconsoleinput"
 sidebarTitle: "rconsoleinput"
 description: "Waits for one line of input from the current Windows console and returns it without the ending newline. If no console window exists, the call returns no values."
-icon: "function"
 keywords: ["rconsoleinput","Console","consoleinput"]
 ---
 
-Waits for one line of input from the current Windows console and returns it without the ending newline. If no console window exists, the call returns no values.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 rconsoleinput(): string
@@ -20,9 +17,9 @@ rconsoleinput(): string
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `input` | `string` | Line of text read from stdin, without the terminating newline. |
+<ResponseField name={"input"} type={"string"}>
+Line of text read from stdin, without the terminating newline.
+</ResponseField>
 
 ## Example
 
@@ -35,3 +32,6 @@ local name = rconsoleinput()
 rconsoleprint("Hello, ", name, "
 ")
 ```
+
+
+</div>

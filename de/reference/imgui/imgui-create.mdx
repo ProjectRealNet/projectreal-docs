@@ -2,13 +2,10 @@
 title: "imgui.create"
 sidebarTitle: "imgui.create"
 description: "Erstellt einen getrackten ImGui window record und gibt ein ImGuiWindow object zurück. Das title-Argument verwendet \"REAL_IM_UI\", wenn es ausgelassen wird oder nil ist. Der title muss unter den aktuell getrackten ImGui windows eindeutig sein; das Erstellen eines weiteren tracked window mit demselben title löst einen Lua error aus."
-icon: "function"
 keywords: ["imgui.create","ImGui"]
 ---
 
-Erstellt einen getrackten ImGui window record und gibt ein ImGuiWindow object zurück. Das title-Argument verwendet "REAL_IM_UI", wenn es ausgelassen wird oder nil ist. Der title muss unter den aktuell getrackten ImGui windows eindeutig sein; das Erstellen eines weiteren tracked window mit demselben title löst einen Lua error aus.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 imgui.create(title?: string): ImGuiWindow
@@ -16,15 +13,15 @@ imgui.create(title?: string): ImGuiWindow
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `title` | `string` | No | Optionaler window title. Wenn er ausgelassen wird oder nil ist, wird "REAL_IM_UI" verwendet. Ein doppelter title unter den aktuell getrackten ImGui windows löst einen Lua error aus. |
+<ParamField path={"title"} type={"string"}>
+Optionaler window title. Wenn er ausgelassen wird oder nil ist, wird "REAL_IM_UI" verwendet. Ein doppelter title unter den aktuell getrackten ImGui windows löst einen Lua error aus.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | ImGuiWindow object mit den window methods, die auf seiner methods registriert sind. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+ImGuiWindow object mit den window methods, die auf seiner methods registriert sind.
+</ResponseField>
 
 ## Typen
 
@@ -76,3 +73,6 @@ window:CollapsingHeader("Advanced", function(section)
     section:Text("Advanced controls go here")
 end)
 ```
+
+
+</div>

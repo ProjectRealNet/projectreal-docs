@@ -2,13 +2,10 @@
 title: "json.isObject"
 sidebarTitle: "json.isObject"
 description: "Value が Real JSON table detection により treated as a JSON object されるかを返します。"
-icon: "function"
 keywords: ["json.isObject","JSON"]
 ---
 
-Value が Real JSON table detection により treated as a JSON object されるかを返します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 json.isObject(value: any): boolean
@@ -16,15 +13,15 @@ json.isObject(value: any): boolean
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Inspect する value。Non-table values は false を返します。 |
+<ParamField path={"value"} type={"any"} required>
+Inspect する value。Non-table values は false を返します。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `isObject` | `boolean` | Value が table marked as a JSON object、または Real JSON table detection が table を array として分類しない場合 true。Empty unmarked tables は true を返します。 |
+<ResponseField name={"isObject"} type={"boolean"}>
+Value が table marked as a JSON object、または Real JSON table detection が table を array として分類しない場合 true。Empty unmarked tables は true を返します。
+</ResponseField>
 
 ## 例
 
@@ -39,3 +36,6 @@ print(json.isObject(record))
 print(json.isObject(items))
 print(json.isObject(empty))
 ```
+
+
+</div>

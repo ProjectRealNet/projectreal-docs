@@ -2,13 +2,10 @@
 title: "compareinstances"
 sidebarTitle: "compareinstances"
 description: "두 Instance object 값에 저장된 내부 Instance 포인터 값을 비교합니다."
-icon: "function"
 keywords: ["compareinstances","Cache"]
 ---
 
-두 Instance object 값에 저장된 내부 Instance 포인터 값을 비교합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 compareinstances(first: Instance, second: Instance): boolean
@@ -16,16 +13,19 @@ compareinstances(first: Instance, second: Instance): boolean
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `first` | `Instance` | Yes | 비교할 첫 번째 Instance object입니다. |
-| `second` | `Instance` | Yes | 비교할 두 번째 Instance object입니다. |
+<ParamField path={"first"} type={"Instance"} required>
+비교할 첫 번째 Instance object입니다.
+</ParamField>
+
+<ParamField path={"second"} type={"Instance"} required>
+비교할 두 번째 Instance object입니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `equal` | `boolean` | 두 Instance object 값이 같은 내부 포인터 값을 포함하면 True입니다. |
+<ResponseField name={"equal"} type={"boolean"}>
+두 Instance object 값이 같은 내부 포인터 값을 포함하면 True입니다.
+</ResponseField>
 
 ## 예제
 
@@ -38,3 +38,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 print(compareinstances(Players, Players))
 print(compareinstances(Players, ReplicatedStorage))
 ```
+
+
+</div>

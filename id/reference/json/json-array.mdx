@@ -2,13 +2,10 @@
 title: "json.array"
 sidebarTitle: "json.array"
 description: "Membuat new table yang ditandai sebagai JSON array untuk json.encode, menyalin sequence 1.#source saat source table diberikan."
-icon: "function"
 keywords: ["json.array","JSON"]
 ---
 
-Membuat new table yang ditandai sebagai JSON array untuk json.encode, menyalin sequence 1.#source saat source table diberikan.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 json.array(source?: table): table
@@ -16,15 +13,15 @@ json.array(source?: table): table
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `source` | `table` | No | Optional source table. Saat dihilangkan atau nil, json.array mengembalikan new empty array-marked table. Saat diberikan, hanya numeric sequence entries dari 1 with #source yang disalin ke new table. |
+<ParamField path={"source"} type={"table"}>
+Optional source table. Saat dihilangkan atau nil, json.array mengembalikan new empty array-marked table. Saat diberikan, hanya numeric sequence entries dari 1 with #source yang disalin ke new table.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `array` | `table` | New table dengan JSON array marker. json.encode melakukan serializes sebagai JSON array; original source table tidak dikembalikan. |
+<ResponseField name={"array"} type={"table"}>
+New table dengan JSON array marker. json.encode melakukan serializes sebagai JSON array; original source table tidak dikembalikan.
+</ResponseField>
 
 ## Contoh
 
@@ -38,3 +35,6 @@ print(json.encode(tags))
 print(json.encode(empty))
 print(json.type(empty))
 ```
+
+
+</div>

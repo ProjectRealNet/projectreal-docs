@@ -2,13 +2,10 @@
 title: "rconsolewarn"
 sidebarTitle: "rconsolewarn"
 description: "Ghi khong hoac nhieu gia tri vao Windows console hien tai qua stdout voi warning console text attribute. Neu khong co console window, loi goi quay lai ma khong chuyen doi hoac ghi gi. Khi co console, moi argument duoc chuyen doi bang Lua string conversion, noi bang ky tu tab va ghi qua runtime value. Neu Lua string conversion tao error, rconsolewarn khong bat error do. Function dat console text attribute thanh FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY truoc khi ghi, sau do dat thanh default console text color. Function khong them newline, khong them warning prefix, khong tao hoac hien console, va khong goi Luau warn hay Roblox Output. consolewarn la alias cho cung function."
-icon: "function"
 keywords: ["rconsolewarn","Console","consolewarn"]
 ---
 
-Ghi khong hoac nhieu gia tri vao Windows console hien tai qua stdout voi warning console text attribute. Neu khong co console window, loi goi quay lai ma khong chuyen doi hoac ghi gi. Khi co console, moi argument duoc chuyen doi bang Lua string conversion, noi bang ky tu tab va ghi qua runtime value. Neu Lua string conversion tao error, rconsolewarn khong bat error do. Function dat console text attribute thanh FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY truoc khi ghi, sau do dat thanh default console text color. Function khong them newline, khong them warning prefix, khong tao hoac hien console, va khong goi Luau warn hay Roblox Output. consolewarn la alias cho cung function.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 rconsolewarn(...values?: ...any)
@@ -20,9 +17,9 @@ rconsolewarn(...values?: ...any)
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | Cac gia tri tuy chon. Neu co console, moi value duoc chuyen doi bang Lua string conversion va noi bang ky tu tab truoc khi ghi. |
+<ParamField path={"...values"} type={"...any"}>
+Cac gia tri tuy chon. Neu co console, moi value duoc chuyen doi bang Lua string conversion va noi bang ky tu tab truoc khi ghi.
+</ParamField>
 
 ## Ví dụ
 
@@ -33,3 +30,6 @@ rconsolecreate()
 rconsolewarn("Retrying request", 3)
 rconsolewarn("\n")
 ```
+
+
+</div>

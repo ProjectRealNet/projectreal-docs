@@ -2,13 +2,10 @@
 title: "rconsolecreate"
 sidebarTitle: "rconsolecreate"
 description: "当不存在 console window 时，为 process allocate Windows console。如果 console window 已存在，call 会直接返回且不执行任何操作。allocation 后，function 会将 stdout redirect 到 console output，将 stdin redirect 到 console input。"
-icon: "function"
 keywords: ["rconsolecreate","Console","consolecreate"]
 ---
 
-当不存在 console window 时，为 process allocate Windows console。如果 console window 已存在，call 会直接返回且不执行任何操作。allocation 后，function 会将 stdout redirect 到 console output，将 stdin redirect 到 console input。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 rconsolecreate()
@@ -26,3 +23,6 @@ Create the Windows console once before writing console output.
 rconsolecreate()
 rconsoleprint("Console ready")
 ```
+
+
+</div>

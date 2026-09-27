@@ -2,13 +2,10 @@
 title: "json.minify"
 sidebarTitle: "json.minify"
 description: "Parse JSON string va re-encode bang Real default non-pretty JSON encoder output."
-icon: "function"
 keywords: ["json.minify","JSON"]
 ---
 
-Parse JSON string va re-encode bang Real default non-pretty JSON encoder output.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 json.minify(json: string, options?: DecodeOptions): string
@@ -16,16 +13,19 @@ json.minify(json: string, options?: DecodeOptions): string
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string duoc parse truoc minifying. Function doc argument nay bang string type checking. |
-| `options` | `DecodeOptions` | No | Optional decode options duoc dung khi parsing input JSON. boolean dat useNull. table co the dat useNull va maxDepth. |
+<ParamField path={"json"} type={"string"} required>
+JSON string duoc parse truoc minifying. Function doc argument nay bang string type checking.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options duoc dung khi parsing input JSON. boolean dat useNull. table co the dat useNull va maxDepth.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `minified` | `string` | JSON string duoc tao sau parsing va re-encoding input bang default encode options. |
+<ResponseField name={"minified"} type={"string"}>
+JSON string duoc tao sau parsing va re-encoding input bang default encode options.
+</ResponseField>
 
 ## Kiểu
 
@@ -53,3 +53,6 @@ print(json.minify(formatted, {
     useNull = true,
 }))
 ```
+
+
+</div>

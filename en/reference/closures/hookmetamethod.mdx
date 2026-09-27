@@ -2,13 +2,10 @@
 title: "hookmetamethod"
 sidebarTitle: "hookmetamethod"
 description: "Finds the named metamethod on a value and replaces that metamethod function with the provided replacement. The metamethod name must be a string and the replacement must be a function."
-icon: "function"
 keywords: ["hookmetamethod","Closures"]
 ---
 
-Finds the named metamethod on a value and replaces that metamethod function with the provided replacement. The metamethod name must be a string and the replacement must be a function.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 hookmetamethod(object: any, metamethod: string, replacement: function): function
@@ -16,17 +13,23 @@ hookmetamethod(object: any, metamethod: string, replacement: function): function
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | Value whose methods is inspected with raw metafield lookup. |
-| `metamethod` | `string` | Yes | Metafield name passed to raw metafield lookup. |
-| `replacement` | `function` | Yes | Function passed to hookfunction as the replacement for the found metamethod function. |
+<ParamField path={"object"} type={"any"} required>
+Value whose methods is inspected with raw metafield lookup.
+</ParamField>
+
+<ParamField path={"metamethod"} type={"string"} required>
+Metafield name passed to raw metafield lookup.
+</ParamField>
+
+<ParamField path={"replacement"} type={"function"} required>
+Function passed to hookfunction as the replacement for the found metamethod function.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `original` | `function` | Cloned original metamethod closure returned by hookfunction. |
+<ResponseField name={"original"} type={"function"}>
+Cloned original metamethod closure returned by hookfunction.
+</ResponseField>
 
 ## Example
 
@@ -48,3 +51,6 @@ original = hookmetamethod(object, "__index", function(self, key)
     return original(self, key)
 end)
 ```
+
+
+</div>

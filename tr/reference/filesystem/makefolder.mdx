@@ -2,13 +2,10 @@
 title: "makefolder"
 sidebarTitle: "makefolder"
 description: "recursive folder creation ile workspace icinde directory olusturur, missing parent directories dahil."
-icon: "function"
 keywords: ["makefolder","Filesystem"]
 ---
 
-recursive folder creation ile workspace icinde directory olusturur, missing parent directories dahil.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 makefolder(path: string)
@@ -16,9 +13,9 @@ makefolder(path: string)
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | Separator normalization ve workspace-boundary checks sonrasinda workspace icinde cozumlenen directory path. Empty, invalid veya outside-workspace paths, olusturma denenmeden once error olusturur. |
+<ParamField path={"path"} type={"string"} required>
+Separator normalization ve workspace-boundary checks sonrasinda workspace icinde cozumlenen directory path. Empty, invalid veya outside-workspace paths, olusturma denenmeden once error olusturur.
+</ParamField>
 
 ## Örnek
 
@@ -30,3 +27,6 @@ local path = "examples/generated/nested"
 makefolder(path)
 print(isfolder(path))
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "RealSignal.Fire"
 sidebarTitle: "RealSignal.Fire"
 description: "Fires the RealSignal with zero or more values. Connected callbacks receive those values, once connections are disconnected before invocation, and waiting threads are resumed with the same values. The method returns no values."
-icon: "function"
 keywords: ["RealSignal.Fire","RealSignal"]
 ---
 
-Fires the RealSignal with zero or more values. Connected callbacks receive those values, once connections are disconnected before invocation, and waiting threads are resumed with the same values. The method returns no values.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 RealSignal.Fire(signal: RealSignal, ...values?: ....any)
@@ -16,10 +13,13 @@ RealSignal.Fire(signal: RealSignal, ...values?: ....any)
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `signal` | `RealSignal` | Yes | Signal object returned by Signal.new. |
-| `...values` | `....any` | No | Values forwarded to connected callbacks and waiting threads. |
+<ParamField path={"signal"} type={"RealSignal"} required>
+Signal object returned by Signal.new.
+</ParamField>
+
+<ParamField path={"...values"} type={"....any"}>
+Values forwarded to connected callbacks and waiting threads.
+</ParamField>
 
 ## 타입
 
@@ -49,3 +49,6 @@ end)
 signal:Fire(5)
 print(total)
 ```
+
+
+</div>

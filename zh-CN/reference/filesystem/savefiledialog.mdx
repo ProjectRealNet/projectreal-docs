@@ -2,13 +2,10 @@
 title: "savefiledialog"
 sidebarTitle: "savefiledialog"
 description: "通过 Windows save dialog 打开 Windows save dialog，将提供的 Lua string bytes 写入 selected path，并将 saved file 作为 file item 返回。"
-icon: "function"
 keywords: ["savefiledialog","Filesystem"]
 ---
 
-通过 Windows save dialog 打开 Windows save dialog，将提供的 Lua string bytes 写入 selected path，并将 saved file 作为 file item 返回。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
@@ -16,16 +13,19 @@ savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `content` | `string` | Yes | 要写入 selected file 的 Lua string bytes。用户确认 path 后，文件会以 binary truncate mode 打开。 |
-| `options` | `DialogOptions` | No | Optional table。savefiledialog 会使用 title、defaultPath、extensionFilter、suggestedName 和 defaultExtension。extensionFilter 是由 extension strings 组成的 table；每个 filter 变成 *.&lt;extension> 之前，会移除开头的 . 或 *.。defaultExtension 会在传给 SetDefaultExtension 之前移除 leading . characters。 |
+<ParamField path={"content"} type={"string"} required>
+要写入 selected file 的 Lua string bytes。用户确认 path 后，文件会以 binary truncate mode 打开。
+</ParamField>
+
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table。savefiledialog 会使用 title、defaultPath、extensionFilter、suggestedName 和 defaultExtension。extensionFilter 是由 extension strings 组成的 table；每个 filter 变成 *.&lt;extension> 之前，会移除开头的 . 或 *.。defaultExtension 会在传给 SetDefaultExtension 之前移除 leading . characters。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `file` | `FileSystemItem \| nil` | Saved file item；如果 dialog 被取消，则为 nil。Dialog or write failures 会抛出 Failed to save file。 |
+<ResponseField name={"file"} type={"FileSystemItem | nil"}>
+Saved file item；如果 dialog 被取消，则为 nil。Dialog or write failures 会抛出 Failed to save file。
+</ResponseField>
 
 ## 类型
 
@@ -60,3 +60,6 @@ else
     print("No file saved")
 end
 ```
+
+
+</div>

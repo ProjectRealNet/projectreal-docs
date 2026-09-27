@@ -2,13 +2,10 @@
 title: "getactorfromthread"
 sidebarTitle: "getactorfromthread"
 description: "Bir Luau thread ile ilişkili Actor Instance değerini döndürür. İlk argument thread olmalıdır. Function thread thread data değerini okur, Actor reference ve positive container count gerektirir, sonra the associated Actor değerini okur. actor weak reference geçerliyse Instance olarak push edilir; aksi halde function nil döndürür."
-icon: "function"
 keywords: ["getactorfromthread","Actors","getactorfromstate"]
 ---
 
-Bir Luau thread ile ilişkili Actor Instance değerini döndürür. İlk argument thread olmalıdır. Function thread thread data değerini okur, Actor reference ve positive container count gerektirir, sonra the associated Actor değerini okur. actor weak reference geçerliyse Instance olarak push edilir; aksi halde function nil döndürür.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 getactorfromthread(thread: thread): Instance | nil
@@ -20,15 +17,15 @@ getactorfromthread(thread: thread): Instance | nil
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `thread` | `thread` | Yes | associated Actor weak reference için thread data değeri kontrol edilecek Luau thread. |
+<ParamField path={"thread"} type={"thread"} required>
+associated Actor weak reference için thread data değeri kontrol edilecek Luau thread.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `actor` | `Instance \| nil` | thread the associated Actor weak reference değerinden çözümlenen Actor Instance, veya valid actor reference yoksa nil. |
+<ResponseField name={"actor"} type={"Instance | nil"}>
+thread the associated Actor weak reference değerinden çözümlenen Actor Instance, veya valid actor reference yoksa nil.
+</ResponseField>
 
 ## Örnek
 
@@ -40,3 +37,6 @@ for _, thread in ipairs(getactorthreads()) do
     print(actor)
 end
 ```
+
+
+</div>

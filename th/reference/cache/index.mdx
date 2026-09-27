@@ -1,15 +1,31 @@
 ---
 title: "Cache"
 description: "แคชอ้างอิงและการเปรียบเทียบอินสแตนซ์"
-icon: "folder-code"
+icon: "/icons/database.svg"
 ---
+
+<div className="real-category-page">
 
 แคชอ้างอิงและการเปรียบเทียบอินสแตนซ์
 
-| การนำทางฟังก์ชัน | คำอธิบาย |
-| --- | --- |
-| [`cache.invalidate`](./cache-invalidate) | ลบรายการ registry ของ Instance cache ที่แคชไว้สำหรับ Instance ที่กำหนด |
-| [`cache.iscached`](./cache-iscached) | ส่งคืนว่า Instance ที่กำหนดมีรายการ non-nil ใน Instance cache หรือไม่ |
-| [`cache.replace`](./cache-replace) | Sets the cached Instance entry for one Instance to another Instance. |
-| [`cloneref`](./cloneref) | push การอ้างอิง Instance ใหม่สำหรับ reference ของ Instance เดิม แล้วส่งค่านั้นกลับ |
-| [`compareinstances`](./compareinstances) | เปรียบเทียบค่า reference ภายในของ Instance ที่เก็บอยู่ในค่า Instance object สองค่า |
+## ฟังก์ชันที่ใช้ได้
+
+<CardGroup cols={2}>
+<Card title="cache.invalidate" href="./cache-invalidate">
+ลบรายการ registry ของ Instance cache ที่แคชไว้สำหรับ Instance ที่กำหนด
+</Card>
+<Card title="cache.iscached" href="./cache-iscached">
+ส่งคืนว่า Instance ที่กำหนดมีรายการ non-nil ใน Instance cache หรือไม่
+</Card>
+<Card title="cache.replace" href="./cache-replace">
+Sets the cached Instance entry for one Instance to another Instance.
+</Card>
+<Card title="cloneref" href="./cloneref">
+push การอ้างอิง Instance ใหม่สำหรับ reference ของ Instance เดิม แล้วส่งค่านั้นกลับ
+</Card>
+<Card title="compareinstances" href="./compareinstances">
+เปรียบเทียบค่า reference ภายในของ Instance ที่เก็บอยู่ในค่า Instance object สองค่า
+</Card>
+</CardGroup>
+
+</div>

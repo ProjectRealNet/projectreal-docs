@@ -2,13 +2,10 @@
 title: "setrenderproperty"
 sidebarTitle: "setrenderproperty"
 description: "Asigna value a object[property]. Para Drawing object, usa el mismo Drawing property assignment que direct property assignment. Unknown Drawing properties se ignoran y destroyed Drawing objects no se modifican. El tercer argumento debe estar presente. the Drawing API registra esta API solo cuando the required rendering environment is active es true; cuando esa comprobacion es false, el initializer vuelve antes de crear estos globals."
-icon: "function"
 keywords: ["setrenderproperty","Drawing"]
 ---
 
-Asigna value a object[property]. Para Drawing object, usa el mismo Drawing property assignment que direct property assignment. Unknown Drawing properties se ignoran y destroyed Drawing objects no se modifican. El tercer argumento debe estar presente. the Drawing API registra esta API solo cuando the required rendering environment is active es true; cuando esa comprobacion es false, el initializer vuelve antes de crear estos globals.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 setrenderproperty(object: any, property: any, value: any)
@@ -16,11 +13,17 @@ setrenderproperty(object: any, property: any, value: any)
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | Valor que se indexa y recibe la asignacion. Con Drawing object, se usa el RealDrawingObject __newindex handler. |
-| `property` | `any` | Yes | property key usado para la asignacion. Las Drawing object properties se basan en strings. |
-| `value` | `any` | Yes | Valor asignado a object[property]. Este argumento debe suministrarse; nil sigue siendo un valor suministrado. |
+<ParamField path={"object"} type={"any"} required>
+Valor que se indexa y recibe la asignacion. Con Drawing object, se usa el RealDrawingObject __newindex handler.
+</ParamField>
+
+<ParamField path={"property"} type={"any"} required>
+property key usado para la asignacion. Las Drawing object properties se basan en strings.
+</ParamField>
+
+<ParamField path={"value"} type={"any"} required>
+Valor asignado a object[property]. Este argumento debe suministrarse; nil sigue siendo un valor suministrado.
+</ParamField>
 
 ## Ejemplo
 
@@ -34,3 +37,6 @@ setrenderproperty(line, "Visible", true)
 print(line.Thickness)
 print(line.Visible)
 ```
+
+
+</div>

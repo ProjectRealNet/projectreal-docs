@@ -2,13 +2,10 @@
 title: "json.quote"
 sidebarTitle: "json.quote"
 description: "Escape string ด้วย Real JSON string escaping rules และคืน complete quoted JSON string literal."
-icon: "function"
 keywords: ["json.quote","JSON"]
 ---
 
-Escape string ด้วย Real JSON string escaping rules และคืน complete quoted JSON string literal.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 json.quote(text: string): string
@@ -16,15 +13,15 @@ json.quote(text: string): string
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | String ที่จะ quote. function อ่าน argument นี้ด้วย string type checking. |
+<ParamField path={"text"} type={"string"} required>
+String ที่จะ quote. function อ่าน argument นี้ด้วย string type checking.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `quoted` | `string` | Complete JSON string literal ที่รวม opening และ closing quote. Quotes, backslashes, common control characters และ bytes below 0x20 จะถูก escape. |
+<ResponseField name={"quoted"} type={"string"}>
+Complete JSON string literal ที่รวม opening และ closing quote. Quotes, backslashes, common control characters และ bytes below 0x20 จะถูก escape.
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -36,3 +33,6 @@ local quoted = json.quote(source)
 
 print(quoted)
 ```
+
+
+</div>

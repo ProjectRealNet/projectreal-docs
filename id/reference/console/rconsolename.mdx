@@ -2,13 +2,10 @@
 title: "rconsolename"
 sidebarTitle: "rconsolename"
 description: "Mengatur title Windows console window saat ini dengan Windows console title update. argument pertama harus berupa string dan diperiksa sebelum console existence check. Jika tidak ada console window setelah string check berhasil, panggilan kembali tanpa melakukan apa pun."
-icon: "function"
 keywords: ["rconsolename","Console","consolename","rconsolesettitle","consolesettitle"]
 ---
 
-Mengatur title Windows console window saat ini dengan Windows console title update. argument pertama harus berupa string dan diperiksa sebelum console existence check. Jika tidak ada console window setelah string check berhasil, panggilan kembali tanpa melakukan apa pun.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 rconsolename(text: string)
@@ -22,9 +19,9 @@ rconsolename(text: string)
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | Nilai teks yang digunakan oleh operasi. |
+<ParamField path={"text"} type={"string"} required>
+Nilai teks yang digunakan oleh operasi.
+</ParamField>
 
 ## Contoh
 
@@ -34,3 +31,6 @@ Set the current Windows console window title.
 rconsolecreate()
 rconsolename("Real Console")
 ```
+
+
+</div>

@@ -1,21 +1,49 @@
 ---
 title: "Cryptography"
 description: "인코딩, 해싱, 암호화 및 압축."
-icon: "folder-code"
+icon: "/icons/key.svg"
 ---
+
+<div className="real-category-page">
 
 인코딩, 해싱, 암호화 및 압축.
 
-| 함수 탐색 | 설명 |
-| --- | --- |
-| [`base64_decode`](./base64-decode) | Base64 decoder로 Base64 입력을 디코드하고 디코드된 바이트를 Lua string으로 반환합니다. |
-| [`base64_encode`](./base64-encode) | Lua string의 바이트를 Base64 encoder로 인코딩하며, = padding을 사용하고 줄 바꿈은 넣지 않습니다. |
-| [`crypt.decrypt`](./crypt-decrypt) | Base64 ciphertext를 Base64로 디코드된 key와 필수 Base64 IV로 AES CBC 또는 ECB를 사용해 복호화합니다. |
-| [`crypt.encrypt`](./crypt-encrypt) | Lua string 바이트를 Base64로 디코드된 key로 AES CBC, ECB 또는 CTR을 사용해 암호화한 뒤 Base64 ciphertext와 IV 결과를 반환합니다. |
-| [`crypt.generatebytes`](./crypt-generatebytes) | random byte generator로 임의 바이트를 생성하고 Base64-encoded Lua string으로 반환합니다. |
-| [`crypt.generatekey`](./crypt-generatekey) | random byte generator로 32개의 임의 raw bytes를 생성하고 Base64-encoded Lua string으로 반환합니다. |
-| [`crypt.hash`](./crypt-hash) | 지원되는 crypto library hash 알고리즘으로 Lua string 바이트를 해시하고 lowercase hexadecimal digest를 반환합니다. |
-| [`crypt.hmac`](./crypt-hmac) | Raw Lua string key를 사용해 Lua string 바이트에 crypto library HMAC을 계산하고 Base64 digest를 반환합니다. |
-| [`crypt.random`](./crypt-random) | random byte generator로 raw random bytes를 생성하고 Lua string으로 반환합니다. |
-| [`lz4compress`](./lz4compress) | Lua string 바이트를 LZ4 block compression로 압축하고 raw compressed bytes를 Lua string으로 반환합니다. |
-| [`lz4decompress`](./lz4decompress) | LZ4 block decompression로 raw LZ4 block bytes를 압축 해제하고 raw decompressed bytes를 Lua 문자열로 반환합니다. |
+## 사용 가능한 함수
+
+<CardGroup cols={2}>
+<Card title="base64_decode" href="./base64-decode">
+Base64 decoder로 Base64 입력을 디코드하고 디코드된 바이트를 Lua string으로 반환합니다.
+</Card>
+<Card title="base64_encode" href="./base64-encode">
+Lua string의 바이트를 Base64 encoder로 인코딩하며, = padding을 사용하고 줄 바꿈은 넣지 않습니다.
+</Card>
+<Card title="crypt.decrypt" href="./crypt-decrypt">
+Base64 ciphertext를 Base64로 디코드된 key와 필수 Base64 IV로 AES CBC 또는 ECB를 사용해 복호화합니다.
+</Card>
+<Card title="crypt.encrypt" href="./crypt-encrypt">
+Lua string 바이트를 Base64로 디코드된 key로 AES CBC, ECB 또는 CTR을 사용해 암호화한 뒤 Base64 ciphertext와 IV 결과를 반환합니다.
+</Card>
+<Card title="crypt.generatebytes" href="./crypt-generatebytes">
+random byte generator로 임의 바이트를 생성하고 Base64-encoded Lua string으로 반환합니다.
+</Card>
+<Card title="crypt.generatekey" href="./crypt-generatekey">
+random byte generator로 32개의 임의 raw bytes를 생성하고 Base64-encoded Lua string으로 반환합니다.
+</Card>
+<Card title="crypt.hash" href="./crypt-hash">
+지원되는 crypto library hash 알고리즘으로 Lua string 바이트를 해시하고 lowercase hexadecimal digest를 반환합니다.
+</Card>
+<Card title="crypt.hmac" href="./crypt-hmac">
+Raw Lua string key를 사용해 Lua string 바이트에 crypto library HMAC을 계산하고 Base64 digest를 반환합니다.
+</Card>
+<Card title="crypt.random" href="./crypt-random">
+random byte generator로 raw random bytes를 생성하고 Lua string으로 반환합니다.
+</Card>
+<Card title="lz4compress" href="./lz4compress">
+Lua string 바이트를 LZ4 block compression로 압축하고 raw compressed bytes를 Lua string으로 반환합니다.
+</Card>
+<Card title="lz4decompress" href="./lz4decompress">
+LZ4 block decompression로 raw LZ4 block bytes를 압축 해제하고 raw decompressed bytes를 Lua 문자열로 반환합니다.
+</Card>
+</CardGroup>
+
+</div>

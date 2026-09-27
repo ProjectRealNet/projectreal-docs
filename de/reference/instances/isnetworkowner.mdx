@@ -2,13 +2,10 @@
 title: "isnetworkowner"
 sidebarTitle: "isnetworkowner"
 description: "Gibt das Ergebnis davon zurueck, die hidden property \"NetworkOwnerV3\" aus einer Instance zu lesen und zu pruefen, ob der erste Rueckgabewert, mit integer conversion konvertiert, groesser als 2 ist. Das Argument muss Instance object sein. Die function ruft intern the hidden property reader auf und faengt Fehler aus diesem Aufruf nicht ab, daher koennen Invalid Instance values, missing properties oder non-property metadata dieselben Fehler wie gethiddenproperty werfen. Sie gibt ein boolean zurueck. Ob peer_id > 2 exakt local network ownership bedeutet, ist: Nicht aus der Codebasis verifizierbar."
-icon: "function"
 keywords: ["isnetworkowner","Instances"]
 ---
 
-Gibt das Ergebnis davon zurueck, die hidden property "NetworkOwnerV3" aus einer Instance zu lesen und zu pruefen, ob der erste Rueckgabewert, mit integer conversion konvertiert, groesser als 2 ist. Das Argument muss Instance object sein. Die function ruft intern the hidden property reader auf und faengt Fehler aus diesem Aufruf nicht ab, daher koennen Invalid Instance values, missing properties oder non-property metadata dieselben Fehler wie gethiddenproperty werfen. Sie gibt ein boolean zurueck. Ob peer_id > 2 exakt local network ownership bedeutet, ist: Nicht aus der Codebasis verifizierbar.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 isnetworkowner(instance: Instance): boolean
@@ -16,15 +13,15 @@ isnetworkowner(instance: Instance): boolean
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object, die an the hidden property reader mit dem property name "NetworkOwnerV3" uebergeben wird. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object, die an the hidden property reader mit dem property name "NetworkOwnerV3" uebergeben wird.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `isOwner` | `boolean` | true, wenn integer conversion auf dem ersten "NetworkOwnerV3"-Rueckgabewert groesser als 2 ist, sonst false. |
+<ResponseField name={"isOwner"} type={"boolean"}>
+true, wenn integer conversion auf dem ersten "NetworkOwnerV3"-Rueckgabewert groesser als 2 ist, sonst false.
+</ResponseField>
 
 ## Beispiel
 
@@ -38,3 +35,6 @@ if part then
     print(ownsNetwork)
 end
 ```
+
+
+</div>

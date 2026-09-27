@@ -2,13 +2,10 @@
 title: "RealSignal.Once"
 sidebarTitle: "RealSignal.Once"
 description: "Connects a callback that is disconnected before its first callback invocation. The callback receives the arguments passed to Fire."
-icon: "function"
 keywords: ["RealSignal.Once","RealSignal"]
 ---
 
-Connects a callback that is disconnected before its first callback invocation. The callback receives the arguments passed to Fire.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 RealSignal.Once(signal: RealSignal, callback: (....any) -> ()): RealSignalConnection
@@ -16,16 +13,19 @@ RealSignal.Once(signal: RealSignal, callback: (....any) -> ()): RealSignalConnec
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `signal` | `RealSignal` | Yes | Signal object returned by Signal.new. |
-| `callback` | `(....any) -> ()` | Yes | Function called at most once for this connection. |
+<ParamField path={"signal"} type={"RealSignal"} required>
+Signal object returned by Signal.new.
+</ParamField>
+
+<ParamField path={"callback"} type={"(....any) -> ()"} required>
+Function called at most once for this connection.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `connection` | `RealSignalConnection` | Connection object with Disconnect. |
+<ResponseField name={"connection"} type={"RealSignalConnection"}>
+Connection object with Disconnect.
+</ResponseField>
 
 ## الأنواع
 
@@ -62,3 +62,6 @@ end)
 signal:Fire("first")
 signal:Fire("second")
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "crypt.generatebytes"
 sidebarTitle: "crypt.generatebytes"
 description: "random byte generator로 임의 바이트를 생성하고 Base64-encoded Lua string으로 반환합니다."
-icon: "function"
 keywords: ["crypt.generatebytes","Cryptography"]
 ---
 
-random byte generator로 임의 바이트를 생성하고 Base64-encoded Lua string으로 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 crypt.generatebytes(size: number): string
@@ -16,15 +13,15 @@ crypt.generatebytes(size: number): string
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `size` | `number` | Yes | 할당 전에 integer conversion를 거치는 숫자입니다. 0 이하 값은 1로 변경됩니다. |
+<ParamField path={"size"} type={"number"} required>
+할당 전에 integer conversion를 거치는 숫자입니다. 0 이하 값은 1로 변경됩니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `encoded` | `string` | 생성된 raw bytes의 Base64 encoding입니다. 반환된 string 길이는 요청한 바이트 수가 아닙니다. |
+<ResponseField name={"encoded"} type={"string"}>
+생성된 raw bytes의 Base64 encoding입니다. 반환된 string 길이는 요청한 바이트 수가 아닙니다.
+</ResponseField>
 
 ## 예제
 
@@ -38,3 +35,6 @@ print(encoded)
 print(#encoded)
 print(#raw)
 ```
+
+
+</div>

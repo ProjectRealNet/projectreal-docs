@@ -2,13 +2,10 @@
 title: "json.format"
 sidebarTitle: "json.format"
 description: "Parse JSON string va re-encode thanh readable formatted JSON bang Real JSON parser va encoder."
-icon: "function"
 keywords: ["json.format","JSON"]
 ---
 
-Parse JSON string va re-encode thanh readable formatted JSON bang Real JSON parser va encoder.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
@@ -16,17 +13,23 @@ json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeO
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string duoc parse truoc formatting. Function doc argument nay bang string type checking. |
-| `encodeOptions` | `EncodeOptions` | No | Optional encode options duoc dua vao re-encode step. json.format doc cung encode options nhu json.encode, sau do ep pretty thanh true. |
-| `decodeOptions` | `DecodeOptions` | No | Optional decode options duoc dung khi parsing input JSON. boolean dat useNull. table co the dat useNull va maxDepth. |
+<ParamField path={"json"} type={"string"} required>
+JSON string duoc parse truoc formatting. Function doc argument nay bang string type checking.
+</ParamField>
+
+<ParamField path={"encodeOptions"} type={"EncodeOptions"}>
+Optional encode options duoc dua vao re-encode step. json.format doc cung encode options nhu json.encode, sau do ep pretty thanh true.
+</ParamField>
+
+<ParamField path={"decodeOptions"} type={"DecodeOptions"}>
+Optional decode options duoc dung khi parsing input JSON. boolean dat useNull. table co the dat useNull va maxDepth.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `formatted` | `string` | Readable formatted JSON string duoc tao sau parsing va re-encoding input. |
+<ResponseField name={"formatted"} type={"string"}>
+Readable formatted JSON string duoc tao sau parsing va re-encoding input.
+</ResponseField>
 
 ## Kiểu
 
@@ -68,3 +71,6 @@ local formatted = json.format(compact, {
 
 print(formatted)
 ```
+
+
+</div>

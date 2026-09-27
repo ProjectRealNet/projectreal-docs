@@ -1,34 +1,88 @@
 ---
 title: "JSON"
 description: "JSON을 구문 분석, 인코딩, 검사 및 변환합니다."
-icon: "folder-code"
+icon: "/icons/code-circle-2.svg"
 ---
+
+<div className="real-category-page">
 
 JSON을 구문 분석, 인코딩, 검사 및 변환합니다.
 
-| 함수 탐색 | 설명 |
-| --- | --- |
-| [`json.array`](./json-array) | json.encode 를 위해 JSON array 로 표시된 new table 을 만들고, source table 이 제공되면 1.#source sequence 를 복사합니다. |
-| [`json.clone`](./json-clone) | value 를 json.encode semantics 로 encoding 한 뒤 generated JSON 을 다시 Lua values 로 decoding 해서 clone 합니다. |
-| [`json.decode`](./json-decode) | Real JSON parser 로 JSON string 을 parse 하고 decoded arrays 와 objects 를 JSON helpers 용으로 표시한 decoded Lua value 를 반환합니다. |
-| [`json.decodeSafe`](./json-decodesafe) | json.decode 와 같은 parser 로 JSON 을 parse 하고 parse errors 에 대해 throw 하는 대신 success flag 를 반환합니다. |
-| [`json.encode`](./json-encode) | Real JSON encoder 를 사용해 Lua value 를 JSON string 으로 serialize 합니다. json.stringify 는 같은 function 으로 등록되어 있습니다. |
-| [`json.encodePretty`](./json-encodepretty) | Lua value를 Real JSON encoder로 readable formatted JSON string으로 serializes합니다. json.pretty는 같은 function에 등록되어 있습니다. |
-| [`json.escape`](./json-escape) | Real JSON string escaping rules를 사용해 string을 escape하고 surrounding quotes 없는 escaped content를 반환합니다. |
-| [`json.format`](./json-format) | JSON string을 parse한 뒤 Real JSON parser와 encoder로 readable formatted JSON으로 re-encode합니다. |
-| [`json.getPath`](./json-getpath) | Dotted string path 또는 array table of keys를 사용해 table에서 nested value를 읽습니다. |
-| [`json.isArray`](./json-isarray) | Value가 Real JSON table detection에 의해 treated as a JSON array 되는지 반환합니다. |
-| [`json.isNull`](./json-isnull) | Value가 Real JSON null sentinel인 json.null인지 반환합니다. |
-| [`json.isObject`](./json-isobject) | Value가 Real JSON table detection에 의해 treated as a JSON object 되는지 반환합니다. |
-| [`json.keys`](./json-keys) | Table의 visible keys를 new table marked as a JSON array로 반환합니다. |
-| [`json.minify`](./json-minify) | JSON string을 parse한 뒤 Real default non-pretty JSON encoder output으로 re-encode합니다. |
-| [`json.object`](./json-object) | Real JSON encoder가 object로 처리하도록 new table marked as a JSON object를 생성합니다. |
-| [`json.parse`](./json-parse) | json.decode와 같은 function으로 JSON string을 parse합니다. |
-| [`json.pretty`](./json-pretty) | json.encodePretty와 같은 function을 사용해 Lua value를 readable formatted JSON string으로 serializes합니다. |
-| [`json.quote`](./json-quote) | Real JSON string escaping rules를 사용해 string을 escape하고 complete quoted JSON string literal을 반환합니다. |
-| [`json.stringify`](./json-stringify) | json.encode와 같은 function을 사용해 Lua value를 JSON string으로 serialize합니다. |
-| [`json.tryDecode`](./json-trydecode) | json.decodeSafe와 같은 function을 사용해 JSON string parse를 시도하고 parse errors에 대한 status values를 반환합니다. |
-| [`json.type`](./json-type) | 값의 string type name을 반환합니다. json.null은 "null"을 반환합니다. table은 json.isArray 및 json.isObject와 같은 table classification으로 "array" 또는 "object"를 반환합니다. 다른 값은 runtime Lua type name result를 반환합니다. |
-| [`json.unescape`](./json-unescape) | escaped string content 또는 complete quoted JSON string literal에서 JSON string escape sequences를 디코드합니다. 입력은 full JSON document가 아니라 JSON string parser로 parse됩니다. |
-| [`json.validate`](./json-validate) | JSON string을 하나의 complete JSON value로 parse해서 검증합니다. success일 때는 true만 반환합니다. parse failure일 때는 false와 parser error details를 반환합니다. |
-| [`json.values`](./json-values) | table의 direct values를 JSON array로 marked된 새 table로 반환합니다. JSON type marker entries는 건너뜁니다. |
+## 사용 가능한 함수
+
+<CardGroup cols={2}>
+<Card title="json.array" href="./json-array">
+json.encode 를 위해 JSON array 로 표시된 new table 을 만들고, source table 이 제공되면 1.#source sequence 를 복사합니다.
+</Card>
+<Card title="json.clone" href="./json-clone">
+value 를 json.encode semantics 로 encoding 한 뒤 generated JSON 을 다시 Lua values 로 decoding 해서 clone 합니다.
+</Card>
+<Card title="json.decode" href="./json-decode">
+Real JSON parser 로 JSON string 을 parse 하고 decoded arrays 와 objects 를 JSON helpers 용으로 표시한 decoded Lua value 를 반환합니다.
+</Card>
+<Card title="json.decodeSafe" href="./json-decodesafe">
+json.decode 와 같은 parser 로 JSON 을 parse 하고 parse errors 에 대해 throw 하는 대신 success flag 를 반환합니다.
+</Card>
+<Card title="json.encode" href="./json-encode">
+Real JSON encoder 를 사용해 Lua value 를 JSON string 으로 serialize 합니다. json.stringify 는 같은 function 으로 등록되어 있습니다.
+</Card>
+<Card title="json.encodePretty" href="./json-encodepretty">
+Lua value를 Real JSON encoder로 readable formatted JSON string으로 serializes합니다. json.pretty는 같은 function에 등록되어 있습니다.
+</Card>
+<Card title="json.escape" href="./json-escape">
+Real JSON string escaping rules를 사용해 string을 escape하고 surrounding quotes 없는 escaped content를 반환합니다.
+</Card>
+<Card title="json.format" href="./json-format">
+JSON string을 parse한 뒤 Real JSON parser와 encoder로 readable formatted JSON으로 re-encode합니다.
+</Card>
+<Card title="json.getPath" href="./json-getpath">
+Dotted string path 또는 array table of keys를 사용해 table에서 nested value를 읽습니다.
+</Card>
+<Card title="json.isArray" href="./json-isarray">
+Value가 Real JSON table detection에 의해 treated as a JSON array 되는지 반환합니다.
+</Card>
+<Card title="json.isNull" href="./json-isnull">
+Value가 Real JSON null sentinel인 json.null인지 반환합니다.
+</Card>
+<Card title="json.isObject" href="./json-isobject">
+Value가 Real JSON table detection에 의해 treated as a JSON object 되는지 반환합니다.
+</Card>
+<Card title="json.keys" href="./json-keys">
+Table의 visible keys를 new table marked as a JSON array로 반환합니다.
+</Card>
+<Card title="json.minify" href="./json-minify">
+JSON string을 parse한 뒤 Real default non-pretty JSON encoder output으로 re-encode합니다.
+</Card>
+<Card title="json.object" href="./json-object">
+Real JSON encoder가 object로 처리하도록 new table marked as a JSON object를 생성합니다.
+</Card>
+<Card title="json.parse" href="./json-parse">
+json.decode와 같은 function으로 JSON string을 parse합니다.
+</Card>
+<Card title="json.pretty" href="./json-pretty">
+json.encodePretty와 같은 function을 사용해 Lua value를 readable formatted JSON string으로 serializes합니다.
+</Card>
+<Card title="json.quote" href="./json-quote">
+Real JSON string escaping rules를 사용해 string을 escape하고 complete quoted JSON string literal을 반환합니다.
+</Card>
+<Card title="json.stringify" href="./json-stringify">
+json.encode와 같은 function을 사용해 Lua value를 JSON string으로 serialize합니다.
+</Card>
+<Card title="json.tryDecode" href="./json-trydecode">
+json.decodeSafe와 같은 function을 사용해 JSON string parse를 시도하고 parse errors에 대한 status values를 반환합니다.
+</Card>
+<Card title="json.type" href="./json-type">
+값의 string type name을 반환합니다. json.null은 "null"을 반환합니다. table은 json.isArray 및 json.isObject와 같은 table classification으로 "array" 또는 "object"를 반환합니다. 다른 값은 runtime Lua type name result를 반환합니다.
+</Card>
+<Card title="json.unescape" href="./json-unescape">
+escaped string content 또는 complete quoted JSON string literal에서 JSON string escape sequences를 디코드합니다. 입력은 full JSON document가 아니라 JSON string parser로 parse됩니다.
+</Card>
+<Card title="json.validate" href="./json-validate">
+JSON string을 하나의 complete JSON value로 parse해서 검증합니다. success일 때는 true만 반환합니다. parse failure일 때는 false와 parser error details를 반환합니다.
+</Card>
+<Card title="json.values" href="./json-values">
+table의 direct values를 JSON array로 marked된 새 table로 반환합니다. JSON type marker entries는 건너뜁니다.
+</Card>
+</CardGroup>
+
+</div>

@@ -2,13 +2,10 @@
 title: "json.tryDecode"
 sidebarTitle: "json.tryDecode"
 description: "JSON string degerini json.decodeSafe ile ayni function kullanarak parse etmeyi dener ve parse errors icin status values dondurur."
-icon: "function"
 keywords: ["json.tryDecode","JSON"]
 ---
 
-JSON string degerini json.decodeSafe ile ayni function kullanarak parse etmeyi dener ve parse errors icin status values dondurur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
@@ -16,19 +13,31 @@ json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | str
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | Parse edilecek JSON string. Function bu argument degerini string type checking ile okur. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean useNull ayarlar. table useNull ve maxDepth ayarlayabilir. |
+<ParamField path={"json"} type={"string"} required>
+Parse edilecek JSON string. Function bu argument degerini string type checking ile okur.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean useNull ayarlar. table useNull ve maxDepth ayarlayabilir.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `success` | `boolean` | parsing basariliysa true, protected parse block icinde parsing basarisiz olursa false. |
-| `decoded` | `any \| nil` | Success durumunda decoded value. Parse failure durumunda bu return nil olur. |
-| `errorMessage` | `string \| nil` | Parse failure durumunda error message. Message json.decodeSafe ile prefixed olur ve near-position suffix icerir. |
-| `errorPosition` | `number \| nil` | Parse failure durumunda parser kaynakli parser byte position. Bu return yalnizca failure durumunda bulunur. |
+<ResponseField name={"success"} type={"boolean"}>
+parsing basariliysa true, protected parse block icinde parsing basarisiz olursa false.
+</ResponseField>
+
+<ResponseField name={"decoded"} type={"any | nil"}>
+Success durumunda decoded value. Parse failure durumunda bu return nil olur.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+Parse failure durumunda error message. Message json.decodeSafe ile prefixed olur ve near-position suffix icerir.
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+Parse failure durumunda parser kaynakli parser byte position. Bu return yalnizca failure durumunda bulunur.
+</ResponseField>
 
 ## Tipler
 
@@ -57,3 +66,6 @@ else
     warn(message, position)
 end
 ```
+
+
+</div>

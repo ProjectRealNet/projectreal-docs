@@ -2,13 +2,10 @@
 title: "request"
 sidebarTitle: "request"
 description: "Sends an HTTP or HTTPS request and yields until it completes. options must include Url. Method defaults to GET and must be GET, POST, PUT, PATCH, or DELETE. Headers, Cookies, and Body are optional. Request errors return an error string; completed requests return a response table."
-icon: "function"
 keywords: ["request","Miscellaneous","http_request","http.request"]
 ---
 
-Sends an HTTP or HTTPS request and yields until it completes. options must include Url. Method defaults to GET and must be GET, POST, PUT, PATCH, or DELETE. Headers, Cookies, and Body are optional. Request errors return an error string; completed requests return a response table.
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 request(options: RequestOptions): Response | string
@@ -21,15 +18,15 @@ request(options: RequestOptions): Response | string
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `options` | `RequestOptions` | Yes | Request options table. Url is required; Method, Headers, Cookies, and Body are optional. |
+<ParamField path={"options"} type={"RequestOptions"} required>
+Request options table. Url is required; Method, Headers, Cookies, and Body are optional.
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `response` | `Response \| string` | On request error, an error string. Otherwise a response table. |
+<ResponseField name={"response"} type={"Response | string"}>
+On request error, an error string. Otherwise a response table.
+</ResponseField>
 
 ## 类型
 
@@ -79,3 +76,6 @@ else
     warn(response)
 end
 ```
+
+
+</div>

@@ -1,23 +1,55 @@
 ---
 title: "ImGui"
 description: "Okna trybu natychmiastowego i elementy sterujące oparte na wywołaniu zwrotnym."
-icon: "folder-code"
+icon: "/icons/device-desktop.svg"
 ---
+
+<div className="real-category-page">
 
 Okna trybu natychmiastowego i elementy sterujące oparte na wywołaniu zwrotnym.
 
-| Nawigacja funkcji | Opis |
-| --- | --- |
-| [`imgui.create`](./imgui-create) | Tworzy sledzony ImGui window record i zwraca ImGuiWindow object. Argument title uzywa "REAL_IM_UI", gdy zostanie pominiety albo jest nil. Title musi byc unikalny wsrod aktualnie sledzonych ImGui windows; utworzenie kolejnego tracked window z tym samym title wywoluje Lua error. |
-| [`imgui.setvsync`](./imgui-setvsync) | Aktualizuje vertical synchronization preference dla ImGui renderer. Aktualny presentation path zapisuje te preference, ale jej nie stosuje. |
-| [`ImGuiWindow.Button`](./imguiwindow-button) | Dolacza button element do ImGuiWindow i zapisuje callback. Gdy wyrenderowany button zostanie klikniety, callback trafia do queue i pozniej jest wywolywany bez arguments. Method zwraca to samo ImGuiWindow object. |
-| [`ImGuiWindow.Checkbox`](./imguiwindow-checkbox) | Appends a checkbox element to an ImGuiWindow. The callback is invoked with the new boolean value when the checkbox changes, and the method returns the same ImGuiWindow object. |
-| [`ImGuiWindow.CollapsingHeader`](./imguiwindow-collapsingheader) | Dolacza collapsing header start marker, natychmiast wywoluje content callback z tym samym ImGuiWindow object, aby mogl dodac nested elements, a potem dolacza header end marker. Podczas rendering nested elements sa pomijane, gdy header jest collapsed. Callback errors sa przechwytywane i nie sa zwracane przez ta method. |
-| [`ImGuiWindow.ColorPicker`](./imguiwindow-colorpicker) | Appends a RGBA color editor to an ImGuiWindow and stores the callback. Missing or nil color components default to 1.0. When the rendered editor changes, the callback is queued and later invoked with red, green, blue, and alpha. The method returns the same ImGuiWindow object. |
-| [`ImGuiWindow.destroy`](./imguiwindow-destroy) | Niszczy ImGuiWindow. Jesli object nadal wskazuje na window, method usuwa to window z tracked ImGui window list Real, wykonuje unreference dla stored element callbacks, usuwa window record i ustawia Instance reference na nil. Ponowne wywolanie destroy na tym samym object wraca bez wykonywania zadnej akcji. |
-| [`ImGuiWindow.InputText`](./imguiwindow-inputtext) | Dolacza single-line ImGui InputText element do ImGuiWindow i zapisuje callback. Initial text jest odczytywany przez optional string handling i kopiowany do fixed 256-byte text buffer elementu. Gdy wyrenderowany input sie zmieni, callback trafia do queue i pozniej jest wywolywany z current string. Method zwraca to samo ImGuiWindow object. |
-| [`ImGuiWindow.SameLine`](./imguiwindow-sameline) | Dodaje SameLine layout marker do okna. Podczas rendering Real wywoluje a same-line layout marker w tym miejscu element list, aby nastepny renderowany element mogl kontynuowac w tym samym wierszu. |
-| [`ImGuiWindow.Separator`](./imguiwindow-separator) | Dodaje Separator marker do okna. Podczas rendering Real wywoluje a separator w tym miejscu element list. |
-| [`ImGuiWindow.SliderFloat`](./imguiwindow-sliderfloat) | Dodaje SliderFloat element do okna. label, value, minimum i maximum sa czytane z argumentow od 2 do 5, a argumenty liczbowe sa sprawdzane przez number type checking. Podczas rendering Real wywoluje a floating-point slider z zapisanym value i zakresem. Gdy ImGui zglosi zmieniona wartosc, onChange trafia do queue i jest pozniej wywolywane z jednym Lua number. Real nie dodaje w tym closure osobnej walidacji minimum &lt;= maximum. |
-| [`ImGuiWindow.SliderInt`](./imguiwindow-sliderint) | Adds an integer slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated integer value. |
-| [`ImGuiWindow.Text`](./imguiwindow-text) | Dodaje nieinteraktywny Text element do okna. Argument text jest czytany przez string type checking i zapisywany w element. Podczas rendering Real wywoluje a text element, wiec podany text jest uzywany jako string content, a nie jako ImGui format string. |
+## Dostępne funkcje
+
+<CardGroup cols={2}>
+<Card title="imgui.create" href="./imgui-create">
+Tworzy sledzony ImGui window record i zwraca ImGuiWindow object. Argument title uzywa "REAL_IM_UI", gdy zostanie pominiety albo jest nil. Title musi byc unikalny wsrod aktualnie sledzonych ImGui windows; utworzenie kolejnego tracked window z tym samym title wywoluje Lua error.
+</Card>
+<Card title="imgui.setvsync" href="./imgui-setvsync">
+Aktualizuje vertical synchronization preference dla ImGui renderer. Aktualny presentation path zapisuje te preference, ale jej nie stosuje.
+</Card>
+<Card title="ImGuiWindow.Button" href="./imguiwindow-button">
+Dolacza button element do ImGuiWindow i zapisuje callback. Gdy wyrenderowany button zostanie klikniety, callback trafia do queue i pozniej jest wywolywany bez arguments. Method zwraca to samo ImGuiWindow object.
+</Card>
+<Card title="ImGuiWindow.Checkbox" href="./imguiwindow-checkbox">
+Appends a checkbox element to an ImGuiWindow. The callback is invoked with the new boolean value when the checkbox changes, and the method returns the same ImGuiWindow object.
+</Card>
+<Card title="ImGuiWindow.CollapsingHeader" href="./imguiwindow-collapsingheader">
+Dolacza collapsing header start marker, natychmiast wywoluje content callback z tym samym ImGuiWindow object, aby mogl dodac nested elements, a potem dolacza header end marker. Podczas rendering nested elements sa pomijane, gdy header jest collapsed. Callback errors sa przechwytywane i nie sa zwracane przez ta method.
+</Card>
+<Card title="ImGuiWindow.ColorPicker" href="./imguiwindow-colorpicker">
+Appends a RGBA color editor to an ImGuiWindow and stores the callback. Missing or nil color components default to 1.0. When the rendered editor changes, the callback is queued and later invoked with red, green, blue, and alpha. The method returns the same ImGuiWindow object.
+</Card>
+<Card title="ImGuiWindow.destroy" href="./imguiwindow-destroy">
+Niszczy ImGuiWindow. Jesli object nadal wskazuje na window, method usuwa to window z tracked ImGui window list Real, wykonuje unreference dla stored element callbacks, usuwa window record i ustawia Instance reference na nil. Ponowne wywolanie destroy na tym samym object wraca bez wykonywania zadnej akcji.
+</Card>
+<Card title="ImGuiWindow.InputText" href="./imguiwindow-inputtext">
+Dolacza single-line ImGui InputText element do ImGuiWindow i zapisuje callback. Initial text jest odczytywany przez optional string handling i kopiowany do fixed 256-byte text buffer elementu. Gdy wyrenderowany input sie zmieni, callback trafia do queue i pozniej jest wywolywany z current string. Method zwraca to samo ImGuiWindow object.
+</Card>
+<Card title="ImGuiWindow.SameLine" href="./imguiwindow-sameline">
+Dodaje SameLine layout marker do okna. Podczas rendering Real wywoluje a same-line layout marker w tym miejscu element list, aby nastepny renderowany element mogl kontynuowac w tym samym wierszu.
+</Card>
+<Card title="ImGuiWindow.Separator" href="./imguiwindow-separator">
+Dodaje Separator marker do okna. Podczas rendering Real wywoluje a separator w tym miejscu element list.
+</Card>
+<Card title="ImGuiWindow.SliderFloat" href="./imguiwindow-sliderfloat">
+Dodaje SliderFloat element do okna. label, value, minimum i maximum sa czytane z argumentow od 2 do 5, a argumenty liczbowe sa sprawdzane przez number type checking. Podczas rendering Real wywoluje a floating-point slider z zapisanym value i zakresem. Gdy ImGui zglosi zmieniona wartosc, onChange trafia do queue i jest pozniej wywolywane z jednym Lua number. Real nie dodaje w tym closure osobnej walidacji minimum &lt;= maximum.
+</Card>
+<Card title="ImGuiWindow.SliderInt" href="./imguiwindow-sliderint">
+Adds an integer slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated integer value.
+</Card>
+<Card title="ImGuiWindow.Text" href="./imguiwindow-text">
+Dodaje nieinteraktywny Text element do okna. Argument text jest czytany przez string type checking i zapisywany w element. Podczas rendering Real wywoluje a text element, wiec podany text jest uzywany jako string content, a nie jako ImGui format string.
+</Card>
+</CardGroup>
+
+</div>

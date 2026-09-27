@@ -2,13 +2,10 @@
 title: "json.unescape"
 sidebarTitle: "json.unescape"
 description: "Decodifica JSON string escape sequences de escaped string content ou de um complete quoted JSON string literal. A entrada e parseada com o JSON string parser, nao como full JSON document."
-icon: "function"
 keywords: ["json.unescape","JSON"]
 ---
 
-Decodifica JSON string escape sequences de escaped string content ou de um complete quoted JSON string literal. A entrada e parseada com o JSON string parser, nao como full JSON document.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 json.unescape(text: string): string
@@ -16,15 +13,15 @@ json.unescape(text: string): string
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | Escaped JSON string content, ou um complete quoted JSON string literal cujos first and last bytes sao quotes. A function le este argument com string type checking. |
+<ParamField path={"text"} type={"string"} required>
+Escaped JSON string content, ou um complete quoted JSON string literal cujos first and last bytes sao quotes. A function le este argument com string type checking.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `text` | `string` | Decoded string. Supported escapes incluem \", \\, \/, \b, \f, \n, \r, \t e \uXXXX com surrogate-pair handling. Invalid escapes, unescaped control characters, unterminated strings e trailing characters apos um quoted literal lancam Luau error com near-position suffix. |
+<ResponseField name={"text"} type={"string"}>
+Decoded string. Supported escapes incluem \", \\, \/, \b, \f, \n, \r, \t e \uXXXX com surrogate-pair handling. Invalid escapes, unescaped control characters, unterminated strings e trailing characters apos um quoted literal lancam Luau error com near-position suffix.
+</ResponseField>
 
 ## Exemplo
 
@@ -36,3 +33,6 @@ local restored = json.unescape(escaped)
 
 print(restored)
 ```
+
+
+</div>

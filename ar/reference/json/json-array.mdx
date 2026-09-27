@@ -2,13 +2,10 @@
 title: "json.array"
 sidebarTitle: "json.array"
 description: "ينشئ new table مميزة كـ JSON array من أجل json.encode، وينسخ sequence من 1.#source عند توفير source table."
-icon: "function"
 keywords: ["json.array","JSON"]
 ---
 
-ينشئ new table مميزة كـ JSON array من أجل json.encode، وينسخ sequence من 1.#source عند توفير source table.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 json.array(source?: table): table
@@ -16,15 +13,15 @@ json.array(source?: table): table
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `source` | `table` | No | Optional source table. عند الحذف أو nil، يعيد json.array new empty array-marked table. عند توفيرها، يتم نسخ numeric sequence entries فقط من 1 with #source إلى new table. |
+<ParamField path={"source"} type={"table"}>
+Optional source table. عند الحذف أو nil، يعيد json.array new empty array-marked table. عند توفيرها، يتم نسخ numeric sequence entries فقط من 1 with #source إلى new table.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `array` | `table` | New table مع JSON array marker. json.encode يقوم serializes لها كـ JSON array؛ original source table لا يتم إرجاعها. |
+<ResponseField name={"array"} type={"table"}>
+New table مع JSON array marker. json.encode يقوم serializes لها كـ JSON array؛ original source table لا يتم إرجاعها.
+</ResponseField>
 
 ## مثال
 
@@ -38,3 +35,6 @@ print(json.encode(tags))
 print(json.encode(empty))
 print(json.type(empty))
 ```
+
+
+</div>

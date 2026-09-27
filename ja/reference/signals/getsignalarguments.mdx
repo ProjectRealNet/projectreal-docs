@@ -2,13 +2,10 @@
 title: "getsignalarguments"
 sidebarTitle: "getsignalarguments"
 description: "RBXScriptSignal の event descriptor signature から読み取った type names の array table を返します。最初の argument は、Luau type name が RBXScriptSignal の object である必要があります。この function は signal の event descriptor を読み取り、function の argument stride で signature slots を走査し、各 argument type reference を読み取り、各 slot の解決済み type name string を push します。captured runtime argument values は返しません。signature を読めない場合、または entries が 1 つも push されない場合、返される table には fallback entry として \"Variant\" が 1 つ含まれます。"
-icon: "function"
 keywords: ["getsignalarguments","Signals"]
 ---
 
-RBXScriptSignal の event descriptor signature から読み取った type names の array table を返します。最初の argument は、Luau type name が RBXScriptSignal の object である必要があります。この function は signal の event descriptor を読み取り、function の argument stride で signature slots を走査し、各 argument type reference を読み取り、各 slot の解決済み type name string を push します。captured runtime argument values は返しません。signature を読めない場合、または entries が 1 つも push されない場合、返される table には fallback entry として "Variant" が 1 つ含まれます。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 getsignalarguments(signal: RBXScriptSignal): {string}
@@ -16,15 +13,15 @@ getsignalarguments(signal: RBXScriptSignal): {string}
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | event descriptor signature を調べる signal。RBXScriptSignal ではない object は type error を発生させます。 |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+event descriptor signature を調べる signal。RBXScriptSignal ではない object は type error を発生させます。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `arguments` | `&#123;string&#125;` | argument type name strings の array table。signature data を読めない場合、または argument entries が生成されない場合、"Variant" を含む fallback table が返されます。 |
+<ResponseField name={"arguments"} type={"{string}"}>
+argument type name strings の array table。signature data を読めない場合、または argument entries が生成されない場合、"Variant" を含む fallback table が返されます。
+</ResponseField>
 
 ## 例
 
@@ -40,3 +37,6 @@ if remote then
     end
 end
 ```
+
+
+</div>

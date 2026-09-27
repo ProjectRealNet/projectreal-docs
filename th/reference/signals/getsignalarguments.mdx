@@ -2,13 +2,10 @@
 title: "getsignalarguments"
 sidebarTitle: "getsignalarguments"
 description: "คืน array table ของ type names ที่อ่านจาก event descriptor signature ของ RBXScriptSignal argument แรกต้องเป็น object ที่มี Luau type name เป็น RBXScriptSignal function อ่าน event descriptor ของ signal เดินผ่าน signature slots ด้วย argument stride ของ function อ่าน argument type reference แต่ละรายการ แล้ว push type name string ที่ resolve ได้สำหรับแต่ละ slot ไม่คืน captured runtime argument values หากอ่าน signature ไม่ได้หรือไม่มี entries ถูก push table ที่คืนมาจะมี fallback entry หนึ่งรายการคือ \"Variant\""
-icon: "function"
 keywords: ["getsignalarguments","Signals"]
 ---
 
-คืน array table ของ type names ที่อ่านจาก event descriptor signature ของ RBXScriptSignal argument แรกต้องเป็น object ที่มี Luau type name เป็น RBXScriptSignal function อ่าน event descriptor ของ signal เดินผ่าน signature slots ด้วย argument stride ของ function อ่าน argument type reference แต่ละรายการ แล้ว push type name string ที่ resolve ได้สำหรับแต่ละ slot ไม่คืน captured runtime argument values หากอ่าน signature ไม่ได้หรือไม่มี entries ถูก push table ที่คืนมาจะมี fallback entry หนึ่งรายการคือ "Variant"
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 getsignalarguments(signal: RBXScriptSignal): {string}
@@ -16,15 +13,15 @@ getsignalarguments(signal: RBXScriptSignal): {string}
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | Signal ที่ต้องตรวจสอบ event descriptor signature object ที่ไม่ใช่ RBXScriptSignal จะทำให้เกิด type error |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+Signal ที่ต้องตรวจสอบ event descriptor signature object ที่ไม่ใช่ RBXScriptSignal จะทำให้เกิด type error
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `arguments` | `&#123;string&#125;` | Array table ของ argument type name strings จะคืน fallback table ที่มี "Variant" เมื่ออ่าน signature data ไม่ได้หรือไม่มี argument entries ถูกสร้าง |
+<ResponseField name={"arguments"} type={"{string}"}>
+Array table ของ argument type name strings จะคืน fallback table ที่มี "Variant" เมื่ออ่าน signature data ไม่ได้หรือไม่มี argument entries ถูกสร้าง
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -40,3 +37,6 @@ if remote then
     end
 end
 ```
+
+
+</div>

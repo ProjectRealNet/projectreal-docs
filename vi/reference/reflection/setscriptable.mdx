@@ -2,13 +2,10 @@
 title: "setscriptable"
 sidebarTitle: "setscriptable"
 description: "Luu scriptable override cho Roblox property trong scriptable override cache va tra ve previous scriptable state. Doi so dau tien phai la Instance object, doi so thu hai phai la string property name, va doi so thu ba phai la boolean. Neu da co cache entry cho cung instance reference va property name, cached scriptable value duoc thay the va cached value cu duoc tra ve. Khi cache miss, property name duoc resolve qua Roblox property metadata va Instance class descriptor. Neu khong co descriptor, hoac field duoc resolve bi thieu hoac khong phai property entry, function tra ve nil. Khi tim thay property entry, function doc scriptable state, luu boolean duoc yeu cau cung property reference vao scriptable override cache, roi tra ve previous scriptable state value. GameIndexHook va GameNewIndexHook sau do dung cache nay bang cach tam thoi dat property field scriptable flag cho mot indexed read hoac write duy nhat, roi khoi phuc previous field flag."
-icon: "function"
 keywords: ["setscriptable","Reflection"]
 ---
 
-Luu scriptable override cho Roblox property trong scriptable override cache va tra ve previous scriptable state. Doi so dau tien phai la Instance object, doi so thu hai phai la string property name, va doi so thu ba phai la boolean. Neu da co cache entry cho cung instance reference va property name, cached scriptable value duoc thay the va cached value cu duoc tra ve. Khi cache miss, property name duoc resolve qua Roblox property metadata va Instance class descriptor. Neu khong co descriptor, hoac field duoc resolve bi thieu hoac khong phai property entry, function tra ve nil. Khi tim thay property entry, function doc scriptable state, luu boolean duoc yeu cau cung property reference vao scriptable override cache, roi tra ve previous scriptable state value. GameIndexHook va GameNewIndexHook sau do dung cache nay bang cach tam thoi dat property field scriptable flag cho mot indexed read hoac write duy nhat, roi khoi phuc previous field flag.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 setscriptable(instance: Instance, property: string, value: boolean): boolean | nil
@@ -16,17 +13,23 @@ setscriptable(instance: Instance, property: string, value: boolean): boolean | n
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object duoc dung nhu mot phan cua scriptable override cache key. |
-| `property` | `string` | Yes | Property name duoc resolve qua Roblox property metadata va Instance class descriptor khi cache miss. |
-| `value` | `boolean` | Yes | Scriptable override value de luu vao scriptable override cache. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object duoc dung nhu mot phan cua scriptable override cache key.
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+Property name duoc resolve qua Roblox property metadata va Instance class descriptor khi cache miss.
+</ParamField>
+
+<ParamField path={"value"} type={"boolean"} required>
+Scriptable override value de luu vao scriptable override cache.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `previousState` | `boolean \| nil` | Previous cached scriptable value, previous scriptable state value, hoac nil khi property khong the resolve thanh property entry. |
+<ResponseField name={"previousState"} type={"boolean | nil"}>
+Previous cached scriptable value, previous scriptable state value, hoac nil khi property khong the resolve thanh property entry.
+</ResponseField>
 
 ## Ví dụ
 
@@ -40,3 +43,6 @@ if previous ~= nil then
     setscriptable(workspace, "Name", previous)
 end
 ```
+
+
+</div>

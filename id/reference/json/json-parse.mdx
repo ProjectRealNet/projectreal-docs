@@ -2,13 +2,10 @@
 title: "json.parse"
 sidebarTitle: "json.parse"
 description: "Mem-parse JSON string memakai function yang sama seperti json.decode."
-icon: "function"
 keywords: ["json.parse","JSON"]
 ---
 
-Mem-parse JSON string memakai function yang sama seperti json.decode.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 json.parse(json: string, options?: DecodeOptions): any
@@ -16,16 +13,19 @@ json.parse(json: string, options?: DecodeOptions): any
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string yang di-parse. Function membaca argument ini dengan string type checking. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean mengatur useNull. table dapat mengatur useNull dan maxDepth. |
+<ParamField path={"json"} type={"string"} required>
+JSON string yang di-parse. Function membaca argument ini dengan string type checking.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean mengatur useNull. table dapat mengatur useNull dan maxDepth.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `decoded` | `any` | Decoded value. JSON objects dan arrays menjadi tables dengan JSON type markers, strings menjadi Lua strings, numbers menjadi Lua numbers, booleans menjadi booleans, dan null menjadi json.null kecuali useNull false. |
+<ResponseField name={"decoded"} type={"any"}>
+Decoded value. JSON objects dan arrays menjadi tables dengan JSON type markers, strings menjadi Lua strings, numbers menjadi Lua numbers, booleans menjadi booleans, dan null menjadi json.null kecuali useNull false.
+</ResponseField>
 
 ## Tipe
 
@@ -51,3 +51,6 @@ print(settings.volume)
 print(settings.theme)
 print(json.isNull(settings.missing))
 ```
+
+
+</div>

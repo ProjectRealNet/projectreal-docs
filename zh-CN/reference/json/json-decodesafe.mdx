@@ -2,13 +2,10 @@
 title: "json.decodeSafe"
 sidebarTitle: "json.decodeSafe"
 description: "使用与 json.decode 相同的 parser 解析 JSON，并在 parse errors 时返回 success flag，而不是抛出错误。"
-icon: "function"
 keywords: ["json.decodeSafe","JSON"]
 ---
 
-使用与 json.decode 相同的 parser 解析 JSON，并在 parse errors 时返回 success flag，而不是抛出错误。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
@@ -16,19 +13,31 @@ json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | st
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | 要 parse 的 JSON text。这个 argument 会在 parse errors 被 catch 之前检查为 string。 |
-| `options` | `DecodeOptions` | No | Optional decode options。boolean 会直接设置 useNull。table 可以设置 useNull 和 maxDepth；maxDepth 会 clamp 到 1 到 4096。Invalid option argument types 会在 parse errors 被 catch 之前检查。 |
+<ParamField path={"json"} type={"string"} required>
+要 parse 的 JSON text。这个 argument 会在 parse errors 被 catch 之前检查为 string。
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options。boolean 会直接设置 useNull。table 可以设置 useNull 和 maxDepth；maxDepth 会 clamp 到 1 到 4096。Invalid option argument types 会在 parse errors 被 catch 之前检查。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `success` | `boolean` | parsing 成功时为 True，parser 报告 error 时为 false。 |
-| `decoded` | `any \| nil` | 成功时的 Decoded value，parse failure 时为 nil。有效的 JSON false 会返回 success 为 true 且 decoded 为 false，因此请检查 success return value。 |
-| `errorMessage` | `string \| nil` | parse failure 时的 Error message，否则为 nil。message 包含 json.decodeSafe prefix 和 parser position。 |
-| `errorPosition` | `number \| nil` | parse failure 时的 Parser byte position，否则为 nil。 |
+<ResponseField name={"success"} type={"boolean"}>
+parsing 成功时为 True，parser 报告 error 时为 false。
+</ResponseField>
+
+<ResponseField name={"decoded"} type={"any | nil"}>
+成功时的 Decoded value，parse failure 时为 nil。有效的 JSON false 会返回 success 为 true 且 decoded 为 false，因此请检查 success return value。
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+parse failure 时的 Error message，否则为 nil。message 包含 json.decodeSafe prefix 和 parser position。
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+parse failure 时的 Parser byte position，否则为 nil。
+</ResponseField>
 
 ## 类型
 
@@ -57,3 +66,6 @@ if not parsed then
     warn(message, position)
 end
 ```
+
+
+</div>

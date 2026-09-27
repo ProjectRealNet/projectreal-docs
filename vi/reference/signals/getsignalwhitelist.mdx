@@ -2,13 +2,10 @@
 title: "getsignalwhitelist"
 sidebarTitle: "getsignalwhitelist"
 description: "Tra ve mot array table moi voi sau entry whitelist tinh duoc dinh nghia trong function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Moi entry la mot table co cac string field Event va Parent. Function khong nhan arguments va khong kiem tra game state hien tai."
-icon: "function"
 keywords: ["getsignalwhitelist","Signals"]
 ---
 
-Tra ve mot array table moi voi sau entry whitelist tinh duoc dinh nghia trong function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Moi entry la mot table co cac string field Event va Parent. Function khong nhan arguments va khong kiem tra game state hien tai.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 getsignalwhitelist(): table
@@ -16,6 +13,9 @@ getsignalwhitelist(): table
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `signals` | `table` | Array table cac entry whitelist tinh. Moi entry co cac string field Event va Parent. |
+<ResponseField name={"signals"} type={"table"}>
+Array table cac entry whitelist tinh. Moi entry co cac string field Event va Parent.
+</ResponseField>
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "json.array"
 sidebarTitle: "json.array"
 description: "Cree une new table marquee comme JSON array pour json.encode, en copiant la sequence 1.#source lorsqu une source table est fournie."
-icon: "function"
 keywords: ["json.array","JSON"]
 ---
 
-Cree une new table marquee comme JSON array pour json.encode, en copiant la sequence 1.#source lorsqu une source table est fournie.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 json.array(source?: table): table
@@ -16,15 +13,15 @@ json.array(source?: table): table
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `source` | `table` | No | Optional source table. Si elle est omise ou nil, json.array renvoie une new empty array-marked table. Si elle est fournie, seuls les numeric sequence entries de 1 with #source sont copies dans la new table. |
+<ParamField path={"source"} type={"table"}>
+Optional source table. Si elle est omise ou nil, json.array renvoie une new empty array-marked table. Si elle est fournie, seuls les numeric sequence entries de 1 with #source sont copies dans la new table.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `array` | `table` | New table avec JSON array marker. json.encode la serializes comme JSON array; l original source table n est pas renvoyee. |
+<ResponseField name={"array"} type={"table"}>
+New table avec JSON array marker. json.encode la serializes comme JSON array; l original source table n est pas renvoyee.
+</ResponseField>
 
 ## Exemple
 
@@ -38,3 +35,6 @@ print(json.encode(tags))
 print(json.encode(empty))
 print(json.type(empty))
 ```
+
+
+</div>

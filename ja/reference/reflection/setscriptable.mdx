@@ -2,13 +2,10 @@
 title: "setscriptable"
 sidebarTitle: "setscriptable"
 description: "Roblox property の scriptable override を scriptable override cache に保存し、previous scriptable state を返します。最初の引数は Instance object、2 番目の引数は string property name、3 番目の引数は boolean である必要があります。同じ instance reference と property name の cache entry がすでに存在する場合、cached scriptable value は置き換えられ、古い cached value が返されます。cache miss の場合、property name は Roblox property metadata と Instance class descriptor で解決されます。descriptor が存在しない場合、または解決された field が存在しないか property entry ではない場合、この function は nil を返します。property entry が見つかった場合、function は scriptable state を読み取り、要求された boolean と property reference を scriptable override cache に保存し、previous scriptable state value を返します。GameIndexHook と GameNewIndexHook は後でこの cache を使用し、単一の indexed read または write の間だけ property field scriptable flag を一時的に設定し、その後 previous field flag を復元します。"
-icon: "function"
 keywords: ["setscriptable","Reflection"]
 ---
 
-Roblox property の scriptable override を scriptable override cache に保存し、previous scriptable state を返します。最初の引数は Instance object、2 番目の引数は string property name、3 番目の引数は boolean である必要があります。同じ instance reference と property name の cache entry がすでに存在する場合、cached scriptable value は置き換えられ、古い cached value が返されます。cache miss の場合、property name は Roblox property metadata と Instance class descriptor で解決されます。descriptor が存在しない場合、または解決された field が存在しないか property entry ではない場合、この function は nil を返します。property entry が見つかった場合、function は scriptable state を読み取り、要求された boolean と property reference を scriptable override cache に保存し、previous scriptable state value を返します。GameIndexHook と GameNewIndexHook は後でこの cache を使用し、単一の indexed read または write の間だけ property field scriptable flag を一時的に設定し、その後 previous field flag を復元します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 setscriptable(instance: Instance, property: string, value: boolean): boolean | nil
@@ -16,17 +13,23 @@ setscriptable(instance: Instance, property: string, value: boolean): boolean | n
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | scriptable override cache key の一部として使われる Instance object。 |
-| `property` | `string` | Yes | cache miss 時に Roblox property metadata と Instance class descriptor で解決される property name。 |
-| `value` | `boolean` | Yes | scriptable override cache に保存する scriptable override value。 |
+<ParamField path={"instance"} type={"Instance"} required>
+scriptable override cache key の一部として使われる Instance object。
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+cache miss 時に Roblox property metadata と Instance class descriptor で解決される property name。
+</ParamField>
+
+<ParamField path={"value"} type={"boolean"} required>
+scriptable override cache に保存する scriptable override value。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `previousState` | `boolean \| nil` | Previous cached scriptable value、previous scriptable state value、または property が property entry に解決できない場合は nil。 |
+<ResponseField name={"previousState"} type={"boolean | nil"}>
+Previous cached scriptable value、previous scriptable state value、または property が property entry に解決できない場合は nil。
+</ResponseField>
 
 ## 例
 
@@ -40,3 +43,6 @@ if previous ~= nil then
     setscriptable(workspace, "Name", previous)
 end
 ```
+
+
+</div>

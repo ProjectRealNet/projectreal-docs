@@ -2,13 +2,10 @@
 title: "json.type"
 sidebarTitle: "json.type"
 description: "값의 string type name을 반환합니다. json.null은 \"null\"을 반환합니다. table은 json.isArray 및 json.isObject와 같은 table classification으로 \"array\" 또는 \"object\"를 반환합니다. 다른 값은 runtime Lua type name result를 반환합니다."
-icon: "function"
 keywords: ["json.type","JSON"]
 ---
 
-값의 string type name을 반환합니다. json.null은 "null"을 반환합니다. table은 json.isArray 및 json.isObject와 같은 table classification으로 "array" 또는 "object"를 반환합니다. 다른 값은 runtime Lua type name result를 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 json.type(value: any): string
@@ -16,15 +13,15 @@ json.type(value: any): string
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | classify할 값입니다. no value를 전달하면 누락된 stack value의 runtime type name을 반환합니다. |
+<ParamField path={"value"} type={"any"} required>
+classify할 값입니다. no value를 전달하면 누락된 stack value의 runtime type name을 반환합니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `jsonType` | `string` | Type name string입니다. 검증된 JSON-specific returns는 "null", "array", "object"입니다. non-table, non-json.null 값은 Lua type name을 사용하며 runtime value에 따라 "nil", "boolean", "number", "integer", "string", "function", "object", "thread", "buffer", "class", "object", "vector" 또는 "no value"가 됩니다. |
+<ResponseField name={"jsonType"} type={"string"}>
+Type name string입니다. 검증된 JSON-specific returns는 "null", "array", "object"입니다. non-table, non-json.null 값은 Lua type name을 사용하며 runtime value에 따라 "nil", "boolean", "number", "integer", "string", "function", "object", "thread", "buffer", "class", "object", "vector" 또는 "no value"가 됩니다.
+</ResponseField>
 
 ## 예제
 
@@ -37,3 +34,6 @@ print(json.type(json.null))
 print(json.type(nil))
 print(json.type())
 ```
+
+
+</div>

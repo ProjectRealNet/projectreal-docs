@@ -2,13 +2,10 @@
 title: "isfunctionhooked"
 sidebarTitle: "isfunctionhooked"
 description: "Returns whether the provided function currently has a hook record. The argument must be a function."
-icon: "function"
 keywords: ["isfunctionhooked","Closures"]
 ---
 
-Returns whether the provided function currently has a hook record. The argument must be a function.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 isfunctionhooked(func: function): boolean
@@ -16,15 +13,15 @@ isfunctionhooked(func: function): boolean
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `func` | `function` | Yes | Function to check. Passing a non-function raises a type error. |
+<ParamField path={"func"} type={"function"} required>
+Function to check. Passing a non-function raises a type error.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `hooked` | `boolean` | true when the function is currently hooked; otherwise false. |
+<ResponseField name={"hooked"} type={"boolean"}>
+true when the function is currently hooked; otherwise false.
+</ResponseField>
 
 ## Example
 
@@ -36,3 +33,6 @@ end
 
 print(isfunctionhooked(target))
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "ImGuiWindow.Text"
 sidebarTitle: "ImGuiWindow.Text"
 description: "Window icine etkilesimsiz bir Text element ekler. text argumani string type checking ile okunur ve element uzerinde saklanir. Rendering sirasinda Real a text element cagirir; bu nedenle verilen text ImGui format string olarak degil, string content olarak kullanilir."
-icon: "function"
 keywords: ["ImGuiWindow.Text","ImGui"]
 ---
 
-Window icine etkilesimsiz bir Text element ekler. text argumani string type checking ile okunur ve element uzerinde saklanir. Rendering sirasinda Real a text element cagirir; bu nedenle verilen text ImGui format string olarak degil, string content olarak kullanilir.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.Text(window: ImGuiWindow, text: string): ImGuiWindow
@@ -16,16 +13,19 @@ ImGuiWindow.Text(window: ImGuiWindow, text: string): ImGuiWindow
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | imgui.create tarafindan dondurulen ImGuiWindow. object gecersizse veya zaten destroy edildiyse method bir Lua error olusturur. |
-| `text` | `string` | Yes | string type checking ile okunan ve Text element tarafindan gosterilen text content. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+imgui.create tarafindan dondurulen ImGuiWindow. object gecersizse veya zaten destroy edildiyse method bir Lua error olusturur.
+</ParamField>
+
+<ParamField path={"text"} type={"string"} required>
+string type checking ile okunan ve Text element tarafindan gosterilen text content.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | Ayni ImGuiWindow object; method cagrilarinin zincirlenmesine izin verir. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+Ayni ImGuiWindow object; method cagrilarinin zincirlenmesine izin verir.
+</ResponseField>
 
 ## Tipler
 
@@ -46,3 +46,6 @@ imgui.create tarafından döndürülen tanıtıcı. Kontrol oluşturma yöntemle
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Bir tamsayı kaydırıcısı ekler. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Etkileşimli olmayan metin ekler. |
 | `destroy` | `() -> ()` | Yes | Pencereyi kaldırır ve kayıtlı geri aramalarını serbest bırakır. |
+
+
+</div>

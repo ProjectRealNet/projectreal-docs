@@ -1,21 +1,49 @@
 ---
 title: "Console"
 description: "Runtime output and console controls."
-icon: "folder-code"
+icon: "/icons/file-code.svg"
 ---
+
+<div className="real-category-page">
 
 Runtime output and console controls.
 
-| Function navigation | Description |
-| --- | --- |
-| [`rconsoleclear`](./rconsoleclear) | Clears the current Windows console screen buffer when a console window exists. If no console window exists, the call returns without doing anything. |
-| [`rconsolecreate`](./rconsolecreate) | Allocates a Windows console for the process when no console window exists. If a console window already exists, the call returns without doing anything. The function redirects stdout to console output and stdin to console input after allocation. |
-| [`rconsoledestroy`](./rconsoledestroy) | Clears the current Windows console screen buffer, hides the console window, and detaches the process from the console from the console. If no console window exists, the call returns without doing anything. |
-| [`rconsoleerr`](./rconsoleerr) | Writes zero or more values to the current Windows console with stdout after setting the console text attribute to error text color. Values are converted to strings, separated with tabs, and the text attribute is set to default console text color afterward. If no console window exists, the call returns without converting or writing anything. |
-| [`rconsolehide`](./rconsolehide) | Hides the current Windows console window . The function does not call console detachment, so it does not detach from or destroy the console. If no console window exists, the call returns without doing anything. |
-| [`rconsoleinfo`](./rconsoleinfo) | Writes zero or more values to the current Windows console with stdout after setting the console text attribute to info text color. Values are converted to strings, separated with tabs, and the text attribute is set to default console text color afterward. If no console window exists, the call returns without converting or writing anything. |
-| [`rconsoleinput`](./rconsoleinput) | Waits for one line of input from the current Windows console and returns it without the ending newline. If no console window exists, the call returns no values. |
-| [`rconsolename`](./rconsolename) | Sets the current Windows console window title . The first argument must be a string and is checked before the console existence check. If no console window exists after the string check succeeds, the call returns without doing anything. |
-| [`rconsoleprint`](./rconsoleprint) | Writes zero or more values to the current Windows console with stdout without changing the console text attribute. Values are converted to strings and separated with tabs. The function does not add a newline. If no console window exists, the call returns without converting or writing anything. |
-| [`rconsoleshow`](./rconsoleshow) | Shows the current Windows console window . The function does not allocate a console. If no console window exists, the call returns without doing anything. |
-| [`rconsolewarn`](./rconsolewarn) | Writes zero or more values to the current Windows console using the warning text color, then restores the normal console text color. Values are converted to strings and separated with tabs. If no console window exists, the call returns without writing anything. |
+## Available functions
+
+<CardGroup cols={2}>
+<Card title="rconsoleclear" href="./rconsoleclear">
+Clears the current Windows console screen buffer when a console window exists. If no console window exists, the call returns without doing anything.
+</Card>
+<Card title="rconsolecreate" href="./rconsolecreate">
+Allocates a Windows console for the process when no console window exists. If a console window already exists, the call returns without doing anything. The function redirects stdout to console output and stdin to console input after allocation.
+</Card>
+<Card title="rconsoledestroy" href="./rconsoledestroy">
+Clears the current Windows console screen buffer, hides the console window, and detaches the process from the console from the console. If no console window exists, the call returns without doing anything.
+</Card>
+<Card title="rconsoleerr" href="./rconsoleerr">
+Writes zero or more values to the current Windows console with stdout after setting the console text attribute to error text color. Values are converted to strings, separated with tabs, and the text attribute is set to default console text color afterward. If no console window exists, the call returns without converting or writing anything.
+</Card>
+<Card title="rconsolehide" href="./rconsolehide">
+Hides the current Windows console window . The function does not call console detachment, so it does not detach from or destroy the console. If no console window exists, the call returns without doing anything.
+</Card>
+<Card title="rconsoleinfo" href="./rconsoleinfo">
+Writes zero or more values to the current Windows console with stdout after setting the console text attribute to info text color. Values are converted to strings, separated with tabs, and the text attribute is set to default console text color afterward. If no console window exists, the call returns without converting or writing anything.
+</Card>
+<Card title="rconsoleinput" href="./rconsoleinput">
+Waits for one line of input from the current Windows console and returns it without the ending newline. If no console window exists, the call returns no values.
+</Card>
+<Card title="rconsolename" href="./rconsolename">
+Sets the current Windows console window title . The first argument must be a string and is checked before the console existence check. If no console window exists after the string check succeeds, the call returns without doing anything.
+</Card>
+<Card title="rconsoleprint" href="./rconsoleprint">
+Writes zero or more values to the current Windows console with stdout without changing the console text attribute. Values are converted to strings and separated with tabs. The function does not add a newline. If no console window exists, the call returns without converting or writing anything.
+</Card>
+<Card title="rconsoleshow" href="./rconsoleshow">
+Shows the current Windows console window . The function does not allocate a console. If no console window exists, the call returns without doing anything.
+</Card>
+<Card title="rconsolewarn" href="./rconsolewarn">
+Writes zero or more values to the current Windows console using the warning text color, then restores the normal console text color. Values are converted to strings and separated with tabs. If no console window exists, the call returns without writing anything.
+</Card>
+</CardGroup>
+
+</div>

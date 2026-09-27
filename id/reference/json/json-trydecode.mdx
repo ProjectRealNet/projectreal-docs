@@ -2,13 +2,10 @@
 title: "json.tryDecode"
 sidebarTitle: "json.tryDecode"
 description: "Mencoba parse JSON string memakai function yang sama seperti json.decodeSafe dan mengembalikan status values untuk parse errors."
-icon: "function"
 keywords: ["json.tryDecode","JSON"]
 ---
 
-Mencoba parse JSON string memakai function yang sama seperti json.decodeSafe dan mengembalikan status values untuk parse errors.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
@@ -16,19 +13,31 @@ json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | str
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string yang di-parse. Function membaca argument ini dengan string type checking. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean mengatur useNull. table dapat mengatur useNull dan maxDepth. |
+<ParamField path={"json"} type={"string"} required>
+JSON string yang di-parse. Function membaca argument ini dengan string type checking.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean mengatur useNull. table dapat mengatur useNull dan maxDepth.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `success` | `boolean` | true saat parsing berhasil, false saat parsing gagal di dalam protected parse block. |
-| `decoded` | `any \| nil` | Decoded value saat success. Saat parse failure, return ini nil. |
-| `errorMessage` | `string \| nil` | Error message saat parse failure. Message memiliki prefix json.decodeSafe dan menyertakan near-position suffix. |
-| `errorPosition` | `number \| nil` | Parser byte position dari parser saat parse failure. Return ini hanya ada saat failure. |
+<ResponseField name={"success"} type={"boolean"}>
+true saat parsing berhasil, false saat parsing gagal di dalam protected parse block.
+</ResponseField>
+
+<ResponseField name={"decoded"} type={"any | nil"}>
+Decoded value saat success. Saat parse failure, return ini nil.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+Error message saat parse failure. Message memiliki prefix json.decodeSafe dan menyertakan near-position suffix.
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+Parser byte position dari parser saat parse failure. Return ini hanya ada saat failure.
+</ResponseField>
 
 ## Tipe
 
@@ -57,3 +66,6 @@ else
     warn(message, position)
 end
 ```
+
+
+</div>

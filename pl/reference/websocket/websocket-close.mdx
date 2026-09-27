@@ -2,13 +2,10 @@
 title: "WebSocket.Close"
 sidebarTitle: "WebSocket.Close"
 description: "Zamyka WebSocket object zwrócony przez WebSocket.connect. Pierwszy argument musi być table. Funkcja odczytuje field connection state obiektu. Gdy istnieje live state i nie jest jeszcze destroyed ani closed, ustawia isClosed na true i wysyła pusty frame close frame przez zapisany WebSocket connection. Nie przyjmuje close code ani reason i nie zwraca values."
-icon: "function"
 keywords: ["WebSocket.Close","WebSocket"]
 ---
 
-Zamyka WebSocket object zwrócony przez WebSocket.connect. Pierwszy argument musi być table. Funkcja odczytuje field connection state obiektu. Gdy istnieje live state i nie jest jeszcze destroyed ani closed, ustawia isClosed na true i wysyła pusty frame close frame przez zapisany WebSocket connection. Nie przyjmuje close code ani reason i nie zwraca values.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 WebSocket.Close(socket: WebSocket)
@@ -16,9 +13,9 @@ WebSocket.Close(socket: WebSocket)
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `socket` | `WebSocket` | Yes | WebSocket table zwrócona przez WebSocket.connect. Function oczekuje, że ta table zawiera connection state. |
+<ParamField path={"socket"} type={"WebSocket"} required>
+WebSocket table zwrócona przez WebSocket.connect. Function oczekuje, że ta table zawiera connection state.
+</ParamField>
 
 ## Przykład
 
@@ -29,3 +26,6 @@ local socket = WebSocket.connect("wss://example.com/socket")
 
 socket:Close()
 ```
+
+
+</div>

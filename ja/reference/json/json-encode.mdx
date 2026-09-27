@@ -2,13 +2,10 @@
 title: "json.encode"
 sidebarTitle: "json.encode"
 description: "Real JSON encoder を使って Lua value を JSON string に serialize します。json.stringify は同じ function に登録されています。"
-icon: "function"
 keywords: ["json.encode","JSON"]
 ---
 
-Real JSON encoder を使って Lua value を JSON string に serialize します。json.stringify は同じ function に登録されています。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 json.encode(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.encode(value: any, options?: EncodeOptions): string
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | encode される Value。nil、booleans、numbers、strings、tables、json.null は直接処理されます。Unsupported Lua types は errorOnUnsupported が true でない限り null として encode されます。 |
-| `options` | `EncodeOptions` | No | Optional encode options。boolean は pretty output を切り替えます。number は 0.16 に clamp された数の spaces で pretty output を有効にします。string はその indent で pretty output を有効にします。table は pretty、sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth、indent を設定できます。 |
+<ParamField path={"value"} type={"any"} required>
+encode される Value。nil、booleans、numbers、strings、tables、json.null は直接処理されます。Unsupported Lua types は errorOnUnsupported が true でない限り null として encode されます。
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options。boolean は pretty output を切り替えます。number は 0.16 に clamp された数の spaces で pretty output を有効にします。string はその indent で pretty output を有効にします。table は pretty、sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth、indent を設定できます。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `json` | `string` | Encoded JSON string。Encoding errors は Luau errors として throw されます。 |
+<ResponseField name={"json"} type={"string"}>
+Encoded JSON string。Encoding errors は Luau errors として throw されます。
+</ResponseField>
 
 ## 型
 
@@ -61,3 +61,6 @@ local text = json.encode(payload, {
 
 print(text)
 ```
+
+
+</div>

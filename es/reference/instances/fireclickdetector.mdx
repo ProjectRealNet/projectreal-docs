@@ -2,13 +2,10 @@
 title: "fireclickdetector"
 sidebarTitle: "fireclickdetector"
 description: "Dispara una interaccion ClickDetector para el jugador local. El primer argumento debe ser una Instance cuyo ClassName sea ClickDetector. distance es opcional y su valor predeterminado es 0. clickOption es opcional, se compara sin distinguir mayusculas y minusculas, y su valor predeterminado es \"mouseclick\". Las opciones admitidas son \"mouseclick\", \"rightmouseclick\", \"mousehoverenter\" y \"mousehoverleave\". Las opciones de clic pasan distance como float al Roblox click helper, mientras que las opciones hover ignoran distance. Si Players o Players.LocalPlayer no esta disponible, la function vuelve sin disparar nada. Un clickOption desconocido tampoco produce ninguna interaccion. La function no devuelve nada."
-icon: "function"
 keywords: ["fireclickdetector","Instances"]
 ---
 
-Dispara una interaccion ClickDetector para el jugador local. El primer argumento debe ser una Instance cuyo ClassName sea ClickDetector. distance es opcional y su valor predeterminado es 0. clickOption es opcional, se compara sin distinguir mayusculas y minusculas, y su valor predeterminado es "mouseclick". Las opciones admitidas son "mouseclick", "rightmouseclick", "mousehoverenter" y "mousehoverleave". Las opciones de clic pasan distance como float al Roblox click helper, mientras que las opciones hover ignoran distance. Si Players o Players.LocalPlayer no esta disponible, la function vuelve sin disparar nada. Un clickOption desconocido tampoco produce ninguna interaccion. La function no devuelve nada.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 fireclickdetector(detector: Instance, distance?: number, clickOption?: "mouseclick" | "rightmouseclick" | "mousehoverenter" | "mousehoverleave")
@@ -16,11 +13,17 @@ fireclickdetector(detector: Instance, distance?: number, clickOption?: "mousecli
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `detector` | `Instance` | Yes | Instance cuyo ClassName debe ser ClickDetector. |
-| `distance` | `number` | No | Valor distance opcional. El valor predeterminado es 0 y se pasa como float para "mouseclick" y "rightmouseclick". |
-| `clickOption` | `"mouseclick" \| "rightmouseclick" \| "mousehoverenter" \| "mousehoverleave"` | No | Selector de interaction opcional. Se lee como string, se compara sin distinguir mayusculas y minusculas, y el valor predeterminado es "mouseclick". |
+<ParamField path={"detector"} type={"Instance"} required>
+Instance cuyo ClassName debe ser ClickDetector.
+</ParamField>
+
+<ParamField path={"distance"} type={"number"}>
+Valor distance opcional. El valor predeterminado es 0 y se pasa como float para "mouseclick" y "rightmouseclick".
+</ParamField>
+
+<ParamField path={"clickOption"} type={"\"mouseclick\" | \"rightmouseclick\" | \"mousehoverenter\" | \"mousehoverleave\""}>
+Selector de interaction opcional. Se lee como string, se compara sin distinguir mayusculas y minusculas, y el valor predeterminado es "mouseclick".
+</ParamField>
 
 ## Ejemplo
 
@@ -31,3 +34,6 @@ local detector = workspace.InteractivePart.ClickDetector
 
 fireclickdetector(detector)
 ```
+
+
+</div>

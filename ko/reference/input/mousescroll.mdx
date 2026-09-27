@@ -2,13 +2,10 @@
 title: "mousescroll"
 sidebarTitle: "mousescroll"
 description: "Roblox window가 active일 때 mouse wheel event를 보냅니다. amount 인수는 Lua number로 검사되고 integer conversion로 변환된 뒤 the requested mouse action과 함께 mouse input에 dwData 값으로 직접 전달됩니다. Real은 amount를 정규화하지 않고 movement data를 추가하지 않습니다. 이 function은 아무것도 반환하지 않으며 isrbxactive가 false라면 input을 보내지 않고 반환합니다."
-icon: "function"
 keywords: ["mousescroll","Input"]
 ---
 
-Roblox window가 active일 때 mouse wheel event를 보냅니다. amount 인수는 Lua number로 검사되고 integer conversion로 변환된 뒤 the requested mouse action과 함께 mouse input에 dwData 값으로 직접 전달됩니다. Real은 amount를 정규화하지 않고 movement data를 추가하지 않습니다. 이 function은 아무것도 반환하지 않으며 isrbxactive가 false라면 input을 보내지 않고 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 mousescroll(amount: number)
@@ -16,6 +13,9 @@ mousescroll(amount: number)
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `amount` | `number` | Yes | mouse input에 전달되기 전에 Lua number로 읽고 integer conversion로 변환되는 wheel dwData value입니다. |
+<ParamField path={"amount"} type={"number"} required>
+mouse input에 전달되기 전에 Lua number로 읽고 integer conversion로 변환되는 wheel dwData value입니다.
+</ParamField>
+
+
+</div>

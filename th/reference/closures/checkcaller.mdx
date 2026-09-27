@@ -2,13 +2,10 @@
 title: "checkcaller"
 sidebarTitle: "checkcaller"
 description: "คืนว่า current Luau thread อยู่ใน Real caller context หรือไม่ function นี้ไม่รับ arguments และ push boolean result จาก the current caller context function ไม่ตรวจ Lua call stack หรือ function object"
-icon: "function"
 keywords: ["checkcaller","Closures"]
 ---
 
-คืนว่า current Luau thread อยู่ใน Real caller context หรือไม่ function นี้ไม่รับ arguments และ push boolean result จาก the current caller context function ไม่ตรวจ Lua call stack หรือ function object
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 checkcaller(): boolean
@@ -16,9 +13,9 @@ checkcaller(): boolean
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `isCaller` | `boolean` | true เมื่อ current Luau thread ถูก tracked ใน Real caller context; มิฉะนั้น false |
+<ResponseField name={"isCaller"} type={"boolean"}>
+true เมื่อ current Luau thread ถูก tracked ใน Real caller context; มิฉะนั้น false
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -28,3 +25,6 @@ Check whether the current thread is tracked by Real.
 local tracked = checkcaller()
 print(tracked)
 ```
+
+
+</div>

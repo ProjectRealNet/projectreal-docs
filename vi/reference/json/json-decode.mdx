@@ -2,13 +2,10 @@
 title: "json.decode"
 sidebarTitle: "json.decode"
 description: "Parse JSON string bang Real JSON parser va tra ve decoded Lua value, danh dau decoded arrays va objects cho JSON helpers."
-icon: "function"
 keywords: ["json.decode","JSON"]
 ---
 
-Parse JSON string bang Real JSON parser va tra ve decoded Lua value, danh dau decoded arrays va objects cho JSON helpers.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 json.decode(json: string, options?: DecodeOptions): any
@@ -16,16 +13,19 @@ json.decode(json: string, options?: DecodeOptions): any
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON text de parse. parser chap nhan mot JSON value voi optional surrounding whitespace va throw khi gap invalid syntax hoac trailing non-whitespace characters. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean dat useNull truc tiep. table co the dat useNull va maxDepth; maxDepth duoc clamp tu 1 den 4096. |
+<ParamField path={"json"} type={"string"} required>
+JSON text de parse. parser chap nhan mot JSON value voi optional surrounding whitespace va throw khi gap invalid syntax hoac trailing non-whitespace characters.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean dat useNull truc tiep. table co the dat useNull va maxDepth; maxDepth duoc clamp tu 1 den 4096.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `decoded` | `any` | Decoded value. JSON objects va arrays tro thanh tables voi JSON type markers, strings tro thanh Lua strings, numbers tro thanh Lua numbers, booleans tro thanh booleans, va null tro thanh json.null tru khi useNull la false. |
+<ResponseField name={"decoded"} type={"any"}>
+Decoded value. JSON objects va arrays tro thanh tables voi JSON type markers, strings tro thanh Lua strings, numbers tro thanh Lua numbers, booleans tro thanh booleans, va null tro thanh json.null tru khi useNull la false.
+</ResponseField>
 
 ## Kiểu
 
@@ -50,3 +50,6 @@ print(value.tags[1])
 print(json.type(value))
 print(json.isNull(value.missing))
 ```
+
+
+</div>

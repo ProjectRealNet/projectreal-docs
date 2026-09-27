@@ -2,13 +2,10 @@
 title: "json.quote"
 sidebarTitle: "json.quote"
 description: "Escape un string avec Real JSON string escaping rules et renvoie un complete quoted JSON string literal."
-icon: "function"
 keywords: ["json.quote","JSON"]
 ---
 
-Escape un string avec Real JSON string escaping rules et renvoie un complete quoted JSON string literal.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 json.quote(text: string): string
@@ -16,15 +13,15 @@ json.quote(text: string): string
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | String a quote. L'function lit cet argument avec string type checking. |
+<ParamField path={"text"} type={"string"} required>
+String a quote. L'function lit cet argument avec string type checking.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `quoted` | `string` | Complete JSON string literal incLua runtime opening et closing quote. Quotes, backslashes, common control characters et bytes below 0x20 sont escaped. |
+<ResponseField name={"quoted"} type={"string"}>
+Complete JSON string literal incLua runtime opening et closing quote. Quotes, backslashes, common control characters et bytes below 0x20 sont escaped.
+</ResponseField>
 
 ## Exemple
 
@@ -36,3 +33,6 @@ local quoted = json.quote(source)
 
 print(quoted)
 ```
+
+
+</div>

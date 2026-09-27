@@ -2,13 +2,10 @@
 title: "fireproximityprompt"
 sidebarTitle: "fireproximityprompt"
 description: "يشغل ProximityPrompt عبر Real ProximityPrompt trigger. يجب أن يكون وسيط prompt عبارة عن object لديه حقل ClassName يساوي \"ProximityPrompt\". إذا لم تكن القيمة object، يطلق الاستدعاء type error. إذا كان ClassName مفقودا أو ليس string، يطلق \"Invalid Instance\". إذا لم يكن ClassName هو \"ProximityPrompt\"، يطلق \"ProximityPrompt expected\". لا تأخذ function أي optional arguments ولا ترجع أي شيء."
-icon: "function"
 keywords: ["fireproximityprompt","Instances"]
 ---
 
-يشغل ProximityPrompt عبر Real ProximityPrompt trigger. يجب أن يكون وسيط prompt عبارة عن object لديه حقل ClassName يساوي "ProximityPrompt". إذا لم تكن القيمة object، يطلق الاستدعاء type error. إذا كان ClassName مفقودا أو ليس string، يطلق "Invalid Instance". إذا لم يكن ClassName هو "ProximityPrompt"، يطلق "ProximityPrompt expected". لا تأخذ function أي optional arguments ولا ترجع أي شيء.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 fireproximityprompt(prompt: Instance)
@@ -16,9 +13,9 @@ fireproximityprompt(prompt: Instance)
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `prompt` | `Instance` | Yes | Instance يجب أن تكون ClassName الخاصة به ProximityPrompt. |
+<ParamField path={"prompt"} type={"Instance"} required>
+Instance يجب أن تكون ClassName الخاصة به ProximityPrompt.
+</ParamField>
 
 ## مثال
 
@@ -29,3 +26,6 @@ local prompt = workspace.InteractivePart.ProximityPrompt
 
 fireproximityprompt(prompt)
 ```
+
+
+</div>

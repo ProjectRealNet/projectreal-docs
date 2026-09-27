@@ -2,13 +2,10 @@
 title: "json.isObject"
 sidebarTitle: "json.isObject"
 description: "คืนว่า value ถูก treated as a JSON object โดย Real JSON table detection หรือไม่."
-icon: "function"
 keywords: ["json.isObject","JSON"]
 ---
 
-คืนว่า value ถูก treated as a JSON object โดย Real JSON table detection หรือไม่.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 json.isObject(value: any): boolean
@@ -16,15 +13,15 @@ json.isObject(value: any): boolean
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value ที่จะ inspect. Non-table values คืน false. |
+<ParamField path={"value"} type={"any"} required>
+Value ที่จะ inspect. Non-table values คืน false.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `isObject` | `boolean` | true เมื่อ value เป็น table marked as a JSON object หรือเมื่อ Real JSON table detection ไม่จัด table เป็น array. Empty unmarked tables คืน true. |
+<ResponseField name={"isObject"} type={"boolean"}>
+true เมื่อ value เป็น table marked as a JSON object หรือเมื่อ Real JSON table detection ไม่จัด table เป็น array. Empty unmarked tables คืน true.
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -39,3 +36,6 @@ print(json.isObject(record))
 print(json.isObject(items))
 print(json.isObject(empty))
 ```
+
+
+</div>

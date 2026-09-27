@@ -2,13 +2,10 @@
 title: "cloneref"
 sidebarTitle: "cloneref"
 description: "Pousse une nouvelle reference Instance pour le meme pointeur Instance sous-jacent et la renvoie."
-icon: "function"
 keywords: ["cloneref","Cache","clonereference"]
 ---
 
-Pousse une nouvelle reference Instance pour le meme pointeur Instance sous-jacent et la renvoie.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 cloneref(instance: Instance): Instance
@@ -20,15 +17,15 @@ cloneref(instance: Instance): Instance
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object utilise comme source pour la nouvelle reference. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object utilise comme source pour la nouvelle reference.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `reference` | `Instance` | Reference Instance renvoyee apres l'execution de Instance cache avec le pointeur object original. |
+<ResponseField name={"reference"} type={"Instance"}>
+Reference Instance renvoyee apres l'execution de Instance cache avec le pointeur object original.
+</ResponseField>
 
 ## Exemple
 
@@ -43,3 +40,6 @@ print(reference)
 local sameAlias = clonereference(Players)
 print(sameAlias)
 ```
+
+
+</div>

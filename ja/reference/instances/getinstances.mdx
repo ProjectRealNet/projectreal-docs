@@ -2,13 +2,10 @@
 title: "getinstances"
 sidebarTitle: "getinstances"
 description: "Instance cache に現在保存されているすべての object value を含む新しい array table を返します。この function は arguments を取りません。各 registry value が object であること以外、Parent、ClassName、DataModel fieldship、nil-parent state、Instance validity ではフィルタしません。entries は 1 から始まる sequential numeric indexes にコピーされます。iteration order は cache に対する table iteration から来ており、function はソートしません。"
-icon: "function"
 keywords: ["getinstances","Instances"]
 ---
 
-Instance cache に現在保存されているすべての object value を含む新しい array table を返します。この function は arguments を取りません。各 registry value が object であること以外、Parent、ClassName、DataModel fieldship、nil-parent state、Instance validity ではフィルタしません。entries は 1 から始まる sequential numeric indexes にコピーされます。iteration order は cache に対する table iteration から来ており、function はソートしません。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 getinstances(): { Instance }
@@ -16,6 +13,9 @@ getinstances(): { Instance }
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `instances` | `&#123; Instance &#125;` | Instance cache table からコピーされた object values の array table。 |
+<ResponseField name={"instances"} type={"{ Instance }"}>
+Instance cache table からコピーされた object values の array table。
+</ResponseField>
+
+
+</div>

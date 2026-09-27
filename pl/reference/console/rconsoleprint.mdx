@@ -2,13 +2,10 @@
 title: "rconsoleprint"
 sidebarTitle: "rconsoleprint"
 description: "Zapisuje jedną lub więcej wartości do bieżącej Windows console przez stdout bez zmiany console text attribute. Wartości są konwertowane za pomocą Lua string conversion i rozdzielane znakami tab. function nie dodaje newline. Jeśli nie istnieje żadna console window, wywołanie wraca bez wykonania akcji."
-icon: "function"
 keywords: ["rconsoleprint","Console","consoleprint","rconsolewrite","consolewrite"]
 ---
 
-Zapisuje jedną lub więcej wartości do bieżącej Windows console przez stdout bez zmiany console text attribute. Wartości są konwertowane za pomocą Lua string conversion i rozdzielane znakami tab. function nie dodaje newline. Jeśli nie istnieje żadna console window, wywołanie wraca bez wykonania akcji.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 rconsoleprint(...values?: ...any)
@@ -22,9 +19,9 @@ rconsoleprint(...values?: ...any)
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | Opcjonalne wartosci. Jesli istnieje console, kazdy value jest konwertowany przez Lua string conversion i laczony znakami tab przed zapisem. |
+<ParamField path={"...values"} type={"...any"}>
+Opcjonalne wartosci. Jesli istnieje console, kazdy value jest konwertowany przez Lua string conversion i laczony znakami tab przed zapisem.
+</ParamField>
 
 ## Przykład
 
@@ -37,3 +34,6 @@ rconsoleprint("Loading", "
 rconsoleprint("User", "	", 42, "
 ")
 ```
+
+
+</div>

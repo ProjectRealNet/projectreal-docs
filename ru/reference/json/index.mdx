@@ -1,34 +1,88 @@
 ---
 title: "JSON"
 description: "Анализируйте, кодируйте, проверяйте и преобразуйте JSON."
-icon: "folder-code"
+icon: "/icons/code-circle-2.svg"
 ---
+
+<div className="real-category-page">
 
 Анализируйте, кодируйте, проверяйте и преобразуйте JSON.
 
-| Навигация по функциям | Описание |
-| --- | --- |
-| [`json.array`](./json-array) | Создает new table, помеченную как JSON array для json.encode, копируя sequence 1.#source, если передана source table. |
-| [`json.clone`](./json-clone) | Клонирует value через encoding с json.encode semantics и decoding generated JSON обратно в Lua values. |
-| [`json.decode`](./json-decode) | Парсит JSON string с помощью Real JSON parser и возвращает decoded Lua value, помечая decoded arrays и objects для JSON helpers. |
-| [`json.decodeSafe`](./json-decodesafe) | Парсит JSON тем же parser, что и json.decode, и возвращает success flag вместо исключения для parse errors. |
-| [`json.encode`](./json-encode) | Сериализует Lua value в JSON string с помощью Real JSON encoder. json.stringify зарегистрирован на ту же function. |
-| [`json.encodePretty`](./json-encodepretty) | Serializes Lua value в readable formatted JSON string через Real JSON encoder. json.pretty зарегистрирован на ту же function. |
-| [`json.escape`](./json-escape) | Escape для string по Real JSON string escaping rules и возврат escaped content без surrounding quotes. |
-| [`json.format`](./json-format) | Parse для JSON string и повторный encode как readable formatted JSON через Real JSON parser и encoder. |
-| [`json.getPath`](./json-getpath) | Читает nested value из table через dotted string path или array table of keys. |
-| [`json.isArray`](./json-isarray) | Возвращает, является ли value treated as a JSON array через Real JSON table detection. |
-| [`json.isNull`](./json-isnull) | Возвращает, является ли value Real JSON null sentinel, json.null. |
-| [`json.isObject`](./json-isobject) | Возвращает, является ли value treated as a JSON object через Real JSON table detection. |
-| [`json.keys`](./json-keys) | Возвращает visible keys из table в new table marked as a JSON array. |
-| [`json.minify`](./json-minify) | Parse для JSON string и повторный encode через Real default non-pretty JSON encoder output. |
-| [`json.object`](./json-object) | Создает new table marked as a JSON object, чтобы Real JSON encoder обрабатывал ее как object. |
-| [`json.parse`](./json-parse) | Parse для JSON string через ту же function, что json.decode. |
-| [`json.pretty`](./json-pretty) | Serializes Lua value в readable formatted JSON string через ту же function, что json.encodePretty. |
-| [`json.quote`](./json-quote) | Escape для string по Real JSON string escaping rules и возврат complete quoted JSON string literal. |
-| [`json.stringify`](./json-stringify) | Сериализует Lua value в JSON string через ту же function, что json.encode. |
-| [`json.tryDecode`](./json-trydecode) | Пытается parse JSON string через ту же function, что json.decodeSafe, и возвращает status values для parse errors. |
-| [`json.type`](./json-type) | Возвращает string type name для значения. json.null возвращает "null". Таблицы возвращают "array" или "object" с той же table classification, что json.isArray и json.isObject. Остальные значения возвращают runtime Lua type name result. |
-| [`json.unescape`](./json-unescape) | Декодирует JSON string escape sequences из escaped string content или из complete quoted JSON string literal. Вход parse через JSON string parser, а не как full JSON document. |
-| [`json.validate`](./json-validate) | Проверяет JSON string, выполняя parse одного complete JSON value. При success возвращает только true. При parse failure возвращает false плюс parser error details. |
-| [`json.values`](./json-values) | Возвращает direct values из table в новой table, marked as JSON array. JSON kind marker entries пропускаются. |
+## Доступные функции
+
+<CardGroup cols={2}>
+<Card title="json.array" href="./json-array">
+Создает new table, помеченную как JSON array для json.encode, копируя sequence 1.#source, если передана source table.
+</Card>
+<Card title="json.clone" href="./json-clone">
+Клонирует value через encoding с json.encode semantics и decoding generated JSON обратно в Lua values.
+</Card>
+<Card title="json.decode" href="./json-decode">
+Парсит JSON string с помощью Real JSON parser и возвращает decoded Lua value, помечая decoded arrays и objects для JSON helpers.
+</Card>
+<Card title="json.decodeSafe" href="./json-decodesafe">
+Парсит JSON тем же parser, что и json.decode, и возвращает success flag вместо исключения для parse errors.
+</Card>
+<Card title="json.encode" href="./json-encode">
+Сериализует Lua value в JSON string с помощью Real JSON encoder. json.stringify зарегистрирован на ту же function.
+</Card>
+<Card title="json.encodePretty" href="./json-encodepretty">
+Serializes Lua value в readable formatted JSON string через Real JSON encoder. json.pretty зарегистрирован на ту же function.
+</Card>
+<Card title="json.escape" href="./json-escape">
+Escape для string по Real JSON string escaping rules и возврат escaped content без surrounding quotes.
+</Card>
+<Card title="json.format" href="./json-format">
+Parse для JSON string и повторный encode как readable formatted JSON через Real JSON parser и encoder.
+</Card>
+<Card title="json.getPath" href="./json-getpath">
+Читает nested value из table через dotted string path или array table of keys.
+</Card>
+<Card title="json.isArray" href="./json-isarray">
+Возвращает, является ли value treated as a JSON array через Real JSON table detection.
+</Card>
+<Card title="json.isNull" href="./json-isnull">
+Возвращает, является ли value Real JSON null sentinel, json.null.
+</Card>
+<Card title="json.isObject" href="./json-isobject">
+Возвращает, является ли value treated as a JSON object через Real JSON table detection.
+</Card>
+<Card title="json.keys" href="./json-keys">
+Возвращает visible keys из table в new table marked as a JSON array.
+</Card>
+<Card title="json.minify" href="./json-minify">
+Parse для JSON string и повторный encode через Real default non-pretty JSON encoder output.
+</Card>
+<Card title="json.object" href="./json-object">
+Создает new table marked as a JSON object, чтобы Real JSON encoder обрабатывал ее как object.
+</Card>
+<Card title="json.parse" href="./json-parse">
+Parse для JSON string через ту же function, что json.decode.
+</Card>
+<Card title="json.pretty" href="./json-pretty">
+Serializes Lua value в readable formatted JSON string через ту же function, что json.encodePretty.
+</Card>
+<Card title="json.quote" href="./json-quote">
+Escape для string по Real JSON string escaping rules и возврат complete quoted JSON string literal.
+</Card>
+<Card title="json.stringify" href="./json-stringify">
+Сериализует Lua value в JSON string через ту же function, что json.encode.
+</Card>
+<Card title="json.tryDecode" href="./json-trydecode">
+Пытается parse JSON string через ту же function, что json.decodeSafe, и возвращает status values для parse errors.
+</Card>
+<Card title="json.type" href="./json-type">
+Возвращает string type name для значения. json.null возвращает "null". Таблицы возвращают "array" или "object" с той же table classification, что json.isArray и json.isObject. Остальные значения возвращают runtime Lua type name result.
+</Card>
+<Card title="json.unescape" href="./json-unescape">
+Декодирует JSON string escape sequences из escaped string content или из complete quoted JSON string literal. Вход parse через JSON string parser, а не как full JSON document.
+</Card>
+<Card title="json.validate" href="./json-validate">
+Проверяет JSON string, выполняя parse одного complete JSON value. При success возвращает только true. При parse failure возвращает false плюс parser error details.
+</Card>
+<Card title="json.values" href="./json-values">
+Возвращает direct values из table в новой table, marked as JSON array. JSON kind marker entries пропускаются.
+</Card>
+</CardGroup>
+
+</div>

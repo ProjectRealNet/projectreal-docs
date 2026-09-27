@@ -2,13 +2,10 @@
 title: "comparefunctions"
 sidebarTitle: "comparefunctions"
 description: "Vergleicht zwei function values über ihren function identity. Beide arguments müssen functions sein. Die function gibt das boolean result von function identity(L, 1) == function identity(L, 2) zurück. Sie vergleicht kein function bytecode, source, behavior, hashes, upvalues oder newcclosure mappings. comparefunction ist ein alias für dieselbe function."
-icon: "function"
 keywords: ["comparefunctions","Closures","comparefunction"]
 ---
 
-Vergleicht zwei function values über ihren function identity. Beide arguments müssen functions sein. Die function gibt das boolean result von function identity(L, 1) == function identity(L, 2) zurück. Sie vergleicht kein function bytecode, source, behavior, hashes, upvalues oder newcclosure mappings. comparefunction ist ein alias für dieselbe function.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 comparefunctions(func1: function, func2: function): boolean
@@ -20,16 +17,19 @@ comparefunctions(func1: function, func2: function): boolean
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `func1` | `function` | Yes | First function value, der mit function identity konvertiert wird. |
-| `func2` | `function` | Yes | Second function value, der mit function identity konvertiert wird. |
+<ParamField path={"func1"} type={"function"} required>
+First function value, der mit function identity konvertiert wird.
+</ParamField>
+
+<ParamField path={"func2"} type={"function"} required>
+Second function value, der mit function identity konvertiert wird.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `equal` | `boolean` | true, wenn beide function values zum selben function identity aufgelöst werden; andernfalls false. |
+<ResponseField name={"equal"} type={"boolean"}>
+true, wenn beide function values zum selben function identity aufgelöst werden; andernfalls false.
+</ResponseField>
 
 ## Beispiel
 
@@ -43,3 +43,6 @@ end
 local same = comparefunctions(sample, sample)
 print(same)
 ```
+
+
+</div>

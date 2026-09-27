@@ -2,13 +2,10 @@
 title: "getsignalargumentsinfo"
 sidebarTitle: "getsignalargumentsinfo"
 description: "Bir RBXScriptSignal imzasından argüman bilgisi içeren bir array table döndürür. Yakalanmış çalışma zamanı argüman değerlerini döndürmez."
-icon: "function"
 keywords: ["getsignalargumentsinfo","Signals"]
 ---
 
-Bir RBXScriptSignal imzasından argüman bilgisi içeren bir array table döndürür. Yakalanmış çalışma zamanı argüman değerlerini döndürmez.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 getsignalargumentsinfo(signal: RBXScriptSignal): {{Name: string, Type: string}}
@@ -16,15 +13,15 @@ getsignalargumentsinfo(signal: RBXScriptSignal): {{Name: string, Type: string}}
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | event descriptor signature değeri incelenecek RBXScriptSignal. |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+event descriptor signature değeri incelenecek RBXScriptSignal.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `argumentInfo` | `&#123;&#123;Name: string, Type: string&#125;&#125;` | Her girdisi Name ve Type string değerlerine sahip bir array table. İmza okunamazsa veya hiç girdi içermiyorsa, fonksiyon Name değeri arg1 ve Type değeri Variant olan tek bir fallback entry döndürür. |
+<ResponseField name={"argumentInfo"} type={"{{Name: string, Type: string}}"}>
+Her girdisi Name ve Type string değerlerine sahip bir array table. İmza okunamazsa veya hiç girdi içermiyorsa, fonksiyon Name değeri arg1 ve Type değeri Variant olan tek bir fallback entry döndürür.
+</ResponseField>
 
 ## Örnek
 
@@ -40,3 +37,6 @@ if remote then
     end
 end
 ```
+
+
+</div>

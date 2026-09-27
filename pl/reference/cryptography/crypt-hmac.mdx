@@ -2,13 +2,10 @@
 title: "crypt.hmac"
 sidebarTitle: "crypt.hmac"
 description: "Oblicza crypto library HMAC dla bajtow Lua string z raw Lua string key i zwraca Base64 digest."
-icon: "function"
 keywords: ["crypt.hmac","Cryptography"]
 ---
 
-Oblicza crypto library HMAC dla bajtow Lua string z raw Lua string key i zwraca Base64 digest.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 crypt.hmac(key: string, data: string, algorithm?: "sha256" | "sha1" | "sha224" | "sha384" | "sha512" | "md5"): string
@@ -16,17 +13,23 @@ crypt.hmac(key: string, data: string, algorithm?: "sha256" | "sha1" | "sha224" |
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `key` | `string` | Yes | Bajty raw Lua string uzywane jako HMAC key. key nie jest Base64-decode. |
-| `data` | `string` | Yes | Bajty Lua string przekazywane do HMAC calculation. |
-| `algorithm` | `"sha256" \| "sha1" \| "sha224" \| "sha384" \| "sha512" \| "md5"` | No | Nazwa HMAC algorithm case-sensitive. Wartosc domyslna to sha256. |
+<ParamField path={"key"} type={"string"} required>
+Bajty raw Lua string uzywane jako HMAC key. key nie jest Base64-decode.
+</ParamField>
+
+<ParamField path={"data"} type={"string"} required>
+Bajty Lua string przekazywane do HMAC calculation.
+</ParamField>
+
+<ParamField path={"algorithm"} type={"\"sha256\" | \"sha1\" | \"sha224\" | \"sha384\" | \"sha512\" | \"md5\""}>
+Nazwa HMAC algorithm case-sensitive. Wartosc domyslna to sha256.
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `digest` | `string` | Base64-encoded HMAC output bez line breaks. |
+<ResponseField name={"digest"} type={"string"}>
+Base64-encoded HMAC output bez line breaks.
+</ResponseField>
 
 ## Przykład
 
@@ -39,3 +42,6 @@ local digest = crypt.hmac(key, data, "sha256")
 
 print(digest)
 ```
+
+
+</div>

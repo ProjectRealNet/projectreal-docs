@@ -2,13 +2,10 @@
 title: "lz4compress"
 sidebarTitle: "lz4compress"
 description: "使用 LZ4 block compression 压缩 Lua string 字节，并将 raw compressed bytes 作为 Lua string 返回。"
-icon: "function"
 keywords: ["lz4compress","Cryptography","crypt.lz4compress","crypt.lz4.compress","lz4.compress"]
 ---
 
-使用 LZ4 block compression 压缩 Lua string 字节，并将 raw compressed bytes 作为 Lua string 返回。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 lz4compress(data: string): string
@@ -22,15 +19,15 @@ lz4compress(data: string): string
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | 传递给 LZ4 block compression 的 Lua string 字节。 |
+<ParamField path={"data"} type={"string"} required>
+传递给 LZ4 block compression 的 Lua string 字节。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `compressed` | `string` | 以 Lua string 返回的 raw compressed bytes。original size 不会存储在输出中。 |
+<ResponseField name={"compressed"} type={"string"}>
+以 Lua string 返回的 raw compressed bytes。original size 不会存储在输出中。
+</ResponseField>
 
 ## 示例
 
@@ -43,3 +40,6 @@ local restored = lz4decompress(compressed, #source)
 
 print(#source, #compressed, restored == source)
 ```
+
+
+</div>

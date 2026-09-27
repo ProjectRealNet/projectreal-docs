@@ -2,13 +2,10 @@
 title: "mousemoveabs"
 sidebarTitle: "mousemoveabs"
 description: "Move o mouse usando Windows absolute mouse input quando a Roblox window esta ativa. Os argumentos x e y sao verificados como Lua numbers e convertidos com integer conversion. Real os trata como coordenadas relative to active foreground window client area, adiciona a screen position dessa client area com ClientToScreen, escala usando GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 e integer math, e entao chama mouse input com the requested mouse action. Se isrbxactive seria false, a function retorna sem enviar input."
-icon: "function"
 keywords: ["mousemoveabs","Input"]
 ---
 
-Move o mouse usando Windows absolute mouse input quando a Roblox window esta ativa. Os argumentos x e y sao verificados como Lua numbers e convertidos com integer conversion. Real os trata como coordenadas relative to active foreground window client area, adiciona a screen position dessa client area com ClientToScreen, escala usando GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 e integer math, e entao chama mouse input com the requested mouse action. Se isrbxactive seria false, a function retorna sem enviar input.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 mousemoveabs(x: number, y: number)
@@ -16,7 +13,13 @@ mousemoveabs(x: number, y: number)
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `x` | `number` | Yes | Client-area X coordinate lida como Lua number e convertida com integer conversion antes da etapa de screen-position e absolute-input scaling. |
-| `y` | `number` | Yes | Client-area Y coordinate lida como Lua number e convertida com integer conversion antes da etapa de screen-position e absolute-input scaling. |
+<ParamField path={"x"} type={"number"} required>
+Client-area X coordinate lida como Lua number e convertida com integer conversion antes da etapa de screen-position e absolute-input scaling.
+</ParamField>
+
+<ParamField path={"y"} type={"number"} required>
+Client-area Y coordinate lida como Lua number e convertida com integer conversion antes da etapa de screen-position e absolute-input scaling.
+</ParamField>
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "getconnections"
 sidebarTitle: "getconnections"
 description: "Bir RBXScriptSignal icin RealConnection closures iceren array table dondurur. Ilk argument, Luau type name degeri RBXScriptSignal olan object olmalidir. Function signal icindeki Connect method degerini okur, temporary blank callback baglar, gecici connection icin next reference degerinden baslayan linked list degerini okur, gecici connection degerini disconnect eder ve her gecerli connection reference degerini closure haline getirir. Gecici connection sonrasinda connection reference bulunmazsa bos table dondurur. Daha once closure haline getirilen underlying references ayni cached closure table degerini dondurebilir. getsignals ve get_signal_cons ayni function icin aliases degerleridir."
-icon: "function"
 keywords: ["getconnections","Signals","getsignals","get_signal_cons"]
 ---
 
-Bir RBXScriptSignal icin RealConnection closures iceren array table dondurur. Ilk argument, Luau type name degeri RBXScriptSignal olan object olmalidir. Function signal icindeki Connect method degerini okur, temporary blank callback baglar, gecici connection icin next reference degerinden baslayan linked list degerini okur, gecici connection degerini disconnect eder ve her gecerli connection reference degerini closure haline getirir. Gecici connection sonrasinda connection reference bulunmazsa bos table dondurur. Daha once closure haline getirilen underlying references ayni cached closure table degerini dondurebilir. getsignals ve get_signal_cons ayni function icin aliases degerleridir.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 getconnections(signal: RBXScriptSignal): {RealConnection}
@@ -21,15 +18,15 @@ getconnections(signal: RBXScriptSignal): {RealConnection}
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | Incelenecek signal. RBXScriptSignal olmayan object type error olusturur, cagrilabilir Connect field olmayan signal ise "Signal does not have 'Connect' method" olusturur. |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+Incelenecek signal. RBXScriptSignal olmayan object type error olusturur, cagrilabilir Connect field olmayan signal ise "Signal does not have 'Connect' method" olusturur.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `connections` | `&#123;RealConnection&#125;` | Connection closure tables iceren array table. Her closure, methods uzerinden fields ve methods sunar; mevcut olduklarinda Enabled, Disabled, LuaConnection, ForeignState, Function, Thread, Disconnect, Disable, Enable, Fire ve Defer buna dahildir. |
+<ResponseField name={"connections"} type={"{RealConnection}"}>
+Connection closure tables iceren array table. Her closure, methods uzerinden fields ve methods sunar; mevcut olduklarinda Enabled, Disabled, LuaConnection, ForeignState, Function, Thread, Disconnect, Disable, Enable, Fire ve Defer buna dahildir.
+</ResponseField>
 
 ## Örnek
 
@@ -42,3 +39,6 @@ for _, connection in ipairs(getconnections(Players.PlayerAdded)) do
     print(connection.Enabled, connection.LuaConnection)
 end
 ```
+
+
+</div>

@@ -1,15 +1,31 @@
 ---
 title: "Cache"
 description: "Cache de referência e comparação de instâncias."
-icon: "folder-code"
+icon: "/icons/database.svg"
 ---
+
+<div className="real-category-page">
 
 Cache de referência e comparação de instâncias.
 
-| Navegação de funções | Descrição |
-| --- | --- |
-| [`cache.invalidate`](./cache-invalidate) | Remove a entrada de registro Instance cache em cache da Instance informada. |
-| [`cache.iscached`](./cache-iscached) | Retorna se a Instance informada tem uma entrada non-nil no Instance cache. |
-| [`cache.replace`](./cache-replace) | Sets the cached Instance entry for one Instance to another Instance. |
-| [`cloneref`](./cloneref) | Envia uma nova referencia Instance para o mesmo ponteiro Instance subjacente e a retorna. |
-| [`compareinstances`](./compareinstances) | Compara os valores internos de ponteiro Instance armazenados em dois valores Instance object. |
+## Funções disponíveis
+
+<CardGroup cols={2}>
+<Card title="cache.invalidate" href="./cache-invalidate">
+Remove a entrada de registro Instance cache em cache da Instance informada.
+</Card>
+<Card title="cache.iscached" href="./cache-iscached">
+Retorna se a Instance informada tem uma entrada non-nil no Instance cache.
+</Card>
+<Card title="cache.replace" href="./cache-replace">
+Sets the cached Instance entry for one Instance to another Instance.
+</Card>
+<Card title="cloneref" href="./cloneref">
+Envia uma nova referencia Instance para o mesmo ponteiro Instance subjacente e a retorna.
+</Card>
+<Card title="compareinstances" href="./compareinstances">
+Compara os valores internos de ponteiro Instance armazenados em dois valores Instance object.
+</Card>
+</CardGroup>
+
+</div>

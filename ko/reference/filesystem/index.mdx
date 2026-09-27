@@ -1,25 +1,61 @@
 ---
 title: "Filesystem"
 description: "파일과 폴더를 읽고, 쓰고, 관리합니다."
-icon: "folder-code"
+icon: "/icons/folder.svg"
 ---
+
+<div className="real-category-page">
 
 파일과 폴더를 읽고, 쓰고, 관리합니다.
 
-| 함수 탐색 | 설명 |
-| --- | --- |
-| [`appendfile`](./appendfile) | Appends raw Lua string bytes to a workspace file using binary append mode. The file may be created if its parent folder exists. |
-| [`delfile`](./delfile) | workspace 안에 있는 기존 regular file을 삭제합니다. |
-| [`delfolder`](./delfolder) | workspace 안에 있는 기존 folder를 recursive folder deletion로 recursive 삭제합니다. |
-| [`getcustomasset`](./getcustomasset) | 기존 regular workspace file을 ExtraContent/&lt;hwid>/로 복사하고 복사된 asset path에 대한 rbxasset:// string을 반환합니다. |
-| [`isfile`](./isfile) | Returns whether a path resolved inside the workspace exists and is a regular file. |
-| [`isfolder`](./isfolder) | Returns whether a path resolved inside the workspace exists and is a directory. |
-| [`listfiles`](./listfiles) | Returns an array table of the direct children of an existing workspace directory. |
-| [`loadfile`](./loadfile) | Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it. |
-| [`makefolder`](./makefolder) | recursive folder creation로 missing parent directories를 포함해 workspace 안에 directory를 생성합니다. |
-| [`openfiledialog`](./openfiledialog) | Windows file picker를 통해 Windows file-open dialog를 열고 선택한 파일을 file item으로 반환합니다. |
-| [`openfilesdialog`](./openfilesdialog) | Windows file picker 를 통해 multi-select 가 활성화된 Windows file-open dialog 를 열고 선택된 파일을 file item 값으로 반환합니다. |
-| [`openfolderdialog`](./openfolderdialog) | Windows file picker 와 folder selection mode 를 통해 Windows folder picker 를 열고 선택된 폴더를 file item 으로 반환합니다. |
-| [`readfile`](./readfile) | workspace 안의 existing regular file 을 binary mode 로 읽고 해당 bytes 를 Lua string 으로 반환합니다. |
-| [`savefiledialog`](./savefiledialog) | Windows save dialog 를 통해 Windows save dialog 를 열고 제공된 Lua string bytes 를 selected path 에 쓴 뒤 saved file 을 file item 으로 반환합니다. |
-| [`writefile`](./writefile) | workspace 안의 파일에 Lua string bytes 를 쓰고, missing parent directories 를 만들며, 파일이 이미 있으면 file contents 를 교체합니다. |
+## 사용 가능한 함수
+
+<CardGroup cols={2}>
+<Card title="appendfile" href="./appendfile">
+Appends raw Lua string bytes to a workspace file using binary append mode. The file may be created if its parent folder exists.
+</Card>
+<Card title="delfile" href="./delfile">
+workspace 안에 있는 기존 regular file을 삭제합니다.
+</Card>
+<Card title="delfolder" href="./delfolder">
+workspace 안에 있는 기존 folder를 recursive folder deletion로 recursive 삭제합니다.
+</Card>
+<Card title="getcustomasset" href="./getcustomasset">
+기존 regular workspace file을 ExtraContent/&lt;hwid>/로 복사하고 복사된 asset path에 대한 rbxasset:// string을 반환합니다.
+</Card>
+<Card title="isfile" href="./isfile">
+Returns whether a path resolved inside the workspace exists and is a regular file.
+</Card>
+<Card title="isfolder" href="./isfolder">
+Returns whether a path resolved inside the workspace exists and is a directory.
+</Card>
+<Card title="listfiles" href="./listfiles">
+Returns an array table of the direct children of an existing workspace directory.
+</Card>
+<Card title="loadfile" href="./loadfile">
+Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it.
+</Card>
+<Card title="makefolder" href="./makefolder">
+recursive folder creation로 missing parent directories를 포함해 workspace 안에 directory를 생성합니다.
+</Card>
+<Card title="openfiledialog" href="./openfiledialog">
+Windows file picker를 통해 Windows file-open dialog를 열고 선택한 파일을 file item으로 반환합니다.
+</Card>
+<Card title="openfilesdialog" href="./openfilesdialog">
+Windows file picker 를 통해 multi-select 가 활성화된 Windows file-open dialog 를 열고 선택된 파일을 file item 값으로 반환합니다.
+</Card>
+<Card title="openfolderdialog" href="./openfolderdialog">
+Windows file picker 와 folder selection mode 를 통해 Windows folder picker 를 열고 선택된 폴더를 file item 으로 반환합니다.
+</Card>
+<Card title="readfile" href="./readfile">
+workspace 안의 existing regular file 을 binary mode 로 읽고 해당 bytes 를 Lua string 으로 반환합니다.
+</Card>
+<Card title="savefiledialog" href="./savefiledialog">
+Windows save dialog 를 통해 Windows save dialog 를 열고 제공된 Lua string bytes 를 selected path 에 쓴 뒤 saved file 을 file item 으로 반환합니다.
+</Card>
+<Card title="writefile" href="./writefile">
+workspace 안의 파일에 Lua string bytes 를 쓰고, missing parent directories 를 만들며, 파일이 이미 있으면 file contents 를 교체합니다.
+</Card>
+</CardGroup>
+
+</div>

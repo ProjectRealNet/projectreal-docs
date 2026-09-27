@@ -2,13 +2,10 @@
 title: "rconsolewarn"
 sidebarTitle: "rconsolewarn"
 description: "Menulis nol atau beberapa nilai ke Windows console saat ini melalui stdout dengan warning console text attribute. Jika tidak ada console window, pemanggilan kembali tanpa mengonversi atau menulis apa pun. Saat console ada, setiap argument dikonversi dengan Lua string conversion, digabungkan dengan karakter tab, lalu ditulis melalui runtime value. Jika Lua string conversion memunculkan error, rconsolewarn tidak menangkapnya. Function ini mengatur console text attribute ke FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY sebelum menulis, lalu mengaturnya ke default console text color setelahnya. Function ini tidak menambahkan newline, tidak menambahkan warning prefix, tidak membuat atau menampilkan console, dan tidak memanggil Luau warn atau Roblox Output. consolewarn adalah alias untuk function yang sama."
-icon: "function"
 keywords: ["rconsolewarn","Console","consolewarn"]
 ---
 
-Menulis nol atau beberapa nilai ke Windows console saat ini melalui stdout dengan warning console text attribute. Jika tidak ada console window, pemanggilan kembali tanpa mengonversi atau menulis apa pun. Saat console ada, setiap argument dikonversi dengan Lua string conversion, digabungkan dengan karakter tab, lalu ditulis melalui runtime value. Jika Lua string conversion memunculkan error, rconsolewarn tidak menangkapnya. Function ini mengatur console text attribute ke FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY sebelum menulis, lalu mengaturnya ke default console text color setelahnya. Function ini tidak menambahkan newline, tidak menambahkan warning prefix, tidak membuat atau menampilkan console, dan tidak memanggil Luau warn atau Roblox Output. consolewarn adalah alias untuk function yang sama.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 rconsolewarn(...values?: ...any)
@@ -20,9 +17,9 @@ rconsolewarn(...values?: ...any)
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | Nilai opsional. Jika console ada, setiap value dikonversi dengan Lua string conversion dan digabungkan dengan karakter tab sebelum ditulis. |
+<ParamField path={"...values"} type={"...any"}>
+Nilai opsional. Jika console ada, setiap value dikonversi dengan Lua string conversion dan digabungkan dengan karakter tab sebelum ditulis.
+</ParamField>
 
 ## Contoh
 
@@ -33,3 +30,6 @@ rconsolecreate()
 rconsolewarn("Retrying request", 3)
 rconsolewarn("\n")
 ```
+
+
+</div>

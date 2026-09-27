@@ -2,13 +2,10 @@
 title: "hookfunction"
 sidebarTitle: "hookfunction"
 description: "Melakukan hook pada target function dengan replacement function dan mengembalikan cloned copy dari original target closure. Kedua arguments harus berupa functions. Function pertama melakukan flush pending C function swaps, melakukan cloning target melalui function cloning, menambahkan replacement closure atau mapped newcclosure target miliknya ke hidden stack tracking, memanggil FixCallstack untuk target dan cloned original, lalu melakukan patch target closure melalui C closure, Luau closure, atau newcclosure-specific path. Jika target belum ada di hook records, cloned original disimpan di sana untuk restorefunction. Returned function adalah cloned original closure."
-icon: "function"
 keywords: ["hookfunction","Closures","hookfunc","replaceclosure","detourfunction","detour_function"]
 ---
 
-Melakukan hook pada target function dengan replacement function dan mengembalikan cloned copy dari original target closure. Kedua arguments harus berupa functions. Function pertama melakukan flush pending C function swaps, melakukan cloning target melalui function cloning, menambahkan replacement closure atau mapped newcclosure target miliknya ke hidden stack tracking, memanggil FixCallstack untuk target dan cloned original, lalu melakukan patch target closure melalui C closure, Luau closure, atau newcclosure-specific path. Jika target belum ada di hook records, cloned original disimpan di sana untuk restorefunction. Returned function adalah cloned original closure.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 hookfunction(target: function, replacement: function): function
@@ -23,16 +20,19 @@ hookfunction(target: function, replacement: function): function
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `target` | `function` | Yes | Function yang akan di-patch. Mengirim non-function memunculkan type error. |
-| `replacement` | `function` | Yes | Function yang function-nya di-install ke atau di-map pada target. Mengirim non-function memunculkan type error. |
+<ParamField path={"target"} type={"function"} required>
+Function yang akan di-patch. Mengirim non-function memunculkan type error.
+</ParamField>
+
+<ParamField path={"replacement"} type={"function"} required>
+Function yang function-nya di-install ke atau di-map pada target. Mengirim non-function memunculkan type error.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `original` | `function` | Cloned copy dari original target closure yang dibuat sebelum hook di-install. |
+<ResponseField name={"original"} type={"function"}>
+Cloned copy dari original target closure yang dibuat sebelum hook di-install.
+</ResponseField>
 
 ## Contoh
 
@@ -48,3 +48,6 @@ original = hookfunction(target, function(value)
     return original(value) * 2
 end)
 ```
+
+
+</div>

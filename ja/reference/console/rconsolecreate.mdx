@@ -2,13 +2,10 @@
 title: "rconsolecreate"
 sidebarTitle: "rconsolecreate"
 description: "console window が存在しない場合、process 用に Windows console を allocate します。console window がすでに存在する場合、call は何もせず戻ります。allocation 後、function は stdout を console output に、stdin を console input に redirect します。"
-icon: "function"
 keywords: ["rconsolecreate","Console","consolecreate"]
 ---
 
-console window が存在しない場合、process 用に Windows console を allocate します。console window がすでに存在する場合、call は何もせず戻ります。allocation 後、function は stdout を console output に、stdin を console input に redirect します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 rconsolecreate()
@@ -26,3 +23,6 @@ Create the Windows console once before writing console output.
 rconsolecreate()
 rconsoleprint("Console ready")
 ```
+
+
+</div>

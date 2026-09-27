@@ -2,13 +2,10 @@
 title: "lz4compress"
 sidebarTitle: "lz4compress"
 description: "Compresses Lua string bytes with LZ4 block compression and returns the raw compressed bytes as a Lua string."
-icon: "function"
 keywords: ["lz4compress","Cryptography","crypt.lz4compress","crypt.lz4.compress","lz4.compress"]
 ---
 
-Compresses Lua string bytes with LZ4 block compression and returns the raw compressed bytes as a Lua string.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 lz4compress(data: string): string
@@ -22,15 +19,15 @@ lz4compress(data: string): string
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Lua string bytes passed to LZ4 block compression. |
+<ParamField path={"data"} type={"string"} required>
+Lua string bytes passed to LZ4 block compression.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `compressed` | `string` | Raw compressed bytes returned as a Lua string. The original size is not stored in the output. |
+<ResponseField name={"compressed"} type={"string"}>
+Raw compressed bytes returned as a Lua string. The original size is not stored in the output.
+</ResponseField>
 
 ## Example
 
@@ -43,3 +40,6 @@ local restored = lz4decompress(compressed, #source)
 
 print(#source, #compressed, restored == source)
 ```
+
+
+</div>

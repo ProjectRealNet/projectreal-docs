@@ -2,13 +2,10 @@
 title: "hookfunction"
 sidebarTitle: "hookfunction"
 description: "Hook một target function bằng replacement function và trả về cloned copy của original target closure. Cả hai arguments phải là functions. Function trước tiên flush pending C function swaps, cloning target qua function cloning, thêm replacement closure hoặc mapped newcclosure target của nó vào hidden stack tracking, gọi FixCallstack cho target và cloned original, rồi patch target closure qua C closure, Luau closure hoặc newcclosure-specific path. Nếu target chưa có trong hook records, cloned original được lưu ở đó cho restorefunction. Returned function là cloned original closure."
-icon: "function"
 keywords: ["hookfunction","Closures","hookfunc","replaceclosure","detourfunction","detour_function"]
 ---
 
-Hook một target function bằng replacement function và trả về cloned copy của original target closure. Cả hai arguments phải là functions. Function trước tiên flush pending C function swaps, cloning target qua function cloning, thêm replacement closure hoặc mapped newcclosure target của nó vào hidden stack tracking, gọi FixCallstack cho target và cloned original, rồi patch target closure qua C closure, Luau closure hoặc newcclosure-specific path. Nếu target chưa có trong hook records, cloned original được lưu ở đó cho restorefunction. Returned function là cloned original closure.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 hookfunction(target: function, replacement: function): function
@@ -23,16 +20,19 @@ hookfunction(target: function, replacement: function): function
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `target` | `function` | Yes | Function cần patch. Truyền non-function sẽ tạo type error. |
-| `replacement` | `function` | Yes | Function có function được install hoặc map lên target. Truyền non-function sẽ tạo type error. |
+<ParamField path={"target"} type={"function"} required>
+Function cần patch. Truyền non-function sẽ tạo type error.
+</ParamField>
+
+<ParamField path={"replacement"} type={"function"} required>
+Function có function được install hoặc map lên target. Truyền non-function sẽ tạo type error.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `original` | `function` | Cloned copy của original target closure được tạo trước khi hook được install. |
+<ResponseField name={"original"} type={"function"}>
+Cloned copy của original target closure được tạo trước khi hook được install.
+</ResponseField>
 
 ## Ví dụ
 
@@ -48,3 +48,6 @@ original = hookfunction(target, function(value)
     return original(value) * 2
 end)
 ```
+
+
+</div>

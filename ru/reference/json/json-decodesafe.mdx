@@ -2,13 +2,10 @@
 title: "json.decodeSafe"
 sidebarTitle: "json.decodeSafe"
 description: "Парсит JSON тем же parser, что и json.decode, и возвращает success flag вместо исключения для parse errors."
-icon: "function"
 keywords: ["json.decodeSafe","JSON"]
 ---
 
-Парсит JSON тем же parser, что и json.decode, и возвращает success flag вместо исключения для parse errors.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
@@ -16,19 +13,31 @@ json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | st
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON text для парсинга. Этот argument проверяется как string до перехвата parse errors. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean напрямую задает useNull. table может задать useNull и maxDepth; maxDepth clamp от 1 до 4096. Invalid option argument types проверяются до перехвата parse errors. |
+<ParamField path={"json"} type={"string"} required>
+JSON text для парсинга. Этот argument проверяется как string до перехвата parse errors.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean напрямую задает useNull. table может задать useNull и maxDepth; maxDepth clamp от 1 до 4096. Invalid option argument types проверяются до перехвата parse errors.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `success` | `boolean` | True, если parsing успешен, false, если parser сообщает error. |
-| `decoded` | `any \| nil` | Decoded value при успехе, nil при parse failure. Валидный JSON false возвращает success как true и decoded как false, поэтому проверяйте success return value. |
-| `errorMessage` | `string \| nil` | Error message при parse failure, иначе nil. Message содержит json.decodeSafe prefix и parser position. |
-| `errorPosition` | `number \| nil` | Parser byte position при parse failure, иначе nil. |
+<ResponseField name={"success"} type={"boolean"}>
+True, если parsing успешен, false, если parser сообщает error.
+</ResponseField>
+
+<ResponseField name={"decoded"} type={"any | nil"}>
+Decoded value при успехе, nil при parse failure. Валидный JSON false возвращает success как true и decoded как false, поэтому проверяйте success return value.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+Error message при parse failure, иначе nil. Message содержит json.decodeSafe prefix и parser position.
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+Parser byte position при parse failure, иначе nil.
+</ResponseField>
 
 ## Типы
 
@@ -57,3 +66,6 @@ if not parsed then
     warn(message, position)
 end
 ```
+
+
+</div>

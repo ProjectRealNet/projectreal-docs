@@ -2,13 +2,10 @@
 title: "hookfunction"
 sidebarTitle: "hookfunction"
 description: "target function を replacement function で hook し、original target closure の cloned copy を返します。両方の arguments は functions である必要があります。function はまず pending C function swaps を flush し、function cloning で target を cloning し、replacement closure またはその mapped newcclosure target を hidden stack tracking に追加し、target と cloned original に FixCallstack を呼び、C closure, Luau closure, newcclosure-specific path のいずれかで target closure を patch します。target がまだ hook records にない場合、restorefunction 用に cloned original がそこへ保存されます。returned function は cloned original closure です。"
-icon: "function"
 keywords: ["hookfunction","Closures","hookfunc","replaceclosure","detourfunction","detour_function"]
 ---
 
-target function を replacement function で hook し、original target closure の cloned copy を返します。両方の arguments は functions である必要があります。function はまず pending C function swaps を flush し、function cloning で target を cloning し、replacement closure またはその mapped newcclosure target を hidden stack tracking に追加し、target と cloned original に FixCallstack を呼び、C closure, Luau closure, newcclosure-specific path のいずれかで target closure を patch します。target がまだ hook records にない場合、restorefunction 用に cloned original がそこへ保存されます。returned function は cloned original closure です。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 hookfunction(target: function, replacement: function): function
@@ -23,16 +20,19 @@ hookfunction(target: function, replacement: function): function
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `target` | `function` | Yes | patch する Function。non-function を渡すと type error が発生します。 |
-| `replacement` | `function` | Yes | function が target に install または map される Function。non-function を渡すと type error が発生します。 |
+<ParamField path={"target"} type={"function"} required>
+patch する Function。non-function を渡すと type error が発生します。
+</ParamField>
+
+<ParamField path={"replacement"} type={"function"} required>
+function が target に install または map される Function。non-function を渡すと type error が発生します。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `original` | `function` | hook が install される前に作成された original target closure の cloned copy。 |
+<ResponseField name={"original"} type={"function"}>
+hook が install される前に作成された original target closure の cloned copy。
+</ResponseField>
 
 ## 例
 
@@ -48,3 +48,6 @@ original = hookfunction(target, function(value)
     return original(value) * 2
 end)
 ```
+
+
+</div>

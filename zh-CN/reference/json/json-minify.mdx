@@ -2,13 +2,10 @@
 title: "json.minify"
 sidebarTitle: "json.minify"
 description: "Parse 一个 JSON string，并使用 Real default non-pretty JSON encoder output 重新 encode。"
-icon: "function"
 keywords: ["json.minify","JSON"]
 ---
 
-Parse 一个 JSON string，并使用 Real default non-pretty JSON encoder output 重新 encode。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 json.minify(json: string, options?: DecodeOptions): string
@@ -16,16 +13,19 @@ json.minify(json: string, options?: DecodeOptions): string
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | Minifying 前要 parse 的 JSON string。function 使用 string type checking 读取这个 argument。 |
-| `options` | `DecodeOptions` | No | Parsing input JSON 时使用的 optional decode options。boolean 设置 useNull。table 可以设置 useNull 和 maxDepth。 |
+<ParamField path={"json"} type={"string"} required>
+Minifying 前要 parse 的 JSON string。function 使用 string type checking 读取这个 argument。
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Parsing input JSON 时使用的 optional decode options。boolean 设置 useNull。table 可以设置 useNull 和 maxDepth。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `minified` | `string` | Parsing 并用 default encode options re-encoding input 后产生的 JSON string。 |
+<ResponseField name={"minified"} type={"string"}>
+Parsing 并用 default encode options re-encoding input 后产生的 JSON string。
+</ResponseField>
 
 ## 类型
 
@@ -53,3 +53,6 @@ print(json.minify(formatted, {
     useNull = true,
 }))
 ```
+
+
+</div>

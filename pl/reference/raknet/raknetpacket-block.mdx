@@ -2,13 +2,10 @@
 title: "RakNetPacket.Block"
 sidebarTitle: "RakNetPacket.Block"
 description: "Marks a live RakNetPacket as blocked. Ignore resolves to the same method. The method returns no values."
-icon: "function"
 keywords: ["RakNetPacket.Block","RakNet","RakNetPacket.Ignore"]
 ---
 
-Marks a live RakNetPacket as blocked. Ignore resolves to the same method. The method returns no values.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 RakNetPacket.Block(packet: RakNetPacket)
@@ -20,9 +17,9 @@ RakNetPacket.Block(packet: RakNetPacket)
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `packet` | `RakNetPacket` | Yes | Live packet object passed to a RakNet hook or signal callback. |
+<ParamField path={"packet"} type={"RakNetPacket"} required>
+Live packet object passed to a RakNet hook or signal callback.
+</ParamField>
 
 ## Typy
 
@@ -61,3 +58,6 @@ if RakNet.is_enabled then
     end)
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "writefile"
 sidebarTitle: "writefile"
 description: "workspace 内のファイルへ Lua string bytes を書き込み、missing parent directories を作成し、ファイルがすでに存在する場合は file contents を置き換えます。"
-icon: "function"
 keywords: ["writefile","Filesystem","writefileasync"]
 ---
 
-workspace 内のファイルへ Lua string bytes を書き込み、missing parent directories を作成し、ファイルがすでに存在する場合は file contents を置き換えます。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 writefile(path: string, content: string)
@@ -20,10 +17,13 @@ writefile(path: string, content: string)
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | separator normalization、workspace-boundary checks、filename/extension checks の後に workspace 内へ解決される File path。Absolute paths は workspace 内に解決される場合だけ受け入れられます。 |
-| `content` | `string` | Yes | 書き込む Lua string bytes。データは binary truncate mode で書き込まれます。writefile は newlines、BOM bytes、null terminators、その他の extra bytes を追加しません。 |
+<ParamField path={"path"} type={"string"} required>
+separator normalization、workspace-boundary checks、filename/extension checks の後に workspace 内へ解決される File path。Absolute paths は workspace 内に解決される場合だけ受け入れられます。
+</ParamField>
+
+<ParamField path={"content"} type={"string"} required>
+書き込む Lua string bytes。データは binary truncate mode で書き込まれます。writefile は newlines、BOM bytes、null terminators、その他の extra bytes を追加しません。
+</ParamField>
 
 ## 例
 
@@ -38,3 +38,6 @@ print(readfile(path))
 writefile(path, "")
 print(#readfile(path))
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "firetouchinterest"
 sidebarTitle: "firetouchinterest"
 description: "Iki BasePart instances icin Real touch interest event tetikler. Ilk iki arguman Instance object olmalidir ve iki deger de IsA(\"BasePart\") kontrolunden gecmelidir. state argumani zorunludur ve number veya boolean olmalidir. state number oldugunda yalnizca 1 true olur ve diger her number false olur. state boolean oldugunda boolean degeri dogrudan iletilir. Herhangi bir part touch data tasimiyorsa veya ilk part overlap reference tasimiyorsa function hicbir sey tetiklemeden doner. Function herhangi bir deger dondurmez. helper icine iletilen boolean icin kesin begin/end anlami: Nicht aus der Codebasis verifizierbar."
-icon: "function"
 keywords: ["firetouchinterest","Instances","firetouchtransmitter"]
 ---
 
-Iki BasePart instances icin Real touch interest event tetikler. Ilk iki arguman Instance object olmalidir ve iki deger de IsA("BasePart") kontrolunden gecmelidir. state argumani zorunludur ve number veya boolean olmalidir. state number oldugunda yalnizca 1 true olur ve diger her number false olur. state boolean oldugunda boolean degeri dogrudan iletilir. Herhangi bir part touch data tasimiyorsa veya ilk part overlap reference tasimiyorsa function hicbir sey tetiklemeden doner. Function herhangi bir deger dondurmez. helper icine iletilen boolean icin kesin begin/end anlami: Nicht aus der Codebasis verifizierbar.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
@@ -20,11 +17,17 @@ firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `partA` | `Instance` | Yes | Ilk Instance object. IsA("BasePart") kontrolunden gecmelidir. touch data ve overlap reference degerleri call icin kullanilir. |
-| `partB` | `Instance` | Yes | Ikinci Instance object. IsA("BasePart") kontrolunden gecmelidir. touch data degeri call icin kullanilir. |
-| `state` | `number \| boolean` | Yes | Zorunlu state degeri. Numbers state == 1 ile donusturulur; booleans dogrudan iletilir. |
+<ParamField path={"partA"} type={"Instance"} required>
+Ilk Instance object. IsA("BasePart") kontrolunden gecmelidir. touch data ve overlap reference degerleri call icin kullanilir.
+</ParamField>
+
+<ParamField path={"partB"} type={"Instance"} required>
+Ikinci Instance object. IsA("BasePart") kontrolunden gecmelidir. touch data degeri call icin kullanilir.
+</ParamField>
+
+<ParamField path={"state"} type={"number | boolean"} required>
+Zorunlu state degeri. Numbers state == 1 ile donusturulur; booleans dogrudan iletilir.
+</ParamField>
 
 ## Örnek
 
@@ -38,3 +41,6 @@ local targetPart = workspace.TouchTarget
 
 firetouchinterest(rootPart, targetPart, true)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "isparallel"
 sidebarTitle: "isparallel"
 description: "현재 Luau thread의 ScriptContext DataModel에서 boolean을 반환합니다. 이 function은 arguments를 받지 않습니다. parallel execution status를 반환하는 the current parallel execution status을 읽습니다. the current DataModel이 DataModel를 반환하지 않으면 function은 false를 반환합니다. checkparallel은 같은 function의 alias입니다."
-icon: "function"
 keywords: ["isparallel","Actors","checkparallel"]
 ---
 
-현재 Luau thread의 ScriptContext DataModel에서 boolean을 반환합니다. 이 function은 arguments를 받지 않습니다. parallel execution status를 반환하는 the current parallel execution status을 읽습니다. the current DataModel이 DataModel를 반환하지 않으면 function은 false를 반환합니다. checkparallel은 같은 function의 alias입니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 isparallel(): boolean
@@ -20,9 +17,9 @@ isparallel(): boolean
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `parallel` | `boolean` | 현재 DataModel parallel execution status가 설정되어 있으면 true, flag가 설정되어 있지 않거나 DataModel를 사용할 수 없으면 false입니다. |
+<ResponseField name={"parallel"} type={"boolean"}>
+현재 DataModel parallel execution status가 설정되어 있으면 true, flag가 설정되어 있지 않거나 DataModel를 사용할 수 없으면 false입니다.
+</ResponseField>
 
 ## 예제
 
@@ -34,3 +31,6 @@ print(parallel)
 
 print(checkparallel())
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "isscriptable"
 sidebarTitle: "isscriptable"
 description: "Instance 上の Roblox property の scriptable flag を確認します。この function は、同じ instance reference と property name の cached scriptable value が存在する場合、まずそれを返します。cache miss の場合、property name は Roblox property metadata と Instance class descriptor で解決されます。descriptor が存在しない場合、または解決された field が存在しないか property entry ではない場合、この function は nil を返します。property entry が見つかった場合、scriptable state を読み取り、その値を instance と property の scriptable override cache に保存し、boolean を返します。この function は scriptable flag を変更しません。"
-icon: "function"
 keywords: ["isscriptable","Reflection"]
 ---
 
-Instance 上の Roblox property の scriptable flag を確認します。この function は、同じ instance reference と property name の cached scriptable value が存在する場合、まずそれを返します。cache miss の場合、property name は Roblox property metadata と Instance class descriptor で解決されます。descriptor が存在しない場合、または解決された field が存在しないか property entry ではない場合、この function は nil を返します。property entry が見つかった場合、scriptable state を読み取り、その値を instance と property の scriptable override cache に保存し、boolean を返します。この function は scriptable flag を変更しません。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 isscriptable(instance: Instance, property: string): boolean | nil
@@ -16,16 +13,19 @@ isscriptable(instance: Instance, property: string): boolean | nil
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | property scriptable state を確認する Instance object。 |
-| `property` | `string` | Yes | Roblox property metadata と Instance class descriptor で解決される property name。 |
+<ParamField path={"instance"} type={"Instance"} required>
+property scriptable state を確認する Instance object。
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+Roblox property metadata と Instance class descriptor で解決される property name。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `scriptable` | `boolean \| nil` | cached または現在の scriptable state 値。property descriptor/field が存在しない、または property entry ではない場合は nil。 |
+<ResponseField name={"scriptable"} type={"boolean | nil"}>
+cached または現在の scriptable state 値。property descriptor/field が存在しない、または property entry ではない場合は nil。
+</ResponseField>
 
 ## 例
 
@@ -35,3 +35,6 @@ Check whether a property is scriptable on an Instance.
 local scriptable = isscriptable(workspace, "Name")
 print(scriptable)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "lz4decompress"
 sidebarTitle: "lz4decompress"
 description: "Giai nen raw LZ4 block bytes bang LZ4 block decompression va tra ve raw decompressed bytes duoi dang chuoi Lua."
-icon: "function"
 keywords: ["lz4decompress","Cryptography","crypt.lz4decompress","crypt.lz4.decompress","lz4.decompress"]
 ---
 
-Giai nen raw LZ4 block bytes bang LZ4 block decompression va tra ve raw decompressed bytes duoi dang chuoi Lua.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 lz4decompress(data: string, originalSize?: number): string
@@ -22,16 +19,19 @@ lz4decompress(data: string, originalSize?: number): string
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Raw compressed bytes duoc truyen vao LZ4 block decompression. |
-| `originalSize` | `number` | No | Output buffer size duoc truyen lam dstCapacity. Voi output cua lz4compress, hay truyen do dai byte goc chua nen; neu bo qua, do dai input da nen se duoc dung. |
+<ParamField path={"data"} type={"string"} required>
+Raw compressed bytes duoc truyen vao LZ4 block decompression.
+</ParamField>
+
+<ParamField path={"originalSize"} type={"number"}>
+Output buffer size duoc truyen lam dstCapacity. Voi output cua lz4compress, hay truyen do dai byte goc chua nen; neu bo qua, do dai input da nen se duoc dung.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `decompressed` | `string` | Raw decompressed bytes duoc tra ve duoi dang chuoi Lua. Output co the ngan hon originalSize. |
+<ResponseField name={"decompressed"} type={"string"}>
+Raw decompressed bytes duoc tra ve duoi dang chuoi Lua. Output co the ngan hon originalSize.
+</ResponseField>
 
 ## Ví dụ
 
@@ -45,3 +45,6 @@ local decompressed = lz4decompress(compressed, #source)
 print(decompressed)
 print(decompressed == source)
 ```
+
+
+</div>

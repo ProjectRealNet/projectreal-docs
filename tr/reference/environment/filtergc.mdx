@@ -2,13 +2,10 @@
 title: "filtergc"
 sidebarTitle: "filtergc"
 description: "Verilen filters ile eşleşen live garbage-collected tables veya functions arar. filterType \"table\" veya \"function\" olmalıdır. options bir table olmalıdır."
-icon: "function"
 keywords: ["filtergc","Environment"]
 ---
 
-Verilen filters ile eşleşen live garbage-collected tables veya functions arar. filterType "table" veya "function" olmalıdır. options bir table olmalıdır.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 filtergc(filterType: string, options: table, returnOne?: boolean): table | function | nil
@@ -16,17 +13,23 @@ filtergc(filterType: string, options: table, returnOne?: boolean): table | funct
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `filterType` | `string` | Yes | Aranacak GC object type. Deger lowercase yapilir ve "table" veya "function" olmalidir. |
-| `options` | `table` | Yes | Filter table. function searches Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants ve Upvalues okur. table searches Metatable, Keys, Values ve KeyValuePairs okur. |
-| `returnOne` | `boolean` | No | Optional optional boolean handling flag. true iken array table yerine ilk matching object veya nil dondurur. |
+<ParamField path={"filterType"} type={"string"} required>
+Aranacak GC object type. Deger lowercase yapilir ve "table" veya "function" olmalidir.
+</ParamField>
+
+<ParamField path={"options"} type={"table"} required>
+Filter table. function searches Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants ve Upvalues okur. table searches Metatable, Keys, Values ve KeyValuePairs okur.
+</ParamField>
+
+<ParamField path={"returnOne"} type={"boolean"}>
+Optional optional boolean handling flag. true iken array table yerine ilk matching object veya nil dondurur.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `result` | `table \| function \| nil` | returnOne false veya omitted iken array table of matches. returnOne true iken ilk matching table/function object veya nil. |
+<ResponseField name={"result"} type={"table | function | nil"}>
+returnOne false veya omitted iken array table of matches. returnOne true iken ilk matching table/function object veya nil.
+</ResponseField>
 
 ## Örnek
 
@@ -54,3 +57,6 @@ local first = filtergc("table", {
 
 print(first ~= nil)
 ```
+
+
+</div>

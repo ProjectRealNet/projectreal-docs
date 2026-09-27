@@ -1,15 +1,31 @@
 ---
 title: "Drawing"
 description: "Menggambar objek dan propertinya."
-icon: "folder-code"
+icon: "/icons/pencil.svg"
 ---
+
+<div className="real-category-page">
 
 Menggambar objek dan propertinya.
 
-| Navigasi fungsi | Deskripsi |
-| --- | --- |
-| [`cleardrawcache`](./cleardrawcache) | Mengosongkan Real global Drawing object list. Setiap Drawing object yang dilacak ditandai sebagai destroyed, image resources dilepas jika ada, dan object list dikosongkan. Lua references yang sudah ada ke Drawing objects yang dibersihkan masih dapat ada, tetapi objects tidak lagi dianggap active Drawing objects. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini. |
-| [`Drawing.new`](./drawing-new) | Membuat Drawing object baru dari tipe yang diminta dan menambahkannya ke Real tracked Drawing object list. type string harus salah satu nama yang didukung secara tepat: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". Nilai yang hilang, non-string, atau type values yang tidak didukung memunculkan Lua error. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini. |
-| [`getrenderproperty`](./getrenderproperty) | Mengembalikan hasil indexing argumen pertama dengan property key yang diberikan. Untuk Drawing object, ini menggunakan Drawing property lookup yang sama seperti object[property], sehingga unknown properties dan destroyed Drawing objects mengembalikan nil. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini. |
-| [`isrenderobj`](./isrenderobj) | Mengembalikan apakah nilai adalah object dengan Drawing object type. Ini hanya methods check; tidak memeriksa apakah Drawing object masih active, tracked, atau destroyed. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini. |
-| [`setrenderproperty`](./setrenderproperty) | Menetapkan value ke object[property]. Untuk Drawing object, ini menggunakan Drawing property assignment yang sama seperti direct property assignment. Unknown Drawing properties diabaikan, dan destroyed Drawing objects tidak diubah. Argumen ketiga harus ada. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini. |
+## Fungsi yang tersedia
+
+<CardGroup cols={2}>
+<Card title="cleardrawcache" href="./cleardrawcache">
+Mengosongkan Real global Drawing object list. Setiap Drawing object yang dilacak ditandai sebagai destroyed, image resources dilepas jika ada, dan object list dikosongkan. Lua references yang sudah ada ke Drawing objects yang dibersihkan masih dapat ada, tetapi objects tidak lagi dianggap active Drawing objects. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini.
+</Card>
+<Card title="Drawing.new" href="./drawing-new">
+Membuat Drawing object baru dari tipe yang diminta dan menambahkannya ke Real tracked Drawing object list. type string harus salah satu nama yang didukung secara tepat: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". Nilai yang hilang, non-string, atau type values yang tidak didukung memunculkan Lua error. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini.
+</Card>
+<Card title="getrenderproperty" href="./getrenderproperty">
+Mengembalikan hasil indexing argumen pertama dengan property key yang diberikan. Untuk Drawing object, ini menggunakan Drawing property lookup yang sama seperti object[property], sehingga unknown properties dan destroyed Drawing objects mengembalikan nil. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini.
+</Card>
+<Card title="isrenderobj" href="./isrenderobj">
+Mengembalikan apakah nilai adalah object dengan Drawing object type. Ini hanya methods check; tidak memeriksa apakah Drawing object masih active, tracked, atau destroyed. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini.
+</Card>
+<Card title="setrenderproperty" href="./setrenderproperty">
+Menetapkan value ke object[property]. Untuk Drawing object, ini menggunakan Drawing property assignment yang sama seperti direct property assignment. Unknown Drawing properties diabaikan, dan destroyed Drawing objects tidak diubah. Argumen ketiga harus ada. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini.
+</Card>
+</CardGroup>
+
+</div>

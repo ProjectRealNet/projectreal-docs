@@ -2,13 +2,10 @@
 title: "getscripthash"
 sidebarTitle: "getscripthash"
 description: "Roblox script object의 stored bytecode string에 대한 uppercase SHA384 hex digest를 반환합니다. argument는 object여야 합니다. 공유 bytecode reader는 ClassName 값 ModuleScript, LocalScript, CoreScript, Script를 허용합니다. Script의 경우 RunContext가 Client여야 합니다. ClassName이 없으면 function은 \"Invalid Instance\"를 발생시킵니다. ClassName이 지원되는 script classes 중 하나가 아니면 \"Script expected\"를 발생시킵니다. 값이 다른 RunContext의 Script이면 \"Expected a Script with RunContext set to Client\"를 발생시킵니다. embedded bytecode reference가 유효하지 않거나 stored bytecode 길이가 8 bytes 이하이면 function은 nil을 반환합니다. 그렇지 않으면 정확한 stored bytecode bytes를 SHA384로 hash하고 uppercase hex string을 반환합니다. function은 DecompressBytecode를 호출하지 않으며 decompressed bytecode를 hash하지 않습니다."
-icon: "function"
 keywords: ["getscripthash","Scripts"]
 ---
 
-Roblox script object의 stored bytecode string에 대한 uppercase SHA384 hex digest를 반환합니다. argument는 object여야 합니다. 공유 bytecode reader는 ClassName 값 ModuleScript, LocalScript, CoreScript, Script를 허용합니다. Script의 경우 RunContext가 Client여야 합니다. ClassName이 없으면 function은 "Invalid Instance"를 발생시킵니다. ClassName이 지원되는 script classes 중 하나가 아니면 "Script expected"를 발생시킵니다. 값이 다른 RunContext의 Script이면 "Expected a Script with RunContext set to Client"를 발생시킵니다. embedded bytecode reference가 유효하지 않거나 stored bytecode 길이가 8 bytes 이하이면 function은 nil을 반환합니다. 그렇지 않으면 정확한 stored bytecode bytes를 SHA384로 hash하고 uppercase hex string을 반환합니다. function은 DecompressBytecode를 호출하지 않으며 decompressed bytecode를 hash하지 않습니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 getscripthash(script: userdata): string | nil
@@ -16,15 +13,15 @@ getscripthash(script: userdata): string | nil
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | Hash할 Script object입니다. 지원되는 ClassName 값은 ModuleScript, LocalScript, CoreScript, RunContext Client의 Script입니다. |
+<ParamField path={"script"} type={"userdata"} required>
+Hash할 Script object입니다. 지원되는 ClassName 값은 ModuleScript, LocalScript, CoreScript, RunContext Client의 Script입니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `hash` | `string \| nil` | stored bytecode bytes의 uppercase SHA384 hex digest 또는 사용 가능한 embedded bytecode가 없을 때 nil입니다. |
+<ResponseField name={"hash"} type={"string | nil"}>
+stored bytecode bytes의 uppercase SHA384 hex digest 또는 사용 가능한 embedded bytecode가 없을 때 nil입니다.
+</ResponseField>
 
 ## 예제
 
@@ -45,3 +42,6 @@ if targetScript then
     print(hash)
 end
 ```
+
+
+</div>

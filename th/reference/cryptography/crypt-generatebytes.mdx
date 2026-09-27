@@ -2,13 +2,10 @@
 title: "crypt.generatebytes"
 sidebarTitle: "crypt.generatebytes"
 description: "สร้าง byte แบบสุ่มด้วย random byte generator และคืนค่าเป็น Base64-encoded ในรูปแบบ Lua string"
-icon: "function"
 keywords: ["crypt.generatebytes","Cryptography"]
 ---
 
-สร้าง byte แบบสุ่มด้วย random byte generator และคืนค่าเป็น Base64-encoded ในรูปแบบ Lua string
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 crypt.generatebytes(size: number): string
@@ -16,15 +13,15 @@ crypt.generatebytes(size: number): string
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `size` | `number` | Yes | ตัวเลขที่ผ่าน integer conversion ก่อน allocation ค่าที่น้อยกว่าหรือเท่ากับ 0 จะถูกเปลี่ยนเป็น 1 |
+<ParamField path={"size"} type={"number"} required>
+ตัวเลขที่ผ่าน integer conversion ก่อน allocation ค่าที่น้อยกว่าหรือเท่ากับ 0 จะถูกเปลี่ยนเป็น 1
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `encoded` | `string` | Base64 encoding ของ raw bytes ที่สร้างขึ้น ความยาวของ string ที่คืนค่าไม่ใช่จำนวน byte ที่ขอ |
+<ResponseField name={"encoded"} type={"string"}>
+Base64 encoding ของ raw bytes ที่สร้างขึ้น ความยาวของ string ที่คืนค่าไม่ใช่จำนวน byte ที่ขอ
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -38,3 +35,6 @@ print(encoded)
 print(#encoded)
 print(#raw)
 ```
+
+
+</div>

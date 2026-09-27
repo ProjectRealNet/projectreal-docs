@@ -2,13 +2,10 @@
 title: "compareinstances"
 sidebarTitle: "compareinstances"
 description: "Сравнивает внутренние значения указателя Instance, сохраненные в двух значениях Instance object."
-icon: "function"
 keywords: ["compareinstances","Cache"]
 ---
 
-Сравнивает внутренние значения указателя Instance, сохраненные в двух значениях Instance object.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 compareinstances(first: Instance, second: Instance): boolean
@@ -16,16 +13,19 @@ compareinstances(first: Instance, second: Instance): boolean
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `first` | `Instance` | Yes | Первое Instance object для сравнения. |
-| `second` | `Instance` | Yes | Второе Instance object для сравнения. |
+<ParamField path={"first"} type={"Instance"} required>
+Первое Instance object для сравнения.
+</ParamField>
+
+<ParamField path={"second"} type={"Instance"} required>
+Второе Instance object для сравнения.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `equal` | `boolean` | True, если оба значения Instance object содержат одно и то же внутреннее значение указателя. |
+<ResponseField name={"equal"} type={"boolean"}>
+True, если оба значения Instance object содержат одно и то же внутреннее значение указателя.
+</ResponseField>
 
 ## Пример
 
@@ -38,3 +38,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 print(compareinstances(Players, Players))
 print(compareinstances(Players, ReplicatedStorage))
 ```
+
+
+</div>

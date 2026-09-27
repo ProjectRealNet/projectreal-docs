@@ -2,13 +2,10 @@
 title: "isreadonly"
 sidebarTitle: "isreadonly"
 description: "Returns whether a table is readonly. The argument must be a table, and the function does not change it."
-icon: "function"
 keywords: ["isreadonly","Metatables"]
 ---
 
-Returns whether a table is readonly. The argument must be a table, and the function does not change it.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 isreadonly(target: table): boolean
@@ -16,15 +13,15 @@ isreadonly(target: table): boolean
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `target` | `table` | Yes | Table whose readonly status is checked. |
+<ParamField path={"target"} type={"table"} required>
+Table whose readonly status is checked.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `readOnly` | `boolean` | true when the table is readonly; otherwise false. |
+<ResponseField name={"readOnly"} type={"boolean"}>
+true when the table is readonly; otherwise false.
+</ResponseField>
 
 ## 예제
 
@@ -40,3 +37,6 @@ print(isreadonly(target))
 
 setreadonly(target, false)
 ```
+
+
+</div>

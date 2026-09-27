@@ -2,13 +2,10 @@
 title: "getcallbackvalue"
 sidebarTitle: "getcallbackvalue"
 description: "Instance의 callback property에 저장된 Lua callback function을 읽습니다. 첫 번째 인수는 Instance object여야 하고 두 번째 인수는 string property name이어야 합니다. instance reference는 유효해야 합니다. property name은 Roblox property metadata를 통해 해석되며 타입이 LUA_CALLBACK인 property를 가리켜야 합니다. property descriptor가 없거나, property가 LUA_CALLBACK이 아니거나, callback field offset이 없거나, 저장된 callback이 없거나, LiveLuaRef가 없거나, callback이 다른 Lua global state에 속하거나, 참조된 값이 function이 아니면 function은 nil을 반환합니다. 첫 번째 callback slot에 callback이 없을 때 async callback field fallback도 확인합니다. 이 function은 property를 업데이트하지 않습니다."
-icon: "function"
 keywords: ["getcallbackvalue","Instances","getcallbackmember"]
 ---
 
-Instance의 callback property에 저장된 Lua callback function을 읽습니다. 첫 번째 인수는 Instance object여야 하고 두 번째 인수는 string property name이어야 합니다. instance reference는 유효해야 합니다. property name은 Roblox property metadata를 통해 해석되며 타입이 LUA_CALLBACK인 property를 가리켜야 합니다. property descriptor가 없거나, property가 LUA_CALLBACK이 아니거나, callback field offset이 없거나, 저장된 callback이 없거나, LiveLuaRef가 없거나, callback이 다른 Lua global state에 속하거나, 참조된 값이 function이 아니면 function은 nil을 반환합니다. 첫 번째 callback slot에 callback이 없을 때 async callback field fallback도 확인합니다. 이 function은 property를 업데이트하지 않습니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 getcallbackvalue(instance: Instance, property: string): function | nil
@@ -20,16 +17,19 @@ getcallbackvalue(instance: Instance, property: string): function | nil
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | callback property를 검사할 Instance object입니다. Invalid Instance values는 argument error를 발생시킵니다. |
-| `property` | `string` | Yes | Roblox property metadata를 통해 해석되는 string property name입니다. LUA_CALLBACK properties만 function을 반환할 수 있습니다. |
+<ParamField path={"instance"} type={"Instance"} required>
+callback property를 검사할 Instance object입니다. Invalid Instance values는 argument error를 발생시킵니다.
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+Roblox property metadata를 통해 해석되는 string property name입니다. LUA_CALLBACK properties만 function을 반환할 수 있습니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `callback` | `function \| nil` | callback property가 저장한 Lua function 또는 function이 읽을 수 있는 function을 해석할 수 없을 때 nil입니다. |
+<ResponseField name={"callback"} type={"function | nil"}>
+callback property가 저장한 Lua function 또는 function이 읽을 수 있는 function을 해석할 수 없을 때 nil입니다.
+</ResponseField>
 
 ## 예제
 
@@ -46,3 +46,6 @@ if callback then
     print(callback(21))
 end
 ```
+
+
+</div>

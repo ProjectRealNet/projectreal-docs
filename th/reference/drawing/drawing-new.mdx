@@ -2,13 +2,10 @@
 title: "Drawing.new"
 sidebarTitle: "Drawing.new"
 description: "สร้าง Drawing object ใหม่ตามชนิดที่ร้องขอและเพิ่มเข้าไปใน Real tracked Drawing object list ค่า type string ต้องเป็นหนึ่งในชื่อที่รองรับแบบตรงตัว: \"Line\", \"Text\", \"Circle\", \"Square\", \"Quad\", \"Triangle\", \"Image\" ค่าที่หายไป, non-string หรือ type values ที่ไม่รองรับจะทำให้เกิด Lua error the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้"
-icon: "function"
 keywords: ["Drawing.new","Drawing"]
 ---
 
-สร้าง Drawing object ใหม่ตามชนิดที่ร้องขอและเพิ่มเข้าไปใน Real tracked Drawing object list ค่า type string ต้องเป็นหนึ่งในชื่อที่รองรับแบบตรงตัว: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image" ค่าที่หายไป, non-string หรือ type values ที่ไม่รองรับจะทำให้เกิด Lua error the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad" | "Triangle"): DrawingObject
@@ -16,15 +13,15 @@ Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad"
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `objectType` | `"Image" \| "Line" \| "Text" \| "Circle" \| "Square" \| "Quad" \| "Triangle"` | Yes | ชื่อ Drawing type แบบตรงตัวที่จะสร้าง ค่าที่รองรับคือ "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image" |
+<ParamField path={"objectType"} type={"\"Image\" | \"Line\" | \"Text\" | \"Circle\" | \"Square\" | \"Quad\" | \"Triangle\""} required>
+ชื่อ Drawing type แบบตรงตัวที่จะสร้าง ค่าที่รองรับคือ "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image"
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `object` | `DrawingObject` | Drawing object ที่สร้างขึ้นพร้อม Drawing object type |
+<ResponseField name={"object"} type={"DrawingObject"}>
+Drawing object ที่สร้างขึ้นพร้อม Drawing object type
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -38,3 +35,6 @@ square.Color = Color3.fromRGB(120, 170, 255)
 square.Filled = true
 square.Visible = true
 ```
+
+
+</div>

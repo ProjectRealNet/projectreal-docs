@@ -2,13 +2,10 @@
 title: "ImGuiWindow.SliderFloat"
 sidebarTitle: "ImGuiWindow.SliderFloat"
 description: "Anexa um SliderFloat element a janela. label, value, minimum e maximum sao lidos dos argumentos 2 a 5, com os argumentos numericos verificados por number type checking. Durante o rendering, Real chama a floating-point slider com o valor e o intervalo armazenados. Quando ImGui informa uma mudanca de valor, onChange entra em uma queue e depois e chamado com um Lua number. Real nao adiciona uma validacao minimum <= maximum separada neste closure."
-icon: "function"
 keywords: ["ImGuiWindow.SliderFloat","ImGui"]
 ---
 
-Anexa um SliderFloat element a janela. label, value, minimum e maximum sao lidos dos argumentos 2 a 5, com os argumentos numericos verificados por number type checking. Durante o rendering, Real chama a floating-point slider com o valor e o intervalo armazenados. Quando ImGui informa uma mudanca de valor, onChange entra em uma queue e depois e chamado com um Lua number. Real nao adiciona uma validacao minimum &lt;= maximum separada neste closure.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.SliderFloat(window: ImGuiWindow, label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()): ImGuiWindow
@@ -16,20 +13,35 @@ ImGuiWindow.SliderFloat(window: ImGuiWindow, label: string, value: number, minim
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow retornada por imgui.create. Se a object for invalida ou ja tiver sido destruida, a method gera um Lua error. |
-| `label` | `string` | Yes | Slider label lida com string type checking. |
-| `value` | `number` | Yes | Valor inicial do slider lido com number type checking e armazenado como o valor float atual. |
-| `minimum` | `number` | Yes | Minimum value lida com number type checking e passada para a floating-point slider. |
-| `maximum` | `number` | Yes | Maximum value lida com number type checking e passada para a floating-point slider. |
-| `onChange` | `(number) -> ()` | Yes | Callback function armazenada no Lua registry. Quando o slider muda durante o rendering, ela e chamada depois com o valor numerico atualizado. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow retornada por imgui.create. Se a object for invalida ou ja tiver sido destruida, a method gera um Lua error.
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+Slider label lida com string type checking.
+</ParamField>
+
+<ParamField path={"value"} type={"number"} required>
+Valor inicial do slider lido com number type checking e armazenado como o valor float atual.
+</ParamField>
+
+<ParamField path={"minimum"} type={"number"} required>
+Minimum value lida com number type checking e passada para a floating-point slider.
+</ParamField>
+
+<ParamField path={"maximum"} type={"number"} required>
+Maximum value lida com number type checking e passada para a floating-point slider.
+</ParamField>
+
+<ParamField path={"onChange"} type={"(number) -> ()"} required>
+Callback function armazenada no Lua registry. Quando o slider muda durante o rendering, ela e chamada depois com o valor numerico atualizado.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | A mesma ImGuiWindow object, permitindo chamadas de method encadeadas. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+A mesma ImGuiWindow object, permitindo chamadas de method encadeadas.
+</ResponseField>
 
 ## Tipos
 
@@ -50,3 +62,6 @@ Identificador retornado por imgui.create. Os métodos de construção de control
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Acrescenta um controle deslizante inteiro. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Acrescenta texto não interativo. |
 | `destroy` | `() -> ()` | Yes | Remove a janela e libera seus retornos de chamada registrados. |
+
+
+</div>

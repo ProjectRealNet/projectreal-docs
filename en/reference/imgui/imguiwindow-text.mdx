@@ -2,13 +2,10 @@
 title: "ImGuiWindow.Text"
 sidebarTitle: "ImGuiWindow.Text"
 description: "Adds non-interactive text to the window. The text argument must be a string."
-icon: "function"
 keywords: ["ImGuiWindow.Text","ImGui"]
 ---
 
-Adds non-interactive text to the window. The text argument must be a string.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.Text(window: ImGuiWindow, text: string): ImGuiWindow
@@ -16,16 +13,19 @@ ImGuiWindow.Text(window: ImGuiWindow, text: string): ImGuiWindow
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow returned by imgui.create. If the object is invalid or has already been destroyed, the method raises a Lua error. |
-| `text` | `string` | Yes | Text content required to be a string and displayed by the Text element. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow returned by imgui.create. If the object is invalid or has already been destroyed, the method raises a Lua error.
+</ParamField>
+
+<ParamField path={"text"} type={"string"} required>
+Text content required to be a string and displayed by the Text element.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | The same ImGuiWindow object, allowing chained method calls. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+The same ImGuiWindow object, allowing chained method calls.
+</ResponseField>
 
 ## Types
 
@@ -46,3 +46,6 @@ Handle returned by imgui.create. Control-building methods return the same handle
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Appends a SliderInt element and queues onChange with one Lua number when the integer value changes. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Appends a non-interactive text element. |
 | `destroy` | `() -> ()` | Yes | Removes the window and releases its registered callbacks. |
+
+
+</div>

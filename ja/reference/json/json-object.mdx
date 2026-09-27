@@ -2,13 +2,10 @@
 title: "json.object"
 sidebarTitle: "json.object"
 description: "Real JSON encoder が object として扱う new table marked as a JSON object を作成します。"
-icon: "function"
 keywords: ["json.object","JSON"]
 ---
 
-Real JSON encoder が object として扱う new table marked as a JSON object を作成します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 json.object(source?: table): table
@@ -16,15 +13,15 @@ json.object(source?: table): table
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `source` | `table` | No | New object table に copy される optional source table。omitted または nil の場合、empty object table が返ります。 |
+<ParamField path={"source"} type={"table"}>
+New object table に copy される optional source table。omitted または nil の場合、empty object table が返ります。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `object` | `table` | Real JSON object marker で marked された new table。Source entries は copy されますが、Real JSON type marker は除外されます。 |
+<ResponseField name={"object"} type={"table"}>
+Real JSON object marker で marked された new table。Source entries は copy されますが、Real JSON type marker は除外されます。
+</ResponseField>
 
 ## 例
 
@@ -40,3 +37,6 @@ local empty = json.object()
 print(json.encode(profile))
 print(json.encode(empty))
 ```
+
+
+</div>

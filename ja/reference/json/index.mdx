@@ -1,34 +1,88 @@
 ---
 title: "JSON"
 description: "JSON を解析、エンコード、検査、変換します。"
-icon: "folder-code"
+icon: "/icons/code-circle-2.svg"
 ---
+
+<div className="real-category-page">
 
 JSON を解析、エンコード、検査、変換します。
 
-| 関数ナビゲーション | 説明 |
-| --- | --- |
-| [`json.array`](./json-array) | json.encode 用に JSON array としてマークされた new table を作成し、source table が指定された場合は 1.#source sequence をコピーします。 |
-| [`json.clone`](./json-clone) | value を json.encode semantics で encoding し、generated JSON を Lua values に decoding し直して clone します。 |
-| [`json.decode`](./json-decode) | Real JSON parser で JSON string を parse し、decoded arrays と objects を JSON helpers 用にマークした decoded Lua value を返します。 |
-| [`json.decodeSafe`](./json-decodesafe) | json.decode と同じ parser で JSON を parse し、parse errors では throw せず success flag を返します。 |
-| [`json.encode`](./json-encode) | Real JSON encoder を使って Lua value を JSON string に serialize します。json.stringify は同じ function に登録されています。 |
-| [`json.encodePretty`](./json-encodepretty) | Lua value を Real JSON encoder で readable formatted JSON string に serializes します。json.pretty は同じ function に登録されています。 |
-| [`json.escape`](./json-escape) | Real JSON string escaping rules を使って string を escape し、surrounding quotes なしの escaped content を返します。 |
-| [`json.format`](./json-format) | JSON string を parse し、Real JSON parser と encoder で readable formatted JSON として re-encode します。 |
-| [`json.getPath`](./json-getpath) | Dotted string path または array table of keys を使って table から nested value を読みます。 |
-| [`json.isArray`](./json-isarray) | Value が Real JSON table detection により treated as a JSON array されるかを返します。 |
-| [`json.isNull`](./json-isnull) | Value が Real JSON null sentinel である json.null かを返します。 |
-| [`json.isObject`](./json-isobject) | Value が Real JSON table detection により treated as a JSON object されるかを返します。 |
-| [`json.keys`](./json-keys) | Table の visible keys を new table marked as a JSON array で返します。 |
-| [`json.minify`](./json-minify) | JSON string を parse し、Real default non-pretty JSON encoder output で re-encode します。 |
-| [`json.object`](./json-object) | Real JSON encoder が object として扱う new table marked as a JSON object を作成します。 |
-| [`json.parse`](./json-parse) | json.decode と同じ function で JSON string を parse します。 |
-| [`json.pretty`](./json-pretty) | json.encodePretty と同じ function を使って Lua value を readable formatted JSON string に serializes します。 |
-| [`json.quote`](./json-quote) | Real JSON string escaping rules を使って string を escape し、complete quoted JSON string literal を返します。 |
-| [`json.stringify`](./json-stringify) | json.encode と同じ function を使って Lua value を JSON string に serialize します。 |
-| [`json.tryDecode`](./json-trydecode) | json.decodeSafe と同じ function を使って JSON string の parse を試み、parse errors 用の status values を返します。 |
-| [`json.type`](./json-type) | 値の string type name を返します。json.null は "null" を返します。table は json.isArray と json.isObject と同じ table classification を使って "array" または "object" を返します。その他の値は runtime Lua type name result を返します。 |
-| [`json.unescape`](./json-unescape) | escaped string content または complete quoted JSON string literal から JSON string escape sequences をデコードします。入力は full JSON document ではなく JSON string parser で parse されます。 |
-| [`json.validate`](./json-validate) | JSON string を、1 つの complete JSON value として parse して検証します。success では true だけを返します。parse failure では false と parser error details を返します。 |
-| [`json.values`](./json-values) | table の direct values を、新しい JSON array として marked された table で返します。JSON type marker entries はスキップされます。 |
+## 利用できる関数
+
+<CardGroup cols={2}>
+<Card title="json.array" href="./json-array">
+json.encode 用に JSON array としてマークされた new table を作成し、source table が指定された場合は 1.#source sequence をコピーします。
+</Card>
+<Card title="json.clone" href="./json-clone">
+value を json.encode semantics で encoding し、generated JSON を Lua values に decoding し直して clone します。
+</Card>
+<Card title="json.decode" href="./json-decode">
+Real JSON parser で JSON string を parse し、decoded arrays と objects を JSON helpers 用にマークした decoded Lua value を返します。
+</Card>
+<Card title="json.decodeSafe" href="./json-decodesafe">
+json.decode と同じ parser で JSON を parse し、parse errors では throw せず success flag を返します。
+</Card>
+<Card title="json.encode" href="./json-encode">
+Real JSON encoder を使って Lua value を JSON string に serialize します。json.stringify は同じ function に登録されています。
+</Card>
+<Card title="json.encodePretty" href="./json-encodepretty">
+Lua value を Real JSON encoder で readable formatted JSON string に serializes します。json.pretty は同じ function に登録されています。
+</Card>
+<Card title="json.escape" href="./json-escape">
+Real JSON string escaping rules を使って string を escape し、surrounding quotes なしの escaped content を返します。
+</Card>
+<Card title="json.format" href="./json-format">
+JSON string を parse し、Real JSON parser と encoder で readable formatted JSON として re-encode します。
+</Card>
+<Card title="json.getPath" href="./json-getpath">
+Dotted string path または array table of keys を使って table から nested value を読みます。
+</Card>
+<Card title="json.isArray" href="./json-isarray">
+Value が Real JSON table detection により treated as a JSON array されるかを返します。
+</Card>
+<Card title="json.isNull" href="./json-isnull">
+Value が Real JSON null sentinel である json.null かを返します。
+</Card>
+<Card title="json.isObject" href="./json-isobject">
+Value が Real JSON table detection により treated as a JSON object されるかを返します。
+</Card>
+<Card title="json.keys" href="./json-keys">
+Table の visible keys を new table marked as a JSON array で返します。
+</Card>
+<Card title="json.minify" href="./json-minify">
+JSON string を parse し、Real default non-pretty JSON encoder output で re-encode します。
+</Card>
+<Card title="json.object" href="./json-object">
+Real JSON encoder が object として扱う new table marked as a JSON object を作成します。
+</Card>
+<Card title="json.parse" href="./json-parse">
+json.decode と同じ function で JSON string を parse します。
+</Card>
+<Card title="json.pretty" href="./json-pretty">
+json.encodePretty と同じ function を使って Lua value を readable formatted JSON string に serializes します。
+</Card>
+<Card title="json.quote" href="./json-quote">
+Real JSON string escaping rules を使って string を escape し、complete quoted JSON string literal を返します。
+</Card>
+<Card title="json.stringify" href="./json-stringify">
+json.encode と同じ function を使って Lua value を JSON string に serialize します。
+</Card>
+<Card title="json.tryDecode" href="./json-trydecode">
+json.decodeSafe と同じ function を使って JSON string の parse を試み、parse errors 用の status values を返します。
+</Card>
+<Card title="json.type" href="./json-type">
+値の string type name を返します。json.null は "null" を返します。table は json.isArray と json.isObject と同じ table classification を使って "array" または "object" を返します。その他の値は runtime Lua type name result を返します。
+</Card>
+<Card title="json.unescape" href="./json-unescape">
+escaped string content または complete quoted JSON string literal から JSON string escape sequences をデコードします。入力は full JSON document ではなく JSON string parser で parse されます。
+</Card>
+<Card title="json.validate" href="./json-validate">
+JSON string を、1 つの complete JSON value として parse して検証します。success では true だけを返します。parse failure では false と parser error details を返します。
+</Card>
+<Card title="json.values" href="./json-values">
+table の direct values を、新しい JSON array として marked された table で返します。JSON type marker entries はスキップされます。
+</Card>
+</CardGroup>
+
+</div>

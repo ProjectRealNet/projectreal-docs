@@ -2,13 +2,10 @@
 title: "rconsolewarn"
 sidebarTitle: "rconsolewarn"
 description: "يكتب صفرا أو أكثر من القيم إلى Windows console الحالية عبر stdout باستخدام warning console text attribute. إذا لم تكن هناك console window، يرجع الاستدعاء بدون تحويل أو كتابة أي شيء. عند وجود console، يتم تحويل كل argument باستخدام Lua string conversion، ويتم ربط القيم بعلامات tab، ثم تكتب عبر runtime value. إذا رفع Lua string conversion خطأ، لا تلتقطه rconsolewarn. تضبط function قيمة console text attribute إلى FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY قبل الكتابة، ثم تضبطها إلى default console text color بعد ذلك. لا تضيف newline، ولا تضيف warning prefix، ولا تنشئ أو تعرض console، ولا تستدعي Luau warn أو Roblox Output. consolewarn هو alias لنفس function."
-icon: "function"
 keywords: ["rconsolewarn","Console","consolewarn"]
 ---
 
-يكتب صفرا أو أكثر من القيم إلى Windows console الحالية عبر stdout باستخدام warning console text attribute. إذا لم تكن هناك console window، يرجع الاستدعاء بدون تحويل أو كتابة أي شيء. عند وجود console، يتم تحويل كل argument باستخدام Lua string conversion، ويتم ربط القيم بعلامات tab، ثم تكتب عبر runtime value. إذا رفع Lua string conversion خطأ، لا تلتقطه rconsolewarn. تضبط function قيمة console text attribute إلى FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY قبل الكتابة، ثم تضبطها إلى default console text color بعد ذلك. لا تضيف newline، ولا تضيف warning prefix، ولا تنشئ أو تعرض console، ولا تستدعي Luau warn أو Roblox Output. consolewarn هو alias لنفس function.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 rconsolewarn(...values?: ...any)
@@ -20,9 +17,9 @@ rconsolewarn(...values?: ...any)
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | قيم اختيارية. إذا كانت هناك console، يتم تحويل كل value باستخدام Lua string conversion وربط القيم بعلامات tab قبل الكتابة. |
+<ParamField path={"...values"} type={"...any"}>
+قيم اختيارية. إذا كانت هناك console، يتم تحويل كل value باستخدام Lua string conversion وربط القيم بعلامات tab قبل الكتابة.
+</ParamField>
 
 ## مثال
 
@@ -33,3 +30,6 @@ rconsolecreate()
 rconsolewarn("Retrying request", 3)
 rconsolewarn("\n")
 ```
+
+
+</div>

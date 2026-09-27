@@ -2,13 +2,10 @@
 title: "json.keys"
 sidebarTitle: "json.keys"
 description: "Tra ve visible keys cua table trong new table marked as a JSON array."
-icon: "function"
 keywords: ["json.keys","JSON"]
 ---
 
-Tra ve visible keys cua table trong new table marked as a JSON array.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 json.keys(object: table): table
@@ -16,15 +13,15 @@ json.keys(object: table): table
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `object` | `table` | Yes | Table de inspect. Function yeu cau argument nay la table. |
+<ParamField path={"object"} type={"table"} required>
+Table de inspect. Function yeu cau argument nay la table.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `keys` | `table` | New array table chua source table keys, loai tru Real JSON type marker. Order theo table iteration iteration va khong duoc sorted boi function nay. |
+<ResponseField name={"keys"} type={"table"}>
+New array table chua source table keys, loai tru Real JSON type marker. Order theo table iteration iteration va khong duoc sorted boi function nay.
+</ResponseField>
 
 ## Ví dụ
 
@@ -41,3 +38,6 @@ for _, key in ipairs(json.keys(record)) do
     print(key)
 end
 ```
+
+
+</div>

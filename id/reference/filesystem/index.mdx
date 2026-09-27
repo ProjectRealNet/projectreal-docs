@@ -1,25 +1,61 @@
 ---
 title: "Filesystem"
 description: "Membaca, menulis, dan mengelola file dan folder."
-icon: "folder-code"
+icon: "/icons/folder.svg"
 ---
+
+<div className="real-category-page">
 
 Membaca, menulis, dan mengelola file dan folder.
 
-| Navigasi fungsi | Deskripsi |
-| --- | --- |
-| [`appendfile`](./appendfile) | Appends raw Lua string bytes to a workspace file using binary append mode. The file may be created if its parent folder exists. |
-| [`delfile`](./delfile) | Menghapus regular file yang ada di dalam workspace. |
-| [`delfolder`](./delfolder) | Menghapus folder yang ada di dalam workspace secara recursive dengan recursive folder deletion. |
-| [`getcustomasset`](./getcustomasset) | Menyalin regular workspace file yang ada ke ExtraContent/&lt;hwid>/ dan mengembalikan rbxasset:// string untuk asset path yang disalin. |
-| [`isfile`](./isfile) | Returns whether a path resolved inside the workspace exists and is a regular file. |
-| [`isfolder`](./isfolder) | Returns whether a path resolved inside the workspace exists and is a directory. |
-| [`listfiles`](./listfiles) | Returns an array table of the direct children of an existing workspace directory. |
-| [`loadfile`](./loadfile) | Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it. |
-| [`makefolder`](./makefolder) | Membuat directory di dalam workspace dengan recursive folder creation, termasuk missing parent directories. |
-| [`openfiledialog`](./openfiledialog) | Membuka Windows file-open dialog melalui Windows file picker dan mengembalikan file yang dipilih sebagai file item. |
-| [`openfilesdialog`](./openfilesdialog) | Membuka Windows file-open dialog melalui Windows file picker dengan multi-select aktif dan mengembalikan file yang dipilih sebagai nilai file item. |
-| [`openfolderdialog`](./openfolderdialog) | Membuka Windows folder picker melalui Windows file picker dengan folder selection mode dan mengembalikan folder yang dipilih sebagai file item. |
-| [`readfile`](./readfile) | Membaca existing regular file di dalam workspace dalam binary mode dan mengembalikan bytes sebagai Lua string. |
-| [`savefiledialog`](./savefiledialog) | Membuka Windows save dialog melalui Windows save dialog, menulis Lua string bytes yang diberikan ke selected path, dan mengembalikan saved file sebagai file item. |
-| [`writefile`](./writefile) | Menulis Lua string bytes ke file di dalam workspace, membuat missing parent directories, dan mengganti file contents jika file sudah ada. |
+## Fungsi yang tersedia
+
+<CardGroup cols={2}>
+<Card title="appendfile" href="./appendfile">
+Appends raw Lua string bytes to a workspace file using binary append mode. The file may be created if its parent folder exists.
+</Card>
+<Card title="delfile" href="./delfile">
+Menghapus regular file yang ada di dalam workspace.
+</Card>
+<Card title="delfolder" href="./delfolder">
+Menghapus folder yang ada di dalam workspace secara recursive dengan recursive folder deletion.
+</Card>
+<Card title="getcustomasset" href="./getcustomasset">
+Menyalin regular workspace file yang ada ke ExtraContent/&lt;hwid>/ dan mengembalikan rbxasset:// string untuk asset path yang disalin.
+</Card>
+<Card title="isfile" href="./isfile">
+Returns whether a path resolved inside the workspace exists and is a regular file.
+</Card>
+<Card title="isfolder" href="./isfolder">
+Returns whether a path resolved inside the workspace exists and is a directory.
+</Card>
+<Card title="listfiles" href="./listfiles">
+Returns an array table of the direct children of an existing workspace directory.
+</Card>
+<Card title="loadfile" href="./loadfile">
+Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it.
+</Card>
+<Card title="makefolder" href="./makefolder">
+Membuat directory di dalam workspace dengan recursive folder creation, termasuk missing parent directories.
+</Card>
+<Card title="openfiledialog" href="./openfiledialog">
+Membuka Windows file-open dialog melalui Windows file picker dan mengembalikan file yang dipilih sebagai file item.
+</Card>
+<Card title="openfilesdialog" href="./openfilesdialog">
+Membuka Windows file-open dialog melalui Windows file picker dengan multi-select aktif dan mengembalikan file yang dipilih sebagai nilai file item.
+</Card>
+<Card title="openfolderdialog" href="./openfolderdialog">
+Membuka Windows folder picker melalui Windows file picker dengan folder selection mode dan mengembalikan folder yang dipilih sebagai file item.
+</Card>
+<Card title="readfile" href="./readfile">
+Membaca existing regular file di dalam workspace dalam binary mode dan mengembalikan bytes sebagai Lua string.
+</Card>
+<Card title="savefiledialog" href="./savefiledialog">
+Membuka Windows save dialog melalui Windows save dialog, menulis Lua string bytes yang diberikan ke selected path, dan mengembalikan saved file sebagai file item.
+</Card>
+<Card title="writefile" href="./writefile">
+Menulis Lua string bytes ke file di dalam workspace, membuat missing parent directories, dan mengganti file contents jika file sudah ada.
+</Card>
+</CardGroup>
+
+</div>

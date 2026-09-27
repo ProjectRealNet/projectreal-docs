@@ -2,13 +2,10 @@
 title: "isvalidlevel"
 sidebarTitle: "isvalidlevel"
 description: "Проверяет, находится ли numeric stack level в current call stack range. level обязателен и должен быть number, потому что function вызывает requires a number. value преобразуется через integer conversion. function возвращает false, если level < 0 или level >= the current call stack depth, иначе true. Она не проверяет frame closure и не вызывает \"Level out of range\" для invalid numeric levels. validlevel является global alias, а debug.isvalidlevel и debug.validlevel доступны через debug table aliases."
-icon: "function"
 keywords: ["isvalidlevel","Debug","validlevel","debug.isvalidlevel","debug.validlevel"]
 ---
 
-Проверяет, находится ли numeric stack level в current call stack range. level обязателен и должен быть number, потому что function вызывает requires a number. value преобразуется через integer conversion. function возвращает false, если level &lt; 0 или level >= the current call stack depth, иначе true. Она не проверяет frame closure и не вызывает "Level out of range" для invalid numeric levels. validlevel является global alias, а debug.isvalidlevel и debug.validlevel доступны через debug table aliases.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 isvalidlevel(level: number): boolean
@@ -22,15 +19,15 @@ isvalidlevel(level: number): boolean
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `level` | `number` | Yes | Stack level number, преобразуемый через integer conversion и проверяемый по условию 0 &lt;= level &lt; the current call stack depth. |
+<ParamField path={"level"} type={"number"} required>
+Stack level number, преобразуемый через integer conversion и проверяемый по условию 0 &lt;= level &lt; the current call stack depth.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `valid` | `boolean` | true, если numeric level находится в current call stack range, иначе false. |
+<ResponseField name={"valid"} type={"boolean"}>
+true, если numeric level находится в current call stack range, иначе false.
+</ResponseField>
 
 ## Пример
 
@@ -42,3 +39,6 @@ print(validlevel(0))
 print(debug.isvalidlevel(0))
 print(debug.validlevel(0))
 ```
+
+
+</div>

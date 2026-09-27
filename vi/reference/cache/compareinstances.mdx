@@ -2,13 +2,10 @@
 title: "compareinstances"
 sidebarTitle: "compareinstances"
 description: "So sanh cac gia tri reference Instance noi bo duoc luu trong hai gia tri Instance object."
-icon: "function"
 keywords: ["compareinstances","Cache"]
 ---
 
-So sanh cac gia tri reference Instance noi bo duoc luu trong hai gia tri Instance object.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 compareinstances(first: Instance, second: Instance): boolean
@@ -16,16 +13,19 @@ compareinstances(first: Instance, second: Instance): boolean
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `first` | `Instance` | Yes | Instance object thu nhat de so sanh. |
-| `second` | `Instance` | Yes | Instance object thu hai de so sanh. |
+<ParamField path={"first"} type={"Instance"} required>
+Instance object thu nhat de so sanh.
+</ParamField>
+
+<ParamField path={"second"} type={"Instance"} required>
+Instance object thu hai de so sanh.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `equal` | `boolean` | True khi ca hai gia tri Instance object chua cung mot gia tri reference noi bo. |
+<ResponseField name={"equal"} type={"boolean"}>
+True khi ca hai gia tri Instance object chua cung mot gia tri reference noi bo.
+</ResponseField>
 
 ## Ví dụ
 
@@ -38,3 +38,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 print(compareinstances(Players, Players))
 print(compareinstances(Players, ReplicatedStorage))
 ```
+
+
+</div>

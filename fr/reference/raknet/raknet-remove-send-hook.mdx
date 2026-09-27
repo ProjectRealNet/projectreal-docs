@@ -2,13 +2,10 @@
 title: "RakNet.remove_send_hook"
 sidebarTitle: "RakNet.remove_send_hook"
 description: "Removes a send hook previously registered with the same callback closure. The function returns no values whether or not a matching hook was present."
-icon: "function"
 keywords: ["RakNet.remove_send_hook","RakNet","raknet.remove_send_hook"]
 ---
 
-Removes a send hook previously registered with the same callback closure. The function returns no values whether or not a matching hook was present.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 RakNet.remove_send_hook(callback: function)
@@ -20,9 +17,9 @@ RakNet.remove_send_hook(callback: function)
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `callback` | `function` | Yes | The callback closure to remove from outgoing packet hooks. |
+<ParamField path={"callback"} type={"function"} required>
+The callback closure to remove from outgoing packet hooks.
+</ParamField>
 
 ## Exemple
 
@@ -38,3 +35,6 @@ if raknet.is_enabled then
     raknet.remove_send_hook(onSend)
 end
 ```
+
+
+</div>

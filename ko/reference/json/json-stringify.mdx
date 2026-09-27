@@ -2,13 +2,10 @@
 title: "json.stringify"
 sidebarTitle: "json.stringify"
 description: "json.encode와 같은 function을 사용해 Lua value를 JSON string으로 serialize합니다."
-icon: "function"
 keywords: ["json.stringify","JSON"]
 ---
 
-json.encode와 같은 function을 사용해 Lua value를 JSON string으로 serialize합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 json.stringify(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.stringify(value: any, options?: EncodeOptions): string
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Encode할 value입니다. nil, booleans, numbers, strings, tables, json.null은 직접 처리됩니다. Unsupported Lua types는 errorOnUnsupported가 true가 아니면 null로 encode됩니다. |
-| `options` | `EncodeOptions` | No | Optional encode options입니다. boolean은 pretty output을 토글합니다. number는 0.16으로 clamp된 spaces 개수로 pretty output을 활성화합니다. string은 해당 indent로 pretty output을 활성화합니다. table은 pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, indent를 설정할 수 있습니다. |
+<ParamField path={"value"} type={"any"} required>
+Encode할 value입니다. nil, booleans, numbers, strings, tables, json.null은 직접 처리됩니다. Unsupported Lua types는 errorOnUnsupported가 true가 아니면 null로 encode됩니다.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options입니다. boolean은 pretty output을 토글합니다. number는 0.16으로 clamp된 spaces 개수로 pretty output을 활성화합니다. string은 해당 indent로 pretty output을 활성화합니다. table은 pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, indent를 설정할 수 있습니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `json` | `string` | Encoded JSON string입니다. Encoding errors는 Luau errors로 throw됩니다. |
+<ResponseField name={"json"} type={"string"}>
+Encoded JSON string입니다. Encoding errors는 Luau errors로 throw됩니다.
+</ResponseField>
 
 ## 타입
 
@@ -59,3 +59,6 @@ local text = json.stringify({
 
 print(text)
 ```
+
+
+</div>

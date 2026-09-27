@@ -2,13 +2,10 @@
 title: "RakNet.send"
 sidebarTitle: "RakNet.send"
 description: "Queues packet data for the RakNet send path. The packet can be a string, buffer, array table of byte numbers, RakNetPacket, or RakNetPacketTable. Raw data calls may also pass optional priority, reliability, and orderingChannel values. The call returns no values."
-icon: "function"
 keywords: ["RakNet.send","RakNet","RakNet.Send","raknet.send","raknet.Send"]
 ---
 
-Queues packet data for the RakNet send path. The packet can be a string, buffer, array table of byte numbers, RakNetPacket, or RakNetPacketTable. Raw data calls may also pass optional priority, reliability, and orderingChannel values. The call returns no values.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 RakNet.send(packet: string | buffer | {number} | RakNetPacket | RakNetPacketTable, priority?: integer, reliability?: integer, orderingChannel?: integer)
@@ -22,12 +19,21 @@ RakNet.send(packet: string | buffer | {number} | RakNetPacket | RakNetPacketTabl
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `packet` | `string \| buffer \| &#123;number&#125; \| RakNetPacket \| RakNetPacketTable` | Yes | Packet data or packet object to queue. Array-table bytes must be numbers from 0 through 255. |
-| `priority` | `integer` | No | Optional priority used only for raw data calls. Defaults to 2. |
-| `reliability` | `integer` | No | Optional reliability used only for raw data calls. Defaults to 3. |
-| `orderingChannel` | `integer` | No | Optional ordering channel used only for raw data calls. Defaults to 0. |
+<ParamField path={"packet"} type={"string | buffer | {number} | RakNetPacket | RakNetPacketTable"} required>
+Packet data or packet object to queue. Array-table bytes must be numbers from 0 through 255.
+</ParamField>
+
+<ParamField path={"priority"} type={"integer"}>
+Optional priority used only for raw data calls. Defaults to 2.
+</ParamField>
+
+<ParamField path={"reliability"} type={"integer"}>
+Optional reliability used only for raw data calls. Defaults to 3.
+</ParamField>
+
+<ParamField path={"orderingChannel"} type={"integer"}>
+Optional ordering channel used only for raw data calls. Defaults to 0.
+</ParamField>
 
 ## Types
 
@@ -76,3 +82,6 @@ if RakNet.is_enabled then
     RakNet.send({ 0x83, 0x00 }, RakNet.PacketPriority.MEDIUM_PRIORITY, RakNet.PacketReliability.RELIABLE_ORDERED, 0)
 end
 ```
+
+
+</div>

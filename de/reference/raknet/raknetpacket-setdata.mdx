@@ -2,13 +2,10 @@
 title: "RakNetPacket.SetData"
 sidebarTitle: "RakNetPacket.SetData"
 description: "Replaces the data stored on a live RakNetPacket with a string, buffer, or array table of byte numbers. The packet id field is updated from the first byte, or 0 when the new data is empty. The method returns no values."
-icon: "function"
 keywords: ["RakNetPacket.SetData","RakNet"]
 ---
 
-Replaces the data stored on a live RakNetPacket with a string, buffer, or array table of byte numbers. The packet id field is updated from the first byte, or 0 when the new data is empty. The method returns no values.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 RakNetPacket.SetData(packet: RakNetPacket, data: string | buffer | {number})
@@ -16,10 +13,13 @@ RakNetPacket.SetData(packet: RakNetPacket, data: string | buffer | {number})
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `packet` | `RakNetPacket` | Yes | Live packet object passed to a RakNet hook or signal callback. |
-| `data` | `string \| buffer \| &#123;number&#125;` | Yes | Replacement packet data. Array-table bytes must be numbers from 0 through 255. |
+<ParamField path={"packet"} type={"RakNetPacket"} required>
+Live packet object passed to a RakNet hook or signal callback.
+</ParamField>
+
+<ParamField path={"data"} type={"string | buffer | {number}"} required>
+Replacement packet data. Array-table bytes must be numbers from 0 through 255.
+</ParamField>
 
 ## Typen
 
@@ -56,3 +56,6 @@ if RakNet.is_enabled then
     end)
 end
 ```
+
+
+</div>

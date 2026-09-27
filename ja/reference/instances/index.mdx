@@ -1,18 +1,40 @@
 ---
 title: "Instances"
 description: "インスタンスの検出と対話のヘルパー。"
-icon: "folder-code"
+icon: "/icons/stack.svg"
 ---
+
+<div className="real-category-page">
 
 インスタンスの検出と対話のヘルパー。
 
-| 関数ナビゲーション | 説明 |
-| --- | --- |
-| [`fireclickdetector`](./fireclickdetector) | ローカルプレイヤーに対して ClickDetector interaction を発火します。最初の引数は ClassName が ClickDetector の Instance である必要があります。distance は任意で、既定値は 0 です。clickOption は任意で、大文字小文字を区別せずに比較され、既定値は "mouseclick" です。対応する option は "mouseclick"、"rightmouseclick"、"mousehoverenter"、"mousehoverleave" です。click option は distance を float として Roblox click helper に渡し、hover option は distance を無視します。Players または Players.LocalPlayer が利用できない場合、この function は何も発火せずに戻ります。不明な clickOption でも interaction は発生しません。この function は何も返しません。 |
-| [`fireproximityprompt`](./fireproximityprompt) | Real の ProximityPrompt trigger を通して ProximityPrompt を発火します。prompt 引数は ClassName field が "ProximityPrompt" の object である必要があります。値が object でない場合、この呼び出しは type error を発生させます。ClassName がない、または string でない場合は "Invalid Instance" を発生させます。ClassName が "ProximityPrompt" でない場合は "ProximityPrompt expected" を発生させます。この function は optional arguments を受け取らず、何も返しません。 |
-| [`firetouchinterest`](./firetouchinterest) | 2 つの BasePart instances に対して Real touch interest event を発火します。最初の 2 つの引数は Instance object で、両方の値が IsA("BasePart") を通る必要があります。state 引数は必須で、number または boolean である必要があります。state が number の場合、1 だけが true になり、それ以外の number は false になります。state が boolean の場合、その boolean 値がそのまま渡されます。どちらかの part に touch data がない場合、または最初の part に overlap reference がない場合、この function は何も発火せずに戻ります。この function は何も返しません。helper に渡される boolean の正確な begin/end の意味は: Nicht aus der Codebasis verifizierbar. |
-| [`getcallbackvalue`](./getcallbackvalue) | Instance 上の callback property に保存された Lua callback function を読み取ります。最初の引数は Instance object、2 番目の引数は string property name である必要があります。instance reference は有効である必要があります。property name は Roblox property metadata で解決され、型が LUA_CALLBACK の property を指す必要があります。property descriptor がない、property が LUA_CALLBACK ではない、callback field offset がない、callback が保存されていない、LiveLuaRef がない、callback が別の Lua global state に属する、または参照された値が function ではない場合、この function は nil を返します。最初の callback slot に callback がない場合は async callback field fallback も確認します。この function は property を更新しません。 |
-| [`gethui`](./gethui) | game:CoreGui lookup.RobloxGui を返します。この function は arguments を取りません。CoreGui lookup が nil を返す場合、またはその値の RobloxGui が nil の場合、この function は nil を返します。function は container を作成せず、cached CoreGui 値も使用しません。 |
-| [`getinstances`](./getinstances) | Instance cache に現在保存されているすべての object value を含む新しい array table を返します。この function は arguments を取りません。各 registry value が object であること以外、Parent、ClassName、DataModel fieldship、nil-parent state、Instance validity ではフィルタしません。entries は 1 から始まる sequential numeric indexes にコピーされます。iteration order は cache に対する table iteration から来ており、function はソートしません。 |
-| [`getnilinstances`](./getnilinstances) | Returns a new array table containing cached Instance values whose Parent field is nil. The function takes no arguments. It does not sort the returned entries. |
-| [`isnetworkowner`](./isnetworkowner) | Instance から hidden property "NetworkOwnerV3" を読み取り、最初の戻り値を integer conversion で変換した値が 2 より大きいかを返します。引数は Instance object である必要があります。この function は内部で the hidden property reader を呼び出し、その呼び出しの error を捕捉しないため、Invalid Instance values、missing properties、non-property metadata は gethiddenproperty と同じ error を発生させる可能性があります。boolean を 1 つ返します。peer_id > 2 が正確に local network ownership を意味するかは: Nicht aus der Codebasis verifizierbar. |
+## 利用できる関数
+
+<CardGroup cols={2}>
+<Card title="fireclickdetector" href="./fireclickdetector">
+ローカルプレイヤーに対して ClickDetector interaction を発火します。最初の引数は ClassName が ClickDetector の Instance である必要があります。distance は任意で、既定値は 0 です。clickOption は任意で、大文字小文字を区別せずに比較され、既定値は "mouseclick" です。対応する option は "mouseclick"、"rightmouseclick"、"mousehoverenter"、"mousehoverleave" です。click option は distance を float として Roblox click helper に渡し、hover option は distance を無視します。Players または Players.LocalPlayer が利用できない場合、この function は何も発火せずに戻ります。不明な clickOption でも interaction は発生しません。この function は何も返しません。
+</Card>
+<Card title="fireproximityprompt" href="./fireproximityprompt">
+Real の ProximityPrompt trigger を通して ProximityPrompt を発火します。prompt 引数は ClassName field が "ProximityPrompt" の object である必要があります。値が object でない場合、この呼び出しは type error を発生させます。ClassName がない、または string でない場合は "Invalid Instance" を発生させます。ClassName が "ProximityPrompt" でない場合は "ProximityPrompt expected" を発生させます。この function は optional arguments を受け取らず、何も返しません。
+</Card>
+<Card title="firetouchinterest" href="./firetouchinterest">
+2 つの BasePart instances に対して Real touch interest event を発火します。最初の 2 つの引数は Instance object で、両方の値が IsA("BasePart") を通る必要があります。state 引数は必須で、number または boolean である必要があります。state が number の場合、1 だけが true になり、それ以外の number は false になります。state が boolean の場合、その boolean 値がそのまま渡されます。どちらかの part に touch data がない場合、または最初の part に overlap reference がない場合、この function は何も発火せずに戻ります。この function は何も返しません。helper に渡される boolean の正確な begin/end の意味は: Nicht aus der Codebasis verifizierbar.
+</Card>
+<Card title="getcallbackvalue" href="./getcallbackvalue">
+Instance 上の callback property に保存された Lua callback function を読み取ります。最初の引数は Instance object、2 番目の引数は string property name である必要があります。instance reference は有効である必要があります。property name は Roblox property metadata で解決され、型が LUA_CALLBACK の property を指す必要があります。property descriptor がない、property が LUA_CALLBACK ではない、callback field offset がない、callback が保存されていない、LiveLuaRef がない、callback が別の Lua global state に属する、または参照された値が function ではない場合、この function は nil を返します。最初の callback slot に callback がない場合は async callback field fallback も確認します。この function は property を更新しません。
+</Card>
+<Card title="gethui" href="./gethui">
+game:CoreGui lookup.RobloxGui を返します。この function は arguments を取りません。CoreGui lookup が nil を返す場合、またはその値の RobloxGui が nil の場合、この function は nil を返します。function は container を作成せず、cached CoreGui 値も使用しません。
+</Card>
+<Card title="getinstances" href="./getinstances">
+Instance cache に現在保存されているすべての object value を含む新しい array table を返します。この function は arguments を取りません。各 registry value が object であること以外、Parent、ClassName、DataModel fieldship、nil-parent state、Instance validity ではフィルタしません。entries は 1 から始まる sequential numeric indexes にコピーされます。iteration order は cache に対する table iteration から来ており、function はソートしません。
+</Card>
+<Card title="getnilinstances" href="./getnilinstances">
+Returns a new array table containing cached Instance values whose Parent field is nil. The function takes no arguments. It does not sort the returned entries.
+</Card>
+<Card title="isnetworkowner" href="./isnetworkowner">
+Instance から hidden property "NetworkOwnerV3" を読み取り、最初の戻り値を integer conversion で変換した値が 2 より大きいかを返します。引数は Instance object である必要があります。この function は内部で the hidden property reader を呼び出し、その呼び出しの error を捕捉しないため、Invalid Instance values、missing properties、non-property metadata は gethiddenproperty と同じ error を発生させる可能性があります。boolean を 1 つ返します。peer_id > 2 が正確に local network ownership を意味するかは: Nicht aus der Codebasis verifizierbar.
+</Card>
+</CardGroup>
+
+</div>

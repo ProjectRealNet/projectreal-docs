@@ -2,13 +2,10 @@
 title: "json.isNull"
 sidebarTitle: "json.isNull"
 description: "Retorna se um value e o Real JSON null sentinel, json.null."
-icon: "function"
 keywords: ["json.isNull","JSON"]
 ---
 
-Retorna se um value e o Real JSON null sentinel, json.null.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 json.isNull(value: any): boolean
@@ -16,15 +13,15 @@ json.isNull(value: any): boolean
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value para inspect. Somente o json.null value retorna true; Lua nil e other values retornam false. |
+<ParamField path={"value"} type={"any"} required>
+Value para inspect. Somente o json.null value retorna true; Lua nil e other values retornam false.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `isNull` | `boolean` | true quando o value e o exact json.null sentinel, otherwise false. |
+<ResponseField name={"isNull"} type={"boolean"}>
+true quando o value e o exact json.null sentinel, otherwise false.
+</ResponseField>
 
 ## Exemplo
 
@@ -39,3 +36,6 @@ end
 
 print(json.isNull(nil))
 ```
+
+
+</div>

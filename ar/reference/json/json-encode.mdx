@@ -2,13 +2,10 @@
 title: "json.encode"
 sidebarTitle: "json.encode"
 description: "يعمل serialize لـ Lua value إلى JSON string باستخدام Real JSON encoder. json.stringify مسجل لنفس function."
-icon: "function"
 keywords: ["json.encode","JSON"]
 ---
 
-يعمل serialize لـ Lua value إلى JSON string باستخدام Real JSON encoder. json.stringify مسجل لنفس function.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 json.encode(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.encode(value: any, options?: EncodeOptions): string
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value سيتم encode له. nil و booleans و numbers و strings و tables و json.null يتم التعامل معها مباشرة. Unsupported Lua types يتم encode لها كـ null إلا إذا كان errorOnUnsupported true. |
-| `options` | `EncodeOptions` | No | Optional encode options. boolean يبدل pretty output. number يفعل pretty output بعدد spaces يتم clamp له إلى 0.16. string يفعل pretty output بهذا indent. table يمكن أن تضبط pretty و sortKeys و emptyTableAsArray و errorOnUnsupported و encodeInvalidNumbersAsNull و maxDepth و indent. |
+<ParamField path={"value"} type={"any"} required>
+Value سيتم encode له. nil و booleans و numbers و strings و tables و json.null يتم التعامل معها مباشرة. Unsupported Lua types يتم encode لها كـ null إلا إذا كان errorOnUnsupported true.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options. boolean يبدل pretty output. number يفعل pretty output بعدد spaces يتم clamp له إلى 0.16. string يفعل pretty output بهذا indent. table يمكن أن تضبط pretty و sortKeys و emptyTableAsArray و errorOnUnsupported و encodeInvalidNumbersAsNull و maxDepth و indent.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `json` | `string` | Encoded JSON string. Encoding errors ترمى كـ Luau errors. |
+<ResponseField name={"json"} type={"string"}>
+Encoded JSON string. Encoding errors ترمى كـ Luau errors.
+</ResponseField>
 
 ## الأنواع
 
@@ -61,3 +61,6 @@ local text = json.encode(payload, {
 
 print(text)
 ```
+
+
+</div>

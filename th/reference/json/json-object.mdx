@@ -2,13 +2,10 @@
 title: "json.object"
 sidebarTitle: "json.object"
 description: "สร้าง new table marked as a JSON object เพื่อให้ Real JSON encoder จัดการเป็น object."
-icon: "function"
 keywords: ["json.object","JSON"]
 ---
 
-สร้าง new table marked as a JSON object เพื่อให้ Real JSON encoder จัดการเป็น object.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 json.object(source?: table): table
@@ -16,15 +13,15 @@ json.object(source?: table): table
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `source` | `table` | No | Optional source table สำหรับ copy เข้า new object table. ถ้า omitted หรือ nil จะคืน empty object table. |
+<ParamField path={"source"} type={"table"}>
+Optional source table สำหรับ copy เข้า new object table. ถ้า omitted หรือ nil จะคืน empty object table.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `object` | `table` | New table marked ด้วย Real JSON object marker. Source entries ถูก copy ยกเว้น Real JSON type marker. |
+<ResponseField name={"object"} type={"table"}>
+New table marked ด้วย Real JSON object marker. Source entries ถูก copy ยกเว้น Real JSON type marker.
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -40,3 +37,6 @@ local empty = json.object()
 print(json.encode(profile))
 print(json.encode(empty))
 ```
+
+
+</div>

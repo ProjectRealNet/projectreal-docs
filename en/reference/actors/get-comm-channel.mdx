@@ -2,13 +2,10 @@
 title: "get_comm_channel"
 sidebarTitle: "get_comm_channel"
 description: "Returns the BindableEvent for a communication channel ID, or nil when no channel exists for that ID."
-icon: "function"
 keywords: ["get_comm_channel","Actors"]
 ---
 
-Returns the BindableEvent for a communication channel ID, or nil when no channel exists for that ID.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 get_comm_channel(channelId: number): Instance | nil
@@ -16,15 +13,15 @@ get_comm_channel(channelId: number): Instance | nil
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `channelId` | `number` | Yes | Communication channel ID to look up. |
+<ParamField path={"channelId"} type={"number"} required>
+Communication channel ID to look up.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `event` | `Instance \| nil` | BindableEvent Instance for the channel ID, or nil when the ID is not present. |
+<ResponseField name={"event"} type={"Instance | nil"}>
+BindableEvent Instance for the channel ID, or nil when the ID is not present.
+</ResponseField>
 
 ## Example
 
@@ -36,3 +33,6 @@ local event = get_comm_channel(channelId)
 
 print(event)
 ```
+
+
+</div>

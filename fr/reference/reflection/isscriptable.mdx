@@ -2,13 +2,10 @@
 title: "isscriptable"
 sidebarTitle: "isscriptable"
 description: "Verifie le scriptable flag d une Roblox property sur une Instance. La function renvoie d abord une valeur scriptable en cache lorsqu elle existe pour le meme instance reference et property name. En cas de cache miss, le property name est resolu with Roblox property metadata et l Instance class descriptor. Si aucun descriptor n existe, ou si le field resolu manque ou n est pas une property entry, la function renvoie nil. Lorsqu une property entry est trouvee, elle lit scriptable state, stocke cette valeur dans scriptable override cache pour l instance et la property, puis renvoie le boolean. La function ne modifie pas le scriptable flag."
-icon: "function"
 keywords: ["isscriptable","Reflection"]
 ---
 
-Verifie le scriptable flag d une Roblox property sur une Instance. La function renvoie d abord une valeur scriptable en cache lorsqu elle existe pour le meme instance reference et property name. En cas de cache miss, le property name est resolu with Roblox property metadata et l Instance class descriptor. Si aucun descriptor n existe, ou si le field resolu manque ou n est pas une property entry, la function renvoie nil. Lorsqu une property entry est trouvee, elle lit scriptable state, stocke cette valeur dans scriptable override cache pour l instance et la property, puis renvoie le boolean. La function ne modifie pas le scriptable flag.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 isscriptable(instance: Instance, property: string): boolean | nil
@@ -16,16 +13,19 @@ isscriptable(instance: Instance, property: string): boolean | nil
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object dont le property scriptable state doit etre verifie. |
-| `property` | `string` | Yes | Property name resolu with Roblox property metadata et l Instance class descriptor. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object dont le property scriptable state doit etre verifie.
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+Property name resolu with Roblox property metadata et l Instance class descriptor.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `scriptable` | `boolean \| nil` | Valeur scriptable state en cache ou actuelle, ou nil lorsque le property descriptor/field manque ou n est pas une property entry. |
+<ResponseField name={"scriptable"} type={"boolean | nil"}>
+Valeur scriptable state en cache ou actuelle, ou nil lorsque le property descriptor/field manque ou n est pas une property entry.
+</ResponseField>
 
 ## Exemple
 
@@ -35,3 +35,6 @@ Check whether a property is scriptable on an Instance.
 local scriptable = isscriptable(workspace, "Name")
 print(scriptable)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "getsignalargumentsinfo"
 sidebarTitle: "getsignalargumentsinfo"
 description: "Mengembalikan array table berisi info argumen dari signature RBXScriptSignal. Fungsi ini tidak mengembalikan nilai argumen runtime yang tertangkap."
-icon: "function"
 keywords: ["getsignalargumentsinfo","Signals"]
 ---
 
-Mengembalikan array table berisi info argumen dari signature RBXScriptSignal. Fungsi ini tidak mengembalikan nilai argumen runtime yang tertangkap.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 getsignalargumentsinfo(signal: RBXScriptSignal): {{Name: string, Type: string}}
@@ -16,15 +13,15 @@ getsignalargumentsinfo(signal: RBXScriptSignal): {{Name: string, Type: string}}
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | RBXScriptSignal yang event descriptor signature-nya harus diperiksa. |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+RBXScriptSignal yang event descriptor signature-nya harus diperiksa.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `argumentInfo` | `&#123;&#123;Name: string, Type: string&#125;&#125;` | Array table dengan setiap entri berisi string Name dan Type. Jika signature tidak dapat dibaca atau tidak memiliki entri, fungsi mengembalikan satu fallback entry dengan Name bernilai arg1 dan Type bernilai Variant. |
+<ResponseField name={"argumentInfo"} type={"{{Name: string, Type: string}}"}>
+Array table dengan setiap entri berisi string Name dan Type. Jika signature tidak dapat dibaca atau tidak memiliki entri, fungsi mengembalikan satu fallback entry dengan Name bernilai arg1 dan Type bernilai Variant.
+</ResponseField>
 
 ## Contoh
 
@@ -40,3 +37,6 @@ if remote then
     end
 end
 ```
+
+
+</div>

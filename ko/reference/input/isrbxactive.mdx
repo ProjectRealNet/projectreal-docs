@@ -2,13 +2,10 @@
 title: "isrbxactive"
 sidebarTitle: "isrbxactive"
 description: "current foreground window가 Real이 찾은 Roblox window인지 반환합니다. Real은 현재 프로세스의 windows를 enumerating하고 class name이 Roblox window인 window를 선택하여 해당 window를 찾습니다. 이 function은 arguments를 받지 않으며 foreground window 또는 matching Roblox window가 없으면 false를 반환합니다."
-icon: "function"
 keywords: ["isrbxactive","Input","isgameactive","iswindowactive"]
 ---
 
-current foreground window가 Real이 찾은 Roblox window인지 반환합니다. Real은 현재 프로세스의 windows를 enumerating하고 class name이 Roblox window인 window를 선택하여 해당 window를 찾습니다. 이 function은 arguments를 받지 않으며 foreground window 또는 matching Roblox window가 없으면 false를 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 isrbxactive(): boolean
@@ -21,6 +18,9 @@ isrbxactive(): boolean
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `active` | `boolean` | GetForegroundWindow()가 현재 프로세스의 cached 또는 newly found Roblox window window와 같은 HWND를 반환하면 True입니다. |
+<ResponseField name={"active"} type={"boolean"}>
+GetForegroundWindow()가 현재 프로세스의 cached 또는 newly found Roblox window window와 같은 HWND를 반환하면 True입니다.
+</ResponseField>
+
+
+</div>

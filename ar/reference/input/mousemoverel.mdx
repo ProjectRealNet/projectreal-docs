@@ -2,13 +2,10 @@
 title: "mousemoverel"
 sidebarTitle: "mousemoverel"
 description: "يحرك الماوس بمقدار relative delta عندما تكون Roblox window نشطة. يتم فحص وسيطي x و y كـ Lua numbers وتحويلهما باستخدام integer conversion، ثم تمريرهما مباشرة إلى mouse input مع the requested mouse action كـ dx و dy. لا تستخدم function ‏the requested mouse action، ولا تنفذ client-area conversion، ولا تعيد شيئا، وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false."
-icon: "function"
 keywords: ["mousemoverel","Input"]
 ---
 
-يحرك الماوس بمقدار relative delta عندما تكون Roblox window نشطة. يتم فحص وسيطي x و y كـ Lua numbers وتحويلهما باستخدام integer conversion، ثم تمريرهما مباشرة إلى mouse input مع the requested mouse action كـ dx و dy. لا تستخدم function ‏the requested mouse action، ولا تنفذ client-area conversion، ولا تعيد شيئا، وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 mousemoverel(x: number, y: number)
@@ -16,7 +13,13 @@ mousemoverel(x: number, y: number)
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `x` | `number` | Yes | Relative X movement delta يقرأ كـ Lua number ويتم تحويله باستخدام integer conversion قبل تمريره كـ dx إلى mouse input. |
-| `y` | `number` | Yes | Relative Y movement delta يقرأ كـ Lua number ويتم تحويله باستخدام integer conversion قبل تمريره كـ dy إلى mouse input. |
+<ParamField path={"x"} type={"number"} required>
+Relative X movement delta يقرأ كـ Lua number ويتم تحويله باستخدام integer conversion قبل تمريره كـ dx إلى mouse input.
+</ParamField>
+
+<ParamField path={"y"} type={"number"} required>
+Relative Y movement delta يقرأ كـ Lua number ويتم تحويله باستخدام integer conversion قبل تمريره كـ dy إلى mouse input.
+</ParamField>
+
+
+</div>

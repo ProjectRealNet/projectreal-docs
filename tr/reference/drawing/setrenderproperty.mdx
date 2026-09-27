@@ -2,13 +2,10 @@
 title: "setrenderproperty"
 sidebarTitle: "setrenderproperty"
 description: "value degerini object[property] icine atar. Drawing object icin direct property assignment ile ayni Drawing property assignment kullanilir. Unknown Drawing properties yok sayilir ve destroyed Drawing objects degistirilmez. Ucuncu arguman bulunmalidir. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner."
-icon: "function"
 keywords: ["setrenderproperty","Drawing"]
 ---
 
-value degerini object[property] icine atar. Drawing object icin direct property assignment ile ayni Drawing property assignment kullanilir. Unknown Drawing properties yok sayilir ve destroyed Drawing objects degistirilmez. Ucuncu arguman bulunmalidir. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 setrenderproperty(object: any, property: any, value: any)
@@ -16,11 +13,17 @@ setrenderproperty(object: any, property: any, value: any)
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | Indekslenecek ve atama yapilacak deger. Drawing object ile RealDrawingObject __newindex handler kullanilir. |
-| `property` | `any` | Yes | Atama icin kullanilan property key. Drawing object properties strings tabanlidir. |
-| `value` | `any` | Yes | object[property] icine atanan deger. Bu arguman verilmelidir; nil yine de verilmis bir degerdir. |
+<ParamField path={"object"} type={"any"} required>
+Indekslenecek ve atama yapilacak deger. Drawing object ile RealDrawingObject __newindex handler kullanilir.
+</ParamField>
+
+<ParamField path={"property"} type={"any"} required>
+Atama icin kullanilan property key. Drawing object properties strings tabanlidir.
+</ParamField>
+
+<ParamField path={"value"} type={"any"} required>
+object[property] icine atanan deger. Bu arguman verilmelidir; nil yine de verilmis bir degerdir.
+</ParamField>
 
 ## Örnek
 
@@ -34,3 +37,6 @@ setrenderproperty(line, "Visible", true)
 print(line.Thickness)
 print(line.Visible)
 ```
+
+
+</div>

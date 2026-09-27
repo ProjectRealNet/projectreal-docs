@@ -2,13 +2,10 @@
 title: "getsignalarguments"
 sidebarTitle: "getsignalarguments"
 description: "Bir RBXScriptSignal event descriptor signature icinden okunan type names iceren array table dondurur. Ilk argument, Luau type name degeri RBXScriptSignal olan object olmalidir. Function signal icindeki event descriptor degerini okur, function argument stride ile signature slots uzerinden gecer, her argument type reference degerini okur ve her slot icin cozumlenen type name string degerini push eder. captured runtime argument values dondurmez. Signature okunamazsa veya hic entries push edilmezse, dondurulen table tek fallback entry icerir: \"Variant\"."
-icon: "function"
 keywords: ["getsignalarguments","Signals"]
 ---
 
-Bir RBXScriptSignal event descriptor signature icinden okunan type names iceren array table dondurur. Ilk argument, Luau type name degeri RBXScriptSignal olan object olmalidir. Function signal icindeki event descriptor degerini okur, function argument stride ile signature slots uzerinden gecer, her argument type reference degerini okur ve her slot icin cozumlenen type name string degerini push eder. captured runtime argument values dondurmez. Signature okunamazsa veya hic entries push edilmezse, dondurulen table tek fallback entry icerir: "Variant".
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 getsignalarguments(signal: RBXScriptSignal): {string}
@@ -16,15 +13,15 @@ getsignalarguments(signal: RBXScriptSignal): {string}
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | Event descriptor signature degeri incelenecek signal. RBXScriptSignal olmayan object type error olusturur. |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+Event descriptor signature degeri incelenecek signal. RBXScriptSignal olmayan object type error olusturur.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `arguments` | `&#123;string&#125;` | Argument type name strings iceren array table. Signature data okunamadiginda veya argument entries uretilmediginde "Variant" iceren fallback table dondurulur. |
+<ResponseField name={"arguments"} type={"{string}"}>
+Argument type name strings iceren array table. Signature data okunamadiginda veya argument entries uretilmediginde "Variant" iceren fallback table dondurulur.
+</ResponseField>
 
 ## Örnek
 
@@ -40,3 +37,6 @@ if remote then
     end
 end
 ```
+
+
+</div>

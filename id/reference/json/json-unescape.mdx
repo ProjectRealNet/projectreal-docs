@@ -2,13 +2,10 @@
 title: "json.unescape"
 sidebarTitle: "json.unescape"
 description: "Mendecode JSON string escape sequences dari escaped string content atau dari complete quoted JSON string literal. Input di-parse dengan JSON string parser, bukan sebagai full JSON document."
-icon: "function"
 keywords: ["json.unescape","JSON"]
 ---
 
-Mendecode JSON string escape sequences dari escaped string content atau dari complete quoted JSON string literal. Input di-parse dengan JSON string parser, bukan sebagai full JSON document.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 json.unescape(text: string): string
@@ -16,15 +13,15 @@ json.unescape(text: string): string
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | Escaped JSON string content, atau complete quoted JSON string literal dengan first and last bytes berupa quotes. Function membaca argument ini dengan string type checking. |
+<ParamField path={"text"} type={"string"} required>
+Escaped JSON string content, atau complete quoted JSON string literal dengan first and last bytes berupa quotes. Function membaca argument ini dengan string type checking.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `text` | `string` | Decoded string. Supported escapes mencakup \", \\, \/, \b, \f, \n, \r, \t, dan \uXXXX dengan surrogate-pair handling. Invalid escapes, unescaped control characters, unterminated strings, dan trailing characters setelah quoted literal melempar Luau error dengan near-position suffix. |
+<ResponseField name={"text"} type={"string"}>
+Decoded string. Supported escapes mencakup \", \\, \/, \b, \f, \n, \r, \t, dan \uXXXX dengan surrogate-pair handling. Invalid escapes, unescaped control characters, unterminated strings, dan trailing characters setelah quoted literal melempar Luau error dengan near-position suffix.
+</ResponseField>
 
 ## Contoh
 
@@ -36,3 +33,6 @@ local restored = json.unescape(escaped)
 
 print(restored)
 ```
+
+
+</div>

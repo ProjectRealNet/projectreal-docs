@@ -2,13 +2,10 @@
 title: "hookmetamethod"
 sidebarTitle: "hookmetamethod"
 description: "Ищет metamethod function у value и hook-ит эту function через hookfunction. First argument может быть любым value, который принимает raw metafield lookup. Second argument должен быть string metamethod name, а third argument должен быть function replacement. Если raw metafield lookup не находит named metafield, function вызывает \"Metamethod doesn't exist\" для argument 2. Если metafield существует, но не является function, вызывает \"Metamethod isn't a function\" для argument 2. Когда metafield является function, hookmetamethod вызывает hookfunction с found metamethod function как target и возвращает cloned original closure из hookfunction."
-icon: "function"
 keywords: ["hookmetamethod","Closures"]
 ---
 
-Ищет metamethod function у value и hook-ит эту function через hookfunction. First argument может быть любым value, который принимает raw metafield lookup. Second argument должен быть string metamethod name, а third argument должен быть function replacement. Если raw metafield lookup не находит named metafield, function вызывает "Metamethod doesn't exist" для argument 2. Если metafield существует, но не является function, вызывает "Metamethod isn't a function" для argument 2. Когда metafield является function, hookmetamethod вызывает hookfunction с found metamethod function как target и возвращает cloned original closure из hookfunction.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 hookmetamethod(object: any, metamethod: string, replacement: function): function
@@ -16,17 +13,23 @@ hookmetamethod(object: any, metamethod: string, replacement: function): function
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | Value, чей methods проверяется через raw metafield lookup. |
-| `metamethod` | `string` | Yes | Metafield name, передаваемый в raw metafield lookup. |
-| `replacement` | `function` | Yes | Function, передаваемая в hookfunction как replacement для found metamethod function. |
+<ParamField path={"object"} type={"any"} required>
+Value, чей methods проверяется через raw metafield lookup.
+</ParamField>
+
+<ParamField path={"metamethod"} type={"string"} required>
+Metafield name, передаваемый в raw metafield lookup.
+</ParamField>
+
+<ParamField path={"replacement"} type={"function"} required>
+Function, передаваемая в hookfunction как replacement для found metamethod function.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `original` | `function` | Cloned original metamethod closure, возвращенная hookfunction. |
+<ResponseField name={"original"} type={"function"}>
+Cloned original metamethod closure, возвращенная hookfunction.
+</ResponseField>
 
 ## Пример
 
@@ -48,3 +51,6 @@ original = hookmetamethod(object, "__index", function(self, key)
     return original(self, key)
 end)
 ```
+
+
+</div>

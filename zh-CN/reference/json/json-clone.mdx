@@ -2,13 +2,10 @@
 title: "json.clone"
 sidebarTitle: "json.clone"
 description: "通过 json.encode semantics 对 value 进行 encoding，再把 generated JSON decoding 回 Lua values 来 clone。"
-icon: "function"
 keywords: ["json.clone","JSON"]
 ---
 
-通过 json.encode semantics 对 value 进行 encoding，再把 generated JSON decoding 回 Lua values 来 clone。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 json.clone(value: any, options?: EncodeOptions): any
@@ -16,16 +13,19 @@ json.clone(value: any, options?: EncodeOptions): any
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | 要 encode 和 decode 的 Value。Supported JSON values 会通过 JSON round-trip；unsupported types 默认 encode 为 null，除非 encode options 要求 error。 |
-| `options` | `EncodeOptions` | No | 传给 encode step 的 Optional encode options，例如 sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth、pretty 和 indent。 |
+<ParamField path={"value"} type={"any"} required>
+要 encode 和 decode 的 Value。Supported JSON values 会通过 JSON round-trip；unsupported types 默认 encode 为 null，除非 encode options 要求 error。
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+传给 encode step 的 Optional encode options，例如 sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth、pretty 和 indent。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `clone` | `any` | 由 encoded JSON 生成的 Decoded value。Objects 和 arrays 是带有 decoder 生成的 JSON kind markers 的 new tables；JSON null values 会变成 json.null。 |
+<ResponseField name={"clone"} type={"any"}>
+由 encoded JSON 生成的 Decoded value。Objects 和 arrays 是带有 decoder 生成的 JSON kind markers 的 new tables；JSON null values 会变成 json.null。
+</ResponseField>
 
 ## 类型
 
@@ -59,3 +59,6 @@ print(original.profile.name)
 print(copy.profile.name)
 print(json.type(copy))
 ```
+
+
+</div>

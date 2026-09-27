@@ -2,13 +2,10 @@
 title: "rconsoleinput"
 sidebarTitle: "rconsoleinput"
 description: "Yield trong khi đọc một line từ stdin bằng console input sau khi xóa state của console input và bỏ qua input đến newline tiếp theo. string được trả về được push bằng string return và không bao gồm newline kết thúc. Nếu không có console window, lời gọi trả về không có values."
-icon: "function"
 keywords: ["rconsoleinput","Console","consoleinput"]
 ---
 
-Yield trong khi đọc một line từ stdin bằng console input sau khi xóa state của console input và bỏ qua input đến newline tiếp theo. string được trả về được push bằng string return và không bao gồm newline kết thúc. Nếu không có console window, lời gọi trả về không có values.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 rconsoleinput(): string
@@ -20,9 +17,9 @@ rconsoleinput(): string
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `input` | `string` | Dòng văn bản được đọc từ bảng điều khiển. |
+<ResponseField name={"input"} type={"string"}>
+Dòng văn bản được đọc từ bảng điều khiển.
+</ResponseField>
 
 ## Ví dụ
 
@@ -35,3 +32,6 @@ local name = rconsoleinput()
 rconsoleprint("Hello, ", name, "
 ")
 ```
+
+
+</div>

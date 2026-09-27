@@ -2,13 +2,10 @@
 title: "lz4decompress"
 sidebarTitle: "lz4decompress"
 description: "Распаковывает raw LZ4 block bytes через LZ4 block decompression и возвращает raw decompressed bytes как строку Lua."
-icon: "function"
 keywords: ["lz4decompress","Cryptography","crypt.lz4decompress","crypt.lz4.decompress","lz4.decompress"]
 ---
 
-Распаковывает raw LZ4 block bytes через LZ4 block decompression и возвращает raw decompressed bytes как строку Lua.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 lz4decompress(data: string, originalSize?: number): string
@@ -22,16 +19,19 @@ lz4decompress(data: string, originalSize?: number): string
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Raw compressed bytes, передаваемые в LZ4 block decompression. |
-| `originalSize` | `number` | No | Output buffer size, передаваемый как dstCapacity. Для вывода lz4compress передайте исходную несжатую длину в bytes; если аргумент пропущен, используется длина сжатого ввода. |
+<ParamField path={"data"} type={"string"} required>
+Raw compressed bytes, передаваемые в LZ4 block decompression.
+</ParamField>
+
+<ParamField path={"originalSize"} type={"number"}>
+Output buffer size, передаваемый как dstCapacity. Для вывода lz4compress передайте исходную несжатую длину в bytes; если аргумент пропущен, используется длина сжатого ввода.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `decompressed` | `string` | Raw decompressed bytes, возвращаемые как строка Lua. Вывод может быть короче originalSize. |
+<ResponseField name={"decompressed"} type={"string"}>
+Raw decompressed bytes, возвращаемые как строка Lua. Вывод может быть короче originalSize.
+</ResponseField>
 
 ## Пример
 
@@ -45,3 +45,6 @@ local decompressed = lz4decompress(compressed, #source)
 print(decompressed)
 print(decompressed == source)
 ```
+
+
+</div>

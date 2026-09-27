@@ -2,13 +2,10 @@
 title: "keypress"
 sidebarTitle: "keypress"
 description: "Sends a key down event when the Roblox window is active. The keyCode argument is checked as a Lua number, and sent with keyboard input with KEYEVENTF_SCANCODE. This function does not send a key up event. If isrbxactive would be false, the function returns without sending input."
-icon: "function"
 keywords: ["keypress","Input"]
 ---
 
-Sends a key down event when the Roblox window is active. The keyCode argument is checked as a Lua number, and sent with keyboard input with KEYEVENTF_SCANCODE. This function does not send a key up event. If isrbxactive would be false, the function returns without sending input.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 keypress(keyCode: number)
@@ -16,6 +13,9 @@ keypress(keyCode: number)
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `keyCode` | `number` | Yes | Windows virtual-key code read as a Lua number and converted to an integer before Windows key mapping is called. |
+<ParamField path={"keyCode"} type={"number"} required>
+Windows virtual-key code read as a Lua number and converted to an integer before Windows key mapping is called.
+</ParamField>
+
+
+</div>

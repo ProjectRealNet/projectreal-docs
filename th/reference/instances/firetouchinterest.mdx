@@ -2,13 +2,10 @@
 title: "firetouchinterest"
 sidebarTitle: "firetouchinterest"
 description: "เรียกใช้ Real touch interest event สำหรับ BasePart instances สองค่า อาร์กิวเมนต์สองตัวแรกต้องเป็น Instance object และทั้งสองค่าต้องผ่าน IsA(\"BasePart\") อาร์กิวเมนต์ state จำเป็นและต้องเป็น number หรือ boolean เมื่อ state เป็น number เฉพาะ 1 จะกลายเป็น true และ number อื่นทั้งหมดจะเป็น false เมื่อ state เป็น boolean ค่า boolean นั้นจะถูกส่งต่อ หาก part ใดไม่มี touch data หรือ part แรกไม่มี overlap reference function จะกลับโดยไม่เรียกใช้อะไร function นี้ไม่คืนค่าใดๆ ความหมาย begin/end ที่แน่นอนของ boolean ที่ส่งไปยัง helper คือ: Nicht aus der Codebasis verifizierbar."
-icon: "function"
 keywords: ["firetouchinterest","Instances","firetouchtransmitter"]
 ---
 
-เรียกใช้ Real touch interest event สำหรับ BasePart instances สองค่า อาร์กิวเมนต์สองตัวแรกต้องเป็น Instance object และทั้งสองค่าต้องผ่าน IsA("BasePart") อาร์กิวเมนต์ state จำเป็นและต้องเป็น number หรือ boolean เมื่อ state เป็น number เฉพาะ 1 จะกลายเป็น true และ number อื่นทั้งหมดจะเป็น false เมื่อ state เป็น boolean ค่า boolean นั้นจะถูกส่งต่อ หาก part ใดไม่มี touch data หรือ part แรกไม่มี overlap reference function จะกลับโดยไม่เรียกใช้อะไร function นี้ไม่คืนค่าใดๆ ความหมาย begin/end ที่แน่นอนของ boolean ที่ส่งไปยัง helper คือ: Nicht aus der Codebasis verifizierbar.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
@@ -20,11 +17,17 @@ firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `partA` | `Instance` | Yes | Instance object ตัวแรก ต้องผ่าน IsA("BasePart") touch data และ overlap reference ของค่านี้จะถูกใช้ใน call |
-| `partB` | `Instance` | Yes | Instance object ตัวที่สอง ต้องผ่าน IsA("BasePart") touch data ของค่านี้จะถูกใช้ใน call |
-| `state` | `number \| boolean` | Yes | ค่า state ที่จำเป็น numbers จะถูกแปลงด้วย state == 1; booleans จะถูกส่งต่อโดยตรง |
+<ParamField path={"partA"} type={"Instance"} required>
+Instance object ตัวแรก ต้องผ่าน IsA("BasePart") touch data และ overlap reference ของค่านี้จะถูกใช้ใน call
+</ParamField>
+
+<ParamField path={"partB"} type={"Instance"} required>
+Instance object ตัวที่สอง ต้องผ่าน IsA("BasePart") touch data ของค่านี้จะถูกใช้ใน call
+</ParamField>
+
+<ParamField path={"state"} type={"number | boolean"} required>
+ค่า state ที่จำเป็น numbers จะถูกแปลงด้วย state == 1; booleans จะถูกส่งต่อโดยตรง
+</ParamField>
 
 ## ตัวอย่าง
 
@@ -38,3 +41,6 @@ local targetPart = workspace.TouchTarget
 
 firetouchinterest(rootPart, targetPart, true)
 ```
+
+
+</div>

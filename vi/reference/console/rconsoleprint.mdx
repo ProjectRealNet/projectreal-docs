@@ -2,13 +2,10 @@
 title: "rconsoleprint"
 sidebarTitle: "rconsoleprint"
 description: "Ghi khong hoac nhieu gia tri vào Windows console hiện tại qua stdout mà không thay đổi console text attribute. Giá trị được chuyển đổi bằng Lua string conversion và phân tách bằng ký tự tab. function không thêm newline. Nếu không có console window, lời gọi sẽ trả về ma khong chuyen doi hoac ghi gi."
-icon: "function"
 keywords: ["rconsoleprint","Console","consoleprint","rconsolewrite","consolewrite"]
 ---
 
-Ghi khong hoac nhieu gia tri vào Windows console hiện tại qua stdout mà không thay đổi console text attribute. Giá trị được chuyển đổi bằng Lua string conversion và phân tách bằng ký tự tab. function không thêm newline. Nếu không có console window, lời gọi sẽ trả về ma khong chuyen doi hoac ghi gi.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 rconsoleprint(...values?: ...any)
@@ -22,9 +19,9 @@ rconsoleprint(...values?: ...any)
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | Cac gia tri tuy chon. Neu co console, moi value duoc chuyen doi bang Lua string conversion va noi bang ky tu tab truoc khi ghi. |
+<ParamField path={"...values"} type={"...any"}>
+Cac gia tri tuy chon. Neu co console, moi value duoc chuyen doi bang Lua string conversion va noi bang ky tu tab truoc khi ghi.
+</ParamField>
 
 ## Ví dụ
 
@@ -37,3 +34,6 @@ rconsoleprint("Loading", "
 rconsoleprint("User", "	", 42, "
 ")
 ```
+
+
+</div>

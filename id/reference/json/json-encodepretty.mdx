@@ -2,13 +2,10 @@
 title: "json.encodePretty"
 sidebarTitle: "json.encodePretty"
 description: "Menserialisasi Lua value menjadi JSON string yang readable formatted memakai Real JSON encoder. json.pretty terdaftar ke function yang sama."
-icon: "function"
 keywords: ["json.encodePretty","JSON"]
 ---
 
-Menserialisasi Lua value menjadi JSON string yang readable formatted memakai Real JSON encoder. json.pretty terdaftar ke function yang sama.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 json.encodePretty(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.encodePretty(value: any, options?: EncodeOptions): string
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value yang di-encoded. nil, booleans, numbers, strings, tables, dan json.null ditangani langsung. Unsupported Lua types di-encoded sebagai null kecuali errorOnUnsupported bernilai true. |
-| `options` | `EncodeOptions` | No | Optional encode options. json.encodePretty membaca options yang sama seperti json.encode, lalu memaksa pretty menjadi true. Tanpa options, fungsi memakai two-space indent. number mengatur indent width dengan clamp ke 0.16, string mengatur indent text, dan table dapat mengatur sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, dan indent. |
+<ParamField path={"value"} type={"any"} required>
+Value yang di-encoded. nil, booleans, numbers, strings, tables, dan json.null ditangani langsung. Unsupported Lua types di-encoded sebagai null kecuali errorOnUnsupported bernilai true.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options. json.encodePretty membaca options yang sama seperti json.encode, lalu memaksa pretty menjadi true. Tanpa options, fungsi memakai two-space indent. number mengatur indent width dengan clamp ke 0.16, string mengatur indent text, dan table dapat mengatur sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, dan indent.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `json` | `string` | Readable formatted JSON string. Encoding errors dilempar sebagai Luau errors. |
+<ResponseField name={"json"} type={"string"}>
+Readable formatted JSON string. Encoding errors dilempar sebagai Luau errors.
+</ResponseField>
 
 ## Tipe
 
@@ -59,3 +59,6 @@ local text = json.encodePretty({
 
 print(text)
 ```
+
+
+</div>

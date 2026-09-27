@@ -2,13 +2,10 @@
 title: "mousemoveabs"
 sidebarTitle: "mousemoveabs"
 description: "يحرك الماوس باستخدام Windows absolute mouse input عندما تكون Roblox window نشطة. يتم فحص وسيطي x و y كـ Lua numbers وتحويلهما باستخدام integer conversion. تتعامل Real معهما كإحداثيات relative to active foreground window client area، وتضيف موضع تلك client area على الشاشة باستخدام ClientToScreen، ثم تقوم بالتحجيم باستخدام GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 و integer math، ثم تستدعي mouse input مع the requested mouse action. اذا كانت isrbxactive ستعيد false، تعود function بدون ارسال input."
-icon: "function"
 keywords: ["mousemoveabs","Input"]
 ---
 
-يحرك الماوس باستخدام Windows absolute mouse input عندما تكون Roblox window نشطة. يتم فحص وسيطي x و y كـ Lua numbers وتحويلهما باستخدام integer conversion. تتعامل Real معهما كإحداثيات relative to active foreground window client area، وتضيف موضع تلك client area على الشاشة باستخدام ClientToScreen، ثم تقوم بالتحجيم باستخدام GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 و integer math، ثم تستدعي mouse input مع the requested mouse action. اذا كانت isrbxactive ستعيد false، تعود function بدون ارسال input.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 mousemoveabs(x: number, y: number)
@@ -16,7 +13,13 @@ mousemoveabs(x: number, y: number)
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `x` | `number` | Yes | Client-area X coordinate يقرأ كـ Lua number ويتم تحويله باستخدام integer conversion قبل خطوة screen-position و absolute-input scaling. |
-| `y` | `number` | Yes | Client-area Y coordinate يقرأ كـ Lua number ويتم تحويله باستخدام integer conversion قبل خطوة screen-position و absolute-input scaling. |
+<ParamField path={"x"} type={"number"} required>
+Client-area X coordinate يقرأ كـ Lua number ويتم تحويله باستخدام integer conversion قبل خطوة screen-position و absolute-input scaling.
+</ParamField>
+
+<ParamField path={"y"} type={"number"} required>
+Client-area Y coordinate يقرأ كـ Lua number ويتم تحويله باستخدام integer conversion قبل خطوة screen-position و absolute-input scaling.
+</ParamField>
+
+
+</div>

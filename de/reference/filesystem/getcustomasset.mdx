@@ -2,13 +2,10 @@
 title: "getcustomasset"
 sidebarTitle: "getcustomasset"
 description: "Kopiert eine vorhandene regular workspace file nach ExtraContent/<hwid>/ und gibt einen rbxasset:// string fuer den kopierten asset path zurueck."
-icon: "function"
 keywords: ["getcustomasset","Filesystem","getsynasset"]
 ---
 
-Kopiert eine vorhandene regular workspace file nach ExtraContent/&lt;hwid>/ und gibt einen rbxasset:// string fuer den kopierten asset path zurueck.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getcustomasset(path: string): string
@@ -20,15 +17,15 @@ getcustomasset(path: string): string
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | Path, der nach separator normalization und workspace-boundary checks im workspace aufgeloest wird. Das Ziel muss existieren und eine regular file sein; folders, invalid filenames, DOS device names und blocked extensions werden nicht akzeptiert. |
+<ParamField path={"path"} type={"string"} required>
+Path, der nach separator normalization und workspace-boundary checks im workspace aufgeloest wird. Das Ziel muss existieren und eine regular file sein; folders, invalid filenames, DOS device names und blocked extensions werden nicht akzeptiert.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `assetId` | `string` | String im Format rbxasset://&lt;hwid>/&lt;workspace-relative-path>, wobei der relative path forward slashes verwendet. |
+<ResponseField name={"assetId"} type={"string"}>
+String im Format rbxasset://&lt;hwid>/&lt;workspace-relative-path>, wobei der relative path forward slashes verwendet.
+</ResponseField>
 
 ## Beispiel
 
@@ -42,3 +39,6 @@ local assetId = getcustomasset(path)
 print(assetId)
 print(getsynasset(path))
 ```
+
+
+</div>

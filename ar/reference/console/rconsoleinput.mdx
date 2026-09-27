@@ -2,13 +2,10 @@
 title: "rconsoleinput"
 sidebarTitle: "rconsoleinput"
 description: "تعمل كـ yield أثناء قراءة line واحدة من stdin باستخدام console input بعد مسح حالة console input وتجاهل input حتى newline التالية. يتم دفع string المرتجع باستخدام string return ولا يتضمن newline النهائية. إذا لم تكن هناك console window، يرجع الاستدعاء بدون values."
-icon: "function"
 keywords: ["rconsoleinput","Console","consoleinput"]
 ---
 
-تعمل كـ yield أثناء قراءة line واحدة من stdin باستخدام console input بعد مسح حالة console input وتجاهل input حتى newline التالية. يتم دفع string المرتجع باستخدام string return ولا يتضمن newline النهائية. إذا لم تكن هناك console window، يرجع الاستدعاء بدون values.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 rconsoleinput(): string
@@ -20,9 +17,9 @@ rconsoleinput(): string
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `input` | `string` | سطر النص المقروء من وحدة التحكم. |
+<ResponseField name={"input"} type={"string"}>
+سطر النص المقروء من وحدة التحكم.
+</ResponseField>
 
 ## مثال
 
@@ -35,3 +32,6 @@ local name = rconsoleinput()
 rconsoleprint("Hello, ", name, "
 ")
 ```
+
+
+</div>

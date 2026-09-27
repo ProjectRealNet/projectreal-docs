@@ -2,13 +2,10 @@
 title: "json.keys"
 sidebarTitle: "json.keys"
 description: "Gibt die visible keys einer table in einer new table marked as a JSON array zurueck."
-icon: "function"
 keywords: ["json.keys","JSON"]
 ---
 
-Gibt die visible keys einer table in einer new table marked as a JSON array zurueck.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 json.keys(object: table): table
@@ -16,15 +13,15 @@ json.keys(object: table): table
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `object` | `table` | Yes | Table, die inspected wird. Die function verlangt, dass dieses argument eine table ist. |
+<ParamField path={"object"} type={"table"} required>
+Table, die inspected wird. Die function verlangt, dass dieses argument eine table ist.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `keys` | `table` | New array table mit den source table keys, ohne Real JSON type marker. Die order folgt table iteration iteration und wird von dieser function nicht sorted. |
+<ResponseField name={"keys"} type={"table"}>
+New array table mit den source table keys, ohne Real JSON type marker. Die order folgt table iteration iteration und wird von dieser function nicht sorted.
+</ResponseField>
 
 ## Beispiel
 
@@ -41,3 +38,6 @@ for _, key in ipairs(json.keys(record)) do
     print(key)
 end
 ```
+
+
+</div>

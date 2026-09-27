@@ -2,13 +2,10 @@
 title: "WebSocket.Send"
 sidebarTitle: "WebSocket.Send"
 description: "WebSocket.connect が返した WebSocket object を通して Lua string を送信します。この method は 1 番目の argument に WebSocket table、2 番目の argument に message string を期待します。object の connection state を読み取り、その object がない場合は \"WebSocket state is missing\" を発生させます。state が destroyed または closed の場合は送信せずに戻ります。既定では CURLWS_TEXT、任意の 3 番目の argument が boolean true の場合は CURLWS_BINARY で curl_ws_send を呼び出します。values は返さず、送信した bytes 数も報告しません。"
-icon: "function"
 keywords: ["WebSocket.Send","WebSocket"]
 ---
 
-WebSocket.connect が返した WebSocket object を通して Lua string を送信します。この method は 1 番目の argument に WebSocket table、2 番目の argument に message string を期待します。object の connection state を読み取り、その object がない場合は "WebSocket state is missing" を発生させます。state が destroyed または closed の場合は送信せずに戻ります。既定では CURLWS_TEXT、任意の 3 番目の argument が boolean true の場合は CURLWS_BINARY で curl_ws_send を呼び出します。values は返さず、送信した bytes 数も報告しません。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 WebSocket.Send(socket: WebSocket, message: string, isBinary?: boolean)
@@ -16,11 +13,17 @@ WebSocket.Send(socket: WebSocket, message: string, isBinary?: boolean)
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `socket` | `WebSocket` | Yes | WebSocket.connect が返した WebSocket table。Send は WebSocket object methods から解決されるため、文書化された呼び出し形式は socket:Send(..) です。 |
-| `message` | `string` | Yes | explicit byte length とともに curl_ws_send に渡される Lua string payload。 |
-| `isBinary` | `boolean` | No | この argument が存在し true の場合、Send は CURLWS_BINARY を使用します。それ以外の場合は CURLWS_TEXT を使用します。 |
+<ParamField path={"socket"} type={"WebSocket"} required>
+WebSocket.connect が返した WebSocket table。Send は WebSocket object methods から解決されるため、文書化された呼び出し形式は socket:Send(..) です。
+</ParamField>
+
+<ParamField path={"message"} type={"string"} required>
+explicit byte length とともに curl_ws_send に渡される Lua string payload。
+</ParamField>
+
+<ParamField path={"isBinary"} type={"boolean"}>
+この argument が存在し true の場合、Send は CURLWS_BINARY を使用します。それ以外の場合は CURLWS_TEXT を使用します。
+</ParamField>
 
 ## 例
 
@@ -32,3 +35,6 @@ local socket = WebSocket.connect("wss://example.com/socket")
 socket:Send("hello")
 socket:Send(string.char(0, 1, 2, 3), true)
 ```
+
+
+</div>

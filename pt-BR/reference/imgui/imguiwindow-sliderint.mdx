@@ -2,13 +2,10 @@
 title: "ImGuiWindow.SliderInt"
 sidebarTitle: "ImGuiWindow.SliderInt"
 description: "Adds an integer slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated integer value."
-icon: "function"
 keywords: ["ImGuiWindow.SliderInt","ImGui"]
 ---
 
-Adds an integer slider to the window. The label, value, minimum, and maximum arguments are required. When the user changes the slider, the callback receives the updated integer value.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.SliderInt(window: ImGuiWindow, label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()): ImGuiWindow
@@ -16,20 +13,35 @@ ImGuiWindow.SliderInt(window: ImGuiWindow, label: string, value: integer, minimu
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow returned by imgui.create. If the object is invalid or has already been destroyed, the method raises a Lua error. |
-| `label` | `string` | Yes | Slider label required to be a string. |
-| `value` | `integer` | Yes | Initial slider value required to be an integer and stored as the current int value. |
-| `minimum` | `integer` | Yes | Minimum value required to be an integer and passed to an integer slider. |
-| `maximum` | `integer` | Yes | Maximum value required to be an integer and passed to an integer slider. |
-| `onChange` | `(number) -> ()` | Yes | Callback called with the updated integer value when the slider changes. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow returned by imgui.create. If the object is invalid or has already been destroyed, the method raises a Lua error.
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+Slider label required to be a string.
+</ParamField>
+
+<ParamField path={"value"} type={"integer"} required>
+Initial slider value required to be an integer and stored as the current int value.
+</ParamField>
+
+<ParamField path={"minimum"} type={"integer"} required>
+Minimum value required to be an integer and passed to an integer slider.
+</ParamField>
+
+<ParamField path={"maximum"} type={"integer"} required>
+Maximum value required to be an integer and passed to an integer slider.
+</ParamField>
+
+<ParamField path={"onChange"} type={"(number) -> ()"} required>
+Callback called with the updated integer value when the slider changes.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | The same ImGuiWindow object, allowing chained method calls. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+The same ImGuiWindow object, allowing chained method calls.
+</ResponseField>
 
 ## Tipos
 
@@ -50,3 +62,6 @@ Identificador retornado por imgui.create. Os métodos de construção de control
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Acrescenta um controle deslizante inteiro. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Acrescenta texto não interativo. |
 | `destroy` | `() -> ()` | Yes | Remove a janela e libera seus retornos de chamada registrados. |
+
+
+</div>

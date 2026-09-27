@@ -1,13 +1,25 @@
 ---
 title: "WebSocket"
 description: "Koneksi WebSocket dua arah."
-icon: "folder-code"
+icon: "/icons/bolt.svg"
 ---
+
+<div className="real-category-page">
 
 Koneksi WebSocket dua arah.
 
-| Navigasi fungsi | Deskripsi |
-| --- | --- |
-| [`WebSocket.Close`](./websocket-close) | Menutup WebSocket object yang dikembalikan oleh WebSocket.connect. Argument pertama harus berupa table. Fungsi membaca field connection state milik object; saat live state ada dan belum destroyed atau closed, fungsi mengatur isClosed ke true dan mengirim frame close frame kosong melalui WebSocket connection yang tersimpan. Fungsi tidak menerima close code atau reason dan tidak mengembalikan values. |
-| [`WebSocket.connect`](./websocket-connect) | Membuat dua BindableEvents, membuka WebSocket client WebSocket connection ke URL yang diberikan, dan melakukan yield sampai percobaan koneksi selesai. Saat berhasil, fungsi mengembalikan WebSocket table dengan event OnMessage dan OnClose, method Send dan Close dari methods, serta connection state. Incoming message data di-fire melalui OnMessage sebagai string. Saat receive loop selesai, OnClose di-fire tanpa arguments. Saat koneksi gagal, fungsi melempar error string yang diawali dengan "WebSocket connection failed". |
-| [`WebSocket.Send`](./websocket-send) | Mengirim Lua string melalui WebSocket object yang dikembalikan oleh WebSocket.connect. Method mengharapkan WebSocket table sebagai argument pertama dan message string sebagai argument kedua. Method membaca connection state milik object, melempar "WebSocket state is missing" jika object tersebut tidak ada, kembali tanpa mengirim saat state destroyed atau closed, dan memanggil curl_ws_send dengan CURLWS_TEXT secara default atau CURLWS_BINARY saat argument ketiga opsional adalah boolean true. Method tidak mengembalikan values dan tidak melaporkan jumlah bytes yang dikirim. |
+## Fungsi yang tersedia
+
+<CardGroup cols={2}>
+<Card title="WebSocket.Close" href="./websocket-close">
+Menutup WebSocket object yang dikembalikan oleh WebSocket.connect. Argument pertama harus berupa table. Fungsi membaca field connection state milik object; saat live state ada dan belum destroyed atau closed, fungsi mengatur isClosed ke true dan mengirim frame close frame kosong melalui WebSocket connection yang tersimpan. Fungsi tidak menerima close code atau reason dan tidak mengembalikan values.
+</Card>
+<Card title="WebSocket.connect" href="./websocket-connect">
+Membuat dua BindableEvents, membuka WebSocket client WebSocket connection ke URL yang diberikan, dan melakukan yield sampai percobaan koneksi selesai. Saat berhasil, fungsi mengembalikan WebSocket table dengan event OnMessage dan OnClose, method Send dan Close dari methods, serta connection state. Incoming message data di-fire melalui OnMessage sebagai string. Saat receive loop selesai, OnClose di-fire tanpa arguments. Saat koneksi gagal, fungsi melempar error string yang diawali dengan "WebSocket connection failed".
+</Card>
+<Card title="WebSocket.Send" href="./websocket-send">
+Mengirim Lua string melalui WebSocket object yang dikembalikan oleh WebSocket.connect. Method mengharapkan WebSocket table sebagai argument pertama dan message string sebagai argument kedua. Method membaca connection state milik object, melempar "WebSocket state is missing" jika object tersebut tidak ada, kembali tanpa mengirim saat state destroyed atau closed, dan memanggil curl_ws_send dengan CURLWS_TEXT secara default atau CURLWS_BINARY saat argument ketiga opsional adalah boolean true. Method tidak mengembalikan values dan tidak melaporkan jumlah bytes yang dikirim.
+</Card>
+</CardGroup>
+
+</div>

@@ -2,13 +2,10 @@
 title: "comparefunctions"
 sidebarTitle: "comparefunctions"
 description: "İki function values değerini function identity üzerinden karşılaştırır. İki arguments de functions olmalıdır. Function, function identity(L, 1) == function identity(L, 2) boolean result değerini döndürür. function bytecode, source, behavior, hashes, upvalues veya newcclosure mappings karşılaştırmaz. comparefunction aynı function için alias değeridir."
-icon: "function"
 keywords: ["comparefunctions","Closures","comparefunction"]
 ---
 
-İki function values değerini function identity üzerinden karşılaştırır. İki arguments de functions olmalıdır. Function, function identity(L, 1) == function identity(L, 2) boolean result değerini döndürür. function bytecode, source, behavior, hashes, upvalues veya newcclosure mappings karşılaştırmaz. comparefunction aynı function için alias değeridir.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 comparefunctions(func1: function, func2: function): boolean
@@ -20,16 +17,19 @@ comparefunctions(func1: function, func2: function): boolean
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `func1` | `function` | Yes | function identity ile dönüştürülen first function value. |
-| `func2` | `function` | Yes | function identity ile dönüştürülen second function value. |
+<ParamField path={"func1"} type={"function"} required>
+function identity ile dönüştürülen first function value.
+</ParamField>
+
+<ParamField path={"func2"} type={"function"} required>
+function identity ile dönüştürülen second function value.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `equal` | `boolean` | İki function values aynı function identity değerine resolve olursa true; aksi halde false. |
+<ResponseField name={"equal"} type={"boolean"}>
+İki function values aynı function identity değerine resolve olursa true; aksi halde false.
+</ResponseField>
 
 ## Örnek
 
@@ -43,3 +43,6 @@ end
 local same = comparefunctions(sample, sample)
 print(same)
 ```
+
+
+</div>

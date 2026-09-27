@@ -1,23 +1,55 @@
 ---
 title: "Input"
 description: "أحداث إدخال لوحة المفاتيح والماوس."
-icon: "folder-code"
+icon: "/icons/mouse.svg"
 ---
+
+<div className="real-category-page">
 
 أحداث إدخال لوحة المفاتيح والماوس.
 
-| تنقل الدوال | الوصف |
-| --- | --- |
-| [`isrbxactive`](./isrbxactive) | يعيد ما إذا كانت current foreground window هي Roblox window التي عثرت عليها Real. تعثر Real على تلك النافذة عبر enumerating windows للعملية الحالية واختيار window يكون class name لها Roblox window. لا تأخذ function أي arguments وتعيد false عندما لا توجد foreground window او matching Roblox window. |
-| [`keyclick`](./keyclick) | يرسل key down event يتبعه key up event عندما تكون Roblox window نشطة. يتم فحص وسيط keyCode كـ Lua number، وتحويله باستخدام integer conversion، ثم تحويله من Windows virtual-key code إلى scan code بواسطة Windows key mapping، وإرساله عبر keyboard input مع KEYEVENTF_SCANCODE. اذا كانت isrbxactive ستعيد false، تعود function بدون ارسال input. |
-| [`keypress`](./keypress) | يرسل key down event عندما تكون Roblox window نشطة. يتم فحص وسيط keyCode كـ Lua number، وتحويله باستخدام integer conversion، ثم تحويله من Windows virtual-key code إلى scan code بواسطة Windows key mapping، وإرساله عبر keyboard input مع KEYEVENTF_SCANCODE. هذه function لا ترسل key up event. اذا كانت isrbxactive ستعيد false، تعود function بدون ارسال input. |
-| [`keyrelease`](./keyrelease) | يرسل key up event عندما تكون Roblox window نشطة. يتم فحص وسيط keyCode كـ Lua number، وتحويله باستخدام integer conversion، ثم تحويله من Windows virtual-key code إلى scan code بواسطة Windows key mapping، وإرساله عبر keyboard input مع KEYEVENTF_SCANCODE \| KEYEVENTF_KEYUP. هذه function لا ترسل key down event. اذا كانت isrbxactive ستعيد false، تعود function بدون ارسال input. |
-| [`mouse1click`](./mouse1click) | يرسل left mouse down event و left mouse up event عندما تكون Roblox window نشطة. تستدعي Real ‏mouse input مع the requested mouse action وبدون movement او wheel data. لا تأخذ function أي arguments ولا تعيد شيئا، وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false. |
-| [`mouse1press`](./mouse1press) | يرسل left mouse down event عندما تكون Roblox window نشطة. تستدعي Real ‏mouse input مع the requested mouse action وبدون movement او wheel data. لا تأخذ function أي arguments ولا تعيد شيئا، ولا ترسل left mouse up event مطابقا، وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false. |
-| [`mouse1release`](./mouse1release) | يرسل left mouse up event عندما تكون Roblox window نشطة. تستدعي Real ‏mouse input مع the requested mouse action وبدون movement او wheel data. لا تأخذ function أي arguments ولا تعيد شيئا، ولا ترسل left mouse down event مطابقا، وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false. |
-| [`mouse2click`](./mouse2click) | يرسل right mouse down event و right mouse up event عندما تكون Roblox window نشطة. تستدعي Real ‏mouse input مع the requested mouse action وبدون movement او wheel data. لا تأخذ function أي arguments ولا تعيد شيئا، وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false. |
-| [`mouse2press`](./mouse2press) | يرسل right mouse down event عندما تكون Roblox window نشطة. تستدعي Real ‏mouse input مع the requested mouse action وبدون movement او wheel data. لا تأخذ function أي arguments ولا تعيد شيئا، ولا ترسل right mouse up event مطابقا، وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false. |
-| [`mouse2release`](./mouse2release) | يرسل right mouse up event عندما تكون Roblox window نشطة. تستدعي Real ‏mouse input مع the requested mouse action وبدون movement او wheel data. لا تأخذ function أي arguments ولا تعيد شيئا، ولا ترسل right mouse down event مطابقا، وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false. |
-| [`mousemoveabs`](./mousemoveabs) | يحرك الماوس باستخدام Windows absolute mouse input عندما تكون Roblox window نشطة. يتم فحص وسيطي x و y كـ Lua numbers وتحويلهما باستخدام integer conversion. تتعامل Real معهما كإحداثيات relative to active foreground window client area، وتضيف موضع تلك client area على الشاشة باستخدام ClientToScreen، ثم تقوم بالتحجيم باستخدام GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 و integer math، ثم تستدعي mouse input مع the requested mouse action. اذا كانت isrbxactive ستعيد false، تعود function بدون ارسال input. |
-| [`mousemoverel`](./mousemoverel) | يحرك الماوس بمقدار relative delta عندما تكون Roblox window نشطة. يتم فحص وسيطي x و y كـ Lua numbers وتحويلهما باستخدام integer conversion، ثم تمريرهما مباشرة إلى mouse input مع the requested mouse action كـ dx و dy. لا تستخدم function ‏the requested mouse action، ولا تنفذ client-area conversion، ولا تعيد شيئا، وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false. |
-| [`mousescroll`](./mousescroll) | يرسل mouse wheel event عندما تكون Roblox window نشطة. يتم فحص وسيط amount كـ Lua number، وتحويله باستخدام integer conversion، وتمريره مباشرة كقيمة dwData إلى mouse input مع the requested mouse action. لا تقوم Real بتطبيع amount ولا تضيف movement data. لا تعيد function شيئا وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false. |
+## الدوال المتاحة
+
+<CardGroup cols={2}>
+<Card title="isrbxactive" href="./isrbxactive">
+يعيد ما إذا كانت current foreground window هي Roblox window التي عثرت عليها Real. تعثر Real على تلك النافذة عبر enumerating windows للعملية الحالية واختيار window يكون class name لها Roblox window. لا تأخذ function أي arguments وتعيد false عندما لا توجد foreground window او matching Roblox window.
+</Card>
+<Card title="keyclick" href="./keyclick">
+يرسل key down event يتبعه key up event عندما تكون Roblox window نشطة. يتم فحص وسيط keyCode كـ Lua number، وتحويله باستخدام integer conversion، ثم تحويله من Windows virtual-key code إلى scan code بواسطة Windows key mapping، وإرساله عبر keyboard input مع KEYEVENTF_SCANCODE. اذا كانت isrbxactive ستعيد false، تعود function بدون ارسال input.
+</Card>
+<Card title="keypress" href="./keypress">
+يرسل key down event عندما تكون Roblox window نشطة. يتم فحص وسيط keyCode كـ Lua number، وتحويله باستخدام integer conversion، ثم تحويله من Windows virtual-key code إلى scan code بواسطة Windows key mapping، وإرساله عبر keyboard input مع KEYEVENTF_SCANCODE. هذه function لا ترسل key up event. اذا كانت isrbxactive ستعيد false، تعود function بدون ارسال input.
+</Card>
+<Card title="keyrelease" href="./keyrelease">
+يرسل key up event عندما تكون Roblox window نشطة. يتم فحص وسيط keyCode كـ Lua number، وتحويله باستخدام integer conversion، ثم تحويله من Windows virtual-key code إلى scan code بواسطة Windows key mapping، وإرساله عبر keyboard input مع KEYEVENTF_SCANCODE | KEYEVENTF_KEYUP. هذه function لا ترسل key down event. اذا كانت isrbxactive ستعيد false، تعود function بدون ارسال input.
+</Card>
+<Card title="mouse1click" href="./mouse1click">
+يرسل left mouse down event و left mouse up event عندما تكون Roblox window نشطة. تستدعي Real ‏mouse input مع the requested mouse action وبدون movement او wheel data. لا تأخذ function أي arguments ولا تعيد شيئا، وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false.
+</Card>
+<Card title="mouse1press" href="./mouse1press">
+يرسل left mouse down event عندما تكون Roblox window نشطة. تستدعي Real ‏mouse input مع the requested mouse action وبدون movement او wheel data. لا تأخذ function أي arguments ولا تعيد شيئا، ولا ترسل left mouse up event مطابقا، وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false.
+</Card>
+<Card title="mouse1release" href="./mouse1release">
+يرسل left mouse up event عندما تكون Roblox window نشطة. تستدعي Real ‏mouse input مع the requested mouse action وبدون movement او wheel data. لا تأخذ function أي arguments ولا تعيد شيئا، ولا ترسل left mouse down event مطابقا، وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false.
+</Card>
+<Card title="mouse2click" href="./mouse2click">
+يرسل right mouse down event و right mouse up event عندما تكون Roblox window نشطة. تستدعي Real ‏mouse input مع the requested mouse action وبدون movement او wheel data. لا تأخذ function أي arguments ولا تعيد شيئا، وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false.
+</Card>
+<Card title="mouse2press" href="./mouse2press">
+يرسل right mouse down event عندما تكون Roblox window نشطة. تستدعي Real ‏mouse input مع the requested mouse action وبدون movement او wheel data. لا تأخذ function أي arguments ولا تعيد شيئا، ولا ترسل right mouse up event مطابقا، وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false.
+</Card>
+<Card title="mouse2release" href="./mouse2release">
+يرسل right mouse up event عندما تكون Roblox window نشطة. تستدعي Real ‏mouse input مع the requested mouse action وبدون movement او wheel data. لا تأخذ function أي arguments ولا تعيد شيئا، ولا ترسل right mouse down event مطابقا، وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false.
+</Card>
+<Card title="mousemoveabs" href="./mousemoveabs">
+يحرك الماوس باستخدام Windows absolute mouse input عندما تكون Roblox window نشطة. يتم فحص وسيطي x و y كـ Lua numbers وتحويلهما باستخدام integer conversion. تتعامل Real معهما كإحداثيات relative to active foreground window client area، وتضيف موضع تلك client area على الشاشة باستخدام ClientToScreen، ثم تقوم بالتحجيم باستخدام GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 و integer math، ثم تستدعي mouse input مع the requested mouse action. اذا كانت isrbxactive ستعيد false، تعود function بدون ارسال input.
+</Card>
+<Card title="mousemoverel" href="./mousemoverel">
+يحرك الماوس بمقدار relative delta عندما تكون Roblox window نشطة. يتم فحص وسيطي x و y كـ Lua numbers وتحويلهما باستخدام integer conversion، ثم تمريرهما مباشرة إلى mouse input مع the requested mouse action كـ dx و dy. لا تستخدم function ‏the requested mouse action، ولا تنفذ client-area conversion، ولا تعيد شيئا، وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false.
+</Card>
+<Card title="mousescroll" href="./mousescroll">
+يرسل mouse wheel event عندما تكون Roblox window نشطة. يتم فحص وسيط amount كـ Lua number، وتحويله باستخدام integer conversion، وتمريره مباشرة كقيمة dwData إلى mouse input مع the requested mouse action. لا تقوم Real بتطبيع amount ولا تضيف movement data. لا تعيد function شيئا وتعود بدون ارسال input عندما تكون isrbxactive ستعيد false.
+</Card>
+</CardGroup>
+
+</div>

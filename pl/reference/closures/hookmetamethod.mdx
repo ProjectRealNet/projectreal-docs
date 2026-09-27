@@ -2,13 +2,10 @@
 title: "hookmetamethod"
 sidebarTitle: "hookmetamethod"
 description: "Wyszukuje metamethod function na value i hookuje tę function przez hookfunction. First argument może być dowolnym value akceptowanym przez raw metafield lookup. Second argument musi być string metamethod name, a third argument musi być function replacement. Jeśli raw metafield lookup nie znajdzie named metafield, function rzuca \"Metamethod doesn't exist\" dla argument 2. Jeśli metafield istnieje, ale nie jest function, rzuca \"Metamethod isn't a function\" dla argument 2. Gdy metafield jest function, hookmetamethod wywołuje hookfunction z found metamethod function jako target i zwraca cloned original closure z hookfunction."
-icon: "function"
 keywords: ["hookmetamethod","Closures"]
 ---
 
-Wyszukuje metamethod function na value i hookuje tę function przez hookfunction. First argument może być dowolnym value akceptowanym przez raw metafield lookup. Second argument musi być string metamethod name, a third argument musi być function replacement. Jeśli raw metafield lookup nie znajdzie named metafield, function rzuca "Metamethod doesn't exist" dla argument 2. Jeśli metafield istnieje, ale nie jest function, rzuca "Metamethod isn't a function" dla argument 2. Gdy metafield jest function, hookmetamethod wywołuje hookfunction z found metamethod function jako target i zwraca cloned original closure z hookfunction.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 hookmetamethod(object: any, metamethod: string, replacement: function): function
@@ -16,17 +13,23 @@ hookmetamethod(object: any, metamethod: string, replacement: function): function
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | Value, którego methods jest sprawdzany przez raw metafield lookup. |
-| `metamethod` | `string` | Yes | Metafield name przekazany do raw metafield lookup. |
-| `replacement` | `function` | Yes | Function przekazana do hookfunction jako replacement dla found metamethod function. |
+<ParamField path={"object"} type={"any"} required>
+Value, którego methods jest sprawdzany przez raw metafield lookup.
+</ParamField>
+
+<ParamField path={"metamethod"} type={"string"} required>
+Metafield name przekazany do raw metafield lookup.
+</ParamField>
+
+<ParamField path={"replacement"} type={"function"} required>
+Function przekazana do hookfunction jako replacement dla found metamethod function.
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `original` | `function` | Cloned original metamethod closure zwrócona przez hookfunction. |
+<ResponseField name={"original"} type={"function"}>
+Cloned original metamethod closure zwrócona przez hookfunction.
+</ResponseField>
 
 ## Przykład
 
@@ -48,3 +51,6 @@ original = hookmetamethod(object, "__index", function(self, key)
     return original(self, key)
 end)
 ```
+
+
+</div>

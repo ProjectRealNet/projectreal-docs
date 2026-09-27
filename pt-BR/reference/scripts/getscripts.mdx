@@ -2,13 +2,10 @@
 title: "getscripts"
 sidebarTitle: "getscripts"
 description: "Retorna valores script object presentes atualmente no Instance cache. A function nao recebe arguments. Ela itera a cache armazenada na chave Instance cache lightobject e considera apenas entries cujo value e object. Ela le o campo ClassName de cada value com optional string handling. Entries LocalScript e ModuleScript sao incluidas. Entries Script sao incluidas somente quando seu RunContext offset e CLIENT ou PLUGIN. Outros valores ClassName, entries sem string ClassName e entries CoreScript sao ignorados. O resultado e uma Luau table sequencial. A function nao percorre o DataModel e nao garante sorted order."
-icon: "function"
 keywords: ["getscripts","Scripts"]
 ---
 
-Retorna valores script object presentes atualmente no Instance cache. A function nao recebe arguments. Ela itera a cache armazenada na chave Instance cache lightobject e considera apenas entries cujo value e object. Ela le o campo ClassName de cada value com optional string handling. Entries LocalScript e ModuleScript sao incluidas. Entries Script sao incluidas somente quando seu RunContext offset e CLIENT ou PLUGIN. Outros valores ClassName, entries sem string ClassName e entries CoreScript sao ignorados. O resultado e uma Luau table sequencial. A function nao percorre o DataModel e nao garante sorted order.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 getscripts(): { Instance }
@@ -16,6 +13,9 @@ getscripts(): { Instance }
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `scripts` | `&#123; Instance &#125;` | Sequential table com valores object cached LocalScript, ModuleScript e Script elegiveis do Instance cache. |
+<ResponseField name={"scripts"} type={"{ Instance }"}>
+Sequential table com valores object cached LocalScript, ModuleScript e Script elegiveis do Instance cache.
+</ResponseField>
+
+
+</div>

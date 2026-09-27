@@ -2,13 +2,10 @@
 title: "ishiddenstack"
 sidebarTitle: "ishiddenstack"
 description: "Returns whether a function, or the function at a stack level, is marked as hidden. target must be a function or stack level number. Invalid stack levels raise \"Level out of range\". isstackhidden is an alias."
-icon: "function"
 keywords: ["ishiddenstack","Closures","isstackhidden"]
 ---
 
-Returns whether a function, or the function at a stack level, is marked as hidden. target must be a function or stack level number. Invalid stack levels raise "Level out of range". isstackhidden is an alias.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 ishiddenstack(target: function | number): boolean
@@ -20,15 +17,15 @@ ishiddenstack(target: function | number): boolean
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `target` | `function \| number` | Yes | Function or stack level number to check. |
+<ParamField path={"target"} type={"function | number"} required>
+Function or stack level number to check.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `hidden` | `boolean` | true when the resolved function is marked as hidden; otherwise false. |
+<ResponseField name={"hidden"} type={"boolean"}>
+true when the resolved function is marked as hidden; otherwise false.
+</ResponseField>
 
 ## Örnek
 
@@ -40,3 +37,6 @@ end
 
 print(ishiddenstack(target))
 ```
+
+
+</div>

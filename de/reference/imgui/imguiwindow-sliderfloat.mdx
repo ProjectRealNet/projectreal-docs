@@ -2,13 +2,10 @@
 title: "ImGuiWindow.SliderFloat"
 sidebarTitle: "ImGuiWindow.SliderFloat"
 description: "Hängt ein SliderFloat element an das Fenster an. label, value, minimum und maximum werden aus den Argumenten 2 bis 5 gelesen, wobei die numerischen Argumente mit number type checking geprüft werden. Während des rendering ruft Real a floating-point slider mit dem gespeicherten Wert und Bereich auf. Wenn ImGui einen geänderten Wert meldet, wird onChange in eine queue gelegt und später mit einem Lua number aufgerufen. Real fügt in diesem closure keine separate minimum <= maximum Prüfung hinzu."
-icon: "function"
 keywords: ["ImGuiWindow.SliderFloat","ImGui"]
 ---
 
-Hängt ein SliderFloat element an das Fenster an. label, value, minimum und maximum werden aus den Argumenten 2 bis 5 gelesen, wobei die numerischen Argumente mit number type checking geprüft werden. Während des rendering ruft Real a floating-point slider mit dem gespeicherten Wert und Bereich auf. Wenn ImGui einen geänderten Wert meldet, wird onChange in eine queue gelegt und später mit einem Lua number aufgerufen. Real fügt in diesem closure keine separate minimum &lt;= maximum Prüfung hinzu.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.SliderFloat(window: ImGuiWindow, label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()): ImGuiWindow
@@ -16,20 +13,35 @@ ImGuiWindow.SliderFloat(window: ImGuiWindow, label: string, value: number, minim
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow, die von imgui.create zurückgegeben wurde. Wenn die object ungültig ist oder bereits zerstört wurde, wirft die method einen Lua error. |
-| `label` | `string` | Yes | Slider label, gelesen mit string type checking. |
-| `value` | `number` | Yes | Anfangswert des sliders, gelesen mit number type checking und als aktueller float-Wert gespeichert. |
-| `minimum` | `number` | Yes | Minimum value, gelesen mit number type checking und an a floating-point slider übergeben. |
-| `maximum` | `number` | Yes | Maximum value, gelesen mit number type checking und an a floating-point slider übergeben. |
-| `onChange` | `(number) -> ()` | Yes | Callback function, gespeichert in der Lua registry. Wenn sich der slider während des rendering ändert, wird sie später mit dem aktualisierten numerischen Wert aufgerufen. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow, die von imgui.create zurückgegeben wurde. Wenn die object ungültig ist oder bereits zerstört wurde, wirft die method einen Lua error.
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+Slider label, gelesen mit string type checking.
+</ParamField>
+
+<ParamField path={"value"} type={"number"} required>
+Anfangswert des sliders, gelesen mit number type checking und als aktueller float-Wert gespeichert.
+</ParamField>
+
+<ParamField path={"minimum"} type={"number"} required>
+Minimum value, gelesen mit number type checking und an a floating-point slider übergeben.
+</ParamField>
+
+<ParamField path={"maximum"} type={"number"} required>
+Maximum value, gelesen mit number type checking und an a floating-point slider übergeben.
+</ParamField>
+
+<ParamField path={"onChange"} type={"(number) -> ()"} required>
+Callback function, gespeichert in der Lua registry. Wenn sich der slider während des rendering ändert, wird sie später mit dem aktualisierten numerischen Wert aufgerufen.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | Dieselbe ImGuiWindow object, wodurch verkettete method-Aufrufe möglich sind. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+Dieselbe ImGuiWindow object, wodurch verkettete method-Aufrufe möglich sind.
+</ResponseField>
 
 ## Typen
 
@@ -50,3 +62,6 @@ Von imgui.create zurückgegebener Handle. Methoden zur Steuerungserstellung gebe
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Fügt einen ganzzahligen Schieberegler hinzu. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Fügt nicht interaktiven Text hinzu. |
 | `destroy` | `() -> ()` | Yes | Entfernt das Fenster und gibt seine registrierten Rückrufe frei. |
+
+
+</div>

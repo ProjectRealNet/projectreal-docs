@@ -2,13 +2,10 @@
 title: "loadfile"
 sidebarTitle: "loadfile"
 description: "Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it."
-icon: "function"
 keywords: ["loadfile","Filesystem","loadfileasync","dofile","dofileasync"]
 ---
 
-Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 loadfile(path: string, chunkName?: string): function | nil | string | nil
@@ -22,17 +19,23 @@ loadfile(path: string, chunkName?: string): function | nil | string | nil
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | File path resolved inside the workspace after separator normalization, workspace-boundary checks, and extension checks. Path, open, and read-size errors are thrown. |
-| `chunkName` | `string` | No | Optional chunk name passed to luau_load. Defaults to = when omitted or nil. |
+<ParamField path={"path"} type={"string"} required>
+File path resolved inside the workspace after separator normalization, workspace-boundary checks, and extension checks. Path, open, and read-size errors are thrown.
+</ParamField>
+
+<ParamField path={"chunkName"} type={"string"}>
+Optional chunk name passed to luau_load. Defaults to = when omitted or nil.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `chunk` | `function \| nil` | Loaded Luau function when luau_load succeeds. The function is not executed by loadfile. |
-| `errorMessage` | `string \| nil` | Error string returned as the second value only when luau_load fails. Filesystem and path errors are thrown instead. |
+<ResponseField name={"chunk"} type={"function | nil"}>
+Loaded Luau function when luau_load succeeds. The function is not executed by loadfile.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+Error string returned as the second value only when luau_load fails. Filesystem and path errors are thrown instead.
+</ResponseField>
 
 ## Beispiel
 
@@ -49,3 +52,6 @@ else
     warn(message)
 end
 ```
+
+
+</div>

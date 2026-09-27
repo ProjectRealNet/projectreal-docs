@@ -2,13 +2,10 @@
 title: "json.decode"
 sidebarTitle: "json.decode"
 description: "Mem-parse JSON string dengan Real JSON parser dan mengembalikan decoded Lua value, menandai decoded arrays dan objects untuk JSON helpers."
-icon: "function"
 keywords: ["json.decode","JSON"]
 ---
 
-Mem-parse JSON string dengan Real JSON parser dan mengembalikan decoded Lua value, menandai decoded arrays dan objects untuk JSON helpers.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 json.decode(json: string, options?: DecodeOptions): any
@@ -16,16 +13,19 @@ json.decode(json: string, options?: DecodeOptions): any
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON text untuk di-parse. parser menerima satu JSON value dengan optional surrounding whitespace dan melempar error saat invalid syntax atau trailing non-whitespace characters ditemukan. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean mengatur useNull secara langsung. table dapat mengatur useNull dan maxDepth; maxDepth di-clamp dari 1 sampai 4096. |
+<ParamField path={"json"} type={"string"} required>
+JSON text untuk di-parse. parser menerima satu JSON value dengan optional surrounding whitespace dan melempar error saat invalid syntax atau trailing non-whitespace characters ditemukan.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean mengatur useNull secara langsung. table dapat mengatur useNull dan maxDepth; maxDepth di-clamp dari 1 sampai 4096.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `decoded` | `any` | Decoded value. JSON objects dan arrays menjadi tables dengan JSON type markers, strings menjadi Lua strings, numbers menjadi Lua numbers, booleans menjadi booleans, dan null menjadi json.null kecuali useNull false. |
+<ResponseField name={"decoded"} type={"any"}>
+Decoded value. JSON objects dan arrays menjadi tables dengan JSON type markers, strings menjadi Lua strings, numbers menjadi Lua numbers, booleans menjadi booleans, dan null menjadi json.null kecuali useNull false.
+</ResponseField>
 
 ## Tipe
 
@@ -50,3 +50,6 @@ print(value.tags[1])
 print(json.type(value))
 print(json.isNull(value.missing))
 ```
+
+
+</div>

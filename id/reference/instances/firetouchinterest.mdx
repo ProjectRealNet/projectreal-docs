@@ -2,13 +2,10 @@
 title: "firetouchinterest"
 sidebarTitle: "firetouchinterest"
 description: "Memicu Real touch interest event untuk dua BasePart instances. Dua argumen pertama harus berupa Instance object dan kedua nilai harus lulus IsA(\"BasePart\"). Argumen state wajib dan harus number atau boolean. Saat state berupa number, hanya 1 menjadi true dan number lain menjadi false. Saat state berupa boolean, nilai boolean-nya diteruskan. Jika salah satu part tidak memiliki touch data, atau part pertama tidak memiliki overlap reference, function kembali tanpa memicu apa pun. Function tidak mengembalikan apa pun. Makna begin/end yang tepat dari boolean yang diteruskan ke helper adalah: Nicht aus der Codebasis verifizierbar."
-icon: "function"
 keywords: ["firetouchinterest","Instances","firetouchtransmitter"]
 ---
 
-Memicu Real touch interest event untuk dua BasePart instances. Dua argumen pertama harus berupa Instance object dan kedua nilai harus lulus IsA("BasePart"). Argumen state wajib dan harus number atau boolean. Saat state berupa number, hanya 1 menjadi true dan number lain menjadi false. Saat state berupa boolean, nilai boolean-nya diteruskan. Jika salah satu part tidak memiliki touch data, atau part pertama tidak memiliki overlap reference, function kembali tanpa memicu apa pun. Function tidak mengembalikan apa pun. Makna begin/end yang tepat dari boolean yang diteruskan ke helper adalah: Nicht aus der Codebasis verifizierbar.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
@@ -20,11 +17,17 @@ firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `partA` | `Instance` | Yes | Instance object pertama. Harus lulus IsA("BasePart"). touch data dan overlap reference-nya digunakan untuk call. |
-| `partB` | `Instance` | Yes | Instance object kedua. Harus lulus IsA("BasePart"). touch data-nya digunakan untuk call. |
-| `state` | `number \| boolean` | Yes | Nilai state wajib. Numbers dikonversi dengan state == 1; booleans diteruskan langsung. |
+<ParamField path={"partA"} type={"Instance"} required>
+Instance object pertama. Harus lulus IsA("BasePart"). touch data dan overlap reference-nya digunakan untuk call.
+</ParamField>
+
+<ParamField path={"partB"} type={"Instance"} required>
+Instance object kedua. Harus lulus IsA("BasePart"). touch data-nya digunakan untuk call.
+</ParamField>
+
+<ParamField path={"state"} type={"number | boolean"} required>
+Nilai state wajib. Numbers dikonversi dengan state == 1; booleans diteruskan langsung.
+</ParamField>
 
 ## Contoh
 
@@ -38,3 +41,6 @@ local targetPart = workspace.TouchTarget
 
 firetouchinterest(rootPart, targetPart, true)
 ```
+
+
+</div>

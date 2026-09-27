@@ -2,13 +2,10 @@
 title: "json.validate"
 sidebarTitle: "json.validate"
 description: "Valida um JSON string fazendo parse de um unico complete JSON value. Em success retorna apenas true. Em parse failure retorna false mais parser error details."
-icon: "function"
 keywords: ["json.validate","JSON"]
 ---
 
-Valida um JSON string fazendo parse de um unico complete JSON value. Em success retorna apenas true. Em parse failure retorna false mais parser error details.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 json.validate(json: string, options?: DecodeOptions): boolean | string | nil | number | nil
@@ -16,18 +13,27 @@ json.validate(json: string, options?: DecodeOptions): boolean | string | nil | n
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string a ser validate. A function le este argument com string type checking. |
-| `options` | `DecodeOptions` | No | Optional decode options. Um boolean define useNull. Uma table pode definir useNull e maxDepth. maxDepth e clamp de 1 a 4096. |
+<ParamField path={"json"} type={"string"} required>
+JSON string a ser validate. A function le este argument com string type checking.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. Um boolean define useNull. Uma table pode definir useNull e maxDepth. maxDepth e clamp de 1 a 4096.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `valid` | `boolean` | true quando o parsing de um unico complete JSON value tem sucesso. false quando o parsing falha dentro do protected parse block. |
-| `errorMessage` | `string \| nil` | Error message em parse failure. A message recebe prefix json.validate e inclui near-position suffix. Este return so existe em failure. |
-| `errorPosition` | `number \| nil` | Parser byte position do parser em parse failure. Este return so existe em failure. |
+<ResponseField name={"valid"} type={"boolean"}>
+true quando o parsing de um unico complete JSON value tem sucesso. false quando o parsing falha dentro do protected parse block.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+Error message em parse failure. A message recebe prefix json.validate e inclui near-position suffix. Este return so existe em failure.
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+Parser byte position do parser em parse failure. Este return so existe em failure.
+</ResponseField>
 
 ## Tipos
 
@@ -53,3 +59,6 @@ if not valid then
     warn(message, position)
 end
 ```
+
+
+</div>

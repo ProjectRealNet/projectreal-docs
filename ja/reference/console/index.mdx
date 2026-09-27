@@ -1,21 +1,49 @@
 ---
 title: "Console"
 description: "ランタイム出力とコンソールコントロール。"
-icon: "folder-code"
+icon: "/icons/file-code.svg"
 ---
+
+<div className="real-category-page">
 
 ランタイム出力とコンソールコントロール。
 
-| 関数ナビゲーション | 説明 |
-| --- | --- |
-| [`rconsoleclear`](./rconsoleclear) | console window が存在する場合、current Windows console screen buffer をクリアします。console window が存在しない場合、call は何もせず戻ります。 |
-| [`rconsolecreate`](./rconsolecreate) | console window が存在しない場合、process 用に Windows console を allocate します。console window がすでに存在する場合、call は何もせず戻ります。allocation 後、function は stdout を console output に、stdin を console input に redirect します。 |
-| [`rconsoledestroy`](./rconsoledestroy) | 現在の Windows console screen buffer をクリアし、console window を非表示にして、console detachment でプロセスを console から切り離します。console window が存在しない場合、この呼び出しは何もせずに戻ります。 |
-| [`rconsoleerr`](./rconsoleerr) | console text attribute を error text color に設定したあと、stdout を通して現在の Windows console に 1 つ以上の値を書き込みます。値は Lua string conversion で変換され、tab 文字で区切られ、出力後に text attribute はリセットされます。console window が存在しない場合、この呼び出しは何も変換せず、何も書き込まずに戻ります。 |
-| [`rconsolehide`](./rconsolehide) | Windows console visibility update と hide mode を使用して現在の Windows console window を非表示にします。この function は console detachment を呼び出さないため、console から切り離したり console を破棄したりしません。console window が存在しない場合、この呼び出しは何もせずに戻ります。 |
-| [`rconsoleinfo`](./rconsoleinfo) | console text attribute を info text color に設定したあと、stdout を通して現在の Windows console に 1 つ以上の値を書き込みます。値は Lua string conversion で変換され、tab 文字で区切られ、出力後に text attribute はリセットされます。console window が存在しない場合、この呼び出しは何も変換せず、何も書き込まずに戻ります。 |
-| [`rconsoleinput`](./rconsoleinput) | console input state をクリアし、次の newline まで input を無視したあと、console input で stdin から 1 つの line を読む間 yield します。返される string は string return で push され、終端の newline は含まれません。console window が存在しない場合、この呼び出しは values なしで戻ります。 |
-| [`rconsolename`](./rconsolename) | Windows console title update で現在の Windows console window の title を設定します。最初の argument は string である必要があり、console existence check より前にチェックされます。string check が成功したあとに console window が存在しない場合、この呼び出しは何もせずに戻ります。 |
-| [`rconsoleprint`](./rconsoleprint) | console text attribute を変更せず、stdout を通して現在の Windows console に 1 つ以上の値を書き込みます。値は Lua string conversion で変換され、tab 文字で区切られます。この function は newline を追加しません。console window が存在しない場合、この呼び出しは何も変換せず、何も書き込まずに戻ります。 |
-| [`rconsoleshow`](./rconsoleshow) | Windows console visibility update で show mode を使用して現在の Windows console window を表示します。この function は console を作成しません。console window が存在しない場合、この呼び出しは何もせずに戻ります。 |
-| [`rconsolewarn`](./rconsolewarn) | warning console text attribute を使い、現在の Windows console へ stdout 経由で 0 個以上の値を書き込みます。console window が存在しない場合、この呼び出しは何も変換せず、何も書き込まずに戻ります。console が存在する場合、各 argument は Lua string conversion で変換され、tab 文字で結合され、runtime value 経由で書き込まれます。Lua string conversion が error を発生させた場合、rconsolewarn はそれを捕捉しません。この function は書き込み前に console text attribute を FOREGROUND_RED \| FOREGROUND_GREEN \| FOREGROUND_INTENSITY に設定し、その後 default console text color に設定します。newline や warning prefix は追加せず、console の作成や表示も行わず、Luau warn や Roblox Output も呼び出しません。consolewarn は同じ function の alias です。 |
+## 利用できる関数
+
+<CardGroup cols={2}>
+<Card title="rconsoleclear" href="./rconsoleclear">
+console window が存在する場合、current Windows console screen buffer をクリアします。console window が存在しない場合、call は何もせず戻ります。
+</Card>
+<Card title="rconsolecreate" href="./rconsolecreate">
+console window が存在しない場合、process 用に Windows console を allocate します。console window がすでに存在する場合、call は何もせず戻ります。allocation 後、function は stdout を console output に、stdin を console input に redirect します。
+</Card>
+<Card title="rconsoledestroy" href="./rconsoledestroy">
+現在の Windows console screen buffer をクリアし、console window を非表示にして、console detachment でプロセスを console から切り離します。console window が存在しない場合、この呼び出しは何もせずに戻ります。
+</Card>
+<Card title="rconsoleerr" href="./rconsoleerr">
+console text attribute を error text color に設定したあと、stdout を通して現在の Windows console に 1 つ以上の値を書き込みます。値は Lua string conversion で変換され、tab 文字で区切られ、出力後に text attribute はリセットされます。console window が存在しない場合、この呼び出しは何も変換せず、何も書き込まずに戻ります。
+</Card>
+<Card title="rconsolehide" href="./rconsolehide">
+Windows console visibility update と hide mode を使用して現在の Windows console window を非表示にします。この function は console detachment を呼び出さないため、console から切り離したり console を破棄したりしません。console window が存在しない場合、この呼び出しは何もせずに戻ります。
+</Card>
+<Card title="rconsoleinfo" href="./rconsoleinfo">
+console text attribute を info text color に設定したあと、stdout を通して現在の Windows console に 1 つ以上の値を書き込みます。値は Lua string conversion で変換され、tab 文字で区切られ、出力後に text attribute はリセットされます。console window が存在しない場合、この呼び出しは何も変換せず、何も書き込まずに戻ります。
+</Card>
+<Card title="rconsoleinput" href="./rconsoleinput">
+console input state をクリアし、次の newline まで input を無視したあと、console input で stdin から 1 つの line を読む間 yield します。返される string は string return で push され、終端の newline は含まれません。console window が存在しない場合、この呼び出しは values なしで戻ります。
+</Card>
+<Card title="rconsolename" href="./rconsolename">
+Windows console title update で現在の Windows console window の title を設定します。最初の argument は string である必要があり、console existence check より前にチェックされます。string check が成功したあとに console window が存在しない場合、この呼び出しは何もせずに戻ります。
+</Card>
+<Card title="rconsoleprint" href="./rconsoleprint">
+console text attribute を変更せず、stdout を通して現在の Windows console に 1 つ以上の値を書き込みます。値は Lua string conversion で変換され、tab 文字で区切られます。この function は newline を追加しません。console window が存在しない場合、この呼び出しは何も変換せず、何も書き込まずに戻ります。
+</Card>
+<Card title="rconsoleshow" href="./rconsoleshow">
+Windows console visibility update で show mode を使用して現在の Windows console window を表示します。この function は console を作成しません。console window が存在しない場合、この呼び出しは何もせずに戻ります。
+</Card>
+<Card title="rconsolewarn" href="./rconsolewarn">
+warning console text attribute を使い、現在の Windows console へ stdout 経由で 0 個以上の値を書き込みます。console window が存在しない場合、この呼び出しは何も変換せず、何も書き込まずに戻ります。console が存在する場合、各 argument は Lua string conversion で変換され、tab 文字で結合され、runtime value 経由で書き込まれます。Lua string conversion が error を発生させた場合、rconsolewarn はそれを捕捉しません。この function は書き込み前に console text attribute を FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY に設定し、その後 default console text color に設定します。newline や warning prefix は追加せず、console の作成や表示も行わず、Luau warn や Roblox Output も呼び出しません。consolewarn は同じ function の alias です。
+</Card>
+</CardGroup>
+
+</div>

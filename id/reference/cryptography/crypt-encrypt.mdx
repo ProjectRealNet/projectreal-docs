@@ -2,13 +2,10 @@
 title: "crypt.encrypt"
 sidebarTitle: "crypt.encrypt"
 description: "Mengenkripsi byte Lua string dengan AES CBC, ECB, atau CTR memakai key yang didekode dari Base64, lalu mengembalikan Base64 ciphertext dan hasil IV."
-icon: "function"
 keywords: ["crypt.encrypt","Cryptography"]
 ---
 
-Mengenkripsi byte Lua string dengan AES CBC, ECB, atau CTR memakai key yang didekode dari Base64, lalu mengembalikan Base64 ciphertext dan hasil IV.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 crypt.encrypt(data: string, key: string, iv?: string, mode?: "CBC" | "ECB" | "CTR" | "AES-CBC" | "AES-ECB" | "AES-CTR"): string | string | nil
@@ -16,19 +13,31 @@ crypt.encrypt(data: string, key: string, iv?: string, mode?: "CBC" | "ECB" | "CT
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Byte plaintext yang dibaca dari Lua string. |
-| `key` | `string` | Yes | Base64 key yang didekode sebelum diteruskan ke AES. |
-| `iv` | `string` | No | Base64 IV opsional untuk CBC atau CTR. Jika dihilangkan untuk CBC atau CTR, IV baru sebesar AES block size dibuat. |
-| `mode` | `"CBC" \| "ECB" \| "CTR" \| "AES-CBC" \| "AES-ECB" \| "AES-CTR"` | No | AES mode. Prefix AES- dihapus jika ada. Default-nya AES-CBC. CBC dan ECB memakai crypto library DEFAULT_PADDING; CTR tidak memakai padding. |
+<ParamField path={"data"} type={"string"} required>
+Byte plaintext yang dibaca dari Lua string.
+</ParamField>
+
+<ParamField path={"key"} type={"string"} required>
+Base64 key yang didekode sebelum diteruskan ke AES.
+</ParamField>
+
+<ParamField path={"iv"} type={"string"}>
+Base64 IV opsional untuk CBC atau CTR. Jika dihilangkan untuk CBC atau CTR, IV baru sebesar AES block size dibuat.
+</ParamField>
+
+<ParamField path={"mode"} type={"\"CBC\" | \"ECB\" | \"CTR\" | \"AES-CBC\" | \"AES-ECB\" | \"AES-CTR\""}>
+AES mode. Prefix AES- dihapus jika ada. Default-nya AES-CBC. CBC dan ECB memakai crypto library DEFAULT_PADDING; CTR tidak memakai padding.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `ciphertext` | `string` | Base64-encoded ciphertext. |
-| `initializationVector` | `string \| nil` | Base64-encoded IV untuk CBC dan CTR; nil untuk ECB. |
+<ResponseField name={"ciphertext"} type={"string"}>
+Base64-encoded ciphertext.
+</ResponseField>
+
+<ResponseField name={"initializationVector"} type={"string | nil"}>
+Base64-encoded IV untuk CBC dan CTR; nil untuk ECB.
+</ResponseField>
 
 ## Contoh
 
@@ -44,3 +53,6 @@ print(ciphertext)
 print(iv)
 print(plaintext)
 ```
+
+
+</div>

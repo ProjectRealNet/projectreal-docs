@@ -2,13 +2,10 @@
 title: "mousescroll"
 sidebarTitle: "mousescroll"
 description: "Mengirim mouse wheel event saat Roblox window aktif. Argumen amount diperiksa sebagai Lua number, dikonversi dengan integer conversion, dan diteruskan langsung sebagai nilai dwData ke mouse input dengan the requested mouse action. Real tidak menormalisasi amount atau menambahkan movement data. Function ini tidak mengembalikan apa pun dan kembali tanpa mengirim input saat isrbxactive bernilai false."
-icon: "function"
 keywords: ["mousescroll","Input"]
 ---
 
-Mengirim mouse wheel event saat Roblox window aktif. Argumen amount diperiksa sebagai Lua number, dikonversi dengan integer conversion, dan diteruskan langsung sebagai nilai dwData ke mouse input dengan the requested mouse action. Real tidak menormalisasi amount atau menambahkan movement data. Function ini tidak mengembalikan apa pun dan kembali tanpa mengirim input saat isrbxactive bernilai false.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 mousescroll(amount: number)
@@ -16,6 +13,9 @@ mousescroll(amount: number)
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `amount` | `number` | Yes | Wheel dwData value yang dibaca sebagai Lua number dan dikonversi dengan integer conversion sebelum diteruskan ke mouse input. |
+<ParamField path={"amount"} type={"number"} required>
+Wheel dwData value yang dibaca sebagai Lua number dan dikonversi dengan integer conversion sebelum diteruskan ke mouse input.
+</ParamField>
+
+
+</div>

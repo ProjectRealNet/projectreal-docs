@@ -2,13 +2,10 @@
 title: "replicatesignal"
 sidebarTitle: "replicatesignal"
 description: "Gọi replication path cho RBXScriptSignal. Hàm đọc signal signature, chuyển đổi Lua arguments được cung cấp thành Roblox signal values cho từng signature type, cắt bớt Lua arguments thừa sau signature length, rồi gọi owning instance event invocation function."
-icon: "function"
 keywords: ["replicatesignal","Signals","replicateevent"]
 ---
 
-Gọi replication path cho RBXScriptSignal. Hàm đọc signal signature, chuyển đổi Lua arguments được cung cấp thành Roblox signal values cho từng signature type, cắt bớt Lua arguments thừa sau signature length, rồi gọi owning instance event invocation function.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 replicatesignal(signal: RBXScriptSignal, ...arguments?: ...any)
@@ -20,10 +17,13 @@ replicatesignal(signal: RBXScriptSignal, ...arguments?: ...any)
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | RBXScriptSignal có owning instance event invocation function cần được gọi. |
-| `...arguments` | `...any` | No | Lua arguments được chuyển đổi theo signal signature. Extra arguments sau signature length bị bỏ qua. |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+RBXScriptSignal có owning instance event invocation function cần được gọi.
+</ParamField>
+
+<ParamField path={"...arguments"} type={"...any"}>
+Lua arguments được chuyển đổi theo signal signature. Extra arguments sau signature length bị bỏ qua.
+</ParamField>
 
 ## Ví dụ
 
@@ -37,3 +37,6 @@ if remote and remote:IsA("RemoteEvent") then
     replicatesignal(remote.OnClientEvent, "hello")
 end
 ```
+
+
+</div>

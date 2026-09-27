@@ -2,13 +2,10 @@
 title: "setfpscap"
 sidebarTitle: "setfpscap"
 description: "Sets the FPS cap value and returns no values. Values that are non-finite, less than or equal to 0, or greater than 2000 are treated as 2000."
-icon: "function"
 keywords: ["setfpscap","Miscellaneous","set_fps_cap"]
 ---
 
-Sets the FPS cap value and returns no values. Values that are non-finite, less than or equal to 0, or greater than 2000 are treated as 2000.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 setfpscap(value: number)
@@ -20,9 +17,9 @@ setfpscap(value: number)
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `value` | `number` | Yes | Requested FPS cap. |
+<ParamField path={"value"} type={"number"} required>
+Requested FPS cap.
+</ParamField>
 
 ## Example
 
@@ -32,3 +29,6 @@ Set the TaskScheduler FPS cap field and read it back with getfpscap.
 setfpscap(240)
 print(getfpscap())
 ```
+
+
+</div>

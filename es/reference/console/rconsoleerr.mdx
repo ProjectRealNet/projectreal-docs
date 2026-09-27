@@ -2,13 +2,10 @@
 title: "rconsoleerr"
 sidebarTitle: "rconsoleerr"
 description: "Escribe uno o más valores en la Windows console actual mediante stdout después de establecer el console text attribute en error text color. Los valores se convierten con Lua string conversion, se separan con caracteres tab y el text attribute se restablece después. Si no existe ninguna console window, la llamada vuelve sin convertir ni escribir nada."
-icon: "function"
 keywords: ["rconsoleerr","Console","consoleerr"]
 ---
 
-Escribe uno o más valores en la Windows console actual mediante stdout después de establecer el console text attribute en error text color. Los valores se convierten con Lua string conversion, se separan con caracteres tab y el text attribute se restablece después. Si no existe ninguna console window, la llamada vuelve sin convertir ni escribir nada.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 rconsoleerr(...values?: ...any)
@@ -20,9 +17,9 @@ rconsoleerr(...values?: ...any)
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | Valores opcionales. Si existe una console, cada value se convierte con Lua string conversion y se une con caracteres tab antes de escribirse. |
+<ParamField path={"...values"} type={"...any"}>
+Valores opcionales. Si existe una console, cada value se convierte con Lua string conversion y se une con caracteres tab antes de escribirse.
+</ParamField>
 
 ## Ejemplo
 
@@ -33,3 +30,6 @@ rconsolecreate()
 rconsoleerr("Request failed", 500, "
 ")
 ```
+
+
+</div>

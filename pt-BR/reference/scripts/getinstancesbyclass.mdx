@@ -2,13 +2,10 @@
 title: "getinstancesbyclass"
 sidebarTitle: "getinstancesbyclass"
 description: "Retorna instances da Instance cache table cujo ClassName field corresponde exatamente ao string solicitado. O primeiro argumento e lido com string type checking. Um empty string gera \"ClassName required\". A function cria uma nova array table, itera a cache armazenada em Instance cache, mantem apenas values cujo Lua type e object, le o ClassName field de cada object value e compara com strcmp contra o className solicitado. Matches sao inseridos sequential a partir de index 1. A correspondencia e exact e case-sensitive. A function nao usa IsA, nao inclui subclasses, nao faz walk descendants, nao filtra por Parent e nao ordena o result. getinstancesofclass e um alias para a mesma function."
-icon: "function"
 keywords: ["getinstancesbyclass","Scripts","getinstancesofclass"]
 ---
 
-Retorna instances da Instance cache table cujo ClassName field corresponde exatamente ao string solicitado. O primeiro argumento e lido com string type checking. Um empty string gera "ClassName required". A function cria uma nova array table, itera a cache armazenada em Instance cache, mantem apenas values cujo Lua type e object, le o ClassName field de cada object value e compara com strcmp contra o className solicitado. Matches sao inseridos sequential a partir de index 1. A correspondencia e exact e case-sensitive. A function nao usa IsA, nao inclui subclasses, nao faz walk descendants, nao filtra por Parent e nao ordena o result. getinstancesofclass e um alias para a mesma function.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 getinstancesbyclass(className: string): table
@@ -20,12 +17,15 @@ getinstancesbyclass(className: string): table
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `className` | `string` | Yes | Exact ClassName string para corresponder. Empty strings geram "ClassName required". |
+<ParamField path={"className"} type={"string"} required>
+Exact ClassName string para corresponder. Empty strings geram "ClassName required".
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `instances` | `table` | New array table contendo matching object values da Instance cache table. |
+<ResponseField name={"instances"} type={"table"}>
+New array table contendo matching object values da Instance cache table.
+</ResponseField>
+
+
+</div>

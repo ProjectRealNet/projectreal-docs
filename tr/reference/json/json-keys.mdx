@@ -2,13 +2,10 @@
 title: "json.keys"
 sidebarTitle: "json.keys"
 description: "Bir table icindeki visible keys degerlerini new table marked as a JSON array olarak dondurur."
-icon: "function"
 keywords: ["json.keys","JSON"]
 ---
 
-Bir table icindeki visible keys degerlerini new table marked as a JSON array olarak dondurur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 json.keys(object: table): table
@@ -16,15 +13,15 @@ json.keys(object: table): table
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `object` | `table` | Yes | Inspect edilecek table. Function bu argument degerinin table olmasini ister. |
+<ParamField path={"object"} type={"table"} required>
+Inspect edilecek table. Function bu argument degerinin table olmasini ister.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `keys` | `table` | Source table keys iceren new array table, Real JSON type marker haric. Order table iteration iteration izler ve bu function tarafindan sorted edilmez. |
+<ResponseField name={"keys"} type={"table"}>
+Source table keys iceren new array table, Real JSON type marker haric. Order table iteration iteration izler ve bu function tarafindan sorted edilmez.
+</ResponseField>
 
 ## Örnek
 
@@ -41,3 +38,6 @@ for _, key in ipairs(json.keys(record)) do
     print(key)
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "getgenv"
 sidebarTitle: "getgenv"
 description: "คืน current executor environment table โดย pushing LUA_ENVIRONINDEX. function ไม่รับ arguments, คืน exactly one value, และไม่มี registered alias. call-sites ใน repository ใช้ returned table เพื่ออ่านและเขียน shared executor globals เช่น __siApiCache และ saveinstance."
-icon: "function"
 keywords: ["getgenv","Environment"]
 ---
 
-คืน current executor environment table โดย pushing LUA_ENVIRONINDEX. function ไม่รับ arguments, คืน exactly one value, และไม่มี registered alias. call-sites ใน repository ใช้ returned table เพื่ออ่านและเขียน shared executor globals เช่น __siApiCache และ saveinstance.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 getgenv(): table
@@ -16,9 +13,9 @@ getgenv(): table
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `environment` | `table` | Table ที่เก็บอยู่ใน LUA_ENVIRONINDEX สำหรับ state นี้ในตอนนี้. |
+<ResponseField name={"environment"} type={"table"}>
+Table ที่เก็บอยู่ใน LUA_ENVIRONINDEX สำหรับ state นี้ในตอนนี้.
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -31,3 +28,6 @@ env.RealDocsValue = "ready"
 
 print(getgenv().RealDocsValue)
 ```
+
+
+</div>

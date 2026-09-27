@@ -2,13 +2,10 @@
 title: "getnamecallmethod"
 sidebarTitle: "getnamecallmethod"
 description: "Returns the current namecall method string when one is available, otherwise nil. The function takes no arguments and does not compute a method name from a target object. get_namecall_method is an alias."
-icon: "function"
 keywords: ["getnamecallmethod","Metatables","get_namecall_method"]
 ---
 
-Returns the current namecall method string when one is available, otherwise nil. The function takes no arguments and does not compute a method name from a target object. get_namecall_method is an alias.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getnamecallmethod(): string | nil
@@ -20,9 +17,9 @@ getnamecallmethod(): string | nil
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `method` | `string \| nil` | Current namecall method string when present; otherwise nil. |
+<ResponseField name={"method"} type={"string | nil"}>
+Current namecall method string when present; otherwise nil.
+</ResponseField>
 
 ## Example
 
@@ -35,3 +32,6 @@ print(method)
 local aliasMethod = get_namecall_method()
 print(aliasMethod)
 ```
+
+
+</div>

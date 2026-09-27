@@ -2,13 +2,10 @@
 title: "cleardrawcache"
 sidebarTitle: "cleardrawcache"
 description: "Real global Drawing object list をクリアします。追跡中の各 Drawing object は destroyed としてマークされ、存在する image resources は解放され、object list は空になります。クリアされた Drawing objects への既存の Lua references は残る場合がありますが、それらの objects は active Drawing objects とは見なされなくなります。 the Drawing API は the required rendering environment is active が true の場合だけこの API を登録します。このチェックが false の場合、initializer はこれらの globals を作成する前に戻ります。"
-icon: "function"
 keywords: ["cleardrawcache","Drawing"]
 ---
 
-Real global Drawing object list をクリアします。追跡中の各 Drawing object は destroyed としてマークされ、存在する image resources は解放され、object list は空になります。クリアされた Drawing objects への既存の Lua references は残る場合がありますが、それらの objects は active Drawing objects とは見なされなくなります。 the Drawing API は the required rendering environment is active が true の場合だけこの API を登録します。このチェックが false の場合、initializer はこれらの globals を作成する前に戻ります。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 cleardrawcache()
@@ -25,3 +22,6 @@ square.Visible = true
 cleardrawcache()
 print(square.Visible)
 ```
+
+
+</div>

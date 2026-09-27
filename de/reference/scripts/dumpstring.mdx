@@ -2,13 +2,10 @@
 title: "dumpstring"
 sidebarTitle: "dumpstring"
 description: "Gibt den decompressed bytecode string fuer ein Roblox script object zurueck. dumpstring ist auf dieselbe C++ function wie getscriptbytecode registriert, daher ist das Verhalten identisch. Das argument muss object sein. Der gemeinsame bytecode behavior akzeptiert die ClassName-Werte ModuleScript, LocalScript, CoreScript und Script. Bei Script muss RunContext Client sein. Wenn ClassName fehlt, wirft die function \"Invalid Instance\". Wenn ClassName keine unterstuetzte script class ist, wirft sie \"Script expected\". Wenn der Wert ein Script mit anderem RunContext ist, wirft sie \"Expected a Script with RunContext set to Client\". Wenn der embedded bytecode reference ungueltig ist oder die stored bytecode-Laenge 8 bytes oder weniger betraegt, gibt die function nil zurueck. Andernfalls dekomprimiert sie den stored bytecode mit DecompressBytecode und gibt die resulting bytes als Luau string zurueck. Hash mismatch, too-short compressed data oder ZSTD decompression errors werden von DecompressBytecode als error text bytes zurueckgegeben, statt hier geworfen zu werden."
-icon: "function"
 keywords: ["dumpstring","Scripts"]
 ---
 
-Gibt den decompressed bytecode string fuer ein Roblox script object zurueck. dumpstring ist auf dieselbe C++ function wie getscriptbytecode registriert, daher ist das Verhalten identisch. Das argument muss object sein. Der gemeinsame bytecode behavior akzeptiert die ClassName-Werte ModuleScript, LocalScript, CoreScript und Script. Bei Script muss RunContext Client sein. Wenn ClassName fehlt, wirft die function "Invalid Instance". Wenn ClassName keine unterstuetzte script class ist, wirft sie "Script expected". Wenn der Wert ein Script mit anderem RunContext ist, wirft sie "Expected a Script with RunContext set to Client". Wenn der embedded bytecode reference ungueltig ist oder die stored bytecode-Laenge 8 bytes oder weniger betraegt, gibt die function nil zurueck. Andernfalls dekomprimiert sie den stored bytecode mit DecompressBytecode und gibt die resulting bytes als Luau string zurueck. Hash mismatch, too-short compressed data oder ZSTD decompression errors werden von DecompressBytecode als error text bytes zurueckgegeben, statt hier geworfen zu werden.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 dumpstring(script: userdata): string | nil
@@ -16,15 +13,15 @@ dumpstring(script: userdata): string | nil
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | Script object, das gelesen werden soll. Unterstuetzte ClassName-Werte sind ModuleScript, LocalScript, CoreScript und Script mit RunContext Client. |
+<ParamField path={"script"} type={"userdata"} required>
+Script object, das gelesen werden soll. Unterstuetzte ClassName-Werte sind ModuleScript, LocalScript, CoreScript und Script mit RunContext Client.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `bytecode` | `string \| nil` | Decompressed bytecode bytes als Luau string, DecompressBytecode error text bytes oder nil, wenn kein usable embedded bytecode verfuegbar ist. |
+<ResponseField name={"bytecode"} type={"string | nil"}>
+Decompressed bytecode bytes als Luau string, DecompressBytecode error text bytes oder nil, wenn kein usable embedded bytecode verfuegbar ist.
+</ResponseField>
 
 ## Beispiel
 
@@ -45,3 +42,6 @@ if targetScript then
     print(bytecode)
 end
 ```
+
+
+</div>

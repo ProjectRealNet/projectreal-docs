@@ -2,13 +2,10 @@
 title: "getactorthreads"
 sidebarTitle: "getactorthreads"
 description: "Trả về array table gồm Luau threads từ actor thread list. Function không nhận arguments. Nó đọc actor list bounds từ ScriptContext, đi qua từng actor state entry, decrypt stored global state thành Luau thread và chỉ bao gồm entries là valid threads."
-icon: "function"
 keywords: ["getactorthreads","Actors","getactorstates"]
 ---
 
-Trả về array table gồm Luau threads từ actor thread list. Function không nhận arguments. Nó đọc actor list bounds từ ScriptContext, đi qua từng actor state entry, decrypt stored global state thành Luau thread và chỉ bao gồm entries là valid threads.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 getactorthreads(): {thread}
@@ -20,9 +17,9 @@ getactorthreads(): {thread}
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `threads` | `&#123;thread&#125;` | Array table gồm actor Luau thread values được push dưới dạng Luau threads. |
+<ResponseField name={"threads"} type={"{thread}"}>
+Array table gồm actor Luau thread values được push dưới dạng Luau threads.
+</ResponseField>
 
 ## Ví dụ
 
@@ -33,3 +30,6 @@ for _, thread in ipairs(getactorthreads()) do
     print(thread)
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "mousemoveabs"
 sidebarTitle: "mousemoveabs"
 description: "Deplace la souris avec Windows absolute mouse input lorsque la Roblox window est active. Les arguments x et y sont verifies comme Lua numbers et convertis avec integer conversion. Real les traite comme des coordonnees relative to active foreground window client area, ajoute la position ecran de cette client area avec ClientToScreen, les met a l echelle avec GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 et integer math, puis appelle mouse input avec the requested mouse action. Si isrbxactive serait false, la function retourne sans envoyer d input."
-icon: "function"
 keywords: ["mousemoveabs","Input"]
 ---
 
-Deplace la souris avec Windows absolute mouse input lorsque la Roblox window est active. Les arguments x et y sont verifies comme Lua numbers et convertis avec integer conversion. Real les traite comme des coordonnees relative to active foreground window client area, ajoute la position ecran de cette client area avec ClientToScreen, les met a l echelle avec GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 et integer math, puis appelle mouse input avec the requested mouse action. Si isrbxactive serait false, la function retourne sans envoyer d input.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 mousemoveabs(x: number, y: number)
@@ -16,7 +13,13 @@ mousemoveabs(x: number, y: number)
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `x` | `number` | Yes | Client-area X coordinate lue comme Lua number et convertie avec integer conversion avant l etape screen-position et absolute-input scaling. |
-| `y` | `number` | Yes | Client-area Y coordinate lue comme Lua number et convertie avec integer conversion avant l etape screen-position et absolute-input scaling. |
+<ParamField path={"x"} type={"number"} required>
+Client-area X coordinate lue comme Lua number et convertie avec integer conversion avant l etape screen-position et absolute-input scaling.
+</ParamField>
+
+<ParamField path={"y"} type={"number"} required>
+Client-area Y coordinate lue comme Lua number et convertie avec integer conversion avant l etape screen-position et absolute-input scaling.
+</ParamField>
+
+
+</div>

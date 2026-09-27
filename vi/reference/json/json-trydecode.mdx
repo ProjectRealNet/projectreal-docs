@@ -2,13 +2,10 @@
 title: "json.tryDecode"
 sidebarTitle: "json.tryDecode"
 description: "Thu parse JSON string bang cung function nhu json.decodeSafe va tra ve status values cho parse errors."
-icon: "function"
 keywords: ["json.tryDecode","JSON"]
 ---
 
-Thu parse JSON string bang cung function nhu json.decodeSafe va tra ve status values cho parse errors.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
@@ -16,19 +13,31 @@ json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | str
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string de parse. Function doc argument nay bang string type checking. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean dat useNull. table co the dat useNull va maxDepth. |
+<ParamField path={"json"} type={"string"} required>
+JSON string de parse. Function doc argument nay bang string type checking.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean dat useNull. table co the dat useNull va maxDepth.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `success` | `boolean` | true khi parsing thanh cong, false khi parsing that bai trong protected parse block. |
-| `decoded` | `any \| nil` | Decoded value khi success. Khi parse failure, return nay la nil. |
-| `errorMessage` | `string \| nil` | Error message khi parse failure. Message duoc prefixed bang json.decodeSafe va co near-position suffix. |
-| `errorPosition` | `number \| nil` | Parser byte position tu parser khi parse failure. Return nay chi co khi failure. |
+<ResponseField name={"success"} type={"boolean"}>
+true khi parsing thanh cong, false khi parsing that bai trong protected parse block.
+</ResponseField>
+
+<ResponseField name={"decoded"} type={"any | nil"}>
+Decoded value khi success. Khi parse failure, return nay la nil.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+Error message khi parse failure. Message duoc prefixed bang json.decodeSafe va co near-position suffix.
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+Parser byte position tu parser khi parse failure. Return nay chi co khi failure.
+</ResponseField>
 
 ## Kiểu
 
@@ -57,3 +66,6 @@ else
     warn(message, position)
 end
 ```
+
+
+</div>

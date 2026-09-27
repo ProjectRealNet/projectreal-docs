@@ -2,13 +2,10 @@
 title: "readfile"
 sidebarTitle: "readfile"
 description: "Membaca existing regular file di dalam workspace dalam binary mode dan mengembalikan bytes sebagai Lua string."
-icon: "function"
 keywords: ["readfile","Filesystem","readfileasync"]
 ---
 
-Membaca existing regular file di dalam workspace dalam binary mode dan mengembalikan bytes sebagai Lua string.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 readfile(path: string): string
@@ -20,15 +17,15 @@ readfile(path: string): string
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | File path yang di-resolve di dalam workspace setelah separator normalization, workspace-boundary checks, dan filename/extension checks. Absolute paths hanya diterima jika resolve di dalam workspace. |
+<ParamField path={"path"} type={"string"} required>
+File path yang di-resolve di dalam workspace setelah separator normalization, workspace-boundary checks, dan filename/extension checks. Absolute paths hanya diterima jika resolve di dalam workspace.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `content` | `string` | File contents dikembalikan sebagai Lua string dengan panjang eksplisit. Bytes seperti null bytes, line endings, dan BOM bytes tidak diubah oleh readfile. |
+<ResponseField name={"content"} type={"string"}>
+File contents dikembalikan sebagai Lua string dengan panjang eksplisit. Bytes seperti null bytes, line endings, dan BOM bytes tidak diubah oleh readfile.
+</ResponseField>
 
 ## Contoh
 
@@ -42,3 +39,6 @@ local content = readfile(path)
 print(content)
 print(#content)
 ```
+
+
+</div>

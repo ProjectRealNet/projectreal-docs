@@ -2,13 +2,10 @@
 title: "readfile"
 sidebarTitle: "readfile"
 description: "Liest ein existing regular file innerhalb des workspace im binary mode und gibt seine bytes als Lua string zurueck."
-icon: "function"
 keywords: ["readfile","Filesystem","readfileasync"]
 ---
 
-Liest ein existing regular file innerhalb des workspace im binary mode und gibt seine bytes als Lua string zurueck.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 readfile(path: string): string
@@ -20,15 +17,15 @@ readfile(path: string): string
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | File path, der nach separator normalization, workspace-boundary checks und filename/extension checks innerhalb des workspace aufgeloest wird. Absolute paths werden nur akzeptiert, wenn sie innerhalb des workspace aufgeloest werden. |
+<ParamField path={"path"} type={"string"} required>
+File path, der nach separator normalization, workspace-boundary checks und filename/extension checks innerhalb des workspace aufgeloest wird. Absolute paths werden nur akzeptiert, wenn sie innerhalb des workspace aufgeloest werden.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `content` | `string` | File contents werden als Lua string mit expliziter Laenge zurueckgegeben. Bytes wie null bytes, line endings und BOM bytes werden von readfile nicht transformiert. |
+<ResponseField name={"content"} type={"string"}>
+File contents werden als Lua string mit expliziter Laenge zurueckgegeben. Bytes wie null bytes, line endings und BOM bytes werden von readfile nicht transformiert.
+</ResponseField>
 
 ## Beispiel
 
@@ -42,3 +39,6 @@ local content = readfile(path)
 print(content)
 print(#content)
 ```
+
+
+</div>

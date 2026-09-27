@@ -2,13 +2,10 @@
 title: "json.isObject"
 sidebarTitle: "json.isObject"
 description: "Retorna se um value e treated as a JSON object pela Real JSON table detection."
-icon: "function"
 keywords: ["json.isObject","JSON"]
 ---
 
-Retorna se um value e treated as a JSON object pela Real JSON table detection.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 json.isObject(value: any): boolean
@@ -16,15 +13,15 @@ json.isObject(value: any): boolean
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value para inspect. Non-table values retornam false. |
+<ParamField path={"value"} type={"any"} required>
+Value para inspect. Non-table values retornam false.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `isObject` | `boolean` | true quando o value e uma table marked as a JSON object ou quando Real JSON table detection nao classifica a table como array. Empty unmarked tables retornam true. |
+<ResponseField name={"isObject"} type={"boolean"}>
+true quando o value e uma table marked as a JSON object ou quando Real JSON table detection nao classifica a table como array. Empty unmarked tables retornam true.
+</ResponseField>
 
 ## Exemplo
 
@@ -39,3 +36,6 @@ print(json.isObject(record))
 print(json.isObject(items))
 print(json.isObject(empty))
 ```
+
+
+</div>

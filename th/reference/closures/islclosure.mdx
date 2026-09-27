@@ -2,13 +2,10 @@
 title: "islclosure"
 sidebarTitle: "islclosure"
 description: "Returns whether the provided function is a Lua closure. The argument must be a function; passing a non-function raises a type error. isluaclosure is an alias."
-icon: "function"
 keywords: ["islclosure","Closures","isluaclosure"]
 ---
 
-Returns whether the provided function is a Lua closure. The argument must be a function; passing a non-function raises a type error. isluaclosure is an alias.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 islclosure(func: function): boolean
@@ -20,15 +17,15 @@ islclosure(func: function): boolean
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `func` | `function` | Yes | Function to test. |
+<ParamField path={"func"} type={"function"} required>
+Function to test.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `isLClosure` | `boolean` | true when the function is a Lua closure; otherwise false. |
+<ResponseField name={"isLClosure"} type={"boolean"}>
+true when the function is a Lua closure; otherwise false.
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -40,3 +37,6 @@ end
 
 print(islclosure(target))
 ```
+
+
+</div>

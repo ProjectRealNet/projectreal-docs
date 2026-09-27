@@ -1,18 +1,40 @@
 ---
 title: "Instances"
 description: "实例发现和交互助手。"
-icon: "folder-code"
+icon: "/icons/stack.svg"
 ---
+
+<div className="real-category-page">
 
 实例发现和交互助手。
 
-| 函数导航 | 说明 |
-| --- | --- |
-| [`fireclickdetector`](./fireclickdetector) | 为本地玩家触发 ClickDetector interaction。第一个参数必须是 ClassName 为 ClickDetector 的 Instance。distance 是可选参数，默认值为 0。clickOption 是可选参数，比较时不区分大小写，默认值为 "mouseclick"。支持的 option 是 "mouseclick"、"rightmouseclick"、"mousehoverenter" 和 "mousehoverleave"。click option 会把 distance 作为 float 传给 Roblox click helper，hover option 会忽略 distance。如果 Players 或 Players.LocalPlayer 不可用，function 会直接返回，不触发任何内容。未知的 clickOption 也不会产生 interaction。function 不返回任何内容。 |
-| [`fireproximityprompt`](./fireproximityprompt) | 通过 Real 的 ProximityPrompt trigger 触发 ProximityPrompt。prompt 参数必须是 object，并且 ClassName 字段等于 "ProximityPrompt"。如果值不是 object，调用会抛出 type error。如果 ClassName 缺失或不是 string，会抛出 "Invalid Instance"。如果 ClassName 不是 "ProximityPrompt"，会抛出 "ProximityPrompt expected"。function 不接受 optional arguments，也不返回任何内容。 |
-| [`firetouchinterest`](./firetouchinterest) | 为两个 BasePart instances 触发 Real touch interest event。前两个参数必须是 Instance object，并且两个值都必须通过 IsA("BasePart")。state 参数是必需的，必须是 number 或 boolean。当 state 是 number 时，只有 1 会变为 true，其他所有 number 都会变为 false。当 state 是 boolean 时，会直接传入它的 boolean 值。如果任意 part 没有 touch data，或者第一个 part 没有 overlap reference，function 会直接返回，不触发任何内容。function 不返回任何内容。传给 helper 的 boolean 的精确 begin/end 含义是: Nicht aus der Codebasis verifizierbar. |
-| [`getcallbackvalue`](./getcallbackvalue) | 读取 Instance 上 callback property 中保存的 Lua callback function。第一个参数必须是 Instance object，第二个参数必须是 string property name。instance reference 必须有效。property name 会通过 Roblox property metadata 解析，并且必须指向类型为 LUA_CALLBACK 的 property。如果 property descriptor 缺失、property 不是 LUA_CALLBACK、callback field offset 缺失、没有保存 callback、LiveLuaRef 缺失、callback 属于另一个 Lua global state，或引用的值不是 function，function 会返回 nil。当第一个 callback slot 没有 callback 时，它也会检查 async callback field fallback。function 不会更新 property。 |
-| [`gethui`](./gethui) | 返回 game:CoreGui lookup.RobloxGui。function 不接受 arguments。如果 CoreGui lookup 返回 nil，或该值上的 RobloxGui 为 nil，function 会返回 nil。function 不会创建 container，也不会使用 cached CoreGui 值。 |
-| [`getinstances`](./getinstances) | 返回一个新的 array table，其中包含当前存储在 Instance cache 中的每个 object value。function 不接受 arguments。除了检查每个 registry value 是否为 object 外，它不会按 Parent、ClassName、DataModel fieldship、nil-parent state 或 Instance validity 过滤。entries 会复制到返回表中，从 1 开始使用 sequential numeric indexes。iteration order 来自对 cache 的 table iteration，function 不会排序。 |
-| [`getnilinstances`](./getnilinstances) | Returns a new array table containing cached Instance values whose Parent field is nil. The function takes no arguments. It does not sort the returned entries. |
-| [`isnetworkowner`](./isnetworkowner) | 返回从 Instance 读取 hidden property "NetworkOwnerV3" 并检查第一个返回值经 integer conversion 转换后是否大于 2 的结果。参数必须是 Instance object。function 内部调用 the hidden property reader，并且不会捕获该调用的 errors，因此 Invalid Instance values、missing properties 或 non-property metadata 可能抛出与 gethiddenproperty 相同的错误。它返回一个 boolean。peer_id > 2 是否准确表示 local network ownership 是: Nicht aus der Codebasis verifizierbar. |
+## 可用函数
+
+<CardGroup cols={2}>
+<Card title="fireclickdetector" href="./fireclickdetector">
+为本地玩家触发 ClickDetector interaction。第一个参数必须是 ClassName 为 ClickDetector 的 Instance。distance 是可选参数，默认值为 0。clickOption 是可选参数，比较时不区分大小写，默认值为 "mouseclick"。支持的 option 是 "mouseclick"、"rightmouseclick"、"mousehoverenter" 和 "mousehoverleave"。click option 会把 distance 作为 float 传给 Roblox click helper，hover option 会忽略 distance。如果 Players 或 Players.LocalPlayer 不可用，function 会直接返回，不触发任何内容。未知的 clickOption 也不会产生 interaction。function 不返回任何内容。
+</Card>
+<Card title="fireproximityprompt" href="./fireproximityprompt">
+通过 Real 的 ProximityPrompt trigger 触发 ProximityPrompt。prompt 参数必须是 object，并且 ClassName 字段等于 "ProximityPrompt"。如果值不是 object，调用会抛出 type error。如果 ClassName 缺失或不是 string，会抛出 "Invalid Instance"。如果 ClassName 不是 "ProximityPrompt"，会抛出 "ProximityPrompt expected"。function 不接受 optional arguments，也不返回任何内容。
+</Card>
+<Card title="firetouchinterest" href="./firetouchinterest">
+为两个 BasePart instances 触发 Real touch interest event。前两个参数必须是 Instance object，并且两个值都必须通过 IsA("BasePart")。state 参数是必需的，必须是 number 或 boolean。当 state 是 number 时，只有 1 会变为 true，其他所有 number 都会变为 false。当 state 是 boolean 时，会直接传入它的 boolean 值。如果任意 part 没有 touch data，或者第一个 part 没有 overlap reference，function 会直接返回，不触发任何内容。function 不返回任何内容。传给 helper 的 boolean 的精确 begin/end 含义是: Nicht aus der Codebasis verifizierbar.
+</Card>
+<Card title="getcallbackvalue" href="./getcallbackvalue">
+读取 Instance 上 callback property 中保存的 Lua callback function。第一个参数必须是 Instance object，第二个参数必须是 string property name。instance reference 必须有效。property name 会通过 Roblox property metadata 解析，并且必须指向类型为 LUA_CALLBACK 的 property。如果 property descriptor 缺失、property 不是 LUA_CALLBACK、callback field offset 缺失、没有保存 callback、LiveLuaRef 缺失、callback 属于另一个 Lua global state，或引用的值不是 function，function 会返回 nil。当第一个 callback slot 没有 callback 时，它也会检查 async callback field fallback。function 不会更新 property。
+</Card>
+<Card title="gethui" href="./gethui">
+返回 game:CoreGui lookup.RobloxGui。function 不接受 arguments。如果 CoreGui lookup 返回 nil，或该值上的 RobloxGui 为 nil，function 会返回 nil。function 不会创建 container，也不会使用 cached CoreGui 值。
+</Card>
+<Card title="getinstances" href="./getinstances">
+返回一个新的 array table，其中包含当前存储在 Instance cache 中的每个 object value。function 不接受 arguments。除了检查每个 registry value 是否为 object 外，它不会按 Parent、ClassName、DataModel fieldship、nil-parent state 或 Instance validity 过滤。entries 会复制到返回表中，从 1 开始使用 sequential numeric indexes。iteration order 来自对 cache 的 table iteration，function 不会排序。
+</Card>
+<Card title="getnilinstances" href="./getnilinstances">
+Returns a new array table containing cached Instance values whose Parent field is nil. The function takes no arguments. It does not sort the returned entries.
+</Card>
+<Card title="isnetworkowner" href="./isnetworkowner">
+返回从 Instance 读取 hidden property "NetworkOwnerV3" 并检查第一个返回值经 integer conversion 转换后是否大于 2 的结果。参数必须是 Instance object。function 内部调用 the hidden property reader，并且不会捕获该调用的 errors，因此 Invalid Instance values、missing properties 或 non-property metadata 可能抛出与 gethiddenproperty 相同的错误。它返回一个 boolean。peer_id > 2 是否准确表示 local network ownership 是: Nicht aus der Codebasis verifizierbar.
+</Card>
+</CardGroup>
+
+</div>

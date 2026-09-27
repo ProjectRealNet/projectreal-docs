@@ -2,13 +2,10 @@
 title: "setscriptable"
 sidebarTitle: "setscriptable"
 description: "Bir Roblox property icin scriptable override degerini scriptable override cache icinde saklar ve previous scriptable state degerini dondurur. Ilk arguman Instance object olmalidir, ikinci arguman string property name olmalidir ve ucuncu arguman boolean olmalidir. Ayni instance reference ve property name icin cache entry zaten varsa cached scriptable value degistirilir ve eski cached value dondurulur. cache miss durumunda property name Roblox property metadata ve Instance class descriptor uzerinden cozulur. Descriptor yoksa ya da cozulen field eksikse veya property entry degilse function nil dondurur. property entry bulundugunda function scriptable state okur, istenen boolean ile property reference degerini scriptable override cache icine kaydeder ve previous scriptable state value dondurur. GameIndexHook ve GameNewIndexHook daha sonra bu cache degerini, tek bir indexed read veya write icin property field scriptable flag degerini gecici ayarlayip ardindan previous field flag degerini geri yukleyerek kullanir."
-icon: "function"
 keywords: ["setscriptable","Reflection"]
 ---
 
-Bir Roblox property icin scriptable override degerini scriptable override cache icinde saklar ve previous scriptable state degerini dondurur. Ilk arguman Instance object olmalidir, ikinci arguman string property name olmalidir ve ucuncu arguman boolean olmalidir. Ayni instance reference ve property name icin cache entry zaten varsa cached scriptable value degistirilir ve eski cached value dondurulur. cache miss durumunda property name Roblox property metadata ve Instance class descriptor uzerinden cozulur. Descriptor yoksa ya da cozulen field eksikse veya property entry degilse function nil dondurur. property entry bulundugunda function scriptable state okur, istenen boolean ile property reference degerini scriptable override cache icine kaydeder ve previous scriptable state value dondurur. GameIndexHook ve GameNewIndexHook daha sonra bu cache degerini, tek bir indexed read veya write icin property field scriptable flag degerini gecici ayarlayip ardindan previous field flag degerini geri yukleyerek kullanir.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 setscriptable(instance: Instance, property: string, value: boolean): boolean | nil
@@ -16,17 +13,23 @@ setscriptable(instance: Instance, property: string, value: boolean): boolean | n
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | scriptable override cache key parcasi olarak kullanilan Instance object. |
-| `property` | `string` | Yes | cache miss durumunda Roblox property metadata ve Instance class descriptor uzerinden cozulen property name. |
-| `value` | `boolean` | Yes | scriptable override cache icine kaydedilecek scriptable override value. |
+<ParamField path={"instance"} type={"Instance"} required>
+scriptable override cache key parcasi olarak kullanilan Instance object.
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+cache miss durumunda Roblox property metadata ve Instance class descriptor uzerinden cozulen property name.
+</ParamField>
+
+<ParamField path={"value"} type={"boolean"} required>
+scriptable override cache icine kaydedilecek scriptable override value.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `previousState` | `boolean \| nil` | Previous cached scriptable value, previous scriptable state value, veya property property entry olarak cozumlenemiyorsa nil. |
+<ResponseField name={"previousState"} type={"boolean | nil"}>
+Previous cached scriptable value, previous scriptable state value, veya property property entry olarak cozumlenemiyorsa nil.
+</ResponseField>
 
 ## Örnek
 
@@ -40,3 +43,6 @@ if previous ~= nil then
     setscriptable(workspace, "Name", previous)
 end
 ```
+
+
+</div>

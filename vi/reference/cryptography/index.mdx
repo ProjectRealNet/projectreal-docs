@@ -1,21 +1,49 @@
 ---
 title: "Cryptography"
 description: "Mã hóa, băm, mã hóa và nén."
-icon: "folder-code"
+icon: "/icons/key.svg"
 ---
+
+<div className="real-category-page">
 
 Mã hóa, băm, mã hóa và nén.
 
-| Điều hướng hàm | Mô tả |
-| --- | --- |
-| [`base64_decode`](./base64-decode) | Giai ma dau vao Base64 bang Base64 decoder va tra ve cac byte da giai ma duoi dang Lua string. |
-| [`base64_encode`](./base64-encode) | Ma hoa cac byte cua Lua string bang Base64 encoder, dung = padding va khong co line break. |
-| [`crypt.decrypt`](./crypt-decrypt) | Giai ma Base64 ciphertext bang key da decode tu Base64 va Base64 IV bat buoc voi AES CBC hoac ECB. |
-| [`crypt.encrypt`](./crypt-encrypt) | Ma hoa cac byte cua Lua string bang AES CBC, ECB hoac CTR voi key da decode tu Base64, sau do tra ve Base64 ciphertext va ket qua IV. |
-| [`crypt.generatebytes`](./crypt-generatebytes) | Tao byte ngau nhien bang random byte generator va tra ve chung Base64-encoded duoi dang Lua string. |
-| [`crypt.generatekey`](./crypt-generatekey) | Tao 32 raw bytes ngau nhien bang random byte generator va tra ve chung Base64-encoded duoi dang Lua string. |
-| [`crypt.hash`](./crypt-hash) | Hash cac byte cua Lua string bang mot thuat toan crypto library hash duoc ho tro va tra ve lowercase hexadecimal digest. |
-| [`crypt.hmac`](./crypt-hmac) | Tinh crypto library HMAC tren cac byte cua Lua string bang raw Lua string key va tra ve Base64 digest. |
-| [`crypt.random`](./crypt-random) | Tao raw random bytes bang random byte generator va tra ve chung duoi dang Lua string. |
-| [`lz4compress`](./lz4compress) | Nen cac byte cua Lua string bang LZ4 block compression va tra ve raw compressed bytes duoi dang Lua string. |
-| [`lz4decompress`](./lz4decompress) | Giai nen raw LZ4 block bytes bang LZ4 block decompression va tra ve raw decompressed bytes duoi dang chuoi Lua. |
+## Hàm có sẵn
+
+<CardGroup cols={2}>
+<Card title="base64_decode" href="./base64-decode">
+Giai ma dau vao Base64 bang Base64 decoder va tra ve cac byte da giai ma duoi dang Lua string.
+</Card>
+<Card title="base64_encode" href="./base64-encode">
+Ma hoa cac byte cua Lua string bang Base64 encoder, dung = padding va khong co line break.
+</Card>
+<Card title="crypt.decrypt" href="./crypt-decrypt">
+Giai ma Base64 ciphertext bang key da decode tu Base64 va Base64 IV bat buoc voi AES CBC hoac ECB.
+</Card>
+<Card title="crypt.encrypt" href="./crypt-encrypt">
+Ma hoa cac byte cua Lua string bang AES CBC, ECB hoac CTR voi key da decode tu Base64, sau do tra ve Base64 ciphertext va ket qua IV.
+</Card>
+<Card title="crypt.generatebytes" href="./crypt-generatebytes">
+Tao byte ngau nhien bang random byte generator va tra ve chung Base64-encoded duoi dang Lua string.
+</Card>
+<Card title="crypt.generatekey" href="./crypt-generatekey">
+Tao 32 raw bytes ngau nhien bang random byte generator va tra ve chung Base64-encoded duoi dang Lua string.
+</Card>
+<Card title="crypt.hash" href="./crypt-hash">
+Hash cac byte cua Lua string bang mot thuat toan crypto library hash duoc ho tro va tra ve lowercase hexadecimal digest.
+</Card>
+<Card title="crypt.hmac" href="./crypt-hmac">
+Tinh crypto library HMAC tren cac byte cua Lua string bang raw Lua string key va tra ve Base64 digest.
+</Card>
+<Card title="crypt.random" href="./crypt-random">
+Tao raw random bytes bang random byte generator va tra ve chung duoi dang Lua string.
+</Card>
+<Card title="lz4compress" href="./lz4compress">
+Nen cac byte cua Lua string bang LZ4 block compression va tra ve raw compressed bytes duoi dang Lua string.
+</Card>
+<Card title="lz4decompress" href="./lz4decompress">
+Giai nen raw LZ4 block bytes bang LZ4 block decompression va tra ve raw decompressed bytes duoi dang chuoi Lua.
+</Card>
+</CardGroup>
+
+</div>

@@ -2,13 +2,10 @@
 title: "json.format"
 sidebarTitle: "json.format"
 description: "JSON string을 parse한 뒤 Real JSON parser와 encoder로 readable formatted JSON으로 re-encode합니다."
-icon: "function"
 keywords: ["json.format","JSON"]
 ---
 
-JSON string을 parse한 뒤 Real JSON parser와 encoder로 readable formatted JSON으로 re-encode합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
@@ -16,17 +13,23 @@ json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeO
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | Formatting 전에 parse되는 JSON string입니다. function은 이 argument를 string type checking으로 읽습니다. |
-| `encodeOptions` | `EncodeOptions` | No | Re-encode step에 전달되는 optional encode options입니다. json.format은 json.encode와 같은 encode options를 읽은 뒤 pretty를 true로 강제합니다. |
-| `decodeOptions` | `DecodeOptions` | No | Input JSON parsing 중 사용하는 optional decode options입니다. boolean은 useNull을 설정합니다. table은 useNull과 maxDepth를 설정할 수 있습니다. |
+<ParamField path={"json"} type={"string"} required>
+Formatting 전에 parse되는 JSON string입니다. function은 이 argument를 string type checking으로 읽습니다.
+</ParamField>
+
+<ParamField path={"encodeOptions"} type={"EncodeOptions"}>
+Re-encode step에 전달되는 optional encode options입니다. json.format은 json.encode와 같은 encode options를 읽은 뒤 pretty를 true로 강제합니다.
+</ParamField>
+
+<ParamField path={"decodeOptions"} type={"DecodeOptions"}>
+Input JSON parsing 중 사용하는 optional decode options입니다. boolean은 useNull을 설정합니다. table은 useNull과 maxDepth를 설정할 수 있습니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `formatted` | `string` | Input을 parsing 및 re-encoding한 뒤 생성되는 readable formatted JSON string입니다. |
+<ResponseField name={"formatted"} type={"string"}>
+Input을 parsing 및 re-encoding한 뒤 생성되는 readable formatted JSON string입니다.
+</ResponseField>
 
 ## 타입
 
@@ -68,3 +71,6 @@ local formatted = json.format(compact, {
 
 print(formatted)
 ```
+
+
+</div>

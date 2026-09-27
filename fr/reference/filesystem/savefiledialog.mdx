@@ -2,13 +2,10 @@
 title: "savefiledialog"
 sidebarTitle: "savefiledialog"
 description: "Ouvre un Windows save dialog with Windows save dialog, ecrit les Lua string bytes fournis dans le selected path et renvoie le saved file comme file item."
-icon: "function"
 keywords: ["savefiledialog","Filesystem"]
 ---
 
-Ouvre un Windows save dialog with Windows save dialog, ecrit les Lua string bytes fournis dans le selected path et renvoie le saved file comme file item.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
@@ -16,16 +13,19 @@ savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `content` | `string` | Yes | Lua string bytes a ecrire dans le selected file. Le fichier est ouvert en binary truncate mode apres que l utilisateur confirme un path. |
-| `options` | `DialogOptions` | No | Optional table. savefiledialog utilise title, defaultPath, extensionFilter, suggestedName et defaultExtension. extensionFilter est une table de extension strings; un . ou *. initial est retire avant que chaque filter devienne *.&lt;extension>. defaultExtension retire les leading . characters avant d etre passe a SetDefaultExtension. |
+<ParamField path={"content"} type={"string"} required>
+Lua string bytes a ecrire dans le selected file. Le fichier est ouvert en binary truncate mode apres que l utilisateur confirme un path.
+</ParamField>
+
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table. savefiledialog utilise title, defaultPath, extensionFilter, suggestedName et defaultExtension. extensionFilter est une table de extension strings; un . ou *. initial est retire avant que chaque filter devienne *.&lt;extension>. defaultExtension retire les leading . characters avant d etre passe a SetDefaultExtension.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `file` | `FileSystemItem \| nil` | Saved file item, ou nil lorsque le dialog est annule. Dialog or write failures lancent Failed to save file. |
+<ResponseField name={"file"} type={"FileSystemItem | nil"}>
+Saved file item, ou nil lorsque le dialog est annule. Dialog or write failures lancent Failed to save file.
+</ResponseField>
 
 ## Types
 
@@ -60,3 +60,6 @@ else
     print("No file saved")
 end
 ```
+
+
+</div>

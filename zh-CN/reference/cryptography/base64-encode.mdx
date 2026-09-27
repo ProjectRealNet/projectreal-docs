@@ -2,13 +2,10 @@
 title: "base64_encode"
 sidebarTitle: "base64_encode"
 description: "使用 Base64 encoder 编码 Lua string 的字节，使用 = padding 且不插入换行。"
-icon: "function"
 keywords: ["base64_encode","Cryptography","base64encode","base64.encode","crypt.base64.encode","crypt.base64_encode","crypt.base64encode"]
 ---
 
-使用 Base64 encoder 编码 Lua string 的字节，使用 = padding 且不插入换行。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 base64_encode(data: string): string
@@ -24,15 +21,15 @@ base64_encode(data: string): string
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | 传递给 Base64 encoder 的 Lua string 字节。 |
+<ParamField path={"data"} type={"string"} required>
+传递给 Base64 encoder 的 Lua string 字节。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `encoded` | `string` | 以 Lua string 返回的 Base64 输出。 |
+<ResponseField name={"encoded"} type={"string"}>
+以 Lua string 返回的 Base64 输出。
+</ResponseField>
 
 ## 示例
 
@@ -45,3 +42,6 @@ print(encoded)
 print(base64encode("hello world"))
 print(base64.encode("hello world"))
 ```
+
+
+</div>

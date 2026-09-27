@@ -1,15 +1,31 @@
 ---
 title: "Cache"
 description: "Buforowanie referencyjne i porównywanie instancji."
-icon: "folder-code"
+icon: "/icons/database.svg"
 ---
+
+<div className="real-category-page">
 
 Buforowanie referencyjne i porównywanie instancji.
 
-| Nawigacja funkcji | Opis |
-| --- | --- |
-| [`cache.invalidate`](./cache-invalidate) | Usuwa zapisany w cache wpis registry Instance cache dla podanej Instance. |
-| [`cache.iscached`](./cache-iscached) | Zwraca, czy podana Instance ma wpis non-nil w Instance cache. |
-| [`cache.replace`](./cache-replace) | Sets the cached Instance entry for one Instance to another Instance. |
-| [`cloneref`](./cloneref) | Wypycha nowa referencje Instance dla tego samego bazowego wskaznika Instance i zwraca ja. |
-| [`compareinstances`](./compareinstances) | Porownuje wewnetrzne wartosci wskaznika Instance zapisane w dwoch wartosciach Instance object. |
+## Dostępne funkcje
+
+<CardGroup cols={2}>
+<Card title="cache.invalidate" href="./cache-invalidate">
+Usuwa zapisany w cache wpis registry Instance cache dla podanej Instance.
+</Card>
+<Card title="cache.iscached" href="./cache-iscached">
+Zwraca, czy podana Instance ma wpis non-nil w Instance cache.
+</Card>
+<Card title="cache.replace" href="./cache-replace">
+Sets the cached Instance entry for one Instance to another Instance.
+</Card>
+<Card title="cloneref" href="./cloneref">
+Wypycha nowa referencje Instance dla tego samego bazowego wskaznika Instance i zwraca ja.
+</Card>
+<Card title="compareinstances" href="./compareinstances">
+Porownuje wewnetrzne wartosci wskaznika Instance zapisane w dwoch wartosciach Instance object.
+</Card>
+</CardGroup>
+
+</div>

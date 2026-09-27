@@ -2,13 +2,10 @@
 title: "base64_decode"
 sidebarTitle: "base64_decode"
 description: "Giai ma dau vao Base64 bang Base64 decoder va tra ve cac byte da giai ma duoi dang Lua string."
-icon: "function"
 keywords: ["base64_decode","Cryptography","base64decode","base64.decode","crypt.base64.decode","crypt.base64_decode","crypt.base64decode"]
 ---
 
-Giai ma dau vao Base64 bang Base64 decoder va tra ve cac byte da giai ma duoi dang Lua string.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 base64_decode(data: string): string
@@ -24,15 +21,15 @@ base64_decode(data: string): string
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Dau vao Base64 duoc truyen vao Base64 decoder. |
+<ParamField path={"data"} type={"string"} required>
+Dau vao Base64 duoc truyen vao Base64 decoder.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `decoded` | `string` | Cac byte da giai ma duoc tra ve duoi dang Lua string voi do dai ro rang. |
+<ResponseField name={"decoded"} type={"string"}>
+Cac byte da giai ma duoc tra ve duoi dang Lua string voi do dai ro rang.
+</ResponseField>
 
 ## Ví dụ
 
@@ -46,3 +43,6 @@ print(decoded)
 print(base64decode(encoded))
 print(base64.decode(encoded))
 ```
+
+
+</div>

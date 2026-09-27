@@ -2,13 +2,10 @@
 title: "json.tryDecode"
 sidebarTitle: "json.tryDecode"
 description: "json.decodeSafe와 같은 function을 사용해 JSON string parse를 시도하고 parse errors에 대한 status values를 반환합니다."
-icon: "function"
 keywords: ["json.tryDecode","JSON"]
 ---
 
-json.decodeSafe와 같은 function을 사용해 JSON string parse를 시도하고 parse errors에 대한 status values를 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
@@ -16,19 +13,31 @@ json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | str
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | Parse할 JSON string입니다. function은 이 argument를 string type checking으로 읽습니다. |
-| `options` | `DecodeOptions` | No | Optional decode options입니다. boolean은 useNull을 설정합니다. table은 useNull과 maxDepth를 설정할 수 있습니다. |
+<ParamField path={"json"} type={"string"} required>
+Parse할 JSON string입니다. function은 이 argument를 string type checking으로 읽습니다.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options입니다. boolean은 useNull을 설정합니다. table은 useNull과 maxDepth를 설정할 수 있습니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `success` | `boolean` | parsing이 성공하면 true, protected parse block 안에서 parsing이 실패하면 false입니다. |
-| `decoded` | `any \| nil` | Success 시 decoded value입니다. Parse failure 시 이 return은 nil입니다. |
-| `errorMessage` | `string \| nil` | Parse failure 시 error message입니다. Message는 json.decodeSafe로 prefixed되고 near-position suffix를 포함합니다. |
-| `errorPosition` | `number \| nil` | Parse failure 시 parser의 parser byte position입니다. 이 return은 failure 시에만 존재합니다. |
+<ResponseField name={"success"} type={"boolean"}>
+parsing이 성공하면 true, protected parse block 안에서 parsing이 실패하면 false입니다.
+</ResponseField>
+
+<ResponseField name={"decoded"} type={"any | nil"}>
+Success 시 decoded value입니다. Parse failure 시 이 return은 nil입니다.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+Parse failure 시 error message입니다. Message는 json.decodeSafe로 prefixed되고 near-position suffix를 포함합니다.
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+Parse failure 시 parser의 parser byte position입니다. 이 return은 failure 시에만 존재합니다.
+</ResponseField>
 
 ## 타입
 
@@ -57,3 +66,6 @@ else
     warn(message, position)
 end
 ```
+
+
+</div>

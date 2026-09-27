@@ -2,13 +2,10 @@
 title: "checkcaller"
 sidebarTitle: "checkcaller"
 description: "Mengembalikan apakah current Luau thread ada di Real caller context. Function tidak menerima arguments dan mendorong boolean result dari the current caller context. Function tidak memeriksa Lua call stack atau function object."
-icon: "function"
 keywords: ["checkcaller","Closures"]
 ---
 
-Mengembalikan apakah current Luau thread ada di Real caller context. Function tidak menerima arguments dan mendorong boolean result dari the current caller context. Function tidak memeriksa Lua call stack atau function object.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 checkcaller(): boolean
@@ -16,9 +13,9 @@ checkcaller(): boolean
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `isCaller` | `boolean` | true saat current Luau thread tracked di Real caller context; jika tidak, false. |
+<ResponseField name={"isCaller"} type={"boolean"}>
+true saat current Luau thread tracked di Real caller context; jika tidak, false.
+</ResponseField>
 
 ## Contoh
 
@@ -28,3 +25,6 @@ Check whether the current thread is tracked by Real.
 local tracked = checkcaller()
 print(tracked)
 ```
+
+
+</div>

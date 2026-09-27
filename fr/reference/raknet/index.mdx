@@ -1,21 +1,49 @@
 ---
 title: "RakNet"
 description: "RakNet"
-icon: "folder-code"
+icon: "/icons/radar.svg"
 ---
+
+<div className="real-category-page">
 
 RakNet
 
-| Navigation des fonctions | Description |
-| --- | --- |
-| [`RakNet.add_receive_hook`](./raknet-add-receive-hook) | Registers a callback for observed incoming RakNet packets. The callback receives one RakNetPacket while the packet is valid. Registering the same closure again replaces its stored reference. The function returns the callback it was given. |
-| [`RakNet.add_send_hook`](./raknet-add-send-hook) | Registers a callback for observed outgoing RakNet packets. The callback receives one RakNetPacket while the packet is valid. Registering the same closure again replaces its stored reference. The function returns the callback it was given. |
-| [`RakNet.is_enabled`](./raknet-is-enabled) | Boolean field on the RakNet table. It is true only when RakNet support is enabled for the current Real session. When it is false, the RakNet table is still present, but the send, hook, signal, priority, and reliability fields are not registered. |
-| [`RakNet.OnPacketReceive.Connect`](./raknet-onpacketreceive-connect) | Connects a callback to the OnPacketReceive signal table and returns a RakNetSignalConnection. The callback receives a RakNetPacket while the packet is valid. |
-| [`RakNet.OnPacketSend.Connect`](./raknet-onpacketsend-connect) | Connects a callback to the OnPacketSend signal table and returns a RakNetSignalConnection. The callback receives a RakNetPacket while the packet is valid. |
-| [`RakNet.remove_receive_hook`](./raknet-remove-receive-hook) | Removes a receive hook previously registered with the same callback closure. The function returns no values whether or not a matching hook was present. |
-| [`RakNet.remove_send_hook`](./raknet-remove-send-hook) | Removes a send hook previously registered with the same callback closure. The function returns no values whether or not a matching hook was present. |
-| [`RakNet.send`](./raknet-send) | Queues packet data for the RakNet send path. The packet can be a string, buffer, array table of byte numbers, RakNetPacket, or RakNetPacketTable. Raw data calls may also pass optional priority, reliability, and orderingChannel values. The call returns no values. |
-| [`RakNetPacket.Block`](./raknetpacket-block) | Marks a live RakNetPacket as blocked. Ignore resolves to the same method. The method returns no values. |
-| [`RakNetPacket.SetData`](./raknetpacket-setdata) | Replaces the data stored on a live RakNetPacket with a string, buffer, or array table of byte numbers. The packet id field is updated from the first byte, or 0 when the new data is empty. The method returns no values. |
-| [`RakNetSignalConnection.Disconnect`](./raknetsignalconnection-disconnect) | Disconnects a connection returned by RakNet.OnPacketSend.Connect or RakNet.OnPacketReceive.Connect. The method returns no values. |
+## Fonctions disponibles
+
+<CardGroup cols={2}>
+<Card title="RakNet.add_receive_hook" href="./raknet-add-receive-hook">
+Registers a callback for observed incoming RakNet packets. The callback receives one RakNetPacket while the packet is valid. Registering the same closure again replaces its stored reference. The function returns the callback it was given.
+</Card>
+<Card title="RakNet.add_send_hook" href="./raknet-add-send-hook">
+Registers a callback for observed outgoing RakNet packets. The callback receives one RakNetPacket while the packet is valid. Registering the same closure again replaces its stored reference. The function returns the callback it was given.
+</Card>
+<Card title="RakNet.is_enabled" href="./raknet-is-enabled">
+Boolean field on the RakNet table. It is true only when RakNet support is enabled for the current Real session. When it is false, the RakNet table is still present, but the send, hook, signal, priority, and reliability fields are not registered.
+</Card>
+<Card title="RakNet.OnPacketReceive.Connect" href="./raknet-onpacketreceive-connect">
+Connects a callback to the OnPacketReceive signal table and returns a RakNetSignalConnection. The callback receives a RakNetPacket while the packet is valid.
+</Card>
+<Card title="RakNet.OnPacketSend.Connect" href="./raknet-onpacketsend-connect">
+Connects a callback to the OnPacketSend signal table and returns a RakNetSignalConnection. The callback receives a RakNetPacket while the packet is valid.
+</Card>
+<Card title="RakNet.remove_receive_hook" href="./raknet-remove-receive-hook">
+Removes a receive hook previously registered with the same callback closure. The function returns no values whether or not a matching hook was present.
+</Card>
+<Card title="RakNet.remove_send_hook" href="./raknet-remove-send-hook">
+Removes a send hook previously registered with the same callback closure. The function returns no values whether or not a matching hook was present.
+</Card>
+<Card title="RakNet.send" href="./raknet-send">
+Queues packet data for the RakNet send path. The packet can be a string, buffer, array table of byte numbers, RakNetPacket, or RakNetPacketTable. Raw data calls may also pass optional priority, reliability, and orderingChannel values. The call returns no values.
+</Card>
+<Card title="RakNetPacket.Block" href="./raknetpacket-block">
+Marks a live RakNetPacket as blocked. Ignore resolves to the same method. The method returns no values.
+</Card>
+<Card title="RakNetPacket.SetData" href="./raknetpacket-setdata">
+Replaces the data stored on a live RakNetPacket with a string, buffer, or array table of byte numbers. The packet id field is updated from the first byte, or 0 when the new data is empty. The method returns no values.
+</Card>
+<Card title="RakNetSignalConnection.Disconnect" href="./raknetsignalconnection-disconnect">
+Disconnects a connection returned by RakNet.OnPacketSend.Connect or RakNet.OnPacketReceive.Connect. The method returns no values.
+</Card>
+</CardGroup>
+
+</div>

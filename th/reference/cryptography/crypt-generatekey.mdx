@@ -2,13 +2,10 @@
 title: "crypt.generatekey"
 sidebarTitle: "crypt.generatekey"
 description: "สร้าง raw bytes แบบสุ่ม 32 byte ด้วย random byte generator และคืนค่าเป็น Base64-encoded ในรูปแบบ Lua string"
-icon: "function"
 keywords: ["crypt.generatekey","Cryptography"]
 ---
 
-สร้าง raw bytes แบบสุ่ม 32 byte ด้วย random byte generator และคืนค่าเป็น Base64-encoded ในรูปแบบ Lua string
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 crypt.generatekey(): string
@@ -16,9 +13,9 @@ crypt.generatekey(): string
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `key` | `string` | Base64 encoding ของ raw bytes 32 byte ที่สร้างขึ้น string ที่คืนค่าไม่ได้ยาว 32 ตัวอักษร |
+<ResponseField name={"key"} type={"string"}>
+Base64 encoding ของ raw bytes 32 byte ที่สร้างขึ้น string ที่คืนค่าไม่ได้ยาว 32 ตัวอักษร
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -34,3 +31,6 @@ print(key)
 print(#raw)
 print(ciphertext, iv)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "getgenv"
 sidebarTitle: "getgenv"
 description: "LUA_ENVIRONINDEX を push して current executor environment table を返します。この function は arguments を取りません。exactly one value を返し、registered alias はありません。repository の call-sites は returned table を使って __siApiCache や saveinstance などの shared executor globals を読み書きします。"
-icon: "function"
 keywords: ["getgenv","Environment"]
 ---
 
-LUA_ENVIRONINDEX を push して current executor environment table を返します。この function は arguments を取りません。exactly one value を返し、registered alias はありません。repository の call-sites は returned table を使って __siApiCache や saveinstance などの shared executor globals を読み書きします。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 getgenv(): table
@@ -16,9 +13,9 @@ getgenv(): table
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `environment` | `table` | この state の LUA_ENVIRONINDEX に現在格納されている table。 |
+<ResponseField name={"environment"} type={"table"}>
+この state の LUA_ENVIRONINDEX に現在格納されている table。
+</ResponseField>
 
 ## 例
 
@@ -31,3 +28,6 @@ env.RealDocsValue = "ready"
 
 print(getgenv().RealDocsValue)
 ```
+
+
+</div>

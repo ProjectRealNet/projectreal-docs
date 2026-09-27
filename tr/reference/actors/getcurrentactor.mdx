@@ -2,13 +2,10 @@
 title: "getcurrentactor"
 sidebarTitle: "getcurrentactor"
 description: "Geçerli Luau thread ile ilişkili Actor Instance değerini döndürür. Function arguments almaz. Geçerli Luau thread değerini getactorfromthread tarafından kullanılan aynı actor resolver ile çözümler: thread data var olmalı, Actor reference var olmalı, reference count 0 değerinden büyük olmalı ve the associated Actor non-expired weak reference içermelidir. valid actor reference yoksa function nil döndürür."
-icon: "function"
 keywords: ["getcurrentactor","Actors","get_current_actor"]
 ---
 
-Geçerli Luau thread ile ilişkili Actor Instance değerini döndürür. Function arguments almaz. Geçerli Luau thread değerini getactorfromthread tarafından kullanılan aynı actor resolver ile çözümler: thread data var olmalı, Actor reference var olmalı, reference count 0 değerinden büyük olmalı ve the associated Actor non-expired weak reference içermelidir. valid actor reference yoksa function nil döndürür.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 getcurrentactor(): Instance | nil
@@ -20,9 +17,9 @@ getcurrentactor(): Instance | nil
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `actor` | `Instance \| nil` | Geçerli thread the associated Actor weak reference değerinden çözümlenen Actor Instance, veya valid actor reference yoksa nil. |
+<ResponseField name={"actor"} type={"Instance | nil"}>
+Geçerli thread the associated Actor weak reference değerinden çözümlenen Actor Instance, veya valid actor reference yoksa nil.
+</ResponseField>
 
 ## Örnek
 
@@ -33,3 +30,6 @@ local actor = getcurrentactor()
 
 print(actor)
 ```
+
+
+</div>

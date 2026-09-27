@@ -2,13 +2,10 @@
 title: "mousemoverel"
 sidebarTitle: "mousemoverel"
 description: "Roblox window active oldugunda mouse degerini relative delta kadar hareket ettirir. x ve y argumanlari Lua numbers olarak kontrol edilir ve integer conversion ile donusturulur, sonra the requested mouse action ile mouse input fonksiyonuna dogrudan dx ve dy olarak iletilir. Function the requested mouse action kullanmaz, client-area conversion yapmaz, bir sey dondurmez ve isrbxactive false olacaksa input gondermeden doner."
-icon: "function"
 keywords: ["mousemoverel","Input"]
 ---
 
-Roblox window active oldugunda mouse degerini relative delta kadar hareket ettirir. x ve y argumanlari Lua numbers olarak kontrol edilir ve integer conversion ile donusturulur, sonra the requested mouse action ile mouse input fonksiyonuna dogrudan dx ve dy olarak iletilir. Function the requested mouse action kullanmaz, client-area conversion yapmaz, bir sey dondurmez ve isrbxactive false olacaksa input gondermeden doner.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 mousemoverel(x: number, y: number)
@@ -16,7 +13,13 @@ mousemoverel(x: number, y: number)
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `x` | `number` | Yes | mouse input icine dx olarak iletilmeden once Lua number olarak okunan ve integer conversion ile donusturulen relative X movement delta. |
-| `y` | `number` | Yes | mouse input icine dy olarak iletilmeden once Lua number olarak okunan ve integer conversion ile donusturulen relative Y movement delta. |
+<ParamField path={"x"} type={"number"} required>
+mouse input icine dx olarak iletilmeden once Lua number olarak okunan ve integer conversion ile donusturulen relative X movement delta.
+</ParamField>
+
+<ParamField path={"y"} type={"number"} required>
+mouse input icine dy olarak iletilmeden once Lua number olarak okunan ve integer conversion ile donusturulen relative Y movement delta.
+</ParamField>
+
+
+</div>

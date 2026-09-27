@@ -2,13 +2,10 @@
 title: "json.decode"
 sidebarTitle: "json.decode"
 description: "Real JSON parser で JSON string を parse し、decoded arrays と objects を JSON helpers 用にマークした decoded Lua value を返します。"
-icon: "function"
 keywords: ["json.decode","JSON"]
 ---
 
-Real JSON parser で JSON string を parse し、decoded arrays と objects を JSON helpers 用にマークした decoded Lua value を返します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 json.decode(json: string, options?: DecodeOptions): any
@@ -16,16 +13,19 @@ json.decode(json: string, options?: DecodeOptions): any
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | parse する JSON text。parser は optional surrounding whitespace 付きの単一 JSON value を受け入れ、invalid syntax または trailing non-whitespace characters がある場合に throw します。 |
-| `options` | `DecodeOptions` | No | Optional decode options。boolean は useNull を直接設定します。table は useNull と maxDepth を設定できます。maxDepth は 1 から 4096 に clamp されます。 |
+<ParamField path={"json"} type={"string"} required>
+parse する JSON text。parser は optional surrounding whitespace 付きの単一 JSON value を受け入れ、invalid syntax または trailing non-whitespace characters がある場合に throw します。
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options。boolean は useNull を直接設定します。table は useNull と maxDepth を設定できます。maxDepth は 1 から 4096 に clamp されます。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `decoded` | `any` | Decoded value。JSON objects と arrays は JSON type markers を持つ tables になります。strings は Lua strings、numbers は Lua numbers、booleans は booleans になり、null は useNull が false でない限り json.null になります。 |
+<ResponseField name={"decoded"} type={"any"}>
+Decoded value。JSON objects と arrays は JSON type markers を持つ tables になります。strings は Lua strings、numbers は Lua numbers、booleans は booleans になり、null は useNull が false でない限り json.null になります。
+</ResponseField>
 
 ## 型
 
@@ -50,3 +50,6 @@ print(value.tags[1])
 print(json.type(value))
 print(json.isNull(value.missing))
 ```
+
+
+</div>

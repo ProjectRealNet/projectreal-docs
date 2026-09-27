@@ -2,13 +2,10 @@
 title: "json.quote"
 sidebarTitle: "json.quote"
 description: "Meng-escape string memakai Real JSON string escaping rules dan mengembalikan complete quoted JSON string literal."
-icon: "function"
 keywords: ["json.quote","JSON"]
 ---
 
-Meng-escape string memakai Real JSON string escaping rules dan mengembalikan complete quoted JSON string literal.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 json.quote(text: string): string
@@ -16,15 +13,15 @@ json.quote(text: string): string
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | String yang akan di-quote. Function membaca argument ini dengan string type checking. |
+<ParamField path={"text"} type={"string"} required>
+String yang akan di-quote. Function membaca argument ini dengan string type checking.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `quoted` | `string` | Complete JSON string literal termasuk opening dan closing quote. Quotes, backslashes, common control characters, dan bytes below 0x20 di-escape. |
+<ResponseField name={"quoted"} type={"string"}>
+Complete JSON string literal termasuk opening dan closing quote. Quotes, backslashes, common control characters, dan bytes below 0x20 di-escape.
+</ResponseField>
 
 ## Contoh
 
@@ -36,3 +33,6 @@ local quoted = json.quote(source)
 
 print(quoted)
 ```
+
+
+</div>

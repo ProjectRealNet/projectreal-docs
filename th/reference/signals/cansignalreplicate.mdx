@@ -2,13 +2,10 @@
 title: "cansignalreplicate"
 sidebarTitle: "cansignalreplicate"
 description: "ตรวจสอบว่า RBXScriptSignal ส่งผ่าน NetworkClient replication layer ปัจจุบันได้อย่างถูกต้องหรือไม่ function ตรวจสอบ argument แรกว่าเป็น RBXScriptSignal อ่าน source instance และ event descriptor ของ signal แล้วคืนค่า boolean จาก replication layer signal replication validation หากค่า reference ของ replication layer ที่ resolve ได้เป็น 0 จะคืน false arguments เพิ่มเติมจะไม่ถูกอ่าน function นี้ตรวจสอบ signal เท่านั้น และไม่ fire หรือ replicate signal นั้น ตาราง whitelist ที่ getsignalwhitelist คืนค่าไม่ได้ถูกใช้ใน code path นี้"
-icon: "function"
 keywords: ["cansignalreplicate","Signals"]
 ---
 
-ตรวจสอบว่า RBXScriptSignal ส่งผ่าน NetworkClient replication layer ปัจจุบันได้อย่างถูกต้องหรือไม่ function ตรวจสอบ argument แรกว่าเป็น RBXScriptSignal อ่าน source instance และ event descriptor ของ signal แล้วคืนค่า boolean จาก replication layer signal replication validation หากค่า reference ของ replication layer ที่ resolve ได้เป็น 0 จะคืน false arguments เพิ่มเติมจะไม่ถูกอ่าน function นี้ตรวจสอบ signal เท่านั้น และไม่ fire หรือ replicate signal นั้น ตาราง whitelist ที่ getsignalwhitelist คืนค่าไม่ได้ถูกใช้ใน code path นี้
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 cansignalreplicate(signal: RBXScriptSignal): boolean
@@ -16,15 +13,15 @@ cansignalreplicate(signal: RBXScriptSignal): boolean
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | Signal ที่ต้องตรวจสอบ argument แรกต้องเป็น object ที่มี Luau type name เป็น RBXScriptSignal |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+Signal ที่ต้องตรวจสอบ argument แรกต้องเป็น object ที่มี Luau type name เป็น RBXScriptSignal
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `canReplicate` | `boolean` | ค่า boolean ที่คืนจากการตรวจสอบ replication layer signal replication validation หรือ false เมื่อค่า reference ของ replication layer ที่ resolve ได้เป็น 0 |
+<ResponseField name={"canReplicate"} type={"boolean"}>
+ค่า boolean ที่คืนจากการตรวจสอบ replication layer signal replication validation หรือ false เมื่อค่า reference ของ replication layer ที่ resolve ได้เป็น 0
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -38,3 +35,6 @@ if remote then
     print(cansignalreplicate(remote.OnClientEvent))
 end
 ```
+
+
+</div>

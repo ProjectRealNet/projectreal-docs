@@ -2,13 +2,10 @@
 title: "getscripthash"
 sidebarTitle: "getscripthash"
 description: "Zwraca uppercase SHA384 hex digest dla stored bytecode string z Roblox script object. Argument musi byc object. Wspolny helper GetBytecode akceptuje wartosci ClassName ModuleScript, LocalScript, CoreScript i Script. Dla Script, RunContext musi byc Client. Jesli brakuje ClassName, function rzuca \"Invalid Instance\". Jesli ClassName nie jest jedna z obslugiwanych script classes, rzuca \"Script expected\". Jesli wartosc jest Script z innym RunContext, rzuca \"Expected a Script with RunContext set to Client\". Jesli embedded bytecode reference jest nieprawidlowy albo dlugosc stored bytecode wynosi 8 bytes lub mniej, function zwraca nil. W przeciwnym razie hashuje dokladne stored bytecode bytes przez SHA384 i zwraca uppercase hex string. Function nie wywoluje DecompressBytecode i nie hashuje decompressed bytecode."
-icon: "function"
 keywords: ["getscripthash","Scripts"]
 ---
 
-Zwraca uppercase SHA384 hex digest dla stored bytecode string z Roblox script object. Argument musi byc object. Wspolny helper GetBytecode akceptuje wartosci ClassName ModuleScript, LocalScript, CoreScript i Script. Dla Script, RunContext musi byc Client. Jesli brakuje ClassName, function rzuca "Invalid Instance". Jesli ClassName nie jest jedna z obslugiwanych script classes, rzuca "Script expected". Jesli wartosc jest Script z innym RunContext, rzuca "Expected a Script with RunContext set to Client". Jesli embedded bytecode reference jest nieprawidlowy albo dlugosc stored bytecode wynosi 8 bytes lub mniej, function zwraca nil. W przeciwnym razie hashuje dokladne stored bytecode bytes przez SHA384 i zwraca uppercase hex string. Function nie wywoluje DecompressBytecode i nie hashuje decompressed bytecode.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 getscripthash(script: userdata): string | nil
@@ -16,15 +13,15 @@ getscripthash(script: userdata): string | nil
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | Script object do zahashowania. Obslugiwane wartosci ClassName to ModuleScript, LocalScript, CoreScript oraz Script z RunContext Client. |
+<ParamField path={"script"} type={"userdata"} required>
+Script object do zahashowania. Obslugiwane wartosci ClassName to ModuleScript, LocalScript, CoreScript oraz Script z RunContext Client.
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `hash` | `string \| nil` | Uppercase SHA384 hex digest z stored bytecode bytes, albo nil gdy nie ma uzywalnego embedded bytecode. |
+<ResponseField name={"hash"} type={"string | nil"}>
+Uppercase SHA384 hex digest z stored bytecode bytes, albo nil gdy nie ma uzywalnego embedded bytecode.
+</ResponseField>
 
 ## Przykład
 
@@ -45,3 +42,6 @@ if targetScript then
     print(hash)
 end
 ```
+
+
+</div>

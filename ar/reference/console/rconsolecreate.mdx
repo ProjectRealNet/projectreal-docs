@@ -2,13 +2,10 @@
 title: "rconsolecreate"
 sidebarTitle: "rconsolecreate"
 description: "يخصص Windows console للعملية عندما لا توجد console window. إذا كانت console window موجودة بالفعل، يرجع call بدون فعل شيء. بعد allocation تقوم function بعمل redirect لـ stdout إلى console output و stdin إلى console input."
-icon: "function"
 keywords: ["rconsolecreate","Console","consolecreate"]
 ---
 
-يخصص Windows console للعملية عندما لا توجد console window. إذا كانت console window موجودة بالفعل، يرجع call بدون فعل شيء. بعد allocation تقوم function بعمل redirect لـ stdout إلى console output و stdin إلى console input.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 rconsolecreate()
@@ -26,3 +23,6 @@ Create the Windows console once before writing console output.
 rconsolecreate()
 rconsoleprint("Console ready")
 ```
+
+
+</div>

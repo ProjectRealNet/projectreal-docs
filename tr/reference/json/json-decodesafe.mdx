@@ -2,13 +2,10 @@
 title: "json.decodeSafe"
 sidebarTitle: "json.decodeSafe"
 description: "JSON degerini json.decode ile ayni parser kullanarak parse eder ve parse errors icin throw etmek yerine success flag dondurur."
-icon: "function"
 keywords: ["json.decodeSafe","JSON"]
 ---
 
-JSON degerini json.decode ile ayni parser kullanarak parse eder ve parse errors icin throw etmek yerine success flag dondurur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
@@ -16,19 +13,31 @@ json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | st
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | Parse edilecek JSON text. Bu argument parse errors catch edilmeden once string olarak kontrol edilir. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean useNull degerini dogrudan ayarlar. table useNull ve maxDepth ayarlayabilir; maxDepth 1 ile 4096 arasinda clamp edilir. Invalid option argument types parse errors catch edilmeden once kontrol edilir. |
+<ParamField path={"json"} type={"string"} required>
+Parse edilecek JSON text. Bu argument parse errors catch edilmeden once string olarak kontrol edilir.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean useNull degerini dogrudan ayarlar. table useNull ve maxDepth ayarlayabilir; maxDepth 1 ile 4096 arasinda clamp edilir. Invalid option argument types parse errors catch edilmeden once kontrol edilir.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `success` | `boolean` | parsing basariliysa True, parser error bildirirse false. |
-| `decoded` | `any \| nil` | Basarida Decoded value, parse failure durumunda nil. Gecerli JSON false, success degerini true ve decoded degerini false olarak dondurur, bu yuzden success return value kontrol edin. |
-| `errorMessage` | `string \| nil` | parse failure durumunda Error message, aksi halde nil. message json.decodeSafe prefix ve parser position icerir. |
-| `errorPosition` | `number \| nil` | parse failure durumunda Parser byte position, aksi halde nil. |
+<ResponseField name={"success"} type={"boolean"}>
+parsing basariliysa True, parser error bildirirse false.
+</ResponseField>
+
+<ResponseField name={"decoded"} type={"any | nil"}>
+Basarida Decoded value, parse failure durumunda nil. Gecerli JSON false, success degerini true ve decoded degerini false olarak dondurur, bu yuzden success return value kontrol edin.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+parse failure durumunda Error message, aksi halde nil. message json.decodeSafe prefix ve parser position icerir.
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+parse failure durumunda Parser byte position, aksi halde nil.
+</ResponseField>
 
 ## Tipler
 
@@ -57,3 +66,6 @@ if not parsed then
     warn(message, position)
 end
 ```
+
+
+</div>

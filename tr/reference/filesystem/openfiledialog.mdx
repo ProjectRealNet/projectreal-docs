@@ -2,13 +2,10 @@
 title: "openfiledialog"
 sidebarTitle: "openfiledialog"
 description: "Windows file picker uzerinden Windows file-open dialog acar ve secilen dosyayi file item olarak dondurur."
-icon: "function"
 keywords: ["openfiledialog","Filesystem"]
 ---
 
-Windows file picker uzerinden Windows file-open dialog acar ve secilen dosyayi file item olarak dondurur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 openfiledialog(options?: DialogOptions): FileSystemItem | nil
@@ -16,15 +13,15 @@ openfiledialog(options?: DialogOptions): FileSystemItem | nil
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `options` | `DialogOptions` | No | Optional table. openfiledialog icin title, defaultPath ve extensionFilter kullanilir. extensionFilter, extension strings iceren bir table degeridir; her filter *.&lt;extension> olmadan once bastaki . veya *. kaldirilir. |
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table. openfiledialog icin title, defaultPath ve extensionFilter kullanilir. extensionFilter, extension strings iceren bir table degeridir; her filter *.&lt;extension> olmadan once bastaki . veya *. kaldirilir.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `file` | `FileSystemItem \| nil` | Selected file item veya dialog iptal edilirse ya da selected filesystem path donmezse nil. Dialog failures, Failed to open file dialog throw eder. |
+<ResponseField name={"file"} type={"FileSystemItem | nil"}>
+Selected file item veya dialog iptal edilirse ya da selected filesystem path donmezse nil. Dialog failures, Failed to open file dialog throw eder.
+</ResponseField>
 
 ## Tipler
 
@@ -58,3 +55,6 @@ else
     print("No file selected")
 end
 ```
+
+
+</div>

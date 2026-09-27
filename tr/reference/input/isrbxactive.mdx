@@ -2,13 +2,10 @@
 title: "isrbxactive"
 sidebarTitle: "isrbxactive"
 description: "Current foreground window degerinin Real tarafindan bulunan Roblox window olup olmadigini dondurur. Real bu pencereyi gecerli process icin windows enumerating yaparak ve class name degeri Roblox window olan window secerek bulur. Function arguments almaz ve foreground window ya da matching Roblox window yoksa false dondurur."
-icon: "function"
 keywords: ["isrbxactive","Input","isgameactive","iswindowactive"]
 ---
 
-Current foreground window degerinin Real tarafindan bulunan Roblox window olup olmadigini dondurur. Real bu pencereyi gecerli process icin windows enumerating yaparak ve class name degeri Roblox window olan window secerek bulur. Function arguments almaz ve foreground window ya da matching Roblox window yoksa false dondurur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 isrbxactive(): boolean
@@ -21,6 +18,9 @@ isrbxactive(): boolean
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `active` | `boolean` | GetForegroundWindow(), gecerli process icin cached veya newly found Roblox window window ile ayni HWND degerini dondururse True. |
+<ResponseField name={"active"} type={"boolean"}>
+GetForegroundWindow(), gecerli process icin cached veya newly found Roblox window window ile ayni HWND degerini dondururse True.
+</ResponseField>
+
+
+</div>

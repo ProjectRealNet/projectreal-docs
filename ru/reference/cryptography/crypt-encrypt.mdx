@@ -2,13 +2,10 @@
 title: "crypt.encrypt"
 sidebarTitle: "crypt.encrypt"
 description: "Шифрует байты Lua string через AES CBC, ECB или CTR с key, декодированным из Base64, затем возвращает Base64 ciphertext и результат IV."
-icon: "function"
 keywords: ["crypt.encrypt","Cryptography"]
 ---
 
-Шифрует байты Lua string через AES CBC, ECB или CTR с key, декодированным из Base64, затем возвращает Base64 ciphertext и результат IV.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 crypt.encrypt(data: string, key: string, iv?: string, mode?: "CBC" | "ECB" | "CTR" | "AES-CBC" | "AES-ECB" | "AES-CTR"): string | string | nil
@@ -16,19 +13,31 @@ crypt.encrypt(data: string, key: string, iv?: string, mode?: "CBC" | "ECB" | "CT
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Байты plaintext, считанные из Lua string. |
-| `key` | `string` | Yes | Base64 key, декодируемый перед передачей в AES. |
-| `iv` | `string` | No | Необязательный Base64 IV для CBC или CTR. Если он опущен для CBC или CTR, генерируется новый IV размера AES block size. |
-| `mode` | `"CBC" \| "ECB" \| "CTR" \| "AES-CBC" \| "AES-ECB" \| "AES-CTR"` | No | AES mode. Prefix AES- удаляется, если он присутствует. Значение по умолчанию AES-CBC. CBC и ECB используют crypto library DEFAULT_PADDING; CTR не использует padding. |
+<ParamField path={"data"} type={"string"} required>
+Байты plaintext, считанные из Lua string.
+</ParamField>
+
+<ParamField path={"key"} type={"string"} required>
+Base64 key, декодируемый перед передачей в AES.
+</ParamField>
+
+<ParamField path={"iv"} type={"string"}>
+Необязательный Base64 IV для CBC или CTR. Если он опущен для CBC или CTR, генерируется новый IV размера AES block size.
+</ParamField>
+
+<ParamField path={"mode"} type={"\"CBC\" | \"ECB\" | \"CTR\" | \"AES-CBC\" | \"AES-ECB\" | \"AES-CTR\""}>
+AES mode. Prefix AES- удаляется, если он присутствует. Значение по умолчанию AES-CBC. CBC и ECB используют crypto library DEFAULT_PADDING; CTR не использует padding.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `ciphertext` | `string` | Base64-encoded ciphertext. |
-| `initializationVector` | `string \| nil` | Base64-encoded IV для CBC и CTR; nil для ECB. |
+<ResponseField name={"ciphertext"} type={"string"}>
+Base64-encoded ciphertext.
+</ResponseField>
+
+<ResponseField name={"initializationVector"} type={"string | nil"}>
+Base64-encoded IV для CBC и CTR; nil для ECB.
+</ResponseField>
 
 ## Пример
 
@@ -44,3 +53,6 @@ print(ciphertext)
 print(iv)
 print(plaintext)
 ```
+
+
+</div>

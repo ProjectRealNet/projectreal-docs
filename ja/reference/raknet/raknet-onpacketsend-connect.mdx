@@ -2,13 +2,10 @@
 title: "RakNet.OnPacketSend.Connect"
 sidebarTitle: "RakNet.OnPacketSend.Connect"
 description: "Connects a callback to the OnPacketSend signal table and returns a RakNetSignalConnection. The callback receives a RakNetPacket while the packet is valid."
-icon: "function"
 keywords: ["RakNet.OnPacketSend.Connect","RakNet","raknet.OnPacketSend.Connect"]
 ---
 
-Connects a callback to the OnPacketSend signal table and returns a RakNetSignalConnection. The callback receives a RakNetPacket while the packet is valid.
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 RakNet.OnPacketSend.Connect(callback: (packet: RakNetPacket) -> ()): RakNetSignalConnection
@@ -20,15 +17,15 @@ RakNet.OnPacketSend.Connect(callback: (packet: RakNetPacket) -> ()): RakNetSigna
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `callback` | `(packet: RakNetPacket) -> ()` | Yes | Function called with each observed outgoing RakNetPacket. |
+<ParamField path={"callback"} type={"(packet: RakNetPacket) -> ()"} required>
+Function called with each observed outgoing RakNetPacket.
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `connection` | `RakNetSignalConnection` | Connection object with Disconnect and Connected. |
+<ResponseField name={"connection"} type={"RakNetSignalConnection"}>
+Connection object with Disconnect and Connected.
+</ResponseField>
 
 ## 型
 
@@ -79,3 +76,6 @@ end)
 task.wait(1)
 connection:Disconnect()
 ```
+
+
+</div>

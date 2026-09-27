@@ -2,13 +2,10 @@
 title: "json.getPath"
 sidebarTitle: "json.getPath"
 description: "Reads a nested value from a table using a dotted string path or an array table of keys."
-icon: "function"
 keywords: ["json.getPath","JSON","json.getpath"]
 ---
 
-Reads a nested value from a table using a dotted string path or an array table of keys.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
@@ -20,17 +17,23 @@ json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `object` | `table` | Yes | Root table to read from. The function requires this argument to be a table. |
-| `path` | `string \| table` | Yes | Path to follow. A string is split on dots; integer string tokens are read with raw array indexing. A table path uses its array entries from 1 with #path as keys. |
-| `defaultValue` | `any` | No | Fallback value returned when traversal reaches nil or a non-table before the path is complete. |
+<ParamField path={"object"} type={"table"} required>
+Root table to read from. The function requires this argument to be a table.
+</ParamField>
+
+<ParamField path={"path"} type={"string | table"} required>
+Path to follow. A string is split on dots; integer string tokens are read with raw array indexing. A table path uses its array entries from 1 with #path as keys.
+</ParamField>
+
+<ParamField path={"defaultValue"} type={"any"}>
+Fallback value returned when traversal reaches nil or a non-table before the path is complete.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `pathValue` | `any \| nil` | Value at the requested path. If the path is missing, returns defaultValue when it was provided, otherwise nil. |
+<ResponseField name={"pathValue"} type={"any | nil"}>
+Value at the requested path. If the path is missing, returns defaultValue when it was provided, otherwise nil.
+</ResponseField>
 
 ## Example
 
@@ -50,3 +53,6 @@ local second = json.getPath(document, "user.items.2")
 print(name)
 print(second)
 ```
+
+
+</div>

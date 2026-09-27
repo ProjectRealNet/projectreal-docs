@@ -2,13 +2,10 @@
 title: "restorefunction"
 sidebarTitle: "restorefunction"
 description: "Restaura o reemplaza una function llamando internamente a function hook operation y no devuelve values. El first argument debe ser una function. Con un solo function argument, la function busca the saved original function; si no existe entry, genera \"Function is not hooked\". Luego llama a function hook operation con la hooked closure y la stored original closure, limpia el Lua stack y elimina la restored closure de hook records cuando se usó la stored original. Si el second argument también es una function, la function trata firstFunction como la original function que se instalará y secondFunction como la closure que se parcheará. En esa forma, no se realiza ningun missing-original check contra el valor almacenado en hook records; el valor almacenado solo se compara durante el final remove check. Los non-function second arguments son ignorados por la branch condition. restorefunc y restoreclosure son aliases de la misma function."
-icon: "function"
 keywords: ["restorefunction","Closures","restorefunc","restoreclosure"]
 ---
 
-Restaura o reemplaza una function llamando internamente a function hook operation y no devuelve values. El first argument debe ser una function. Con un solo function argument, la function busca the saved original function; si no existe entry, genera "Function is not hooked". Luego llama a function hook operation con la hooked closure y la stored original closure, limpia el Lua stack y elimina la restored closure de hook records cuando se usó la stored original. Si el second argument también es una function, la function trata firstFunction como la original function que se instalará y secondFunction como la closure que se parcheará. En esa forma, no se realiza ningun missing-original check contra el valor almacenado en hook records; el valor almacenado solo se compara durante el final remove check. Los non-function second arguments son ignorados por la branch condition. restorefunc y restoreclosure son aliases de la misma function.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 restorefunction(firstFunction: function, secondFunction?: function)
@@ -21,10 +18,13 @@ restorefunction(firstFunction: function, secondFunction?: function)
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `firstFunction` | `function` | Yes | Con un argument, la hooked closure que se restaura desde hook records. Con un function second argument, la function que se instala en secondFunction. |
-| `secondFunction` | `function` | No | Closure opcional que se parchea con firstFunction. Este branch solo se usa cuando el second argument es una function. |
+<ParamField path={"firstFunction"} type={"function"} required>
+Con un argument, la hooked closure que se restaura desde hook records. Con un function second argument, la function que se instala en secondFunction.
+</ParamField>
+
+<ParamField path={"secondFunction"} type={"function"}>
+Closure opcional que se parchea con firstFunction. Este branch solo se usa cuando el second argument es una function.
+</ParamField>
 
 ## Ejemplo
 
@@ -45,3 +45,6 @@ restorefunction(target)
 
 print(target())
 ```
+
+
+</div>

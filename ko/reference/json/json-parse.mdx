@@ -2,13 +2,10 @@
 title: "json.parse"
 sidebarTitle: "json.parse"
 description: "json.decode와 같은 function으로 JSON string을 parse합니다."
-icon: "function"
 keywords: ["json.parse","JSON"]
 ---
 
-json.decode와 같은 function으로 JSON string을 parse합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 json.parse(json: string, options?: DecodeOptions): any
@@ -16,16 +13,19 @@ json.parse(json: string, options?: DecodeOptions): any
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | Parse할 JSON string입니다. function은 이 argument를 string type checking으로 읽습니다. |
-| `options` | `DecodeOptions` | No | Optional decode options입니다. boolean은 useNull을 설정합니다. table은 useNull과 maxDepth를 설정할 수 있습니다. |
+<ParamField path={"json"} type={"string"} required>
+Parse할 JSON string입니다. function은 이 argument를 string type checking으로 읽습니다.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options입니다. boolean은 useNull을 설정합니다. table은 useNull과 maxDepth를 설정할 수 있습니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `decoded` | `any` | Decoded value. JSON objects와 arrays는 JSON type markers가 있는 tables가 됩니다. strings는 Lua strings, numbers는 Lua numbers, booleans는 booleans가 되며, null은 useNull이 false가 아니면 json.null이 됩니다. |
+<ResponseField name={"decoded"} type={"any"}>
+Decoded value. JSON objects와 arrays는 JSON type markers가 있는 tables가 됩니다. strings는 Lua strings, numbers는 Lua numbers, booleans는 booleans가 되며, null은 useNull이 false가 아니면 json.null이 됩니다.
+</ResponseField>
 
 ## 타입
 
@@ -51,3 +51,6 @@ print(settings.volume)
 print(settings.theme)
 print(json.isNull(settings.missing))
 ```
+
+
+</div>

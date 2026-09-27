@@ -2,13 +2,10 @@
 title: "ImGuiWindow.SliderFloat"
 sidebarTitle: "ImGuiWindow.SliderFloat"
 description: "Window icine bir SliderFloat element ekler. label, value, minimum ve maximum 2 ile 5 arasindaki argumanlardan okunur; sayisal argumanlar number type checking ile kontrol edilir. Rendering sirasinda Real, saklanan deger ve aralikla a floating-point slider cagirir. ImGui degisen bir deger bildirdiginde onChange queue icine alinir ve daha sonra bir Lua number ile cagrilir. Real bu closure icinde ayri bir minimum <= maximum dogrulamasi eklemez."
-icon: "function"
 keywords: ["ImGuiWindow.SliderFloat","ImGui"]
 ---
 
-Window icine bir SliderFloat element ekler. label, value, minimum ve maximum 2 ile 5 arasindaki argumanlardan okunur; sayisal argumanlar number type checking ile kontrol edilir. Rendering sirasinda Real, saklanan deger ve aralikla a floating-point slider cagirir. ImGui degisen bir deger bildirdiginde onChange queue icine alinir ve daha sonra bir Lua number ile cagrilir. Real bu closure icinde ayri bir minimum &lt;= maximum dogrulamasi eklemez.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.SliderFloat(window: ImGuiWindow, label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()): ImGuiWindow
@@ -16,20 +13,35 @@ ImGuiWindow.SliderFloat(window: ImGuiWindow, label: string, value: number, minim
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | imgui.create tarafindan dondurulen ImGuiWindow. object gecersizse veya zaten destroy edildiyse method bir Lua error olusturur. |
-| `label` | `string` | Yes | string type checking ile okunan slider label. |
-| `value` | `number` | Yes | number type checking ile okunan ve gecerli float degeri olarak saklanan slider baslangic degeri. |
-| `minimum` | `number` | Yes | number type checking ile okunan ve a floating-point slider icine iletilen minimum value. |
-| `maximum` | `number` | Yes | number type checking ile okunan ve a floating-point slider icine iletilen maximum value. |
-| `onChange` | `(number) -> ()` | Yes | Lua registry icinde saklanan callback function. slider rendering sirasinda degistiginde daha sonra guncellenmis sayisal degerle cagrilir. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+imgui.create tarafindan dondurulen ImGuiWindow. object gecersizse veya zaten destroy edildiyse method bir Lua error olusturur.
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+string type checking ile okunan slider label.
+</ParamField>
+
+<ParamField path={"value"} type={"number"} required>
+number type checking ile okunan ve gecerli float degeri olarak saklanan slider baslangic degeri.
+</ParamField>
+
+<ParamField path={"minimum"} type={"number"} required>
+number type checking ile okunan ve a floating-point slider icine iletilen minimum value.
+</ParamField>
+
+<ParamField path={"maximum"} type={"number"} required>
+number type checking ile okunan ve a floating-point slider icine iletilen maximum value.
+</ParamField>
+
+<ParamField path={"onChange"} type={"(number) -> ()"} required>
+Lua registry icinde saklanan callback function. slider rendering sirasinda degistiginde daha sonra guncellenmis sayisal degerle cagrilir.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | Ayni ImGuiWindow object; method cagrilarinin zincirlenmesine izin verir. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+Ayni ImGuiWindow object; method cagrilarinin zincirlenmesine izin verir.
+</ResponseField>
 
 ## Tipler
 
@@ -50,3 +62,6 @@ imgui.create tarafından döndürülen tanıtıcı. Kontrol oluşturma yöntemle
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Bir tamsayı kaydırıcısı ekler. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Etkileşimli olmayan metin ekler. |
 | `destroy` | `() -> ()` | Yes | Pencereyi kaldırır ve kayıtlı geri aramalarını serbest bırakır. |
+
+
+</div>

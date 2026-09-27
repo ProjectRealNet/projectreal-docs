@@ -2,13 +2,10 @@
 title: "isscriptable"
 sidebarTitle: "isscriptable"
 description: "Bir Instance uzerindeki Roblox property icin scriptable flag degerini kontrol eder. Function once ayni instance reference ve property name icin cached scriptable value varsa onu dondurur. Cache miss durumunda property name Roblox property metadata ve Instance class descriptor uzerinden cozulur. Descriptor yoksa ya da cozulen field eksikse veya property entry degilse function nil dondurur. property entry bulundugunda scriptable state okunur, bu deger instance ve property icin scriptable override cache icine kaydedilir ve boolean dondurulur. Function scriptable flag degerini degistirmez."
-icon: "function"
 keywords: ["isscriptable","Reflection"]
 ---
 
-Bir Instance uzerindeki Roblox property icin scriptable flag degerini kontrol eder. Function once ayni instance reference ve property name icin cached scriptable value varsa onu dondurur. Cache miss durumunda property name Roblox property metadata ve Instance class descriptor uzerinden cozulur. Descriptor yoksa ya da cozulen field eksikse veya property entry degilse function nil dondurur. property entry bulundugunda scriptable state okunur, bu deger instance ve property icin scriptable override cache icine kaydedilir ve boolean dondurulur. Function scriptable flag degerini degistirmez.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 isscriptable(instance: Instance, property: string): boolean | nil
@@ -16,16 +13,19 @@ isscriptable(instance: Instance, property: string): boolean | nil
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Property scriptable state kontrol edilecek Instance object. |
-| `property` | `string` | Yes | Roblox property metadata ve Instance class descriptor uzerinden cozulen property name. |
+<ParamField path={"instance"} type={"Instance"} required>
+Property scriptable state kontrol edilecek Instance object.
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+Roblox property metadata ve Instance class descriptor uzerinden cozulen property name.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `scriptable` | `boolean \| nil` | Cached veya mevcut scriptable state degeri, ya da property descriptor/field eksikse veya property entry degilse nil. |
+<ResponseField name={"scriptable"} type={"boolean | nil"}>
+Cached veya mevcut scriptable state degeri, ya da property descriptor/field eksikse veya property entry degilse nil.
+</ResponseField>
 
 ## Örnek
 
@@ -35,3 +35,6 @@ Check whether a property is scriptable on an Instance.
 local scriptable = isscriptable(workspace, "Name")
 print(scriptable)
 ```
+
+
+</div>

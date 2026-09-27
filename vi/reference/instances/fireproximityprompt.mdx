@@ -2,13 +2,10 @@
 title: "fireproximityprompt"
 sidebarTitle: "fireproximityprompt"
 description: "Kich hoat ProximityPrompt thong qua ProximityPrompt trigger cua Real. Doi so prompt phai la object co truong ClassName bang \"ProximityPrompt\". Neu gia tri khong phai object, loi goi tao type error. Neu ClassName bi thieu hoac khong phai string, no tao \"Invalid Instance\". Neu ClassName khong phai \"ProximityPrompt\", no tao \"ProximityPrompt expected\". Function khong nhan optional arguments va khong tra ve gi."
-icon: "function"
 keywords: ["fireproximityprompt","Instances"]
 ---
 
-Kich hoat ProximityPrompt thong qua ProximityPrompt trigger cua Real. Doi so prompt phai la object co truong ClassName bang "ProximityPrompt". Neu gia tri khong phai object, loi goi tao type error. Neu ClassName bi thieu hoac khong phai string, no tao "Invalid Instance". Neu ClassName khong phai "ProximityPrompt", no tao "ProximityPrompt expected". Function khong nhan optional arguments va khong tra ve gi.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 fireproximityprompt(prompt: Instance)
@@ -16,9 +13,9 @@ fireproximityprompt(prompt: Instance)
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `prompt` | `Instance` | Yes | Instance co ClassName phai la ProximityPrompt. |
+<ParamField path={"prompt"} type={"Instance"} required>
+Instance co ClassName phai la ProximityPrompt.
+</ParamField>
 
 ## Ví dụ
 
@@ -29,3 +26,6 @@ local prompt = workspace.InteractivePart.ProximityPrompt
 
 fireproximityprompt(prompt)
 ```
+
+
+</div>

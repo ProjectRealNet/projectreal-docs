@@ -2,13 +2,10 @@
 title: "rconsolewarn"
 sidebarTitle: "rconsolewarn"
 description: "warning console text attribute ile gecerli Windows console icine stdout uzerinden sifir veya daha fazla deger yazar. console window yoksa cagri herhangi bir seyi donusturmeden veya yazmadan doner. console varsa her argument Lua string conversion ile donusturulur, tab karakterleriyle birlestirilir ve runtime value uzerinden yazilir. Lua string conversion error uretirse rconsolewarn bunu yakalamaz. Function yazmadan once console text attribute degerini FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY olarak, sonra default console text color olarak ayarlar. newline eklemez, warning prefix eklemez, console olusturmaz veya gostermez ve Luau warn ya da Roblox Output cagirmaz. consolewarn ayni function icin alias degeridir."
-icon: "function"
 keywords: ["rconsolewarn","Console","consolewarn"]
 ---
 
-warning console text attribute ile gecerli Windows console icine stdout uzerinden sifir veya daha fazla deger yazar. console window yoksa cagri herhangi bir seyi donusturmeden veya yazmadan doner. console varsa her argument Lua string conversion ile donusturulur, tab karakterleriyle birlestirilir ve runtime value uzerinden yazilir. Lua string conversion error uretirse rconsolewarn bunu yakalamaz. Function yazmadan once console text attribute degerini FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY olarak, sonra default console text color olarak ayarlar. newline eklemez, warning prefix eklemez, console olusturmaz veya gostermez ve Luau warn ya da Roblox Output cagirmaz. consolewarn ayni function icin alias degeridir.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 rconsolewarn(...values?: ...any)
@@ -20,9 +17,9 @@ rconsolewarn(...values?: ...any)
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | Istege bagli degerler. console varsa her value Lua string conversion ile donusturulur ve yazmadan once tab karakterleriyle birlestirilir. |
+<ParamField path={"...values"} type={"...any"}>
+Istege bagli degerler. console varsa her value Lua string conversion ile donusturulur ve yazmadan once tab karakterleriyle birlestirilir.
+</ParamField>
 
 ## Örnek
 
@@ -33,3 +30,6 @@ rconsolecreate()
 rconsolewarn("Retrying request", 3)
 rconsolewarn("\n")
 ```
+
+
+</div>

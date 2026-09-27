@@ -2,13 +2,10 @@
 title: "ImGuiWindow.Button"
 sidebarTitle: "ImGuiWindow.Button"
 description: "button element를 ImGuiWindow에 추가하고 callback을 저장합니다. 렌더링된 button이 클릭되면 callback은 queue에 들어가고 나중에 arguments 없이 호출됩니다. 이 method는 같은 ImGuiWindow object를 반환합니다."
-icon: "function"
 keywords: ["ImGuiWindow.Button","ImGui"]
 ---
 
-button element를 ImGuiWindow에 추가하고 callback을 저장합니다. 렌더링된 button이 클릭되면 callback은 queue에 들어가고 나중에 arguments 없이 호출됩니다. 이 method는 같은 ImGuiWindow object를 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.Button(window: ImGuiWindow, label: string, onClick: function): ImGuiWindow
@@ -16,17 +13,23 @@ ImGuiWindow.Button(window: ImGuiWindow, label: string, onClick: function): ImGui
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | imgui.create가 반환한 ImGuiWindow object입니다. 파괴되었거나 유효하지 않은 window는 Lua error를 발생시킵니다. |
-| `label` | `string` | Yes | 렌더링된 ImGui button에 전달되는 button label string입니다. |
-| `onClick` | `function` | Yes | 이 button을 위해 저장되고 click event가 처리된 뒤 arguments 없이 호출되는 Function입니다. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+imgui.create가 반환한 ImGuiWindow object입니다. 파괴되었거나 유효하지 않은 window는 Lua error를 발생시킵니다.
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+렌더링된 ImGui button에 전달되는 button label string입니다.
+</ParamField>
+
+<ParamField path={"onClick"} type={"function"} required>
+이 button을 위해 저장되고 click event가 처리된 뒤 arguments 없이 호출되는 Function입니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | 같은 ImGuiWindow object이며 method calls를 체인할 수 있습니다. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+같은 ImGuiWindow object이며 method calls를 체인할 수 있습니다.
+</ResponseField>
 
 ## 타입
 
@@ -47,3 +50,6 @@ imgui.create에서 반환된 핸들입니다. 컨트롤 구축 메서드는 동�
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | 정수 슬라이더를 추가합니다. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | 비대화형 텍스트를 추가합니다. |
 | `destroy` | `() -> ()` | Yes | 창을 제거하고 등록된 콜백을 해제합니다. |
+
+
+</div>

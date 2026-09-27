@@ -2,13 +2,10 @@
 title: "getinstances"
 sidebarTitle: "getinstances"
 description: "Mengembalikan array table baru yang berisi setiap object value yang saat ini tersimpan di Instance cache. Function ini tidak menerima arguments. Function tidak memfilter berdasarkan Parent, ClassName, DataModel fieldship, nil-parent state, atau Instance validity selain memeriksa bahwa setiap registry value adalah object. Entries disalin ke table yang dikembalikan pada sequential numeric indexes mulai dari 1. iteration order berasal dari table iteration atas cache dan tidak diurutkan oleh function."
-icon: "function"
 keywords: ["getinstances","Instances"]
 ---
 
-Mengembalikan array table baru yang berisi setiap object value yang saat ini tersimpan di Instance cache. Function ini tidak menerima arguments. Function tidak memfilter berdasarkan Parent, ClassName, DataModel fieldship, nil-parent state, atau Instance validity selain memeriksa bahwa setiap registry value adalah object. Entries disalin ke table yang dikembalikan pada sequential numeric indexes mulai dari 1. iteration order berasal dari table iteration atas cache dan tidak diurutkan oleh function.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 getinstances(): { Instance }
@@ -16,6 +13,9 @@ getinstances(): { Instance }
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `instances` | `&#123; Instance &#125;` | Array table berisi object values yang disalin dari Instance cache table. |
+<ResponseField name={"instances"} type={"{ Instance }"}>
+Array table berisi object values yang disalin dari Instance cache table.
+</ResponseField>
+
+
+</div>

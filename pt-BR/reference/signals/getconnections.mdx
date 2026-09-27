@@ -2,13 +2,10 @@
 title: "getconnections"
 sidebarTitle: "getconnections"
 description: "Retorna uma array table de RealConnection closures para um RBXScriptSignal. O primeiro argument deve ser object cujo Luau type name seja RBXScriptSignal. A function le o Connect method do signal, conecta um temporary blank callback, le a linked list a partir do next reference da conexao temporaria, desconecta a conexao temporaria e envolve cada connection reference valido. Se nenhum connection reference for encontrado depois da conexao temporaria, retorna uma table vazia. references ja envolvidos podem retornar a mesma cached closure table. getsignals e get_signal_cons sao aliases da mesma function."
-icon: "function"
 keywords: ["getconnections","Signals","getsignals","get_signal_cons"]
 ---
 
-Retorna uma array table de RealConnection closures para um RBXScriptSignal. O primeiro argument deve ser object cujo Luau type name seja RBXScriptSignal. A function le o Connect method do signal, conecta um temporary blank callback, le a linked list a partir do next reference da conexao temporaria, desconecta a conexao temporaria e envolve cada connection reference valido. Se nenhum connection reference for encontrado depois da conexao temporaria, retorna uma table vazia. references ja envolvidos podem retornar a mesma cached closure table. getsignals e get_signal_cons sao aliases da mesma function.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 getconnections(signal: RBXScriptSignal): {RealConnection}
@@ -21,15 +18,15 @@ getconnections(signal: RBXScriptSignal): {RealConnection}
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | Signal a inspecionar. Userdata que nao seja RBXScriptSignal gera type error, e um signal sem Connect field chamavel gera "Signal does not have 'Connect' method". |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+Signal a inspecionar. Userdata que nao seja RBXScriptSignal gera type error, e um signal sem Connect field chamavel gera "Signal does not have 'Connect' method".
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `connections` | `&#123;RealConnection&#125;` | Array table de connection closure tables. Cada closure expoe fields e methods por sua methods, incluindo Enabled, Disabled, LuaConnection, ForeignState, Function, Thread, Disconnect, Disable, Enable, Fire e Defer quando disponiveis. |
+<ResponseField name={"connections"} type={"{RealConnection}"}>
+Array table de connection closure tables. Cada closure expoe fields e methods por sua methods, incluindo Enabled, Disabled, LuaConnection, ForeignState, Function, Thread, Disconnect, Disable, Enable, Fire e Defer quando disponiveis.
+</ResponseField>
 
 ## Exemplo
 
@@ -42,3 +39,6 @@ for _, connection in ipairs(getconnections(Players.PlayerAdded)) do
     print(connection.Enabled, connection.LuaConnection)
 end
 ```
+
+
+</div>

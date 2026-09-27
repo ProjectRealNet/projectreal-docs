@@ -2,13 +2,10 @@
 title: "imgui.create"
 sidebarTitle: "imgui.create"
 description: "Membuat ImGui window record yang dilacak dan mengembalikan ImGuiWindow object. Argumen title memakai \"REAL_IM_UI\" saat dihilangkan atau nil. Title harus unik di antara ImGui windows yang sedang dilacak; membuat tracked window lain dengan title yang sama menimbulkan Lua error."
-icon: "function"
 keywords: ["imgui.create","ImGui"]
 ---
 
-Membuat ImGui window record yang dilacak dan mengembalikan ImGuiWindow object. Argumen title memakai "REAL_IM_UI" saat dihilangkan atau nil. Title harus unik di antara ImGui windows yang sedang dilacak; membuat tracked window lain dengan title yang sama menimbulkan Lua error.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 imgui.create(title?: string): ImGuiWindow
@@ -16,15 +13,15 @@ imgui.create(title?: string): ImGuiWindow
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `title` | `string` | No | Optional window title. Saat dihilangkan atau nil, "REAL_IM_UI" digunakan. Title duplikat di antara ImGui windows yang sedang dilacak menimbulkan Lua error. |
+<ParamField path={"title"} type={"string"}>
+Optional window title. Saat dihilangkan atau nil, "REAL_IM_UI" digunakan. Title duplikat di antara ImGui windows yang sedang dilacak menimbulkan Lua error.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | ImGuiWindow object dengan window methods yang terdaftar pada methods-nya. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+ImGuiWindow object dengan window methods yang terdaftar pada methods-nya.
+</ResponseField>
 
 ## Tipe
 
@@ -76,3 +73,6 @@ window:CollapsingHeader("Advanced", function(section)
     section:Text("Advanced controls go here")
 end)
 ```
+
+
+</div>

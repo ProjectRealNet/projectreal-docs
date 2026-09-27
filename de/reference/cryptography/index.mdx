@@ -1,21 +1,49 @@
 ---
 title: "Cryptography"
 description: "Kodierung, Hashing, Verschlüsselung und Komprimierung."
-icon: "folder-code"
+icon: "/icons/key.svg"
 ---
+
+<div className="real-category-page">
 
 Kodierung, Hashing, Verschlüsselung und Komprimierung.
 
-| Funktionsnavigation | Beschreibung |
-| --- | --- |
-| [`base64_decode`](./base64-decode) | Dekodiert Base64-Eingabe mit Base64 decoder und gibt die dekodierten Bytes als Lua-String zurueck. |
-| [`base64_encode`](./base64-encode) | Kodiert die Bytes eines Lua-Strings mit Base64 encoder, mit = padding und ohne Zeilenumbrueche. |
-| [`crypt.decrypt`](./crypt-decrypt) | Entschluesselt Base64 ciphertext mit einem Base64-dekodierten Key und erforderlichem Base64 IV ueber AES CBC oder ECB. |
-| [`crypt.encrypt`](./crypt-encrypt) | Verschluesselt Lua-String-Bytes mit AES CBC, ECB oder CTR mit einem Base64-dekodierten Key und gibt danach Base64 ciphertext und das IV-Ergebnis zurueck. |
-| [`crypt.generatebytes`](./crypt-generatebytes) | Erzeugt zufaellige Bytes mit random byte generator und gibt sie Base64-encoded als Lua-String zurueck. |
-| [`crypt.generatekey`](./crypt-generatekey) | Erzeugt 32 zufaellige raw bytes mit random byte generator und gibt sie Base64-encoded als Lua-String zurueck. |
-| [`crypt.hash`](./crypt-hash) | Hasht Lua-String-Bytes mit einem unterstuetzten crypto library hash Algorithmus und gibt einen lowercase hexadecimal digest zurueck. |
-| [`crypt.hmac`](./crypt-hmac) | Berechnet ein crypto library HMAC ueber Lua-String-Bytes mit einem raw Lua string key und gibt einen Base64 digest zurueck. |
-| [`crypt.random`](./crypt-random) | Erzeugt raw random bytes mit random byte generator und gibt sie als Lua-String zurueck. |
-| [`lz4compress`](./lz4compress) | Komprimiert Lua-String-Bytes mit LZ4 block compression und gibt die raw compressed bytes als Lua-String zurueck. |
-| [`lz4decompress`](./lz4decompress) | Dekomprimiert raw LZ4 block bytes mit LZ4 block decompression und gibt raw decompressed bytes als Lua-String zurueck. |
+## Verfügbare Funktionen
+
+<CardGroup cols={2}>
+<Card title="base64_decode" href="./base64-decode">
+Dekodiert Base64-Eingabe mit Base64 decoder und gibt die dekodierten Bytes als Lua-String zurueck.
+</Card>
+<Card title="base64_encode" href="./base64-encode">
+Kodiert die Bytes eines Lua-Strings mit Base64 encoder, mit = padding und ohne Zeilenumbrueche.
+</Card>
+<Card title="crypt.decrypt" href="./crypt-decrypt">
+Entschluesselt Base64 ciphertext mit einem Base64-dekodierten Key und erforderlichem Base64 IV ueber AES CBC oder ECB.
+</Card>
+<Card title="crypt.encrypt" href="./crypt-encrypt">
+Verschluesselt Lua-String-Bytes mit AES CBC, ECB oder CTR mit einem Base64-dekodierten Key und gibt danach Base64 ciphertext und das IV-Ergebnis zurueck.
+</Card>
+<Card title="crypt.generatebytes" href="./crypt-generatebytes">
+Erzeugt zufaellige Bytes mit random byte generator und gibt sie Base64-encoded als Lua-String zurueck.
+</Card>
+<Card title="crypt.generatekey" href="./crypt-generatekey">
+Erzeugt 32 zufaellige raw bytes mit random byte generator und gibt sie Base64-encoded als Lua-String zurueck.
+</Card>
+<Card title="crypt.hash" href="./crypt-hash">
+Hasht Lua-String-Bytes mit einem unterstuetzten crypto library hash Algorithmus und gibt einen lowercase hexadecimal digest zurueck.
+</Card>
+<Card title="crypt.hmac" href="./crypt-hmac">
+Berechnet ein crypto library HMAC ueber Lua-String-Bytes mit einem raw Lua string key und gibt einen Base64 digest zurueck.
+</Card>
+<Card title="crypt.random" href="./crypt-random">
+Erzeugt raw random bytes mit random byte generator und gibt sie als Lua-String zurueck.
+</Card>
+<Card title="lz4compress" href="./lz4compress">
+Komprimiert Lua-String-Bytes mit LZ4 block compression und gibt die raw compressed bytes als Lua-String zurueck.
+</Card>
+<Card title="lz4decompress" href="./lz4decompress">
+Dekomprimiert raw LZ4 block bytes mit LZ4 block decompression und gibt raw decompressed bytes als Lua-String zurueck.
+</Card>
+</CardGroup>
+
+</div>

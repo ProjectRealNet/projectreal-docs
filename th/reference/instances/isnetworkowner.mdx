@@ -2,13 +2,10 @@
 title: "isnetworkowner"
 sidebarTitle: "isnetworkowner"
 description: "คืนผลลัพธ์จากการอ่าน hidden property \"NetworkOwnerV3\" จาก Instance และตรวจว่าค่าแรกที่คืนมาเมื่อแปลงด้วย integer conversion มากกว่า 2 หรือไม่ อาร์กิวเมนต์ต้องเป็น Instance object function เรียก the hidden property reader ภายในและไม่จับ errors จากการเรียกนั้น ดังนั้น Invalid Instance values, missing properties หรือ non-property metadata อาจเกิด errors เดียวกับ gethiddenproperty function คืน boolean หนึ่งค่า การที่ peer_id > 2 หมายถึง local network ownership อย่างแม่นยำหรือไม่คือ: Nicht aus der Codebasis verifizierbar."
-icon: "function"
 keywords: ["isnetworkowner","Instances"]
 ---
 
-คืนผลลัพธ์จากการอ่าน hidden property "NetworkOwnerV3" จาก Instance และตรวจว่าค่าแรกที่คืนมาเมื่อแปลงด้วย integer conversion มากกว่า 2 หรือไม่ อาร์กิวเมนต์ต้องเป็น Instance object function เรียก the hidden property reader ภายในและไม่จับ errors จากการเรียกนั้น ดังนั้น Invalid Instance values, missing properties หรือ non-property metadata อาจเกิด errors เดียวกับ gethiddenproperty function คืน boolean หนึ่งค่า การที่ peer_id > 2 หมายถึง local network ownership อย่างแม่นยำหรือไม่คือ: Nicht aus der Codebasis verifizierbar.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 isnetworkowner(instance: Instance): boolean
@@ -16,15 +13,15 @@ isnetworkowner(instance: Instance): boolean
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object ที่ส่งให้ the hidden property reader พร้อม property name "NetworkOwnerV3" |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object ที่ส่งให้ the hidden property reader พร้อม property name "NetworkOwnerV3"
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `isOwner` | `boolean` | true เมื่อ integer conversion บนค่าที่คืนค่าแรกของ "NetworkOwnerV3" มากกว่า 2; มิฉะนั้น false |
+<ResponseField name={"isOwner"} type={"boolean"}>
+true เมื่อ integer conversion บนค่าที่คืนค่าแรกของ "NetworkOwnerV3" มากกว่า 2; มิฉะนั้น false
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -38,3 +35,6 @@ if part then
     print(ownsNetwork)
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "HttpPost"
 sidebarTitle: "HttpPost"
 description: "Performs a POST request for game:HttpPost(...) or game:HttpPostAsync(...) and returns the response body string or a request error string. The URL must pass Real's URL restrictions."
-icon: "function"
 keywords: ["HttpPost","Miscellaneous"]
 ---
 
-Performs a POST request for game:HttpPost(...) or game:HttpPostAsync(...) and returns the response body string or a request error string. The URL must pass Real's URL restrictions.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 HttpPost(context: DataModel, url: string, body?: string, contentTypeOrCompatibility?: string | number | boolean, headersOrContentType?: table | string, headers?: table): string
@@ -16,20 +13,35 @@ HttpPost(context: DataModel, url: string, body?: string, contentTypeOrCompatibil
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `context` | `DataModel` | Yes | Method-call self value. Use game:HttpPost(...) or game:HttpPostAsync(...). |
-| `url` | `string` | Yes | URL string to request. |
-| `body` | `string` | No | Optional request body. Defaults to an empty string. |
-| `contentTypeOrCompatibility` | `string \| number \| boolean` | No | Normally the content type string. A number uses legacy timeout mode, and a boolean uses legacy compression mode. |
-| `headersOrContentType` | `table \| string` | No | Optional headers table in the normal call shape, or optional content type string in legacy mode. |
-| `headers` | `table` | No | Optional headers table used only in legacy mode. Keys and values must be strings without CR or LF. |
+<ParamField path={"context"} type={"DataModel"} required>
+Method-call self value. Use game:HttpPost(...) or game:HttpPostAsync(...).
+</ParamField>
+
+<ParamField path={"url"} type={"string"} required>
+URL string to request.
+</ParamField>
+
+<ParamField path={"body"} type={"string"}>
+Optional request body. Defaults to an empty string.
+</ParamField>
+
+<ParamField path={"contentTypeOrCompatibility"} type={"string | number | boolean"}>
+Normally the content type string. A number uses legacy timeout mode, and a boolean uses legacy compression mode.
+</ParamField>
+
+<ParamField path={"headersOrContentType"} type={"table | string"}>
+Optional headers table in the normal call shape, or optional content type string in legacy mode.
+</ParamField>
+
+<ParamField path={"headers"} type={"table"}>
+Optional headers table used only in legacy mode. Keys and values must be strings without CR or LF.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `body` | `string` | Response body string or request error string. |
+<ResponseField name={"body"} type={"string"}>
+Response body string or request error string.
+</ResponseField>
 
 ## Beispiel
 
@@ -45,3 +57,6 @@ local body = game:HttpPost(
 
 print(body)
 ```
+
+
+</div>

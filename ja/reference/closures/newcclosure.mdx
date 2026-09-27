@@ -2,13 +2,10 @@
 title: "newcclosure"
 sidebarTitle: "newcclosure"
 description: "Returns a C closure for the provided function. If the function is already a C closure, the same function is returned. Passing a non-function raises a type error."
-icon: "function"
 keywords: ["newcclosure","Closures"]
 ---
 
-Returns a C closure for the provided function. If the function is already a C closure, the same function is returned. Passing a non-function raises a type error.
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 newcclosure(func: function, debugName?: string): function
@@ -16,16 +13,19 @@ newcclosure(func: function, debugName?: string): function
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `func` | `function` | Yes | Function to return directly when it is already a C closure, or wrap in a wrapped C closure otherwise. |
-| `debugName` | `string` | No | Optional debug name used for the created closure. |
+<ParamField path={"func"} type={"function"} required>
+Function to return directly when it is already a C closure, or wrap in a wrapped C closure otherwise.
+</ParamField>
+
+<ParamField path={"debugName"} type={"string"}>
+Optional debug name used for the created closure.
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `closure` | `function` | The original function when it is already a C closure, or a new C closure that calls the provided function. |
+<ResponseField name={"closure"} type={"function"}>
+The original function when it is already a C closure, or a new C closure that calls the provided function.
+</ResponseField>
 
 ## 例
 
@@ -41,3 +41,6 @@ local wrapped = newcclosure(add, "add")
 print(wrapped(2, 3))
 print(isnewcclosure(wrapped))
 ```
+
+
+</div>

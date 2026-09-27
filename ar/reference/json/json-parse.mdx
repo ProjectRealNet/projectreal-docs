@@ -2,13 +2,10 @@
 title: "json.parse"
 sidebarTitle: "json.parse"
 description: "يعمل parse لـ JSON string باستخدام نفس function مثل json.decode."
-icon: "function"
 keywords: ["json.parse","JSON"]
 ---
 
-يعمل parse لـ JSON string باستخدام نفس function مثل json.decode.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 json.parse(json: string, options?: DecodeOptions): any
@@ -16,16 +13,19 @@ json.parse(json: string, options?: DecodeOptions): any
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string يتم parse له. Function تقرأ هذا argument باستخدام string type checking. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean يضبط useNull. table يمكنها ضبط useNull و maxDepth. |
+<ParamField path={"json"} type={"string"} required>
+JSON string يتم parse له. Function تقرأ هذا argument باستخدام string type checking.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean يضبط useNull. table يمكنها ضبط useNull و maxDepth.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `decoded` | `any` | Decoded value. JSON objects و arrays تصبح tables مع JSON type markers، strings تصبح Lua strings، numbers تصبح Lua numbers، booleans تصبح booleans، و null يصبح json.null إلا إذا كان useNull false. |
+<ResponseField name={"decoded"} type={"any"}>
+Decoded value. JSON objects و arrays تصبح tables مع JSON type markers، strings تصبح Lua strings، numbers تصبح Lua numbers، booleans تصبح booleans، و null يصبح json.null إلا إذا كان useNull false.
+</ResponseField>
 
 ## الأنواع
 
@@ -51,3 +51,6 @@ print(settings.volume)
 print(settings.theme)
 print(json.isNull(settings.missing))
 ```
+
+
+</div>

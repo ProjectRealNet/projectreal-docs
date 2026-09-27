@@ -2,13 +2,10 @@
 title: "json.parse"
 sidebarTitle: "json.parse"
 description: "JSON string degerini json.decode ile ayni function kullanarak parse eder."
-icon: "function"
 keywords: ["json.parse","JSON"]
 ---
 
-JSON string degerini json.decode ile ayni function kullanarak parse eder.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 json.parse(json: string, options?: DecodeOptions): any
@@ -16,16 +13,19 @@ json.parse(json: string, options?: DecodeOptions): any
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | Parse edilecek JSON string. Function bu argument degerini string type checking ile okur. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean useNull ayarlar. table useNull ve maxDepth ayarlayabilir. |
+<ParamField path={"json"} type={"string"} required>
+Parse edilecek JSON string. Function bu argument degerini string type checking ile okur.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean useNull ayarlar. table useNull ve maxDepth ayarlayabilir.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `decoded` | `any` | Decoded value. JSON objects ve arrays JSON type markers iceren tables olur, strings Lua strings olur, numbers Lua numbers olur, booleans booleans olur ve null, useNull false degilse json.null olur. |
+<ResponseField name={"decoded"} type={"any"}>
+Decoded value. JSON objects ve arrays JSON type markers iceren tables olur, strings Lua strings olur, numbers Lua numbers olur, booleans booleans olur ve null, useNull false degilse json.null olur.
+</ResponseField>
 
 ## Tipler
 
@@ -51,3 +51,6 @@ print(settings.volume)
 print(settings.theme)
 print(json.isNull(settings.missing))
 ```
+
+
+</div>

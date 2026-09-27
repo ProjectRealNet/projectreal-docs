@@ -1,25 +1,61 @@
 ---
 title: "Filesystem"
 description: "ファイルとフォルダーの読み取り、書き込み、管理を行います。"
-icon: "folder-code"
+icon: "/icons/folder.svg"
 ---
+
+<div className="real-category-page">
 
 ファイルとフォルダーの読み取り、書き込み、管理を行います。
 
-| 関数ナビゲーション | 説明 |
-| --- | --- |
-| [`appendfile`](./appendfile) | Appends raw Lua string bytes to a workspace file using binary append mode. The file may be created if its parent folder exists. |
-| [`delfile`](./delfile) | workspace 内に存在する regular file を削除します。 |
-| [`delfolder`](./delfolder) | workspace 内に存在する folder を recursive folder deletion で recursive に削除します。 |
-| [`getcustomasset`](./getcustomasset) | 存在する regular workspace file を ExtraContent/&lt;hwid>/ にコピーし、コピーされた asset path の rbxasset:// string を返します。 |
-| [`isfile`](./isfile) | Returns whether a path resolved inside the workspace exists and is a regular file. |
-| [`isfolder`](./isfolder) | Returns whether a path resolved inside the workspace exists and is a directory. |
-| [`listfiles`](./listfiles) | Returns an array table of the direct children of an existing workspace directory. |
-| [`loadfile`](./loadfile) | Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it. |
-| [`makefolder`](./makefolder) | recursive folder creation を使い、missing parent directories を含めて workspace 内に directory を作成します。 |
-| [`openfiledialog`](./openfiledialog) | Windows file picker 経由で Windows file-open dialog を開き、選択されたファイルを file item として返します。 |
-| [`openfilesdialog`](./openfilesdialog) | Windows file picker を通じて multi-select を有効にした Windows file-open dialog を開き、選択されたファイルを file item 値として返します。 |
-| [`openfolderdialog`](./openfolderdialog) | Windows file picker と folder selection mode によって Windows folder picker を開き、選択されたフォルダーを file item として返します。 |
-| [`readfile`](./readfile) | workspace 内の existing regular file を binary mode で読み、その bytes を Lua string として返します。 |
-| [`savefiledialog`](./savefiledialog) | Windows save dialog を通じて Windows save dialog を開き、指定された Lua string bytes を selected path に書き込み、saved file を file item として返します。 |
-| [`writefile`](./writefile) | workspace 内のファイルへ Lua string bytes を書き込み、missing parent directories を作成し、ファイルがすでに存在する場合は file contents を置き換えます。 |
+## 利用できる関数
+
+<CardGroup cols={2}>
+<Card title="appendfile" href="./appendfile">
+Appends raw Lua string bytes to a workspace file using binary append mode. The file may be created if its parent folder exists.
+</Card>
+<Card title="delfile" href="./delfile">
+workspace 内に存在する regular file を削除します。
+</Card>
+<Card title="delfolder" href="./delfolder">
+workspace 内に存在する folder を recursive folder deletion で recursive に削除します。
+</Card>
+<Card title="getcustomasset" href="./getcustomasset">
+存在する regular workspace file を ExtraContent/&lt;hwid>/ にコピーし、コピーされた asset path の rbxasset:// string を返します。
+</Card>
+<Card title="isfile" href="./isfile">
+Returns whether a path resolved inside the workspace exists and is a regular file.
+</Card>
+<Card title="isfolder" href="./isfolder">
+Returns whether a path resolved inside the workspace exists and is a directory.
+</Card>
+<Card title="listfiles" href="./listfiles">
+Returns an array table of the direct children of an existing workspace directory.
+</Card>
+<Card title="loadfile" href="./loadfile">
+Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it.
+</Card>
+<Card title="makefolder" href="./makefolder">
+recursive folder creation を使い、missing parent directories を含めて workspace 内に directory を作成します。
+</Card>
+<Card title="openfiledialog" href="./openfiledialog">
+Windows file picker 経由で Windows file-open dialog を開き、選択されたファイルを file item として返します。
+</Card>
+<Card title="openfilesdialog" href="./openfilesdialog">
+Windows file picker を通じて multi-select を有効にした Windows file-open dialog を開き、選択されたファイルを file item 値として返します。
+</Card>
+<Card title="openfolderdialog" href="./openfolderdialog">
+Windows file picker と folder selection mode によって Windows folder picker を開き、選択されたフォルダーを file item として返します。
+</Card>
+<Card title="readfile" href="./readfile">
+workspace 内の existing regular file を binary mode で読み、その bytes を Lua string として返します。
+</Card>
+<Card title="savefiledialog" href="./savefiledialog">
+Windows save dialog を通じて Windows save dialog を開き、指定された Lua string bytes を selected path に書き込み、saved file を file item として返します。
+</Card>
+<Card title="writefile" href="./writefile">
+workspace 内のファイルへ Lua string bytes を書き込み、missing parent directories を作成し、ファイルがすでに存在する場合は file contents を置き換えます。
+</Card>
+</CardGroup>
+
+</div>

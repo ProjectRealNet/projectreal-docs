@@ -2,13 +2,10 @@
 title: "lz4decompress"
 sidebarTitle: "lz4decompress"
 description: "Mendekompresi raw LZ4 block bytes dengan LZ4 block decompression dan mengembalikan raw decompressed bytes sebagai string Lua."
-icon: "function"
 keywords: ["lz4decompress","Cryptography","crypt.lz4decompress","crypt.lz4.decompress","lz4.decompress"]
 ---
 
-Mendekompresi raw LZ4 block bytes dengan LZ4 block decompression dan mengembalikan raw decompressed bytes sebagai string Lua.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 lz4decompress(data: string, originalSize?: number): string
@@ -22,16 +19,19 @@ lz4decompress(data: string, originalSize?: number): string
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Raw compressed bytes yang diteruskan ke LZ4 block decompression. |
-| `originalSize` | `number` | No | Output buffer size yang diteruskan sebagai dstCapacity. Untuk output lz4compress, berikan panjang byte asli yang belum dikompresi; jika dihilangkan, panjang input terkompresi digunakan. |
+<ParamField path={"data"} type={"string"} required>
+Raw compressed bytes yang diteruskan ke LZ4 block decompression.
+</ParamField>
+
+<ParamField path={"originalSize"} type={"number"}>
+Output buffer size yang diteruskan sebagai dstCapacity. Untuk output lz4compress, berikan panjang byte asli yang belum dikompresi; jika dihilangkan, panjang input terkompresi digunakan.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `decompressed` | `string` | Raw decompressed bytes yang dikembalikan sebagai string Lua. Output dapat lebih pendek dari originalSize. |
+<ResponseField name={"decompressed"} type={"string"}>
+Raw decompressed bytes yang dikembalikan sebagai string Lua. Output dapat lebih pendek dari originalSize.
+</ResponseField>
 
 ## Contoh
 
@@ -45,3 +45,6 @@ local decompressed = lz4decompress(compressed, #source)
 print(decompressed)
 print(decompressed == source)
 ```
+
+
+</div>

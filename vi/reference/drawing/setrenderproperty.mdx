@@ -2,13 +2,10 @@
 title: "setrenderproperty"
 sidebarTitle: "setrenderproperty"
 description: "Gan value vao object[property]. Voi Drawing object, ham dung cung Drawing property assignment nhu direct property assignment. Unknown Drawing properties bi bo qua va destroyed Drawing objects khong bi thay doi. Doi so thu ba phai duoc cung cap. the Drawing API chi dang ky API nay khi the required rendering environment is active la true; khi kiem tra do la false, initializer quay lai truoc khi tao cac globals nay."
-icon: "function"
 keywords: ["setrenderproperty","Drawing"]
 ---
 
-Gan value vao object[property]. Voi Drawing object, ham dung cung Drawing property assignment nhu direct property assignment. Unknown Drawing properties bi bo qua va destroyed Drawing objects khong bi thay doi. Doi so thu ba phai duoc cung cap. the Drawing API chi dang ky API nay khi the required rendering environment is active la true; khi kiem tra do la false, initializer quay lai truoc khi tao cac globals nay.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 setrenderproperty(object: any, property: any, value: any)
@@ -16,11 +13,17 @@ setrenderproperty(object: any, property: any, value: any)
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | Gia tri can index va gan vao. Voi Drawing object, RealDrawingObject __newindex handler duoc su dung. |
-| `property` | `any` | Yes | property key duoc dung de assignment. Drawing object properties dua tren strings. |
-| `value` | `any` | Yes | Gia tri duoc gan vao object[property]. Doi so nay phai duoc truyen; nil van la mot gia tri da truyen. |
+<ParamField path={"object"} type={"any"} required>
+Gia tri can index va gan vao. Voi Drawing object, RealDrawingObject __newindex handler duoc su dung.
+</ParamField>
+
+<ParamField path={"property"} type={"any"} required>
+property key duoc dung de assignment. Drawing object properties dua tren strings.
+</ParamField>
+
+<ParamField path={"value"} type={"any"} required>
+Gia tri duoc gan vao object[property]. Doi so nay phai duoc truyen; nil van la mot gia tri da truyen.
+</ParamField>
 
 ## Ví dụ
 
@@ -34,3 +37,6 @@ setrenderproperty(line, "Visible", true)
 print(line.Thickness)
 print(line.Visible)
 ```
+
+
+</div>

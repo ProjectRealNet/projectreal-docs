@@ -2,13 +2,10 @@
 title: "crypt.generatebytes"
 sidebarTitle: "crypt.generatebytes"
 description: "Genere des octets aleatoires avec random byte generator et les renvoie Base64-encoded sous forme de chaine Lua."
-icon: "function"
 keywords: ["crypt.generatebytes","Cryptography"]
 ---
 
-Genere des octets aleatoires avec random byte generator et les renvoie Base64-encoded sous forme de chaine Lua.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 crypt.generatebytes(size: number): string
@@ -16,15 +13,15 @@ crypt.generatebytes(size: number): string
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `size` | `number` | Yes | Nombre passe par integer conversion avant l allocation. Les valeurs inferieures ou egales a 0 sont changees en 1. |
+<ParamField path={"size"} type={"number"} required>
+Nombre passe par integer conversion avant l allocation. Les valeurs inferieures ou egales a 0 sont changees en 1.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `encoded` | `string` | Base64 encoding des raw bytes generes. La longueur de la chaine renvoyee n est pas le nombre d octets demande. |
+<ResponseField name={"encoded"} type={"string"}>
+Base64 encoding des raw bytes generes. La longueur de la chaine renvoyee n est pas le nombre d octets demande.
+</ResponseField>
 
 ## Exemple
 
@@ -38,3 +35,6 @@ print(encoded)
 print(#encoded)
 print(#raw)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "ImGuiWindow.SameLine"
 sidebarTitle: "ImGuiWindow.SameLine"
 description: "Window icine bir SameLine layout marker ekler. Rendering sirasinda Real, element list icindeki bu noktada a same-line layout marker cagirir; boylece sonraki render edilen item ayni satirda devam edebilir."
-icon: "function"
 keywords: ["ImGuiWindow.SameLine","ImGui"]
 ---
 
-Window icine bir SameLine layout marker ekler. Rendering sirasinda Real, element list icindeki bu noktada a same-line layout marker cagirir; boylece sonraki render edilen item ayni satirda devam edebilir.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.SameLine(window: ImGuiWindow): ImGuiWindow
@@ -16,15 +13,15 @@ ImGuiWindow.SameLine(window: ImGuiWindow): ImGuiWindow
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | imgui.create tarafindan dondurulen ImGuiWindow. object gecersizse veya zaten destroy edildiyse method bir Lua error olusturur. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+imgui.create tarafindan dondurulen ImGuiWindow. object gecersizse veya zaten destroy edildiyse method bir Lua error olusturur.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | Ayni ImGuiWindow object; method cagrilarinin zincirlenmesine izin verir. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+Ayni ImGuiWindow object; method cagrilarinin zincirlenmesine izin verir.
+</ResponseField>
 
 ## Tipler
 
@@ -45,3 +42,6 @@ imgui.create tarafından döndürülen tanıtıcı. Kontrol oluşturma yöntemle
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Bir tamsayı kaydırıcısı ekler. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Etkileşimli olmayan metin ekler. |
 | `destroy` | `() -> ()` | Yes | Pencereyi kaldırır ve kayıtlı geri aramalarını serbest bırakır. |
+
+
+</div>

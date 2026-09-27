@@ -1,15 +1,31 @@
 ---
 title: "Drawing"
 description: "绘制对象及其属性。"
-icon: "folder-code"
+icon: "/icons/pencil.svg"
 ---
+
+<div className="real-category-page">
 
 绘制对象及其属性。
 
-| 函数导航 | 说明 |
-| --- | --- |
-| [`cleardrawcache`](./cleardrawcache) | 清空 Real global Drawing object list。每个被跟踪的 Drawing object 都会被标记为 destroyed，存在 image resources 时会释放它们，并清空 object list。指向已清理 Drawing objects 的现有 Lua references 仍可能存在，但这些 objects 不再被视为 active Drawing objects。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。 |
-| [`Drawing.new`](./drawing-new) | 创建请求类型的新 Drawing object，并将其添加到 Real tracked Drawing object list。type string 必须是以下精确支持名称之一: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image"。缺失值、non-string 或不支持的 type values 会引发 Lua error。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。 |
-| [`getrenderproperty`](./getrenderproperty) | 返回使用给定 property key 索引第一个参数的结果。对于 Drawing object，这会使用与 object[property] 相同的 Drawing property lookup，因此 unknown properties 和 destroyed Drawing objects 会返回 nil。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。 |
-| [`isrenderobj`](./isrenderobj) | 返回该值是否为带有 Drawing object type 的 object。这只是 methods check；不会检查底层 Drawing object 是否仍然 active、tracked 或 destroyed。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。 |
-| [`setrenderproperty`](./setrenderproperty) | 将 value 赋给 object[property]。对于 Drawing object，这会使用与 direct property assignment 相同的 Drawing property assignment。unknown Drawing properties 会被忽略，destroyed Drawing objects 不会被更改。第三个参数必须存在。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。 |
+## 可用函数
+
+<CardGroup cols={2}>
+<Card title="cleardrawcache" href="./cleardrawcache">
+清空 Real global Drawing object list。每个被跟踪的 Drawing object 都会被标记为 destroyed，存在 image resources 时会释放它们，并清空 object list。指向已清理 Drawing objects 的现有 Lua references 仍可能存在，但这些 objects 不再被视为 active Drawing objects。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。
+</Card>
+<Card title="Drawing.new" href="./drawing-new">
+创建请求类型的新 Drawing object，并将其添加到 Real tracked Drawing object list。type string 必须是以下精确支持名称之一: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image"。缺失值、non-string 或不支持的 type values 会引发 Lua error。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。
+</Card>
+<Card title="getrenderproperty" href="./getrenderproperty">
+返回使用给定 property key 索引第一个参数的结果。对于 Drawing object，这会使用与 object[property] 相同的 Drawing property lookup，因此 unknown properties 和 destroyed Drawing objects 会返回 nil。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。
+</Card>
+<Card title="isrenderobj" href="./isrenderobj">
+返回该值是否为带有 Drawing object type 的 object。这只是 methods check；不会检查底层 Drawing object 是否仍然 active、tracked 或 destroyed。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。
+</Card>
+<Card title="setrenderproperty" href="./setrenderproperty">
+将 value 赋给 object[property]。对于 Drawing object，这会使用与 direct property assignment 相同的 Drawing property assignment。unknown Drawing properties 会被忽略，destroyed Drawing objects 不会被更改。第三个参数必须存在。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。
+</Card>
+</CardGroup>
+
+</div>

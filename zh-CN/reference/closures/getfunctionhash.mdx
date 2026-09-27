@@ -2,13 +2,10 @@
 title: "getfunctionhash"
 sidebarTitle: "getfunctionhash"
 description: "Returns an uppercase SHA384 hex digest derived from a Luau function. The argument must be a function, and C closures raise \"Lua function expected\". If no hashable function content is available, the function returns nil."
-icon: "function"
 keywords: ["getfunctionhash","Closures"]
 ---
 
-Returns an uppercase SHA384 hex digest derived from a Luau function. The argument must be a function, and C closures raise "Lua function expected". If no hashable function content is available, the function returns nil.
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 getfunctionhash(func: function): string | nil
@@ -16,15 +13,15 @@ getfunctionhash(func: function): string | nil
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `func` | `function` | Yes | Luau function to hash. Passing a C closure raises "Lua function expected". |
+<ParamField path={"func"} type={"function"} required>
+Luau function to hash. Passing a C closure raises "Lua function expected".
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `hash` | `string \| nil` | Uppercase SHA384 hex digest string, or nil if no hashable function content is available. |
+<ResponseField name={"hash"} type={"string | nil"}>
+Uppercase SHA384 hex digest string, or nil if no hashable function content is available.
+</ResponseField>
 
 ## 示例
 
@@ -38,3 +35,6 @@ end
 local hash = getfunctionhash(sample)
 print(hash)
 ```
+
+
+</div>

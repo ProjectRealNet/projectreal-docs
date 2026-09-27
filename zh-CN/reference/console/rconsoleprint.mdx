@@ -2,13 +2,10 @@
 title: "rconsoleprint"
 sidebarTitle: "rconsoleprint"
 description: "不更改 console text attribute，通过 stdout 向当前 Windows console 写入零个或多个值。值会使用 Lua string conversion 转换，并用 tab 字符分隔。该 function 不会添加 newline。如果不存在 console window，该调用会直接返回，不会转换或写入任何内容。"
-icon: "function"
 keywords: ["rconsoleprint","Console","consoleprint","rconsolewrite","consolewrite"]
 ---
 
-不更改 console text attribute，通过 stdout 向当前 Windows console 写入零个或多个值。值会使用 Lua string conversion 转换，并用 tab 字符分隔。该 function 不会添加 newline。如果不存在 console window，该调用会直接返回，不会转换或写入任何内容。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 rconsoleprint(...values?: ...any)
@@ -22,9 +19,9 @@ rconsoleprint(...values?: ...any)
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | 可选值。如果存在 console，每个 value 会用 Lua string conversion 转换，并在写入前用 tab 字符连接。 |
+<ParamField path={"...values"} type={"...any"}>
+可选值。如果存在 console，每个 value 会用 Lua string conversion 转换，并在写入前用 tab 字符连接。
+</ParamField>
 
 ## 示例
 
@@ -37,3 +34,6 @@ rconsoleprint("Loading", "
 rconsoleprint("User", "	", 42, "
 ")
 ```
+
+
+</div>

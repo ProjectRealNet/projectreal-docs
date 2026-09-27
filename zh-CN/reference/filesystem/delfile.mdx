@@ -2,13 +2,10 @@
 title: "delfile"
 sidebarTitle: "delfile"
 description: "删除 workspace 内已存在的 regular file。"
-icon: "function"
 keywords: ["delfile","Filesystem"]
 ---
 
-删除 workspace 内已存在的 regular file。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 delfile(path: string)
@@ -16,9 +13,9 @@ delfile(path: string)
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | 经过 separator normalization 和 workspace-boundary checks 后在 workspace 内解析的 path。目标必须存在并且是 regular file；不接受 folders。 |
+<ParamField path={"path"} type={"string"} required>
+经过 separator normalization 和 workspace-boundary checks 后在 workspace 内解析的 path。目标必须存在并且是 regular file；不接受 folders。
+</ParamField>
 
 ## 示例
 
@@ -31,3 +28,6 @@ writefile(path, "temporary")
 delfile(path)
 print(isfile(path))
 ```
+
+
+</div>

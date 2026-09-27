@@ -1,25 +1,61 @@
 ---
 title: "Filesystem"
 description: "Czytaj, zapisuj i zarządzaj plikami i folderami."
-icon: "folder-code"
+icon: "/icons/folder.svg"
 ---
+
+<div className="real-category-page">
 
 Czytaj, zapisuj i zarządzaj plikami i folderami.
 
-| Nawigacja funkcji | Opis |
-| --- | --- |
-| [`appendfile`](./appendfile) | Appends raw Lua string bytes to a workspace file using binary append mode. The file may be created if its parent folder exists. |
-| [`delfile`](./delfile) | Usuwa istniejacy regular file wewnatrz workspace. |
-| [`delfolder`](./delfolder) | Usuwa istniejacy folder wewnatrz workspace rekurencyjnie przez recursive folder deletion. |
-| [`getcustomasset`](./getcustomasset) | Kopiuje istniejacy regular workspace file do ExtraContent/&lt;hwid>/ i zwraca rbxasset:// string dla skopiowanego asset path. |
-| [`isfile`](./isfile) | Returns whether a path resolved inside the workspace exists and is a regular file. |
-| [`isfolder`](./isfolder) | Returns whether a path resolved inside the workspace exists and is a directory. |
-| [`listfiles`](./listfiles) | Returns an array table of the direct children of an existing workspace directory. |
-| [`loadfile`](./loadfile) | Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it. |
-| [`makefolder`](./makefolder) | Tworzy directory wewnatrz workspace przez recursive folder creation, wlacznie z missing parent directories. |
-| [`openfiledialog`](./openfiledialog) | Otwiera Windows file-open dialog przez Windows file picker i zwraca wybrany plik jako file item. |
-| [`openfilesdialog`](./openfilesdialog) | Otwiera Windows file-open dialog przez Windows file picker z wlaczonym multi-select i zwraca wybrane pliki jako wartosci file item. |
-| [`openfolderdialog`](./openfolderdialog) | Otwiera Windows folder picker przez Windows file picker z folder selection mode i zwraca wybrany folder jako file item. |
-| [`readfile`](./readfile) | Czyta existing regular file wewnatrz workspace w binary mode i zwraca jego bytes jako Lua string. |
-| [`savefiledialog`](./savefiledialog) | Otwiera Windows save dialog przez Windows save dialog, zapisuje podane Lua string bytes do selected path i zwraca saved file jako file item. |
-| [`writefile`](./writefile) | Zapisuje Lua string bytes do pliku wewnatrz workspace, tworzy missing parent directories i zastepuje file contents, jesli plik juz istnieje. |
+## Dostępne funkcje
+
+<CardGroup cols={2}>
+<Card title="appendfile" href="./appendfile">
+Appends raw Lua string bytes to a workspace file using binary append mode. The file may be created if its parent folder exists.
+</Card>
+<Card title="delfile" href="./delfile">
+Usuwa istniejacy regular file wewnatrz workspace.
+</Card>
+<Card title="delfolder" href="./delfolder">
+Usuwa istniejacy folder wewnatrz workspace rekurencyjnie przez recursive folder deletion.
+</Card>
+<Card title="getcustomasset" href="./getcustomasset">
+Kopiuje istniejacy regular workspace file do ExtraContent/&lt;hwid>/ i zwraca rbxasset:// string dla skopiowanego asset path.
+</Card>
+<Card title="isfile" href="./isfile">
+Returns whether a path resolved inside the workspace exists and is a regular file.
+</Card>
+<Card title="isfolder" href="./isfolder">
+Returns whether a path resolved inside the workspace exists and is a directory.
+</Card>
+<Card title="listfiles" href="./listfiles">
+Returns an array table of the direct children of an existing workspace directory.
+</Card>
+<Card title="loadfile" href="./loadfile">
+Reads a workspace file, compiles its contents with the Luau compiler, and returns the loaded Luau function without executing it.
+</Card>
+<Card title="makefolder" href="./makefolder">
+Tworzy directory wewnatrz workspace przez recursive folder creation, wlacznie z missing parent directories.
+</Card>
+<Card title="openfiledialog" href="./openfiledialog">
+Otwiera Windows file-open dialog przez Windows file picker i zwraca wybrany plik jako file item.
+</Card>
+<Card title="openfilesdialog" href="./openfilesdialog">
+Otwiera Windows file-open dialog przez Windows file picker z wlaczonym multi-select i zwraca wybrane pliki jako wartosci file item.
+</Card>
+<Card title="openfolderdialog" href="./openfolderdialog">
+Otwiera Windows folder picker przez Windows file picker z folder selection mode i zwraca wybrany folder jako file item.
+</Card>
+<Card title="readfile" href="./readfile">
+Czyta existing regular file wewnatrz workspace w binary mode i zwraca jego bytes jako Lua string.
+</Card>
+<Card title="savefiledialog" href="./savefiledialog">
+Otwiera Windows save dialog przez Windows save dialog, zapisuje podane Lua string bytes do selected path i zwraca saved file jako file item.
+</Card>
+<Card title="writefile" href="./writefile">
+Zapisuje Lua string bytes do pliku wewnatrz workspace, tworzy missing parent directories i zastepuje file contents, jesli plik juz istnieje.
+</Card>
+</CardGroup>
+
+</div>

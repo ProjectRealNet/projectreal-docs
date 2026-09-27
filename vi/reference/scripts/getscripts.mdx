@@ -2,13 +2,10 @@
 title: "getscripts"
 sidebarTitle: "getscripts"
 description: "Tra ve cac gia tri script object hien co trong Instance cache. Function khong nhan arguments. No lap qua cache duoc luu duoi key Instance cache lightobject va chi xet entries co value la object. No doc field ClassName cua moi value bang optional string handling. Entries LocalScript va ModuleScript duoc dua vao. Entries Script chi duoc dua vao khi RunContext offset bang CLIENT hoac PLUGIN. Cac gia tri ClassName khac, entries khong co string ClassName, va CoreScript bi bo qua. Ket qua la mot Luau table tuan tu. Function khong duyet DataModel va khong dam bao sorted order."
-icon: "function"
 keywords: ["getscripts","Scripts"]
 ---
 
-Tra ve cac gia tri script object hien co trong Instance cache. Function khong nhan arguments. No lap qua cache duoc luu duoi key Instance cache lightobject va chi xet entries co value la object. No doc field ClassName cua moi value bang optional string handling. Entries LocalScript va ModuleScript duoc dua vao. Entries Script chi duoc dua vao khi RunContext offset bang CLIENT hoac PLUGIN. Cac gia tri ClassName khac, entries khong co string ClassName, va CoreScript bi bo qua. Ket qua la mot Luau table tuan tu. Function khong duyet DataModel va khong dam bao sorted order.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 getscripts(): { Instance }
@@ -16,6 +13,9 @@ getscripts(): { Instance }
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `scripts` | `&#123; Instance &#125;` | Sequential table gom cached LocalScript, ModuleScript va cac gia tri Script object hop le tu Instance cache. |
+<ResponseField name={"scripts"} type={"{ Instance }"}>
+Sequential table gom cached LocalScript, ModuleScript va cac gia tri Script object hop le tu Instance cache.
+</ResponseField>
+
+
+</div>

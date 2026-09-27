@@ -2,13 +2,10 @@
 title: "json.decodeSafe"
 sidebarTitle: "json.decodeSafe"
 description: "Mem-parse JSON dengan parser yang sama seperti json.decode dan mengembalikan success flag alih-alih melempar untuk parse errors."
-icon: "function"
 keywords: ["json.decodeSafe","JSON"]
 ---
 
-Mem-parse JSON dengan parser yang sama seperti json.decode dan mengembalikan success flag alih-alih melempar untuk parse errors.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
@@ -16,19 +13,31 @@ json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | st
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON text untuk di-parse. argument ini diperiksa sebagai string sebelum parse errors ditangkap. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean mengatur useNull secara langsung. table dapat mengatur useNull dan maxDepth; maxDepth di-clamp dari 1 sampai 4096. Invalid option argument types diperiksa sebelum parse errors ditangkap. |
+<ParamField path={"json"} type={"string"} required>
+JSON text untuk di-parse. argument ini diperiksa sebagai string sebelum parse errors ditangkap.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean mengatur useNull secara langsung. table dapat mengatur useNull dan maxDepth; maxDepth di-clamp dari 1 sampai 4096. Invalid option argument types diperiksa sebelum parse errors ditangkap.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `success` | `boolean` | True saat parsing berhasil, false saat parser melaporkan error. |
-| `decoded` | `any \| nil` | Decoded value saat sukses, nil saat parse failure. JSON false yang valid mengembalikan success sebagai true dan decoded sebagai false, jadi periksa success return value. |
-| `errorMessage` | `string \| nil` | Error message saat parse failure, selain itu nil. Pesan menyertakan json.decodeSafe prefix dan parser position. |
-| `errorPosition` | `number \| nil` | Parser byte position saat parse failure, selain itu nil. |
+<ResponseField name={"success"} type={"boolean"}>
+True saat parsing berhasil, false saat parser melaporkan error.
+</ResponseField>
+
+<ResponseField name={"decoded"} type={"any | nil"}>
+Decoded value saat sukses, nil saat parse failure. JSON false yang valid mengembalikan success sebagai true dan decoded sebagai false, jadi periksa success return value.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+Error message saat parse failure, selain itu nil. Pesan menyertakan json.decodeSafe prefix dan parser position.
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+Parser byte position saat parse failure, selain itu nil.
+</ResponseField>
 
 ## Tipe
 
@@ -57,3 +66,6 @@ if not parsed then
     warn(message, position)
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "cache.invalidate"
 sidebarTitle: "cache.invalidate"
 description: "Entfernt den zwischengespeicherten Instance cache-Registry-Eintrag fuer die angegebene Instance."
-icon: "function"
 keywords: ["cache.invalidate","Cache"]
 ---
 
-Entfernt den zwischengespeicherten Instance cache-Registry-Eintrag fuer die angegebene Instance.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 cache.invalidate(instance: Instance)
@@ -16,9 +13,9 @@ cache.invalidate(instance: Instance)
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance, deren zwischengespeicherter Registry-Eintrag entfernt werden soll. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance, deren zwischengespeicherter Registry-Eintrag entfernt werden soll.
+</ParamField>
 
 ## Beispiel
 
@@ -31,3 +28,6 @@ cache.invalidate(Players)
 
 print(cache.iscached(Players))
 ```
+
+
+</div>

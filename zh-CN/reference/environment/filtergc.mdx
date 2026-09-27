@@ -2,13 +2,10 @@
 title: "filtergc"
 sidebarTitle: "filtergc"
 description: "搜索匹配所提供 filters 的 live garbage-collected tables 或 functions。filterType 必须是 \"table\" 或 \"function\"。options 必须是 table。"
-icon: "function"
 keywords: ["filtergc","Environment"]
 ---
 
-搜索匹配所提供 filters 的 live garbage-collected tables 或 functions。filterType 必须是 "table" 或 "function"。options 必须是 table。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 filtergc(filterType: string, options: table, returnOne?: boolean): table | function | nil
@@ -16,17 +13,23 @@ filtergc(filterType: string, options: table, returnOne?: boolean): table | funct
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `filterType` | `string` | Yes | 要搜索的 GC object type。该值会转换为 lowercase，并且必须是 "table" 或 "function"。 |
-| `options` | `table` | Yes | Filter table。function searches 读取 Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants, Upvalues。table searches 读取 Metatable, Keys, Values, KeyValuePairs。 |
-| `returnOne` | `boolean` | No | Optional optional boolean handling flag。为 true 时，返回第一个 matching object 或 nil，而不是 array table。 |
+<ParamField path={"filterType"} type={"string"} required>
+要搜索的 GC object type。该值会转换为 lowercase，并且必须是 "table" 或 "function"。
+</ParamField>
+
+<ParamField path={"options"} type={"table"} required>
+Filter table。function searches 读取 Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants, Upvalues。table searches 读取 Metatable, Keys, Values, KeyValuePairs。
+</ParamField>
+
+<ParamField path={"returnOne"} type={"boolean"}>
+Optional optional boolean handling flag。为 true 时，返回第一个 matching object 或 nil，而不是 array table。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `result` | `table \| function \| nil` | 当 returnOne 为 false 或 omitted 时，返回 array table of matches。当 returnOne 为 true 时，返回第一个 matching table/function object 或 nil。 |
+<ResponseField name={"result"} type={"table | function | nil"}>
+当 returnOne 为 false 或 omitted 时，返回 array table of matches。当 returnOne 为 true 时，返回第一个 matching table/function object 或 nil。
+</ResponseField>
 
 ## 示例
 
@@ -54,3 +57,6 @@ local first = filtergc("table", {
 
 print(first ~= nil)
 ```
+
+
+</div>

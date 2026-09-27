@@ -2,13 +2,10 @@
 title: "crypt.decrypt"
 sidebarTitle: "crypt.decrypt"
 description: "Descriptografa Base64 ciphertext com uma key decodificada de Base64 e um Base64 IV obrigatorio usando AES CBC ou ECB."
-icon: "function"
 keywords: ["crypt.decrypt","Cryptography"]
 ---
 
-Descriptografa Base64 ciphertext com uma key decodificada de Base64 e um Base64 IV obrigatorio usando AES CBC ou ECB.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES-CBC" | "AES-ECB"): string
@@ -16,18 +13,27 @@ crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Base64 ciphertext decodificado antes da descriptografia. |
-| `key` | `string` | Yes | Key Base64 decodificada antes de ser passada para AES. |
-| `iv` | `string` | Yes | Base64 IV decodificado antes do processamento de mode. Este argumento e obrigatorio, inclusive para ECB. |
-| `mode` | `"CBC" \| "ECB" \| "AES-CBC" \| "AES-ECB"` | No | AES mode. O prefixo AES- e removido quando presente. O padrao e AES-CBC. |
+<ParamField path={"data"} type={"string"} required>
+Base64 ciphertext decodificado antes da descriptografia.
+</ParamField>
+
+<ParamField path={"key"} type={"string"} required>
+Key Base64 decodificada antes de ser passada para AES.
+</ParamField>
+
+<ParamField path={"iv"} type={"string"} required>
+Base64 IV decodificado antes do processamento de mode. Este argumento e obrigatorio, inclusive para ECB.
+</ParamField>
+
+<ParamField path={"mode"} type={"\"CBC\" | \"ECB\" | \"AES-CBC\" | \"AES-ECB\""}>
+AES mode. O prefixo AES- e removido quando presente. O padrao e AES-CBC.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `plaintext` | `string` | Bytes plaintext retornados como uma string Lua. |
+<ResponseField name={"plaintext"} type={"string"}>
+Bytes plaintext retornados como uma string Lua.
+</ResponseField>
 
 ## Exemplo
 
@@ -41,3 +47,6 @@ local plaintext = crypt.decrypt(ciphertext, key, iv)
 
 print(plaintext)
 ```
+
+
+</div>

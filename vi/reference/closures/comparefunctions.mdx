@@ -2,13 +2,10 @@
 title: "comparefunctions"
 sidebarTitle: "comparefunctions"
 description: "So sánh hai function values bằng function identity của chúng. Cả hai arguments phải là functions. Function trả về boolean result của function identity(L, 1) == function identity(L, 2). Function không so sánh function bytecode, source, behavior, hashes, upvalues hoặc newcclosure mappings. comparefunction là alias cho cùng function."
-icon: "function"
 keywords: ["comparefunctions","Closures","comparefunction"]
 ---
 
-So sánh hai function values bằng function identity của chúng. Cả hai arguments phải là functions. Function trả về boolean result của function identity(L, 1) == function identity(L, 2). Function không so sánh function bytecode, source, behavior, hashes, upvalues hoặc newcclosure mappings. comparefunction là alias cho cùng function.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 comparefunctions(func1: function, func2: function): boolean
@@ -20,16 +17,19 @@ comparefunctions(func1: function, func2: function): boolean
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `func1` | `function` | Yes | First function value được chuyển đổi bằng function identity. |
-| `func2` | `function` | Yes | Second function value được chuyển đổi bằng function identity. |
+<ParamField path={"func1"} type={"function"} required>
+First function value được chuyển đổi bằng function identity.
+</ParamField>
+
+<ParamField path={"func2"} type={"function"} required>
+Second function value được chuyển đổi bằng function identity.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `equal` | `boolean` | true khi cả hai function values resolve thành cùng một function identity; ngược lại false. |
+<ResponseField name={"equal"} type={"boolean"}>
+true khi cả hai function values resolve thành cùng một function identity; ngược lại false.
+</ResponseField>
 
 ## Ví dụ
 
@@ -43,3 +43,6 @@ end
 local same = comparefunctions(sample, sample)
 print(same)
 ```
+
+
+</div>

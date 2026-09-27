@@ -2,13 +2,10 @@
 title: "keyclick"
 sidebarTitle: "keyclick"
 description: "Wysyla key down event, a potem key up event, gdy Roblox window jest active. Argument keyCode jest sprawdzany jako Lua number, konwertowany przez integer conversion, mapowany z Windows virtual-key code na scan code przez Windows key mapping, a potem wysylany przez keyboard input z KEYEVENTF_SCANCODE. Jesli isrbxactive byloby false, function wraca bez wysylania input."
-icon: "function"
 keywords: ["keyclick","Input","keytap"]
 ---
 
-Wysyla key down event, a potem key up event, gdy Roblox window jest active. Argument keyCode jest sprawdzany jako Lua number, konwertowany przez integer conversion, mapowany z Windows virtual-key code na scan code przez Windows key mapping, a potem wysylany przez keyboard input z KEYEVENTF_SCANCODE. Jesli isrbxactive byloby false, function wraca bez wysylania input.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 keyclick(keyCode: number)
@@ -20,6 +17,9 @@ keyclick(keyCode: number)
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `keyCode` | `number` | Yes | Windows virtual-key code czytany jako Lua number i konwertowany przez integer conversion przed wywolaniem Windows key mapping. |
+<ParamField path={"keyCode"} type={"number"} required>
+Windows virtual-key code czytany jako Lua number i konwertowany przez integer conversion przed wywolaniem Windows key mapping.
+</ParamField>
+
+
+</div>

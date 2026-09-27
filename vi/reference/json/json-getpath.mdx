@@ -2,13 +2,10 @@
 title: "json.getPath"
 sidebarTitle: "json.getPath"
 description: "Doc nested value tu table bang dotted string path hoac array table of keys."
-icon: "function"
 keywords: ["json.getPath","JSON","json.getpath"]
 ---
 
-Doc nested value tu table bang dotted string path hoac array table of keys.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
@@ -20,17 +17,23 @@ json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `object` | `table` | Yes | Root table de doc tu do. Function yeu cau argument nay la table. |
-| `path` | `string \| table` | Yes | Path can di theo. string duoc split theo dots; integer string tokens duoc doc bang raw array indexing. table path dung array entries tu 1 den #path lam keys. |
-| `defaultValue` | `any` | No | Fallback value tra ve khi traversal gap nil hoac non-table truoc khi hoan tat path. |
+<ParamField path={"object"} type={"table"} required>
+Root table de doc tu do. Function yeu cau argument nay la table.
+</ParamField>
+
+<ParamField path={"path"} type={"string | table"} required>
+Path can di theo. string duoc split theo dots; integer string tokens duoc doc bang raw array indexing. table path dung array entries tu 1 den #path lam keys.
+</ParamField>
+
+<ParamField path={"defaultValue"} type={"any"}>
+Fallback value tra ve khi traversal gap nil hoac non-table truoc khi hoan tat path.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `pathValue` | `any \| nil` | Value tai requested path. Neu path missing, tra ve defaultValue khi duoc cung cap, neu khong thi nil. |
+<ResponseField name={"pathValue"} type={"any | nil"}>
+Value tai requested path. Neu path missing, tra ve defaultValue khi duoc cung cap, neu khong thi nil.
+</ResponseField>
 
 ## Ví dụ
 
@@ -50,3 +53,6 @@ local second = json.getPath(document, "user.items.2")
 print(name)
 print(second)
 ```
+
+
+</div>

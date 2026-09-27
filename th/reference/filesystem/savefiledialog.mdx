@@ -2,13 +2,10 @@
 title: "savefiledialog"
 sidebarTitle: "savefiledialog"
 description: "เปิด Windows save dialog ผ่าน Windows save dialog เขียน Lua string bytes ที่ส่งเข้ามาไปยัง selected path และคืน saved file เป็น file item"
-icon: "function"
 keywords: ["savefiledialog","Filesystem"]
 ---
 
-เปิด Windows save dialog ผ่าน Windows save dialog เขียน Lua string bytes ที่ส่งเข้ามาไปยัง selected path และคืน saved file เป็น file item
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
@@ -16,16 +13,19 @@ savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `content` | `string` | Yes | Lua string bytes ที่จะเขียนไปยัง selected file. ไฟล์จะถูกเปิดใน binary truncate mode หลังจากผู้ใช้ยืนยัน path. |
-| `options` | `DialogOptions` | No | Optional table. savefiledialog ใช้ title, defaultPath, extensionFilter, suggestedName และ defaultExtension. extensionFilter คือ table ของ extension strings; . หรือ *. ที่อยู่ต้นค่าจะถูกลบก่อนที่แต่ละ filter จะกลายเป็น *.&lt;extension>. defaultExtension ลบ leading . characters ก่อนส่งไปยัง SetDefaultExtension. |
+<ParamField path={"content"} type={"string"} required>
+Lua string bytes ที่จะเขียนไปยัง selected file. ไฟล์จะถูกเปิดใน binary truncate mode หลังจากผู้ใช้ยืนยัน path.
+</ParamField>
+
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table. savefiledialog ใช้ title, defaultPath, extensionFilter, suggestedName และ defaultExtension. extensionFilter คือ table ของ extension strings; . หรือ *. ที่อยู่ต้นค่าจะถูกลบก่อนที่แต่ละ filter จะกลายเป็น *.&lt;extension>. defaultExtension ลบ leading . characters ก่อนส่งไปยัง SetDefaultExtension.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `file` | `FileSystemItem \| nil` | Saved file item หรือ nil เมื่อ dialog ถูกยกเลิก. Dialog or write failures จะ throw Failed to save file. |
+<ResponseField name={"file"} type={"FileSystemItem | nil"}>
+Saved file item หรือ nil เมื่อ dialog ถูกยกเลิก. Dialog or write failures จะ throw Failed to save file.
+</ResponseField>
 
 ## Types
 
@@ -60,3 +60,6 @@ else
     print("No file saved")
 end
 ```
+
+
+</div>

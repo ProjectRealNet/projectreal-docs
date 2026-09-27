@@ -2,13 +2,10 @@
 title: "json.tryDecode"
 sidebarTitle: "json.tryDecode"
 description: "พยายาม parse JSON string ด้วย function เดียวกับ json.decodeSafe และคืน status values สำหรับ parse errors."
-icon: "function"
 keywords: ["json.tryDecode","JSON"]
 ---
 
-พยายาม parse JSON string ด้วย function เดียวกับ json.decodeSafe และคืน status values สำหรับ parse errors.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
@@ -16,19 +13,31 @@ json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | str
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string ที่จะ parse. function อ่าน argument นี้ด้วย string type checking. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean ตั้งค่า useNull. table ตั้งค่า useNull และ maxDepth ได้. |
+<ParamField path={"json"} type={"string"} required>
+JSON string ที่จะ parse. function อ่าน argument นี้ด้วย string type checking.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean ตั้งค่า useNull. table ตั้งค่า useNull และ maxDepth ได้.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `success` | `boolean` | true เมื่อ parsing สำเร็จ, false เมื่อ parsing ล้มเหลวใน protected parse block. |
-| `decoded` | `any \| nil` | Decoded value เมื่อ success. เมื่อ parse failure return นี้เป็น nil. |
-| `errorMessage` | `string \| nil` | Error message เมื่อ parse failure. Message มี prefix json.decodeSafe และมี near-position suffix. |
-| `errorPosition` | `number \| nil` | Parser byte position จาก parser เมื่อ parse failure. Return นี้มีเฉพาะตอน failure. |
+<ResponseField name={"success"} type={"boolean"}>
+true เมื่อ parsing สำเร็จ, false เมื่อ parsing ล้มเหลวใน protected parse block.
+</ResponseField>
+
+<ResponseField name={"decoded"} type={"any | nil"}>
+Decoded value เมื่อ success. เมื่อ parse failure return นี้เป็น nil.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+Error message เมื่อ parse failure. Message มี prefix json.decodeSafe และมี near-position suffix.
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+Parser byte position จาก parser เมื่อ parse failure. Return นี้มีเฉพาะตอน failure.
+</ResponseField>
 
 ## Types
 
@@ -57,3 +66,6 @@ else
     warn(message, position)
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "decompile"
 sidebarTitle: "decompile"
 description: "Декомпилирует Roblox script и возвращает сгенерированный source text, когда bytecode доступен. argument должен быть поддерживаемой script Instance. Если usable bytecode недоступен, function возвращает nil."
-icon: "function"
 keywords: ["decompile","Scripts"]
 ---
 
-Декомпилирует Roblox script и возвращает сгенерированный source text, когда bytecode доступен. argument должен быть поддерживаемой script Instance. Если usable bytecode недоступен, function возвращает nil.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 decompile(script: userdata): string | nil
@@ -16,15 +13,15 @@ decompile(script: userdata): string | nil
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | Script object для decompile. Поддерживаемые значения ClassName: ModuleScript, LocalScript, CoreScript и Script с RunContext Client. |
+<ParamField path={"script"} type={"userdata"} required>
+Script object для decompile. Поддерживаемые значения ClassName: ModuleScript, LocalScript, CoreScript и Script с RunContext Client.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `source` | `string \| nil` | Decompiler output string, caught decompiler exception text или nil, если usable embedded bytecode недоступен. |
+<ResponseField name={"source"} type={"string | nil"}>
+Decompiler output string, caught decompiler exception text или nil, если usable embedded bytecode недоступен.
+</ResponseField>
 
 ## Пример
 
@@ -48,3 +45,6 @@ if targetScript then
     end
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "rconsoleprint"
 sidebarTitle: "rconsoleprint"
 description: "Writes zero or more values to the current Windows console with stdout without changing the console text attribute. Values are converted to strings and separated with tabs. The function does not add a newline. If no console window exists, the call returns without converting or writing anything."
-icon: "function"
 keywords: ["rconsoleprint","Console","consoleprint","rconsolewrite","consolewrite"]
 ---
 
-Writes zero or more values to the current Windows console with stdout without changing the console text attribute. Values are converted to strings and separated with tabs. The function does not add a newline. If no console window exists, the call returns without converting or writing anything.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 rconsoleprint(...values?: ...any)
@@ -22,9 +19,9 @@ rconsoleprint(...values?: ...any)
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | Optional values. If a console exists, each value is converted to strings and joined with tab characters before writing. |
+<ParamField path={"...values"} type={"...any"}>
+Optional values. If a console exists, each value is converted to strings and joined with tab characters before writing.
+</ParamField>
 
 ## Example
 
@@ -37,3 +34,6 @@ rconsoleprint("Loading", "
 rconsoleprint("User", "	", 42, "
 ")
 ```
+
+
+</div>

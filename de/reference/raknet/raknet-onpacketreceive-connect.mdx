@@ -2,13 +2,10 @@
 title: "RakNet.OnPacketReceive.Connect"
 sidebarTitle: "RakNet.OnPacketReceive.Connect"
 description: "Connects a callback to the OnPacketReceive signal table and returns a RakNetSignalConnection. The callback receives a RakNetPacket while the packet is valid."
-icon: "function"
 keywords: ["RakNet.OnPacketReceive.Connect","RakNet","raknet.OnPacketReceive.Connect"]
 ---
 
-Connects a callback to the OnPacketReceive signal table and returns a RakNetSignalConnection. The callback receives a RakNetPacket while the packet is valid.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 RakNet.OnPacketReceive.Connect(callback: (packet: RakNetPacket) -> ()): RakNetSignalConnection
@@ -20,15 +17,15 @@ RakNet.OnPacketReceive.Connect(callback: (packet: RakNetPacket) -> ()): RakNetSi
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `callback` | `(packet: RakNetPacket) -> ()` | Yes | Function called with each observed incoming RakNetPacket. |
+<ParamField path={"callback"} type={"(packet: RakNetPacket) -> ()"} required>
+Function called with each observed incoming RakNetPacket.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `connection` | `RakNetSignalConnection` | Connection object with Disconnect and Connected. |
+<ResponseField name={"connection"} type={"RakNetSignalConnection"}>
+Connection object with Disconnect and Connected.
+</ResponseField>
 
 ## Typen
 
@@ -79,3 +76,6 @@ end)
 task.wait(1)
 connection:Disconnect()
 ```
+
+
+</div>

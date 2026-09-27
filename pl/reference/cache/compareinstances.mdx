@@ -2,13 +2,10 @@
 title: "compareinstances"
 sidebarTitle: "compareinstances"
 description: "Porownuje wewnetrzne wartosci wskaznika Instance zapisane w dwoch wartosciach Instance object."
-icon: "function"
 keywords: ["compareinstances","Cache"]
 ---
 
-Porownuje wewnetrzne wartosci wskaznika Instance zapisane w dwoch wartosciach Instance object.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 compareinstances(first: Instance, second: Instance): boolean
@@ -16,16 +13,19 @@ compareinstances(first: Instance, second: Instance): boolean
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `first` | `Instance` | Yes | Pierwsze Instance object do porownania. |
-| `second` | `Instance` | Yes | Drugie Instance object do porownania. |
+<ParamField path={"first"} type={"Instance"} required>
+Pierwsze Instance object do porownania.
+</ParamField>
+
+<ParamField path={"second"} type={"Instance"} required>
+Drugie Instance object do porownania.
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `equal` | `boolean` | True, gdy obie wartosci Instance object zawieraja ta sama wewnetrzna wartosc wskaznika. |
+<ResponseField name={"equal"} type={"boolean"}>
+True, gdy obie wartosci Instance object zawieraja ta sama wewnetrzna wartosc wskaznika.
+</ResponseField>
 
 ## Przykład
 
@@ -38,3 +38,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 print(compareinstances(Players, Players))
 print(compareinstances(Players, ReplicatedStorage))
 ```
+
+
+</div>

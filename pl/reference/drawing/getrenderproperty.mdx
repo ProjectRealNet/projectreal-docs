@@ -2,13 +2,10 @@
 title: "getrenderproperty"
 sidebarTitle: "getrenderproperty"
 description: "Zwraca wynik indeksowania pierwszego argumentu podanym property key. Dla Drawing object uzywa tego samego Drawing property lookup co object[property], wiec unknown properties i destroyed Drawing objects zwracaja nil. the Drawing API rejestruje te API tylko wtedy, gdy the required rendering environment is active ma wartosc true; gdy ten check ma wartosc false, initializer wraca przed utworzeniem tych globals."
-icon: "function"
 keywords: ["getrenderproperty","Drawing"]
 ---
 
-Zwraca wynik indeksowania pierwszego argumentu podanym property key. Dla Drawing object uzywa tego samego Drawing property lookup co object[property], wiec unknown properties i destroyed Drawing objects zwracaja nil. the Drawing API rejestruje te API tylko wtedy, gdy the required rendering environment is active ma wartosc true; gdy ten check ma wartosc false, initializer wraca przed utworzeniem tych globals.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 getrenderproperty(object: any, property: any): any
@@ -16,16 +13,19 @@ getrenderproperty(object: any, property: any): any
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | Wartosc do indeksowania. Z Drawing object uzywany jest RealDrawingObject __index handler. |
-| `property` | `any` | Yes | property key uzywany do indeksowania. Drawing object properties sa oparte na strings. |
+<ParamField path={"object"} type={"any"} required>
+Wartosc do indeksowania. Z Drawing object uzywany jest RealDrawingObject __index handler.
+</ParamField>
+
+<ParamField path={"property"} type={"any"} required>
+property key uzywany do indeksowania. Drawing object properties sa oparte na strings.
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `propertyValue` | `any` | Wartosc zwrocona przez indeksowanie object za pomoca property, albo nil, gdy Drawing __index handler nie ma wartosci dla tej property. |
+<ResponseField name={"propertyValue"} type={"any"}>
+Wartosc zwrocona przez indeksowanie object za pomoca property, albo nil, gdy Drawing __index handler nie ma wartosci dla tej property.
+</ResponseField>
 
 ## Przykład
 
@@ -38,3 +38,6 @@ line.Thickness = 3
 print(getrenderproperty(line, "Thickness"))
 print(getrenderproperty(line, "MissingProperty"))
 ```
+
+
+</div>

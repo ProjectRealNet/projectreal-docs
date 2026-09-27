@@ -2,13 +2,10 @@
 title: "openfolderdialog"
 sidebarTitle: "openfolderdialog"
 description: "Windows file picker uzerinden folder selection mode ile Windows folder picker acar ve secilen klasoru file item olarak dondurur."
-icon: "function"
 keywords: ["openfolderdialog","Filesystem"]
 ---
 
-Windows file picker uzerinden folder selection mode ile Windows folder picker acar ve secilen klasoru file item olarak dondurur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 openfolderdialog(options?: DialogOptions): FileSystemItem | nil
@@ -16,15 +13,15 @@ openfolderdialog(options?: DialogOptions): FileSystemItem | nil
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `options` | `DialogOptions` | No | Optional table. openfolderdialog icin title ve defaultPath kullanilir. defaultPath yalnizca existing directory olarak cozulurse uygulanir. extensionFilter shared dialog options parser tarafindan kabul edilir, ancak folder selection folder selection mode ile etkinlestirilir. |
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table. openfolderdialog icin title ve defaultPath kullanilir. defaultPath yalnizca existing directory olarak cozulurse uygulanir. extensionFilter shared dialog options parser tarafindan kabul edilir, ancak folder selection folder selection mode ile etkinlestirilir.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `folder` | `FileSystemItem \| nil` | Selected folder item, ya da dialog iptal edilirse nil. Dialog failures, Failed to open folder dialog firlatir. |
+<ResponseField name={"folder"} type={"FileSystemItem | nil"}>
+Selected folder item, ya da dialog iptal edilirse nil. Dialog failures, Failed to open folder dialog firlatir.
+</ResponseField>
 
 ## Tipler
 
@@ -57,3 +54,6 @@ else
     print("No folder selected")
 end
 ```
+
+
+</div>

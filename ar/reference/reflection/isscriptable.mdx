@@ -2,13 +2,10 @@
 title: "isscriptable"
 sidebarTitle: "isscriptable"
 description: "يتحقق من scriptable flag لخاصية Roblox property على Instance. ترجع function أولا قيمة scriptable مخزنة في cache عندما توجد لنفس instance reference و property name. عند عدم وجود cache، يتم حل property name عبر Roblox property metadata و Instance class descriptor. إذا لم يوجد descriptor، أو كان field المحلول مفقودا أو ليس property entry، ترجع function nil. عندما يتم العثور على property entry، تقرأ scriptable state، وتخزن هذه القيمة في scriptable override cache للـ instance والخاصية، ثم ترجع boolean. لا تغير function قيمة scriptable flag."
-icon: "function"
 keywords: ["isscriptable","Reflection"]
 ---
 
-يتحقق من scriptable flag لخاصية Roblox property على Instance. ترجع function أولا قيمة scriptable مخزنة في cache عندما توجد لنفس instance reference و property name. عند عدم وجود cache، يتم حل property name عبر Roblox property metadata و Instance class descriptor. إذا لم يوجد descriptor، أو كان field المحلول مفقودا أو ليس property entry، ترجع function nil. عندما يتم العثور على property entry، تقرأ scriptable state، وتخزن هذه القيمة في scriptable override cache للـ instance والخاصية، ثم ترجع boolean. لا تغير function قيمة scriptable flag.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 isscriptable(instance: Instance, property: string): boolean | nil
@@ -16,16 +13,19 @@ isscriptable(instance: Instance, property: string): boolean | nil
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object التي سيتم فحص حالة scriptable للخاصية عليها. |
-| `property` | `string` | Yes | Property name يتم حله عبر Roblox property metadata و Instance class descriptor. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object التي سيتم فحص حالة scriptable للخاصية عليها.
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+Property name يتم حله عبر Roblox property metadata و Instance class descriptor.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `scriptable` | `boolean \| nil` | قيمة scriptable state المخزنة في cache أو الحالية، أو nil عندما يكون property descriptor/field مفقودا أو ليس property entry. |
+<ResponseField name={"scriptable"} type={"boolean | nil"}>
+قيمة scriptable state المخزنة في cache أو الحالية، أو nil عندما يكون property descriptor/field مفقودا أو ليس property entry.
+</ResponseField>
 
 ## مثال
 
@@ -35,3 +35,6 @@ Check whether a property is scriptable on an Instance.
 local scriptable = isscriptable(workspace, "Name")
 print(scriptable)
 ```
+
+
+</div>

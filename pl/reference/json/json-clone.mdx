@@ -2,13 +2,10 @@
 title: "json.clone"
 sidebarTitle: "json.clone"
 description: "Klonuje value przez encoding z json.encode semantics i decoding generated JSON z powrotem do Lua values."
-icon: "function"
 keywords: ["json.clone","JSON"]
 ---
 
-Klonuje value przez encoding z json.encode semantics i decoding generated JSON z powrotem do Lua values.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 json.clone(value: any, options?: EncodeOptions): any
@@ -16,16 +13,19 @@ json.clone(value: any, options?: EncodeOptions): any
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value do encode i decode. Supported JSON values przechodza round-trip przez JSON; unsupported types sa kodowane jako null, chyba ze encode options zazadaja bledu. |
-| `options` | `EncodeOptions` | No | Optional encode options przekazywane do encode step, takie jak sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty i indent. |
+<ParamField path={"value"} type={"any"} required>
+Value do encode i decode. Supported JSON values przechodza round-trip przez JSON; unsupported types sa kodowane jako null, chyba ze encode options zazadaja bledu.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options przekazywane do encode step, takie jak sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty i indent.
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `clone` | `any` | Decoded value utworzony z encoded JSON. Objects i arrays sa new tables z JSON kind markers z decoder; JSON null values staja sie json.null. |
+<ResponseField name={"clone"} type={"any"}>
+Decoded value utworzony z encoded JSON. Objects i arrays sa new tables z JSON kind markers z decoder; JSON null values staja sie json.null.
+</ResponseField>
 
 ## Typy
 
@@ -59,3 +59,6 @@ print(original.profile.name)
 print(copy.profile.name)
 print(json.type(copy))
 ```
+
+
+</div>

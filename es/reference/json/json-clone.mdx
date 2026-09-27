@@ -2,13 +2,10 @@
 title: "json.clone"
 sidebarTitle: "json.clone"
 description: "Clona un value haciendo encoding con json.encode semantics y luego decoding del generated JSON de vuelta a Lua values."
-icon: "function"
 keywords: ["json.clone","JSON"]
 ---
 
-Clona un value haciendo encoding con json.encode semantics y luego decoding del generated JSON de vuelta a Lua values.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 json.clone(value: any, options?: EncodeOptions): any
@@ -16,16 +13,19 @@ json.clone(value: any, options?: EncodeOptions): any
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value que se encode y decode. Supported JSON values hacen round-trip por JSON; unsupported types se codifican como null salvo que encode options pidan un error. |
-| `options` | `EncodeOptions` | No | Optional encode options pasadas al encode step, como sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty e indent. |
+<ParamField path={"value"} type={"any"} required>
+Value que se encode y decode. Supported JSON values hacen round-trip por JSON; unsupported types se codifican como null salvo que encode options pidan un error.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options pasadas al encode step, como sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty e indent.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `clone` | `any` | Decoded value producido desde el encoded JSON. Objects y arrays son new tables con JSON kind markers del decoder; JSON null values se convierten en json.null. |
+<ResponseField name={"clone"} type={"any"}>
+Decoded value producido desde el encoded JSON. Objects y arrays son new tables con JSON kind markers del decoder; JSON null values se convierten en json.null.
+</ResponseField>
 
 ## Tipos
 
@@ -59,3 +59,6 @@ print(original.profile.name)
 print(copy.profile.name)
 print(json.type(copy))
 ```
+
+
+</div>

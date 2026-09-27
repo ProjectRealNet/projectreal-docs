@@ -2,13 +2,10 @@
 title: "getsignalargumentsinfo"
 sidebarTitle: "getsignalargumentsinfo"
 description: "Returns an array table of argument info from an RBXScriptSignal signature. It does not return captured runtime argument values."
-icon: "function"
 keywords: ["getsignalargumentsinfo","Signals"]
 ---
 
-Returns an array table of argument info from an RBXScriptSignal signature. It does not return captured runtime argument values.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getsignalargumentsinfo(signal: RBXScriptSignal): {{Name: string, Type: string}}
@@ -16,15 +13,15 @@ getsignalargumentsinfo(signal: RBXScriptSignal): {{Name: string, Type: string}}
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | The RBXScriptSignal whose event descriptor signature should be inspected. |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+The RBXScriptSignal whose event descriptor signature should be inspected.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `argumentInfo` | `&#123;&#123;Name: string, Type: string&#125;&#125;` | An array table where each entry has Name and Type strings. If the signature cannot be read or has no entries, the function returns one fallback entry with Name set to arg1 and Type set to Variant. |
+<ResponseField name={"argumentInfo"} type={"{{Name: string, Type: string}}"}>
+An array table where each entry has Name and Type strings. If the signature cannot be read or has no entries, the function returns one fallback entry with Name set to arg1 and Type set to Variant.
+</ResponseField>
 
 ## Example
 
@@ -40,3 +37,6 @@ if remote then
     end
 end
 ```
+
+
+</div>

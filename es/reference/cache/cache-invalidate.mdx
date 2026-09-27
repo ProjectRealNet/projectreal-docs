@@ -2,13 +2,10 @@
 title: "cache.invalidate"
 sidebarTitle: "cache.invalidate"
 description: "Elimina la entrada de registro Instance cache en cache para la Instance indicada."
-icon: "function"
 keywords: ["cache.invalidate","Cache"]
 ---
 
-Elimina la entrada de registro Instance cache en cache para la Instance indicada.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 cache.invalidate(instance: Instance)
@@ -16,9 +13,9 @@ cache.invalidate(instance: Instance)
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance cuya entrada de registro en cache debe eliminarse. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance cuya entrada de registro en cache debe eliminarse.
+</ParamField>
 
 ## Ejemplo
 
@@ -31,3 +28,6 @@ cache.invalidate(Players)
 
 print(cache.iscached(Players))
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "isparallel"
 sidebarTitle: "isparallel"
 description: "Trả về boolean từ ScriptContext DataModel của Luau thread hiện tại. Function không nhận arguments. Nó đọc the current parallel execution status, hàm trả về parallel execution status. Nếu the current DataModel không trả về DataModel, function trả về false. checkparallel là alias cho cùng function."
-icon: "function"
 keywords: ["isparallel","Actors","checkparallel"]
 ---
 
-Trả về boolean từ ScriptContext DataModel của Luau thread hiện tại. Function không nhận arguments. Nó đọc the current parallel execution status, hàm trả về parallel execution status. Nếu the current DataModel không trả về DataModel, function trả về false. checkparallel là alias cho cùng function.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 isparallel(): boolean
@@ -20,9 +17,9 @@ isparallel(): boolean
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `parallel` | `boolean` | true khi current DataModel parallel execution status được đặt; false khi flag không được đặt hoặc không có DataModel. |
+<ResponseField name={"parallel"} type={"boolean"}>
+true khi current DataModel parallel execution status được đặt; false khi flag không được đặt hoặc không có DataModel.
+</ResponseField>
 
 ## Ví dụ
 
@@ -34,3 +31,6 @@ print(parallel)
 
 print(checkparallel())
 ```
+
+
+</div>

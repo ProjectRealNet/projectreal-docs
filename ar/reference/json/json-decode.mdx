@@ -2,13 +2,10 @@
 title: "json.decode"
 sidebarTitle: "json.decode"
 description: "يفسر JSON string باستخدام Real JSON parser ويعيد decoded Lua value، مع تعليم decoded arrays و objects من أجل JSON helpers."
-icon: "function"
 keywords: ["json.decode","JSON"]
 ---
 
-يفسر JSON string باستخدام Real JSON parser ويعيد decoded Lua value، مع تعليم decoded arrays و objects من أجل JSON helpers.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 json.decode(json: string, options?: DecodeOptions): any
@@ -16,16 +13,19 @@ json.decode(json: string, options?: DecodeOptions): any
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON text للتفسير. يقبل parser قيمة JSON واحدة مع optional surrounding whitespace ويرمي عند invalid syntax أو trailing non-whitespace characters. |
-| `options` | `DecodeOptions` | No | Optional decode options. قيمة boolean تضبط useNull مباشرة. table يمكن أن تضبط useNull و maxDepth؛ يتم clamp لـ maxDepth من 1 إلى 4096. |
+<ParamField path={"json"} type={"string"} required>
+JSON text للتفسير. يقبل parser قيمة JSON واحدة مع optional surrounding whitespace ويرمي عند invalid syntax أو trailing non-whitespace characters.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. قيمة boolean تضبط useNull مباشرة. table يمكن أن تضبط useNull و maxDepth؛ يتم clamp لـ maxDepth من 1 إلى 4096.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `decoded` | `any` | Decoded value. JSON objects و arrays تصبح tables مع JSON type markers، strings تصبح Lua strings، numbers تصبح Lua numbers، booleans تصبح booleans، و null يصبح json.null إلا إذا كان useNull false. |
+<ResponseField name={"decoded"} type={"any"}>
+Decoded value. JSON objects و arrays تصبح tables مع JSON type markers، strings تصبح Lua strings، numbers تصبح Lua numbers، booleans تصبح booleans، و null يصبح json.null إلا إذا كان useNull false.
+</ResponseField>
 
 ## الأنواع
 
@@ -50,3 +50,6 @@ print(value.tags[1])
 print(json.type(value))
 print(json.isNull(value.missing))
 ```
+
+
+</div>

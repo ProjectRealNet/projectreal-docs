@@ -2,13 +2,10 @@
 title: "isnetworkowner"
 sidebarTitle: "isnetworkowner"
 description: "Returns true when the Instance reports a NetworkOwnerV3 value greater than 2. Errors from reading that hidden property are not caught by this function."
-icon: "function"
 keywords: ["isnetworkowner","Instances"]
 ---
 
-Returns true when the Instance reports a NetworkOwnerV3 value greater than 2. Errors from reading that hidden property are not caught by this function.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 isnetworkowner(instance: Instance): boolean
@@ -16,15 +13,15 @@ isnetworkowner(instance: Instance): boolean
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance whose NetworkOwnerV3 hidden property is checked. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance whose NetworkOwnerV3 hidden property is checked.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `isOwner` | `boolean` | true when the first NetworkOwnerV3 value is greater than 2; otherwise false. |
+<ResponseField name={"isOwner"} type={"boolean"}>
+true when the first NetworkOwnerV3 value is greater than 2; otherwise false.
+</ResponseField>
 
 ## Example
 
@@ -38,3 +35,6 @@ if part then
     print(ownsNetwork)
 end
 ```
+
+
+</div>

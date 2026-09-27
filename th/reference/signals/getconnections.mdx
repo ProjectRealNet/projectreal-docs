@@ -2,13 +2,10 @@
 title: "getconnections"
 sidebarTitle: "getconnections"
 description: "คืน array table ของ RealConnection closures สำหรับ RBXScriptSignal argument แรกต้องเป็น object ที่มี Luau type name เป็น RBXScriptSignal function อ่าน Connect method ของ signal เชื่อม temporary blank callback อ่าน linked list จาก next reference ของ connection ชั่วคราว ตัดการเชื่อมต่อ connection ชั่วคราว แล้ว wrap connection reference ที่ถูกต้องแต่ละรายการ หากไม่พบ connection reference หลัง connection ชั่วคราว จะคืน table ว่าง underlying references ที่เคย wrap แล้วอาจคืน cached closure table เดิม getsignals และ get_signal_cons เป็น aliases ของ function เดียวกัน"
-icon: "function"
 keywords: ["getconnections","Signals","getsignals","get_signal_cons"]
 ---
 
-คืน array table ของ RealConnection closures สำหรับ RBXScriptSignal argument แรกต้องเป็น object ที่มี Luau type name เป็น RBXScriptSignal function อ่าน Connect method ของ signal เชื่อม temporary blank callback อ่าน linked list จาก next reference ของ connection ชั่วคราว ตัดการเชื่อมต่อ connection ชั่วคราว แล้ว wrap connection reference ที่ถูกต้องแต่ละรายการ หากไม่พบ connection reference หลัง connection ชั่วคราว จะคืน table ว่าง underlying references ที่เคย wrap แล้วอาจคืน cached closure table เดิม getsignals และ get_signal_cons เป็น aliases ของ function เดียวกัน
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 getconnections(signal: RBXScriptSignal): {RealConnection}
@@ -21,15 +18,15 @@ getconnections(signal: RBXScriptSignal): {RealConnection}
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | Signal ที่จะตรวจสอบ object ที่ไม่ใช่ RBXScriptSignal จะทำให้เกิด type error และ signal ที่ไม่มี Connect field ที่เรียกได้จะทำให้เกิด "Signal does not have 'Connect' method" |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+Signal ที่จะตรวจสอบ object ที่ไม่ใช่ RBXScriptSignal จะทำให้เกิด type error และ signal ที่ไม่มี Connect field ที่เรียกได้จะทำให้เกิด "Signal does not have 'Connect' method"
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `connections` | `&#123;RealConnection&#125;` | Array table ของ connection closure tables แต่ละ closure แสดง fields และ methods ผ่าน methods รวมถึง Enabled, Disabled, LuaConnection, ForeignState, Function, Thread, Disconnect, Disable, Enable, Fire และ Defer เมื่อมีให้ใช้ |
+<ResponseField name={"connections"} type={"{RealConnection}"}>
+Array table ของ connection closure tables แต่ละ closure แสดง fields และ methods ผ่าน methods รวมถึง Enabled, Disabled, LuaConnection, ForeignState, Function, Thread, Disconnect, Disable, Enable, Fire และ Defer เมื่อมีให้ใช้
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -42,3 +39,6 @@ for _, connection in ipairs(getconnections(Players.PlayerAdded)) do
     print(connection.Enabled, connection.LuaConnection)
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "firetouchinterest"
 sidebarTitle: "firetouchinterest"
 description: "2 つの BasePart instances に対して Real touch interest event を発火します。最初の 2 つの引数は Instance object で、両方の値が IsA(\"BasePart\") を通る必要があります。state 引数は必須で、number または boolean である必要があります。state が number の場合、1 だけが true になり、それ以外の number は false になります。state が boolean の場合、その boolean 値がそのまま渡されます。どちらかの part に touch data がない場合、または最初の part に overlap reference がない場合、この function は何も発火せずに戻ります。この function は何も返しません。helper に渡される boolean の正確な begin/end の意味は: Nicht aus der Codebasis verifizierbar."
-icon: "function"
 keywords: ["firetouchinterest","Instances","firetouchtransmitter"]
 ---
 
-2 つの BasePart instances に対して Real touch interest event を発火します。最初の 2 つの引数は Instance object で、両方の値が IsA("BasePart") を通る必要があります。state 引数は必須で、number または boolean である必要があります。state が number の場合、1 だけが true になり、それ以外の number は false になります。state が boolean の場合、その boolean 値がそのまま渡されます。どちらかの part に touch data がない場合、または最初の part に overlap reference がない場合、この function は何も発火せずに戻ります。この function は何も返しません。helper に渡される boolean の正確な begin/end の意味は: Nicht aus der Codebasis verifizierbar.
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
@@ -20,11 +17,17 @@ firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `partA` | `Instance` | Yes | 最初の Instance object。IsA("BasePart") を通る必要があります。その touch data と overlap reference が call に使われます。 |
-| `partB` | `Instance` | Yes | 2 番目の Instance object。IsA("BasePart") を通る必要があります。その touch data が call に使われます。 |
-| `state` | `number \| boolean` | Yes | 必須の state 値。numbers は state == 1 で変換され、booleans はそのまま渡されます。 |
+<ParamField path={"partA"} type={"Instance"} required>
+最初の Instance object。IsA("BasePart") を通る必要があります。その touch data と overlap reference が call に使われます。
+</ParamField>
+
+<ParamField path={"partB"} type={"Instance"} required>
+2 番目の Instance object。IsA("BasePart") を通る必要があります。その touch data が call に使われます。
+</ParamField>
+
+<ParamField path={"state"} type={"number | boolean"} required>
+必須の state 値。numbers は state == 1 で変換され、booleans はそのまま渡されます。
+</ParamField>
 
 ## 例
 
@@ -38,3 +41,6 @@ local targetPart = workspace.TouchTarget
 
 firetouchinterest(rootPart, targetPart, true)
 ```
+
+
+</div>

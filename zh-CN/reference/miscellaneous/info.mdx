@@ -2,13 +2,10 @@
 title: "info"
 sidebarTitle: "info"
 description: "Writes zero or more values as an informational message. Values are converted to strings and separated with tab characters. The function returns no values."
-icon: "function"
 keywords: ["info","Miscellaneous"]
 ---
 
-Writes zero or more values as an informational message. Values are converted to strings and separated with tab characters. The function returns no values.
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 info(...values?: ...any)
@@ -16,9 +13,9 @@ info(...values?: ...any)
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | Optional values to print as an informational message. |
+<ParamField path={"...values"} type={"...any"}>
+Optional values to print as an informational message.
+</ParamField>
 
 ## 示例
 
@@ -27,3 +24,6 @@ Write an informational message to the active console output.
 ```lua
 info("Loaded", "scripts", 3)
 ```
+
+
+</div>

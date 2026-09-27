@@ -2,13 +2,10 @@
 title: "setclipboard"
 sidebarTitle: "setclipboard"
 description: "Writes one value to the Windows system clipboard as text. The value is converted to a string. The function returns no status value, whether the clipboard write succeeds or fails. toclipboard is an alias."
-icon: "function"
 keywords: ["setclipboard","Environment","toclipboard"]
 ---
 
-Writes one value to the Windows system clipboard as text. The value is converted to a string. The function returns no status value, whether the clipboard write succeeds or fails. toclipboard is an alias.
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 setclipboard(text: any)
@@ -20,9 +17,9 @@ setclipboard(text: any)
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `text` | `any` | Yes | Value converted to a string and written to the Windows system clipboard. |
+<ParamField path={"text"} type={"any"} required>
+Value converted to a string and written to the Windows system clipboard.
+</ParamField>
 
 ## 示例
 
@@ -33,3 +30,6 @@ setclipboard("Copied from Real")
 
 toclipboard(12345)
 ```
+
+
+</div>

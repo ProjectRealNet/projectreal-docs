@@ -2,13 +2,10 @@
 title: "Signal.new"
 sidebarTitle: "Signal.new"
 description: "Creates a new RealSignal object. The returned signal exposes Connect, Once, Wait, and Fire methods."
-icon: "function"
 keywords: ["Signal.new","RealSignal"]
 ---
 
-Creates a new RealSignal object. The returned signal exposes Connect, Once, Wait, and Fire methods.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 Signal.new(): RealSignal
@@ -16,9 +13,9 @@ Signal.new(): RealSignal
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `signal` | `RealSignal` | New signal object with its own connection and waiter lists. |
+<ResponseField name={"signal"} type={"RealSignal"}>
+New signal object with its own connection and waiter lists.
+</ResponseField>
 
 ## Typen
 
@@ -46,3 +43,6 @@ end)
 
 signal:Fire("ready")
 ```
+
+
+</div>

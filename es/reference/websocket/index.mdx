@@ -1,13 +1,25 @@
 ---
 title: "WebSocket"
 description: "Conexiones WebSocket bidireccionales."
-icon: "folder-code"
+icon: "/icons/bolt.svg"
 ---
+
+<div className="real-category-page">
 
 Conexiones WebSocket bidireccionales.
 
-| Navegación de funciones | Descripción |
-| --- | --- |
-| [`WebSocket.Close`](./websocket-close) | Cierra un WebSocket object devuelto por WebSocket.connect. El primer argument debe ser una table. La función lee el field connection state del object; cuando existe un live state y no está destroyed ni closed, establece isClosed en true y envía un frame close frame vacío mediante el WebSocket connection guardado. No acepta close code ni reason y no devuelve values. |
-| [`WebSocket.connect`](./websocket-connect) | Crea dos BindableEvents, abre una WebSocket client WebSocket connection hacia la URL proporcionada y hace yield hasta que termina el intento de conexión. Si tiene éxito, devuelve una WebSocket table con events OnMessage y OnClose, methods Send y Close proporcionados por la methods, y un connection state. Incoming message data se dispara mediante OnMessage como string. Cuando termina la receive loop, OnClose se dispara sin arguments. Si falla la conexión, la función lanza un error string que empieza con "WebSocket connection failed". |
-| [`WebSocket.Send`](./websocket-send) | Envía un Lua string mediante un WebSocket object devuelto por WebSocket.connect. La method espera la WebSocket table como primer argument y el message string como segundo argument. Lee el connection state del object, lanza "WebSocket state is missing" si esa object no existe, vuelve sin enviar cuando el state está destroyed o closed, y llama a curl_ws_send con CURLWS_TEXT por defecto o con CURLWS_BINARY cuando el tercer argument opcional es boolean true. No devuelve values ni informa la cantidad de bytes enviados. |
+## Funciones disponibles
+
+<CardGroup cols={2}>
+<Card title="WebSocket.Close" href="./websocket-close">
+Cierra un WebSocket object devuelto por WebSocket.connect. El primer argument debe ser una table. La función lee el field connection state del object; cuando existe un live state y no está destroyed ni closed, establece isClosed en true y envía un frame close frame vacío mediante el WebSocket connection guardado. No acepta close code ni reason y no devuelve values.
+</Card>
+<Card title="WebSocket.connect" href="./websocket-connect">
+Crea dos BindableEvents, abre una WebSocket client WebSocket connection hacia la URL proporcionada y hace yield hasta que termina el intento de conexión. Si tiene éxito, devuelve una WebSocket table con events OnMessage y OnClose, methods Send y Close proporcionados por la methods, y un connection state. Incoming message data se dispara mediante OnMessage como string. Cuando termina la receive loop, OnClose se dispara sin arguments. Si falla la conexión, la función lanza un error string que empieza con "WebSocket connection failed".
+</Card>
+<Card title="WebSocket.Send" href="./websocket-send">
+Envía un Lua string mediante un WebSocket object devuelto por WebSocket.connect. La method espera la WebSocket table como primer argument y el message string como segundo argument. Lee el connection state del object, lanza "WebSocket state is missing" si esa object no existe, vuelve sin enviar cuando el state está destroyed o closed, y llama a curl_ws_send con CURLWS_TEXT por defecto o con CURLWS_BINARY cuando el tercer argument opcional es boolean true. No devuelve values ni informa la cantidad de bytes enviados.
+</Card>
+</CardGroup>
+
+</div>

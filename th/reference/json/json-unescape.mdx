@@ -2,13 +2,10 @@
 title: "json.unescape"
 sidebarTitle: "json.unescape"
 description: "Decode JSON string escape sequences จาก escaped string content หรือจาก complete quoted JSON string literal อินพุตถูก parse ด้วย JSON string parser ไม่ใช่ full JSON document"
-icon: "function"
 keywords: ["json.unescape","JSON"]
 ---
 
-Decode JSON string escape sequences จาก escaped string content หรือจาก complete quoted JSON string literal อินพุตถูก parse ด้วย JSON string parser ไม่ใช่ full JSON document
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 json.unescape(text: string): string
@@ -16,15 +13,15 @@ json.unescape(text: string): string
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | Escaped JSON string content หรือ complete quoted JSON string literal ที่ first and last bytes เป็น quotes function อ่าน argument นี้ด้วย string type checking |
+<ParamField path={"text"} type={"string"} required>
+Escaped JSON string content หรือ complete quoted JSON string literal ที่ first and last bytes เป็น quotes function อ่าน argument นี้ด้วย string type checking
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `text` | `string` | Decoded string. Supported escapes รวม \", \\, \/, \b, \f, \n, \r, \t และ \uXXXX พร้อม surrogate-pair handling. Invalid escapes, unescaped control characters, unterminated strings และ trailing characters หลัง quoted literal จะ throw Luau error พร้อม near-position suffix |
+<ResponseField name={"text"} type={"string"}>
+Decoded string. Supported escapes รวม \", \\, \/, \b, \f, \n, \r, \t และ \uXXXX พร้อม surrogate-pair handling. Invalid escapes, unescaped control characters, unterminated strings และ trailing characters หลัง quoted literal จะ throw Luau error พร้อม near-position suffix
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -36,3 +33,6 @@ local restored = json.unescape(escaped)
 
 print(restored)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "delfile"
 sidebarTitle: "delfile"
 description: "Menghapus regular file yang ada di dalam workspace."
-icon: "function"
 keywords: ["delfile","Filesystem"]
 ---
 
-Menghapus regular file yang ada di dalam workspace.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 delfile(path: string)
@@ -16,9 +13,9 @@ delfile(path: string)
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | Path yang diselesaikan di dalam workspace setelah separator normalization dan workspace-boundary checks. Target harus ada dan berupa regular file; folders tidak diterima. |
+<ParamField path={"path"} type={"string"} required>
+Path yang diselesaikan di dalam workspace setelah separator normalization dan workspace-boundary checks. Target harus ada dan berupa regular file; folders tidak diterima.
+</ParamField>
 
 ## Contoh
 
@@ -31,3 +28,6 @@ writefile(path, "temporary")
 delfile(path)
 print(isfile(path))
 ```
+
+
+</div>

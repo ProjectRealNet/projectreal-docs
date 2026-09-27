@@ -1,18 +1,40 @@
 ---
 title: "Instances"
 description: "Người trợ giúp tương tác và phát hiện phiên bản."
-icon: "folder-code"
+icon: "/icons/stack.svg"
 ---
+
+<div className="real-category-page">
 
 Người trợ giúp tương tác và phát hiện phiên bản.
 
-| Điều hướng hàm | Mô tả |
-| --- | --- |
-| [`fireclickdetector`](./fireclickdetector) | Kich hoat mot ClickDetector interaction cho nguoi choi local. Doi so dau tien phai la Instance co ClassName la ClickDetector. distance la tuy chon va mac dinh la 0. clickOption la tuy chon, duoc so sanh khong phan biet chu hoa chu thuong, va mac dinh la "mouseclick". Cac option duoc ho tro la "mouseclick", "rightmouseclick", "mousehoverenter", va "mousehoverleave". Cac option click truyen distance duoi dang float vao Roblox click helper, con cac option hover bo qua distance. Neu Players hoac Players.LocalPlayer khong kha dung, function quay lai ma khong kich hoat gi. clickOption khong xac dinh cung khong tao interaction. Function khong tra ve gi. |
-| [`fireproximityprompt`](./fireproximityprompt) | Kich hoat ProximityPrompt thong qua ProximityPrompt trigger cua Real. Doi so prompt phai la object co truong ClassName bang "ProximityPrompt". Neu gia tri khong phai object, loi goi tao type error. Neu ClassName bi thieu hoac khong phai string, no tao "Invalid Instance". Neu ClassName khong phai "ProximityPrompt", no tao "ProximityPrompt expected". Function khong nhan optional arguments va khong tra ve gi. |
-| [`firetouchinterest`](./firetouchinterest) | Kich hoat Real touch interest event cho hai BasePart instances. Hai doi so dau tien phai la Instance object va ca hai gia tri phai vuot qua IsA("BasePart"). Doi so state la bat buoc va phai la number hoac boolean. Khi state la number, chi 1 tro thanh true va moi number khac tro thanh false. Khi state la boolean, gia tri boolean cua no duoc truyen truc tiep. Neu bat ky part nao khong co touch data, hoac part dau tien khong co overlap reference, function quay lai ma khong kich hoat gi. Function khong tra ve gi. Y nghia begin/end chinh xac cua boolean duoc truyen vao helper la: Nicht aus der Codebasis verifizierbar. |
-| [`getcallbackvalue`](./getcallbackvalue) | Doc Lua callback function duoc luu trong callback property tren Instance. Doi so dau tien phai la Instance object va doi so thu hai phai la string property name. instance reference phai hop le. property name duoc resolve qua Roblox property metadata va phai tro den property co type LUA_CALLBACK. Neu thieu property descriptor, property khong phai LUA_CALLBACK, thieu callback field offset, khong co callback duoc luu, thieu LiveLuaRef, callback thuoc Lua global state khac, hoac gia tri duoc tham chieu khong phai function, function tra ve nil. No cung kiem tra async callback field fallback khi callback slot dau tien khong co callback. Function khong cap nhat property. |
-| [`gethui`](./gethui) | Tra ve game:CoreGui lookup.RobloxGui. Function khong nhan arguments. Neu CoreGui lookup tra ve nil, hoac neu RobloxGui tren gia tri do la nil, function tra ve nil. Function khong tao container va khong dung gia tri cached CoreGui. |
-| [`getinstances`](./getinstances) | Tra ve mot array table moi chua moi object value hien dang duoc luu trong Instance cache. Function khong nhan arguments. No khong loc theo Parent, ClassName, DataModel fieldship, nil-parent state, hoac Instance validity ngoai viec kiem tra moi registry value la object. Entries duoc copy vao table tra ve tai sequential numeric indexes bat dau tu 1. iteration order den tu table iteration tren cache va khong duoc function sap xep. |
-| [`getnilinstances`](./getnilinstances) | Returns a new array table containing cached Instance values whose Parent field is nil. The function takes no arguments. It does not sort the returned entries. |
-| [`isnetworkowner`](./isnetworkowner) | Tra ve ket qua doc hidden property "NetworkOwnerV3" tu Instance va kiem tra gia tri tra ve dau tien, duoc chuyen doi bang integer conversion, co lon hon 2 hay khong. Doi so phai la Instance object. Function goi the hidden property reader noi bo va khong bat errors tu loi goi do, vi vay Invalid Instance values, missing properties, hoac non-property metadata co the tao cung errors nhu gethiddenproperty. Function tra ve mot boolean. Viec peer_id > 2 co chinh xac nghia la local network ownership hay khong la: Nicht aus der Codebasis verifizierbar. |
+## Hàm có sẵn
+
+<CardGroup cols={2}>
+<Card title="fireclickdetector" href="./fireclickdetector">
+Kich hoat mot ClickDetector interaction cho nguoi choi local. Doi so dau tien phai la Instance co ClassName la ClickDetector. distance la tuy chon va mac dinh la 0. clickOption la tuy chon, duoc so sanh khong phan biet chu hoa chu thuong, va mac dinh la "mouseclick". Cac option duoc ho tro la "mouseclick", "rightmouseclick", "mousehoverenter", va "mousehoverleave". Cac option click truyen distance duoi dang float vao Roblox click helper, con cac option hover bo qua distance. Neu Players hoac Players.LocalPlayer khong kha dung, function quay lai ma khong kich hoat gi. clickOption khong xac dinh cung khong tao interaction. Function khong tra ve gi.
+</Card>
+<Card title="fireproximityprompt" href="./fireproximityprompt">
+Kich hoat ProximityPrompt thong qua ProximityPrompt trigger cua Real. Doi so prompt phai la object co truong ClassName bang "ProximityPrompt". Neu gia tri khong phai object, loi goi tao type error. Neu ClassName bi thieu hoac khong phai string, no tao "Invalid Instance". Neu ClassName khong phai "ProximityPrompt", no tao "ProximityPrompt expected". Function khong nhan optional arguments va khong tra ve gi.
+</Card>
+<Card title="firetouchinterest" href="./firetouchinterest">
+Kich hoat Real touch interest event cho hai BasePart instances. Hai doi so dau tien phai la Instance object va ca hai gia tri phai vuot qua IsA("BasePart"). Doi so state la bat buoc va phai la number hoac boolean. Khi state la number, chi 1 tro thanh true va moi number khac tro thanh false. Khi state la boolean, gia tri boolean cua no duoc truyen truc tiep. Neu bat ky part nao khong co touch data, hoac part dau tien khong co overlap reference, function quay lai ma khong kich hoat gi. Function khong tra ve gi. Y nghia begin/end chinh xac cua boolean duoc truyen vao helper la: Nicht aus der Codebasis verifizierbar.
+</Card>
+<Card title="getcallbackvalue" href="./getcallbackvalue">
+Doc Lua callback function duoc luu trong callback property tren Instance. Doi so dau tien phai la Instance object va doi so thu hai phai la string property name. instance reference phai hop le. property name duoc resolve qua Roblox property metadata va phai tro den property co type LUA_CALLBACK. Neu thieu property descriptor, property khong phai LUA_CALLBACK, thieu callback field offset, khong co callback duoc luu, thieu LiveLuaRef, callback thuoc Lua global state khac, hoac gia tri duoc tham chieu khong phai function, function tra ve nil. No cung kiem tra async callback field fallback khi callback slot dau tien khong co callback. Function khong cap nhat property.
+</Card>
+<Card title="gethui" href="./gethui">
+Tra ve game:CoreGui lookup.RobloxGui. Function khong nhan arguments. Neu CoreGui lookup tra ve nil, hoac neu RobloxGui tren gia tri do la nil, function tra ve nil. Function khong tao container va khong dung gia tri cached CoreGui.
+</Card>
+<Card title="getinstances" href="./getinstances">
+Tra ve mot array table moi chua moi object value hien dang duoc luu trong Instance cache. Function khong nhan arguments. No khong loc theo Parent, ClassName, DataModel fieldship, nil-parent state, hoac Instance validity ngoai viec kiem tra moi registry value la object. Entries duoc copy vao table tra ve tai sequential numeric indexes bat dau tu 1. iteration order den tu table iteration tren cache va khong duoc function sap xep.
+</Card>
+<Card title="getnilinstances" href="./getnilinstances">
+Returns a new array table containing cached Instance values whose Parent field is nil. The function takes no arguments. It does not sort the returned entries.
+</Card>
+<Card title="isnetworkowner" href="./isnetworkowner">
+Tra ve ket qua doc hidden property "NetworkOwnerV3" tu Instance va kiem tra gia tri tra ve dau tien, duoc chuyen doi bang integer conversion, co lon hon 2 hay khong. Doi so phai la Instance object. Function goi the hidden property reader noi bo va khong bat errors tu loi goi do, vi vay Invalid Instance values, missing properties, hoac non-property metadata co the tao cung errors nhu gethiddenproperty. Function tra ve mot boolean. Viec peer_id > 2 co chinh xac nghia la local network ownership hay khong la: Nicht aus der Codebasis verifizierbar.
+</Card>
+</CardGroup>
+
+</div>

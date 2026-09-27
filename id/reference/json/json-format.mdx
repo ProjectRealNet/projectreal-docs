@@ -2,13 +2,10 @@
 title: "json.format"
 sidebarTitle: "json.format"
 description: "Mem-parse JSON string lalu meng-encode ulang sebagai readable formatted JSON memakai Real JSON parser dan encoder."
-icon: "function"
 keywords: ["json.format","JSON"]
 ---
 
-Mem-parse JSON string lalu meng-encode ulang sebagai readable formatted JSON memakai Real JSON parser dan encoder.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
@@ -16,17 +13,23 @@ json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeO
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string yang di-parse sebelum formatting. Function membaca argument ini dengan string type checking. |
-| `encodeOptions` | `EncodeOptions` | No | Optional encode options yang diteruskan ke re-encode step. json.format membaca encode options yang sama seperti json.encode, lalu memaksa pretty menjadi true. |
-| `decodeOptions` | `DecodeOptions` | No | Optional decode options yang dipakai saat parsing input JSON. boolean mengatur useNull. table dapat mengatur useNull dan maxDepth. |
+<ParamField path={"json"} type={"string"} required>
+JSON string yang di-parse sebelum formatting. Function membaca argument ini dengan string type checking.
+</ParamField>
+
+<ParamField path={"encodeOptions"} type={"EncodeOptions"}>
+Optional encode options yang diteruskan ke re-encode step. json.format membaca encode options yang sama seperti json.encode, lalu memaksa pretty menjadi true.
+</ParamField>
+
+<ParamField path={"decodeOptions"} type={"DecodeOptions"}>
+Optional decode options yang dipakai saat parsing input JSON. boolean mengatur useNull. table dapat mengatur useNull dan maxDepth.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `formatted` | `string` | Readable formatted JSON string yang dibuat setelah parsing dan re-encoding input. |
+<ResponseField name={"formatted"} type={"string"}>
+Readable formatted JSON string yang dibuat setelah parsing dan re-encoding input.
+</ResponseField>
 
 ## Tipe
 
@@ -68,3 +71,6 @@ local formatted = json.format(compact, {
 
 print(formatted)
 ```
+
+
+</div>

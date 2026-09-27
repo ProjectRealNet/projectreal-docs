@@ -1,34 +1,88 @@
 ---
 title: "JSON"
 description: "แยกวิเคราะห์ เข้ารหัส ตรวจสอบ และแปลง JSON"
-icon: "folder-code"
+icon: "/icons/code-circle-2.svg"
 ---
+
+<div className="real-category-page">
 
 แยกวิเคราะห์ เข้ารหัส ตรวจสอบ และแปลง JSON
 
-| การนำทางฟังก์ชัน | คำอธิบาย |
-| --- | --- |
-| [`json.array`](./json-array) | สร้าง new table ที่ถูก mark เป็น JSON array สำหรับ json.encode และคัดลอก sequence 1.#source เมื่อมี source table |
-| [`json.clone`](./json-clone) | clone value โดย encoding ด้วย json.encode semantics แล้ว decoding generated JSON กลับเป็น Lua values |
-| [`json.decode`](./json-decode) | parse JSON string ด้วย Real JSON parser และคืน decoded Lua value พร้อม mark decoded arrays และ objects สำหรับ JSON helpers |
-| [`json.decodeSafe`](./json-decodesafe) | parse JSON ด้วย parser เดียวกับ json.decode และคืน success flag แทนการ throw สำหรับ parse errors |
-| [`json.encode`](./json-encode) | serialize Lua value เป็น JSON string ด้วย Real JSON encoder. json.stringify ถูก register ไปยัง function เดียวกัน |
-| [`json.encodePretty`](./json-encodepretty) | Serializes Lua value เป็น readable formatted JSON string โดยใช้ Real JSON encoder. json.pretty ถูก register กับ function เดียวกัน. |
-| [`json.escape`](./json-escape) | Escape string ด้วย Real JSON string escaping rules และคืน escaped content โดยไม่มี surrounding quotes. |
-| [`json.format`](./json-format) | Parse JSON string แล้ว re-encode เป็น readable formatted JSON ด้วย Real JSON parser และ encoder. |
-| [`json.getPath`](./json-getpath) | อ่าน nested value จาก table ด้วย dotted string path หรือ array table of keys. |
-| [`json.isArray`](./json-isarray) | คืนว่า value ถูก treated as a JSON array โดย Real JSON table detection หรือไม่. |
-| [`json.isNull`](./json-isnull) | คืนว่า value เป็น Real JSON null sentinel คือ json.null หรือไม่. |
-| [`json.isObject`](./json-isobject) | คืนว่า value ถูก treated as a JSON object โดย Real JSON table detection หรือไม่. |
-| [`json.keys`](./json-keys) | คืน visible keys ของ table ใน new table marked as a JSON array. |
-| [`json.minify`](./json-minify) | Parse JSON string แล้ว re-encode ด้วย Real default non-pretty JSON encoder output. |
-| [`json.object`](./json-object) | สร้าง new table marked as a JSON object เพื่อให้ Real JSON encoder จัดการเป็น object. |
-| [`json.parse`](./json-parse) | Parse JSON string ด้วย function เดียวกับ json.decode. |
-| [`json.pretty`](./json-pretty) | Serializes Lua value เป็น readable formatted JSON string โดยใช้ function เดียวกับ json.encodePretty. |
-| [`json.quote`](./json-quote) | Escape string ด้วย Real JSON string escaping rules และคืน complete quoted JSON string literal. |
-| [`json.stringify`](./json-stringify) | serialize Lua value เป็น JSON string ด้วย function เดียวกับ json.encode. |
-| [`json.tryDecode`](./json-trydecode) | พยายาม parse JSON string ด้วย function เดียวกับ json.decodeSafe และคืน status values สำหรับ parse errors. |
-| [`json.type`](./json-type) | ส่งคืน string type name สำหรับค่า json.null ส่งคืน "null" table ส่งคืน "array" หรือ "object" โดยใช้ table classification เดียวกับ json.isArray และ json.isObject ค่าอื่นส่งคืน runtime Lua type name result |
-| [`json.unescape`](./json-unescape) | Decode JSON string escape sequences จาก escaped string content หรือจาก complete quoted JSON string literal อินพุตถูก parse ด้วย JSON string parser ไม่ใช่ full JSON document |
-| [`json.validate`](./json-validate) | Validate JSON string โดย parse complete JSON value หนึ่งค่า เมื่อ success จะ return เฉพาะ true เมื่อ parse failure จะ return false พร้อม parser error details |
-| [`json.values`](./json-values) | คืน direct values จาก table ใน table ใหม่ที่ marked as JSON array. JSON type marker entries จะถูกข้าม |
+## ฟังก์ชันที่ใช้ได้
+
+<CardGroup cols={2}>
+<Card title="json.array" href="./json-array">
+สร้าง new table ที่ถูก mark เป็น JSON array สำหรับ json.encode และคัดลอก sequence 1.#source เมื่อมี source table
+</Card>
+<Card title="json.clone" href="./json-clone">
+clone value โดย encoding ด้วย json.encode semantics แล้ว decoding generated JSON กลับเป็น Lua values
+</Card>
+<Card title="json.decode" href="./json-decode">
+parse JSON string ด้วย Real JSON parser และคืน decoded Lua value พร้อม mark decoded arrays และ objects สำหรับ JSON helpers
+</Card>
+<Card title="json.decodeSafe" href="./json-decodesafe">
+parse JSON ด้วย parser เดียวกับ json.decode และคืน success flag แทนการ throw สำหรับ parse errors
+</Card>
+<Card title="json.encode" href="./json-encode">
+serialize Lua value เป็น JSON string ด้วย Real JSON encoder. json.stringify ถูก register ไปยัง function เดียวกัน
+</Card>
+<Card title="json.encodePretty" href="./json-encodepretty">
+Serializes Lua value เป็น readable formatted JSON string โดยใช้ Real JSON encoder. json.pretty ถูก register กับ function เดียวกัน.
+</Card>
+<Card title="json.escape" href="./json-escape">
+Escape string ด้วย Real JSON string escaping rules และคืน escaped content โดยไม่มี surrounding quotes.
+</Card>
+<Card title="json.format" href="./json-format">
+Parse JSON string แล้ว re-encode เป็น readable formatted JSON ด้วย Real JSON parser และ encoder.
+</Card>
+<Card title="json.getPath" href="./json-getpath">
+อ่าน nested value จาก table ด้วย dotted string path หรือ array table of keys.
+</Card>
+<Card title="json.isArray" href="./json-isarray">
+คืนว่า value ถูก treated as a JSON array โดย Real JSON table detection หรือไม่.
+</Card>
+<Card title="json.isNull" href="./json-isnull">
+คืนว่า value เป็น Real JSON null sentinel คือ json.null หรือไม่.
+</Card>
+<Card title="json.isObject" href="./json-isobject">
+คืนว่า value ถูก treated as a JSON object โดย Real JSON table detection หรือไม่.
+</Card>
+<Card title="json.keys" href="./json-keys">
+คืน visible keys ของ table ใน new table marked as a JSON array.
+</Card>
+<Card title="json.minify" href="./json-minify">
+Parse JSON string แล้ว re-encode ด้วย Real default non-pretty JSON encoder output.
+</Card>
+<Card title="json.object" href="./json-object">
+สร้าง new table marked as a JSON object เพื่อให้ Real JSON encoder จัดการเป็น object.
+</Card>
+<Card title="json.parse" href="./json-parse">
+Parse JSON string ด้วย function เดียวกับ json.decode.
+</Card>
+<Card title="json.pretty" href="./json-pretty">
+Serializes Lua value เป็น readable formatted JSON string โดยใช้ function เดียวกับ json.encodePretty.
+</Card>
+<Card title="json.quote" href="./json-quote">
+Escape string ด้วย Real JSON string escaping rules และคืน complete quoted JSON string literal.
+</Card>
+<Card title="json.stringify" href="./json-stringify">
+serialize Lua value เป็น JSON string ด้วย function เดียวกับ json.encode.
+</Card>
+<Card title="json.tryDecode" href="./json-trydecode">
+พยายาม parse JSON string ด้วย function เดียวกับ json.decodeSafe และคืน status values สำหรับ parse errors.
+</Card>
+<Card title="json.type" href="./json-type">
+ส่งคืน string type name สำหรับค่า json.null ส่งคืน "null" table ส่งคืน "array" หรือ "object" โดยใช้ table classification เดียวกับ json.isArray และ json.isObject ค่าอื่นส่งคืน runtime Lua type name result
+</Card>
+<Card title="json.unescape" href="./json-unescape">
+Decode JSON string escape sequences จาก escaped string content หรือจาก complete quoted JSON string literal อินพุตถูก parse ด้วย JSON string parser ไม่ใช่ full JSON document
+</Card>
+<Card title="json.validate" href="./json-validate">
+Validate JSON string โดย parse complete JSON value หนึ่งค่า เมื่อ success จะ return เฉพาะ true เมื่อ parse failure จะ return false พร้อม parser error details
+</Card>
+<Card title="json.values" href="./json-values">
+คืน direct values จาก table ใน table ใหม่ที่ marked as JSON array. JSON type marker entries จะถูกข้าม
+</Card>
+</CardGroup>
+
+</div>

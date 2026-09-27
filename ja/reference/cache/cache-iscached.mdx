@@ -2,13 +2,10 @@
 title: "cache.iscached"
 sidebarTitle: "cache.iscached"
 description: "指定された Instance が Instance cache に non-nil エントリを持つかどうかを返します。"
-icon: "function"
 keywords: ["cache.iscached","Cache"]
 ---
 
-指定された Instance が Instance cache に non-nil エントリを持つかどうかを返します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 cache.iscached(instance: Instance): boolean
@@ -16,15 +13,15 @@ cache.iscached(instance: Instance): boolean
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance cache エントリを確認する Instance。 |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance cache エントリを確認する Instance。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `cached` | `boolean` | cache にその Instance の non-nil エントリがある場合は True。 |
+<ResponseField name={"cached"} type={"boolean"}>
+cache にその Instance の non-nil エントリがある場合は True。
+</ResponseField>
 
 ## 例
 
@@ -39,3 +36,6 @@ print(cached)
 cache.invalidate(Players)
 print(cache.iscached(Players))
 ```
+
+
+</div>

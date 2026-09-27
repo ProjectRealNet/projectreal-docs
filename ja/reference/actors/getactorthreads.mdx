@@ -2,13 +2,10 @@
 title: "getactorthreads"
 sidebarTitle: "getactorthreads"
 description: "actor thread list から Luau threads の array table を返します。この function は arguments を取りません。ScriptContext から actor list bounds を読み取り、各 actor state entry を走査し、stored global state を Luau thread に復号し、valid threads である entries だけを含めます。"
-icon: "function"
 keywords: ["getactorthreads","Actors","getactorstates"]
 ---
 
-actor thread list から Luau threads の array table を返します。この function は arguments を取りません。ScriptContext から actor list bounds を読み取り、各 actor state entry を走査し、stored global state を Luau thread に復号し、valid threads である entries だけを含めます。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 getactorthreads(): {thread}
@@ -20,9 +17,9 @@ getactorthreads(): {thread}
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `threads` | `&#123;thread&#125;` | Luau threads として push される actor Luau thread values の array table。 |
+<ResponseField name={"threads"} type={"{thread}"}>
+Luau threads として push される actor Luau thread values の array table。
+</ResponseField>
 
 ## 例
 
@@ -33,3 +30,6 @@ for _, thread in ipairs(getactorthreads()) do
     print(thread)
 end
 ```
+
+
+</div>

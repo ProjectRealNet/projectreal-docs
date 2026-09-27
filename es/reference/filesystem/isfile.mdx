@@ -2,13 +2,10 @@
 title: "isfile"
 sidebarTitle: "isfile"
 description: "Returns whether a path resolved inside the workspace exists and is a regular file."
-icon: "function"
 keywords: ["isfile","Filesystem"]
 ---
 
-Returns whether a path resolved inside the workspace exists and is a regular file.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 isfile(path: string): boolean
@@ -16,15 +13,15 @@ isfile(path: string): boolean
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | Path resolved inside the workspace after separator normalization and workspace-boundary checks. Invalid or outside-workspace paths error before a boolean is returned. |
+<ParamField path={"path"} type={"string"} required>
+Path resolved inside the workspace after separator normalization and workspace-boundary checks. Invalid or outside-workspace paths error before a boolean is returned.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `isFile` | `boolean` | True only when the resolved path exists and is a regular file; folders and missing paths return false. |
+<ResponseField name={"isFile"} type={"boolean"}>
+True only when the resolved path exists and is a regular file; folders and missing paths return false.
+</ResponseField>
 
 ## Ejemplo
 
@@ -41,3 +38,6 @@ print(isfile(filePath))
 print(isfile(folderPath))
 print(isfile("examples/missing.json"))
 ```
+
+
+</div>

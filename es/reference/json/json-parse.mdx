@@ -2,13 +2,10 @@
 title: "json.parse"
 sidebarTitle: "json.parse"
 description: "Parsea un JSON string usando la misma function que json.decode."
-icon: "function"
 keywords: ["json.parse","JSON"]
 ---
 
-Parsea un JSON string usando la misma function que json.decode.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 json.parse(json: string, options?: DecodeOptions): any
@@ -16,16 +13,19 @@ json.parse(json: string, options?: DecodeOptions): any
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string que se parsea. La function lee este argument con string type checking. |
-| `options` | `DecodeOptions` | No | Optional decode options. Un boolean define useNull. Una table puede definir useNull y maxDepth. |
+<ParamField path={"json"} type={"string"} required>
+JSON string que se parsea. La function lee este argument con string type checking.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. Un boolean define useNull. Una table puede definir useNull y maxDepth.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `decoded` | `any` | Decoded value. JSON objects y arrays se vuelven tables con JSON type markers, strings se vuelven Lua strings, numbers se vuelven Lua numbers, booleans se vuelven booleans, y null se vuelve json.null salvo que useNull sea false. |
+<ResponseField name={"decoded"} type={"any"}>
+Decoded value. JSON objects y arrays se vuelven tables con JSON type markers, strings se vuelven Lua strings, numbers se vuelven Lua numbers, booleans se vuelven booleans, y null se vuelve json.null salvo que useNull sea false.
+</ResponseField>
 
 ## Tipos
 
@@ -51,3 +51,6 @@ print(settings.volume)
 print(settings.theme)
 print(json.isNull(settings.missing))
 ```
+
+
+</div>

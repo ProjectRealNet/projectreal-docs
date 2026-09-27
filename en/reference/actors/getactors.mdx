@@ -2,13 +2,10 @@
 title: "getactors"
 sidebarTitle: "getactors"
 description: "Returns an array table of live Actor Instances resolved from the ScriptContext actor thread list. The function takes no arguments. It walks the actor thread list, decrypts each actor Lua state, keeps entries that are valid threads, then reads each thread's thread data and the associated Actor weak reference. Only non-expired actor references are pushed as Instances. Entries without a container, without Actor reference, with reference count <= 0, or with an expired actor reference are skipped."
-icon: "function"
 keywords: ["getactors","Actors"]
 ---
 
-Returns an array table of live Actor Instances resolved from the ScriptContext actor thread list. The function takes no arguments. It walks the actor thread list, decrypts each actor Lua state, keeps entries that are valid threads, then reads each thread's thread data and the associated Actor weak reference. Only non-expired actor references are pushed as Instances. Entries without a container, without Actor reference, with reference count &lt;= 0, or with an expired actor reference are skipped.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getactors(): {Instance}
@@ -16,9 +13,9 @@ getactors(): {Instance}
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `actors` | `&#123;Instance&#125;` | Array table of Actor Instances whose actor weak references are still valid. |
+<ResponseField name={"actors"} type={"{Instance}"}>
+Array table of Actor Instances whose actor weak references are still valid.
+</ResponseField>
 
 ## Example
 
@@ -29,3 +26,6 @@ for _, actor in ipairs(getactors()) do
     print(actor)
 end
 ```
+
+
+</div>

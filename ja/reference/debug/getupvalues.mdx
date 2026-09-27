@@ -2,13 +2,10 @@
 title: "getupvalues"
 sidebarTitle: "getupvalues"
 description: "Returns all upvalues from a Lua function or stack level as a one-based array table. Invalid stack levels raise \"Level out of range\", and non-Lua functions raise \"Lua function expected\". debug.getupvalues is an alias."
-icon: "function"
 keywords: ["getupvalues","Debug","debug.getupvalues"]
 ---
 
-Returns all upvalues from a Lua function or stack level as a one-based array table. Invalid stack levels raise "Level out of range", and non-Lua functions raise "Lua function expected". debug.getupvalues is an alias.
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 getupvalues(target: function | number): table
@@ -20,15 +17,15 @@ getupvalues(target: function | number): table
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `target` | `function \| number` | Yes | Lua function or stack level whose upvalues are returned. |
+<ParamField path={"target"} type={"function | number"} required>
+Lua function or stack level whose upvalues are returned.
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `upvalues` | `table` | One-based array table containing the function upvalues. Empty when none are present. |
+<ResponseField name={"upvalues"} type={"table"}>
+One-based array table containing the function upvalues. Empty when none are present.
+</ResponseField>
 
 ## 例
 
@@ -50,3 +47,6 @@ end
 
 print(#debug.getupvalues(target))
 ```
+
+
+</div>

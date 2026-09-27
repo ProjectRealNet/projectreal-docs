@@ -2,13 +2,10 @@
 title: "loadstring"
 sidebarTitle: "loadstring"
 description: "Compiles a Luau source string and returns the loaded function. If loading fails, it returns nil and an error message. The returned function is not executed automatically."
-icon: "function"
 keywords: ["loadstring","Scripts"]
 ---
 
-Compiles a Luau source string and returns the loaded function. If loading fails, it returns nil and an error message. The returned function is not executed automatically.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 loadstring(source: string, chunkName?: string): function | nil | string | nil
@@ -16,17 +13,23 @@ loadstring(source: string, chunkName?: string): function | nil | string | nil
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `source` | `string` | Yes | Luau source string to compile. Embedded null bytes after the first null are not preserved. |
-| `chunkName` | `string` | No | Optional chunk name used for error reporting. Defaults to "@" when omitted or nil. |
+<ParamField path={"source"} type={"string"} required>
+Luau source string to compile. Embedded null bytes after the first null are not preserved.
+</ParamField>
+
+<ParamField path={"chunkName"} type={"string"}>
+Optional chunk name used for error reporting. Defaults to "@" when omitted or nil.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `chunk` | `function \| nil` | Loaded function when compilation and loading succeed, otherwise nil. |
-| `errorMessage` | `string \| nil` | Load error message when loading fails. Not returned on success. |
+<ResponseField name={"chunk"} type={"function | nil"}>
+Loaded function when compilation and loading succeed, otherwise nil.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+Load error message when loading fails. Not returned on success.
+</ResponseField>
 
 ## مثال
 
@@ -41,3 +44,6 @@ else
     warn(message)
 end
 ```
+
+
+</div>

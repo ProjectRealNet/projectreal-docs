@@ -2,13 +2,10 @@
 title: "mousemoveabs"
 sidebarTitle: "mousemoveabs"
 description: "Перемещает мышь через Windows absolute mouse input, когда Roblox window active. Аргументы x и y проверяются как Lua numbers и преобразуются через integer conversion. Real рассматривает их как координаты relative to active foreground window client area, добавляет screen position этой client area через ClientToScreen, масштабирует их с помощью GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 и integer math, затем вызывает mouse input с the requested mouse action. Если isrbxactive вернул бы false, function возвращается без отправки input."
-icon: "function"
 keywords: ["mousemoveabs","Input"]
 ---
 
-Перемещает мышь через Windows absolute mouse input, когда Roblox window active. Аргументы x и y проверяются как Lua numbers и преобразуются через integer conversion. Real рассматривает их как координаты relative to active foreground window client area, добавляет screen position этой client area через ClientToScreen, масштабирует их с помощью GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 и integer math, затем вызывает mouse input с the requested mouse action. Если isrbxactive вернул бы false, function возвращается без отправки input.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 mousemoveabs(x: number, y: number)
@@ -16,7 +13,13 @@ mousemoveabs(x: number, y: number)
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `x` | `number` | Yes | Client-area X coordinate, читаемая как Lua number и преобразуемая через integer conversion перед этапом screen-position и absolute-input scaling. |
-| `y` | `number` | Yes | Client-area Y coordinate, читаемая как Lua number и преобразуемая через integer conversion перед этапом screen-position и absolute-input scaling. |
+<ParamField path={"x"} type={"number"} required>
+Client-area X coordinate, читаемая как Lua number и преобразуемая через integer conversion перед этапом screen-position и absolute-input scaling.
+</ParamField>
+
+<ParamField path={"y"} type={"number"} required>
+Client-area Y coordinate, читаемая как Lua number и преобразуемая через integer conversion перед этапом screen-position и absolute-input scaling.
+</ParamField>
+
+
+</div>

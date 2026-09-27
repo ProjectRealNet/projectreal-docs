@@ -2,13 +2,10 @@
 title: "isrenderobj"
 sidebarTitle: "isrenderobj"
 description: "คืนค่าว่า value เป็น object ที่มี Drawing object type หรือไม่ นี่เป็นเพียง methods check เท่านั้น ไม่ได้ตรวจว่า Drawing object ภายในยัง active, tracked หรือ destroyed อยู่หรือไม่ the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้"
-icon: "function"
 keywords: ["isrenderobj","Drawing"]
 ---
 
-คืนค่าว่า value เป็น object ที่มี Drawing object type หรือไม่ นี่เป็นเพียง methods check เท่านั้น ไม่ได้ตรวจว่า Drawing object ภายในยัง active, tracked หรือ destroyed อยู่หรือไม่ the Drawing API ลงทะเบียน API นี้เฉพาะเมื่อ the required rendering environment is active เป็น true หากการตรวจสอบนี้เป็น false initializer จะกลับก่อนสร้าง globals เหล่านี้
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 isrenderobj(object: any): boolean
@@ -16,15 +13,15 @@ isrenderobj(object: any): boolean
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | ค่าที่จะทดสอบ non-object values และ object ที่ไม่มี Drawing object type จะคืนค่า false |
+<ParamField path={"object"} type={"any"} required>
+ค่าที่จะทดสอบ non-object values และ object ที่ไม่มี Drawing object type จะคืนค่า false
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `isDrawingObject` | `boolean` | True เมื่อ value เป็น object ที่ methods ตรงกับ RealDrawingObject มิฉะนั้น false |
+<ResponseField name={"isDrawingObject"} type={"boolean"}>
+True เมื่อ value เป็น object ที่ methods ตรงกับ RealDrawingObject มิฉะนั้น false
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -38,3 +35,6 @@ square:Destroy()
 print(isrenderobj(square))
 print(isrenderobj({}))
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "restorefunction"
 sidebarTitle: "restorefunction"
 description: "تستعيد أو تستبدل function عبر استدعاء function hook operation داخليا ولا تعيد أي values. يجب أن يكون first argument من type function. مع function argument واحد، تبحث function عن the saved original function؛ إذا لم يوجد entry فإنها ترفع \"Function is not hooked\". ثم تستدعي function hook operation مع hooked closure و stored original closure، وتمسح Lua stack، وتزيل restored closure من hook records عندما تم استخدام stored original. إذا كان second argument أيضا function، فإن function تعامل firstFunction كـ original function المراد تثبيتها و secondFunction كـ closure المراد patch لها. في هذا الشكل، لا يتم إجراء missing-original check على قيمة hook records المخزنة؛ تتم مقارنة القيمة المخزنة فقط أثناء final remove check. يتم تجاهل non-function second arguments بواسطة branch condition. restorefunc و restoreclosure هما aliases لنفس function."
-icon: "function"
 keywords: ["restorefunction","Closures","restorefunc","restoreclosure"]
 ---
 
-تستعيد أو تستبدل function عبر استدعاء function hook operation داخليا ولا تعيد أي values. يجب أن يكون first argument من type function. مع function argument واحد، تبحث function عن the saved original function؛ إذا لم يوجد entry فإنها ترفع "Function is not hooked". ثم تستدعي function hook operation مع hooked closure و stored original closure، وتمسح Lua stack، وتزيل restored closure من hook records عندما تم استخدام stored original. إذا كان second argument أيضا function، فإن function تعامل firstFunction كـ original function المراد تثبيتها و secondFunction كـ closure المراد patch لها. في هذا الشكل، لا يتم إجراء missing-original check على قيمة hook records المخزنة؛ تتم مقارنة القيمة المخزنة فقط أثناء final remove check. يتم تجاهل non-function second arguments بواسطة branch condition. restorefunc و restoreclosure هما aliases لنفس function.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 restorefunction(firstFunction: function, secondFunction?: function)
@@ -21,10 +18,13 @@ restorefunction(firstFunction: function, secondFunction?: function)
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `firstFunction` | `function` | Yes | مع argument واحد، hooked closure التي يجب استعادتها من hook records. مع function second argument، function التي يجب تثبيتها داخل secondFunction. |
-| `secondFunction` | `function` | No | Optional closure المراد patch لها باستخدام firstFunction. يستخدم هذا branch فقط عندما يكون second argument عبارة عن function. |
+<ParamField path={"firstFunction"} type={"function"} required>
+مع argument واحد، hooked closure التي يجب استعادتها من hook records. مع function second argument، function التي يجب تثبيتها داخل secondFunction.
+</ParamField>
+
+<ParamField path={"secondFunction"} type={"function"}>
+Optional closure المراد patch لها باستخدام firstFunction. يستخدم هذا branch فقط عندما يكون second argument عبارة عن function.
+</ParamField>
 
 ## مثال
 
@@ -45,3 +45,6 @@ restorefunction(target)
 
 print(target())
 ```
+
+
+</div>

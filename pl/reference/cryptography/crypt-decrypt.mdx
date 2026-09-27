@@ -2,13 +2,10 @@
 title: "crypt.decrypt"
 sidebarTitle: "crypt.decrypt"
 description: "Odszyfrowuje Base64 ciphertext za pomoca key zdekodowanego z Base64 i wymaganego Base64 IV, uzywajac AES CBC albo ECB."
-icon: "function"
 keywords: ["crypt.decrypt","Cryptography"]
 ---
 
-Odszyfrowuje Base64 ciphertext za pomoca key zdekodowanego z Base64 i wymaganego Base64 IV, uzywajac AES CBC albo ECB.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES-CBC" | "AES-ECB"): string
@@ -16,18 +13,27 @@ crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Base64 ciphertext dekodowany przed odszyfrowaniem. |
-| `key` | `string` | Yes | Key Base64 dekodowany przed przekazaniem do AES. |
-| `iv` | `string` | Yes | Base64 IV dekodowany przed obsluga mode. Ten argument jest wymagany, takze dla ECB. |
-| `mode` | `"CBC" \| "ECB" \| "AES-CBC" \| "AES-ECB"` | No | AES mode. Prefix AES- jest usuwany, gdy wystepuje. Wartosc domyslna to AES-CBC. |
+<ParamField path={"data"} type={"string"} required>
+Base64 ciphertext dekodowany przed odszyfrowaniem.
+</ParamField>
+
+<ParamField path={"key"} type={"string"} required>
+Key Base64 dekodowany przed przekazaniem do AES.
+</ParamField>
+
+<ParamField path={"iv"} type={"string"} required>
+Base64 IV dekodowany przed obsluga mode. Ten argument jest wymagany, takze dla ECB.
+</ParamField>
+
+<ParamField path={"mode"} type={"\"CBC\" | \"ECB\" | \"AES-CBC\" | \"AES-ECB\""}>
+AES mode. Prefix AES- jest usuwany, gdy wystepuje. Wartosc domyslna to AES-CBC.
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `plaintext` | `string` | Bajty plaintext zwracane jako Lua string. |
+<ResponseField name={"plaintext"} type={"string"}>
+Bajty plaintext zwracane jako Lua string.
+</ResponseField>
 
 ## Przykład
 
@@ -41,3 +47,6 @@ local plaintext = crypt.decrypt(ciphertext, key, iv)
 
 print(plaintext)
 ```
+
+
+</div>

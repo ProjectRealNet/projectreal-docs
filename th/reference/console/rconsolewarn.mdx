@@ -2,13 +2,10 @@
 title: "rconsolewarn"
 sidebarTitle: "rconsolewarn"
 description: "เขียนค่าจำนวนศูนย์ค่าหรือมากกว่าไปยัง Windows console ปัจจุบันผ่าน stdout ด้วย warning console text attribute หากไม่มี console window อยู่ การเรียกจะกลับโดยไม่แปลงหรือเขียนอะไร เมื่อมี console แต่ละ argument จะถูกแปลงด้วย Lua string conversion รวมด้วยอักขระ tab แล้วเขียนผ่าน runtime value หาก Lua string conversion ทำให้เกิด error rconsolewarn จะไม่จับ error นั้น function นี้ตั้งค่า console text attribute เป็น FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY ก่อนเขียน แล้วตั้งเป็น default console text color หลังจากนั้น ไม่เพิ่ม newline ไม่เพิ่ม warning prefix ไม่สร้างหรือแสดง console และไม่เรียก Luau warn หรือ Roblox Output consolewarn เป็น alias ของ function เดียวกัน"
-icon: "function"
 keywords: ["rconsolewarn","Console","consolewarn"]
 ---
 
-เขียนค่าจำนวนศูนย์ค่าหรือมากกว่าไปยัง Windows console ปัจจุบันผ่าน stdout ด้วย warning console text attribute หากไม่มี console window อยู่ การเรียกจะกลับโดยไม่แปลงหรือเขียนอะไร เมื่อมี console แต่ละ argument จะถูกแปลงด้วย Lua string conversion รวมด้วยอักขระ tab แล้วเขียนผ่าน runtime value หาก Lua string conversion ทำให้เกิด error rconsolewarn จะไม่จับ error นั้น function นี้ตั้งค่า console text attribute เป็น FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY ก่อนเขียน แล้วตั้งเป็น default console text color หลังจากนั้น ไม่เพิ่ม newline ไม่เพิ่ม warning prefix ไม่สร้างหรือแสดง console และไม่เรียก Luau warn หรือ Roblox Output consolewarn เป็น alias ของ function เดียวกัน
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 rconsolewarn(...values?: ...any)
@@ -20,9 +17,9 @@ rconsolewarn(...values?: ...any)
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | ค่าเสริม หากมี console แต่ละ value จะถูกแปลงด้วย Lua string conversion และรวมด้วยอักขระ tab ก่อนเขียน |
+<ParamField path={"...values"} type={"...any"}>
+ค่าเสริม หากมี console แต่ละ value จะถูกแปลงด้วย Lua string conversion และรวมด้วยอักขระ tab ก่อนเขียน
+</ParamField>
 
 ## ตัวอย่าง
 
@@ -33,3 +30,6 @@ rconsolecreate()
 rconsolewarn("Retrying request", 3)
 rconsolewarn("\n")
 ```
+
+
+</div>

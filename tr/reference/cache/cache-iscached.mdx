@@ -2,13 +2,10 @@
 title: "cache.iscached"
 sidebarTitle: "cache.iscached"
 description: "Verilen Instance icin Instance cache icinde non-nil bir girdi olup olmadigini dondurur."
-icon: "function"
 keywords: ["cache.iscached","Cache"]
 ---
 
-Verilen Instance icin Instance cache icinde non-nil bir girdi olup olmadigini dondurur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 cache.iscached(instance: Instance): boolean
@@ -16,15 +13,15 @@ cache.iscached(instance: Instance): boolean
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance cache girdisi kontrol edilecek Instance. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance cache girdisi kontrol edilecek Instance.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `cached` | `boolean` | cache bu Instance icin non-nil bir girdi iceriyorsa True. |
+<ResponseField name={"cached"} type={"boolean"}>
+cache bu Instance icin non-nil bir girdi iceriyorsa True.
+</ResponseField>
 
 ## Örnek
 
@@ -39,3 +36,6 @@ print(cached)
 cache.invalidate(Players)
 print(cache.iscached(Players))
 ```
+
+
+</div>

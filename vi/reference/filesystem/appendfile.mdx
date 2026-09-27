@@ -2,13 +2,10 @@
 title: "appendfile"
 sidebarTitle: "appendfile"
 description: "Appends raw Lua string bytes to a workspace file using binary append mode. The file may be created if its parent folder exists."
-icon: "function"
 keywords: ["appendfile","Filesystem","appendfileasync"]
 ---
 
-Appends raw Lua string bytes to a workspace file using binary append mode. The file may be created if its parent folder exists.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 appendfile(path: string, data: string)
@@ -20,10 +17,13 @@ appendfile(path: string, data: string)
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | Path resolved inside the workspace after separator normalization and workspace-boundary checks. Empty paths, paths outside the workspace, invalid filenames, DOS device names, and blocked extensions error. |
-| `data` | `string` | Yes | Lua string bytes to append. No newline or other separator is added automatically. |
+<ParamField path={"path"} type={"string"} required>
+Path resolved inside the workspace after separator normalization and workspace-boundary checks. Empty paths, paths outside the workspace, invalid filenames, DOS device names, and blocked extensions error.
+</ParamField>
+
+<ParamField path={"data"} type={"string"} required>
+Lua string bytes to append. No newline or other separator is added automatically.
+</ParamField>
 
 ## Ví dụ
 
@@ -37,3 +37,6 @@ appendfile(path, string.char(10) .. "second entry")
 
 print(readfile(path))
 ```
+
+
+</div>

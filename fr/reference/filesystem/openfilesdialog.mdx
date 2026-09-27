@@ -2,13 +2,10 @@
 title: "openfilesdialog"
 sidebarTitle: "openfilesdialog"
 description: "Ouvre un Windows file-open dialog with Windows file picker avec multi-select active et renvoie les fichiers selectionnes comme valeurs file item."
-icon: "function"
 keywords: ["openfilesdialog","Filesystem"]
 ---
 
-Ouvre un Windows file-open dialog with Windows file picker avec multi-select active et renvoie les fichiers selectionnes comme valeurs file item.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 openfilesdialog(options?: DialogOptions): { FileSystemItem } | nil
@@ -16,15 +13,15 @@ openfilesdialog(options?: DialogOptions): { FileSystemItem } | nil
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `options` | `DialogOptions` | No | Optional table. Pour openfilesdialog, title, defaultPath et extensionFilter sont utilises. extensionFilter est une table de extension strings; un . ou *. initial est retire avant que chaque filter devienne *.&lt;extension>. |
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table. Pour openfilesdialog, title, defaultPath et extensionFilter sont utilises. extensionFilter est une table de extension strings; un . ou *. initial est retire avant que chaque filter devienne *.&lt;extension>.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `files` | `&#123; FileSystemItem &#125; \| nil` | Array table de valeurs file item pour les fichiers selectionnes, ou nil lorsque le dialog est annule ou qu aucun selected filesystem path n est renvoye. Dialog failures lancent Failed to open file dialog. |
+<ResponseField name={"files"} type={"{ FileSystemItem } | nil"}>
+Array table de valeurs file item pour les fichiers selectionnes, ou nil lorsque le dialog est annule ou qu aucun selected filesystem path n est renvoye. Dialog failures lancent Failed to open file dialog.
+</ResponseField>
 
 ## Types
 
@@ -60,3 +57,6 @@ else
     print("No files selected")
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "cloneref"
 sidebarTitle: "cloneref"
 description: "Push mot tham chieu Instance moi cho cung reference Instance ben duoi va tra ve no."
-icon: "function"
 keywords: ["cloneref","Cache","clonereference"]
 ---
 
-Push mot tham chieu Instance moi cho cung reference Instance ben duoi va tra ve no.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 cloneref(instance: Instance): Instance
@@ -20,15 +17,15 @@ cloneref(instance: Instance): Instance
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object duoc dung lam nguon cho tham chieu moi. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object duoc dung lam nguon cho tham chieu moi.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `reference` | `Instance` | Tham chieu Instance duoc tra ve sau khi Instance cache chay voi reference object goc. |
+<ResponseField name={"reference"} type={"Instance"}>
+Tham chieu Instance duoc tra ve sau khi Instance cache chay voi reference object goc.
+</ResponseField>
 
 ## Ví dụ
 
@@ -43,3 +40,6 @@ print(reference)
 local sameAlias = clonereference(Players)
 print(sameAlias)
 ```
+
+
+</div>

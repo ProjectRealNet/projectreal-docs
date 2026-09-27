@@ -2,13 +2,10 @@
 title: "json.clone"
 sidebarTitle: "json.clone"
 description: "Klont einen value, indem er mit json.encode semantics encoded und der generated JSON wieder zu Lua values decoded wird."
-icon: "function"
 keywords: ["json.clone","JSON"]
 ---
 
-Klont einen value, indem er mit json.encode semantics encoded und der generated JSON wieder zu Lua values decoded wird.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 json.clone(value: any, options?: EncodeOptions): any
@@ -16,16 +13,19 @@ json.clone(value: any, options?: EncodeOptions): any
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value, der encoded und decoded wird. Supported JSON values laufen per round-trip durch JSON; unsupported types werden zu null encoded, ausser encode options fordern einen Fehler. |
-| `options` | `EncodeOptions` | No | Optional encode options, die an den encode step uebergeben werden, zum Beispiel sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty und indent. |
+<ParamField path={"value"} type={"any"} required>
+Value, der encoded und decoded wird. Supported JSON values laufen per round-trip durch JSON; unsupported types werden zu null encoded, ausser encode options fordern einen Fehler.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options, die an den encode step uebergeben werden, zum Beispiel sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty und indent.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `clone` | `any` | Decoded value, der aus dem encoded JSON entsteht. Objects und arrays sind new tables mit JSON kind markers aus dem decoder; JSON null values werden zu json.null. |
+<ResponseField name={"clone"} type={"any"}>
+Decoded value, der aus dem encoded JSON entsteht. Objects und arrays sind new tables mit JSON kind markers aus dem decoder; JSON null values werden zu json.null.
+</ResponseField>
 
 ## Typen
 
@@ -59,3 +59,6 @@ print(original.profile.name)
 print(copy.profile.name)
 print(json.type(copy))
 ```
+
+
+</div>

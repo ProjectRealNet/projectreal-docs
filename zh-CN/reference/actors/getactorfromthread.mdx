@@ -2,13 +2,10 @@
 title: "getactorfromthread"
 sidebarTitle: "getactorfromthread"
 description: "返回与 Luau thread 关联的 Actor Instance。第一个 argument 必须是 thread。function 会读取该 thread 的 thread data，要求存在 Actor reference 且 container count 为 positive，然后读取 the associated Actor。如果 actor weak reference 有效，就作为 Instance push；否则 function 返回 nil。"
-icon: "function"
 keywords: ["getactorfromthread","Actors","getactorfromstate"]
 ---
 
-返回与 Luau thread 关联的 Actor Instance。第一个 argument 必须是 thread。function 会读取该 thread 的 thread data，要求存在 Actor reference 且 container count 为 positive，然后读取 the associated Actor。如果 actor weak reference 有效，就作为 Instance push；否则 function 返回 nil。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 getactorfromthread(thread: thread): Instance | nil
@@ -20,15 +17,15 @@ getactorfromthread(thread: thread): Instance | nil
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `thread` | `thread` | Yes | 要检查其 thread data 中 associated Actor weak reference 的 Luau thread。 |
+<ParamField path={"thread"} type={"thread"} required>
+要检查其 thread data 中 associated Actor weak reference 的 Luau thread。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `actor` | `Instance \| nil` | 从 thread 的 the associated Actor weak reference 解析出的 Actor Instance，或在没有 valid actor reference 时返回 nil。 |
+<ResponseField name={"actor"} type={"Instance | nil"}>
+从 thread 的 the associated Actor weak reference 解析出的 Actor Instance，或在没有 valid actor reference 时返回 nil。
+</ResponseField>
 
 ## 示例
 
@@ -40,3 +37,6 @@ for _, thread in ipairs(getactorthreads()) do
     print(actor)
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "json.tryDecode"
 sidebarTitle: "json.tryDecode"
 description: "Tente de parse un JSON string avec la meme function que json.decodeSafe et renvoie des status values pour parse errors."
-icon: "function"
 keywords: ["json.tryDecode","JSON"]
 ---
 
-Tente de parse un JSON string avec la meme function que json.decodeSafe et renvoie des status values pour parse errors.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
@@ -16,19 +13,31 @@ json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | str
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string a parse. L'function lit cet argument avec string type checking. |
-| `options` | `DecodeOptions` | No | Optional decode options. Un boolean definit useNull. Une table peut definir useNull et maxDepth. |
+<ParamField path={"json"} type={"string"} required>
+JSON string a parse. L'function lit cet argument avec string type checking.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. Un boolean definit useNull. Une table peut definir useNull et maxDepth.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `success` | `boolean` | true quand parsing reussit, false quand parsing echoue dans le protected parse block. |
-| `decoded` | `any \| nil` | Decoded value en cas de success. En cas de parse failure, ce return est nil. |
-| `errorMessage` | `string \| nil` | Error message en cas de parse failure. Le message est prefixed avec json.decodeSafe et inclut un near-position suffix. |
-| `errorPosition` | `number \| nil` | Parser byte position depuis l'parser en cas de parse failure. Ce return existe seulement en failure. |
+<ResponseField name={"success"} type={"boolean"}>
+true quand parsing reussit, false quand parsing echoue dans le protected parse block.
+</ResponseField>
+
+<ResponseField name={"decoded"} type={"any | nil"}>
+Decoded value en cas de success. En cas de parse failure, ce return est nil.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+Error message en cas de parse failure. Le message est prefixed avec json.decodeSafe et inclut un near-position suffix.
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+Parser byte position depuis l'parser en cas de parse failure. Ce return existe seulement en failure.
+</ResponseField>
 
 ## Types
 
@@ -57,3 +66,6 @@ else
     warn(message, position)
 end
 ```
+
+
+</div>

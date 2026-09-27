@@ -2,13 +2,10 @@
 title: "cache.iscached"
 sidebarTitle: "cache.iscached"
 description: "Devuelve si la Instance indicada tiene una entrada no nil en el Instance cache."
-icon: "function"
 keywords: ["cache.iscached","Cache"]
 ---
 
-Devuelve si la Instance indicada tiene una entrada no nil en el Instance cache.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 cache.iscached(instance: Instance): boolean
@@ -16,15 +13,15 @@ cache.iscached(instance: Instance): boolean
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance cuya entrada de Instance cache debe comprobarse. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance cuya entrada de Instance cache debe comprobarse.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `cached` | `boolean` | True cuando el cache contiene una entrada no nil para la Instance. |
+<ResponseField name={"cached"} type={"boolean"}>
+True cuando el cache contiene una entrada no nil para la Instance.
+</ResponseField>
 
 ## Ejemplo
 
@@ -39,3 +36,6 @@ print(cached)
 cache.invalidate(Players)
 print(cache.iscached(Players))
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "getinstances"
 sidebarTitle: "getinstances"
 description: "Returns a new array table containing every object value currently stored in the Instance cache. The function takes no arguments. It does not filter by Parent, ClassName, DataModel fieldship, nil-parent state, or Instance validity beyond checking that each registry value is object. Entries are copied into the returned table at sequential numeric indexes starting at 1. The iteration order comes from table iteration over the cache and is not sorted by the function."
-icon: "function"
 keywords: ["getinstances","Instances"]
 ---
 
-Returns a new array table containing every object value currently stored in the Instance cache. The function takes no arguments. It does not filter by Parent, ClassName, DataModel fieldship, nil-parent state, or Instance validity beyond checking that each registry value is object. Entries are copied into the returned table at sequential numeric indexes starting at 1. The iteration order comes from table iteration over the cache and is not sorted by the function.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getinstances(): { Instance }
@@ -16,6 +13,9 @@ getinstances(): { Instance }
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `instances` | `&#123; Instance &#125;` | Array table of object values copied from the Instance cache table. |
+<ResponseField name={"instances"} type={"{ Instance }"}>
+Array table of object values copied from the Instance cache table.
+</ResponseField>
+
+
+</div>

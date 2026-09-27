@@ -2,13 +2,10 @@
 title: "getsenv"
 sidebarTitle: "getsenv"
 description: "Returns the environment table associated with a LocalScript, Script, or ModuleScript. Unsupported script objects or scripts without an available thread raise the same errors as the underlying script lookup."
-icon: "function"
 keywords: ["getsenv","Scripts"]
 ---
 
-Returns the environment table associated with a LocalScript, Script, or ModuleScript. Unsupported script objects or scripts without an available thread raise the same errors as the underlying script lookup.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 getsenv(script: userdata): table
@@ -16,15 +13,15 @@ getsenv(script: userdata): table
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | Script object to inspect. Supported ClassName values are LocalScript, Script, and ModuleScript. |
+<ParamField path={"script"} type={"userdata"} required>
+Script object to inspect. Supported ClassName values are LocalScript, Script, and ModuleScript.
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `environment` | `table` | Environment table associated with the script or module. |
+<ResponseField name={"environment"} type={"table"}>
+Environment table associated with the script or module.
+</ResponseField>
 
 ## Przykład
 
@@ -45,3 +42,6 @@ if targetScript then
     print(environment)
 end
 ```
+
+
+</div>

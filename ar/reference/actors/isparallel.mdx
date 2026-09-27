@@ -2,13 +2,10 @@
 title: "isparallel"
 sidebarTitle: "isparallel"
 description: "تعيد boolean من ScriptContext DataModel الخاص بالـ Luau thread الحالي. لا تأخذ function أي arguments. تقرأ the current parallel execution status، وهي تعيد parallel execution status. إذا أعادت the current DataModel عدم وجود DataModel، تعيد function false. checkparallel هو alias لنفس function."
-icon: "function"
 keywords: ["isparallel","Actors","checkparallel"]
 ---
 
-تعيد boolean من ScriptContext DataModel الخاص بالـ Luau thread الحالي. لا تأخذ function أي arguments. تقرأ the current parallel execution status، وهي تعيد parallel execution status. إذا أعادت the current DataModel عدم وجود DataModel، تعيد function false. checkparallel هو alias لنفس function.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 isparallel(): boolean
@@ -20,9 +17,9 @@ isparallel(): boolean
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `parallel` | `boolean` | true عندما يكون current DataModel parallel execution status مضبوطا؛ false عندما لا يكون flag مضبوطا أو عندما لا يتوفر DataModel. |
+<ResponseField name={"parallel"} type={"boolean"}>
+true عندما يكون current DataModel parallel execution status مضبوطا؛ false عندما لا يكون flag مضبوطا أو عندما لا يتوفر DataModel.
+</ResponseField>
 
 ## مثال
 
@@ -34,3 +31,6 @@ print(parallel)
 
 print(checkparallel())
 ```
+
+
+</div>

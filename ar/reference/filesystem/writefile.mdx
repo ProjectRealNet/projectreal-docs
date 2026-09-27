@@ -2,13 +2,10 @@
 title: "writefile"
 sidebarTitle: "writefile"
 description: "يكتب Lua string bytes إلى ملف داخل workspace، ينشئ missing parent directories ويستبدل file contents إذا كان الملف موجودا بالفعل."
-icon: "function"
 keywords: ["writefile","Filesystem","writefileasync"]
 ---
 
-يكتب Lua string bytes إلى ملف داخل workspace، ينشئ missing parent directories ويستبدل file contents إذا كان الملف موجودا بالفعل.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 writefile(path: string, content: string)
@@ -20,10 +17,13 @@ writefile(path: string, content: string)
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | File path يتم حله داخل workspace بعد separator normalization و workspace-boundary checks و filename/extension checks. Absolute paths مقبولة فقط اذا كانت resolve داخل workspace. |
-| `content` | `string` | Yes | Lua string bytes التي ستكتب. تتم كتابة البيانات في binary truncate mode؛ writefile لا يضيف newlines أو BOM bytes أو null terminators أو أي extra bytes أخرى. |
+<ParamField path={"path"} type={"string"} required>
+File path يتم حله داخل workspace بعد separator normalization و workspace-boundary checks و filename/extension checks. Absolute paths مقبولة فقط اذا كانت resolve داخل workspace.
+</ParamField>
+
+<ParamField path={"content"} type={"string"} required>
+Lua string bytes التي ستكتب. تتم كتابة البيانات في binary truncate mode؛ writefile لا يضيف newlines أو BOM bytes أو null terminators أو أي extra bytes أخرى.
+</ParamField>
 
 ## مثال
 
@@ -38,3 +38,6 @@ print(readfile(path))
 writefile(path, "")
 print(#readfile(path))
 ```
+
+
+</div>

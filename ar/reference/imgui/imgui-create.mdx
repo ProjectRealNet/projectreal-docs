@@ -2,13 +2,10 @@
 title: "imgui.create"
 sidebarTitle: "imgui.create"
 description: "ينشئ سجل ImGui window متتبعا ويعيد ImGuiWindow object. يستخدم title القيمة \"REAL_IM_UI\" عندما يتم حذفه أو يكون nil. يجب أن يكون title فريدا بين ImGui windows المتتبعة حاليا؛ إنشاء tracked window آخر بنفس title يرفع Lua error."
-icon: "function"
 keywords: ["imgui.create","ImGui"]
 ---
 
-ينشئ سجل ImGui window متتبعا ويعيد ImGuiWindow object. يستخدم title القيمة "REAL_IM_UI" عندما يتم حذفه أو يكون nil. يجب أن يكون title فريدا بين ImGui windows المتتبعة حاليا؛ إنشاء tracked window آخر بنفس title يرفع Lua error.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 imgui.create(title?: string): ImGuiWindow
@@ -16,15 +13,15 @@ imgui.create(title?: string): ImGuiWindow
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `title` | `string` | No | Optional window title. عند حذفه أو nil، يتم استخدام "REAL_IM_UI". وجود title مكرر بين ImGui windows المتتبعة حاليا يرفع Lua error. |
+<ParamField path={"title"} type={"string"}>
+Optional window title. عند حذفه أو nil، يتم استخدام "REAL_IM_UI". وجود title مكرر بين ImGui windows المتتبعة حاليا يرفع Lua error.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | ImGuiWindow object مع window methods المسجلة على methods الخاصة به. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+ImGuiWindow object مع window methods المسجلة على methods الخاصة به.
+</ResponseField>
 
 ## الأنواع
 
@@ -76,3 +73,6 @@ window:CollapsingHeader("Advanced", function(section)
     section:Text("Advanced controls go here")
 end)
 ```
+
+
+</div>

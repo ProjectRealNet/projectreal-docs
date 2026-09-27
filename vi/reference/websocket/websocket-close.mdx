@@ -2,13 +2,10 @@
 title: "WebSocket.Close"
 sidebarTitle: "WebSocket.Close"
 description: "Đóng WebSocket object được trả về bởi WebSocket.connect. Argument đầu tiên phải là table. Hàm đọc field connection state của object; khi có live state và state đó chưa destroyed hoặc closed, hàm đặt isClosed thành true và gửi một frame close frame rỗng qua WebSocket connection đã lưu. Hàm không nhận close code hoặc reason và không trả về values."
-icon: "function"
 keywords: ["WebSocket.Close","WebSocket"]
 ---
 
-Đóng WebSocket object được trả về bởi WebSocket.connect. Argument đầu tiên phải là table. Hàm đọc field connection state của object; khi có live state và state đó chưa destroyed hoặc closed, hàm đặt isClosed thành true và gửi một frame close frame rỗng qua WebSocket connection đã lưu. Hàm không nhận close code hoặc reason và không trả về values.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 WebSocket.Close(socket: WebSocket)
@@ -16,9 +13,9 @@ WebSocket.Close(socket: WebSocket)
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `socket` | `WebSocket` | Yes | WebSocket table được trả về bởi WebSocket.connect. Function mong đợi table này chứa connection state. |
+<ParamField path={"socket"} type={"WebSocket"} required>
+WebSocket table được trả về bởi WebSocket.connect. Function mong đợi table này chứa connection state.
+</ParamField>
 
 ## Ví dụ
 
@@ -29,3 +26,6 @@ local socket = WebSocket.connect("wss://example.com/socket")
 
 socket:Close()
 ```
+
+
+</div>

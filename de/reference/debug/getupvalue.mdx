@@ -2,13 +2,10 @@
 title: "getupvalue"
 sidebarTitle: "getupvalue"
 description: "Returns one upvalue from a Lua function or stack level by one-based index. Invalid stack levels raise \"Level out of range\", non-Lua functions raise \"Lua Function expected\", indexes below 1 raise \"Upvalue index starts at 1\", and indexes past the available upvalues raise \"Upvalue index out of range\". debug.getupvalue is an alias."
-icon: "function"
 keywords: ["getupvalue","Debug","debug.getupvalue"]
 ---
 
-Returns one upvalue from a Lua function or stack level by one-based index. Invalid stack levels raise "Level out of range", non-Lua functions raise "Lua Function expected", indexes below 1 raise "Upvalue index starts at 1", and indexes past the available upvalues raise "Upvalue index out of range". debug.getupvalue is an alias.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getupvalue(target: function | number, index: number): any
@@ -20,16 +17,19 @@ getupvalue(target: function | number, index: number): any
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `target` | `function \| number` | Yes | Lua function or stack level whose upvalue is read. |
-| `index` | `number` | Yes | One-based upvalue index. |
+<ParamField path={"target"} type={"function | number"} required>
+Lua function or stack level whose upvalue is read.
+</ParamField>
+
+<ParamField path={"index"} type={"number"} required>
+One-based upvalue index.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `upvalue` | `any` | Value stored in the requested upvalue slot. |
+<ResponseField name={"upvalue"} type={"any"}>
+Value stored in the requested upvalue slot.
+</ResponseField>
 
 ## Beispiel
 
@@ -45,3 +45,6 @@ end
 print(getupvalue(target, 1))
 print(debug.getupvalue(target, 1))
 ```
+
+
+</div>

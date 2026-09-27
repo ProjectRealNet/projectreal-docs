@@ -2,13 +2,10 @@
 title: "getinstancesbyclass"
 sidebarTitle: "getinstancesbyclass"
 description: "Tra ve instances tu Instance cache table co ClassName field khop chinh xac voi string duoc yeu cau. Doi so dau tien duoc doc bang string type checking. Empty string tao \"ClassName required\". Function tao mot array table moi, lap qua cache duoc luu duoi Instance cache, chi giu values co Lua type la object, doc ClassName field cua tung object value, va so sanh bang strcmp voi className duoc yeu cau. Matches duoc chen sequential bat dau tai index 1. Match la exact va case-sensitive. Function khong dung IsA, khong bao gom subclasses, khong walk descendants, khong filter theo Parent, va khong sort result. getinstancesofclass la alias cho cung function."
-icon: "function"
 keywords: ["getinstancesbyclass","Scripts","getinstancesofclass"]
 ---
 
-Tra ve instances tu Instance cache table co ClassName field khop chinh xac voi string duoc yeu cau. Doi so dau tien duoc doc bang string type checking. Empty string tao "ClassName required". Function tao mot array table moi, lap qua cache duoc luu duoi Instance cache, chi giu values co Lua type la object, doc ClassName field cua tung object value, va so sanh bang strcmp voi className duoc yeu cau. Matches duoc chen sequential bat dau tai index 1. Match la exact va case-sensitive. Function khong dung IsA, khong bao gom subclasses, khong walk descendants, khong filter theo Parent, va khong sort result. getinstancesofclass la alias cho cung function.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 getinstancesbyclass(className: string): table
@@ -20,12 +17,15 @@ getinstancesbyclass(className: string): table
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `className` | `string` | Yes | Exact ClassName string de match. Empty strings tao "ClassName required". |
+<ParamField path={"className"} type={"string"} required>
+Exact ClassName string de match. Empty strings tao "ClassName required".
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `instances` | `table` | New array table chua matching object values tu Instance cache table. |
+<ResponseField name={"instances"} type={"table"}>
+New array table chua matching object values tu Instance cache table.
+</ResponseField>
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "json.clone"
 sidebarTitle: "json.clone"
 description: "value 를 json.encode semantics 로 encoding 한 뒤 generated JSON 을 다시 Lua values 로 decoding 해서 clone 합니다."
-icon: "function"
 keywords: ["json.clone","JSON"]
 ---
 
-value 를 json.encode semantics 로 encoding 한 뒤 generated JSON 을 다시 Lua values 로 decoding 해서 clone 합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 json.clone(value: any, options?: EncodeOptions): any
@@ -16,16 +13,19 @@ json.clone(value: any, options?: EncodeOptions): any
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | encode 및 decode 할 Value 입니다. Supported JSON values 는 JSON 을 통해 round-trip 됩니다. unsupported types 는 encode options 가 error 를 요청하지 않으면 null 로 encode 됩니다. |
-| `options` | `EncodeOptions` | No | encode step 으로 전달되는 Optional encode options 입니다. 예: sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty, indent. |
+<ParamField path={"value"} type={"any"} required>
+encode 및 decode 할 Value 입니다. Supported JSON values 는 JSON 을 통해 round-trip 됩니다. unsupported types 는 encode options 가 error 를 요청하지 않으면 null 로 encode 됩니다.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+encode step 으로 전달되는 Optional encode options 입니다. 예: sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty, indent.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `clone` | `any` | encoded JSON 에서 생성된 Decoded value 입니다. Objects 와 arrays 는 decoder 의 JSON kind markers 를 가진 new tables 입니다. JSON null values 는 json.null 이 됩니다. |
+<ResponseField name={"clone"} type={"any"}>
+encoded JSON 에서 생성된 Decoded value 입니다. Objects 와 arrays 는 decoder 의 JSON kind markers 를 가진 new tables 입니다. JSON null values 는 json.null 이 됩니다.
+</ResponseField>
 
 ## 타입
 
@@ -59,3 +59,6 @@ print(original.profile.name)
 print(copy.profile.name)
 print(json.type(copy))
 ```
+
+
+</div>

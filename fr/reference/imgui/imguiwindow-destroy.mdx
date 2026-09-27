@@ -2,13 +2,10 @@
 title: "ImGuiWindow.destroy"
 sidebarTitle: "ImGuiWindow.destroy"
 description: "Detruit un ImGuiWindow. Si le object pointe encore vers un window, la method retire ce window de la tracked ImGui window list de Real, effectue unreference sur les stored element callbacks, supprime le window record et definit le Instance reference sur nil. Appeler destroy de nouveau sur le meme object retourne sans rien faire."
-icon: "function"
 keywords: ["ImGuiWindow.destroy","ImGui"]
 ---
 
-Detruit un ImGuiWindow. Si le object pointe encore vers un window, la method retire ce window de la tracked ImGui window list de Real, effectue unreference sur les stored element callbacks, supprime le window record et definit le Instance reference sur nil. Appeler destroy de nouveau sur le meme object retourne sans rien faire.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.destroy(window: ImGuiWindow)
@@ -16,9 +13,9 @@ ImGuiWindow.destroy(window: ImGuiWindow)
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow object renvoye par imgui.create. Les valeurs non ImGuiWindow levent une Lua error. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow object renvoye par imgui.create. Les valeurs non ImGuiWindow levent une Lua error.
+</ParamField>
 
 ## Types
 
@@ -39,3 +36,6 @@ Handle renvoyé par imgui.create. Les méthodes de création de contrôle renvoi
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Ajoute un curseur entier. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Ajoute du texte non interactif. |
 | `destroy` | `() -> ()` | Yes | Supprime la fenêtre et libère ses rappels enregistrés. |
+
+
+</div>

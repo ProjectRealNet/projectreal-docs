@@ -2,13 +2,10 @@
 title: "savefiledialog"
 sidebarTitle: "savefiledialog"
 description: "Opens a Windows save dialog with Windows save dialog, writes the provided Lua string bytes to the selected path, and returns the saved file as a file item."
-icon: "function"
 keywords: ["savefiledialog","Filesystem"]
 ---
 
-Opens a Windows save dialog with Windows save dialog, writes the provided Lua string bytes to the selected path, and returns the saved file as a file item.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
@@ -16,16 +13,19 @@ savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `content` | `string` | Yes | Lua string bytes to write to the selected file. The file is opened in binary truncate mode after the user confirms a path. |
-| `options` | `DialogOptions` | No | Optional table. savefiledialog uses title, defaultPath, extensionFilter, suggestedName, and defaultExtension. extensionFilter is a table of extension strings; leading . or *. is stripped before each filter becomes *.&lt;extension>. defaultExtension strips leading . characters before it is passed to SetDefaultExtension. |
+<ParamField path={"content"} type={"string"} required>
+Lua string bytes to write to the selected file. The file is opened in binary truncate mode after the user confirms a path.
+</ParamField>
+
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table. savefiledialog uses title, defaultPath, extensionFilter, suggestedName, and defaultExtension. extensionFilter is a table of extension strings; leading . or *. is stripped before each filter becomes *.&lt;extension>. defaultExtension strips leading . characters before it is passed to SetDefaultExtension.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `file` | `FileSystemItem \| nil` | Saved file item, or nil when the dialog is cancelled. Dialog or write failures throw Failed to save file. |
+<ResponseField name={"file"} type={"FileSystemItem | nil"}>
+Saved file item, or nil when the dialog is cancelled. Dialog or write failures throw Failed to save file.
+</ResponseField>
 
 ## Types
 
@@ -60,3 +60,6 @@ else
     print("No file saved")
 end
 ```
+
+
+</div>

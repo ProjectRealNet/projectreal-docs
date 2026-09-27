@@ -2,13 +2,10 @@
 title: "getscriptglobals"
 sidebarTitle: "getscriptglobals"
 description: "_G と shared の current LUA_GLOBALSINDEX values を含む new table を返します。この function は arguments を取らず、fresh table を作成し、_G を LUA_GLOBALSINDEX._G から、shared を LUA_GLOBALSINDEX.shared から割り当て、exactly one value を返します。full global table は返しません。getscriptglobals に登録された alias はありません。"
-icon: "function"
 keywords: ["getscriptglobals","Environment"]
 ---
 
-_G と shared の current LUA_GLOBALSINDEX values を含む new table を返します。この function は arguments を取らず、fresh table を作成し、_G を LUA_GLOBALSINDEX._G から、shared を LUA_GLOBALSINDEX.shared から割り当て、exactly one value を返します。full global table は返しません。getscriptglobals に登録された alias はありません。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 getscriptglobals(): table
@@ -16,9 +13,9 @@ getscriptglobals(): table
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `globals` | `table` | LUA_GLOBALSINDEX からコピーされた _G と shared fields を持つ fresh table。 |
+<ResponseField name={"globals"} type={"table"}>
+LUA_GLOBALSINDEX からコピーされた _G と shared fields を持つ fresh table。
+</ResponseField>
 
 ## 例
 
@@ -30,3 +27,6 @@ local globals = getscriptglobals()
 print(globals._G)
 print(globals.shared)
 ```
+
+
+</div>

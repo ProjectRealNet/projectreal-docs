@@ -2,13 +2,10 @@
 title: "fireproximityprompt"
 sidebarTitle: "fireproximityprompt"
 description: "Memicu ProximityPrompt melalui ProximityPrompt trigger milik Real. Argumen prompt harus berupa object dengan field ClassName yang sama dengan \"ProximityPrompt\". Jika nilai bukan object, pemanggilan menghasilkan type error. Jika ClassName tidak ada atau bukan string, pemanggilan menghasilkan \"Invalid Instance\". Jika ClassName bukan \"ProximityPrompt\", pemanggilan menghasilkan \"ProximityPrompt expected\". Function ini tidak menerima optional arguments dan tidak mengembalikan apa pun."
-icon: "function"
 keywords: ["fireproximityprompt","Instances"]
 ---
 
-Memicu ProximityPrompt melalui ProximityPrompt trigger milik Real. Argumen prompt harus berupa object dengan field ClassName yang sama dengan "ProximityPrompt". Jika nilai bukan object, pemanggilan menghasilkan type error. Jika ClassName tidak ada atau bukan string, pemanggilan menghasilkan "Invalid Instance". Jika ClassName bukan "ProximityPrompt", pemanggilan menghasilkan "ProximityPrompt expected". Function ini tidak menerima optional arguments dan tidak mengembalikan apa pun.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 fireproximityprompt(prompt: Instance)
@@ -16,9 +13,9 @@ fireproximityprompt(prompt: Instance)
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `prompt` | `Instance` | Yes | Instance yang ClassName-nya harus ProximityPrompt. |
+<ParamField path={"prompt"} type={"Instance"} required>
+Instance yang ClassName-nya harus ProximityPrompt.
+</ParamField>
 
 ## Contoh
 
@@ -29,3 +26,6 @@ local prompt = workspace.InteractivePart.ProximityPrompt
 
 fireproximityprompt(prompt)
 ```
+
+
+</div>

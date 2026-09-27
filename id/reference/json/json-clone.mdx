@@ -2,13 +2,10 @@
 title: "json.clone"
 sidebarTitle: "json.clone"
 description: "Meng-clone value dengan encoding memakai json.encode semantics lalu decoding generated JSON kembali menjadi Lua values."
-icon: "function"
 keywords: ["json.clone","JSON"]
 ---
 
-Meng-clone value dengan encoding memakai json.encode semantics lalu decoding generated JSON kembali menjadi Lua values.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 json.clone(value: any, options?: EncodeOptions): any
@@ -16,16 +13,19 @@ json.clone(value: any, options?: EncodeOptions): any
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value untuk di-encode dan di-decode. Supported JSON values melakukan round-trip melalui JSON; unsupported types di-encode sebagai null kecuali encode options meminta error. |
-| `options` | `EncodeOptions` | No | Optional encode options yang diteruskan ke encode step, seperti sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty, dan indent. |
+<ParamField path={"value"} type={"any"} required>
+Value untuk di-encode dan di-decode. Supported JSON values melakukan round-trip melalui JSON; unsupported types di-encode sebagai null kecuali encode options meminta error.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options yang diteruskan ke encode step, seperti sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty, dan indent.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `clone` | `any` | Decoded value yang dihasilkan dari encoded JSON. Objects dan arrays menjadi new tables dengan JSON kind markers dari decoder; JSON null values menjadi json.null. |
+<ResponseField name={"clone"} type={"any"}>
+Decoded value yang dihasilkan dari encoded JSON. Objects dan arrays menjadi new tables dengan JSON kind markers dari decoder; JSON null values menjadi json.null.
+</ResponseField>
 
 ## Tipe
 
@@ -59,3 +59,6 @@ print(original.profile.name)
 print(copy.profile.name)
 print(json.type(copy))
 ```
+
+
+</div>

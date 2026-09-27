@@ -1,21 +1,49 @@
 ---
 title: "Console"
 description: "إخراج وقت التشغيل وعناصر التحكم في وحدة التحكم."
-icon: "folder-code"
+icon: "/icons/file-code.svg"
 ---
+
+<div className="real-category-page">
 
 إخراج وقت التشغيل وعناصر التحكم في وحدة التحكم.
 
-| تنقل الدوال | الوصف |
-| --- | --- |
-| [`rconsoleclear`](./rconsoleclear) | يمسح current Windows console screen buffer عندما توجد console window. إذا لم توجد console window، يرجع call بدون فعل شيء. |
-| [`rconsolecreate`](./rconsolecreate) | يخصص Windows console للعملية عندما لا توجد console window. إذا كانت console window موجودة بالفعل، يرجع call بدون فعل شيء. بعد allocation تقوم function بعمل redirect لـ stdout إلى console output و stdin إلى console input. |
-| [`rconsoledestroy`](./rconsoledestroy) | يمسح Windows console screen buffer الحالي، ويخفي console window، ويفصل العملية عن console باستخدام console detachment. إذا لم تكن هناك console window، يرجع الاستدعاء بدون أي إجراء. |
-| [`rconsoleerr`](./rconsoleerr) | يكتب صفرا أو أكثر من القيم إلى Windows console الحالية عبر stdout بعد ضبط console text attribute على error text color. يتم تحويل القيم باستخدام Lua string conversion، وفصلها بعلامات tab، ثم يتم ضبط text attribute إلى default console text color بعد ذلك. إذا لم تكن هناك console window، يرجع الاستدعاء بدون تحويل أو كتابة أي شيء. |
-| [`rconsolehide`](./rconsolehide) | يخفي Windows console window الحالية باستخدام Windows console visibility update مع hide mode. لا تستدعي function ‏console detachment، لذلك لا تفصل عن console ولا تدمرها. إذا لم تكن هناك console window، يرجع الاستدعاء بدون أي إجراء. |
-| [`rconsoleinfo`](./rconsoleinfo) | يكتب صفرا أو أكثر من القيم إلى Windows console الحالية عبر stdout بعد ضبط console text attribute على info text color. يتم تحويل القيم باستخدام Lua string conversion، وفصلها بعلامات tab، ثم يتم ضبط text attribute إلى default console text color بعد ذلك. إذا لم تكن هناك console window، يرجع الاستدعاء بدون تحويل أو كتابة أي شيء. |
-| [`rconsoleinput`](./rconsoleinput) | تعمل كـ yield أثناء قراءة line واحدة من stdin باستخدام console input بعد مسح حالة console input وتجاهل input حتى newline التالية. يتم دفع string المرتجع باستخدام string return ولا يتضمن newline النهائية. إذا لم تكن هناك console window، يرجع الاستدعاء بدون values. |
-| [`rconsolename`](./rconsolename) | يضبط title الخاص بـ Windows console window الحالية باستخدام Windows console title update. يجب أن يكون argument الأول string ويتم فحصه قبل فحص وجود console. إذا لم تكن هناك console window بعد نجاح string check، يرجع الاستدعاء بدون أي إجراء. |
-| [`rconsoleprint`](./rconsoleprint) | يكتب صفرا أو أكثر من القيم إلى Windows console الحالية عبر stdout بدون تغيير console text attribute. يتم تحويل القيم باستخدام Lua string conversion وفصلها بعلامات tab. لا تضيف function أي newline. إذا لم تكن هناك console window، يرجع الاستدعاء بدون تحويل أو كتابة أي شيء. |
-| [`rconsoleshow`](./rconsoleshow) | يعرض Windows console window الحالية باستخدام Windows console visibility update مع show mode. لا تنشئ function console. إذا لم تكن هناك console window، يرجع الاستدعاء بدون أي إجراء. |
-| [`rconsolewarn`](./rconsolewarn) | يكتب صفرا أو أكثر من القيم إلى Windows console الحالية عبر stdout باستخدام warning console text attribute. إذا لم تكن هناك console window، يرجع الاستدعاء بدون تحويل أو كتابة أي شيء. عند وجود console، يتم تحويل كل argument باستخدام Lua string conversion، ويتم ربط القيم بعلامات tab، ثم تكتب عبر runtime value. إذا رفع Lua string conversion خطأ، لا تلتقطه rconsolewarn. تضبط function قيمة console text attribute إلى FOREGROUND_RED \| FOREGROUND_GREEN \| FOREGROUND_INTENSITY قبل الكتابة، ثم تضبطها إلى default console text color بعد ذلك. لا تضيف newline، ولا تضيف warning prefix، ولا تنشئ أو تعرض console، ولا تستدعي Luau warn أو Roblox Output. consolewarn هو alias لنفس function. |
+## الدوال المتاحة
+
+<CardGroup cols={2}>
+<Card title="rconsoleclear" href="./rconsoleclear">
+يمسح current Windows console screen buffer عندما توجد console window. إذا لم توجد console window، يرجع call بدون فعل شيء.
+</Card>
+<Card title="rconsolecreate" href="./rconsolecreate">
+يخصص Windows console للعملية عندما لا توجد console window. إذا كانت console window موجودة بالفعل، يرجع call بدون فعل شيء. بعد allocation تقوم function بعمل redirect لـ stdout إلى console output و stdin إلى console input.
+</Card>
+<Card title="rconsoledestroy" href="./rconsoledestroy">
+يمسح Windows console screen buffer الحالي، ويخفي console window، ويفصل العملية عن console باستخدام console detachment. إذا لم تكن هناك console window، يرجع الاستدعاء بدون أي إجراء.
+</Card>
+<Card title="rconsoleerr" href="./rconsoleerr">
+يكتب صفرا أو أكثر من القيم إلى Windows console الحالية عبر stdout بعد ضبط console text attribute على error text color. يتم تحويل القيم باستخدام Lua string conversion، وفصلها بعلامات tab، ثم يتم ضبط text attribute إلى default console text color بعد ذلك. إذا لم تكن هناك console window، يرجع الاستدعاء بدون تحويل أو كتابة أي شيء.
+</Card>
+<Card title="rconsolehide" href="./rconsolehide">
+يخفي Windows console window الحالية باستخدام Windows console visibility update مع hide mode. لا تستدعي function ‏console detachment، لذلك لا تفصل عن console ولا تدمرها. إذا لم تكن هناك console window، يرجع الاستدعاء بدون أي إجراء.
+</Card>
+<Card title="rconsoleinfo" href="./rconsoleinfo">
+يكتب صفرا أو أكثر من القيم إلى Windows console الحالية عبر stdout بعد ضبط console text attribute على info text color. يتم تحويل القيم باستخدام Lua string conversion، وفصلها بعلامات tab، ثم يتم ضبط text attribute إلى default console text color بعد ذلك. إذا لم تكن هناك console window، يرجع الاستدعاء بدون تحويل أو كتابة أي شيء.
+</Card>
+<Card title="rconsoleinput" href="./rconsoleinput">
+تعمل كـ yield أثناء قراءة line واحدة من stdin باستخدام console input بعد مسح حالة console input وتجاهل input حتى newline التالية. يتم دفع string المرتجع باستخدام string return ولا يتضمن newline النهائية. إذا لم تكن هناك console window، يرجع الاستدعاء بدون values.
+</Card>
+<Card title="rconsolename" href="./rconsolename">
+يضبط title الخاص بـ Windows console window الحالية باستخدام Windows console title update. يجب أن يكون argument الأول string ويتم فحصه قبل فحص وجود console. إذا لم تكن هناك console window بعد نجاح string check، يرجع الاستدعاء بدون أي إجراء.
+</Card>
+<Card title="rconsoleprint" href="./rconsoleprint">
+يكتب صفرا أو أكثر من القيم إلى Windows console الحالية عبر stdout بدون تغيير console text attribute. يتم تحويل القيم باستخدام Lua string conversion وفصلها بعلامات tab. لا تضيف function أي newline. إذا لم تكن هناك console window، يرجع الاستدعاء بدون تحويل أو كتابة أي شيء.
+</Card>
+<Card title="rconsoleshow" href="./rconsoleshow">
+يعرض Windows console window الحالية باستخدام Windows console visibility update مع show mode. لا تنشئ function console. إذا لم تكن هناك console window، يرجع الاستدعاء بدون أي إجراء.
+</Card>
+<Card title="rconsolewarn" href="./rconsolewarn">
+يكتب صفرا أو أكثر من القيم إلى Windows console الحالية عبر stdout باستخدام warning console text attribute. إذا لم تكن هناك console window، يرجع الاستدعاء بدون تحويل أو كتابة أي شيء. عند وجود console، يتم تحويل كل argument باستخدام Lua string conversion، ويتم ربط القيم بعلامات tab، ثم تكتب عبر runtime value. إذا رفع Lua string conversion خطأ، لا تلتقطه rconsolewarn. تضبط function قيمة console text attribute إلى FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY قبل الكتابة، ثم تضبطها إلى default console text color بعد ذلك. لا تضيف newline، ولا تضيف warning prefix، ولا تنشئ أو تعرض console، ولا تستدعي Luau warn أو Roblox Output. consolewarn هو alias لنفس function.
+</Card>
+</CardGroup>
+
+</div>

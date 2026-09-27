@@ -2,13 +2,10 @@
 title: "gettenv"
 sidebarTitle: "gettenv"
 description: "Returns the environment table stored on a Luau thread. getstateenv is an alias."
-icon: "function"
 keywords: ["gettenv","Environment","getstateenv"]
 ---
 
-Returns the environment table stored on a Luau thread. getstateenv is an alias.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 gettenv(thread: thread): table
@@ -20,15 +17,15 @@ gettenv(thread: thread): table
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `thread` | `thread` | Yes | Luau thread whose environment table is returned. |
+<ParamField path={"thread"} type={"thread"} required>
+Luau thread whose environment table is returned.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `environment` | `table` | Environment table for the supplied thread. |
+<ResponseField name={"environment"} type={"table"}>
+Environment table for the supplied thread.
+</ResponseField>
 
 ## Ejemplo
 
@@ -44,3 +41,6 @@ print(type(env))
 local aliasEnv = getstateenv(thread)
 print(type(aliasEnv))
 ```
+
+
+</div>

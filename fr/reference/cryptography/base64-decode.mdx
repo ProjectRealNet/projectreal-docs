@@ -2,13 +2,10 @@
 title: "base64_decode"
 sidebarTitle: "base64_decode"
 description: "Decode une entree Base64 avec Base64 decoder et renvoie les octets decodes sous forme de chaine Lua."
-icon: "function"
 keywords: ["base64_decode","Cryptography","base64decode","base64.decode","crypt.base64.decode","crypt.base64_decode","crypt.base64decode"]
 ---
 
-Decode une entree Base64 avec Base64 decoder et renvoie les octets decodes sous forme de chaine Lua.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 base64_decode(data: string): string
@@ -24,15 +21,15 @@ base64_decode(data: string): string
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Entree Base64 transmise a Base64 decoder. |
+<ParamField path={"data"} type={"string"} required>
+Entree Base64 transmise a Base64 decoder.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `decoded` | `string` | Octets decodes renvoyes sous forme de chaine Lua avec une longueur explicite. |
+<ResponseField name={"decoded"} type={"string"}>
+Octets decodes renvoyes sous forme de chaine Lua avec une longueur explicite.
+</ResponseField>
 
 ## Exemple
 
@@ -46,3 +43,6 @@ print(decoded)
 print(base64decode(encoded))
 print(base64.decode(encoded))
 ```
+
+
+</div>

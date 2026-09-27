@@ -2,13 +2,10 @@
 title: "getcallingscript"
 sidebarTitle: "getcallingscript"
 description: "current Luau thread object に保存されている script を返します。この function は arguments を受け取りません。stored reference である the current thread script を読み取ります。その stored reference が expired ではない場合、function は Instance cache で script Instance を push して返します。stored reference が expired の場合、function は nil を返します。function は Lua call stack を調べず、ancestor scripts を検索せず、script ClassName も確認しません。"
-icon: "function"
 keywords: ["getcallingscript","Scripts"]
 ---
 
-current Luau thread object に保存されている script を返します。この function は arguments を受け取りません。stored reference である the current thread script を読み取ります。その stored reference が expired ではない場合、function は Instance cache で script Instance を push して返します。stored reference が expired の場合、function は nil を返します。function は Lua call stack を調べず、ancestor scripts を検索せず、script ClassName も確認しません。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 getcallingscript(): Instance | nil
@@ -16,6 +13,9 @@ getcallingscript(): Instance | nil
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `script` | `Instance \| nil` | current Luau thread object stored reference からの Script Instance。その stored reference が expired の場合は nil。 |
+<ResponseField name={"script"} type={"Instance | nil"}>
+current Luau thread object stored reference からの Script Instance。その stored reference が expired の場合は nil。
+</ResponseField>
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "getactors"
 sidebarTitle: "getactors"
 description: "ScriptContext actor thread list에서 resolve된 live Actor Instances의 array table을 반환합니다. 이 function은 arguments를 받지 않습니다. actor thread list를 순회하고 각 actor Lua state를 복호화하며 valid threads인 entries를 유지한 다음 각 thread의 thread data와 the associated Actor weak reference를 읽습니다. non-expired actor references만 Instances로 push됩니다. container가 없거나 Actor reference가 없거나 reference count <= 0이거나 expired actor reference가 있는 entries는 건너뜁니다."
-icon: "function"
 keywords: ["getactors","Actors"]
 ---
 
-ScriptContext actor thread list에서 resolve된 live Actor Instances의 array table을 반환합니다. 이 function은 arguments를 받지 않습니다. actor thread list를 순회하고 각 actor Lua state를 복호화하며 valid threads인 entries를 유지한 다음 각 thread의 thread data와 the associated Actor weak reference를 읽습니다. non-expired actor references만 Instances로 push됩니다. container가 없거나 Actor reference가 없거나 reference count &lt;= 0이거나 expired actor reference가 있는 entries는 건너뜁니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 getactors(): {Instance}
@@ -16,9 +13,9 @@ getactors(): {Instance}
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `actors` | `&#123;Instance&#125;` | actor weak references가 아직 valid인 Actor Instances의 array table입니다. |
+<ResponseField name={"actors"} type={"{Instance}"}>
+actor weak references가 아직 valid인 Actor Instances의 array table입니다.
+</ResponseField>
 
 ## 예제
 
@@ -29,3 +26,6 @@ for _, actor in ipairs(getactors()) do
     print(actor)
 end
 ```
+
+
+</div>

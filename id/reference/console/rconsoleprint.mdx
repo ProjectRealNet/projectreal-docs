@@ -2,13 +2,10 @@
 title: "rconsoleprint"
 sidebarTitle: "rconsoleprint"
 description: "Menulis nol atau beberapa nilai ke Windows console saat ini melalui stdout tanpa mengubah console text attribute. Nilai dikonversi dengan Lua string conversion dan dipisahkan dengan karakter tab. function tidak menambahkan newline. Jika tidak ada console window, panggilan kembali tanpa mengonversi atau menulis apa pun."
-icon: "function"
 keywords: ["rconsoleprint","Console","consoleprint","rconsolewrite","consolewrite"]
 ---
 
-Menulis nol atau beberapa nilai ke Windows console saat ini melalui stdout tanpa mengubah console text attribute. Nilai dikonversi dengan Lua string conversion dan dipisahkan dengan karakter tab. function tidak menambahkan newline. Jika tidak ada console window, panggilan kembali tanpa mengonversi atau menulis apa pun.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 rconsoleprint(...values?: ...any)
@@ -22,9 +19,9 @@ rconsoleprint(...values?: ...any)
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | Nilai opsional. Jika console ada, setiap value dikonversi dengan Lua string conversion dan digabungkan dengan karakter tab sebelum ditulis. |
+<ParamField path={"...values"} type={"...any"}>
+Nilai opsional. Jika console ada, setiap value dikonversi dengan Lua string conversion dan digabungkan dengan karakter tab sebelum ditulis.
+</ParamField>
 
 ## Contoh
 
@@ -37,3 +34,6 @@ rconsoleprint("Loading", "
 rconsoleprint("User", "	", 42, "
 ")
 ```
+
+
+</div>

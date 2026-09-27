@@ -2,13 +2,10 @@
 title: "Drawing.new"
 sidebarTitle: "Drawing.new"
 description: "Tao Drawing object moi cua loai duoc yeu cau va them vao Real tracked Drawing object list. type string phai la mot trong cac ten duoc ho tro chinh xac: \"Line\", \"Text\", \"Circle\", \"Square\", \"Quad\", \"Triangle\", \"Image\". Gia tri bi thieu, non-string hoac type values khong duoc ho tro se tao Lua error. the Drawing API chi dang ky API nay khi the required rendering environment is active la true; khi kiem tra do la false, initializer quay lai truoc khi tao cac globals nay."
-icon: "function"
 keywords: ["Drawing.new","Drawing"]
 ---
 
-Tao Drawing object moi cua loai duoc yeu cau va them vao Real tracked Drawing object list. type string phai la mot trong cac ten duoc ho tro chinh xac: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". Gia tri bi thieu, non-string hoac type values khong duoc ho tro se tao Lua error. the Drawing API chi dang ky API nay khi the required rendering environment is active la true; khi kiem tra do la false, initializer quay lai truoc khi tao cac globals nay.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad" | "Triangle"): DrawingObject
@@ -16,15 +13,15 @@ Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad"
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `objectType` | `"Image" \| "Line" \| "Text" \| "Circle" \| "Square" \| "Quad" \| "Triangle"` | Yes | Ten Drawing type chinh xac can tao. Cac gia tri duoc ho tro la "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". |
+<ParamField path={"objectType"} type={"\"Image\" | \"Line\" | \"Text\" | \"Circle\" | \"Square\" | \"Quad\" | \"Triangle\""} required>
+Ten Drawing type chinh xac can tao. Cac gia tri duoc ho tro la "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image".
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `object` | `DrawingObject` | Drawing object da tao voi Drawing object type. |
+<ResponseField name={"object"} type={"DrawingObject"}>
+Drawing object da tao voi Drawing object type.
+</ResponseField>
 
 ## Ví dụ
 
@@ -38,3 +35,6 @@ square.Color = Color3.fromRGB(120, 170, 255)
 square.Filled = true
 square.Visible = true
 ```
+
+
+</div>

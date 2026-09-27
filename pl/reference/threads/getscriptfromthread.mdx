@@ -2,13 +2,10 @@
 title: "getscriptfromthread"
 sidebarTitle: "getscriptfromthread"
 description: "Returns the Script Instance associated with a Luau thread, or nil when no valid script reference is available."
-icon: "function"
 keywords: ["getscriptfromthread","Threads"]
 ---
 
-Returns the Script Instance associated with a Luau thread, or nil when no valid script reference is available.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 getscriptfromthread(thread: thread): Instance | nil
@@ -16,15 +13,15 @@ getscriptfromthread(thread: thread): Instance | nil
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `thread` | `thread` | Yes | Luau thread whose associated Script Instance is returned. |
+<ParamField path={"thread"} type={"thread"} required>
+Luau thread whose associated Script Instance is returned.
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `script` | `Instance \| nil` | Associated Script Instance when available; otherwise nil. |
+<ResponseField name={"script"} type={"Instance | nil"}>
+Associated Script Instance when available; otherwise nil.
+</ResponseField>
 
 ## Przykład
 
@@ -37,3 +34,6 @@ end)
 local scriptInstance = getscriptfromthread(thread)
 print(scriptInstance)
 ```
+
+
+</div>

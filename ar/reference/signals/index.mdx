@@ -1,17 +1,37 @@
 ---
 title: "Signals"
 description: "اتصالات الإشارة وإعادة توجيه الأحداث."
-icon: "folder-code"
+icon: "/icons/brand-signal.svg"
 ---
+
+<div className="real-category-page">
 
 اتصالات الإشارة وإعادة توجيه الأحداث.
 
-| تنقل الدوال | الوصف |
-| --- | --- |
-| [`cansignalreplicate`](./cansignalreplicate) | يتحقق مما إذا كان RBXScriptSignal قانونيا للإرسال عبر NetworkClient replication layer الحالي. تتحقق function من أن argument الأول هو RBXScriptSignal، وتقرأ source instance و event descriptor الخاصين بالإشارة، ثم تعيد boolean الناتج من فحص replication layer signal replication validation. إذا كانت قيمة مؤشر replication layer المحلولة هي 0، تعيد false. لا تقرأ arguments إضافية. هذه function تتحقق من signal فقط ولا تطلقه أو تكرره. جدول whitelist الذي تعيده getsignalwhitelist لا يستخدمه مسار الكود هذا. |
-| [`firesignal`](./firesignal) | Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error. |
-| [`getconnections`](./getconnections) | يعيد array table من RealConnection closures لـ RBXScriptSignal. يجب أن يكون argument الأول object يحمل Luau type name بقيمة RBXScriptSignal. تقرأ function method باسم Connect من signal، وتوصل temporary blank callback، وتقرأ linked list بدءا من next reference الخاص بالاتصال المؤقت، ثم تفصل الاتصال المؤقت وتغلف كل connection reference صالح. إذا لم يتم العثور على connection reference بعد الاتصال المؤقت، تعيد table فارغة. يمكن أن تعيد underlying references المغلفة سابقا نفس cached closure table. getsignals و get_signal_cons هما aliases لنفس function. |
-| [`getsignalarguments`](./getsignalarguments) | يعيد array table من type names المقروءة من event descriptor signature الخاصة بـ RBXScriptSignal. يجب أن يكون argument الأول object يحمل Luau type name بقيمة RBXScriptSignal. تقرأ function event descriptor الخاص بالsignal، وتمشي عبر signature slots باستخدام argument stride في function، وتقرأ argument type reference لكل slot، ثم تدفع type name string المحلول لكل slot. لا تعيد captured runtime argument values. إذا تعذرت قراءة signature أو لم تتم إضافة أي entries، تحتوي table المعادة على fallback entry واحد: "Variant". |
-| [`getsignalargumentsinfo`](./getsignalargumentsinfo) | تُرجع array table من معلومات الوسيط من توقيع RBXScriptSignal. لا تُرجع قيم وسيطات وقت التشغيل الملتقطة. |
-| [`getsignalwhitelist`](./getsignalwhitelist) | يعيد array table جديدا يحتوي على إدخالات whitelist الستة الثابتة المعرفة في function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. كل entry هو table يحتوي على حقلي string باسم Event و Parent. لا تقبل function أي arguments ولا تفحص حالة اللعبة الحالية. |
-| [`replicatesignal`](./replicatesignal) | تستدعي replication path لـ RBXScriptSignal. تقرأ الدالة signal signature، وتحول Lua arguments المقدمة إلى Roblox signal values لكل signature type، وتقص Lua arguments الزائدة بعد signature length، ثم تستدعي owning instance event invocation function. |
+## الدوال المتاحة
+
+<CardGroup cols={2}>
+<Card title="cansignalreplicate" href="./cansignalreplicate">
+يتحقق مما إذا كان RBXScriptSignal قانونيا للإرسال عبر NetworkClient replication layer الحالي. تتحقق function من أن argument الأول هو RBXScriptSignal، وتقرأ source instance و event descriptor الخاصين بالإشارة، ثم تعيد boolean الناتج من فحص replication layer signal replication validation. إذا كانت قيمة مؤشر replication layer المحلولة هي 0، تعيد false. لا تقرأ arguments إضافية. هذه function تتحقق من signal فقط ولا تطلقه أو تكرره. جدول whitelist الذي تعيده getsignalwhitelist لا يستخدمه مسار الكود هذا.
+</Card>
+<Card title="firesignal" href="./firesignal">
+Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error.
+</Card>
+<Card title="getconnections" href="./getconnections">
+يعيد array table من RealConnection closures لـ RBXScriptSignal. يجب أن يكون argument الأول object يحمل Luau type name بقيمة RBXScriptSignal. تقرأ function method باسم Connect من signal، وتوصل temporary blank callback، وتقرأ linked list بدءا من next reference الخاص بالاتصال المؤقت، ثم تفصل الاتصال المؤقت وتغلف كل connection reference صالح. إذا لم يتم العثور على connection reference بعد الاتصال المؤقت، تعيد table فارغة. يمكن أن تعيد underlying references المغلفة سابقا نفس cached closure table. getsignals و get_signal_cons هما aliases لنفس function.
+</Card>
+<Card title="getsignalarguments" href="./getsignalarguments">
+يعيد array table من type names المقروءة من event descriptor signature الخاصة بـ RBXScriptSignal. يجب أن يكون argument الأول object يحمل Luau type name بقيمة RBXScriptSignal. تقرأ function event descriptor الخاص بالsignal، وتمشي عبر signature slots باستخدام argument stride في function، وتقرأ argument type reference لكل slot، ثم تدفع type name string المحلول لكل slot. لا تعيد captured runtime argument values. إذا تعذرت قراءة signature أو لم تتم إضافة أي entries، تحتوي table المعادة على fallback entry واحد: "Variant".
+</Card>
+<Card title="getsignalargumentsinfo" href="./getsignalargumentsinfo">
+تُرجع array table من معلومات الوسيط من توقيع RBXScriptSignal. لا تُرجع قيم وسيطات وقت التشغيل الملتقطة.
+</Card>
+<Card title="getsignalwhitelist" href="./getsignalwhitelist">
+يعيد array table جديدا يحتوي على إدخالات whitelist الستة الثابتة المعرفة في function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. كل entry هو table يحتوي على حقلي string باسم Event و Parent. لا تقبل function أي arguments ولا تفحص حالة اللعبة الحالية.
+</Card>
+<Card title="replicatesignal" href="./replicatesignal">
+تستدعي replication path لـ RBXScriptSignal. تقرأ الدالة signal signature، وتحول Lua arguments المقدمة إلى Roblox signal values لكل signature type، وتقص Lua arguments الزائدة بعد signature length، ثم تستدعي owning instance event invocation function.
+</Card>
+</CardGroup>
+
+</div>

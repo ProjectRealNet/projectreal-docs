@@ -2,13 +2,10 @@
 title: "getcallbackvalue"
 sidebarTitle: "getcallbackvalue"
 description: "Doc Lua callback function duoc luu trong callback property tren Instance. Doi so dau tien phai la Instance object va doi so thu hai phai la string property name. instance reference phai hop le. property name duoc resolve qua Roblox property metadata va phai tro den property co type LUA_CALLBACK. Neu thieu property descriptor, property khong phai LUA_CALLBACK, thieu callback field offset, khong co callback duoc luu, thieu LiveLuaRef, callback thuoc Lua global state khac, hoac gia tri duoc tham chieu khong phai function, function tra ve nil. No cung kiem tra async callback field fallback khi callback slot dau tien khong co callback. Function khong cap nhat property."
-icon: "function"
 keywords: ["getcallbackvalue","Instances","getcallbackmember"]
 ---
 
-Doc Lua callback function duoc luu trong callback property tren Instance. Doi so dau tien phai la Instance object va doi so thu hai phai la string property name. instance reference phai hop le. property name duoc resolve qua Roblox property metadata va phai tro den property co type LUA_CALLBACK. Neu thieu property descriptor, property khong phai LUA_CALLBACK, thieu callback field offset, khong co callback duoc luu, thieu LiveLuaRef, callback thuoc Lua global state khac, hoac gia tri duoc tham chieu khong phai function, function tra ve nil. No cung kiem tra async callback field fallback khi callback slot dau tien khong co callback. Function khong cap nhat property.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 getcallbackvalue(instance: Instance, property: string): function | nil
@@ -20,16 +17,19 @@ getcallbackvalue(instance: Instance, property: string): function | nil
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object noi callback property duoc kiem tra. Invalid Instance values tao argument error. |
-| `property` | `string` | Yes | string property name duoc resolve qua Roblox property metadata. Chi LUA_CALLBACK properties co the tra ve function. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object noi callback property duoc kiem tra. Invalid Instance values tao argument error.
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+string property name duoc resolve qua Roblox property metadata. Chi LUA_CALLBACK properties co the tra ve function.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `callback` | `function \| nil` | Lua function duoc luu boi callback property, hoac nil khi function khong the resolve function co the doc. |
+<ResponseField name={"callback"} type={"function | nil"}>
+Lua function duoc luu boi callback property, hoac nil khi function khong the resolve function co the doc.
+</ResponseField>
 
 ## Ví dụ
 
@@ -46,3 +46,6 @@ if callback then
     print(callback(21))
 end
 ```
+
+
+</div>

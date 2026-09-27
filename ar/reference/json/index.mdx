@@ -1,34 +1,88 @@
 ---
 title: "JSON"
 description: "تحليل وترميز وفحص وتحويل JSON."
-icon: "folder-code"
+icon: "/icons/code-circle-2.svg"
 ---
+
+<div className="real-category-page">
 
 تحليل وترميز وفحص وتحويل JSON.
 
-| تنقل الدوال | الوصف |
-| --- | --- |
-| [`json.array`](./json-array) | ينشئ new table مميزة كـ JSON array من أجل json.encode، وينسخ sequence من 1.#source عند توفير source table. |
-| [`json.clone`](./json-clone) | ينسخ value عبر encoding باستخدام json.encode semantics ثم decoding للـ generated JSON مرة أخرى إلى Lua values. |
-| [`json.decode`](./json-decode) | يفسر JSON string باستخدام Real JSON parser ويعيد decoded Lua value، مع تعليم decoded arrays و objects من أجل JSON helpers. |
-| [`json.decodeSafe`](./json-decodesafe) | يفسر JSON باستخدام نفس parser مثل json.decode ويعيد success flag بدلا من الرمي عند parse errors. |
-| [`json.encode`](./json-encode) | يعمل serialize لـ Lua value إلى JSON string باستخدام Real JSON encoder. json.stringify مسجل لنفس function. |
-| [`json.encodePretty`](./json-encodepretty) | يسلسل Lua value إلى JSON string منسق وقابل للقراءة باستخدام Real JSON encoder. json.pretty مسجل على نفس function. |
-| [`json.escape`](./json-escape) | يعمل escape على string باستخدام Real JSON string escaping rules ويرجع escaped content بدون surrounding quotes. |
-| [`json.format`](./json-format) | يعمل parse لـ JSON string ثم يعيد encode له كـ readable formatted JSON باستخدام Real JSON parser و encoder. |
-| [`json.getPath`](./json-getpath) | يقرأ nested value من table باستخدام dotted string path او array table of keys. |
-| [`json.isArray`](./json-isarray) | يرجع ما اذا كان value يتم treated as a JSON array بواسطة Real JSON table detection. |
-| [`json.isNull`](./json-isnull) | يرجع ما اذا كان value هو Real JSON null sentinel، json.null. |
-| [`json.isObject`](./json-isobject) | يرجع ما اذا كان value يتم treated as a JSON object بواسطة Real JSON table detection. |
-| [`json.keys`](./json-keys) | يرجع visible keys من table في new table marked as a JSON array. |
-| [`json.minify`](./json-minify) | يعمل parse لـ JSON string ثم يعيد encode له باستخدام Real default non-pretty JSON encoder output. |
-| [`json.object`](./json-object) | ينشئ new table marked as a JSON object حتى يعاملها Real JSON encoder كـ object. |
-| [`json.parse`](./json-parse) | يعمل parse لـ JSON string باستخدام نفس function مثل json.decode. |
-| [`json.pretty`](./json-pretty) | يسلسل Lua value إلى readable formatted JSON string باستخدام نفس function مثل json.encodePretty. |
-| [`json.quote`](./json-quote) | يعمل escape لـ string باستخدام Real JSON string escaping rules ويرجع complete quoted JSON string literal. |
-| [`json.stringify`](./json-stringify) | يسلسل Lua value إلى JSON string باستخدام نفس function مثل json.encode. |
-| [`json.tryDecode`](./json-trydecode) | يحاول parse لـ JSON string باستخدام نفس function مثل json.decodeSafe ويرجع status values لـ parse errors. |
-| [`json.type`](./json-type) | ترجع string type name لقيمة. json.null يرجع "null". الجداول ترجع "array" أو "object" باستخدام نفس table classification مثل json.isArray و json.isObject. القيم الأخرى ترجع runtime Lua type name result. |
-| [`json.unescape`](./json-unescape) | يفك JSON string escape sequences من escaped string content أو من complete quoted JSON string literal. يتم parse للمدخل باستخدام JSON string parser، وليس كـ full JSON document. |
-| [`json.validate`](./json-validate) | يتحقق من JSON string عن طريق parse لقيمة JSON واحدة complete. عند success يرجع true فقط. عند parse failure يرجع false مع parser error details. |
-| [`json.values`](./json-values) | يرجع direct values من table في table جديدة marked as JSON array. يتم تخطي JSON type marker entries. |
+## الدوال المتاحة
+
+<CardGroup cols={2}>
+<Card title="json.array" href="./json-array">
+ينشئ new table مميزة كـ JSON array من أجل json.encode، وينسخ sequence من 1.#source عند توفير source table.
+</Card>
+<Card title="json.clone" href="./json-clone">
+ينسخ value عبر encoding باستخدام json.encode semantics ثم decoding للـ generated JSON مرة أخرى إلى Lua values.
+</Card>
+<Card title="json.decode" href="./json-decode">
+يفسر JSON string باستخدام Real JSON parser ويعيد decoded Lua value، مع تعليم decoded arrays و objects من أجل JSON helpers.
+</Card>
+<Card title="json.decodeSafe" href="./json-decodesafe">
+يفسر JSON باستخدام نفس parser مثل json.decode ويعيد success flag بدلا من الرمي عند parse errors.
+</Card>
+<Card title="json.encode" href="./json-encode">
+يعمل serialize لـ Lua value إلى JSON string باستخدام Real JSON encoder. json.stringify مسجل لنفس function.
+</Card>
+<Card title="json.encodePretty" href="./json-encodepretty">
+يسلسل Lua value إلى JSON string منسق وقابل للقراءة باستخدام Real JSON encoder. json.pretty مسجل على نفس function.
+</Card>
+<Card title="json.escape" href="./json-escape">
+يعمل escape على string باستخدام Real JSON string escaping rules ويرجع escaped content بدون surrounding quotes.
+</Card>
+<Card title="json.format" href="./json-format">
+يعمل parse لـ JSON string ثم يعيد encode له كـ readable formatted JSON باستخدام Real JSON parser و encoder.
+</Card>
+<Card title="json.getPath" href="./json-getpath">
+يقرأ nested value من table باستخدام dotted string path او array table of keys.
+</Card>
+<Card title="json.isArray" href="./json-isarray">
+يرجع ما اذا كان value يتم treated as a JSON array بواسطة Real JSON table detection.
+</Card>
+<Card title="json.isNull" href="./json-isnull">
+يرجع ما اذا كان value هو Real JSON null sentinel، json.null.
+</Card>
+<Card title="json.isObject" href="./json-isobject">
+يرجع ما اذا كان value يتم treated as a JSON object بواسطة Real JSON table detection.
+</Card>
+<Card title="json.keys" href="./json-keys">
+يرجع visible keys من table في new table marked as a JSON array.
+</Card>
+<Card title="json.minify" href="./json-minify">
+يعمل parse لـ JSON string ثم يعيد encode له باستخدام Real default non-pretty JSON encoder output.
+</Card>
+<Card title="json.object" href="./json-object">
+ينشئ new table marked as a JSON object حتى يعاملها Real JSON encoder كـ object.
+</Card>
+<Card title="json.parse" href="./json-parse">
+يعمل parse لـ JSON string باستخدام نفس function مثل json.decode.
+</Card>
+<Card title="json.pretty" href="./json-pretty">
+يسلسل Lua value إلى readable formatted JSON string باستخدام نفس function مثل json.encodePretty.
+</Card>
+<Card title="json.quote" href="./json-quote">
+يعمل escape لـ string باستخدام Real JSON string escaping rules ويرجع complete quoted JSON string literal.
+</Card>
+<Card title="json.stringify" href="./json-stringify">
+يسلسل Lua value إلى JSON string باستخدام نفس function مثل json.encode.
+</Card>
+<Card title="json.tryDecode" href="./json-trydecode">
+يحاول parse لـ JSON string باستخدام نفس function مثل json.decodeSafe ويرجع status values لـ parse errors.
+</Card>
+<Card title="json.type" href="./json-type">
+ترجع string type name لقيمة. json.null يرجع "null". الجداول ترجع "array" أو "object" باستخدام نفس table classification مثل json.isArray و json.isObject. القيم الأخرى ترجع runtime Lua type name result.
+</Card>
+<Card title="json.unescape" href="./json-unescape">
+يفك JSON string escape sequences من escaped string content أو من complete quoted JSON string literal. يتم parse للمدخل باستخدام JSON string parser، وليس كـ full JSON document.
+</Card>
+<Card title="json.validate" href="./json-validate">
+يتحقق من JSON string عن طريق parse لقيمة JSON واحدة complete. عند success يرجع true فقط. عند parse failure يرجع false مع parser error details.
+</Card>
+<Card title="json.values" href="./json-values">
+يرجع direct values من table في table جديدة marked as JSON array. يتم تخطي JSON type marker entries.
+</Card>
+</CardGroup>
+
+</div>

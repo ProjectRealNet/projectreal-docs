@@ -2,13 +2,10 @@
 title: "json.unescape"
 sidebarTitle: "json.unescape"
 description: "Декодирует JSON string escape sequences из escaped string content или из complete quoted JSON string literal. Вход parse через JSON string parser, а не как full JSON document."
-icon: "function"
 keywords: ["json.unescape","JSON"]
 ---
 
-Декодирует JSON string escape sequences из escaped string content или из complete quoted JSON string literal. Вход parse через JSON string parser, а не как full JSON document.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 json.unescape(text: string): string
@@ -16,15 +13,15 @@ json.unescape(text: string): string
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | Escaped JSON string content или complete quoted JSON string literal, у которого first and last bytes являются quotes. Function читает этот argument через string type checking. |
+<ParamField path={"text"} type={"string"} required>
+Escaped JSON string content или complete quoted JSON string literal, у которого first and last bytes являются quotes. Function читает этот argument через string type checking.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `text` | `string` | Decoded string. Supported escapes включают \", \\, \/, \b, \f, \n, \r, \t и \uXXXX с surrogate-pair handling. Invalid escapes, unescaped control characters, unterminated strings и trailing characters после quoted literal выбрасывают Luau error с near-position suffix. |
+<ResponseField name={"text"} type={"string"}>
+Decoded string. Supported escapes включают \", \\, \/, \b, \f, \n, \r, \t и \uXXXX с surrogate-pair handling. Invalid escapes, unescaped control characters, unterminated strings и trailing characters после quoted literal выбрасывают Luau error с near-position suffix.
+</ResponseField>
 
 ## Пример
 
@@ -36,3 +33,6 @@ local restored = json.unescape(escaped)
 
 print(restored)
 ```
+
+
+</div>

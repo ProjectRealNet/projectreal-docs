@@ -2,13 +2,10 @@
 title: "getcustomasset"
 sidebarTitle: "getcustomasset"
 description: "Menyalin regular workspace file yang ada ke ExtraContent/<hwid>/ dan mengembalikan rbxasset:// string untuk asset path yang disalin."
-icon: "function"
 keywords: ["getcustomasset","Filesystem","getsynasset"]
 ---
 
-Menyalin regular workspace file yang ada ke ExtraContent/&lt;hwid>/ dan mengembalikan rbxasset:// string untuk asset path yang disalin.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 getcustomasset(path: string): string
@@ -20,15 +17,15 @@ getcustomasset(path: string): string
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | Path yang diselesaikan di dalam workspace setelah separator normalization dan workspace-boundary checks. Target harus ada dan berupa regular file; folders, invalid filenames, DOS device names, dan blocked extensions tidak diterima. |
+<ParamField path={"path"} type={"string"} required>
+Path yang diselesaikan di dalam workspace setelah separator normalization dan workspace-boundary checks. Target harus ada dan berupa regular file; folders, invalid filenames, DOS device names, dan blocked extensions tidak diterima.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `assetId` | `string` | String dengan bentuk rbxasset://&lt;hwid>/&lt;workspace-relative-path>, memakai forward slashes untuk relative path. |
+<ResponseField name={"assetId"} type={"string"}>
+String dengan bentuk rbxasset://&lt;hwid>/&lt;workspace-relative-path>, memakai forward slashes untuk relative path.
+</ResponseField>
 
 ## Contoh
 
@@ -42,3 +39,6 @@ local assetId = getcustomasset(path)
 print(assetId)
 print(getsynasset(path))
 ```
+
+
+</div>

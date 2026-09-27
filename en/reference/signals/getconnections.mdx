@@ -2,13 +2,10 @@
 title: "getconnections"
 sidebarTitle: "getconnections"
 description: "Returns connection objects for an RBXScriptSignal. The first argument must be a valid RBXScriptSignal."
-icon: "function"
 keywords: ["getconnections","Signals","getsignals","get_signal_cons"]
 ---
 
-Returns connection objects for an RBXScriptSignal. The first argument must be a valid RBXScriptSignal.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getconnections(signal: RBXScriptSignal): {RealConnection}
@@ -21,15 +18,15 @@ getconnections(signal: RBXScriptSignal): {RealConnection}
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | Signal to inspect. Non-RBXScriptSignal object raises a type error, and a signal without a callable Connect field raises "Signal does not have 'Connect' method". |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+Signal to inspect. Non-RBXScriptSignal object raises a type error, and a signal without a callable Connect field raises "Signal does not have 'Connect' method".
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `connections` | `&#123;RealConnection&#125;` | Array table of connection objects. Available fields and methods may include Enabled, Disabled, Function, Thread, Disconnect, Disable, Enable, Fire, and Defer. |
+<ResponseField name={"connections"} type={"{RealConnection}"}>
+Array table of connection objects. Available fields and methods may include Enabled, Disabled, Function, Thread, Disconnect, Disable, Enable, Fire, and Defer.
+</ResponseField>
 
 ## Example
 
@@ -42,3 +39,6 @@ for _, connection in ipairs(getconnections(Players.PlayerAdded)) do
     print(connection.Enabled, connection.LuaConnection)
 end
 ```
+
+
+</div>

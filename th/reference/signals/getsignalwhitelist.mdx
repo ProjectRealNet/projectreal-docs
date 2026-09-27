@@ -2,13 +2,10 @@
 title: "getsignalwhitelist"
 sidebarTitle: "getsignalwhitelist"
 description: "คืนค่า array table ใหม่ที่มี whitelist entry แบบคงที่ 6 รายการตามที่กำหนดใน function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent แต่ละ entry เป็น table ที่มี string field ชื่อ Event และ Parent function นี้ไม่รับ arguments และไม่ตรวจสอบ game state ปัจจุบัน"
-icon: "function"
 keywords: ["getsignalwhitelist","Signals"]
 ---
 
-คืนค่า array table ใหม่ที่มี whitelist entry แบบคงที่ 6 รายการตามที่กำหนดใน function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent แต่ละ entry เป็น table ที่มี string field ชื่อ Event และ Parent function นี้ไม่รับ arguments และไม่ตรวจสอบ game state ปัจจุบัน
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 getsignalwhitelist(): table
@@ -16,6 +13,9 @@ getsignalwhitelist(): table
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `signals` | `table` | Array table ของ whitelist entry แบบคงที่ แต่ละ entry มี string field ชื่อ Event และ Parent |
+<ResponseField name={"signals"} type={"table"}>
+Array table ของ whitelist entry แบบคงที่ แต่ละ entry มี string field ชื่อ Event และ Parent
+</ResponseField>
+
+
+</div>

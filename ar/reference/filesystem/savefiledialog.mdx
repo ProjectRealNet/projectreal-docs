@@ -2,13 +2,10 @@
 title: "savefiledialog"
 sidebarTitle: "savefiledialog"
 description: "يفتح Windows save dialog عبر Windows save dialog، يكتب Lua string bytes المقدمة إلى selected path، ويعيد saved file كـ file item."
-icon: "function"
 keywords: ["savefiledialog","Filesystem"]
 ---
 
-يفتح Windows save dialog عبر Windows save dialog، يكتب Lua string bytes المقدمة إلى selected path، ويعيد saved file كـ file item.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
@@ -16,16 +13,19 @@ savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `content` | `string` | Yes | Lua string bytes التي ستكتب إلى selected file. يتم فتح الملف في binary truncate mode بعد أن يؤكد المستخدم path. |
-| `options` | `DialogOptions` | No | Optional table. savefiledialog يستخدم title و defaultPath و extensionFilter و suggestedName و defaultExtension. extensionFilter هي table من extension strings؛ تتم إزالة . أو *. من البداية قبل أن يصبح كل filter بصيغة *.&lt;extension>. defaultExtension يزيل leading . characters قبل تمريره إلى SetDefaultExtension. |
+<ParamField path={"content"} type={"string"} required>
+Lua string bytes التي ستكتب إلى selected file. يتم فتح الملف في binary truncate mode بعد أن يؤكد المستخدم path.
+</ParamField>
+
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table. savefiledialog يستخدم title و defaultPath و extensionFilter و suggestedName و defaultExtension. extensionFilter هي table من extension strings؛ تتم إزالة . أو *. من البداية قبل أن يصبح كل filter بصيغة *.&lt;extension>. defaultExtension يزيل leading . characters قبل تمريره إلى SetDefaultExtension.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `file` | `FileSystemItem \| nil` | Saved file item، أو nil عند إلغاء dialog. Dialog or write failures ترمي Failed to save file. |
+<ResponseField name={"file"} type={"FileSystemItem | nil"}>
+Saved file item، أو nil عند إلغاء dialog. Dialog or write failures ترمي Failed to save file.
+</ResponseField>
 
 ## الأنواع
 
@@ -60,3 +60,6 @@ else
     print("No file saved")
 end
 ```
+
+
+</div>

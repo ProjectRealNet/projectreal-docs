@@ -2,13 +2,10 @@
 title: "getexecutorname"
 sidebarTitle: "getexecutorname"
 description: "Returns Real's executor name as one string."
-icon: "function"
 keywords: ["getexecutorname","Miscellaneous"]
 ---
 
-Returns Real's executor name as one string.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 getexecutorname(): string
@@ -16,9 +13,9 @@ getexecutorname(): string
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `executorName` | `string` | Executor name string. |
+<ResponseField name={"executorName"} type={"string"}>
+Executor name string.
+</ResponseField>
 
 ## Ví dụ
 
@@ -28,3 +25,6 @@ Read the executor name string exposed by Real.
 local name = getexecutorname()
 print(name)
 ```
+
+
+</div>

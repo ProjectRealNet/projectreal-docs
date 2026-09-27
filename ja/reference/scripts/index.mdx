@@ -1,25 +1,61 @@
 ---
 title: "Scripts"
 description: "スクリプト、バイトコード、環境クエリ。"
-icon: "folder-code"
+icon: "/icons/file-code.svg"
 ---
+
+<div className="real-category-page">
 
 スクリプト、バイトコード、環境クエリ。
 
-| 関数ナビゲーション | 説明 |
-| --- | --- |
-| [`decompile`](./decompile) | Roblox script を decompile し、bytecode が利用できる場合は生成された source text を返します。argument は対応している script Instance である必要があります。使用できる bytecode がない場合、この function は nil を返します。 |
-| [`dumpstring`](./dumpstring) | Roblox script object の decompressed bytecode string を返します。dumpstring は getscriptbytecode と同じ C++ function に登録されているため、動作は同一です。argument は object である必要があります。共有 bytecode reader は ClassName values ModuleScript、LocalScript、CoreScript、Script を受け入れます。Script では RunContext が Client である必要があります。ClassName がない場合、この function は "Invalid Instance" を発生させます。ClassName が対応する script class ではない場合、"Script expected" を発生させます。値が別の RunContext の Script の場合、"Expected a Script with RunContext set to Client" を発生させます。embedded bytecode reference が無効、または stored bytecode の長さが 8 bytes 以下の場合、この function は nil を返します。それ以外の場合、DecompressBytecode で stored bytecode を展開し、resulting bytes を Luau string として返します。Hash mismatch、too-short compressed data、ZSTD decompression errors はここで発生せず、DecompressBytecode によって error text bytes として返されます。 |
-| [`getcallingscript`](./getcallingscript) | current Luau thread object に保存されている script を返します。この function は arguments を受け取りません。stored reference である the current thread script を読み取ります。その stored reference が expired ではない場合、function は Instance cache で script Instance を push して返します。stored reference が expired の場合、function は nil を返します。function は Lua call stack を調べず、ancestor scripts を検索せず、script ClassName も確認しません。 |
-| [`getinstancesbyclass`](./getinstancesbyclass) | Instance cache table から、ClassName field が要求された string と完全一致する instances を返します。最初の引数は string type checking で読み取られます。empty string は "ClassName required" を発生させます。この function は新しい array table を作成し、Instance cache の下に保存された cache を反復し、Lua type が object の values のみを残し、各 object value の ClassName field を読み取り、要求された className と strcmp で比較します。matches は index 1 から sequential に挿入されます。一致は exact かつ case-sensitive です。function は IsA を使用せず、subclasses を含めず、walk descendants を行わず、Parent で filter せず、result を sort しません。getinstancesofclass は同じ function の alias です。 |
-| [`getloadedmodules`](./getloadedmodules) | Returns a new array table containing live entries from loaded module list. The optional excludeCore argument is read with optional boolean handling and defaults to true when omitted or nil. If excludeCore is true, entries whose instance is a descendant of core packages or CoreGui are skipped. Expired weak entries and locked stored references without a value are skipped. The function pushes each remaining entry with Instance cache at sequential array indexes starting at 1. The function does not check ClassName, does not sort the result, and does not walk the DataModel. |
-| [`getmenv`](./getmenv) | Returns the environment table associated with a ModuleScript. The argument must be a ModuleScript object. Invalid objects raise "Invalid Instance", non-ModuleScript objects raise "ModuleScript expected", and ModuleScripts without an available thread raise "invalid thread". The function does not accept Script or LocalScript; use getsenv for those cases. |
-| [`getreferencedby`](./getreferencedby) | Returns cached Instance values whose supported reference properties point to the provided Instance. The argument must be an Instance. |
-| [`getrunningscripts`](./getrunningscripts) | live Lua threads から取得した unique script Instances の新しい array table を返します。この function は arguments を取りません。the live Luau thread list をたどり、各 thread node を読み取り、thread node、weak thread ref、LiveLuaRef、Lua state、object がない entries、または expired Script stored reference を持つ entries をスキップします。残った各 thread について scriptThread->object->Script() をロックし、script reference で重複排除し、Instance cache で Instance を push して、1 から始まる連続した array indexes に挿入します。function は DataModel をスキャンせず、ClassName を確認せず、result をソートしません。 |
-| [`getscriptbytecode`](./getscriptbytecode) | Roblox script object の decompressed bytecode string を返します。getscriptbytecode は dumpstring と同じ C++ function に登録されているため、動作は同一です。argument は object である必要があります。共有 bytecode reader は ClassName values ModuleScript、LocalScript、CoreScript、Script を受け入れます。Script では RunContext が Client である必要があります。ClassName がない場合、この function は "Invalid Instance" を発生させます。ClassName が対応する script class ではない場合、"Script expected" を発生させます。値が別の RunContext の Script の場合、"Expected a Script with RunContext set to Client" を発生させます。embedded bytecode reference が無効、または stored bytecode の長さが 8 bytes 以下の場合、この function は nil を返します。それ以外の場合、DecompressBytecode で stored bytecode を展開し、resulting bytes を Luau string として返します。Hash mismatch、too-short compressed data、ZSTD decompression errors はここで発生せず、DecompressBytecode によって error text bytes として返されます。 |
-| [`getscriptclosure`](./getscriptclosure) | Loads the stored bytecode for a supported Roblox script Instance and returns it as a Lua closure. Returns nil when usable bytecode is not available. |
-| [`getscripthash`](./getscripthash) | Roblox script object の stored bytecode string に対する uppercase SHA384 hex digest を返します。argument は object である必要があります。共有 bytecode reader は ClassName 値 ModuleScript、LocalScript、CoreScript、Script を受け付けます。Script では RunContext が Client である必要があります。ClassName がない場合、function は "Invalid Instance" を投げます。ClassName が対応する script classes のいずれでもない場合、"Script expected" を投げます。値が別の RunContext を持つ Script の場合、"Expected a Script with RunContext set to Client" を投げます。embedded bytecode reference が無効、または stored bytecode の長さが 8 bytes 以下の場合、function は nil を返します。それ以外では、正確な stored bytecode bytes を SHA384 で hash し、uppercase hex string を返します。function は DecompressBytecode を呼び出さず、decompressed bytecode を hash しません。 |
-| [`getscripts`](./getscripts) | Instance cache に現在存在する script object 値を返します。この function は arguments を取りません。Instance cache に保存された cache を反復し、value が object の entries だけを対象にします。各 value の ClassName field を optional string handling で読みます。LocalScript と ModuleScript entries は含まれます。Script entries は RunContext offset が CLIENT または PLUGIN に等しい場合だけ含まれます。他の ClassName 値、string ClassName を持たない entries、CoreScript entries はスキップされます。結果は sequential Luau table です。function は DataModel を走査せず、sorted order も保証しません。 |
-| [`getscriptthread`](./getscriptthread) | Real が見つけられる場合、script object に関連付けられた Lua thread を返します。argument は object である必要があります。この function は値の ClassName field を読み、field が string でない場合は "not a valid Instance" を発生させます。受け付ける ClassName 値は Script、LocalScript、ModuleScript です。それ以外の値では "Script expected" を発生させます。最初に script reference で Real の ScriptThreadCache を確認します。cache hit の場合、cached Luau thread を thread として返します。cache miss の場合、Script 値は RunContext Client である必要があり、そうでなければ "Expected a Script with RunContext set to Client" を発生させます。その後、the live Luau thread list を走査し、各 thread node の first weak thread reference から LiveLuaRef へ進み、missing thread data または expired Script stored references をスキップし、各 script reference を要求された script と比較します。match が見つかると、その Luau thread を thread として返します。match がなければ nil を返します。 |
-| [`getsenv`](./getsenv) | Returns the environment table associated with a LocalScript, Script, or ModuleScript. Unsupported script objects or scripts without an available thread raise the same errors as the underlying script lookup. |
-| [`loadstring`](./loadstring) | Compiles a Luau source string and returns the loaded function. If loading fails, it returns nil and an error message. The returned function is not executed automatically. |
+## 利用できる関数
+
+<CardGroup cols={2}>
+<Card title="decompile" href="./decompile">
+Roblox script を decompile し、bytecode が利用できる場合は生成された source text を返します。argument は対応している script Instance である必要があります。使用できる bytecode がない場合、この function は nil を返します。
+</Card>
+<Card title="dumpstring" href="./dumpstring">
+Roblox script object の decompressed bytecode string を返します。dumpstring は getscriptbytecode と同じ C++ function に登録されているため、動作は同一です。argument は object である必要があります。共有 bytecode reader は ClassName values ModuleScript、LocalScript、CoreScript、Script を受け入れます。Script では RunContext が Client である必要があります。ClassName がない場合、この function は "Invalid Instance" を発生させます。ClassName が対応する script class ではない場合、"Script expected" を発生させます。値が別の RunContext の Script の場合、"Expected a Script with RunContext set to Client" を発生させます。embedded bytecode reference が無効、または stored bytecode の長さが 8 bytes 以下の場合、この function は nil を返します。それ以外の場合、DecompressBytecode で stored bytecode を展開し、resulting bytes を Luau string として返します。Hash mismatch、too-short compressed data、ZSTD decompression errors はここで発生せず、DecompressBytecode によって error text bytes として返されます。
+</Card>
+<Card title="getcallingscript" href="./getcallingscript">
+current Luau thread object に保存されている script を返します。この function は arguments を受け取りません。stored reference である the current thread script を読み取ります。その stored reference が expired ではない場合、function は Instance cache で script Instance を push して返します。stored reference が expired の場合、function は nil を返します。function は Lua call stack を調べず、ancestor scripts を検索せず、script ClassName も確認しません。
+</Card>
+<Card title="getinstancesbyclass" href="./getinstancesbyclass">
+Instance cache table から、ClassName field が要求された string と完全一致する instances を返します。最初の引数は string type checking で読み取られます。empty string は "ClassName required" を発生させます。この function は新しい array table を作成し、Instance cache の下に保存された cache を反復し、Lua type が object の values のみを残し、各 object value の ClassName field を読み取り、要求された className と strcmp で比較します。matches は index 1 から sequential に挿入されます。一致は exact かつ case-sensitive です。function は IsA を使用せず、subclasses を含めず、walk descendants を行わず、Parent で filter せず、result を sort しません。getinstancesofclass は同じ function の alias です。
+</Card>
+<Card title="getloadedmodules" href="./getloadedmodules">
+Returns a new array table containing live entries from loaded module list. The optional excludeCore argument is read with optional boolean handling and defaults to true when omitted or nil. If excludeCore is true, entries whose instance is a descendant of core packages or CoreGui are skipped. Expired weak entries and locked stored references without a value are skipped. The function pushes each remaining entry with Instance cache at sequential array indexes starting at 1. The function does not check ClassName, does not sort the result, and does not walk the DataModel.
+</Card>
+<Card title="getmenv" href="./getmenv">
+Returns the environment table associated with a ModuleScript. The argument must be a ModuleScript object. Invalid objects raise "Invalid Instance", non-ModuleScript objects raise "ModuleScript expected", and ModuleScripts without an available thread raise "invalid thread". The function does not accept Script or LocalScript; use getsenv for those cases.
+</Card>
+<Card title="getreferencedby" href="./getreferencedby">
+Returns cached Instance values whose supported reference properties point to the provided Instance. The argument must be an Instance.
+</Card>
+<Card title="getrunningscripts" href="./getrunningscripts">
+live Lua threads から取得した unique script Instances の新しい array table を返します。この function は arguments を取りません。the live Luau thread list をたどり、各 thread node を読み取り、thread node、weak thread ref、LiveLuaRef、Lua state、object がない entries、または expired Script stored reference を持つ entries をスキップします。残った各 thread について scriptThread->object->Script() をロックし、script reference で重複排除し、Instance cache で Instance を push して、1 から始まる連続した array indexes に挿入します。function は DataModel をスキャンせず、ClassName を確認せず、result をソートしません。
+</Card>
+<Card title="getscriptbytecode" href="./getscriptbytecode">
+Roblox script object の decompressed bytecode string を返します。getscriptbytecode は dumpstring と同じ C++ function に登録されているため、動作は同一です。argument は object である必要があります。共有 bytecode reader は ClassName values ModuleScript、LocalScript、CoreScript、Script を受け入れます。Script では RunContext が Client である必要があります。ClassName がない場合、この function は "Invalid Instance" を発生させます。ClassName が対応する script class ではない場合、"Script expected" を発生させます。値が別の RunContext の Script の場合、"Expected a Script with RunContext set to Client" を発生させます。embedded bytecode reference が無効、または stored bytecode の長さが 8 bytes 以下の場合、この function は nil を返します。それ以外の場合、DecompressBytecode で stored bytecode を展開し、resulting bytes を Luau string として返します。Hash mismatch、too-short compressed data、ZSTD decompression errors はここで発生せず、DecompressBytecode によって error text bytes として返されます。
+</Card>
+<Card title="getscriptclosure" href="./getscriptclosure">
+Loads the stored bytecode for a supported Roblox script Instance and returns it as a Lua closure. Returns nil when usable bytecode is not available.
+</Card>
+<Card title="getscripthash" href="./getscripthash">
+Roblox script object の stored bytecode string に対する uppercase SHA384 hex digest を返します。argument は object である必要があります。共有 bytecode reader は ClassName 値 ModuleScript、LocalScript、CoreScript、Script を受け付けます。Script では RunContext が Client である必要があります。ClassName がない場合、function は "Invalid Instance" を投げます。ClassName が対応する script classes のいずれでもない場合、"Script expected" を投げます。値が別の RunContext を持つ Script の場合、"Expected a Script with RunContext set to Client" を投げます。embedded bytecode reference が無効、または stored bytecode の長さが 8 bytes 以下の場合、function は nil を返します。それ以外では、正確な stored bytecode bytes を SHA384 で hash し、uppercase hex string を返します。function は DecompressBytecode を呼び出さず、decompressed bytecode を hash しません。
+</Card>
+<Card title="getscripts" href="./getscripts">
+Instance cache に現在存在する script object 値を返します。この function は arguments を取りません。Instance cache に保存された cache を反復し、value が object の entries だけを対象にします。各 value の ClassName field を optional string handling で読みます。LocalScript と ModuleScript entries は含まれます。Script entries は RunContext offset が CLIENT または PLUGIN に等しい場合だけ含まれます。他の ClassName 値、string ClassName を持たない entries、CoreScript entries はスキップされます。結果は sequential Luau table です。function は DataModel を走査せず、sorted order も保証しません。
+</Card>
+<Card title="getscriptthread" href="./getscriptthread">
+Real が見つけられる場合、script object に関連付けられた Lua thread を返します。argument は object である必要があります。この function は値の ClassName field を読み、field が string でない場合は "not a valid Instance" を発生させます。受け付ける ClassName 値は Script、LocalScript、ModuleScript です。それ以外の値では "Script expected" を発生させます。最初に script reference で Real の ScriptThreadCache を確認します。cache hit の場合、cached Luau thread を thread として返します。cache miss の場合、Script 値は RunContext Client である必要があり、そうでなければ "Expected a Script with RunContext set to Client" を発生させます。その後、the live Luau thread list を走査し、各 thread node の first weak thread reference から LiveLuaRef へ進み、missing thread data または expired Script stored references をスキップし、各 script reference を要求された script と比較します。match が見つかると、その Luau thread を thread として返します。match がなければ nil を返します。
+</Card>
+<Card title="getsenv" href="./getsenv">
+Returns the environment table associated with a LocalScript, Script, or ModuleScript. Unsupported script objects or scripts without an available thread raise the same errors as the underlying script lookup.
+</Card>
+<Card title="loadstring" href="./loadstring">
+Compiles a Luau source string and returns the loaded function. If loading fails, it returns nil and an error message. The returned function is not executed automatically.
+</Card>
+</CardGroup>
+
+</div>

@@ -2,13 +2,10 @@
 title: "cloneref"
 sidebarTitle: "cloneref"
 description: "같은 내부 Instance 포인터에 대한 새 Instance 참조를 push하고 반환합니다."
-icon: "function"
 keywords: ["cloneref","Cache","clonereference"]
 ---
 
-같은 내부 Instance 포인터에 대한 새 Instance 참조를 push하고 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 cloneref(instance: Instance): Instance
@@ -20,15 +17,15 @@ cloneref(instance: Instance): Instance
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | 새 참조의 소스로 사용되는 Instance object입니다. |
+<ParamField path={"instance"} type={"Instance"} required>
+새 참조의 소스로 사용되는 Instance object입니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `reference` | `Instance` | 원본 object 포인터로 Instance cache가 실행된 뒤 반환되는 Instance 참조입니다. |
+<ResponseField name={"reference"} type={"Instance"}>
+원본 object 포인터로 Instance cache가 실행된 뒤 반환되는 Instance 참조입니다.
+</ResponseField>
 
 ## 예제
 
@@ -43,3 +40,6 @@ print(reference)
 local sameAlias = clonereference(Players)
 print(sameAlias)
 ```
+
+
+</div>

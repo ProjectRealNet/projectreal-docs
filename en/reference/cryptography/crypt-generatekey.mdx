@@ -2,13 +2,10 @@
 title: "crypt.generatekey"
 sidebarTitle: "crypt.generatekey"
 description: "Generates 32 random raw bytes with random byte generator and returns them Base64-encoded as a Lua string."
-icon: "function"
 keywords: ["crypt.generatekey","Cryptography"]
 ---
 
-Generates 32 random raw bytes with random byte generator and returns them Base64-encoded as a Lua string.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 crypt.generatekey(): string
@@ -16,9 +13,9 @@ crypt.generatekey(): string
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `key` | `string` | Base64 encoding of the generated 32 raw bytes. The returned string is not 32 characters long. |
+<ResponseField name={"key"} type={"string"}>
+Base64 encoding of the generated 32 raw bytes. The returned string is not 32 characters long.
+</ResponseField>
 
 ## Example
 
@@ -34,3 +31,6 @@ print(key)
 print(#raw)
 print(ciphertext, iv)
 ```
+
+
+</div>

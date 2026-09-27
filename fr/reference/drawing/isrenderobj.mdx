@@ -2,13 +2,10 @@
 title: "isrenderobj"
 sidebarTitle: "isrenderobj"
 description: "Retourne si la valeur est object avec la Drawing object type. C est seulement un methods check; cela ne verifie pas si le Drawing object sous-jacent est encore active, tracked ou destroyed. the Drawing API enregistre cette API uniquement quand the required rendering environment is active vaut true; quand cette verification vaut false, l initializer retourne avant de creer ces globals."
-icon: "function"
 keywords: ["isrenderobj","Drawing"]
 ---
 
-Retourne si la valeur est object avec la Drawing object type. C est seulement un methods check; cela ne verifie pas si le Drawing object sous-jacent est encore active, tracked ou destroyed. the Drawing API enregistre cette API uniquement quand the required rendering environment is active vaut true; quand cette verification vaut false, l initializer retourne avant de creer ces globals.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 isrenderobj(object: any): boolean
@@ -16,15 +13,15 @@ isrenderobj(object: any): boolean
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | Valeur a tester. Les non-object values et object sans Drawing object type retournent false. |
+<ParamField path={"object"} type={"any"} required>
+Valeur a tester. Les non-object values et object sans Drawing object type retournent false.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `isDrawingObject` | `boolean` | True lorsque la valeur est object et que sa methods correspond a RealDrawingObject; sinon false. |
+<ResponseField name={"isDrawingObject"} type={"boolean"}>
+True lorsque la valeur est object et que sa methods correspond a RealDrawingObject; sinon false.
+</ResponseField>
 
 ## Exemple
 
@@ -38,3 +35,6 @@ square:Destroy()
 print(isrenderobj(square))
 print(isrenderobj({}))
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "savefiledialog"
 sidebarTitle: "savefiledialog"
 description: "Windows save dialog を通じて Windows save dialog を開き、指定された Lua string bytes を selected path に書き込み、saved file を file item として返します。"
-icon: "function"
 keywords: ["savefiledialog","Filesystem"]
 ---
 
-Windows save dialog を通じて Windows save dialog を開き、指定された Lua string bytes を selected path に書き込み、saved file を file item として返します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
@@ -16,16 +13,19 @@ savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `content` | `string` | Yes | selected file に書き込む Lua string bytes。ユーザーが path を確認した後、ファイルは binary truncate mode で開かれます。 |
-| `options` | `DialogOptions` | No | Optional table. savefiledialog は title、defaultPath、extensionFilter、suggestedName、defaultExtension を使用します。extensionFilter は extension strings の table です。各 filter が *.&lt;extension> になる前に、先頭の . または *. は取り除かれます。defaultExtension は SetDefaultExtension に渡される前に leading . characters を取り除きます。 |
+<ParamField path={"content"} type={"string"} required>
+selected file に書き込む Lua string bytes。ユーザーが path を確認した後、ファイルは binary truncate mode で開かれます。
+</ParamField>
+
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table. savefiledialog は title、defaultPath、extensionFilter、suggestedName、defaultExtension を使用します。extensionFilter は extension strings の table です。各 filter が *.&lt;extension> になる前に、先頭の . または *. は取り除かれます。defaultExtension は SetDefaultExtension に渡される前に leading . characters を取り除きます。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `file` | `FileSystemItem \| nil` | Saved file item、または dialog がキャンセルされた場合は nil。Dialog or write failures は Failed to save file を throw します。 |
+<ResponseField name={"file"} type={"FileSystemItem | nil"}>
+Saved file item、または dialog がキャンセルされた場合は nil。Dialog or write failures は Failed to save file を throw します。
+</ResponseField>
 
 ## 型
 
@@ -60,3 +60,6 @@ else
     print("No file saved")
 end
 ```
+
+
+</div>

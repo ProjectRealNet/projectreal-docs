@@ -2,13 +2,10 @@
 title: "rconsolename"
 sidebarTitle: "rconsolename"
 description: "Đặt title của Windows console window hiện tại bằng Windows console title update. argument đầu tiên phải là string và được kiểm tra trước console existence check. Nếu không có console window sau khi string check thành công, lời gọi sẽ trả về mà không làm gì."
-icon: "function"
 keywords: ["rconsolename","Console","consolename","rconsolesettitle","consolesettitle"]
 ---
 
-Đặt title của Windows console window hiện tại bằng Windows console title update. argument đầu tiên phải là string và được kiểm tra trước console existence check. Nếu không có console window sau khi string check thành công, lời gọi sẽ trả về mà không làm gì.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 rconsolename(text: string)
@@ -22,9 +19,9 @@ rconsolename(text: string)
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | Giá trị văn bản được sử dụng bởi hoạt động. |
+<ParamField path={"text"} type={"string"} required>
+Giá trị văn bản được sử dụng bởi hoạt động.
+</ParamField>
 
 ## Ví dụ
 
@@ -34,3 +31,6 @@ Set the current Windows console window title.
 rconsolecreate()
 rconsolename("Real Console")
 ```
+
+
+</div>

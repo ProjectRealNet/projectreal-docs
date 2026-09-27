@@ -2,13 +2,10 @@
 title: "savefiledialog"
 sidebarTitle: "savefiledialog"
 description: "Windows save dialog 를 통해 Windows save dialog 를 열고 제공된 Lua string bytes 를 selected path 에 쓴 뒤 saved file 을 file item 으로 반환합니다."
-icon: "function"
 keywords: ["savefiledialog","Filesystem"]
 ---
 
-Windows save dialog 를 통해 Windows save dialog 를 열고 제공된 Lua string bytes 를 selected path 에 쓴 뒤 saved file 을 file item 으로 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
@@ -16,16 +13,19 @@ savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `content` | `string` | Yes | selected file 에 쓸 Lua string bytes 입니다. 사용자가 path 를 확인한 뒤 파일은 binary truncate mode 로 열립니다. |
-| `options` | `DialogOptions` | No | Optional table. savefiledialog 는 title, defaultPath, extensionFilter, suggestedName, defaultExtension 을 사용합니다. extensionFilter 는 extension strings 의 table 입니다. 각 filter 가 *.&lt;extension> 이 되기 전에 앞의 . 또는 *. 가 제거됩니다. defaultExtension 은 SetDefaultExtension 에 전달되기 전에 leading . characters 를 제거합니다. |
+<ParamField path={"content"} type={"string"} required>
+selected file 에 쓸 Lua string bytes 입니다. 사용자가 path 를 확인한 뒤 파일은 binary truncate mode 로 열립니다.
+</ParamField>
+
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table. savefiledialog 는 title, defaultPath, extensionFilter, suggestedName, defaultExtension 을 사용합니다. extensionFilter 는 extension strings 의 table 입니다. 각 filter 가 *.&lt;extension> 이 되기 전에 앞의 . 또는 *. 가 제거됩니다. defaultExtension 은 SetDefaultExtension 에 전달되기 전에 leading . characters 를 제거합니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `file` | `FileSystemItem \| nil` | Saved file item 이거나 dialog 가 취소되면 nil 입니다. Dialog or write failures 는 Failed to save file 를 throw 합니다. |
+<ResponseField name={"file"} type={"FileSystemItem | nil"}>
+Saved file item 이거나 dialog 가 취소되면 nil 입니다. Dialog or write failures 는 Failed to save file 를 throw 합니다.
+</ResponseField>
 
 ## 타입
 
@@ -60,3 +60,6 @@ else
     print("No file saved")
 end
 ```
+
+
+</div>

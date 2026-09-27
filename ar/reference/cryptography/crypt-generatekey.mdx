@@ -2,13 +2,10 @@
 title: "crypt.generatekey"
 sidebarTitle: "crypt.generatekey"
 description: "ينشئ 32 بايت خام عشوائي باستخدام random byte generator ويعيدها Base64-encoded كسلسلة Lua."
-icon: "function"
 keywords: ["crypt.generatekey","Cryptography"]
 ---
 
-ينشئ 32 بايت خام عشوائي باستخدام random byte generator ويعيدها Base64-encoded كسلسلة Lua.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 crypt.generatekey(): string
@@ -16,9 +13,9 @@ crypt.generatekey(): string
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `key` | `string` | Base64 encoding للـ 32 بايت خام التي تم إنشاؤها. السلسلة المعادة ليست بطول 32 حرفا. |
+<ResponseField name={"key"} type={"string"}>
+Base64 encoding للـ 32 بايت خام التي تم إنشاؤها. السلسلة المعادة ليست بطول 32 حرفا.
+</ResponseField>
 
 ## مثال
 
@@ -34,3 +31,6 @@ print(key)
 print(#raw)
 print(ciphertext, iv)
 ```
+
+
+</div>

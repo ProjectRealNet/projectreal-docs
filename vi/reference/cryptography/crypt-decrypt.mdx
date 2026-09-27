@@ -2,13 +2,10 @@
 title: "crypt.decrypt"
 sidebarTitle: "crypt.decrypt"
 description: "Giai ma Base64 ciphertext bang key da decode tu Base64 va Base64 IV bat buoc voi AES CBC hoac ECB."
-icon: "function"
 keywords: ["crypt.decrypt","Cryptography"]
 ---
 
-Giai ma Base64 ciphertext bang key da decode tu Base64 va Base64 IV bat buoc voi AES CBC hoac ECB.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES-CBC" | "AES-ECB"): string
@@ -16,18 +13,27 @@ crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Base64 ciphertext duoc decode truoc khi giai ma. |
-| `key` | `string` | Yes | Base64 key duoc decode truoc khi truyen vao AES. |
-| `iv` | `string` | Yes | Base64 IV duoc decode truoc khi xu ly mode. Doi so nay bat buoc, ke ca voi ECB. |
-| `mode` | `"CBC" \| "ECB" \| "AES-CBC" \| "AES-ECB"` | No | AES mode. Prefix AES- se bi xoa khi co. Mac dinh la AES-CBC. |
+<ParamField path={"data"} type={"string"} required>
+Base64 ciphertext duoc decode truoc khi giai ma.
+</ParamField>
+
+<ParamField path={"key"} type={"string"} required>
+Base64 key duoc decode truoc khi truyen vao AES.
+</ParamField>
+
+<ParamField path={"iv"} type={"string"} required>
+Base64 IV duoc decode truoc khi xu ly mode. Doi so nay bat buoc, ke ca voi ECB.
+</ParamField>
+
+<ParamField path={"mode"} type={"\"CBC\" | \"ECB\" | \"AES-CBC\" | \"AES-ECB\""}>
+AES mode. Prefix AES- se bi xoa khi co. Mac dinh la AES-CBC.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `plaintext` | `string` | Cac byte plaintext duoc tra ve duoi dang Lua string. |
+<ResponseField name={"plaintext"} type={"string"}>
+Cac byte plaintext duoc tra ve duoi dang Lua string.
+</ResponseField>
 
 ## Ví dụ
 
@@ -41,3 +47,6 @@ local plaintext = crypt.decrypt(ciphertext, key, iv)
 
 print(plaintext)
 ```
+
+
+</div>

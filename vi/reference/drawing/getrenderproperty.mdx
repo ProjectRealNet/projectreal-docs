@@ -2,13 +2,10 @@
 title: "getrenderproperty"
 sidebarTitle: "getrenderproperty"
 description: "Tra ve ket qua index doi so dau tien bang property key da cho. Voi Drawing object, ham dung cung Drawing property lookup nhu object[property], nen unknown properties va destroyed Drawing objects tra ve nil. the Drawing API chi dang ky API nay khi the required rendering environment is active la true; khi kiem tra do la false, initializer quay lai truoc khi tao cac globals nay."
-icon: "function"
 keywords: ["getrenderproperty","Drawing"]
 ---
 
-Tra ve ket qua index doi so dau tien bang property key da cho. Voi Drawing object, ham dung cung Drawing property lookup nhu object[property], nen unknown properties va destroyed Drawing objects tra ve nil. the Drawing API chi dang ky API nay khi the required rendering environment is active la true; khi kiem tra do la false, initializer quay lai truoc khi tao cac globals nay.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 getrenderproperty(object: any, property: any): any
@@ -16,16 +13,19 @@ getrenderproperty(object: any, property: any): any
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | Gia tri can index. Voi Drawing object, RealDrawingObject __index handler duoc su dung. |
-| `property` | `any` | Yes | property key duoc dung de indexing. Drawing object properties dua tren strings. |
+<ParamField path={"object"} type={"any"} required>
+Gia tri can index. Voi Drawing object, RealDrawingObject __index handler duoc su dung.
+</ParamField>
+
+<ParamField path={"property"} type={"any"} required>
+property key duoc dung de indexing. Drawing object properties dua tren strings.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `propertyValue` | `any` | Gia tri tra ve khi index object bang property, hoac nil khi Drawing __index handler khong co gia tri cho property do. |
+<ResponseField name={"propertyValue"} type={"any"}>
+Gia tri tra ve khi index object bang property, hoac nil khi Drawing __index handler khong co gia tri cho property do.
+</ResponseField>
 
 ## Ví dụ
 
@@ -38,3 +38,6 @@ line.Thickness = 3
 print(getrenderproperty(line, "Thickness"))
 print(getrenderproperty(line, "MissingProperty"))
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "getthreadidentity"
 sidebarTitle: "getthreadidentity"
 description: "Returns the identity for the current Luau thread, or for the first argument when that argument is a thread. Returned identities are 1 through 12; other stored values return 0."
-icon: "function"
 keywords: ["getthreadidentity","Threads","get_thread_identity","getidentity","getthreadcaps","getthreadcontext","get_thread_context"]
 ---
 
-Returns the identity for the current Luau thread, or for the first argument when that argument is a thread. Returned identities are 1 through 12; other stored values return 0.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 getthreadidentity(thread?: thread): integer
@@ -24,15 +21,15 @@ getthreadidentity(thread?: thread): integer
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `thread` | `thread` | No | Optional Luau thread to inspect. If omitted, or if the first argument is not a thread, the current thread is inspected. |
+<ParamField path={"thread"} type={"thread"}>
+Optional Luau thread to inspect. If omitted, or if the first argument is not a thread, the current thread is inspected.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `identity` | `integer` | Thread identity from 1 through 12, or 0 for other stored values. |
+<ResponseField name={"identity"} type={"integer"}>
+Thread identity from 1 through 12, or 0 for other stored values.
+</ResponseField>
 
 ## مثال
 
@@ -47,3 +44,6 @@ end)
 
 print(getthreadidentity(thread))
 ```
+
+
+</div>

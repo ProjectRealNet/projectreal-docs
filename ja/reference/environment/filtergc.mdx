@@ -2,13 +2,10 @@
 title: "filtergc"
 sidebarTitle: "filtergc"
 description: "指定した filters に一致する live garbage-collected tables または functions を検索します。filterType は \"table\" または \"function\" である必要があります。options は table である必要があります。"
-icon: "function"
 keywords: ["filtergc","Environment"]
 ---
 
-指定した filters に一致する live garbage-collected tables または functions を検索します。filterType は "table" または "function" である必要があります。options は table である必要があります。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 filtergc(filterType: string, options: table, returnOne?: boolean): table | function | nil
@@ -16,17 +13,23 @@ filtergc(filterType: string, options: table, returnOne?: boolean): table | funct
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `filterType` | `string` | Yes | 検索する GC object type。値は lowercase に変換され、"table" または "function" である必要があります。 |
-| `options` | `table` | Yes | Filter table。function searches は Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants, Upvalues を読みます。table searches は Metatable, Keys, Values, KeyValuePairs を読みます。 |
-| `returnOne` | `boolean` | No | Optional optional boolean handling flag。true の場合、array table ではなく最初の matching object または nil を返します。 |
+<ParamField path={"filterType"} type={"string"} required>
+検索する GC object type。値は lowercase に変換され、"table" または "function" である必要があります。
+</ParamField>
+
+<ParamField path={"options"} type={"table"} required>
+Filter table。function searches は Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants, Upvalues を読みます。table searches は Metatable, Keys, Values, KeyValuePairs を読みます。
+</ParamField>
+
+<ParamField path={"returnOne"} type={"boolean"}>
+Optional optional boolean handling flag。true の場合、array table ではなく最初の matching object または nil を返します。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `result` | `table \| function \| nil` | returnOne が false または omitted の場合は array table of matches。returnOne が true の場合は最初の matching table/function object または nil。 |
+<ResponseField name={"result"} type={"table | function | nil"}>
+returnOne が false または omitted の場合は array table of matches。returnOne が true の場合は最初の matching table/function object または nil。
+</ResponseField>
 
 ## 例
 
@@ -54,3 +57,6 @@ local first = filtergc("table", {
 
 print(first ~= nil)
 ```
+
+
+</div>

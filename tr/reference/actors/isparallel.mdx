@@ -2,13 +2,10 @@
 title: "isparallel"
 sidebarTitle: "isparallel"
 description: "Geçerli Luau thread değerinin ScriptContext DataModel değerinden bir boolean döndürür. Function arguments almaz. parallel execution status değerini döndüren the current parallel execution status değerini okur. the current DataModel bir DataModel döndürmezse function false döndürür. checkparallel aynı function için alias değeridir."
-icon: "function"
 keywords: ["isparallel","Actors","checkparallel"]
 ---
 
-Geçerli Luau thread değerinin ScriptContext DataModel değerinden bir boolean döndürür. Function arguments almaz. parallel execution status değerini döndüren the current parallel execution status değerini okur. the current DataModel bir DataModel döndürmezse function false döndürür. checkparallel aynı function için alias değeridir.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 isparallel(): boolean
@@ -20,9 +17,9 @@ isparallel(): boolean
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `parallel` | `boolean` | Geçerli DataModel parallel execution status ayarlıysa true; flag ayarlı değilse veya DataModel yoksa false. |
+<ResponseField name={"parallel"} type={"boolean"}>
+Geçerli DataModel parallel execution status ayarlıysa true; flag ayarlı değilse veya DataModel yoksa false.
+</ResponseField>
 
 ## Örnek
 
@@ -34,3 +31,6 @@ print(parallel)
 
 print(checkparallel())
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "hookmetamethod"
 sidebarTitle: "hookmetamethod"
 description: "ค้นหา metamethod function บน value และ hook function นั้นผ่าน hookfunction first argument เป็น value ใดก็ได้ที่ raw metafield lookup รับได้ second argument ต้องเป็น string metamethod name และ third argument ต้องเป็น function replacement หาก raw metafield lookup หา named metafield ไม่พบ function จะ raise \"Metamethod doesn't exist\" สำหรับ argument 2 หาก metafield มีอยู่แต่ไม่ใช่ function จะ raise \"Metamethod isn't a function\" สำหรับ argument 2 เมื่อ metafield เป็น function hookmetamethod จะเรียก hookfunction โดยใช้ found metamethod function เป็น target และคืน cloned original closure ของ hookfunction"
-icon: "function"
 keywords: ["hookmetamethod","Closures"]
 ---
 
-ค้นหา metamethod function บน value และ hook function นั้นผ่าน hookfunction first argument เป็น value ใดก็ได้ที่ raw metafield lookup รับได้ second argument ต้องเป็น string metamethod name และ third argument ต้องเป็น function replacement หาก raw metafield lookup หา named metafield ไม่พบ function จะ raise "Metamethod doesn't exist" สำหรับ argument 2 หาก metafield มีอยู่แต่ไม่ใช่ function จะ raise "Metamethod isn't a function" สำหรับ argument 2 เมื่อ metafield เป็น function hookmetamethod จะเรียก hookfunction โดยใช้ found metamethod function เป็น target และคืน cloned original closure ของ hookfunction
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 hookmetamethod(object: any, metamethod: string, replacement: function): function
@@ -16,17 +13,23 @@ hookmetamethod(object: any, metamethod: string, replacement: function): function
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | Value ที่ methods ถูกตรวจด้วย raw metafield lookup |
-| `metamethod` | `string` | Yes | Metafield name ที่ส่งให้ raw metafield lookup |
-| `replacement` | `function` | Yes | Function ที่ส่งให้ hookfunction เป็น replacement สำหรับ found metamethod function |
+<ParamField path={"object"} type={"any"} required>
+Value ที่ methods ถูกตรวจด้วย raw metafield lookup
+</ParamField>
+
+<ParamField path={"metamethod"} type={"string"} required>
+Metafield name ที่ส่งให้ raw metafield lookup
+</ParamField>
+
+<ParamField path={"replacement"} type={"function"} required>
+Function ที่ส่งให้ hookfunction เป็น replacement สำหรับ found metamethod function
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `original` | `function` | Cloned original metamethod closure ที่ hookfunction คืน |
+<ResponseField name={"original"} type={"function"}>
+Cloned original metamethod closure ที่ hookfunction คืน
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -48,3 +51,6 @@ original = hookmetamethod(object, "__index", function(self, key)
     return original(self, key)
 end)
 ```
+
+
+</div>

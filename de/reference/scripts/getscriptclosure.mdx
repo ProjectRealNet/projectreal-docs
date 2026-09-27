@@ -2,13 +2,10 @@
 title: "getscriptclosure"
 sidebarTitle: "getscriptclosure"
 description: "Loads the stored bytecode for a supported Roblox script Instance and returns it as a Lua closure. Returns nil when usable bytecode is not available."
-icon: "function"
 keywords: ["getscriptclosure","Scripts","getscriptfunction"]
 ---
 
-Loads the stored bytecode for a supported Roblox script Instance and returns it as a Lua closure. Returns nil when usable bytecode is not available.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getscriptclosure(script: userdata): function | nil
@@ -20,15 +17,15 @@ getscriptclosure(script: userdata): function | nil
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | Script object to load. Supported ClassName values are ModuleScript, LocalScript, CoreScript, and Script with RunContext Client. |
+<ParamField path={"script"} type={"userdata"} required>
+Script object to load. Supported ClassName values are ModuleScript, LocalScript, CoreScript, and Script with RunContext Client.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `closure` | `function \| nil` | Loaded Lua closure, or nil when no usable bytecode is available or the Luau loader fails. |
+<ResponseField name={"closure"} type={"function | nil"}>
+Loaded Lua closure, or nil when no usable bytecode is available or the Luau loader fails.
+</ResponseField>
 
 ## Beispiel
 
@@ -49,3 +46,6 @@ if targetScript then
     print(closure)
 end
 ```
+
+
+</div>

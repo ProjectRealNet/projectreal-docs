@@ -2,13 +2,10 @@
 title: "imgui.setvsync"
 sidebarTitle: "imgui.setvsync"
 description: "Обновляет vertical synchronization preference для ImGui renderer. Текущий presentation path сохраняет эту preference, но не применяет ее."
-icon: "function"
 keywords: ["imgui.setvsync","ImGui"]
 ---
 
-Обновляет vertical synchronization preference для ImGui renderer. Текущий presentation path сохраняет эту preference, но не применяет ее.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 imgui.setvsync(enabled: boolean)
@@ -16,6 +13,9 @@ imgui.setvsync(enabled: boolean)
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `enabled` | `boolean` | Yes | `true`, чтобы запросить vertical synchronization; `false`, чтобы запросить uncapped presentation. |
+<ParamField path={"enabled"} type={"boolean"} required>
+`true`, чтобы запросить vertical synchronization; `false`, чтобы запросить uncapped presentation.
+</ParamField>
+
+
+</div>

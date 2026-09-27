@@ -2,13 +2,10 @@
 title: "json.getPath"
 sidebarTitle: "json.getPath"
 description: "Le um nested value de uma table usando um dotted string path ou uma array table of keys."
-icon: "function"
 keywords: ["json.getPath","JSON","json.getpath"]
 ---
 
-Le um nested value de uma table usando um dotted string path ou uma array table of keys.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
@@ -20,17 +17,23 @@ json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `object` | `table` | Yes | Root table de onde a leitura acontece. A function exige que este argument seja uma table. |
-| `path` | `string \| table` | Yes | Path a seguir. Uma string e split por dots; integer string tokens sao lidos com raw array indexing. Uma table path usa suas array entries de 1 ate #path como keys. |
-| `defaultValue` | `any` | No | Fallback value retornado quando traversal chega a nil ou a non-table antes de completar o path. |
+<ParamField path={"object"} type={"table"} required>
+Root table de onde a leitura acontece. A function exige que este argument seja uma table.
+</ParamField>
+
+<ParamField path={"path"} type={"string | table"} required>
+Path a seguir. Uma string e split por dots; integer string tokens sao lidos com raw array indexing. Uma table path usa suas array entries de 1 ate #path como keys.
+</ParamField>
+
+<ParamField path={"defaultValue"} type={"any"}>
+Fallback value retornado quando traversal chega a nil ou a non-table antes de completar o path.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `pathValue` | `any \| nil` | Value no requested path. Se o path estiver missing, retorna defaultValue quando fornecido, caso contrario nil. |
+<ResponseField name={"pathValue"} type={"any | nil"}>
+Value no requested path. Se o path estiver missing, retorna defaultValue quando fornecido, caso contrario nil.
+</ResponseField>
 
 ## Exemplo
 
@@ -50,3 +53,6 @@ local second = json.getPath(document, "user.items.2")
 print(name)
 print(second)
 ```
+
+
+</div>

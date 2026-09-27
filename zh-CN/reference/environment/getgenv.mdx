@@ -2,13 +2,10 @@
 title: "getgenv"
 sidebarTitle: "getgenv"
 description: "通过 pushing LUA_ENVIRONINDEX 返回 current executor environment table。该 function 不接受 arguments，返回 exactly one value，并且没有 registered alias。repository 中的 call-sites 使用 returned table 读取和写入 shared executor globals，例如 __siApiCache 和 saveinstance。"
-icon: "function"
 keywords: ["getgenv","Environment"]
 ---
 
-通过 pushing LUA_ENVIRONINDEX 返回 current executor environment table。该 function 不接受 arguments，返回 exactly one value，并且没有 registered alias。repository 中的 call-sites 使用 returned table 读取和写入 shared executor globals，例如 __siApiCache 和 saveinstance。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 getgenv(): table
@@ -16,9 +13,9 @@ getgenv(): table
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `environment` | `table` | 此 state 当前存储在 LUA_ENVIRONINDEX 的 table。 |
+<ResponseField name={"environment"} type={"table"}>
+此 state 当前存储在 LUA_ENVIRONINDEX 的 table。
+</ResponseField>
 
 ## 示例
 
@@ -31,3 +28,6 @@ env.RealDocsValue = "ready"
 
 print(getgenv().RealDocsValue)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "filtergc"
 sidebarTitle: "filtergc"
 description: "Tìm live garbage-collected tables hoặc functions khớp với filters đã cung cấp. filterType phải là \"table\" hoặc \"function\". options phải là table."
-icon: "function"
 keywords: ["filtergc","Environment"]
 ---
 
-Tìm live garbage-collected tables hoặc functions khớp với filters đã cung cấp. filterType phải là "table" hoặc "function". options phải là table.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 filtergc(filterType: string, options: table, returnOne?: boolean): table | function | nil
@@ -16,17 +13,23 @@ filtergc(filterType: string, options: table, returnOne?: boolean): table | funct
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `filterType` | `string` | Yes | GC object type can tim. Gia tri duoc chuyen thanh lowercase va phai la "table" hoac "function". |
-| `options` | `table` | Yes | Filter table. function searches doc Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants va Upvalues. table searches doc Metatable, Keys, Values va KeyValuePairs. |
-| `returnOne` | `boolean` | No | Optional optional boolean handling flag. Khi true, tra ve matching object dau tien hoac nil thay vi array table. |
+<ParamField path={"filterType"} type={"string"} required>
+GC object type can tim. Gia tri duoc chuyen thanh lowercase va phai la "table" hoac "function".
+</ParamField>
+
+<ParamField path={"options"} type={"table"} required>
+Filter table. function searches doc Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants va Upvalues. table searches doc Metatable, Keys, Values va KeyValuePairs.
+</ParamField>
+
+<ParamField path={"returnOne"} type={"boolean"}>
+Optional optional boolean handling flag. Khi true, tra ve matching object dau tien hoac nil thay vi array table.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `result` | `table \| function \| nil` | Khi returnOne la false hoac omitted, array table of matches. Khi returnOne la true, matching table/function object dau tien hoac nil. |
+<ResponseField name={"result"} type={"table | function | nil"}>
+Khi returnOne la false hoac omitted, array table of matches. Khi returnOne la true, matching table/function object dau tien hoac nil.
+</ResponseField>
 
 ## Ví dụ
 
@@ -54,3 +57,6 @@ local first = filtergc("table", {
 
 print(first ~= nil)
 ```
+
+
+</div>

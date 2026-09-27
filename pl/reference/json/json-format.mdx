@@ -2,13 +2,10 @@
 title: "json.format"
 sidebarTitle: "json.format"
 description: "Parsuje JSON string i ponownie encode'uje go jako readable formatted JSON przy uzyciu Real JSON parser i encoder."
-icon: "function"
 keywords: ["json.format","JSON"]
 ---
 
-Parsuje JSON string i ponownie encode'uje go jako readable formatted JSON przy uzyciu Real JSON parser i encoder.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
@@ -16,17 +13,23 @@ json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeO
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string parsowany przed formatting. Function czyta ten argument przez string type checking. |
-| `encodeOptions` | `EncodeOptions` | No | Optional encode options przekazywane do re-encode step. json.format czyta te same encode options co json.encode, a potem wymusza pretty na true. |
-| `decodeOptions` | `DecodeOptions` | No | Optional decode options uzywane podczas parsing input JSON. boolean ustawia useNull. table moze ustawic useNull i maxDepth. |
+<ParamField path={"json"} type={"string"} required>
+JSON string parsowany przed formatting. Function czyta ten argument przez string type checking.
+</ParamField>
+
+<ParamField path={"encodeOptions"} type={"EncodeOptions"}>
+Optional encode options przekazywane do re-encode step. json.format czyta te same encode options co json.encode, a potem wymusza pretty na true.
+</ParamField>
+
+<ParamField path={"decodeOptions"} type={"DecodeOptions"}>
+Optional decode options uzywane podczas parsing input JSON. boolean ustawia useNull. table moze ustawic useNull i maxDepth.
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `formatted` | `string` | Readable formatted JSON string utworzony po parsing i re-encoding input. |
+<ResponseField name={"formatted"} type={"string"}>
+Readable formatted JSON string utworzony po parsing i re-encoding input.
+</ResponseField>
 
 ## Typy
 
@@ -68,3 +71,6 @@ local formatted = json.format(compact, {
 
 print(formatted)
 ```
+
+
+</div>

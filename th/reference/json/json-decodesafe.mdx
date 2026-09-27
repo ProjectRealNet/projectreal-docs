@@ -2,13 +2,10 @@
 title: "json.decodeSafe"
 sidebarTitle: "json.decodeSafe"
 description: "parse JSON ด้วย parser เดียวกับ json.decode และคืน success flag แทนการ throw สำหรับ parse errors"
-icon: "function"
 keywords: ["json.decodeSafe","JSON"]
 ---
 
-parse JSON ด้วย parser เดียวกับ json.decode และคืน success flag แทนการ throw สำหรับ parse errors
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
@@ -16,19 +13,31 @@ json.decodeSafe(json: string, options?: DecodeOptions): boolean | any | nil | st
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON text สำหรับ parse. argument นี้ถูกตรวจเป็น string ก่อนที่ parse errors จะถูก catch. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean ตั้งค่า useNull โดยตรง. table สามารถตั้ง useNull และ maxDepth; maxDepth ถูก clamp จาก 1 ถึง 4096. Invalid option argument types ถูกตรวจก่อนที่ parse errors จะถูก catch. |
+<ParamField path={"json"} type={"string"} required>
+JSON text สำหรับ parse. argument นี้ถูกตรวจเป็น string ก่อนที่ parse errors จะถูก catch.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean ตั้งค่า useNull โดยตรง. table สามารถตั้ง useNull และ maxDepth; maxDepth ถูก clamp จาก 1 ถึง 4096. Invalid option argument types ถูกตรวจก่อนที่ parse errors จะถูก catch.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `success` | `boolean` | True เมื่อ parsing สำเร็จ, false เมื่อ parser รายงาน error. |
-| `decoded` | `any \| nil` | Decoded value เมื่อสำเร็จ, nil เมื่อ parse failure. JSON false ที่ valid จะคืน success เป็น true และ decoded เป็น false ดังนั้นให้ตรวจ success return value. |
-| `errorMessage` | `string \| nil` | Error message เมื่อ parse failure, ไม่เช่นนั้น nil. message มี json.decodeSafe prefix และ parser position. |
-| `errorPosition` | `number \| nil` | Parser byte position เมื่อ parse failure, ไม่เช่นนั้น nil. |
+<ResponseField name={"success"} type={"boolean"}>
+True เมื่อ parsing สำเร็จ, false เมื่อ parser รายงาน error.
+</ResponseField>
+
+<ResponseField name={"decoded"} type={"any | nil"}>
+Decoded value เมื่อสำเร็จ, nil เมื่อ parse failure. JSON false ที่ valid จะคืน success เป็น true และ decoded เป็น false ดังนั้นให้ตรวจ success return value.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+Error message เมื่อ parse failure, ไม่เช่นนั้น nil. message มี json.decodeSafe prefix และ parser position.
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+Parser byte position เมื่อ parse failure, ไม่เช่นนั้น nil.
+</ResponseField>
 
 ## Types
 
@@ -57,3 +66,6 @@ if not parsed then
     warn(message, position)
 end
 ```
+
+
+</div>

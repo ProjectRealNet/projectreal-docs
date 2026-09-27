@@ -2,13 +2,10 @@
 title: "WebSocket.Send"
 sidebarTitle: "WebSocket.Send"
 description: "WebSocket.connect tarafından döndürülen WebSocket object üzerinden bir Lua string gönderir. Method ilk argument olarak WebSocket table, ikinci argument olarak message string bekler. Object içindeki connection state değerini okur, bu object yoksa \"WebSocket state is missing\" fırlatır, state destroyed veya closed ise göndermeden döner ve varsayılan olarak CURLWS_TEXT ile ya da isteğe bağlı üçüncü argument boolean true ise CURLWS_BINARY ile curl_ws_send çağırır. values döndürmez ve gönderilen bytes sayısını raporlamaz."
-icon: "function"
 keywords: ["WebSocket.Send","WebSocket"]
 ---
 
-WebSocket.connect tarafından döndürülen WebSocket object üzerinden bir Lua string gönderir. Method ilk argument olarak WebSocket table, ikinci argument olarak message string bekler. Object içindeki connection state değerini okur, bu object yoksa "WebSocket state is missing" fırlatır, state destroyed veya closed ise göndermeden döner ve varsayılan olarak CURLWS_TEXT ile ya da isteğe bağlı üçüncü argument boolean true ise CURLWS_BINARY ile curl_ws_send çağırır. values döndürmez ve gönderilen bytes sayısını raporlamaz.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 WebSocket.Send(socket: WebSocket, message: string, isBinary?: boolean)
@@ -16,11 +13,17 @@ WebSocket.Send(socket: WebSocket, message: string, isBinary?: boolean)
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `socket` | `WebSocket` | Yes | WebSocket.connect tarafından döndürülen WebSocket table. Send, WebSocket object methods üzerinden resolve edilir, bu yüzden belgelenen çağrı biçimi socket:Send(..). |
-| `message` | `string` | Yes | explicit byte length ile curl_ws_send değerine geçirilen Lua string payload. |
-| `isBinary` | `boolean` | No | Bu argument varsa ve true ise Send CURLWS_BINARY kullanır. Aksi halde CURLWS_TEXT kullanır. |
+<ParamField path={"socket"} type={"WebSocket"} required>
+WebSocket.connect tarafından döndürülen WebSocket table. Send, WebSocket object methods üzerinden resolve edilir, bu yüzden belgelenen çağrı biçimi socket:Send(..).
+</ParamField>
+
+<ParamField path={"message"} type={"string"} required>
+explicit byte length ile curl_ws_send değerine geçirilen Lua string payload.
+</ParamField>
+
+<ParamField path={"isBinary"} type={"boolean"}>
+Bu argument varsa ve true ise Send CURLWS_BINARY kullanır. Aksi halde CURLWS_TEXT kullanır.
+</ParamField>
 
 ## Örnek
 
@@ -32,3 +35,6 @@ local socket = WebSocket.connect("wss://example.com/socket")
 socket:Send("hello")
 socket:Send(string.char(0, 1, 2, 3), true)
 ```
+
+
+</div>

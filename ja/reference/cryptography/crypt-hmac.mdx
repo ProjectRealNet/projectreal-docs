@@ -2,13 +2,10 @@
 title: "crypt.hmac"
 sidebarTitle: "crypt.hmac"
 description: "Raw Lua string key を使って Lua string のバイトに crypto library HMAC を計算し、Base64 digest を返します。"
-icon: "function"
 keywords: ["crypt.hmac","Cryptography"]
 ---
 
-Raw Lua string key を使って Lua string のバイトに crypto library HMAC を計算し、Base64 digest を返します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 crypt.hmac(key: string, data: string, algorithm?: "sha256" | "sha1" | "sha224" | "sha384" | "sha512" | "md5"): string
@@ -16,17 +13,23 @@ crypt.hmac(key: string, data: string, algorithm?: "sha256" | "sha1" | "sha224" |
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `key` | `string` | Yes | HMAC key として使われる raw Lua string のバイト。key は Base64-decode されません。 |
-| `data` | `string` | Yes | HMAC calculation に渡される Lua string のバイト。 |
-| `algorithm` | `"sha256" \| "sha1" \| "sha224" \| "sha384" \| "sha512" \| "md5"` | No | Case-sensitive な HMAC algorithm 名。デフォルトは sha256 です。 |
+<ParamField path={"key"} type={"string"} required>
+HMAC key として使われる raw Lua string のバイト。key は Base64-decode されません。
+</ParamField>
+
+<ParamField path={"data"} type={"string"} required>
+HMAC calculation に渡される Lua string のバイト。
+</ParamField>
+
+<ParamField path={"algorithm"} type={"\"sha256\" | \"sha1\" | \"sha224\" | \"sha384\" | \"sha512\" | \"md5\""}>
+Case-sensitive な HMAC algorithm 名。デフォルトは sha256 です。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `digest` | `string` | line breaks のない Base64-encoded HMAC output。 |
+<ResponseField name={"digest"} type={"string"}>
+line breaks のない Base64-encoded HMAC output。
+</ResponseField>
 
 ## 例
 
@@ -39,3 +42,6 @@ local digest = crypt.hmac(key, data, "sha256")
 
 print(digest)
 ```
+
+
+</div>

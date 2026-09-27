@@ -2,13 +2,10 @@
 title: "json.decode"
 sidebarTitle: "json.decode"
 description: "Real JSON parser 로 JSON string 을 parse 하고 decoded arrays 와 objects 를 JSON helpers 용으로 표시한 decoded Lua value 를 반환합니다."
-icon: "function"
 keywords: ["json.decode","JSON"]
 ---
 
-Real JSON parser 로 JSON string 을 parse 하고 decoded arrays 와 objects 를 JSON helpers 용으로 표시한 decoded Lua value 를 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 json.decode(json: string, options?: DecodeOptions): any
@@ -16,16 +13,19 @@ json.decode(json: string, options?: DecodeOptions): any
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | parse 할 JSON text 입니다. parser 는 optional surrounding whitespace 가 있는 하나의 JSON value 를 허용하고 invalid syntax 또는 trailing non-whitespace characters 가 있으면 throw 합니다. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean 은 useNull 을 직접 설정합니다. table 은 useNull 과 maxDepth 를 설정할 수 있습니다. maxDepth 는 1 에서 4096 으로 clamp 됩니다. |
+<ParamField path={"json"} type={"string"} required>
+parse 할 JSON text 입니다. parser 는 optional surrounding whitespace 가 있는 하나의 JSON value 를 허용하고 invalid syntax 또는 trailing non-whitespace characters 가 있으면 throw 합니다.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean 은 useNull 을 직접 설정합니다. table 은 useNull 과 maxDepth 를 설정할 수 있습니다. maxDepth 는 1 에서 4096 으로 clamp 됩니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `decoded` | `any` | Decoded value. JSON objects 와 arrays 는 JSON type markers 가 있는 tables 가 됩니다. strings 는 Lua strings, numbers 는 Lua numbers, booleans 는 booleans 가 되며, null 은 useNull 이 false 가 아니면 json.null 이 됩니다. |
+<ResponseField name={"decoded"} type={"any"}>
+Decoded value. JSON objects 와 arrays 는 JSON type markers 가 있는 tables 가 됩니다. strings 는 Lua strings, numbers 는 Lua numbers, booleans 는 booleans 가 되며, null 은 useNull 이 false 가 아니면 json.null 이 됩니다.
+</ResponseField>
 
 ## 타입
 
@@ -50,3 +50,6 @@ print(value.tags[1])
 print(json.type(value))
 print(json.isNull(value.missing))
 ```
+
+
+</div>

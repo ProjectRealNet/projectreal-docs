@@ -2,13 +2,10 @@
 title: "json.format"
 sidebarTitle: "json.format"
 description: "Bir JSON string degerini parse eder ve Real JSON parser ve encoder ile readable formatted JSON olarak tekrar encode eder."
-icon: "function"
 keywords: ["json.format","JSON"]
 ---
 
-Bir JSON string degerini parse eder ve Real JSON parser ve encoder ile readable formatted JSON olarak tekrar encode eder.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
@@ -16,17 +13,23 @@ json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeO
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | Formatting oncesinde parse edilen JSON string. Function bu argument degerini string type checking ile okur. |
-| `encodeOptions` | `EncodeOptions` | No | Re-encode step icin optional encode options. json.format, json.encode ile ayni encode options degerlerini okur, sonra pretty degerini true yapar. |
-| `decodeOptions` | `DecodeOptions` | No | Input JSON parsing sirasinda kullanilan optional decode options. boolean useNull ayarlar. table useNull ve maxDepth ayarlayabilir. |
+<ParamField path={"json"} type={"string"} required>
+Formatting oncesinde parse edilen JSON string. Function bu argument degerini string type checking ile okur.
+</ParamField>
+
+<ParamField path={"encodeOptions"} type={"EncodeOptions"}>
+Re-encode step icin optional encode options. json.format, json.encode ile ayni encode options degerlerini okur, sonra pretty degerini true yapar.
+</ParamField>
+
+<ParamField path={"decodeOptions"} type={"DecodeOptions"}>
+Input JSON parsing sirasinda kullanilan optional decode options. boolean useNull ayarlar. table useNull ve maxDepth ayarlayabilir.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `formatted` | `string` | Input parsing ve re-encoding sonrasi uretilen readable formatted JSON string. |
+<ResponseField name={"formatted"} type={"string"}>
+Input parsing ve re-encoding sonrasi uretilen readable formatted JSON string.
+</ResponseField>
 
 ## Tipler
 
@@ -68,3 +71,6 @@ local formatted = json.format(compact, {
 
 print(formatted)
 ```
+
+
+</div>

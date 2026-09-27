@@ -2,13 +2,10 @@
 title: "json.minify"
 sidebarTitle: "json.minify"
 description: "Mem-parse JSON string lalu meng-encode ulang dengan Real default non-pretty JSON encoder output."
-icon: "function"
 keywords: ["json.minify","JSON"]
 ---
 
-Mem-parse JSON string lalu meng-encode ulang dengan Real default non-pretty JSON encoder output.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 json.minify(json: string, options?: DecodeOptions): string
@@ -16,16 +13,19 @@ json.minify(json: string, options?: DecodeOptions): string
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string yang di-parse sebelum minifying. Function membaca argument ini dengan string type checking. |
-| `options` | `DecodeOptions` | No | Optional decode options yang dipakai saat parsing input JSON. boolean mengatur useNull. table dapat mengatur useNull dan maxDepth. |
+<ParamField path={"json"} type={"string"} required>
+JSON string yang di-parse sebelum minifying. Function membaca argument ini dengan string type checking.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options yang dipakai saat parsing input JSON. boolean mengatur useNull. table dapat mengatur useNull dan maxDepth.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `minified` | `string` | JSON string yang dibuat setelah parsing dan re-encoding input dengan default encode options. |
+<ResponseField name={"minified"} type={"string"}>
+JSON string yang dibuat setelah parsing dan re-encoding input dengan default encode options.
+</ResponseField>
 
 ## Tipe
 
@@ -53,3 +53,6 @@ print(json.minify(formatted, {
     useNull = true,
 }))
 ```
+
+
+</div>

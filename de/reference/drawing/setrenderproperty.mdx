@@ -2,13 +2,10 @@
 title: "setrenderproperty"
 sidebarTitle: "setrenderproperty"
 description: "Weist value an object[property] zu. Für Drawing object nutzt das dasselbe Drawing property assignment wie direct property assignment. Unknown Drawing properties werden ignoriert, und destroyed Drawing objects werden nicht geändert. Das dritte Argument muss vorhanden sein. the Drawing API registriert diese API nur, wenn the required rendering environment is active true ist; wenn diese Prüfung false ist, kehrt der initializer zurück, bevor diese globals erstellt werden."
-icon: "function"
 keywords: ["setrenderproperty","Drawing"]
 ---
 
-Weist value an object[property] zu. Für Drawing object nutzt das dasselbe Drawing property assignment wie direct property assignment. Unknown Drawing properties werden ignoriert, und destroyed Drawing objects werden nicht geändert. Das dritte Argument muss vorhanden sein. the Drawing API registriert diese API nur, wenn the required rendering environment is active true ist; wenn diese Prüfung false ist, kehrt der initializer zurück, bevor diese globals erstellt werden.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 setrenderproperty(object: any, property: any, value: any)
@@ -16,11 +13,17 @@ setrenderproperty(object: any, property: any, value: any)
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | Wert, der indiziert und beschrieben wird. Bei Drawing object wird der RealDrawingObject __newindex handler verwendet. |
-| `property` | `any` | Yes | property key für die Zuweisung. Drawing object properties sind string-basiert. |
-| `value` | `any` | Yes | Wert, der object[property] zugewiesen wird. Dieses Argument muss übergeben werden; nil ist weiterhin ein übergebener Wert. |
+<ParamField path={"object"} type={"any"} required>
+Wert, der indiziert und beschrieben wird. Bei Drawing object wird der RealDrawingObject __newindex handler verwendet.
+</ParamField>
+
+<ParamField path={"property"} type={"any"} required>
+property key für die Zuweisung. Drawing object properties sind string-basiert.
+</ParamField>
+
+<ParamField path={"value"} type={"any"} required>
+Wert, der object[property] zugewiesen wird. Dieses Argument muss übergeben werden; nil ist weiterhin ein übergebener Wert.
+</ParamField>
 
 ## Beispiel
 
@@ -34,3 +37,6 @@ setrenderproperty(line, "Visible", true)
 print(line.Thickness)
 print(line.Visible)
 ```
+
+
+</div>

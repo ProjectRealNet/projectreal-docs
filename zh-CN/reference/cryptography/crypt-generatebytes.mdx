@@ -2,13 +2,10 @@
 title: "crypt.generatebytes"
 sidebarTitle: "crypt.generatebytes"
 description: "使用 random byte generator 生成随机字节，并以 Base64-encoded Lua string 返回。"
-icon: "function"
 keywords: ["crypt.generatebytes","Cryptography"]
 ---
 
-使用 random byte generator 生成随机字节，并以 Base64-encoded Lua string 返回。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 crypt.generatebytes(size: number): string
@@ -16,15 +13,15 @@ crypt.generatebytes(size: number): string
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `size` | `number` | Yes | allocation 前传入 integer conversion 的数字。小于或等于 0 的值会改为 1。 |
+<ParamField path={"size"} type={"number"} required>
+allocation 前传入 integer conversion 的数字。小于或等于 0 的值会改为 1。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `encoded` | `string` | 生成的 raw bytes 的 Base64 encoding。返回的 string 长度不是请求的字节数。 |
+<ResponseField name={"encoded"} type={"string"}>
+生成的 raw bytes 的 Base64 encoding。返回的 string 长度不是请求的字节数。
+</ResponseField>
 
 ## 示例
 
@@ -38,3 +35,6 @@ print(encoded)
 print(#encoded)
 print(#raw)
 ```
+
+
+</div>

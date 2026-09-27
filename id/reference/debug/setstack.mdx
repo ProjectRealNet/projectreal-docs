@@ -2,13 +2,10 @@
 title: "setstack"
 sidebarTitle: "setstack"
 description: "Replaces one stack slot value in a Lua stack frame. level and index are required numbers. level must satisfy 0 <= level < the current call stack depth; invalid levels raise \"Level out of range\". C closure frames raise \"Lua function expected\". index is one-based and must refer to an existing stack slot; invalid indexes raise \"Stack index out of range\". debug.setstack is an alias."
-icon: "function"
 keywords: ["setstack","Debug","debug.setstack"]
 ---
 
-Replaces one stack slot value in a Lua stack frame. level and index are required numbers. level must satisfy 0 &lt;= level &lt; the current call stack depth; invalid levels raise "Level out of range". C closure frames raise "Lua function expected". index is one-based and must refer to an existing stack slot; invalid indexes raise "Stack index out of range". debug.setstack is an alias.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 setstack(level: number, index: number, value: any)
@@ -20,11 +17,17 @@ setstack(level: number, index: number, value: any)
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `level` | `number` | Yes | Stack level number. Must satisfy 0 &lt;= level &lt; the current call stack depth. |
-| `index` | `number` | Yes | One-based stack slot index. |
-| `value` | `any` | Yes | New value for the stack slot. |
+<ParamField path={"level"} type={"number"} required>
+Stack level number. Must satisfy 0 &lt;= level &lt; the current call stack depth.
+</ParamField>
+
+<ParamField path={"index"} type={"number"} required>
+One-based stack slot index.
+</ParamField>
+
+<ParamField path={"value"} type={"any"} required>
+New value for the stack slot.
+</ParamField>
 
 ## Contoh
 
@@ -42,3 +45,6 @@ end
 
 inspect("ready")
 ```
+
+
+</div>

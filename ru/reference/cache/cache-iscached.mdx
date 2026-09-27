@@ -2,13 +2,10 @@
 title: "cache.iscached"
 sidebarTitle: "cache.iscached"
 description: "Возвращает, есть ли у указанной Instance запись non-nil в Instance cache."
-icon: "function"
 keywords: ["cache.iscached","Cache"]
 ---
 
-Возвращает, есть ли у указанной Instance запись non-nil в Instance cache.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 cache.iscached(instance: Instance): boolean
@@ -16,15 +13,15 @@ cache.iscached(instance: Instance): boolean
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance, для которой нужно проверить запись Instance cache. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance, для которой нужно проверить запись Instance cache.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `cached` | `boolean` | True, если cache содержит запись non-nil для этой Instance. |
+<ResponseField name={"cached"} type={"boolean"}>
+True, если cache содержит запись non-nil для этой Instance.
+</ResponseField>
 
 ## Пример
 
@@ -39,3 +36,6 @@ print(cached)
 cache.invalidate(Players)
 print(cache.iscached(Players))
 ```
+
+
+</div>

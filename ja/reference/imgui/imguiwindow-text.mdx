@@ -2,13 +2,10 @@
 title: "ImGuiWindow.Text"
 sidebarTitle: "ImGuiWindow.Text"
 description: "window に非対話型の Text element を追加します。text 引数は string type checking で読み取られ、element に保存されます。rendering 中、Real は a text element を呼び出すため、渡された text は ImGui format string ではなく string content として使われます。"
-icon: "function"
 keywords: ["ImGuiWindow.Text","ImGui"]
 ---
 
-window に非対話型の Text element を追加します。text 引数は string type checking で読み取られ、element に保存されます。rendering 中、Real は a text element を呼び出すため、渡された text は ImGui format string ではなく string content として使われます。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.Text(window: ImGuiWindow, text: string): ImGuiWindow
@@ -16,16 +13,19 @@ ImGuiWindow.Text(window: ImGuiWindow, text: string): ImGuiWindow
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | imgui.create が返した ImGuiWindow。object が無効、またはすでに destroy されている場合、この method は Lua error を発生させます。 |
-| `text` | `string` | Yes | string type checking で読み取られ、Text element に表示される text content。 |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+imgui.create が返した ImGuiWindow。object が無効、またはすでに destroy されている場合、この method は Lua error を発生させます。
+</ParamField>
+
+<ParamField path={"text"} type={"string"} required>
+string type checking で読み取られ、Text element に表示される text content。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | 同じ ImGuiWindow object。method 呼び出しを連鎖できます。 |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+同じ ImGuiWindow object。method 呼び出しを連鎖できます。
+</ResponseField>
 
 ## 型
 
@@ -46,3 +46,6 @@ imgui.create によって返されるハンドル。コントロール構築メ�
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | 整数スライダーを追加します。 |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | 非対話型テキストを追加します。 |
 | `destroy` | `() -> ()` | Yes | ウィンドウを削除し、登録されているコールバックを解放します。 |
+
+
+</div>

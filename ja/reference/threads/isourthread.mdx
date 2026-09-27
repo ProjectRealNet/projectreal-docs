@@ -2,13 +2,10 @@
 title: "isourthread"
 sidebarTitle: "isourthread"
 description: "Returns whether the required Luau thread argument is currently present in Real's Real caller context. The function requires argument 1 to be a thread with type checking, converts it with thread conversion, checks Real caller context.Has(..), and returns exactly one boolean. is_our_thread is an alias for the same function."
-icon: "function"
 keywords: ["isourthread","Threads","is_our_thread"]
 ---
 
-Returns whether the required Luau thread argument is currently present in Real's Real caller context. The function requires argument 1 to be a thread with type checking, converts it with thread conversion, checks Real caller context.Has(..), and returns exactly one boolean. is_our_thread is an alias for the same function.
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 isourthread(thread: thread): boolean
@@ -20,15 +17,15 @@ isourthread(thread: thread): boolean
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `thread` | `thread` | Yes | Required Luau thread to test against Real caller context. |
+<ParamField path={"thread"} type={"thread"} required>
+Required Luau thread to test against Real caller context.
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `tracked` | `boolean` | true when the thread is present in Real caller context; otherwise false. |
+<ResponseField name={"tracked"} type={"boolean"}>
+true when the thread is present in Real caller context; otherwise false.
+</ResponseField>
 
 ## 例
 
@@ -41,3 +38,6 @@ end)
 local tracked = isourthread(thread)
 print(tracked)
 ```
+
+
+</div>

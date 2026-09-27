@@ -2,13 +2,10 @@
 title: "json.minify"
 sidebarTitle: "json.minify"
 description: "JSON string を parse し、Real default non-pretty JSON encoder output で re-encode します。"
-icon: "function"
 keywords: ["json.minify","JSON"]
 ---
 
-JSON string を parse し、Real default non-pretty JSON encoder output で re-encode します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 json.minify(json: string, options?: DecodeOptions): string
@@ -16,16 +13,19 @@ json.minify(json: string, options?: DecodeOptions): string
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | Minifying の前に parse される JSON string。function はこの argument を string type checking で読みます。 |
-| `options` | `DecodeOptions` | No | Input JSON の parsing 中に使われる optional decode options。boolean は useNull を設定します。table は useNull と maxDepth を設定できます。 |
+<ParamField path={"json"} type={"string"} required>
+Minifying の前に parse される JSON string。function はこの argument を string type checking で読みます。
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Input JSON の parsing 中に使われる optional decode options。boolean は useNull を設定します。table は useNull と maxDepth を設定できます。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `minified` | `string` | Input の parsing と default encode options による re-encoding 後に生成される JSON string。 |
+<ResponseField name={"minified"} type={"string"}>
+Input の parsing と default encode options による re-encoding 後に生成される JSON string。
+</ResponseField>
 
 ## 型
 
@@ -53,3 +53,6 @@ print(json.minify(formatted, {
     useNull = true,
 }))
 ```
+
+
+</div>

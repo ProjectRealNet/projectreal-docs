@@ -2,13 +2,10 @@
 title: "json.quote"
 sidebarTitle: "json.quote"
 description: "使用 Real JSON string escaping rules 对 string 执行 escape，并返回 complete quoted JSON string literal。"
-icon: "function"
 keywords: ["json.quote","JSON"]
 ---
 
-使用 Real JSON string escaping rules 对 string 执行 escape，并返回 complete quoted JSON string literal。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 json.quote(text: string): string
@@ -16,15 +13,15 @@ json.quote(text: string): string
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | 要 quote 的 string。function 使用 string type checking 读取这个 argument。 |
+<ParamField path={"text"} type={"string"} required>
+要 quote 的 string。function 使用 string type checking 读取这个 argument。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `quoted` | `string` | 包含 opening 和 closing quote 的 complete JSON string literal。Quotes、backslashes、common control characters 和 bytes below 0x20 会被 escape。 |
+<ResponseField name={"quoted"} type={"string"}>
+包含 opening 和 closing quote 的 complete JSON string literal。Quotes、backslashes、common control characters 和 bytes below 0x20 会被 escape。
+</ResponseField>
 
 ## 示例
 
@@ -36,3 +33,6 @@ local quoted = json.quote(source)
 
 print(quoted)
 ```
+
+
+</div>

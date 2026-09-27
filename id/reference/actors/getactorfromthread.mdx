@@ -2,13 +2,10 @@
 title: "getactorfromthread"
 sidebarTitle: "getactorfromthread"
 description: "Mengembalikan Actor Instance yang terkait dengan Luau thread. Argument pertama harus thread. Function membaca thread data milik thread, membutuhkan Actor reference dan positive container count, lalu membaca the associated Actor. Jika actor weak reference valid, nilainya di-push sebagai Instance; jika tidak, function mengembalikan nil."
-icon: "function"
 keywords: ["getactorfromthread","Actors","getactorfromstate"]
 ---
 
-Mengembalikan Actor Instance yang terkait dengan Luau thread. Argument pertama harus thread. Function membaca thread data milik thread, membutuhkan Actor reference dan positive container count, lalu membaca the associated Actor. Jika actor weak reference valid, nilainya di-push sebagai Instance; jika tidak, function mengembalikan nil.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 getactorfromthread(thread: thread): Instance | nil
@@ -20,15 +17,15 @@ getactorfromthread(thread: thread): Instance | nil
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `thread` | `thread` | Yes | Luau thread yang thread data-nya harus diperiksa untuk associated Actor weak reference. |
+<ParamField path={"thread"} type={"thread"} required>
+Luau thread yang thread data-nya harus diperiksa untuk associated Actor weak reference.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `actor` | `Instance \| nil` | Actor Instance yang di-resolve dari the associated Actor weak reference milik thread, atau nil saat tidak ada valid actor reference. |
+<ResponseField name={"actor"} type={"Instance | nil"}>
+Actor Instance yang di-resolve dari the associated Actor weak reference milik thread, atau nil saat tidak ada valid actor reference.
+</ResponseField>
 
 ## Contoh
 
@@ -40,3 +37,6 @@ for _, thread in ipairs(getactorthreads()) do
     print(actor)
 end
 ```
+
+
+</div>

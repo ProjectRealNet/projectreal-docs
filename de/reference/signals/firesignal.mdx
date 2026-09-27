@@ -2,13 +2,10 @@
 title: "firesignal"
 sidebarTitle: "firesignal"
 description: "Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error."
-icon: "function"
 keywords: ["firesignal","Signals"]
 ---
 
-Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 firesignal(signal: RBXScriptSignal, ...arguments?: ...any)
@@ -16,10 +13,13 @@ firesignal(signal: RBXScriptSignal, ...arguments?: ...any)
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | Signal passed to getconnections. Missing or nil values raise "firesignal expects a valid connection". |
-| `...arguments` | `...any` | No | Values passed to each local signal connection. |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+Signal passed to getconnections. Missing or nil values raise "firesignal expects a valid connection".
+</ParamField>
+
+<ParamField path={"...arguments"} type={"...any"}>
+Values passed to each local signal connection.
+</ParamField>
 
 ## Beispiel
 
@@ -30,3 +30,6 @@ local button = script.Parent
 
 firesignal(button.Activated, "manual")
 ```
+
+
+</div>

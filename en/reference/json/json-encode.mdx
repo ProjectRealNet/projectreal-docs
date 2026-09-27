@@ -2,13 +2,10 @@
 title: "json.encode"
 sidebarTitle: "json.encode"
 description: "Serializes a Lua value to a JSON string as JSON. json.stringify is registered to the same function."
-icon: "function"
 keywords: ["json.encode","JSON"]
 ---
 
-Serializes a Lua value to a JSON string as JSON. json.stringify is registered to the same function.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 json.encode(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.encode(value: any, options?: EncodeOptions): string
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value to encode. nil, booleans, numbers, strings, tables, and json.null are handled directly. Unsupported Lua types encode as null unless errorOnUnsupported is true. |
-| `options` | `EncodeOptions` | No | Optional encode options. A boolean toggles pretty output. A number enables pretty output with that many spaces clamped to 0.16. A string enables pretty output with that indent. A table can set pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, and indent. |
+<ParamField path={"value"} type={"any"} required>
+Value to encode. nil, booleans, numbers, strings, tables, and json.null are handled directly. Unsupported Lua types encode as null unless errorOnUnsupported is true.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options. A boolean toggles pretty output. A number enables pretty output with that many spaces clamped to 0.16. A string enables pretty output with that indent. A table can set pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, and indent.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `json` | `string` | Encoded JSON string. Encoding errors are thrown as Luau errors. |
+<ResponseField name={"json"} type={"string"}>
+Encoded JSON string. Encoding errors are thrown as Luau errors.
+</ResponseField>
 
 ## Types
 
@@ -61,3 +61,6 @@ local text = json.encode(payload, {
 
 print(text)
 ```
+
+
+</div>

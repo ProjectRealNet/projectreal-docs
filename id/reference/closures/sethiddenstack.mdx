@@ -2,13 +2,10 @@
 title: "sethiddenstack"
 sidebarTitle: "sethiddenstack"
 description: "Marks or unmarks a function, or the function at a stack level, as hidden. target must be a function or stack level number. hidden defaults to true. Invalid stack levels raise \"Level out of range\". setstackhidden is an alias."
-icon: "function"
 keywords: ["sethiddenstack","Closures","setstackhidden"]
 ---
 
-Marks or unmarks a function, or the function at a stack level, as hidden. target must be a function or stack level number. hidden defaults to true. Invalid stack levels raise "Level out of range". setstackhidden is an alias.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 sethiddenstack(target: function | number, hidden?: boolean)
@@ -20,10 +17,13 @@ sethiddenstack(target: function | number, hidden?: boolean)
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `target` | `function \| number` | Yes | Function or stack level number to mark or unmark. |
-| `hidden` | `boolean` | No | Whether the resolved function should be marked hidden. Defaults to true; false removes the mark. |
+<ParamField path={"target"} type={"function | number"} required>
+Function or stack level number to mark or unmark.
+</ParamField>
+
+<ParamField path={"hidden"} type={"boolean"}>
+Whether the resolved function should be marked hidden. Defaults to true; false removes the mark.
+</ParamField>
 
 ## Contoh
 
@@ -39,3 +39,6 @@ print(ishiddenstack(target))
 sethiddenstack(target, false)
 print(ishiddenstack(target))
 ```
+
+
+</div>

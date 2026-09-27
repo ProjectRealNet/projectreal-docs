@@ -2,13 +2,10 @@
 title: "json.clone"
 sidebarTitle: "json.clone"
 description: "Clone un value en l encodant avec json.encode semantics puis en decodant le generated JSON en Lua values."
-icon: "function"
 keywords: ["json.clone","JSON"]
 ---
 
-Clone un value en l encodant avec json.encode semantics puis en decodant le generated JSON en Lua values.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 json.clone(value: any, options?: EncodeOptions): any
@@ -16,16 +13,19 @@ json.clone(value: any, options?: EncodeOptions): any
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value a encode et decode. Supported JSON values font un round-trip with JSON; unsupported types sont encodes en null sauf si encode options demandent une erreur. |
-| `options` | `EncodeOptions` | No | Optional encode options passees a l encode step, comme sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty et indent. |
+<ParamField path={"value"} type={"any"} required>
+Value a encode et decode. Supported JSON values font un round-trip with JSON; unsupported types sont encodes en null sauf si encode options demandent une erreur.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options passees a l encode step, comme sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty et indent.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `clone` | `any` | Decoded value produit depuis le encoded JSON. Objects et arrays sont des new tables avec JSON kind markers du decoder; JSON null values deviennent json.null. |
+<ResponseField name={"clone"} type={"any"}>
+Decoded value produit depuis le encoded JSON. Objects et arrays sont des new tables avec JSON kind markers du decoder; JSON null values deviennent json.null.
+</ResponseField>
 
 ## Types
 
@@ -59,3 +59,6 @@ print(original.profile.name)
 print(copy.profile.name)
 print(json.type(copy))
 ```
+
+
+</div>

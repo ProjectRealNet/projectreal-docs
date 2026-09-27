@@ -2,13 +2,10 @@
 title: "RealSignal.Connect"
 sidebarTitle: "RealSignal.Connect"
 description: "Connects a callback to a RealSignal and returns a RealSignalConnection. The callback receives the arguments passed to Fire."
-icon: "function"
 keywords: ["RealSignal.Connect","RealSignal"]
 ---
 
-Connects a callback to a RealSignal and returns a RealSignalConnection. The callback receives the arguments passed to Fire.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 RealSignal.Connect(signal: RealSignal, callback: (....any) -> ()): RealSignalConnection
@@ -16,16 +13,19 @@ RealSignal.Connect(signal: RealSignal, callback: (....any) -> ()): RealSignalCon
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `signal` | `RealSignal` | Yes | Signal object returned by Signal.new. |
-| `callback` | `(....any) -> ()` | Yes | Function called whenever the signal is fired while the connection remains connected. |
+<ParamField path={"signal"} type={"RealSignal"} required>
+Signal object returned by Signal.new.
+</ParamField>
+
+<ParamField path={"callback"} type={"(....any) -> ()"} required>
+Function called whenever the signal is fired while the connection remains connected.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `connection` | `RealSignalConnection` | Connection object with Disconnect. |
+<ResponseField name={"connection"} type={"RealSignalConnection"}>
+Connection object with Disconnect.
+</ResponseField>
 
 ## 타입
 
@@ -62,3 +62,6 @@ end)
 signal:Fire(1)
 connection:Disconnect()
 ```
+
+
+</div>

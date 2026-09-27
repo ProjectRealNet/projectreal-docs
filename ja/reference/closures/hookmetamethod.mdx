@@ -2,13 +2,10 @@
 title: "hookmetamethod"
 sidebarTitle: "hookmetamethod"
 description: "value 上の metamethod function を検索し、その function を hookfunction で hook します。first argument は raw metafield lookup が受け付ける任意の value です。second argument は string metamethod name、third argument は function replacement である必要があります。raw metafield lookup が named metafield を見つけられない場合、この function は argument 2 に対して \"Metamethod doesn't exist\" を発生させます。metafield が存在しても function でない場合、argument 2 に対して \"Metamethod isn't a function\" を発生させます。metafield が function の場合、hookmetamethod は found metamethod function を target として hookfunction を呼び、hookfunction の cloned original closure を返します。"
-icon: "function"
 keywords: ["hookmetamethod","Closures"]
 ---
 
-value 上の metamethod function を検索し、その function を hookfunction で hook します。first argument は raw metafield lookup が受け付ける任意の value です。second argument は string metamethod name、third argument は function replacement である必要があります。raw metafield lookup が named metafield を見つけられない場合、この function は argument 2 に対して "Metamethod doesn't exist" を発生させます。metafield が存在しても function でない場合、argument 2 に対して "Metamethod isn't a function" を発生させます。metafield が function の場合、hookmetamethod は found metamethod function を target として hookfunction を呼び、hookfunction の cloned original closure を返します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 hookmetamethod(object: any, metamethod: string, replacement: function): function
@@ -16,17 +13,23 @@ hookmetamethod(object: any, metamethod: string, replacement: function): function
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | raw metafield lookup で methods を検査する value。 |
-| `metamethod` | `string` | Yes | raw metafield lookup に渡される Metafield name。 |
-| `replacement` | `function` | Yes | found metamethod function の replacement として hookfunction に渡される Function。 |
+<ParamField path={"object"} type={"any"} required>
+raw metafield lookup で methods を検査する value。
+</ParamField>
+
+<ParamField path={"metamethod"} type={"string"} required>
+raw metafield lookup に渡される Metafield name。
+</ParamField>
+
+<ParamField path={"replacement"} type={"function"} required>
+found metamethod function の replacement として hookfunction に渡される Function。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `original` | `function` | hookfunction から返される cloned original metamethod closure。 |
+<ResponseField name={"original"} type={"function"}>
+hookfunction から返される cloned original metamethod closure。
+</ResponseField>
 
 ## 例
 
@@ -48,3 +51,6 @@ original = hookmetamethod(object, "__index", function(self, key)
     return original(self, key)
 end)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "savefiledialog"
 sidebarTitle: "savefiledialog"
 description: "Открывает Windows save dialog через Windows save dialog, записывает переданные Lua string bytes в selected path и возвращает saved file как file item."
-icon: "function"
 keywords: ["savefiledialog","Filesystem"]
 ---
 
-Открывает Windows save dialog через Windows save dialog, записывает переданные Lua string bytes в selected path и возвращает saved file как file item.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
@@ -16,16 +13,19 @@ savefiledialog(content: string, options?: DialogOptions): FileSystemItem | nil
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `content` | `string` | Yes | Lua string bytes для записи в selected file. Файл открывается в binary truncate mode после подтверждения path пользователем. |
-| `options` | `DialogOptions` | No | Optional table. savefiledialog использует title, defaultPath, extensionFilter, suggestedName и defaultExtension. extensionFilter это table из extension strings; начальные . или *. удаляются перед тем, как каждый filter становится *.&lt;extension>. defaultExtension удаляет leading . characters перед передачей в SetDefaultExtension. |
+<ParamField path={"content"} type={"string"} required>
+Lua string bytes для записи в selected file. Файл открывается в binary truncate mode после подтверждения path пользователем.
+</ParamField>
+
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table. savefiledialog использует title, defaultPath, extensionFilter, suggestedName и defaultExtension. extensionFilter это table из extension strings; начальные . или *. удаляются перед тем, как каждый filter становится *.&lt;extension>. defaultExtension удаляет leading . characters перед передачей в SetDefaultExtension.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `file` | `FileSystemItem \| nil` | Saved file item или nil, если dialog отменен. Dialog or write failures выбрасывают Failed to save file. |
+<ResponseField name={"file"} type={"FileSystemItem | nil"}>
+Saved file item или nil, если dialog отменен. Dialog or write failures выбрасывают Failed to save file.
+</ResponseField>
 
 ## Типы
 
@@ -60,3 +60,6 @@ else
     print("No file saved")
 end
 ```
+
+
+</div>

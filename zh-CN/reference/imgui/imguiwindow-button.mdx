@@ -2,13 +2,10 @@
 title: "ImGuiWindow.Button"
 sidebarTitle: "ImGuiWindow.Button"
 description: "向 ImGuiWindow 追加一个 button element 并存储 callback。当渲染出的 button 被点击时，callback 会进入 queue，并稍后在没有 arguments 的情况下调用。该 method 返回相同的 ImGuiWindow object。"
-icon: "function"
 keywords: ["ImGuiWindow.Button","ImGui"]
 ---
 
-向 ImGuiWindow 追加一个 button element 并存储 callback。当渲染出的 button 被点击时，callback 会进入 queue，并稍后在没有 arguments 的情况下调用。该 method 返回相同的 ImGuiWindow object。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.Button(window: ImGuiWindow, label: string, onClick: function): ImGuiWindow
@@ -16,17 +13,23 @@ ImGuiWindow.Button(window: ImGuiWindow, label: string, onClick: function): ImGui
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | imgui.create 返回的 ImGuiWindow object。已销毁或无效的 window 会触发 Lua error。 |
-| `label` | `string` | Yes | 传给渲染出的 ImGui button 的 button label string。 |
-| `onClick` | `function` | Yes | 为此 button 存储的 Function，在 click event 被处理后以没有 arguments 的方式调用。 |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+imgui.create 返回的 ImGuiWindow object。已销毁或无效的 window 会触发 Lua error。
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+传给渲染出的 ImGui button 的 button label string。
+</ParamField>
+
+<ParamField path={"onClick"} type={"function"} required>
+为此 button 存储的 Function，在 click event 被处理后以没有 arguments 的方式调用。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | 相同的 ImGuiWindow object，因此可以链式调用 method calls。 |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+相同的 ImGuiWindow object，因此可以链式调用 method calls。
+</ResponseField>
 
 ## 类型
 
@@ -47,3 +50,6 @@ imgui.create 返回的句柄。控制构建方法返回相同的句柄，因此�
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | 附加一个整数滑块。 |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | 附加非交互式文本。 |
 | `destroy` | `() -> ()` | Yes | 删除窗口并释放其注册的回调。 |
+
+
+</div>

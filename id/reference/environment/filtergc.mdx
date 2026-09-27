@@ -2,13 +2,10 @@
 title: "filtergc"
 sidebarTitle: "filtergc"
 description: "Mencari tables atau functions live garbage-collected yang cocok dengan filters yang diberikan. filterType harus \"table\" atau \"function\". options harus berupa table."
-icon: "function"
 keywords: ["filtergc","Environment"]
 ---
 
-Mencari tables atau functions live garbage-collected yang cocok dengan filters yang diberikan. filterType harus "table" atau "function". options harus berupa table.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 filtergc(filterType: string, options: table, returnOne?: boolean): table | function | nil
@@ -16,17 +13,23 @@ filtergc(filterType: string, options: table, returnOne?: boolean): table | funct
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `filterType` | `string` | Yes | GC object type yang dicari. Nilai diubah ke lowercase dan harus "table" atau "function". |
-| `options` | `table` | Yes | Filter table. function searches membaca Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants, dan Upvalues. table searches membaca Metatable, Keys, Values, dan KeyValuePairs. |
-| `returnOne` | `boolean` | No | Optional optional boolean handling flag. Saat true, mengembalikan matching object pertama atau nil, bukan array table. |
+<ParamField path={"filterType"} type={"string"} required>
+GC object type yang dicari. Nilai diubah ke lowercase dan harus "table" atau "function".
+</ParamField>
+
+<ParamField path={"options"} type={"table"} required>
+Filter table. function searches membaca Name, Hash, StartLine, IgnoreExecutor, IgnoreSyn, Environment, Constants, dan Upvalues. table searches membaca Metatable, Keys, Values, dan KeyValuePairs.
+</ParamField>
+
+<ParamField path={"returnOne"} type={"boolean"}>
+Optional optional boolean handling flag. Saat true, mengembalikan matching object pertama atau nil, bukan array table.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `result` | `table \| function \| nil` | Saat returnOne false atau omitted, array table of matches. Saat returnOne true, matching table/function object pertama atau nil. |
+<ResponseField name={"result"} type={"table | function | nil"}>
+Saat returnOne false atau omitted, array table of matches. Saat returnOne true, matching table/function object pertama atau nil.
+</ResponseField>
 
 ## Contoh
 
@@ -54,3 +57,6 @@ local first = filtergc("table", {
 
 print(first ~= nil)
 ```
+
+
+</div>

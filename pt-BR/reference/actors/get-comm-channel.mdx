@@ -2,13 +2,10 @@
 title: "get_comm_channel"
 sidebarTitle: "get_comm_channel"
 description: "Procura um channel ID no communication channel list e retorna a BindableEvent Instance armazenada. O primeiro argument deve ser number e é convertido com integer conversion antes do lookup. Se não existir entry para esse ID, a function retorna nil."
-icon: "function"
 keywords: ["get_comm_channel","Actors"]
 ---
 
-Procura um channel ID no communication channel list e retorna a BindableEvent Instance armazenada. O primeiro argument deve ser number e é convertido com integer conversion antes do lookup. Se não existir entry para esse ID, a function retorna nil.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 get_comm_channel(channelId: number): Instance | nil
@@ -16,15 +13,15 @@ get_comm_channel(channelId: number): Instance | nil
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `channelId` | `number` | Yes | Channel ID convertido com integer conversion e pesquisado no communication channel list. |
+<ParamField path={"channelId"} type={"number"} required>
+Channel ID convertido com integer conversion e pesquisado no communication channel list.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `event` | `Instance \| nil` | BindableEvent Instance armazenada para o channel ID, ou nil quando o ID não está presente em communication channels. |
+<ResponseField name={"event"} type={"Instance | nil"}>
+BindableEvent Instance armazenada para o channel ID, ou nil quando o ID não está presente em communication channels.
+</ResponseField>
 
 ## Exemplo
 
@@ -36,3 +33,6 @@ local event = get_comm_channel(channelId)
 
 print(event)
 ```
+
+
+</div>

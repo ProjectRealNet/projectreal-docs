@@ -2,13 +2,10 @@
 title: "getsignalargumentsinfo"
 sidebarTitle: "getsignalargumentsinfo"
 description: "Retorna uma array table de informações de argumentos a partir da assinatura de um RBXScriptSignal. Ela não retorna valores de argumentos capturados em tempo de execução."
-icon: "function"
 keywords: ["getsignalargumentsinfo","Signals"]
 ---
 
-Retorna uma array table de informações de argumentos a partir da assinatura de um RBXScriptSignal. Ela não retorna valores de argumentos capturados em tempo de execução.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 getsignalargumentsinfo(signal: RBXScriptSignal): {{Name: string, Type: string}}
@@ -16,15 +13,15 @@ getsignalargumentsinfo(signal: RBXScriptSignal): {{Name: string, Type: string}}
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | O RBXScriptSignal cuja event descriptor signature deve ser inspecionada. |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+O RBXScriptSignal cuja event descriptor signature deve ser inspecionada.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `argumentInfo` | `&#123;&#123;Name: string, Type: string&#125;&#125;` | Uma array table em que cada entrada tem strings Name e Type. Se a assinatura não puder ser lida ou não tiver entradas, a função retorna uma única fallback entry com Name definido como arg1 e Type definido como Variant. |
+<ResponseField name={"argumentInfo"} type={"{{Name: string, Type: string}}"}>
+Uma array table em que cada entrada tem strings Name e Type. Se a assinatura não puder ser lida ou não tiver entradas, a função retorna uma única fallback entry com Name definido como arg1 e Type definido como Variant.
+</ResponseField>
 
 ## Exemplo
 
@@ -40,3 +37,6 @@ if remote then
     end
 end
 ```
+
+
+</div>

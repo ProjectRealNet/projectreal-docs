@@ -2,13 +2,10 @@
 title: "setscriptable"
 sidebarTitle: "setscriptable"
 description: "Speichert einen scriptable override fuer eine Roblox property im scriptable override cache und gibt den previous scriptable state zurueck. Das erste Argument muss Instance object sein, das zweite Argument muss ein string property name sein, und das dritte Argument muss boolean sein. Wenn bereits ein cache entry fuer denselben instance reference und property name existiert, wird der cached scriptable value ersetzt und der alte cached value zurueckgegeben. Bei einem cache miss wird der property name ueber Roblox property metadata und den Instance class descriptor aufgeloest. Wenn kein descriptor existiert oder das aufgeloeste field fehlt oder kein property entry ist, gibt die function nil zurueck. Wenn ein property entry gefunden wird, liest die function scriptable state, speichert den gewuenschten boolean plus property reference im scriptable override cache und gibt den previous scriptable state value zurueck. GameIndexHook und GameNewIndexHook verwenden diesen cache spaeter, indem sie das property field scriptable flag fuer einen einzelnen indexed read oder write temporaer setzen und danach den previous field flag wiederherstellen."
-icon: "function"
 keywords: ["setscriptable","Reflection"]
 ---
 
-Speichert einen scriptable override fuer eine Roblox property im scriptable override cache und gibt den previous scriptable state zurueck. Das erste Argument muss Instance object sein, das zweite Argument muss ein string property name sein, und das dritte Argument muss boolean sein. Wenn bereits ein cache entry fuer denselben instance reference und property name existiert, wird der cached scriptable value ersetzt und der alte cached value zurueckgegeben. Bei einem cache miss wird der property name ueber Roblox property metadata und den Instance class descriptor aufgeloest. Wenn kein descriptor existiert oder das aufgeloeste field fehlt oder kein property entry ist, gibt die function nil zurueck. Wenn ein property entry gefunden wird, liest die function scriptable state, speichert den gewuenschten boolean plus property reference im scriptable override cache und gibt den previous scriptable state value zurueck. GameIndexHook und GameNewIndexHook verwenden diesen cache spaeter, indem sie das property field scriptable flag fuer einen einzelnen indexed read oder write temporaer setzen und danach den previous field flag wiederherstellen.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 setscriptable(instance: Instance, property: string, value: boolean): boolean | nil
@@ -16,17 +13,23 @@ setscriptable(instance: Instance, property: string, value: boolean): boolean | n
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object, die als Teil des scriptable override cache key verwendet wird. |
-| `property` | `string` | Yes | Property name, der bei einem cache miss ueber Roblox property metadata und den Instance class descriptor aufgeloest wird. |
-| `value` | `boolean` | Yes | Scriptable override value, der in scriptable override cache gespeichert wird. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object, die als Teil des scriptable override cache key verwendet wird.
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+Property name, der bei einem cache miss ueber Roblox property metadata und den Instance class descriptor aufgeloest wird.
+</ParamField>
+
+<ParamField path={"value"} type={"boolean"} required>
+Scriptable override value, der in scriptable override cache gespeichert wird.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `previousState` | `boolean \| nil` | Previous cached scriptable value, previous scriptable state value, oder nil, wenn die property nicht zu einem property entry aufgeloest werden kann. |
+<ResponseField name={"previousState"} type={"boolean | nil"}>
+Previous cached scriptable value, previous scriptable state value, oder nil, wenn die property nicht zu einem property entry aufgeloest werden kann.
+</ResponseField>
 
 ## Beispiel
 
@@ -40,3 +43,6 @@ if previous ~= nil then
     setscriptable(workspace, "Name", previous)
 end
 ```
+
+
+</div>

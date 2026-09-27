@@ -2,13 +2,10 @@
 title: "json.getPath"
 sidebarTitle: "json.getPath"
 description: "Dotted string path veya array table of keys kullanarak table icinden nested value okur."
-icon: "function"
 keywords: ["json.getPath","JSON","json.getpath"]
 ---
 
-Dotted string path veya array table of keys kullanarak table icinden nested value okur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
@@ -20,17 +17,23 @@ json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `object` | `table` | Yes | Okunacak root table. Function bu argument degerinin table olmasini ister. |
-| `path` | `string \| table` | Yes | Takip edilecek path. string dots uzerinden split edilir; integer string tokens raw array indexing ile okunur. table path, 1'den #path'e kadar array entries degerlerini keys olarak kullanir. |
-| `defaultValue` | `any` | No | Traversal path tamamlanmadan nil veya non-table degerine ulasirsa dondurulen fallback value. |
+<ParamField path={"object"} type={"table"} required>
+Okunacak root table. Function bu argument degerinin table olmasini ister.
+</ParamField>
+
+<ParamField path={"path"} type={"string | table"} required>
+Takip edilecek path. string dots uzerinden split edilir; integer string tokens raw array indexing ile okunur. table path, 1'den #path'e kadar array entries degerlerini keys olarak kullanir.
+</ParamField>
+
+<ParamField path={"defaultValue"} type={"any"}>
+Traversal path tamamlanmadan nil veya non-table degerine ulasirsa dondurulen fallback value.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `pathValue` | `any \| nil` | Requested path konumundaki value. path missing ise defaultValue saglandiysa onu, aksi halde nil dondurur. |
+<ResponseField name={"pathValue"} type={"any | nil"}>
+Requested path konumundaki value. path missing ise defaultValue saglandiysa onu, aksi halde nil dondurur.
+</ResponseField>
 
 ## Örnek
 
@@ -50,3 +53,6 @@ local second = json.getPath(document, "user.items.2")
 print(name)
 print(second)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "getcallingscript"
 sidebarTitle: "getcallingscript"
 description: "current Luau thread object에 저장된 script를 반환합니다. 이 function은 arguments를 받지 않습니다. stored reference인 the current thread script를 읽습니다. 그 stored reference가 expired가 아니면 function은 Instance cache로 script Instance를 push하고 반환합니다. stored reference가 expired이면 function은 nil을 반환합니다. function은 Lua call stack을 검사하지 않고, ancestor scripts를 찾지 않으며, script ClassName도 확인하지 않습니다."
-icon: "function"
 keywords: ["getcallingscript","Scripts"]
 ---
 
-current Luau thread object에 저장된 script를 반환합니다. 이 function은 arguments를 받지 않습니다. stored reference인 the current thread script를 읽습니다. 그 stored reference가 expired가 아니면 function은 Instance cache로 script Instance를 push하고 반환합니다. stored reference가 expired이면 function은 nil을 반환합니다. function은 Lua call stack을 검사하지 않고, ancestor scripts를 찾지 않으며, script ClassName도 확인하지 않습니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 getcallingscript(): Instance | nil
@@ -16,6 +13,9 @@ getcallingscript(): Instance | nil
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `script` | `Instance \| nil` | current Luau thread object stored reference의 Script Instance, 또는 그 stored reference가 expired이면 nil입니다. |
+<ResponseField name={"script"} type={"Instance | nil"}>
+current Luau thread object stored reference의 Script Instance, 또는 그 stored reference가 expired이면 nil입니다.
+</ResponseField>
+
+
+</div>

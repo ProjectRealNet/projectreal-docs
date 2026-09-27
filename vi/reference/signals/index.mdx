@@ -1,17 +1,37 @@
 ---
 title: "Signals"
 description: "Kết nối tín hiệu và chuyển tiếp sự kiện."
-icon: "folder-code"
+icon: "/icons/brand-signal.svg"
 ---
+
+<div className="real-category-page">
 
 Kết nối tín hiệu và chuyển tiếp sự kiện.
 
-| Điều hướng hàm | Mô tả |
-| --- | --- |
-| [`cansignalreplicate`](./cansignalreplicate) | Kiem tra mot RBXScriptSignal co hop le de gui qua NetworkClient replication layer hien tai hay khong. Function xac thuc argument dau tien la RBXScriptSignal, doc source instance va event descriptor cua signal, roi tra ve ket qua boolean cua replication layer signal replication validation. Neu gia tri reference replication layer da resolve la 0, tra ve false. Arguments bo sung khong duoc doc. Function nay chi kiem tra signal va khong fire hoac replicate no. Bang whitelist do getsignalwhitelist tra ve khong duoc su dung trong code path nay. |
-| [`firesignal`](./firesignal) | Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error. |
-| [`getconnections`](./getconnections) | Tra ve array table gom RealConnection closures cho RBXScriptSignal. Argument dau tien phai la object co Luau type name la RBXScriptSignal. Function doc Connect method cua signal, ket noi temporary blank callback, doc linked list bat dau tu next reference cua ket noi tam thoi, ngat ket noi tam thoi, roi boc moi connection reference hop le. Neu khong tim thay connection reference sau ket noi tam thoi, tra ve table rong. references da duoc boc truoc do co the tra ve cung cached closure table. getsignals va get_signal_cons la aliases cho cung function. |
-| [`getsignalarguments`](./getsignalarguments) | Tra ve array table gom type names doc tu event descriptor signature cua RBXScriptSignal. Argument dau tien phai la object co Luau type name la RBXScriptSignal. Function doc event descriptor cua signal, di qua signature slots bang argument stride cua function, doc moi argument type reference, roi push type name string da resolve cho moi slot. Function khong tra ve captured runtime argument values. Neu khong doc duoc signature hoac khong co entries nao duoc push, table tra ve chua mot fallback entry: "Variant". |
-| [`getsignalargumentsinfo`](./getsignalargumentsinfo) | Trả về một array table chứa thông tin đối số từ chữ ký RBXScriptSignal. Hàm không trả về các giá trị đối số runtime đã được bắt. |
-| [`getsignalwhitelist`](./getsignalwhitelist) | Tra ve mot array table moi voi sau entry whitelist tinh duoc dinh nghia trong function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Moi entry la mot table co cac string field Event va Parent. Function khong nhan arguments va khong kiem tra game state hien tai. |
-| [`replicatesignal`](./replicatesignal) | Gọi replication path cho RBXScriptSignal. Hàm đọc signal signature, chuyển đổi Lua arguments được cung cấp thành Roblox signal values cho từng signature type, cắt bớt Lua arguments thừa sau signature length, rồi gọi owning instance event invocation function. |
+## Hàm có sẵn
+
+<CardGroup cols={2}>
+<Card title="cansignalreplicate" href="./cansignalreplicate">
+Kiem tra mot RBXScriptSignal co hop le de gui qua NetworkClient replication layer hien tai hay khong. Function xac thuc argument dau tien la RBXScriptSignal, doc source instance va event descriptor cua signal, roi tra ve ket qua boolean cua replication layer signal replication validation. Neu gia tri reference replication layer da resolve la 0, tra ve false. Arguments bo sung khong duoc doc. Function nay chi kiem tra signal va khong fire hoac replicate no. Bang whitelist do getsignalwhitelist tra ve khong duoc su dung trong code path nay.
+</Card>
+<Card title="firesignal" href="./firesignal">
+Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error.
+</Card>
+<Card title="getconnections" href="./getconnections">
+Tra ve array table gom RealConnection closures cho RBXScriptSignal. Argument dau tien phai la object co Luau type name la RBXScriptSignal. Function doc Connect method cua signal, ket noi temporary blank callback, doc linked list bat dau tu next reference cua ket noi tam thoi, ngat ket noi tam thoi, roi boc moi connection reference hop le. Neu khong tim thay connection reference sau ket noi tam thoi, tra ve table rong. references da duoc boc truoc do co the tra ve cung cached closure table. getsignals va get_signal_cons la aliases cho cung function.
+</Card>
+<Card title="getsignalarguments" href="./getsignalarguments">
+Tra ve array table gom type names doc tu event descriptor signature cua RBXScriptSignal. Argument dau tien phai la object co Luau type name la RBXScriptSignal. Function doc event descriptor cua signal, di qua signature slots bang argument stride cua function, doc moi argument type reference, roi push type name string da resolve cho moi slot. Function khong tra ve captured runtime argument values. Neu khong doc duoc signature hoac khong co entries nao duoc push, table tra ve chua mot fallback entry: "Variant".
+</Card>
+<Card title="getsignalargumentsinfo" href="./getsignalargumentsinfo">
+Trả về một array table chứa thông tin đối số từ chữ ký RBXScriptSignal. Hàm không trả về các giá trị đối số runtime đã được bắt.
+</Card>
+<Card title="getsignalwhitelist" href="./getsignalwhitelist">
+Tra ve mot array table moi voi sau entry whitelist tinh duoc dinh nghia trong function: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Moi entry la mot table co cac string field Event va Parent. Function khong nhan arguments va khong kiem tra game state hien tai.
+</Card>
+<Card title="replicatesignal" href="./replicatesignal">
+Gọi replication path cho RBXScriptSignal. Hàm đọc signal signature, chuyển đổi Lua arguments được cung cấp thành Roblox signal values cho từng signature type, cắt bớt Lua arguments thừa sau signature length, rồi gọi owning instance event invocation function.
+</Card>
+</CardGroup>
+
+</div>

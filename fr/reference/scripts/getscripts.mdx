@@ -2,13 +2,10 @@
 title: "getscripts"
 sidebarTitle: "getscripts"
 description: "Renvoie les valeurs script object actuellement presentes dans le Instance cache. La function ne prend aucun argument. Elle parcourt la cache stockee sous la cle Instance cache lightobject et ne considere que les entries dont la value est object. Elle lit le champ ClassName de chaque value avec optional string handling. Les entries LocalScript et ModuleScript sont incluses. Les entries Script sont incluses seulement lorsque leur RunContext offset vaut CLIENT ou PLUGIN. Les autres valeurs ClassName, les entries sans string ClassName et les entries CoreScript sont ignorees. Le resultat est une Luau table sequentielle. L function ne parcourt pas le DataModel et ne garantit aucun sorted order."
-icon: "function"
 keywords: ["getscripts","Scripts"]
 ---
 
-Renvoie les valeurs script object actuellement presentes dans le Instance cache. La function ne prend aucun argument. Elle parcourt la cache stockee sous la cle Instance cache lightobject et ne considere que les entries dont la value est object. Elle lit le champ ClassName de chaque value avec optional string handling. Les entries LocalScript et ModuleScript sont incluses. Les entries Script sont incluses seulement lorsque leur RunContext offset vaut CLIENT ou PLUGIN. Les autres valeurs ClassName, les entries sans string ClassName et les entries CoreScript sont ignorees. Le resultat est une Luau table sequentielle. L function ne parcourt pas le DataModel et ne garantit aucun sorted order.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 getscripts(): { Instance }
@@ -16,6 +13,9 @@ getscripts(): { Instance }
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `scripts` | `&#123; Instance &#125;` | Table sequentielle des valeurs object cached LocalScript, ModuleScript et Script eligibles depuis le Instance cache. |
+<ResponseField name={"scripts"} type={"{ Instance }"}>
+Table sequentielle des valeurs object cached LocalScript, ModuleScript et Script eligibles depuis le Instance cache.
+</ResponseField>
+
+
+</div>

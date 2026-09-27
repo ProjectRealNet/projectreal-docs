@@ -2,13 +2,10 @@
 title: "delfolder"
 sidebarTitle: "delfolder"
 description: "Loescht einen vorhandenen folder innerhalb des workspace rekursiv mit recursive folder deletion."
-icon: "function"
 keywords: ["delfolder","Filesystem"]
 ---
 
-Loescht einen vorhandenen folder innerhalb des workspace rekursiv mit recursive folder deletion.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 delfolder(path: string)
@@ -16,9 +13,9 @@ delfolder(path: string)
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | Path, der nach separator normalization und workspace-boundary checks im workspace aufgeloest wird. Das Ziel muss existieren und ein directory sein; files werden nicht akzeptiert. |
+<ParamField path={"path"} type={"string"} required>
+Path, der nach separator normalization und workspace-boundary checks im workspace aufgeloest wird. Das Ziel muss existieren und ein directory sein; files werden nicht akzeptiert.
+</ParamField>
 
 ## Beispiel
 
@@ -32,3 +29,6 @@ writefile(path .. "/note.txt", "temporary")
 delfolder(path)
 print(isfolder(path))
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "json.getPath"
 sidebarTitle: "json.getPath"
 description: "Czyta nested value z table przy uzyciu dotted string path albo array table of keys."
-icon: "function"
 keywords: ["json.getPath","JSON","json.getpath"]
 ---
 
-Czyta nested value z table przy uzyciu dotted string path albo array table of keys.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
@@ -20,17 +17,23 @@ json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `object` | `table` | Yes | Root table, z ktorej odbywa sie odczyt. Function wymaga, aby ten argument byl table. |
-| `path` | `string \| table` | Yes | Path do przejscia. string jest split po dots; integer string tokens sa czytane przez raw array indexing. table path uzywa swoich array entries od 1 do #path jako keys. |
-| `defaultValue` | `any` | No | Fallback value zwracany, gdy traversal trafi na nil albo non-table przed koncem path. |
+<ParamField path={"object"} type={"table"} required>
+Root table, z ktorej odbywa sie odczyt. Function wymaga, aby ten argument byl table.
+</ParamField>
+
+<ParamField path={"path"} type={"string | table"} required>
+Path do przejscia. string jest split po dots; integer string tokens sa czytane przez raw array indexing. table path uzywa swoich array entries od 1 do #path jako keys.
+</ParamField>
+
+<ParamField path={"defaultValue"} type={"any"}>
+Fallback value zwracany, gdy traversal trafi na nil albo non-table przed koncem path.
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `pathValue` | `any \| nil` | Value pod requested path. Jesli path jest missing, zwraca defaultValue gdy podane, w przeciwnym razie nil. |
+<ResponseField name={"pathValue"} type={"any | nil"}>
+Value pod requested path. Jesli path jest missing, zwraca defaultValue gdy podane, w przeciwnym razie nil.
+</ResponseField>
 
 ## Przykład
 
@@ -50,3 +53,6 @@ local second = json.getPath(document, "user.items.2")
 print(name)
 print(second)
 ```
+
+
+</div>

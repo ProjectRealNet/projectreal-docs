@@ -2,13 +2,10 @@
 title: "getexecutorname"
 sidebarTitle: "getexecutorname"
 description: "Returns Real's executor name as one string."
-icon: "function"
 keywords: ["getexecutorname","Miscellaneous"]
 ---
 
-Returns Real's executor name as one string.
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 getexecutorname(): string
@@ -16,9 +13,9 @@ getexecutorname(): string
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `executorName` | `string` | Executor name string. |
+<ResponseField name={"executorName"} type={"string"}>
+Executor name string.
+</ResponseField>
 
 ## 示例
 
@@ -28,3 +25,6 @@ Read the executor name string exposed by Real.
 local name = getexecutorname()
 print(name)
 ```
+
+
+</div>

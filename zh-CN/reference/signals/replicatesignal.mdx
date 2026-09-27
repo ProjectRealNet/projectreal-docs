@@ -2,13 +2,10 @@
 title: "replicatesignal"
 sidebarTitle: "replicatesignal"
 description: "调用 RBXScriptSignal 的 replication path。该函数读取 signal signature，将提供的 Lua arguments 转换为每个 signature type 对应的 Roblox signal values，截断超过 signature length 的额外 Lua arguments，然后调用 owning instance event invocation function。"
-icon: "function"
 keywords: ["replicatesignal","Signals","replicateevent"]
 ---
 
-调用 RBXScriptSignal 的 replication path。该函数读取 signal signature，将提供的 Lua arguments 转换为每个 signature type 对应的 Roblox signal values，截断超过 signature length 的额外 Lua arguments，然后调用 owning instance event invocation function。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 replicatesignal(signal: RBXScriptSignal, ...arguments?: ...any)
@@ -20,10 +17,13 @@ replicatesignal(signal: RBXScriptSignal, ...arguments?: ...any)
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | 要调用其 owning instance event invocation function 的 RBXScriptSignal。 |
-| `...arguments` | `...any` | No | 按照 signal signature 转换的 Lua arguments。超过 signature length 的 extra arguments 会被忽略。 |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+要调用其 owning instance event invocation function 的 RBXScriptSignal。
+</ParamField>
+
+<ParamField path={"...arguments"} type={"...any"}>
+按照 signal signature 转换的 Lua arguments。超过 signature length 的 extra arguments 会被忽略。
+</ParamField>
 
 ## 示例
 
@@ -37,3 +37,6 @@ if remote and remote:IsA("RemoteEvent") then
     replicatesignal(remote.OnClientEvent, "hello")
 end
 ```
+
+
+</div>

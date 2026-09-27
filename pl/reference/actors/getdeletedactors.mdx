@@ -2,13 +2,10 @@
 title: "getdeletedactors"
 sidebarTitle: "getdeletedactors"
 description: "Zwraca array table z Luau threads z actor list, których thread data ma Actor reference, reference count jest większe od 0, a the associated Actor jest expired weak reference. Function nie przyjmuje arguments. Nie zwraca Actor Instance values."
-icon: "function"
 keywords: ["getdeletedactors","Actors"]
 ---
 
-Zwraca array table z Luau threads z actor list, których thread data ma Actor reference, reference count jest większe od 0, a the associated Actor jest expired weak reference. Function nie przyjmuje arguments. Nie zwraca Actor Instance values.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 getdeletedactors(): table
@@ -16,9 +13,9 @@ getdeletedactors(): table
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `threads` | `table` | Array table zawierająca Luau thread values dla actor entries, których Actor weak reference jest expired. |
+<ResponseField name={"threads"} type={"table"}>
+Array table zawierająca Luau thread values dla actor entries, których Actor weak reference jest expired.
+</ResponseField>
 
 ## Przykład
 
@@ -31,3 +28,6 @@ for _, thread in ipairs(deletedActorThreads) do
     print(thread)
 end
 ```
+
+
+</div>

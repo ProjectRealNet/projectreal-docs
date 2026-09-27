@@ -1,18 +1,40 @@
 ---
 title: "Environment"
 description: "访问运行时环境和垃圾收集对象。"
-icon: "folder-code"
+icon: "/icons/world.svg"
 ---
+
+<div className="real-category-page">
 
 访问运行时环境和垃圾收集对象。
 
-| 函数导航 | 说明 |
-| --- | --- |
-| [`filtergc`](./filtergc) | 搜索匹配所提供 filters 的 live garbage-collected tables 或 functions。filterType 必须是 "table" 或 "function"。options 必须是 table。 |
-| [`getgc`](./getgc) | Returns an array table of live Luau garbage-collected objects visible to the API. Functions and userdata-like objects are included by default. Tables are included only when includeTables is true. get_gc_objects is an alias. |
-| [`getgenv`](./getgenv) | 通过 pushing LUA_ENVIRONINDEX 返回 current executor environment table。该 function 不接受 arguments，返回 exactly one value，并且没有 registered alias。repository 中的 call-sites 使用 returned table 读取和写入 shared executor globals，例如 __siApiCache 和 saveinstance。 |
-| [`getrenv`](./getrenv) | Returns the Roblox global environment table. The function takes no arguments and returns exactly one value. |
-| [`getscriptglobals`](./getscriptglobals) | 返回包含 _G 和 shared 的 current LUA_GLOBALSINDEX values 的 new table。该 function 不接受 arguments，会创建 fresh table，把 _G 从 LUA_GLOBALSINDEX._G 赋值，把 shared 从 LUA_GLOBALSINDEX.shared 赋值，并返回 exactly one value。它不会返回 full global table，getscriptglobals 没有注册 alias。 |
-| [`gettenv`](./gettenv) | Returns the environment table stored on a Luau thread. getstateenv is an alias. |
-| [`setclipboard`](./setclipboard) | Writes one value to the Windows system clipboard as text. The value is converted to a string. The function returns no status value, whether the clipboard write succeeds or fails. toclipboard is an alias. |
-| [`setrbxclipboard`](./setrbxclipboard) | Writes a required string to the Windows clipboard using Roblox Studio clipboard data format. The function returns no status value, whether the clipboard write succeeds or fails. |
+## 可用函数
+
+<CardGroup cols={2}>
+<Card title="filtergc" href="./filtergc">
+搜索匹配所提供 filters 的 live garbage-collected tables 或 functions。filterType 必须是 "table" 或 "function"。options 必须是 table。
+</Card>
+<Card title="getgc" href="./getgc">
+Returns an array table of live Luau garbage-collected objects visible to the API. Functions and userdata-like objects are included by default. Tables are included only when includeTables is true. get_gc_objects is an alias.
+</Card>
+<Card title="getgenv" href="./getgenv">
+通过 pushing LUA_ENVIRONINDEX 返回 current executor environment table。该 function 不接受 arguments，返回 exactly one value，并且没有 registered alias。repository 中的 call-sites 使用 returned table 读取和写入 shared executor globals，例如 __siApiCache 和 saveinstance。
+</Card>
+<Card title="getrenv" href="./getrenv">
+Returns the Roblox global environment table. The function takes no arguments and returns exactly one value.
+</Card>
+<Card title="getscriptglobals" href="./getscriptglobals">
+返回包含 _G 和 shared 的 current LUA_GLOBALSINDEX values 的 new table。该 function 不接受 arguments，会创建 fresh table，把 _G 从 LUA_GLOBALSINDEX._G 赋值，把 shared 从 LUA_GLOBALSINDEX.shared 赋值，并返回 exactly one value。它不会返回 full global table，getscriptglobals 没有注册 alias。
+</Card>
+<Card title="gettenv" href="./gettenv">
+Returns the environment table stored on a Luau thread. getstateenv is an alias.
+</Card>
+<Card title="setclipboard" href="./setclipboard">
+Writes one value to the Windows system clipboard as text. The value is converted to a string. The function returns no status value, whether the clipboard write succeeds or fails. toclipboard is an alias.
+</Card>
+<Card title="setrbxclipboard" href="./setrbxclipboard">
+Writes a required string to the Windows clipboard using Roblox Studio clipboard data format. The function returns no status value, whether the clipboard write succeeds or fails.
+</Card>
+</CardGroup>
+
+</div>

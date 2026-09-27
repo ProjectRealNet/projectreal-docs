@@ -2,13 +2,10 @@
 title: "json.keys"
 sidebarTitle: "json.keys"
 description: "Table の visible keys を new table marked as a JSON array で返します。"
-icon: "function"
 keywords: ["json.keys","JSON"]
 ---
 
-Table の visible keys を new table marked as a JSON array で返します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 json.keys(object: table): table
@@ -16,15 +13,15 @@ json.keys(object: table): table
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `object` | `table` | Yes | Inspect する table。function はこの argument が table であることを要求します。 |
+<ParamField path={"object"} type={"table"} required>
+Inspect する table。function はこの argument が table であることを要求します。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `keys` | `table` | Source table keys を含む new array table。Real JSON type marker は除外されます。Order は table iteration iteration に従い、この function では sorted されません。 |
+<ResponseField name={"keys"} type={"table"}>
+Source table keys を含む new array table。Real JSON type marker は除外されます。Order は table iteration iteration に従い、この function では sorted されません。
+</ResponseField>
 
 ## 例
 
@@ -41,3 +38,6 @@ for _, key in ipairs(json.keys(record)) do
     print(key)
 end
 ```
+
+
+</div>

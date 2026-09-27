@@ -2,13 +2,10 @@
 title: "WebSocket.connect"
 sidebarTitle: "WebSocket.connect"
 description: "2 つの BindableEvents を作成し、指定された URL への WebSocket client WebSocket connection を開き、接続試行が完了するまで yield します。成功すると、OnMessage と OnClose events、methods から提供される Send と Close methods、connection state を持つ WebSocket table を返します。incoming message data は string として OnMessage から Fire されます。receive loop が終了すると、OnClose は arguments なしで Fire されます。接続に失敗すると、この関数は \"WebSocket connection failed\" で始まる error string を発生させます。"
-icon: "function"
 keywords: ["WebSocket.connect","WebSocket","WebSocket.Connect","websocket.connect","websocket.Connect"]
 ---
 
-2 つの BindableEvents を作成し、指定された URL への WebSocket client WebSocket connection を開き、接続試行が完了するまで yield します。成功すると、OnMessage と OnClose events、methods から提供される Send と Close methods、connection state を持つ WebSocket table を返します。incoming message data は string として OnMessage から Fire されます。receive loop が終了すると、OnClose は arguments なしで Fire されます。接続に失敗すると、この関数は "WebSocket connection failed" で始まる error string を発生させます。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 WebSocket.connect(url: string): WebSocket
@@ -22,15 +19,15 @@ WebSocket.connect(url: string): WebSocket
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `url` | `string` | Yes | WebSocket client が WebSocket connection attempt を実行する前に CURLOPT_URL に渡される URL string。 |
+<ParamField path={"url"} type={"string"} required>
+WebSocket client が WebSocket connection attempt を実行する前に CURLOPT_URL に渡される URL string。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `socket` | `WebSocket` | OnMessage、OnClose、connection state を含む WebSocket table。Send と Close は WebSocket object methods から解決されます。 |
+<ResponseField name={"socket"} type={"WebSocket"}>
+OnMessage、OnClose、connection state を含む WebSocket table。Send と Close は WebSocket object methods から解決されます。
+</ResponseField>
 
 ## 例
 
@@ -50,3 +47,6 @@ end)
 socket:Send("hello")
 socket:Close()
 ```
+
+
+</div>

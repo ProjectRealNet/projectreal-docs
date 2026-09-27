@@ -2,13 +2,10 @@
 title: "getscriptthread"
 sidebarTitle: "getscriptthread"
 description: "Real bulabildiginde bir script object ile iliskili Lua thread degerini dondurur. Argument object olmalidir. Function degerin ClassName field degerini okur ve bu field string degilse \"not a valid Instance\" firlatir. Kabul edilen ClassName degerleri Script, LocalScript ve ModuleScript degerleridir; diger degerler \"Script expected\" firlatir. Once script reference ile Real'in ScriptThreadCache degerini kontrol eder. Cache hit durumunda cached Luau thread degerini thread olarak dondurur. Cache miss durumunda Script degerleri RunContext Client icermelidir, aksi halde function \"Expected a Script with RunContext set to Client\" firlatir. Sonra the live Luau thread list uzerinde gezer, her thread node icin first weak thread reference degerinden LiveLuaRef degerine gider, missing thread data veya expired Script stored references degerlerini atlar ve her script reference degerini istenen script ile karsilastirir. Match bulursa bu Luau thread degerini thread olarak dondurur. Match bulunmazsa nil dondurur."
-icon: "function"
 keywords: ["getscriptthread","Scripts"]
 ---
 
-Real bulabildiginde bir script object ile iliskili Lua thread degerini dondurur. Argument object olmalidir. Function degerin ClassName field degerini okur ve bu field string degilse "not a valid Instance" firlatir. Kabul edilen ClassName degerleri Script, LocalScript ve ModuleScript degerleridir; diger degerler "Script expected" firlatir. Once script reference ile Real'in ScriptThreadCache degerini kontrol eder. Cache hit durumunda cached Luau thread degerini thread olarak dondurur. Cache miss durumunda Script degerleri RunContext Client icermelidir, aksi halde function "Expected a Script with RunContext set to Client" firlatir. Sonra the live Luau thread list uzerinde gezer, her thread node icin first weak thread reference degerinden LiveLuaRef degerine gider, missing thread data veya expired Script stored references degerlerini atlar ve her script reference degerini istenen script ile karsilastirir. Match bulursa bu Luau thread degerini thread olarak dondurur. Match bulunmazsa nil dondurur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 getscriptthread(script: userdata): thread | nil
@@ -16,15 +13,15 @@ getscriptthread(script: userdata): thread | nil
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | Aranacak Script object. Kabul edilen ClassName degerleri Script, LocalScript ve ModuleScript degerleridir. |
+<ParamField path={"script"} type={"userdata"} required>
+Aranacak Script object. Kabul edilen ClassName degerleri Script, LocalScript ve ModuleScript degerleridir.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `thread` | `thread \| nil` | Iliskili Lua thread, veya matching live thread bulunamazsa nil. |
+<ResponseField name={"thread"} type={"thread | nil"}>
+Iliskili Lua thread, veya matching live thread bulunamazsa nil.
+</ResponseField>
 
 ## Örnek
 
@@ -45,3 +42,6 @@ if targetScript then
     print(thread)
 end
 ```
+
+
+</div>

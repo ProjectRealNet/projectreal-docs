@@ -2,13 +2,10 @@
 title: "ImGuiWindow.Text"
 sidebarTitle: "ImGuiWindow.Text"
 description: "Anexa um Text element nao interativo a janela. O argumento text e lido com string type checking e armazenado no element. Durante o rendering, Real chama a text element, portanto o texto fornecido e usado como string content, nao como ImGui format string."
-icon: "function"
 keywords: ["ImGuiWindow.Text","ImGui"]
 ---
 
-Anexa um Text element nao interativo a janela. O argumento text e lido com string type checking e armazenado no element. Durante o rendering, Real chama a text element, portanto o texto fornecido e usado como string content, nao como ImGui format string.
-
-## Sintaxe
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.Text(window: ImGuiWindow, text: string): ImGuiWindow
@@ -16,16 +13,19 @@ ImGuiWindow.Text(window: ImGuiWindow, text: string): ImGuiWindow
 
 ## Argumentos
 
-| Name | Type | Required | Descrição |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow retornada por imgui.create. Se a object for invalida ou ja tiver sido destruida, a method gera um Lua error. |
-| `text` | `string` | Yes | Text content lido com string type checking e exibido pelo Text element. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow retornada por imgui.create. Se a object for invalida ou ja tiver sido destruida, a method gera um Lua error.
+</ParamField>
+
+<ParamField path={"text"} type={"string"} required>
+Text content lido com string type checking e exibido pelo Text element.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descrição |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | A mesma ImGuiWindow object, permitindo chamadas de method encadeadas. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+A mesma ImGuiWindow object, permitindo chamadas de method encadeadas.
+</ResponseField>
 
 ## Tipos
 
@@ -46,3 +46,6 @@ Identificador retornado por imgui.create. Os métodos de construção de control
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Acrescenta um controle deslizante inteiro. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Acrescenta texto não interativo. |
 | `destroy` | `() -> ()` | Yes | Remove a janela e libera seus retornos de chamada registrados. |
+
+
+</div>

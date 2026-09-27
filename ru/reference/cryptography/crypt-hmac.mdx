@@ -2,13 +2,10 @@
 title: "crypt.hmac"
 sidebarTitle: "crypt.hmac"
 description: "Вычисляет crypto library HMAC по байтам Lua string с raw Lua string key и возвращает Base64 digest."
-icon: "function"
 keywords: ["crypt.hmac","Cryptography"]
 ---
 
-Вычисляет crypto library HMAC по байтам Lua string с raw Lua string key и возвращает Base64 digest.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 crypt.hmac(key: string, data: string, algorithm?: "sha256" | "sha1" | "sha224" | "sha384" | "sha512" | "md5"): string
@@ -16,17 +13,23 @@ crypt.hmac(key: string, data: string, algorithm?: "sha256" | "sha1" | "sha224" |
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `key` | `string` | Yes | Байты raw Lua string, используемые как HMAC key. key не Base64-decode. |
-| `data` | `string` | Yes | Байты Lua string, передаваемые в HMAC calculation. |
-| `algorithm` | `"sha256" \| "sha1" \| "sha224" \| "sha384" \| "sha512" \| "md5"` | No | Case-sensitive имя HMAC algorithm. Значение по умолчанию sha256. |
+<ParamField path={"key"} type={"string"} required>
+Байты raw Lua string, используемые как HMAC key. key не Base64-decode.
+</ParamField>
+
+<ParamField path={"data"} type={"string"} required>
+Байты Lua string, передаваемые в HMAC calculation.
+</ParamField>
+
+<ParamField path={"algorithm"} type={"\"sha256\" | \"sha1\" | \"sha224\" | \"sha384\" | \"sha512\" | \"md5\""}>
+Case-sensitive имя HMAC algorithm. Значение по умолчанию sha256.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `digest` | `string` | Base64-encoded HMAC output без line breaks. |
+<ResponseField name={"digest"} type={"string"}>
+Base64-encoded HMAC output без line breaks.
+</ResponseField>
 
 ## Пример
 
@@ -39,3 +42,6 @@ local digest = crypt.hmac(key, data, "sha256")
 
 print(digest)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "json.validate"
 sidebarTitle: "json.validate"
 description: "Validate JSON string โดย parse complete JSON value หนึ่งค่า เมื่อ success จะ return เฉพาะ true เมื่อ parse failure จะ return false พร้อม parser error details"
-icon: "function"
 keywords: ["json.validate","JSON"]
 ---
 
-Validate JSON string โดย parse complete JSON value หนึ่งค่า เมื่อ success จะ return เฉพาะ true เมื่อ parse failure จะ return false พร้อม parser error details
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 json.validate(json: string, options?: DecodeOptions): boolean | string | nil | number | nil
@@ -16,18 +13,27 @@ json.validate(json: string, options?: DecodeOptions): boolean | string | nil | n
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string ที่จะ validate function อ่าน argument นี้ด้วย string type checking |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean ตั้งค่า useNull. table สามารถตั้งค่า useNull และ maxDepth. maxDepth ถูก clamp จาก 1 ถึง 4096 |
+<ParamField path={"json"} type={"string"} required>
+JSON string ที่จะ validate function อ่าน argument นี้ด้วย string type checking
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean ตั้งค่า useNull. table สามารถตั้งค่า useNull และ maxDepth. maxDepth ถูก clamp จาก 1 ถึง 4096
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `valid` | `boolean` | true เมื่อ parsing complete JSON value หนึ่งค่าสำเร็จ false เมื่อ parsing ล้มเหลวภายใน protected parse block |
-| `errorMessage` | `string \| nil` | Error message เมื่อ parse failure. message มี prefix json.validate และมี near-position suffix. return นี้มีเฉพาะตอน failure |
-| `errorPosition` | `number \| nil` | Parser byte position จาก parser เมื่อ parse failure. return นี้มีเฉพาะตอน failure |
+<ResponseField name={"valid"} type={"boolean"}>
+true เมื่อ parsing complete JSON value หนึ่งค่าสำเร็จ false เมื่อ parsing ล้มเหลวภายใน protected parse block
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+Error message เมื่อ parse failure. message มี prefix json.validate และมี near-position suffix. return นี้มีเฉพาะตอน failure
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+Parser byte position จาก parser เมื่อ parse failure. return นี้มีเฉพาะตอน failure
+</ResponseField>
 
 ## Types
 
@@ -53,3 +59,6 @@ if not valid then
     warn(message, position)
 end
 ```
+
+
+</div>

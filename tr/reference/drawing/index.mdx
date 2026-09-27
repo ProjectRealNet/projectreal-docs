@@ -1,15 +1,31 @@
 ---
 title: "Drawing"
 description: "Nesnelerin ve özelliklerinin çizilmesi."
-icon: "folder-code"
+icon: "/icons/pencil.svg"
 ---
+
+<div className="real-category-page">
 
 Nesnelerin ve özelliklerinin çizilmesi.
 
-| Fonksiyon gezinmesi | Açıklama |
-| --- | --- |
-| [`cleardrawcache`](./cleardrawcache) | Real global Drawing object list listesini temizler. Izlenen her Drawing object destroyed olarak isaretlenir, varsa image resources serbest birakilir ve object list bosaltilir. Temizlenen Drawing objects icin mevcut Lua references kalabilir, ancak objects artik active Drawing objects olarak kabul edilmez. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner. |
-| [`Drawing.new`](./drawing-new) | Istenen turde yeni bir Drawing object olusturur ve Real tracked Drawing object list icine ekler. type string su tam desteklenen adlardan biri olmalidir: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". Eksik, non-string veya desteklenmeyen type values Lua error olusturur. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner. |
-| [`getrenderproperty`](./getrenderproperty) | Ilk argumani verilen property key ile indekslemenin sonucunu dondurur. Drawing object icin object[property] ile ayni Drawing property lookup kullanilir, bu yuzden unknown properties ve destroyed Drawing objects nil dondurur. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner. |
-| [`isrenderobj`](./isrenderobj) | Degerin Drawing object type iceren object olup olmadigini dondurur. Bu yalnizca methods check yapar; alttaki Drawing object hala active, tracked veya destroyed mi kontrol etmez. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner. |
-| [`setrenderproperty`](./setrenderproperty) | value degerini object[property] icine atar. Drawing object icin direct property assignment ile ayni Drawing property assignment kullanilir. Unknown Drawing properties yok sayilir ve destroyed Drawing objects degistirilmez. Ucuncu arguman bulunmalidir. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner. |
+## Kullanılabilir fonksiyonlar
+
+<CardGroup cols={2}>
+<Card title="cleardrawcache" href="./cleardrawcache">
+Real global Drawing object list listesini temizler. Izlenen her Drawing object destroyed olarak isaretlenir, varsa image resources serbest birakilir ve object list bosaltilir. Temizlenen Drawing objects icin mevcut Lua references kalabilir, ancak objects artik active Drawing objects olarak kabul edilmez. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner.
+</Card>
+<Card title="Drawing.new" href="./drawing-new">
+Istenen turde yeni bir Drawing object olusturur ve Real tracked Drawing object list icine ekler. type string su tam desteklenen adlardan biri olmalidir: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". Eksik, non-string veya desteklenmeyen type values Lua error olusturur. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner.
+</Card>
+<Card title="getrenderproperty" href="./getrenderproperty">
+Ilk argumani verilen property key ile indekslemenin sonucunu dondurur. Drawing object icin object[property] ile ayni Drawing property lookup kullanilir, bu yuzden unknown properties ve destroyed Drawing objects nil dondurur. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner.
+</Card>
+<Card title="isrenderobj" href="./isrenderobj">
+Degerin Drawing object type iceren object olup olmadigini dondurur. Bu yalnizca methods check yapar; alttaki Drawing object hala active, tracked veya destroyed mi kontrol etmez. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner.
+</Card>
+<Card title="setrenderproperty" href="./setrenderproperty">
+value degerini object[property] icine atar. Drawing object icin direct property assignment ile ayni Drawing property assignment kullanilir. Unknown Drawing properties yok sayilir ve destroyed Drawing objects degistirilmez. Ucuncu arguman bulunmalidir. the Drawing API bu APIyi yalnizca the required rendering environment is active true oldugunda kaydeder; bu kontrol false oldugunda initializer bu globals degerlerini olusturmadan once doner.
+</Card>
+</CardGroup>
+
+</div>

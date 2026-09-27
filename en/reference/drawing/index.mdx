@@ -1,15 +1,31 @@
 ---
 title: "Drawing"
 description: "Drawing objects and their properties."
-icon: "folder-code"
+icon: "/icons/pencil.svg"
 ---
+
+<div className="real-category-page">
 
 Drawing objects and their properties.
 
-| Function navigation | Description |
-| --- | --- |
-| [`cleardrawcache`](./cleardrawcache) | Clears Real's global Drawing object list. Each tracked Drawing object is marked as destroyed, image resources are released when present, and the object list is emptied. Existing Lua references to cleared Drawing objects may still exist, but the objects are no longer considered active Drawing objects. the Drawing API registers this API only when the required rendering environment is active is true; when that check is false, the initializer returns before creating these globals. |
-| [`Drawing.new`](./drawing-new) | Creates a new Drawing object of the requested type and adds it to Real's tracked Drawing object list. The type string must be one of the exact supported names: "Line", "Text", "Circle", "Square", "Quad", "Triangle", or "Image". Missing, non-string, or unsupported type values raise a Lua error. the Drawing API registers this API only when the required rendering environment is active is true; when that check is false, the initializer returns before creating these globals. |
-| [`getrenderproperty`](./getrenderproperty) | Returns the result of indexing the first argument with the given property key. For Drawing object, this uses the same Drawing property lookup as object[property], so unknown properties and destroyed Drawing objects return nil. the Drawing API registers this API only when the required rendering environment is active is true; when that check is false, the initializer returns before creating these globals. |
-| [`isrenderobj`](./isrenderobj) | Returns whether the value is object with the Drawing object type. This is a methods check only; it does not check whether the underlying Drawing object is still active, tracked, or destroyed. the Drawing API registers this API only when the required rendering environment is active is true; when that check is false, the initializer returns before creating these globals. |
-| [`setrenderproperty`](./setrenderproperty) | Assigns value to object[property]. For Drawing object, this uses the same Drawing property assignment as direct property assignment. Unknown Drawing properties are ignored, and destroyed Drawing objects are not changed. The third argument must be present. the Drawing API registers this API only when the required rendering environment is active is true; when that check is false, the initializer returns before creating these globals. |
+## Available functions
+
+<CardGroup cols={2}>
+<Card title="cleardrawcache" href="./cleardrawcache">
+Clears Real's global Drawing object list. Each tracked Drawing object is marked as destroyed, image resources are released when present, and the object list is emptied. Existing Lua references to cleared Drawing objects may still exist, but the objects are no longer considered active Drawing objects. the Drawing API registers this API only when the required rendering environment is active is true; when that check is false, the initializer returns before creating these globals.
+</Card>
+<Card title="Drawing.new" href="./drawing-new">
+Creates a new Drawing object of the requested type and adds it to Real's tracked Drawing object list. The type string must be one of the exact supported names: "Line", "Text", "Circle", "Square", "Quad", "Triangle", or "Image". Missing, non-string, or unsupported type values raise a Lua error. the Drawing API registers this API only when the required rendering environment is active is true; when that check is false, the initializer returns before creating these globals.
+</Card>
+<Card title="getrenderproperty" href="./getrenderproperty">
+Returns the result of indexing the first argument with the given property key. For Drawing object, this uses the same Drawing property lookup as object[property], so unknown properties and destroyed Drawing objects return nil. the Drawing API registers this API only when the required rendering environment is active is true; when that check is false, the initializer returns before creating these globals.
+</Card>
+<Card title="isrenderobj" href="./isrenderobj">
+Returns whether the value is object with the Drawing object type. This is a methods check only; it does not check whether the underlying Drawing object is still active, tracked, or destroyed. the Drawing API registers this API only when the required rendering environment is active is true; when that check is false, the initializer returns before creating these globals.
+</Card>
+<Card title="setrenderproperty" href="./setrenderproperty">
+Assigns value to object[property]. For Drawing object, this uses the same Drawing property assignment as direct property assignment. Unknown Drawing properties are ignored, and destroyed Drawing objects are not changed. The third argument must be present. the Drawing API registers this API only when the required rendering environment is active is true; when that check is false, the initializer returns before creating these globals.
+</Card>
+</CardGroup>
+
+</div>

@@ -1,15 +1,31 @@
 ---
 title: "Cache"
 description: "参照キャッシュとインスタンスの比較。"
-icon: "folder-code"
+icon: "/icons/database.svg"
 ---
+
+<div className="real-category-page">
 
 参照キャッシュとインスタンスの比較。
 
-| 関数ナビゲーション | 説明 |
-| --- | --- |
-| [`cache.invalidate`](./cache-invalidate) | 指定された Instance のキャッシュ済み Instance cache エントリを削除します。 |
-| [`cache.iscached`](./cache-iscached) | 指定された Instance が Instance cache に non-nil エントリを持つかどうかを返します。 |
-| [`cache.replace`](./cache-replace) | Sets the cached Instance entry for one Instance to another Instance. |
-| [`cloneref`](./cloneref) | 同じ基になる Instance ポインタに対して新しい Instance 参照を push し、それを返します。 |
-| [`compareinstances`](./compareinstances) | 2 つの Instance object 値に保存されている内部 Instance ポインタ値を比較します。 |
+## 利用できる関数
+
+<CardGroup cols={2}>
+<Card title="cache.invalidate" href="./cache-invalidate">
+指定された Instance のキャッシュ済み Instance cache エントリを削除します。
+</Card>
+<Card title="cache.iscached" href="./cache-iscached">
+指定された Instance が Instance cache に non-nil エントリを持つかどうかを返します。
+</Card>
+<Card title="cache.replace" href="./cache-replace">
+Sets the cached Instance entry for one Instance to another Instance.
+</Card>
+<Card title="cloneref" href="./cloneref">
+同じ基になる Instance ポインタに対して新しい Instance 参照を push し、それを返します。
+</Card>
+<Card title="compareinstances" href="./compareinstances">
+2 つの Instance object 値に保存されている内部 Instance ポインタ値を比較します。
+</Card>
+</CardGroup>
+
+</div>

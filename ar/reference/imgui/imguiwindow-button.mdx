@@ -2,13 +2,10 @@
 title: "ImGuiWindow.Button"
 sidebarTitle: "ImGuiWindow.Button"
 description: "يلحق button element بـ ImGuiWindow ويخزن callback. عند النقر على button المعروض، يتم وضع callback في queue ثم استدعاؤه لاحقا بدون arguments. تعيد method نفس ImGuiWindow object."
-icon: "function"
 keywords: ["ImGuiWindow.Button","ImGui"]
 ---
 
-يلحق button element بـ ImGuiWindow ويخزن callback. عند النقر على button المعروض، يتم وضع callback في queue ثم استدعاؤه لاحقا بدون arguments. تعيد method نفس ImGuiWindow object.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.Button(window: ImGuiWindow, label: string, onClick: function): ImGuiWindow
@@ -16,17 +13,23 @@ ImGuiWindow.Button(window: ImGuiWindow, label: string, onClick: function): ImGui
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow object المعادة من imgui.create. Window مدمرة أو غير صالحة ترفع Lua error. |
-| `label` | `string` | Yes | Button label string الذي يمرر إلى ImGui button المعروض. |
-| `onClick` | `function` | Yes | Function مخزنة لهذا button ويتم استدعاؤها بدون arguments بعد معالجة click event. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow object المعادة من imgui.create. Window مدمرة أو غير صالحة ترفع Lua error.
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+Button label string الذي يمرر إلى ImGui button المعروض.
+</ParamField>
+
+<ParamField path={"onClick"} type={"function"} required>
+Function مخزنة لهذا button ويتم استدعاؤها بدون arguments بعد معالجة click event.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | نفس ImGuiWindow object، مما يسمح بتسلسل method calls. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+نفس ImGuiWindow object، مما يسمح بتسلسل method calls.
+</ResponseField>
 
 ## الأنواع
 
@@ -47,3 +50,6 @@ ImGuiWindow.Button(window: ImGuiWindow, label: string, onClick: function): ImGui
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | إلحاق شريط تمرير عدد صحيح. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | إلحاق نص غير تفاعلي. |
 | `destroy` | `() -> ()` | Yes | إزالة النافذة وتحرير عمليات الاسترجاعات المسجلة الخاصة بها. |
+
+
+</div>

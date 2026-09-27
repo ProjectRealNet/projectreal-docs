@@ -2,13 +2,10 @@
 title: "json.stringify"
 sidebarTitle: "json.stringify"
 description: "Serializa un Lua value a un JSON string usando la misma function que json.encode."
-icon: "function"
 keywords: ["json.stringify","JSON"]
 ---
 
-Serializa un Lua value a un JSON string usando la misma function que json.encode.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 json.stringify(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.stringify(value: any, options?: EncodeOptions): string
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value que se encode. nil, booleans, numbers, strings, tables y json.null se manejan directamente. Unsupported Lua types se encode como null salvo que errorOnUnsupported sea true. |
-| `options` | `EncodeOptions` | No | Optional encode options. Un boolean alterna pretty output. Un number habilita pretty output con esa cantidad de spaces con clamp a 0.16. Un string habilita pretty output con ese indent. Una table puede definir pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth e indent. |
+<ParamField path={"value"} type={"any"} required>
+Value que se encode. nil, booleans, numbers, strings, tables y json.null se manejan directamente. Unsupported Lua types se encode como null salvo que errorOnUnsupported sea true.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options. Un boolean alterna pretty output. Un number habilita pretty output con esa cantidad de spaces con clamp a 0.16. Un string habilita pretty output con ese indent. Una table puede definir pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth e indent.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `json` | `string` | Encoded JSON string. Encoding errors se lanzan como Luau errors. |
+<ResponseField name={"json"} type={"string"}>
+Encoded JSON string. Encoding errors se lanzan como Luau errors.
+</ResponseField>
 
 ## Tipos
 
@@ -59,3 +59,6 @@ local text = json.stringify({
 
 print(text)
 ```
+
+
+</div>

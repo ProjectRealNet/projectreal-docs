@@ -2,13 +2,10 @@
 title: "gethui"
 sidebarTitle: "gethui"
 description: "Zwraca game:CoreGui lookup.RobloxGui. Function nie przyjmuje arguments. Jesli CoreGui lookup zwroci nil albo RobloxGui na tej wartosci jest nil, function zwraca nil. Function nie tworzy container i nie uzywa zapisanej w cache wartosci CoreGui."
-icon: "function"
 keywords: ["gethui","Instances","gethiddenui","gethiddengui","get_hidden_ui","get_hidden_gui"]
 ---
 
-Zwraca game:CoreGui lookup.RobloxGui. Function nie przyjmuje arguments. Jesli CoreGui lookup zwroci nil albo RobloxGui na tej wartosci jest nil, function zwraca nil. Function nie tworzy container i nie uzywa zapisanej w cache wartosci CoreGui.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 gethui(): Instance | nil
@@ -23,6 +20,9 @@ gethui(): Instance | nil
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `robloxGui` | `Instance \| nil` | Wartosc RobloxGui odczytana z CoreGui albo nil, gdy CoreGui lub RobloxGui jest niedostepne. |
+<ResponseField name={"robloxGui"} type={"Instance | nil"}>
+Wartosc RobloxGui odczytana z CoreGui albo nil, gdy CoreGui lub RobloxGui jest niedostepne.
+</ResponseField>
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "getscriptthread"
 sidebarTitle: "getscriptthread"
 description: "Renvoie le Lua thread associe a une script object quand Real peut en trouver un. L argument doit etre object. La function lit le champ ClassName de la valeur et leve \"not a valid Instance\" si ce champ n est pas un string. Les valeurs ClassName acceptees sont Script, LocalScript et ModuleScript; toute autre valeur leve \"Script expected\". Elle verifie d abord le ScriptThreadCache de Real avec le script reference. En cas de cache hit, elle renvoie le Luau thread mis en cache comme thread. En cas de cache miss, les valeurs Script doivent avoir RunContext Client, sinon la function leve \"Expected a Script with RunContext set to Client\". Ensuite, elle parcourt the live Luau thread list, suit la first weak thread reference de chaque thread node vers LiveLuaRef, ignore les missing thread data ou expired Script stored references, et compare chaque script reference au script demande. Si elle trouve un match, elle renvoie ce Luau thread comme thread. Si aucun match n est trouve, elle renvoie nil."
-icon: "function"
 keywords: ["getscriptthread","Scripts"]
 ---
 
-Renvoie le Lua thread associe a une script object quand Real peut en trouver un. L argument doit etre object. La function lit le champ ClassName de la valeur et leve "not a valid Instance" si ce champ n est pas un string. Les valeurs ClassName acceptees sont Script, LocalScript et ModuleScript; toute autre valeur leve "Script expected". Elle verifie d abord le ScriptThreadCache de Real avec le script reference. En cas de cache hit, elle renvoie le Luau thread mis en cache comme thread. En cas de cache miss, les valeurs Script doivent avoir RunContext Client, sinon la function leve "Expected a Script with RunContext set to Client". Ensuite, elle parcourt the live Luau thread list, suit la first weak thread reference de chaque thread node vers LiveLuaRef, ignore les missing thread data ou expired Script stored references, et compare chaque script reference au script demande. Si elle trouve un match, elle renvoie ce Luau thread comme thread. Si aucun match n est trouve, elle renvoie nil.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 getscriptthread(script: userdata): thread | nil
@@ -16,15 +13,15 @@ getscriptthread(script: userdata): thread | nil
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | Script object a rechercher. Les valeurs ClassName acceptees sont Script, LocalScript et ModuleScript. |
+<ParamField path={"script"} type={"userdata"} required>
+Script object a rechercher. Les valeurs ClassName acceptees sont Script, LocalScript et ModuleScript.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `thread` | `thread \| nil` | Lua thread associe, ou nil quand aucun matching live thread n est trouve. |
+<ResponseField name={"thread"} type={"thread | nil"}>
+Lua thread associe, ou nil quand aucun matching live thread n est trouve.
+</ResponseField>
 
 ## Exemple
 
@@ -45,3 +42,6 @@ if targetScript then
     print(thread)
 end
 ```
+
+
+</div>

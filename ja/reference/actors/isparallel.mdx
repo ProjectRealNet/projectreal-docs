@@ -2,13 +2,10 @@
 title: "isparallel"
 sidebarTitle: "isparallel"
 description: "現在の Luau thread の ScriptContext DataModel から boolean を返します。この function は arguments を取りません。parallel execution status を返す the current parallel execution status を読みます。the current DataModel が DataModel を返さない場合、この function は false を返します。checkparallel は同じ function の alias です。"
-icon: "function"
 keywords: ["isparallel","Actors","checkparallel"]
 ---
 
-現在の Luau thread の ScriptContext DataModel から boolean を返します。この function は arguments を取りません。parallel execution status を返す the current parallel execution status を読みます。the current DataModel が DataModel を返さない場合、この function は false を返します。checkparallel は同じ function の alias です。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 isparallel(): boolean
@@ -20,9 +17,9 @@ isparallel(): boolean
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `parallel` | `boolean` | 現在の DataModel parallel execution status が設定されている場合は true。flag が設定されていない場合、または DataModel が利用できない場合は false。 |
+<ResponseField name={"parallel"} type={"boolean"}>
+現在の DataModel parallel execution status が設定されている場合は true。flag が設定されていない場合、または DataModel が利用できない場合は false。
+</ResponseField>
 
 ## 例
 
@@ -34,3 +31,6 @@ print(parallel)
 
 print(checkparallel())
 ```
+
+
+</div>

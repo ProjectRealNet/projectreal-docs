@@ -2,13 +2,10 @@
 title: "gethui"
 sidebarTitle: "gethui"
 description: "คืนค่า game:CoreGui lookup.RobloxGui function นี้ไม่รับ arguments หาก CoreGui lookup คืน nil หรือหาก RobloxGui บนค่านั้นเป็น nil function จะคืน nil function ไม่สร้าง container และไม่ใช้ค่า cached CoreGui"
-icon: "function"
 keywords: ["gethui","Instances","gethiddenui","gethiddengui","get_hidden_ui","get_hidden_gui"]
 ---
 
-คืนค่า game:CoreGui lookup.RobloxGui function นี้ไม่รับ arguments หาก CoreGui lookup คืน nil หรือหาก RobloxGui บนค่านั้นเป็น nil function จะคืน nil function ไม่สร้าง container และไม่ใช้ค่า cached CoreGui
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 gethui(): Instance | nil
@@ -23,6 +20,9 @@ gethui(): Instance | nil
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `robloxGui` | `Instance \| nil` | ค่า RobloxGui ที่อ่านจาก CoreGui หรือ nil เมื่อ CoreGui หรือ RobloxGui ไม่พร้อมใช้งาน |
+<ResponseField name={"robloxGui"} type={"Instance | nil"}>
+ค่า RobloxGui ที่อ่านจาก CoreGui หรือ nil เมื่อ CoreGui หรือ RobloxGui ไม่พร้อมใช้งาน
+</ResponseField>
+
+
+</div>

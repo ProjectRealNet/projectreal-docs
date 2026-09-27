@@ -1,27 +1,67 @@
 ---
 title: "Miscellaneous"
 description: "기타"
-icon: "folder-code"
+icon: "/icons/settings.svg"
 ---
+
+<div className="real-category-page">
 
 기타
 
-| 함수 탐색 | 설명 |
-| --- | --- |
-| [`clear_teleport_queue`](./clear-teleport-queue) | Clears Real's queued teleport source strings and returns no values. The registered aliases call the same function. |
-| [`getexecutorname`](./getexecutorname) | Returns Real's executor name as one string. |
-| [`getexecutorversion`](./getexecutorversion) | Returns Real's executor version as one string. |
-| [`getfflag`](./getfflag) | Reads a Roblox fast flag by exact name and returns its value as a string. Missing or unsupported flags return nil. |
-| [`getfflagtype`](./getfflagtype) | Returns the detected type for a Roblox fast flag as "string", "bool", "int", or "unknown". Missing or unsupported flags return "unknown". |
-| [`getfpscap`](./getfpscap) | Returns the current FPS cap value represented by Roblox, or 0 when the value cannot be read. |
-| [`gethwid`](./gethwid) | Returns Real's hardware identifier string. |
-| [`GetObjects`](./getobjects) | Loads a local Roblox asset and returns a one-item table containing the loaded Instance. Use the method-call form game:GetObjects(asset). |
-| [`HttpGet`](./httpget) | Performs a GET request for game:HttpGet(url, cache) or game:HttpGetAsync(url, cache) and returns the response body string. The URL must pass Real's URL restrictions. |
-| [`HttpPost`](./httppost) | Performs a POST request for game:HttpPost(...) or game:HttpPostAsync(...) and returns the response body string or a request error string. The URL must pass Real's URL restrictions. |
-| [`identifyexecutor`](./identifyexecutor) | Returns two strings: the executor name followed by the executor version. |
-| [`info`](./info) | Writes zero or more values as an informational message. Values are converted to strings and separated with tab characters. The function returns no values. |
-| [`messagebox`](./messagebox) | Shows a Windows message box with text, caption, and numeric flags, then returns the integer result code. |
-| [`queue_on_teleport`](./queue-on-teleport) | Queues a source string to run after a later teleport initialization. The function returns no values. |
-| [`request`](./request) | Sends an HTTP or HTTPS request and yields until it completes. options must include Url. Method defaults to GET and must be GET, POST, PUT, PATCH, or DELETE. Headers, Cookies, and Body are optional. Request errors return an error string; completed requests return a response table. |
-| [`setfflag`](./setfflag) | Sets a Roblox fast flag by exact name. Accepted value types depend on the detected flag type. The function returns true after a supported write and false when the flag is missing, unsupported, or the value is not accepted. |
-| [`setfpscap`](./setfpscap) | Sets the FPS cap value and returns no values. Values that are non-finite, less than or equal to 0, or greater than 2000 are treated as 2000. |
+## 사용 가능한 함수
+
+<CardGroup cols={2}>
+<Card title="clear_teleport_queue" href="./clear-teleport-queue">
+Clears Real's queued teleport source strings and returns no values. The registered aliases call the same function.
+</Card>
+<Card title="getexecutorname" href="./getexecutorname">
+Returns Real's executor name as one string.
+</Card>
+<Card title="getexecutorversion" href="./getexecutorversion">
+Returns Real's executor version as one string.
+</Card>
+<Card title="getfflag" href="./getfflag">
+Reads a Roblox fast flag by exact name and returns its value as a string. Missing or unsupported flags return nil.
+</Card>
+<Card title="getfflagtype" href="./getfflagtype">
+Returns the detected type for a Roblox fast flag as "string", "bool", "int", or "unknown". Missing or unsupported flags return "unknown".
+</Card>
+<Card title="getfpscap" href="./getfpscap">
+Returns the current FPS cap value represented by Roblox, or 0 when the value cannot be read.
+</Card>
+<Card title="gethwid" href="./gethwid">
+Returns Real's hardware identifier string.
+</Card>
+<Card title="GetObjects" href="./getobjects">
+Loads a local Roblox asset and returns a one-item table containing the loaded Instance. Use the method-call form game:GetObjects(asset).
+</Card>
+<Card title="HttpGet" href="./httpget">
+Performs a GET request for game:HttpGet(url, cache) or game:HttpGetAsync(url, cache) and returns the response body string. The URL must pass Real's URL restrictions.
+</Card>
+<Card title="HttpPost" href="./httppost">
+Performs a POST request for game:HttpPost(...) or game:HttpPostAsync(...) and returns the response body string or a request error string. The URL must pass Real's URL restrictions.
+</Card>
+<Card title="identifyexecutor" href="./identifyexecutor">
+Returns two strings: the executor name followed by the executor version.
+</Card>
+<Card title="info" href="./info">
+Writes zero or more values as an informational message. Values are converted to strings and separated with tab characters. The function returns no values.
+</Card>
+<Card title="messagebox" href="./messagebox">
+Shows a Windows message box with text, caption, and numeric flags, then returns the integer result code.
+</Card>
+<Card title="queue_on_teleport" href="./queue-on-teleport">
+Queues a source string to run after a later teleport initialization. The function returns no values.
+</Card>
+<Card title="request" href="./request">
+Sends an HTTP or HTTPS request and yields until it completes. options must include Url. Method defaults to GET and must be GET, POST, PUT, PATCH, or DELETE. Headers, Cookies, and Body are optional. Request errors return an error string; completed requests return a response table.
+</Card>
+<Card title="setfflag" href="./setfflag">
+Sets a Roblox fast flag by exact name. Accepted value types depend on the detected flag type. The function returns true after a supported write and false when the flag is missing, unsupported, or the value is not accepted.
+</Card>
+<Card title="setfpscap" href="./setfpscap">
+Sets the FPS cap value and returns no values. Values that are non-finite, less than or equal to 0, or greater than 2000 are treated as 2000.
+</Card>
+</CardGroup>
+
+</div>

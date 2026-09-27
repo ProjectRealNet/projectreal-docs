@@ -46,6 +46,32 @@ const locales = [
 
 const nativeMintlifyLocales = new Set(locales.map(([code]) => code).filter((code) => code !== 'th'));
 const messages: Record<string, Record<string, string>> = {};
+const categoryIcons: Record<string, string> = {
+  Cache: 'database',
+  Cryptography: 'key',
+  Filesystem: 'folder',
+  JSON: 'code-circle-2',
+  Console: 'file-code',
+  Drawing: 'pencil',
+  ImGui: 'device-desktop',
+  Input: 'mouse',
+  Instances: 'stack',
+  Reflection: 'zoom-scan',
+  Scripts: 'file-code',
+  Signals: 'brand-signal',
+  WebSocket: 'bolt',
+  Actors: 'device-heart-monitor',
+  Closures: 'code-circle-2',
+  Debug: 'bug',
+  Environment: 'world',
+  Metatables: 'table',
+  Threads: 'stack',
+  Disassembler: 'binary-tree',
+  Miscellaneous: 'settings',
+  RakNet: 'radar',
+  RealSignal: 'brand-signal',
+  SaveInstance: 'download',
+};
 
 for (const [locale] of locales) {
   messages[locale] = JSON.parse(await readFile(join(websiteRoot, `messages/${locale}.json`), 'utf8'));
@@ -100,15 +126,17 @@ for (const [locale, languageName] of locales) {
   const localeDocs = localized[locale] ?? {};
   const categoryCards = categories.map((category) => {
     const title = localeDocs.categories?.[category] ? category : category;
-    return `<Card title=${JSON.stringify(title)} icon="brackets-curly" href="./reference/${slug(category)}">\n${mdxText(localeDocs.categories?.[category] ?? categorySummary[category] ?? `${category} functions.`)}\n</Card>`;
+    return `<Card title=${JSON.stringify(title)} icon="/icons/${categoryIcons[category] ?? 'file-code'}.svg" href="./reference/${slug(category)}">\n${mdxText(localeDocs.categories?.[category] ?? categorySummary[category] ?? `${category} functions.`)}\n</Card>`;
   }).join('\n');
 
   await output(`${locale}/index.mdx`, `
 ---
 title: ${yaml(tr(locale, 'docs_intro', 'Function reference'))}
 description: ${yaml(tr(locale, 'docs_intro_desc', 'Reference documentation for every function supported by Real.'))}
-icon: "book-open"
+icon: "/icons/book.svg"
 ---
+
+<div className="real-index-page">
 
 # ${mdxText(tr(locale, 'docs_available_functions', 'Available functions'))}
 
@@ -121,27 +149,37 @@ ${categoryCards}
 <Info>
 ${mdxText(languageName)} · ${functions.length} ${mdxText(tr(locale, 'docs_functions_count', 'functions'))} · ${categories.length} ${mdxText(tr(locale, 'docs_category_label', 'categories'))}
 </Info>
+
+</div>
 `);
 
   for (const category of categories) {
     const categoryFunctions = functions.filter((fn) => fn.category === category);
-    const rows = categoryFunctions.map((fn) => {
+    const functionCards = categoryFunctions.map((fn) => {
       const details = localizedFunction(locale, fn);
-      return `| [\`${tableText(fn.name)}\`](./${slug(fn.name)}) | ${tableText(details.description ?? fn.description)} |`;
+      return `<Card title=${JSON.stringify(fn.name)} href="./${slug(fn.name)}">
+${mdxText(details.description ?? fn.description)}
+</Card>`;
     }).join('\n');
 
     await output(`${locale}/reference/${slug(category)}/index.mdx`, `
 ---
 title: ${yaml(category)}
 description: ${yaml(localeDocs.categories?.[category] ?? categorySummary[category] ?? `${category} functions supported by Real.`)}
-icon: "folder-code"
+icon: "/icons/${categoryIcons[category] ?? 'file-code'}.svg"
 ---
+
+<div className="real-category-page">
 
 ${mdxText(localeDocs.categories?.[category] ?? categorySummary[category] ?? `${category} functions supported by Real.`)}
 
-| ${mdxText(tr(locale, 'docs_function_nav_label', 'Function'))} | ${mdxText(tr(locale, 'docs_description', 'Description'))} |
-| --- | --- |
-${rows}
+## ${mdxText(tr(locale, 'docs_available_functions', 'Available functions'))}
+
+<CardGroup cols={2}>
+${functionCards}
+</CardGroup>
+
+</div>
 `);
 
     for (const fn of categoryFunctions) {
@@ -150,16 +188,16 @@ ${rows}
       const args = fn.arguments.length ? `
 ## ${mdxText(tr(locale, 'docs_arguments', 'Arguments'))}
 
-| ${mdxText(tr(locale, 'docs_name', 'Name'))} | ${mdxText(tr(locale, 'docs_type', 'Type'))} | ${mdxText(tr(locale, 'docs_required', 'Required'))} | ${mdxText(tr(locale, 'docs_description', 'Description'))} |
-| --- | --- | --- | --- |
-${fn.arguments.map((arg) => `| \`${tableText(arg.name)}\` | \`${tableText(arg.type)}\` | ${arg.optional ? 'No' : 'Yes'} | ${tableText(details.arguments?.[arg.name] ?? arg.description)} |`).join('\n')}
+${fn.arguments.map((arg) => `<ParamField path={${JSON.stringify(arg.name)}} type={${JSON.stringify(arg.type)}}${arg.optional ? '' : ' required'}>
+${mdxText(details.arguments?.[arg.name] ?? arg.description)}
+</ParamField>`).join('\n\n')}
 ` : '';
       const returns = fn.returns.length ? `
 ## ${mdxText(tr(locale, 'docs_returns', 'Returns'))}
 
-| ${mdxText(tr(locale, 'docs_name', 'Name'))} | ${mdxText(tr(locale, 'docs_type', 'Type'))} | ${mdxText(tr(locale, 'docs_description', 'Description'))} |
-| --- | --- | --- |
-${fn.returns.map((ret) => `| \`${tableText(ret.name)}\` | \`${tableText(ret.type)}\` | ${tableText(details.returns?.[ret.name] ?? ret.description)} |`).join('\n')}
+${fn.returns.map((ret) => `<ResponseField name={${JSON.stringify(ret.name)}} type={${JSON.stringify(ret.type)}}>
+${mdxText(details.returns?.[ret.name] ?? ret.description)}
+</ResponseField>`).join('\n\n')}
 ` : '';
       const aliases = fn.aliases.length ? `
 ## ${mdxText(tr(locale, 'docs_aliases', 'Aliases'))}
@@ -192,18 +230,17 @@ ${example.code}
 title: ${yaml(fn.name)}
 sidebarTitle: ${yaml(fn.name)}
 description: ${yaml(description)}
-icon: "function"
 keywords: ${JSON.stringify([fn.name, category, ...fn.aliases])}
 ---
 
-${mdxText(description)}
-
-## ${mdxText(tr(locale, 'docs_syntax', 'Syntax'))}
+<div className="real-function-page">
 
 \`\`\`lua
 ${signature(fn)}
 \`\`\`
 ${aliases}${args}${returns}${typeSections}${exampleSection}
+
+</div>
 `);
     }
   }
@@ -212,21 +249,27 @@ ${aliases}${args}${returns}${typeSections}${exampleSection}
 const languageNavigation = locales.filter(([code]) => nativeMintlifyLocales.has(code)).map(([locale]) => ({
   language: locale,
   groups: [
-    { group: 'Overview', pages: [`${locale}/index`] },
-    ...categories.map((category) => ({
-      group: category,
-      expanded: false,
+    {
+      group: 'API Reference',
       pages: [
-        `${locale}/reference/${slug(category)}/index`,
-        ...functions.filter((fn) => fn.category === category).map((fn) => `${locale}/reference/${slug(category)}/${slug(fn.name)}`),
+        `${locale}/index`,
+        ...categories.map((category) => ({
+          group: category,
+          icon: `/icons/${categoryIcons[category] ?? 'file-code'}.svg`,
+          expanded: false,
+          pages: [
+            `${locale}/reference/${slug(category)}/index`,
+            ...functions.filter((fn) => fn.category === category).map((fn) => `${locale}/reference/${slug(category)}/${slug(fn.name)}`),
+          ],
+        })),
       ],
-    })),
+    },
   ],
 }));
 
 const config = {
   $schema: 'https://mintlify.com/docs.json',
-  theme: 'willow',
+  theme: 'mint',
   name: 'Real Function Reference',
   description: 'Complete multilingual function reference for Real.',
   colors: { primary: '#737373', light: '#171717', dark: '#f5f5f5' },
@@ -236,10 +279,9 @@ const config = {
     languages: languageNavigation,
     global: {
       anchors: [
-        { anchor: 'ไทย', href: '/th/index', icon: 'language' },
-        { anchor: 'Guides', href: 'https://projectreal.gg/en/docs/guides', icon: 'book-open' },
-        { anchor: 'Troubleshooting', href: 'https://projectreal.gg/en/docs/troubleshooting', icon: 'screwdriver-wrench' },
-        { anchor: 'Release notes', href: 'https://projectreal.gg/en/docs/releases', icon: 'clock-rotate-left' },
+        { anchor: 'Guides', href: 'https://projectreal.gg/docs/guides', icon: 'book-open' },
+        { anchor: 'Troubleshooting', href: 'https://projectreal.gg/docs/troubleshooting', icon: 'screwdriver-wrench' },
+        { anchor: 'Release notes', href: 'https://projectreal.gg/docs/releases', icon: 'clock-rotate-left' },
       ],
     },
   },
@@ -249,9 +291,10 @@ const config = {
       { label: 'Status', href: 'https://status.projectreal.gg' },
       { label: 'Support', href: 'https://discord.gg/projectreal' },
     ],
-    primary: { type: 'button', label: 'Download Real', href: 'https://projectreal.gg/en/download' },
+    primary: { type: 'button', label: 'Download Real', href: 'https://projectreal.gg/download' },
   },
   contextual: { options: ['copy', 'view', 'chatgpt', 'claude', 'perplexity', 'mcp', 'cursor', 'vscode'] },
+  codeBlock: { mode: 'auto' },
   footer: { socials: { github: 'https://github.com/ProjectRealNet', discord: 'https://discord.gg/projectreal' } },
   seo: { metatags: { canonical: 'https://docs.projectreal.gg' } },
 };

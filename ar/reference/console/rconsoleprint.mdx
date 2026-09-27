@@ -2,13 +2,10 @@
 title: "rconsoleprint"
 sidebarTitle: "rconsoleprint"
 description: "يكتب صفرا أو أكثر من القيم إلى Windows console الحالية عبر stdout بدون تغيير console text attribute. يتم تحويل القيم باستخدام Lua string conversion وفصلها بعلامات tab. لا تضيف function أي newline. إذا لم تكن هناك console window، يرجع الاستدعاء بدون تحويل أو كتابة أي شيء."
-icon: "function"
 keywords: ["rconsoleprint","Console","consoleprint","rconsolewrite","consolewrite"]
 ---
 
-يكتب صفرا أو أكثر من القيم إلى Windows console الحالية عبر stdout بدون تغيير console text attribute. يتم تحويل القيم باستخدام Lua string conversion وفصلها بعلامات tab. لا تضيف function أي newline. إذا لم تكن هناك console window، يرجع الاستدعاء بدون تحويل أو كتابة أي شيء.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 rconsoleprint(...values?: ...any)
@@ -22,9 +19,9 @@ rconsoleprint(...values?: ...any)
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | قيم اختيارية. إذا كانت هناك console، يتم تحويل كل value باستخدام Lua string conversion وربط القيم بعلامات tab قبل الكتابة. |
+<ParamField path={"...values"} type={"...any"}>
+قيم اختيارية. إذا كانت هناك console، يتم تحويل كل value باستخدام Lua string conversion وربط القيم بعلامات tab قبل الكتابة.
+</ParamField>
 
 ## مثال
 
@@ -37,3 +34,6 @@ rconsoleprint("Loading", "
 rconsoleprint("User", "	", 42, "
 ")
 ```
+
+
+</div>

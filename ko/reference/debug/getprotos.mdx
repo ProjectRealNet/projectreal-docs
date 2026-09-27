@@ -2,13 +2,10 @@
 title: "getprotos"
 sidebarTitle: "getprotos"
 description: "Returns all nested Lua functions from a Lua function or stack level as a one-based array table. Invalid stack levels raise \"Level out of range\", and non-Lua functions raise \"Lua function expected\". debug.getprotos is an alias."
-icon: "function"
 keywords: ["getprotos","Debug","debug.getprotos"]
 ---
 
-Returns all nested Lua functions from a Lua function or stack level as a one-based array table. Invalid stack levels raise "Level out of range", and non-Lua functions raise "Lua function expected". debug.getprotos is an alias.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 getprotos(target: function | number): table
@@ -20,15 +17,15 @@ getprotos(target: function | number): table
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `target` | `function \| number` | Yes | Lua function or stack level whose nested functions are returned. |
+<ParamField path={"target"} type={"function | number"} required>
+Lua function or stack level whose nested functions are returned.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `protos` | `table` | One-based array table containing nested functions. Empty when none are present. |
+<ResponseField name={"protos"} type={"table"}>
+One-based array table containing nested functions. Empty when none are present.
+</ResponseField>
 
 ## 예제
 
@@ -55,3 +52,6 @@ end
 
 print(#debug.getprotos(outer))
 ```
+
+
+</div>

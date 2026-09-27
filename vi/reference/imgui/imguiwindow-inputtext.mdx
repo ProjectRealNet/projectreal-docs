@@ -2,13 +2,10 @@
 title: "ImGuiWindow.InputText"
 sidebarTitle: "ImGuiWindow.InputText"
 description: "Them single-line ImGui InputText element vao ImGuiWindow va luu callback. Initial text duoc doc bang optional string handling va duoc sao chep vao fixed 256-byte text buffer cua element. Khi input duoc render thay doi, callback duoc dua vao queue va sau do duoc goi voi current string. Method tra ve cung ImGuiWindow object."
-icon: "function"
 keywords: ["ImGuiWindow.InputText","ImGui"]
 ---
 
-Them single-line ImGui InputText element vao ImGuiWindow va luu callback. Initial text duoc doc bang optional string handling va duoc sao chep vao fixed 256-byte text buffer cua element. Khi input duoc render thay doi, callback duoc dua vao queue va sau do duoc goi voi current string. Method tra ve cung ImGuiWindow object.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.InputText(window: ImGuiWindow, label: string, text?: string, onChange: function): ImGuiWindow
@@ -16,18 +13,27 @@ ImGuiWindow.InputText(window: ImGuiWindow, label: string, text?: string, onChang
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow object duoc tra ve boi imgui.create. Window da bi huy hoac khong hop le gay Lua error. |
-| `label` | `string` | Yes | Input label string duoc truyen cho ImGui InputText widget duoc render. |
-| `text` | `string` | No | Initial text duoc doc bang optional string handling. Truyen nil tai day khi muon default empty string nhung van cung cap onChange lam argument 4. |
-| `onChange` | `function` | Yes | Function duoc luu cho input nay va duoc goi voi current string sau khi edit event duoc xu ly. No phai duoc cung cap lam argument 4. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow object duoc tra ve boi imgui.create. Window da bi huy hoac khong hop le gay Lua error.
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+Input label string duoc truyen cho ImGui InputText widget duoc render.
+</ParamField>
+
+<ParamField path={"text"} type={"string"}>
+Initial text duoc doc bang optional string handling. Truyen nil tai day khi muon default empty string nhung van cung cap onChange lam argument 4.
+</ParamField>
+
+<ParamField path={"onChange"} type={"function"} required>
+Function duoc luu cho input nay va duoc goi voi current string sau khi edit event duoc xu ly. No phai duoc cung cap lam argument 4.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | Cung ImGuiWindow object, cho phep noi chuoi method calls. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+Cung ImGuiWindow object, cho phep noi chuoi method calls.
+</ResponseField>
 
 ## Kiểu
 
@@ -48,3 +54,6 @@ Xử lý được trả về bởi imgui.create. Các phương pháp xây dựng
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Nối thêm một thanh trượt số nguyên. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Nối thêm văn bản không tương tác. |
 | `destroy` | `() -> ()` | Yes | Xóa cửa sổ và giải phóng các cuộc gọi lại đã đăng ký của nó. |
+
+
+</div>

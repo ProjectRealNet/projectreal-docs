@@ -2,13 +2,10 @@
 title: "cache.invalidate"
 sidebarTitle: "cache.invalidate"
 description: "지정한 Instance의 캐시된 Instance cache 항목을 제거합니다."
-icon: "function"
 keywords: ["cache.invalidate","Cache"]
 ---
 
-지정한 Instance의 캐시된 Instance cache 항목을 제거합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 cache.invalidate(instance: Instance)
@@ -16,9 +13,9 @@ cache.invalidate(instance: Instance)
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | 캐시된 registry 항목을 제거할 Instance입니다. |
+<ParamField path={"instance"} type={"Instance"} required>
+캐시된 registry 항목을 제거할 Instance입니다.
+</ParamField>
 
 ## 예제
 
@@ -31,3 +28,6 @@ cache.invalidate(Players)
 
 print(cache.iscached(Players))
 ```
+
+
+</div>

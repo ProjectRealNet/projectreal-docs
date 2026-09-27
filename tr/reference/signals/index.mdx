@@ -1,17 +1,37 @@
 ---
 title: "Signals"
 description: "Sinyal bağlantıları ve olay iletme."
-icon: "folder-code"
+icon: "/icons/brand-signal.svg"
 ---
+
+<div className="real-category-page">
 
 Sinyal bağlantıları ve olay iletme.
 
-| Fonksiyon gezinmesi | Açıklama |
-| --- | --- |
-| [`cansignalreplicate`](./cansignalreplicate) | Bir RBXScriptSignal degerinin gecerli NetworkClient replication layer uzerinden gonderilmesinin legal olup olmadigini denetler. Function ilk argument degerini RBXScriptSignal olarak dogrular, signal icin source instance ve event descriptor degerlerini okur, sonra replication layer signal replication validation sonucundaki boolean degerini dondurur. Cozumlenen replication layer reference degeri 0 ise false dondurur. Ek arguments okunmaz. Bu function yalnizca signal degerini denetler, onu fire veya replicate etmez. getsignalwhitelist tarafindan dondurulen whitelist table bu code path icinde kullanilmaz. |
-| [`firesignal`](./firesignal) | Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error. |
-| [`getconnections`](./getconnections) | Bir RBXScriptSignal icin RealConnection closures iceren array table dondurur. Ilk argument, Luau type name degeri RBXScriptSignal olan object olmalidir. Function signal icindeki Connect method degerini okur, temporary blank callback baglar, gecici connection icin next reference degerinden baslayan linked list degerini okur, gecici connection degerini disconnect eder ve her gecerli connection reference degerini closure haline getirir. Gecici connection sonrasinda connection reference bulunmazsa bos table dondurur. Daha once closure haline getirilen underlying references ayni cached closure table degerini dondurebilir. getsignals ve get_signal_cons ayni function icin aliases degerleridir. |
-| [`getsignalarguments`](./getsignalarguments) | Bir RBXScriptSignal event descriptor signature icinden okunan type names iceren array table dondurur. Ilk argument, Luau type name degeri RBXScriptSignal olan object olmalidir. Function signal icindeki event descriptor degerini okur, function argument stride ile signature slots uzerinden gecer, her argument type reference degerini okur ve her slot icin cozumlenen type name string degerini push eder. captured runtime argument values dondurmez. Signature okunamazsa veya hic entries push edilmezse, dondurulen table tek fallback entry icerir: "Variant". |
-| [`getsignalargumentsinfo`](./getsignalargumentsinfo) | Bir RBXScriptSignal imzasından argüman bilgisi içeren bir array table döndürür. Yakalanmış çalışma zamanı argüman değerlerini döndürmez. |
-| [`getsignalwhitelist`](./getsignalwhitelist) | Function tarafindan tanimlanan alti statik whitelist entry degerini iceren yeni bir array table dondurur: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Her entry, Event ve Parent string field degerlerine sahip bir table degeridir. Function arguments kabul etmez ve gecerli game state degerini incelemez. |
-| [`replicatesignal`](./replicatesignal) | Bir RBXScriptSignal için replication path çağırır. Function signal signature değerini okur, verilen Lua arguments değerlerini her signature type için Roblox signal values değerlerine dönüştürür, signature length sonrasındaki fazla Lua arguments değerlerini keser ve ardından owning instance event invocation function değerini çağırır. |
+## Kullanılabilir fonksiyonlar
+
+<CardGroup cols={2}>
+<Card title="cansignalreplicate" href="./cansignalreplicate">
+Bir RBXScriptSignal degerinin gecerli NetworkClient replication layer uzerinden gonderilmesinin legal olup olmadigini denetler. Function ilk argument degerini RBXScriptSignal olarak dogrular, signal icin source instance ve event descriptor degerlerini okur, sonra replication layer signal replication validation sonucundaki boolean degerini dondurur. Cozumlenen replication layer reference degeri 0 ise false dondurur. Ek arguments okunmaz. Bu function yalnizca signal degerini denetler, onu fire veya replicate etmez. getsignalwhitelist tarafindan dondurulen whitelist table bu code path icinde kullanilmaz.
+</Card>
+<Card title="firesignal" href="./firesignal">
+Runs the local connections for an RBXScriptSignal with the provided arguments. The first argument must be a valid signal. Invalid signal values raise an error.
+</Card>
+<Card title="getconnections" href="./getconnections">
+Bir RBXScriptSignal icin RealConnection closures iceren array table dondurur. Ilk argument, Luau type name degeri RBXScriptSignal olan object olmalidir. Function signal icindeki Connect method degerini okur, temporary blank callback baglar, gecici connection icin next reference degerinden baslayan linked list degerini okur, gecici connection degerini disconnect eder ve her gecerli connection reference degerini closure haline getirir. Gecici connection sonrasinda connection reference bulunmazsa bos table dondurur. Daha once closure haline getirilen underlying references ayni cached closure table degerini dondurebilir. getsignals ve get_signal_cons ayni function icin aliases degerleridir.
+</Card>
+<Card title="getsignalarguments" href="./getsignalarguments">
+Bir RBXScriptSignal event descriptor signature icinden okunan type names iceren array table dondurur. Ilk argument, Luau type name degeri RBXScriptSignal olan object olmalidir. Function signal icindeki event descriptor degerini okur, function argument stride ile signature slots uzerinden gecer, her argument type reference degerini okur ve her slot icin cozumlenen type name string degerini push eder. captured runtime argument values dondurmez. Signature okunamazsa veya hic entries push edilmezse, dondurulen table tek fallback entry icerir: "Variant".
+</Card>
+<Card title="getsignalargumentsinfo" href="./getsignalargumentsinfo">
+Bir RBXScriptSignal imzasından argüman bilgisi içeren bir array table döndürür. Yakalanmış çalışma zamanı argüman değerlerini döndürmez.
+</Card>
+<Card title="getsignalwhitelist" href="./getsignalwhitelist">
+Function tarafindan tanimlanan alti statik whitelist entry degerini iceren yeni bir array table dondurur: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Her entry, Event ve Parent string field degerlerine sahip bir table degeridir. Function arguments kabul etmez ve gecerli game state degerini incelemez.
+</Card>
+<Card title="replicatesignal" href="./replicatesignal">
+Bir RBXScriptSignal için replication path çağırır. Function signal signature değerini okur, verilen Lua arguments değerlerini her signature type için Roblox signal values değerlerine dönüştürür, signature length sonrasındaki fazla Lua arguments değerlerini keser ve ardından owning instance event invocation function değerini çağırır.
+</Card>
+</CardGroup>
+
+</div>

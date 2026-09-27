@@ -2,13 +2,10 @@
 title: "json.getPath"
 sidebarTitle: "json.getPath"
 description: "อ่าน nested value จาก table ด้วย dotted string path หรือ array table of keys."
-icon: "function"
 keywords: ["json.getPath","JSON","json.getpath"]
 ---
 
-อ่าน nested value จาก table ด้วย dotted string path หรือ array table of keys.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
@@ -20,17 +17,23 @@ json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `object` | `table` | Yes | Root table ที่จะอ่านจากมัน. function ต้องการให้ argument นี้เป็น table. |
-| `path` | `string \| table` | Yes | Path ที่จะตามไป. string จะ split ด้วย dots; integer string tokens อ่านด้วย raw array indexing. table path ใช้ array entries จาก 1 ถึง #path เป็น keys. |
-| `defaultValue` | `any` | No | Fallback value ที่คืนเมื่อ traversal เจอ nil หรือ non-table ก่อน path จบ. |
+<ParamField path={"object"} type={"table"} required>
+Root table ที่จะอ่านจากมัน. function ต้องการให้ argument นี้เป็น table.
+</ParamField>
+
+<ParamField path={"path"} type={"string | table"} required>
+Path ที่จะตามไป. string จะ split ด้วย dots; integer string tokens อ่านด้วย raw array indexing. table path ใช้ array entries จาก 1 ถึง #path เป็น keys.
+</ParamField>
+
+<ParamField path={"defaultValue"} type={"any"}>
+Fallback value ที่คืนเมื่อ traversal เจอ nil หรือ non-table ก่อน path จบ.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `pathValue` | `any \| nil` | Value ที่ requested path. ถ้า path missing จะคืน defaultValue เมื่อมีการให้มา ไม่เช่นนั้นคืน nil. |
+<ResponseField name={"pathValue"} type={"any | nil"}>
+Value ที่ requested path. ถ้า path missing จะคืน defaultValue เมื่อมีการให้มา ไม่เช่นนั้นคืน nil.
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -50,3 +53,6 @@ local second = json.getPath(document, "user.items.2")
 print(name)
 print(second)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "json.pretty"
 sidebarTitle: "json.pretty"
 description: "Serializes Lua value thanh readable formatted JSON string bang cung function nhu json.encodePretty."
-icon: "function"
 keywords: ["json.pretty","JSON"]
 ---
 
-Serializes Lua value thanh readable formatted JSON string bang cung function nhu json.encodePretty.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 json.pretty(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.pretty(value: any, options?: EncodeOptions): string
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value duoc encoded. nil, booleans, numbers, strings, tables va json.null duoc xu ly truc tiep. Unsupported Lua types duoc encoded thanh null tru khi errorOnUnsupported la true. |
-| `options` | `EncodeOptions` | No | Optional encode options. json.pretty doc cung options nhu json.encodePretty, sau do ep pretty thanh true. Khong co options thi dung two-space indent. number dat indent width duoc clamp ve 0.16, string dat indent text, va table co the dat sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth va indent. |
+<ParamField path={"value"} type={"any"} required>
+Value duoc encoded. nil, booleans, numbers, strings, tables va json.null duoc xu ly truc tiep. Unsupported Lua types duoc encoded thanh null tru khi errorOnUnsupported la true.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options. json.pretty doc cung options nhu json.encodePretty, sau do ep pretty thanh true. Khong co options thi dung two-space indent. number dat indent width duoc clamp ve 0.16, string dat indent text, va table co the dat sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth va indent.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `json` | `string` | Readable formatted JSON string. Encoding errors duoc throw nhu Luau errors. |
+<ResponseField name={"json"} type={"string"}>
+Readable formatted JSON string. Encoding errors duoc throw nhu Luau errors.
+</ResponseField>
 
 ## Kiểu
 
@@ -58,3 +58,6 @@ local text = json.pretty({
 
 print(text)
 ```
+
+
+</div>

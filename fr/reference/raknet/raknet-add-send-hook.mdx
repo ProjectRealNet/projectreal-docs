@@ -2,13 +2,10 @@
 title: "RakNet.add_send_hook"
 sidebarTitle: "RakNet.add_send_hook"
 description: "Registers a callback for observed outgoing RakNet packets. The callback receives one RakNetPacket while the packet is valid. Registering the same closure again replaces its stored reference. The function returns the callback it was given."
-icon: "function"
 keywords: ["RakNet.add_send_hook","RakNet","raknet.add_send_hook"]
 ---
 
-Registers a callback for observed outgoing RakNet packets. The callback receives one RakNetPacket while the packet is valid. Registering the same closure again replaces its stored reference. The function returns the callback it was given.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 RakNet.add_send_hook(callback: (packet: RakNetPacket) -> ()): function
@@ -20,15 +17,15 @@ RakNet.add_send_hook(callback: (packet: RakNetPacket) -> ()): function
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `callback` | `(packet: RakNetPacket) -> ()` | Yes | Function called with each observed outgoing RakNetPacket. |
+<ParamField path={"callback"} type={"(packet: RakNetPacket) -> ()"} required>
+Function called with each observed outgoing RakNetPacket.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `callback` | `function` | The same callback function that was passed in. |
+<ResponseField name={"callback"} type={"function"}>
+The same callback function that was passed in.
+</ResponseField>
 
 ## Types
 
@@ -71,3 +68,6 @@ raknet.add_send_hook(onSend)
 task.wait(1)
 raknet.remove_send_hook(onSend)
 ```
+
+
+</div>

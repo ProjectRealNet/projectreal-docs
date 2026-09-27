@@ -2,13 +2,10 @@
 title: "hookmetamethod"
 sidebarTitle: "hookmetamethod"
 description: "在 value 上查找 metamethod function，并通过 hookfunction hook 该 function。first argument 可以是 raw metafield lookup 接受的任何 value。second argument 必须是 string metamethod name，third argument 必须是 function replacement。如果 raw metafield lookup 找不到 named metafield，该 function 会对 argument 2 抛出 \"Metamethod doesn't exist\"。如果 metafield 存在但不是 function，会对 argument 2 抛出 \"Metamethod isn't a function\"。当 metafield 是 function 时，hookmetamethod 会以 found metamethod function 作为 target 调用 hookfunction，并返回 hookfunction 的 cloned original closure。"
-icon: "function"
 keywords: ["hookmetamethod","Closures"]
 ---
 
-在 value 上查找 metamethod function，并通过 hookfunction hook 该 function。first argument 可以是 raw metafield lookup 接受的任何 value。second argument 必须是 string metamethod name，third argument 必须是 function replacement。如果 raw metafield lookup 找不到 named metafield，该 function 会对 argument 2 抛出 "Metamethod doesn't exist"。如果 metafield 存在但不是 function，会对 argument 2 抛出 "Metamethod isn't a function"。当 metafield 是 function 时，hookmetamethod 会以 found metamethod function 作为 target 调用 hookfunction，并返回 hookfunction 的 cloned original closure。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 hookmetamethod(object: any, metamethod: string, replacement: function): function
@@ -16,17 +13,23 @@ hookmetamethod(object: any, metamethod: string, replacement: function): function
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | 其 methods 由 raw metafield lookup 检查的 value。 |
-| `metamethod` | `string` | Yes | 传给 raw metafield lookup 的 Metafield name。 |
-| `replacement` | `function` | Yes | 作为 found metamethod function 的 replacement 传给 hookfunction 的 Function。 |
+<ParamField path={"object"} type={"any"} required>
+其 methods 由 raw metafield lookup 检查的 value。
+</ParamField>
+
+<ParamField path={"metamethod"} type={"string"} required>
+传给 raw metafield lookup 的 Metafield name。
+</ParamField>
+
+<ParamField path={"replacement"} type={"function"} required>
+作为 found metamethod function 的 replacement 传给 hookfunction 的 Function。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `original` | `function` | hookfunction 返回的 cloned original metamethod closure。 |
+<ResponseField name={"original"} type={"function"}>
+hookfunction 返回的 cloned original metamethod closure。
+</ResponseField>
 
 ## 示例
 
@@ -48,3 +51,6 @@ original = hookmetamethod(object, "__index", function(self, key)
     return original(self, key)
 end)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "ImGuiWindow.Button"
 sidebarTitle: "ImGuiWindow.Button"
 description: "Hängt ein button element an ein ImGuiWindow an und speichert den callback. Wenn der gerenderte button geklickt wird, wird der callback in eine queue gelegt und später ohne arguments aufgerufen. Die method gibt dasselbe ImGuiWindow object zurück."
-icon: "function"
 keywords: ["ImGuiWindow.Button","ImGui"]
 ---
 
-Hängt ein button element an ein ImGuiWindow an und speichert den callback. Wenn der gerenderte button geklickt wird, wird der callback in eine queue gelegt und später ohne arguments aufgerufen. Die method gibt dasselbe ImGuiWindow object zurück.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.Button(window: ImGuiWindow, label: string, onClick: function): ImGuiWindow
@@ -16,17 +13,23 @@ ImGuiWindow.Button(window: ImGuiWindow, label: string, onClick: function): ImGui
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | ImGuiWindow object, das von imgui.create zurückgegeben wurde. Ein zerstörtes oder ungültiges window löst einen Lua error aus. |
-| `label` | `string` | Yes | Button label string, der an den gerenderten ImGui button übergeben wird. |
-| `onClick` | `function` | Yes | Function, die für diesen button gespeichert und ohne arguments aufgerufen wird, nachdem ein click event verarbeitet wurde. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+ImGuiWindow object, das von imgui.create zurückgegeben wurde. Ein zerstörtes oder ungültiges window löst einen Lua error aus.
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+Button label string, der an den gerenderten ImGui button übergeben wird.
+</ParamField>
+
+<ParamField path={"onClick"} type={"function"} required>
+Function, die für diesen button gespeichert und ohne arguments aufgerufen wird, nachdem ein click event verarbeitet wurde.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | Dasselbe ImGuiWindow object, wodurch method calls verkettet werden können. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+Dasselbe ImGuiWindow object, wodurch method calls verkettet werden können.
+</ResponseField>
 
 ## Typen
 
@@ -47,3 +50,6 @@ Von imgui.create zurückgegebener Handle. Methoden zur Steuerungserstellung gebe
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | Fügt einen ganzzahligen Schieberegler hinzu. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | Fügt nicht interaktiven Text hinzu. |
 | `destroy` | `() -> ()` | Yes | Entfernt das Fenster und gibt seine registrierten Rückrufe frei. |
+
+
+</div>

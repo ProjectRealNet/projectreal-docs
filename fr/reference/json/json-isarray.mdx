@@ -2,13 +2,10 @@
 title: "json.isArray"
 sidebarTitle: "json.isArray"
 description: "Renvoie si une value est treated as a JSON array par Real JSON table detection."
-icon: "function"
 keywords: ["json.isArray","JSON"]
 ---
 
-Renvoie si une value est treated as a JSON array par Real JSON table detection.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 json.isArray(value: any): boolean
@@ -16,15 +13,15 @@ json.isArray(value: any): boolean
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value a inspect. Non-table values renvoient false. |
+<ParamField path={"value"} type={"any"} required>
+Value a inspect. Non-table values renvoient false.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `isArray` | `boolean` | true quand la value est une table marked as a JSON array ou une unmarked table avec contiguous positive integer keys de 1 a son maximum index. Empty unmarked tables renvoient false. |
+<ResponseField name={"isArray"} type={"boolean"}>
+true quand la value est une table marked as a JSON array ou une unmarked table avec contiguous positive integer keys de 1 a son maximum index. Empty unmarked tables renvoient false.
+</ResponseField>
 
 ## Exemple
 
@@ -39,3 +36,6 @@ print(json.isArray(items))
 print(json.isArray(record))
 print(json.isArray(inferred))
 ```
+
+
+</div>

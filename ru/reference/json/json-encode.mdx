@@ -2,13 +2,10 @@
 title: "json.encode"
 sidebarTitle: "json.encode"
 description: "Сериализует Lua value в JSON string с помощью Real JSON encoder. json.stringify зарегистрирован на ту же function."
-icon: "function"
 keywords: ["json.encode","JSON"]
 ---
 
-Сериализует Lua value в JSON string с помощью Real JSON encoder. json.stringify зарегистрирован на ту же function.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 json.encode(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.encode(value: any, options?: EncodeOptions): string
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value для encode. nil, booleans, numbers, strings, tables и json.null обрабатываются напрямую. Unsupported Lua types кодируются как null, если errorOnUnsupported не true. |
-| `options` | `EncodeOptions` | No | Optional encode options. boolean переключает pretty output. number включает pretty output с числом spaces, clamp до 0.16. string включает pretty output с этим indent. table может задать pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth и indent. |
+<ParamField path={"value"} type={"any"} required>
+Value для encode. nil, booleans, numbers, strings, tables и json.null обрабатываются напрямую. Unsupported Lua types кодируются как null, если errorOnUnsupported не true.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options. boolean переключает pretty output. number включает pretty output с числом spaces, clamp до 0.16. string включает pretty output с этим indent. table может задать pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth и indent.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `json` | `string` | Encoded JSON string. Encoding errors выбрасываются как Luau errors. |
+<ResponseField name={"json"} type={"string"}>
+Encoded JSON string. Encoding errors выбрасываются как Luau errors.
+</ResponseField>
 
 ## Типы
 
@@ -61,3 +61,6 @@ local text = json.encode(payload, {
 
 print(text)
 ```
+
+
+</div>

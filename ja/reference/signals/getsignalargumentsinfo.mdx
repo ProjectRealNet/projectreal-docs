@@ -2,13 +2,10 @@
 title: "getsignalargumentsinfo"
 sidebarTitle: "getsignalargumentsinfo"
 description: "RBXScriptSignal のシグネチャから引数情報の array table を返します。キャプチャされた実行時の引数値は返しません。"
-icon: "function"
 keywords: ["getsignalargumentsinfo","Signals"]
 ---
 
-RBXScriptSignal のシグネチャから引数情報の array table を返します。キャプチャされた実行時の引数値は返しません。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 getsignalargumentsinfo(signal: RBXScriptSignal): {{Name: string, Type: string}}
@@ -16,15 +13,15 @@ getsignalargumentsinfo(signal: RBXScriptSignal): {{Name: string, Type: string}}
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | event descriptor signature を調べる RBXScriptSignal。 |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+event descriptor signature を調べる RBXScriptSignal。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `argumentInfo` | `&#123;&#123;Name: string, Type: string&#125;&#125;` | 各エントリに Name と Type の strings が含まれる array table。シグネチャを読み取れない場合、またはエントリがない場合、この関数は Name が arg1、Type が Variant の fallback entry を 1 つ返します。 |
+<ResponseField name={"argumentInfo"} type={"{{Name: string, Type: string}}"}>
+各エントリに Name と Type の strings が含まれる array table。シグネチャを読み取れない場合、またはエントリがない場合、この関数は Name が arg1、Type が Variant の fallback entry を 1 つ返します。
+</ResponseField>
 
 ## 例
 
@@ -40,3 +37,6 @@ if remote then
     end
 end
 ```
+
+
+</div>

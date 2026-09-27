@@ -2,13 +2,10 @@
 title: "cache.invalidate"
 sidebarTitle: "cache.invalidate"
 description: "移除给定 Instance 的已缓存 Instance cache 条目。"
-icon: "function"
 keywords: ["cache.invalidate","Cache"]
 ---
 
-移除给定 Instance 的已缓存 Instance cache 条目。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 cache.invalidate(instance: Instance)
@@ -16,9 +13,9 @@ cache.invalidate(instance: Instance)
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | 应移除其已缓存 registry 条目的 Instance。 |
+<ParamField path={"instance"} type={"Instance"} required>
+应移除其已缓存 registry 条目的 Instance。
+</ParamField>
 
 ## 示例
 
@@ -31,3 +28,6 @@ cache.invalidate(Players)
 
 print(cache.iscached(Players))
 ```
+
+
+</div>

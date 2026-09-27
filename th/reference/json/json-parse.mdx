@@ -2,13 +2,10 @@
 title: "json.parse"
 sidebarTitle: "json.parse"
 description: "Parse JSON string ด้วย function เดียวกับ json.decode."
-icon: "function"
 keywords: ["json.parse","JSON"]
 ---
 
-Parse JSON string ด้วย function เดียวกับ json.decode.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 json.parse(json: string, options?: DecodeOptions): any
@@ -16,16 +13,19 @@ json.parse(json: string, options?: DecodeOptions): any
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string ที่จะ parse. function อ่าน argument นี้ด้วย string type checking. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean ตั้งค่า useNull. table ตั้งค่า useNull และ maxDepth ได้. |
+<ParamField path={"json"} type={"string"} required>
+JSON string ที่จะ parse. function อ่าน argument นี้ด้วย string type checking.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean ตั้งค่า useNull. table ตั้งค่า useNull และ maxDepth ได้.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `decoded` | `any` | Decoded value. JSON objects และ arrays กลายเป็น tables พร้อม JSON type markers, strings กลายเป็น Lua strings, numbers กลายเป็น Lua numbers, booleans กลายเป็น booleans, และ null กลายเป็น json.null เว้นแต่ useNull เป็น false. |
+<ResponseField name={"decoded"} type={"any"}>
+Decoded value. JSON objects และ arrays กลายเป็น tables พร้อม JSON type markers, strings กลายเป็น Lua strings, numbers กลายเป็น Lua numbers, booleans กลายเป็น booleans, และ null กลายเป็น json.null เว้นแต่ useNull เป็น false.
+</ResponseField>
 
 ## Types
 
@@ -51,3 +51,6 @@ print(settings.volume)
 print(settings.theme)
 print(json.isNull(settings.missing))
 ```
+
+
+</div>

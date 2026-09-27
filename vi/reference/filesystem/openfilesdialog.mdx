@@ -2,13 +2,10 @@
 title: "openfilesdialog"
 sidebarTitle: "openfilesdialog"
 description: "Mo Windows file-open dialog thong qua Windows file picker voi multi-select duoc bat va tra ve cac tep da chon duoi dang gia tri file item."
-icon: "function"
 keywords: ["openfilesdialog","Filesystem"]
 ---
 
-Mo Windows file-open dialog thong qua Windows file picker voi multi-select duoc bat va tra ve cac tep da chon duoi dang gia tri file item.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 openfilesdialog(options?: DialogOptions): { FileSystemItem } | nil
@@ -16,15 +13,15 @@ openfilesdialog(options?: DialogOptions): { FileSystemItem } | nil
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `options` | `DialogOptions` | No | Optional table. Voi openfilesdialog, title, defaultPath va extensionFilter duoc su dung. extensionFilter la table gom extension strings; dau . hoac *. o dau se bi loai bo truoc khi moi filter thanh *.&lt;extension>. |
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table. Voi openfilesdialog, title, defaultPath va extensionFilter duoc su dung. extensionFilter la table gom extension strings; dau . hoac *. o dau se bi loai bo truoc khi moi filter thanh *.&lt;extension>.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `files` | `&#123; FileSystemItem &#125; \| nil` | Array table gom cac gia tri file item cho cac tep da chon, hoac nil khi dialog bi huy hoac khong co selected filesystem paths duoc tra ve. Dialog failures se throw Failed to open file dialog. |
+<ResponseField name={"files"} type={"{ FileSystemItem } | nil"}>
+Array table gom cac gia tri file item cho cac tep da chon, hoac nil khi dialog bi huy hoac khong co selected filesystem paths duoc tra ve. Dialog failures se throw Failed to open file dialog.
+</ResponseField>
 
 ## Kiểu
 
@@ -60,3 +57,6 @@ else
     print("No files selected")
 end
 ```
+
+
+</div>

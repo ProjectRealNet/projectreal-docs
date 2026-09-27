@@ -2,13 +2,10 @@
 title: "hookmetamethod"
 sidebarTitle: "hookmetamethod"
 description: "value에서 metamethod function을 찾고 hookfunction을 통해 해당 function을 hook합니다. first argument는 raw metafield lookup가 허용하는 어떤 value도 가능합니다. second argument는 string metamethod name이어야 하고, third argument는 function replacement여야 합니다. raw metafield lookup가 named metafield를 찾지 못하면 function은 argument 2에 대해 \"Metamethod doesn't exist\"를 발생시킵니다. metafield가 있지만 function이 아니면 argument 2에 대해 \"Metamethod isn't a function\"를 발생시킵니다. metafield가 function이면 hookmetamethod는 found metamethod function을 target으로 hookfunction을 호출하고 hookfunction의 cloned original closure를 반환합니다."
-icon: "function"
 keywords: ["hookmetamethod","Closures"]
 ---
 
-value에서 metamethod function을 찾고 hookfunction을 통해 해당 function을 hook합니다. first argument는 raw metafield lookup가 허용하는 어떤 value도 가능합니다. second argument는 string metamethod name이어야 하고, third argument는 function replacement여야 합니다. raw metafield lookup가 named metafield를 찾지 못하면 function은 argument 2에 대해 "Metamethod doesn't exist"를 발생시킵니다. metafield가 있지만 function이 아니면 argument 2에 대해 "Metamethod isn't a function"를 발생시킵니다. metafield가 function이면 hookmetamethod는 found metamethod function을 target으로 hookfunction을 호출하고 hookfunction의 cloned original closure를 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 hookmetamethod(object: any, metamethod: string, replacement: function): function
@@ -16,17 +13,23 @@ hookmetamethod(object: any, metamethod: string, replacement: function): function
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | raw metafield lookup로 methods을 검사하는 value입니다. |
-| `metamethod` | `string` | Yes | raw metafield lookup에 전달되는 Metafield name입니다. |
-| `replacement` | `function` | Yes | found metamethod function의 replacement로 hookfunction에 전달되는 Function입니다. |
+<ParamField path={"object"} type={"any"} required>
+raw metafield lookup로 methods을 검사하는 value입니다.
+</ParamField>
+
+<ParamField path={"metamethod"} type={"string"} required>
+raw metafield lookup에 전달되는 Metafield name입니다.
+</ParamField>
+
+<ParamField path={"replacement"} type={"function"} required>
+found metamethod function의 replacement로 hookfunction에 전달되는 Function입니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `original` | `function` | hookfunction이 반환하는 cloned original metamethod closure입니다. |
+<ResponseField name={"original"} type={"function"}>
+hookfunction이 반환하는 cloned original metamethod closure입니다.
+</ResponseField>
 
 ## 예제
 
@@ -48,3 +51,6 @@ original = hookmetamethod(object, "__index", function(self, key)
     return original(self, key)
 end)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "base64_encode"
 sidebarTitle: "base64_encode"
 description: "Kodiert die Bytes eines Lua-Strings mit Base64 encoder, mit = padding und ohne Zeilenumbrueche."
-icon: "function"
 keywords: ["base64_encode","Cryptography","base64encode","base64.encode","crypt.base64.encode","crypt.base64_encode","crypt.base64encode"]
 ---
 
-Kodiert die Bytes eines Lua-Strings mit Base64 encoder, mit = padding und ohne Zeilenumbrueche.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 base64_encode(data: string): string
@@ -24,15 +21,15 @@ base64_encode(data: string): string
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Lua-String-Bytes, die an Base64 encoder uebergeben werden. |
+<ParamField path={"data"} type={"string"} required>
+Lua-String-Bytes, die an Base64 encoder uebergeben werden.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `encoded` | `string` | Base64-Ausgabe, die als Lua-String zurueckgegeben wird. |
+<ResponseField name={"encoded"} type={"string"}>
+Base64-Ausgabe, die als Lua-String zurueckgegeben wird.
+</ResponseField>
 
 ## Beispiel
 
@@ -45,3 +42,6 @@ print(encoded)
 print(base64encode("hello world"))
 print(base64.encode("hello world"))
 ```
+
+
+</div>

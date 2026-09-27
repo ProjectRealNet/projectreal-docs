@@ -2,13 +2,10 @@
 title: "isvalidlevel"
 sidebarTitle: "isvalidlevel"
 description: "Kiểm tra numeric stack level có nằm trong current call stack range hay không. level là bắt buộc và phải là number vì function gọi requires a number. value được chuyển bằng integer conversion. function trả về false khi level < 0 hoặc level >= the current call stack depth, ngược lại trả về true. Nó không kiểm tra frame closure và không phát sinh \"Level out of range\" cho invalid numeric levels. validlevel là global alias, và debug.isvalidlevel cùng debug.validlevel được expose qua debug table aliases."
-icon: "function"
 keywords: ["isvalidlevel","Debug","validlevel","debug.isvalidlevel","debug.validlevel"]
 ---
 
-Kiểm tra numeric stack level có nằm trong current call stack range hay không. level là bắt buộc và phải là number vì function gọi requires a number. value được chuyển bằng integer conversion. function trả về false khi level &lt; 0 hoặc level >= the current call stack depth, ngược lại trả về true. Nó không kiểm tra frame closure và không phát sinh "Level out of range" cho invalid numeric levels. validlevel là global alias, và debug.isvalidlevel cùng debug.validlevel được expose qua debug table aliases.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 isvalidlevel(level: number): boolean
@@ -22,15 +19,15 @@ isvalidlevel(level: number): boolean
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `level` | `number` | Yes | Stack level number được chuyển bằng integer conversion và kiểm tra với 0 &lt;= level &lt; the current call stack depth. |
+<ParamField path={"level"} type={"number"} required>
+Stack level number được chuyển bằng integer conversion và kiểm tra với 0 &lt;= level &lt; the current call stack depth.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `valid` | `boolean` | true khi numeric level nằm trong current call stack range, ngược lại false. |
+<ResponseField name={"valid"} type={"boolean"}>
+true khi numeric level nằm trong current call stack range, ngược lại false.
+</ResponseField>
 
 ## Ví dụ
 
@@ -42,3 +39,6 @@ print(validlevel(0))
 print(debug.isvalidlevel(0))
 print(debug.validlevel(0))
 ```
+
+
+</div>

@@ -1,18 +1,40 @@
 ---
 title: "Instances"
 description: "인스턴스 검색 및 상호 작용 도우미."
-icon: "folder-code"
+icon: "/icons/stack.svg"
 ---
+
+<div className="real-category-page">
 
 인스턴스 검색 및 상호 작용 도우미.
 
-| 함수 탐색 | 설명 |
-| --- | --- |
-| [`fireclickdetector`](./fireclickdetector) | 로컬 플레이어에 대해 ClickDetector interaction을 발생시킵니다. 첫 번째 인수는 ClassName이 ClickDetector인 Instance여야 합니다. distance는 선택 사항이며 기본값은 0입니다. clickOption은 선택 사항이고 대소문자를 구분하지 않고 비교되며 기본값은 "mouseclick"입니다. 지원되는 option은 "mouseclick", "rightmouseclick", "mousehoverenter", "mousehoverleave"입니다. click option은 distance를 float로 Roblox click helper에 전달하고, hover option은 distance를 무시합니다. Players 또는 Players.LocalPlayer를 사용할 수 없으면 function은 아무것도 발생시키지 않고 반환합니다. 알 수 없는 clickOption도 interaction을 발생시키지 않습니다. 이 function은 아무것도 반환하지 않습니다. |
-| [`fireproximityprompt`](./fireproximityprompt) | Real의 ProximityPrompt trigger를 통해 ProximityPrompt를 발생시킵니다. prompt 인수는 ClassName field가 "ProximityPrompt"인 object여야 합니다. 값이 object가 아니면 호출은 type error를 발생시킵니다. ClassName이 없거나 string이 아니면 "Invalid Instance"를 발생시킵니다. ClassName이 "ProximityPrompt"가 아니면 "ProximityPrompt expected"를 발생시킵니다. 이 function은 optional arguments를 받지 않고 아무것도 반환하지 않습니다. |
-| [`firetouchinterest`](./firetouchinterest) | 두 BasePart instances에 대해 Real touch interest event를 발생시킵니다. 처음 두 인수는 Instance object여야 하며 두 값 모두 IsA("BasePart")를 통과해야 합니다. state 인수는 필수이며 number 또는 boolean이어야 합니다. state가 number이면 1만 true가 되고 다른 모든 number는 false가 됩니다. state가 boolean이면 해당 boolean 값이 그대로 전달됩니다. 두 part 중 하나에 touch data가 없거나 첫 번째 part에 overlap reference가 없으면 function은 아무것도 발생시키지 않고 반환합니다. 이 function은 아무것도 반환하지 않습니다. helper에 전달되는 boolean의 정확한 begin/end 의미는: Nicht aus der Codebasis verifizierbar. |
-| [`getcallbackvalue`](./getcallbackvalue) | Instance의 callback property에 저장된 Lua callback function을 읽습니다. 첫 번째 인수는 Instance object여야 하고 두 번째 인수는 string property name이어야 합니다. instance reference는 유효해야 합니다. property name은 Roblox property metadata를 통해 해석되며 타입이 LUA_CALLBACK인 property를 가리켜야 합니다. property descriptor가 없거나, property가 LUA_CALLBACK이 아니거나, callback field offset이 없거나, 저장된 callback이 없거나, LiveLuaRef가 없거나, callback이 다른 Lua global state에 속하거나, 참조된 값이 function이 아니면 function은 nil을 반환합니다. 첫 번째 callback slot에 callback이 없을 때 async callback field fallback도 확인합니다. 이 function은 property를 업데이트하지 않습니다. |
-| [`gethui`](./gethui) | game:CoreGui lookup.RobloxGui를 반환합니다. 이 function은 arguments를 받지 않습니다. CoreGui lookup가 nil을 반환하거나 해당 값의 RobloxGui가 nil이면 function은 nil을 반환합니다. function은 container를 생성하지 않고 cached CoreGui 값을 사용하지 않습니다. |
-| [`getinstances`](./getinstances) | Instance cache에 현재 저장된 모든 object value를 포함하는 새 array table을 반환합니다. 이 function은 arguments를 받지 않습니다. 각 registry value가 object인지 확인하는 것 외에는 Parent, ClassName, DataModel fieldship, nil-parent state, Instance validity로 필터링하지 않습니다. entries는 1부터 시작하는 sequential numeric indexes로 반환 table에 복사됩니다. iteration order는 cache에 대한 table iteration에서 나오며 function이 정렬하지 않습니다. |
-| [`getnilinstances`](./getnilinstances) | Returns a new array table containing cached Instance values whose Parent field is nil. The function takes no arguments. It does not sort the returned entries. |
-| [`isnetworkowner`](./isnetworkowner) | Instance에서 hidden property "NetworkOwnerV3"를 읽고 첫 번째 반환값을 integer conversion로 변환한 값이 2보다 큰지 확인한 결과를 반환합니다. 인수는 Instance object여야 합니다. 이 function은 내부에서 the hidden property reader를 호출하고 그 호출의 error를 잡지 않으므로 Invalid Instance values, missing properties, non-property metadata는 gethiddenproperty와 같은 error를 발생시킬 수 있습니다. boolean 하나를 반환합니다. peer_id > 2가 정확히 local network ownership을 의미하는지는: Nicht aus der Codebasis verifizierbar. |
+## 사용 가능한 함수
+
+<CardGroup cols={2}>
+<Card title="fireclickdetector" href="./fireclickdetector">
+로컬 플레이어에 대해 ClickDetector interaction을 발생시킵니다. 첫 번째 인수는 ClassName이 ClickDetector인 Instance여야 합니다. distance는 선택 사항이며 기본값은 0입니다. clickOption은 선택 사항이고 대소문자를 구분하지 않고 비교되며 기본값은 "mouseclick"입니다. 지원되는 option은 "mouseclick", "rightmouseclick", "mousehoverenter", "mousehoverleave"입니다. click option은 distance를 float로 Roblox click helper에 전달하고, hover option은 distance를 무시합니다. Players 또는 Players.LocalPlayer를 사용할 수 없으면 function은 아무것도 발생시키지 않고 반환합니다. 알 수 없는 clickOption도 interaction을 발생시키지 않습니다. 이 function은 아무것도 반환하지 않습니다.
+</Card>
+<Card title="fireproximityprompt" href="./fireproximityprompt">
+Real의 ProximityPrompt trigger를 통해 ProximityPrompt를 발생시킵니다. prompt 인수는 ClassName field가 "ProximityPrompt"인 object여야 합니다. 값이 object가 아니면 호출은 type error를 발생시킵니다. ClassName이 없거나 string이 아니면 "Invalid Instance"를 발생시킵니다. ClassName이 "ProximityPrompt"가 아니면 "ProximityPrompt expected"를 발생시킵니다. 이 function은 optional arguments를 받지 않고 아무것도 반환하지 않습니다.
+</Card>
+<Card title="firetouchinterest" href="./firetouchinterest">
+두 BasePart instances에 대해 Real touch interest event를 발생시킵니다. 처음 두 인수는 Instance object여야 하며 두 값 모두 IsA("BasePart")를 통과해야 합니다. state 인수는 필수이며 number 또는 boolean이어야 합니다. state가 number이면 1만 true가 되고 다른 모든 number는 false가 됩니다. state가 boolean이면 해당 boolean 값이 그대로 전달됩니다. 두 part 중 하나에 touch data가 없거나 첫 번째 part에 overlap reference가 없으면 function은 아무것도 발생시키지 않고 반환합니다. 이 function은 아무것도 반환하지 않습니다. helper에 전달되는 boolean의 정확한 begin/end 의미는: Nicht aus der Codebasis verifizierbar.
+</Card>
+<Card title="getcallbackvalue" href="./getcallbackvalue">
+Instance의 callback property에 저장된 Lua callback function을 읽습니다. 첫 번째 인수는 Instance object여야 하고 두 번째 인수는 string property name이어야 합니다. instance reference는 유효해야 합니다. property name은 Roblox property metadata를 통해 해석되며 타입이 LUA_CALLBACK인 property를 가리켜야 합니다. property descriptor가 없거나, property가 LUA_CALLBACK이 아니거나, callback field offset이 없거나, 저장된 callback이 없거나, LiveLuaRef가 없거나, callback이 다른 Lua global state에 속하거나, 참조된 값이 function이 아니면 function은 nil을 반환합니다. 첫 번째 callback slot에 callback이 없을 때 async callback field fallback도 확인합니다. 이 function은 property를 업데이트하지 않습니다.
+</Card>
+<Card title="gethui" href="./gethui">
+game:CoreGui lookup.RobloxGui를 반환합니다. 이 function은 arguments를 받지 않습니다. CoreGui lookup가 nil을 반환하거나 해당 값의 RobloxGui가 nil이면 function은 nil을 반환합니다. function은 container를 생성하지 않고 cached CoreGui 값을 사용하지 않습니다.
+</Card>
+<Card title="getinstances" href="./getinstances">
+Instance cache에 현재 저장된 모든 object value를 포함하는 새 array table을 반환합니다. 이 function은 arguments를 받지 않습니다. 각 registry value가 object인지 확인하는 것 외에는 Parent, ClassName, DataModel fieldship, nil-parent state, Instance validity로 필터링하지 않습니다. entries는 1부터 시작하는 sequential numeric indexes로 반환 table에 복사됩니다. iteration order는 cache에 대한 table iteration에서 나오며 function이 정렬하지 않습니다.
+</Card>
+<Card title="getnilinstances" href="./getnilinstances">
+Returns a new array table containing cached Instance values whose Parent field is nil. The function takes no arguments. It does not sort the returned entries.
+</Card>
+<Card title="isnetworkowner" href="./isnetworkowner">
+Instance에서 hidden property "NetworkOwnerV3"를 읽고 첫 번째 반환값을 integer conversion로 변환한 값이 2보다 큰지 확인한 결과를 반환합니다. 인수는 Instance object여야 합니다. 이 function은 내부에서 the hidden property reader를 호출하고 그 호출의 error를 잡지 않으므로 Invalid Instance values, missing properties, non-property metadata는 gethiddenproperty와 같은 error를 발생시킬 수 있습니다. boolean 하나를 반환합니다. peer_id > 2가 정확히 local network ownership을 의미하는지는: Nicht aus der Codebasis verifizierbar.
+</Card>
+</CardGroup>
+
+</div>

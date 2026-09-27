@@ -2,13 +2,10 @@
 title: "setconstant"
 sidebarTitle: "setconstant"
 description: "Replaces one constant in a Lua function or stack level by one-based index. Invalid stack levels raise \"Level out of range\", non-Lua functions raise \"Lua function expected\", indexes below 1 raise \"Constant index starts at 1\", and indexes past the available constants raise \"Constant index out of range\". debug.setconstant is an alias."
-icon: "function"
 keywords: ["setconstant","Debug","debug.setconstant"]
 ---
 
-Replaces one constant in a Lua function or stack level by one-based index. Invalid stack levels raise "Level out of range", non-Lua functions raise "Lua function expected", indexes below 1 raise "Constant index starts at 1", and indexes past the available constants raise "Constant index out of range". debug.setconstant is an alias.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 setconstant(target: function | number, index: number, value: any)
@@ -20,11 +17,17 @@ setconstant(target: function | number, index: number, value: any)
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `target` | `function \| number` | Yes | Lua function or stack level whose constant is modified. |
-| `index` | `number` | Yes | One-based constant index. |
-| `value` | `any` | Yes | New value for the constant. |
+<ParamField path={"target"} type={"function | number"} required>
+Lua function or stack level whose constant is modified.
+</ParamField>
+
+<ParamField path={"index"} type={"number"} required>
+One-based constant index.
+</ParamField>
+
+<ParamField path={"value"} type={"any"} required>
+New value for the constant.
+</ParamField>
 
 ## ตัวอย่าง
 
@@ -43,3 +46,6 @@ print(getconstant(target, 1))
 debug.setconstant(target, 1, "done")
 print(getconstant(target, 1))
 ```
+
+
+</div>

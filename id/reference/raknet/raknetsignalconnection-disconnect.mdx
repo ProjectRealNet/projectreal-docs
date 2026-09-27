@@ -2,13 +2,10 @@
 title: "RakNetSignalConnection.Disconnect"
 sidebarTitle: "RakNetSignalConnection.Disconnect"
 description: "Disconnects a connection returned by RakNet.OnPacketSend.Connect or RakNet.OnPacketReceive.Connect. The method returns no values."
-icon: "function"
 keywords: ["RakNetSignalConnection.Disconnect","RakNet"]
 ---
 
-Disconnects a connection returned by RakNet.OnPacketSend.Connect or RakNet.OnPacketReceive.Connect. The method returns no values.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 RakNetSignalConnection.Disconnect(connection: RakNetSignalConnection)
@@ -16,9 +13,9 @@ RakNetSignalConnection.Disconnect(connection: RakNetSignalConnection)
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `connection` | `RakNetSignalConnection` | Yes | Connection object returned by a RakNet packet signal Connect call. |
+<ParamField path={"connection"} type={"RakNetSignalConnection"} required>
+Connection object returned by a RakNet packet signal Connect call.
+</ParamField>
 
 ## Tipe
 
@@ -45,3 +42,6 @@ if RakNet.is_enabled then
     print(connection.Connected)
 end
 ```
+
+
+</div>

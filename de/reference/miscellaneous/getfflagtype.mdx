@@ -2,13 +2,10 @@
 title: "getfflagtype"
 sidebarTitle: "getfflagtype"
 description: "Returns the detected type for a Roblox fast flag as \"string\", \"bool\", \"int\", or \"unknown\". Missing or unsupported flags return \"unknown\"."
-icon: "function"
 keywords: ["getfflagtype","Miscellaneous"]
 ---
 
-Returns the detected type for a Roblox fast flag as "string", "bool", "int", or "unknown". Missing or unsupported flags return "unknown".
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getfflagtype(name: string): "string" | "bool" | "int" | "unknown"
@@ -16,15 +13,15 @@ getfflagtype(name: string): "string" | "bool" | "int" | "unknown"
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `name` | `string` | Yes | Exact fast flag name to inspect. |
+<ParamField path={"name"} type={"string"} required>
+Exact fast flag name to inspect.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `flagType` | `"string" \| "bool" \| "int" \| "unknown"` | Detected flag type string. |
+<ResponseField name={"flagType"} type={"\"string\" | \"bool\" | \"int\" | \"unknown\""}>
+Detected flag type string.
+</ResponseField>
 
 ## Beispiel
 
@@ -37,3 +34,6 @@ if flagType ~= "unknown" then
     print(flagType)
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "get_comm_channel"
 sidebarTitle: "get_comm_channel"
 description: "Tìm channel ID trong communication channel list và trả về BindableEvent Instance đã lưu. Argument đầu tiên phải là number và được chuyển đổi bằng integer conversion trước lookup. Nếu không có entry cho ID đó, function trả về nil."
-icon: "function"
 keywords: ["get_comm_channel","Actors"]
 ---
 
-Tìm channel ID trong communication channel list và trả về BindableEvent Instance đã lưu. Argument đầu tiên phải là number và được chuyển đổi bằng integer conversion trước lookup. Nếu không có entry cho ID đó, function trả về nil.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 get_comm_channel(channelId: number): Instance | nil
@@ -16,15 +13,15 @@ get_comm_channel(channelId: number): Instance | nil
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `channelId` | `number` | Yes | Channel ID được chuyển đổi bằng integer conversion và tìm trong communication channel list. |
+<ParamField path={"channelId"} type={"number"} required>
+Channel ID được chuyển đổi bằng integer conversion và tìm trong communication channel list.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `event` | `Instance \| nil` | BindableEvent Instance đã lưu cho channel ID, hoặc nil khi ID không có trong communication channels. |
+<ResponseField name={"event"} type={"Instance | nil"}>
+BindableEvent Instance đã lưu cho channel ID, hoặc nil khi ID không có trong communication channels.
+</ResponseField>
 
 ## Ví dụ
 
@@ -36,3 +33,6 @@ local event = get_comm_channel(channelId)
 
 print(event)
 ```
+
+
+</div>

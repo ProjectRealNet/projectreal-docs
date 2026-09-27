@@ -2,13 +2,10 @@
 title: "crypt.generatebytes"
 sidebarTitle: "crypt.generatebytes"
 description: "Menghasilkan byte acak dengan random byte generator dan mengembalikannya Base64-encoded sebagai string Lua."
-icon: "function"
 keywords: ["crypt.generatebytes","Cryptography"]
 ---
 
-Menghasilkan byte acak dengan random byte generator dan mengembalikannya Base64-encoded sebagai string Lua.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 crypt.generatebytes(size: number): string
@@ -16,15 +13,15 @@ crypt.generatebytes(size: number): string
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `size` | `number` | Yes | Angka yang melewati integer conversion sebelum alokasi. Nilai kurang dari atau sama dengan 0 diubah menjadi 1. |
+<ParamField path={"size"} type={"number"} required>
+Angka yang melewati integer conversion sebelum alokasi. Nilai kurang dari atau sama dengan 0 diubah menjadi 1.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `encoded` | `string` | Base64 encoding dari raw bytes yang dihasilkan. Panjang string yang dikembalikan bukan jumlah byte yang diminta. |
+<ResponseField name={"encoded"} type={"string"}>
+Base64 encoding dari raw bytes yang dihasilkan. Panjang string yang dikembalikan bukan jumlah byte yang diminta.
+</ResponseField>
 
 ## Contoh
 
@@ -38,3 +35,6 @@ print(encoded)
 print(#encoded)
 print(#raw)
 ```
+
+
+</div>

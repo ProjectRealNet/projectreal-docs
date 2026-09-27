@@ -2,13 +2,10 @@
 title: "json.format"
 sidebarTitle: "json.format"
 description: "Parse 一个 JSON string，并使用 Real JSON parser 和 encoder 将其 re-encode 为 readable formatted JSON。"
-icon: "function"
 keywords: ["json.format","JSON"]
 ---
 
-Parse 一个 JSON string，并使用 Real JSON parser 和 encoder 将其 re-encode 为 readable formatted JSON。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
@@ -16,17 +13,23 @@ json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeO
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | Formatting 前要 parse 的 JSON string。function 使用 string type checking 读取这个 argument。 |
-| `encodeOptions` | `EncodeOptions` | No | 传给 re-encode step 的 optional encode options。json.format 读取与 json.encode 相同的 encode options，然后强制 pretty 为 true。 |
-| `decodeOptions` | `DecodeOptions` | No | Parsing input JSON 时使用的 optional decode options。boolean 设置 useNull。table 可以设置 useNull 和 maxDepth。 |
+<ParamField path={"json"} type={"string"} required>
+Formatting 前要 parse 的 JSON string。function 使用 string type checking 读取这个 argument。
+</ParamField>
+
+<ParamField path={"encodeOptions"} type={"EncodeOptions"}>
+传给 re-encode step 的 optional encode options。json.format 读取与 json.encode 相同的 encode options，然后强制 pretty 为 true。
+</ParamField>
+
+<ParamField path={"decodeOptions"} type={"DecodeOptions"}>
+Parsing input JSON 时使用的 optional decode options。boolean 设置 useNull。table 可以设置 useNull 和 maxDepth。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `formatted` | `string` | Parsing 并 re-encoding input 后产生的 readable formatted JSON string。 |
+<ResponseField name={"formatted"} type={"string"}>
+Parsing 并 re-encoding input 后产生的 readable formatted JSON string。
+</ResponseField>
 
 ## 类型
 
@@ -68,3 +71,6 @@ local formatted = json.format(compact, {
 
 print(formatted)
 ```
+
+
+</div>

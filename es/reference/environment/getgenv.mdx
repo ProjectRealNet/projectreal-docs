@@ -2,13 +2,10 @@
 title: "getgenv"
 sidebarTitle: "getgenv"
 description: "Devuelve la current executor environment table haciendo push de LUA_ENVIRONINDEX. La function no toma arguments, devuelve exactly one value y no tiene registered alias. Los call-sites del repository usan la returned table para leer y escribir shared executor globals como __siApiCache y saveinstance."
-icon: "function"
 keywords: ["getgenv","Environment"]
 ---
 
-Devuelve la current executor environment table haciendo push de LUA_ENVIRONINDEX. La function no toma arguments, devuelve exactly one value y no tiene registered alias. Los call-sites del repository usan la returned table para leer y escribir shared executor globals como __siApiCache y saveinstance.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 getgenv(): table
@@ -16,9 +13,9 @@ getgenv(): table
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `environment` | `table` | La table almacenada actualmente en LUA_ENVIRONINDEX para este state. |
+<ResponseField name={"environment"} type={"table"}>
+La table almacenada actualmente en LUA_ENVIRONINDEX para este state.
+</ResponseField>
 
 ## Ejemplo
 
@@ -31,3 +28,6 @@ env.RealDocsValue = "ready"
 
 print(getgenv().RealDocsValue)
 ```
+
+
+</div>

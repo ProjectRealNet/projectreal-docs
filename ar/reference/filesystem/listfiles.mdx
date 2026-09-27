@@ -2,13 +2,10 @@
 title: "listfiles"
 sidebarTitle: "listfiles"
 description: "Returns an array table of the direct children of an existing workspace directory."
-icon: "function"
 keywords: ["listfiles","Filesystem"]
 ---
 
-Returns an array table of the direct children of an existing workspace directory.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 listfiles(path: string): table
@@ -16,15 +13,15 @@ listfiles(path: string): table
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | Directory path resolved inside the workspace after separator normalization and workspace-boundary checks. Empty path or / is treated as ./; invalid or outside-workspace paths error. |
+<ParamField path={"path"} type={"string"} required>
+Directory path resolved inside the workspace after separator normalization and workspace-boundary checks. Empty path or / is treated as ./; invalid or outside-workspace paths error.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `paths` | `table` | Array table of workspace-relative path strings for direct child entries. Files and folders can both be included; entries are not sorted by this function. |
+<ResponseField name={"paths"} type={"table"}>
+Array table of workspace-relative path strings for direct child entries. Files and folders can both be included; entries are not sorted by this function.
+</ResponseField>
 
 ## مثال
 
@@ -39,3 +36,6 @@ for _, path in ipairs(listfiles("examples/listing")) do
     print(path)
 end
 ```
+
+
+</div>

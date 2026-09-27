@@ -2,13 +2,10 @@
 title: "rconsolename"
 sidebarTitle: "rconsolename"
 description: "Windows console title update로 현재 Windows console window의 title을 설정합니다. 첫 번째 argument는 string이어야 하며 console existence check 전에 검사됩니다. string check가 성공한 뒤 console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다."
-icon: "function"
 keywords: ["rconsolename","Console","consolename","rconsolesettitle","consolesettitle"]
 ---
 
-Windows console title update로 현재 Windows console window의 title을 설정합니다. 첫 번째 argument는 string이어야 하며 console existence check 전에 검사됩니다. string check가 성공한 뒤 console window가 없으면 호출은 아무 작업도 하지 않고 반환됩니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 rconsolename(text: string)
@@ -22,9 +19,9 @@ rconsolename(text: string)
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | 작업에 사용되는 텍스트 값입니다. |
+<ParamField path={"text"} type={"string"} required>
+작업에 사용되는 텍스트 값입니다.
+</ParamField>
 
 ## 예제
 
@@ -34,3 +31,6 @@ Set the current Windows console window title.
 rconsolecreate()
 rconsolename("Real Console")
 ```
+
+
+</div>

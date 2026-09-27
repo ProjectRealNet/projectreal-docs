@@ -1,21 +1,49 @@
 ---
 title: "Console"
 description: "Wyjście środowiska wykonawczego i sterowanie konsolą."
-icon: "folder-code"
+icon: "/icons/file-code.svg"
 ---
+
+<div className="real-category-page">
 
 Wyjście środowiska wykonawczego i sterowanie konsolą.
 
-| Nawigacja funkcji | Opis |
-| --- | --- |
-| [`rconsoleclear`](./rconsoleclear) | Czysci current Windows console screen buffer, gdy istnieje console window. Jesli console window nie istnieje, call wraca bez wykonania dzialania. |
-| [`rconsolecreate`](./rconsolecreate) | Alokuje Windows console dla procesu, gdy nie istnieje console window. Jesli console window juz istnieje, call wraca bez wykonania dzialania. Po allocation function przekierowuje stdout do console output i stdin do console input. |
-| [`rconsoledestroy`](./rconsoledestroy) | Czyści bieżący Windows console screen buffer, ukrywa console window i odłącza proces od console za pomocą console detachment. Jeśli nie istnieje żadna console window, wywołanie wraca bez wykonania akcji. |
-| [`rconsoleerr`](./rconsoleerr) | Zapisuje jedną lub więcej wartości do bieżącej Windows console przez stdout po ustawieniu console text attribute na error text color. Wartości są konwertowane za pomocą Lua string conversion, rozdzielane znakami tab, a text attribute jest potem resetowany. Jeśli nie istnieje żadna console window, wywołanie wraca bez wykonania akcji. |
-| [`rconsolehide`](./rconsolehide) | Ukrywa bieżącą Windows console window przez Windows console visibility update z użyciem hide mode. function nie wywołuje console detachment, więc nie odłącza się od console ani jej nie niszczy. Jeśli nie istnieje żadna console window, wywołanie wraca bez wykonania akcji. |
-| [`rconsoleinfo`](./rconsoleinfo) | Zapisuje jedną lub więcej wartości do bieżącej Windows console przez stdout po ustawieniu console text attribute na info text color. Wartości są konwertowane za pomocą Lua string conversion, rozdzielane znakami tab, a text attribute jest potem resetowany. Jeśli nie istnieje żadna console window, wywołanie wraca bez wykonania akcji. |
-| [`rconsoleinput`](./rconsoleinput) | Wykonuje yield podczas odczytu jednej line ze stdin przez console input po wyczyszczeniu stanu console input i zignorowaniu input do następnego newline. Zwracany string jest pushowany przez string return i nie zawiera kończącego newline. Jeśli nie istnieje żadna console window, wywołanie wraca bez values. |
-| [`rconsolename`](./rconsolename) | Ustawia title bieżącej Windows console window za pomocą Windows console title update. Pierwszy argument musi być typu string i jest sprawdzany przed console existence check. Jeśli po udanym string check nie istnieje żadna console window, wywołanie wraca bez wykonania akcji. |
-| [`rconsoleprint`](./rconsoleprint) | Zapisuje jedną lub więcej wartości do bieżącej Windows console przez stdout bez zmiany console text attribute. Wartości są konwertowane za pomocą Lua string conversion i rozdzielane znakami tab. function nie dodaje newline. Jeśli nie istnieje żadna console window, wywołanie wraca bez wykonania akcji. |
-| [`rconsoleshow`](./rconsoleshow) | Pokazuje biezace Windows console window przez Windows console visibility update z show mode. Ta function nie tworzy console. Jesli nie istnieje zadne console window, wywolanie wraca bez wykonywania zadnej akcji. |
-| [`rconsolewarn`](./rconsolewarn) | Zapisuje zero lub wiecej wartosci do biezacej Windows console przez stdout z warning console text attribute. Jesli nie istnieje zadne console window, wywolanie wraca bez konwertowania ani zapisywania czegokolwiek. Gdy istnieje console, kazdy argument jest konwertowany przez Lua string conversion, laczony znakami tab i zapisywany przez runtime value. Jesli Lua string conversion rzuci blad, rconsolewarn go nie przechwytuje. Function ustawia console text attribute na FOREGROUND_RED \| FOREGROUND_GREEN \| FOREGROUND_INTENSITY przed zapisem, a potem na default console text color. Nie dodaje newline, nie dodaje warning prefix, nie tworzy ani nie pokazuje console i nie wywoluje Luau warn ani Roblox Output. consolewarn jest alias dla tej samej function. |
+## Dostępne funkcje
+
+<CardGroup cols={2}>
+<Card title="rconsoleclear" href="./rconsoleclear">
+Czysci current Windows console screen buffer, gdy istnieje console window. Jesli console window nie istnieje, call wraca bez wykonania dzialania.
+</Card>
+<Card title="rconsolecreate" href="./rconsolecreate">
+Alokuje Windows console dla procesu, gdy nie istnieje console window. Jesli console window juz istnieje, call wraca bez wykonania dzialania. Po allocation function przekierowuje stdout do console output i stdin do console input.
+</Card>
+<Card title="rconsoledestroy" href="./rconsoledestroy">
+Czyści bieżący Windows console screen buffer, ukrywa console window i odłącza proces od console za pomocą console detachment. Jeśli nie istnieje żadna console window, wywołanie wraca bez wykonania akcji.
+</Card>
+<Card title="rconsoleerr" href="./rconsoleerr">
+Zapisuje jedną lub więcej wartości do bieżącej Windows console przez stdout po ustawieniu console text attribute na error text color. Wartości są konwertowane za pomocą Lua string conversion, rozdzielane znakami tab, a text attribute jest potem resetowany. Jeśli nie istnieje żadna console window, wywołanie wraca bez wykonania akcji.
+</Card>
+<Card title="rconsolehide" href="./rconsolehide">
+Ukrywa bieżącą Windows console window przez Windows console visibility update z użyciem hide mode. function nie wywołuje console detachment, więc nie odłącza się od console ani jej nie niszczy. Jeśli nie istnieje żadna console window, wywołanie wraca bez wykonania akcji.
+</Card>
+<Card title="rconsoleinfo" href="./rconsoleinfo">
+Zapisuje jedną lub więcej wartości do bieżącej Windows console przez stdout po ustawieniu console text attribute na info text color. Wartości są konwertowane za pomocą Lua string conversion, rozdzielane znakami tab, a text attribute jest potem resetowany. Jeśli nie istnieje żadna console window, wywołanie wraca bez wykonania akcji.
+</Card>
+<Card title="rconsoleinput" href="./rconsoleinput">
+Wykonuje yield podczas odczytu jednej line ze stdin przez console input po wyczyszczeniu stanu console input i zignorowaniu input do następnego newline. Zwracany string jest pushowany przez string return i nie zawiera kończącego newline. Jeśli nie istnieje żadna console window, wywołanie wraca bez values.
+</Card>
+<Card title="rconsolename" href="./rconsolename">
+Ustawia title bieżącej Windows console window za pomocą Windows console title update. Pierwszy argument musi być typu string i jest sprawdzany przed console existence check. Jeśli po udanym string check nie istnieje żadna console window, wywołanie wraca bez wykonania akcji.
+</Card>
+<Card title="rconsoleprint" href="./rconsoleprint">
+Zapisuje jedną lub więcej wartości do bieżącej Windows console przez stdout bez zmiany console text attribute. Wartości są konwertowane za pomocą Lua string conversion i rozdzielane znakami tab. function nie dodaje newline. Jeśli nie istnieje żadna console window, wywołanie wraca bez wykonania akcji.
+</Card>
+<Card title="rconsoleshow" href="./rconsoleshow">
+Pokazuje biezace Windows console window przez Windows console visibility update z show mode. Ta function nie tworzy console. Jesli nie istnieje zadne console window, wywolanie wraca bez wykonywania zadnej akcji.
+</Card>
+<Card title="rconsolewarn" href="./rconsolewarn">
+Zapisuje zero lub wiecej wartosci do biezacej Windows console przez stdout z warning console text attribute. Jesli nie istnieje zadne console window, wywolanie wraca bez konwertowania ani zapisywania czegokolwiek. Gdy istnieje console, kazdy argument jest konwertowany przez Lua string conversion, laczony znakami tab i zapisywany przez runtime value. Jesli Lua string conversion rzuci blad, rconsolewarn go nie przechwytuje. Function ustawia console text attribute na FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY przed zapisem, a potem na default console text color. Nie dodaje newline, nie dodaje warning prefix, nie tworzy ani nie pokazuje console i nie wywoluje Luau warn ani Roblox Output. consolewarn jest alias dla tej samej function.
+</Card>
+</CardGroup>
+
+</div>

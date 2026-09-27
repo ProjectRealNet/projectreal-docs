@@ -2,13 +2,10 @@
 title: "base64_decode"
 sidebarTitle: "base64_decode"
 description: "Base64 decoder로 Base64 입력을 디코드하고 디코드된 바이트를 Lua string으로 반환합니다."
-icon: "function"
 keywords: ["base64_decode","Cryptography","base64decode","base64.decode","crypt.base64.decode","crypt.base64_decode","crypt.base64decode"]
 ---
 
-Base64 decoder로 Base64 입력을 디코드하고 디코드된 바이트를 Lua string으로 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 base64_decode(data: string): string
@@ -24,15 +21,15 @@ base64_decode(data: string): string
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Base64 decoder에 전달되는 Base64 입력입니다. |
+<ParamField path={"data"} type={"string"} required>
+Base64 decoder에 전달되는 Base64 입력입니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `decoded` | `string` | 명시적인 길이를 가진 Lua string으로 반환되는 디코드된 바이트입니다. |
+<ResponseField name={"decoded"} type={"string"}>
+명시적인 길이를 가진 Lua string으로 반환되는 디코드된 바이트입니다.
+</ResponseField>
 
 ## 예제
 
@@ -46,3 +43,6 @@ print(decoded)
 print(base64decode(encoded))
 print(base64.decode(encoded))
 ```
+
+
+</div>

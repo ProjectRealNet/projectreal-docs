@@ -2,13 +2,10 @@
 title: "getcallingscript"
 sidebarTitle: "getcallingscript"
 description: "Mengembalikan script yang disimpan pada current Luau thread object. Function ini tidak menerima arguments. Function membaca the current thread script, yaitu stored reference. Jika stored reference itu tidak expired, function mendorong script Instance dengan Instance cache dan mengembalikannya. Jika stored reference expired, function mengembalikan nil. Function tidak memeriksa Lua call stack, tidak mencari ancestor scripts, dan tidak memeriksa script ClassName."
-icon: "function"
 keywords: ["getcallingscript","Scripts"]
 ---
 
-Mengembalikan script yang disimpan pada current Luau thread object. Function ini tidak menerima arguments. Function membaca the current thread script, yaitu stored reference. Jika stored reference itu tidak expired, function mendorong script Instance dengan Instance cache dan mengembalikannya. Jika stored reference expired, function mengembalikan nil. Function tidak memeriksa Lua call stack, tidak mencari ancestor scripts, dan tidak memeriksa script ClassName.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 getcallingscript(): Instance | nil
@@ -16,6 +13,9 @@ getcallingscript(): Instance | nil
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `script` | `Instance \| nil` | Script Instance dari current Luau thread object stored reference, atau nil jika stored reference itu expired. |
+<ResponseField name={"script"} type={"Instance | nil"}>
+Script Instance dari current Luau thread object stored reference, atau nil jika stored reference itu expired.
+</ResponseField>
+
+
+</div>

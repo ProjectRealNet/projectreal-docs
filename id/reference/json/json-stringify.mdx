@@ -2,13 +2,10 @@
 title: "json.stringify"
 sidebarTitle: "json.stringify"
 description: "Menserialisasi Lua value menjadi JSON string memakai function yang sama seperti json.encode."
-icon: "function"
 keywords: ["json.stringify","JSON"]
 ---
 
-Menserialisasi Lua value menjadi JSON string memakai function yang sama seperti json.encode.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 json.stringify(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.stringify(value: any, options?: EncodeOptions): string
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value yang di-encode. nil, booleans, numbers, strings, tables, dan json.null ditangani langsung. Unsupported Lua types di-encode sebagai null kecuali errorOnUnsupported true. |
-| `options` | `EncodeOptions` | No | Optional encode options. boolean men-toggle pretty output. number mengaktifkan pretty output dengan jumlah spaces tersebut yang di-clamp ke 0.16. string mengaktifkan pretty output dengan indent tersebut. table dapat mengatur pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, dan indent. |
+<ParamField path={"value"} type={"any"} required>
+Value yang di-encode. nil, booleans, numbers, strings, tables, dan json.null ditangani langsung. Unsupported Lua types di-encode sebagai null kecuali errorOnUnsupported true.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options. boolean men-toggle pretty output. number mengaktifkan pretty output dengan jumlah spaces tersebut yang di-clamp ke 0.16. string mengaktifkan pretty output dengan indent tersebut. table dapat mengatur pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, dan indent.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `json` | `string` | Encoded JSON string. Encoding errors dilempar sebagai Luau errors. |
+<ResponseField name={"json"} type={"string"}>
+Encoded JSON string. Encoding errors dilempar sebagai Luau errors.
+</ResponseField>
 
 ## Tipe
 
@@ -59,3 +59,6 @@ local text = json.stringify({
 
 print(text)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "json.tryDecode"
 sidebarTitle: "json.tryDecode"
 description: "Пытается parse JSON string через ту же function, что json.decodeSafe, и возвращает status values для parse errors."
-icon: "function"
 keywords: ["json.tryDecode","JSON"]
 ---
 
-Пытается parse JSON string через ту же function, что json.decodeSafe, и возвращает status values для parse errors.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | string | nil | number | nil
@@ -16,19 +13,31 @@ json.tryDecode(json: string, options?: DecodeOptions): boolean | any | nil | str
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string для parse. Function читает этот argument через string type checking. |
-| `options` | `DecodeOptions` | No | Optional decode options. boolean задает useNull. table может задавать useNull и maxDepth. |
+<ParamField path={"json"} type={"string"} required>
+JSON string для parse. Function читает этот argument через string type checking.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options. boolean задает useNull. table может задавать useNull и maxDepth.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `success` | `boolean` | true, если parsing успешен, false, если parsing падает внутри protected parse block. |
-| `decoded` | `any \| nil` | Decoded value при success. При parse failure этот return равен nil. |
-| `errorMessage` | `string \| nil` | Error message при parse failure. Message prefixed через json.decodeSafe и содержит near-position suffix. |
-| `errorPosition` | `number \| nil` | Parser byte position из parser при parse failure. Этот return есть только при failure. |
+<ResponseField name={"success"} type={"boolean"}>
+true, если parsing успешен, false, если parsing падает внутри protected parse block.
+</ResponseField>
+
+<ResponseField name={"decoded"} type={"any | nil"}>
+Decoded value при success. При parse failure этот return равен nil.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+Error message при parse failure. Message prefixed через json.decodeSafe и содержит near-position suffix.
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+Parser byte position из parser при parse failure. Этот return есть только при failure.
+</ResponseField>
 
 ## Типы
 
@@ -57,3 +66,6 @@ else
     warn(message, position)
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "gethwid"
 sidebarTitle: "gethwid"
 description: "Returns Real's hardware identifier string."
-icon: "function"
 keywords: ["gethwid","Miscellaneous"]
 ---
 
-Returns Real's hardware identifier string.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 gethwid(): string
@@ -16,9 +13,9 @@ gethwid(): string
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `hardwareId` | `string` | Hardware identifier string. |
+<ResponseField name={"hardwareId"} type={"string"}>
+Hardware identifier string.
+</ResponseField>
 
 ## Przykład
 
@@ -28,3 +25,6 @@ Read Real's cached hardware identifier string.
 local hardwareId = gethwid()
 print(hardwareId)
 ```
+
+
+</div>

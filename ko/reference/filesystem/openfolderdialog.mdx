@@ -2,13 +2,10 @@
 title: "openfolderdialog"
 sidebarTitle: "openfolderdialog"
 description: "Windows file picker 와 folder selection mode 를 통해 Windows folder picker 를 열고 선택된 폴더를 file item 으로 반환합니다."
-icon: "function"
 keywords: ["openfolderdialog","Filesystem"]
 ---
 
-Windows file picker 와 folder selection mode 를 통해 Windows folder picker 를 열고 선택된 폴더를 file item 으로 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 openfolderdialog(options?: DialogOptions): FileSystemItem | nil
@@ -16,15 +13,15 @@ openfolderdialog(options?: DialogOptions): FileSystemItem | nil
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `options` | `DialogOptions` | No | Optional table. openfolderdialog 에서는 title 과 defaultPath 가 사용됩니다. defaultPath 는 existing directory 로 resolve 될 때만 적용됩니다. extensionFilter 는 shared dialog options parser 가 받지만, folder selection 은 folder selection mode 로 활성화됩니다. |
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table. openfolderdialog 에서는 title 과 defaultPath 가 사용됩니다. defaultPath 는 existing directory 로 resolve 될 때만 적용됩니다. extensionFilter 는 shared dialog options parser 가 받지만, folder selection 은 folder selection mode 로 활성화됩니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `folder` | `FileSystemItem \| nil` | Selected folder item 이거나 dialog 가 취소되면 nil 입니다. Dialog failures 는 Failed to open folder dialog 를 throw 합니다. |
+<ResponseField name={"folder"} type={"FileSystemItem | nil"}>
+Selected folder item 이거나 dialog 가 취소되면 nil 입니다. Dialog failures 는 Failed to open folder dialog 를 throw 합니다.
+</ResponseField>
 
 ## 타입
 
@@ -57,3 +54,6 @@ else
     print("No folder selected")
 end
 ```
+
+
+</div>

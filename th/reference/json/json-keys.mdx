@@ -2,13 +2,10 @@
 title: "json.keys"
 sidebarTitle: "json.keys"
 description: "คืน visible keys ของ table ใน new table marked as a JSON array."
-icon: "function"
 keywords: ["json.keys","JSON"]
 ---
 
-คืน visible keys ของ table ใน new table marked as a JSON array.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 json.keys(object: table): table
@@ -16,15 +13,15 @@ json.keys(object: table): table
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `object` | `table` | Yes | Table ที่จะ inspect. function ต้องการให้ argument นี้เป็น table. |
+<ParamField path={"object"} type={"table"} required>
+Table ที่จะ inspect. function ต้องการให้ argument นี้เป็น table.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `keys` | `table` | New array table ที่มี source table keys โดยไม่รวม Real JSON type marker. Order ตาม table iteration iteration และ function นี้ไม่ได้ sorted. |
+<ResponseField name={"keys"} type={"table"}>
+New array table ที่มี source table keys โดยไม่รวม Real JSON type marker. Order ตาม table iteration iteration และ function นี้ไม่ได้ sorted.
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -41,3 +38,6 @@ for _, key in ipairs(json.keys(record)) do
     print(key)
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "cloneref"
 sidebarTitle: "cloneref"
 description: "push การอ้างอิง Instance ใหม่สำหรับ reference ของ Instance เดิม แล้วส่งค่านั้นกลับ"
-icon: "function"
 keywords: ["cloneref","Cache","clonereference"]
 ---
 
-push การอ้างอิง Instance ใหม่สำหรับ reference ของ Instance เดิม แล้วส่งค่านั้นกลับ
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 cloneref(instance: Instance): Instance
@@ -20,15 +17,15 @@ cloneref(instance: Instance): Instance
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object ที่ใช้เป็นแหล่งสำหรับการอ้างอิงใหม่ |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object ที่ใช้เป็นแหล่งสำหรับการอ้างอิงใหม่
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `reference` | `Instance` | การอ้างอิง Instance ที่ส่งกลับหลังจาก Instance cache ทำงานด้วย reference object เดิม |
+<ResponseField name={"reference"} type={"Instance"}>
+การอ้างอิง Instance ที่ส่งกลับหลังจาก Instance cache ทำงานด้วย reference object เดิม
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -43,3 +40,6 @@ print(reference)
 local sameAlias = clonereference(Players)
 print(sameAlias)
 ```
+
+
+</div>

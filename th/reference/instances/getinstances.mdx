@@ -2,13 +2,10 @@
 title: "getinstances"
 sidebarTitle: "getinstances"
 description: "คืน array table ใหม่ที่มี object value ทุกค่าที่เก็บอยู่ใน Instance cache ในขณะนั้น function นี้ไม่รับ arguments ไม่กรองตาม Parent, ClassName, DataModel fieldship, nil-parent state หรือ Instance validity นอกจากตรวจว่าแต่ละ registry value เป็น object entries จะถูกคัดลอกเข้า table ที่คืนค่าด้วย sequential numeric indexes เริ่มที่ 1 iteration order มาจาก table iteration บน cache และ function ไม่ได้ sort"
-icon: "function"
 keywords: ["getinstances","Instances"]
 ---
 
-คืน array table ใหม่ที่มี object value ทุกค่าที่เก็บอยู่ใน Instance cache ในขณะนั้น function นี้ไม่รับ arguments ไม่กรองตาม Parent, ClassName, DataModel fieldship, nil-parent state หรือ Instance validity นอกจากตรวจว่าแต่ละ registry value เป็น object entries จะถูกคัดลอกเข้า table ที่คืนค่าด้วย sequential numeric indexes เริ่มที่ 1 iteration order มาจาก table iteration บน cache และ function ไม่ได้ sort
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 getinstances(): { Instance }
@@ -16,6 +13,9 @@ getinstances(): { Instance }
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `instances` | `&#123; Instance &#125;` | Array table ของ object values ที่คัดลอกจาก Instance cache table |
+<ResponseField name={"instances"} type={"{ Instance }"}>
+Array table ของ object values ที่คัดลอกจาก Instance cache table
+</ResponseField>
+
+
+</div>

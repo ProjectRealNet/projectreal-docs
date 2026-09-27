@@ -2,13 +2,10 @@
 title: "json.array"
 sidebarTitle: "json.array"
 description: "json.encode 用に JSON array としてマークされた new table を作成し、source table が指定された場合は 1.#source sequence をコピーします。"
-icon: "function"
 keywords: ["json.array","JSON"]
 ---
 
-json.encode 用に JSON array としてマークされた new table を作成し、source table が指定された場合は 1.#source sequence をコピーします。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 json.array(source?: table): table
@@ -16,15 +13,15 @@ json.array(source?: table): table
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `source` | `table` | No | Optional source table。省略または nil の場合、json.array は new empty array-marked table を返します。指定された場合、1 with #source の numeric sequence entries だけが new table にコピーされます。 |
+<ParamField path={"source"} type={"table"}>
+Optional source table。省略または nil の場合、json.array は new empty array-marked table を返します。指定された場合、1 with #source の numeric sequence entries だけが new table にコピーされます。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `array` | `table` | JSON array marker を持つ new table。json.encode はこれを JSON array として serializes します。original source table は返されません。 |
+<ResponseField name={"array"} type={"table"}>
+JSON array marker を持つ new table。json.encode はこれを JSON array として serializes します。original source table は返されません。
+</ResponseField>
 
 ## 例
 
@@ -38,3 +35,6 @@ print(json.encode(tags))
 print(json.encode(empty))
 print(json.type(empty))
 ```
+
+
+</div>

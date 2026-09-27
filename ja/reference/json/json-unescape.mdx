@@ -2,13 +2,10 @@
 title: "json.unescape"
 sidebarTitle: "json.unescape"
 description: "escaped string content または complete quoted JSON string literal から JSON string escape sequences をデコードします。入力は full JSON document ではなく JSON string parser で parse されます。"
-icon: "function"
 keywords: ["json.unescape","JSON"]
 ---
 
-escaped string content または complete quoted JSON string literal から JSON string escape sequences をデコードします。入力は full JSON document ではなく JSON string parser で parse されます。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 json.unescape(text: string): string
@@ -16,15 +13,15 @@ json.unescape(text: string): string
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | Escaped JSON string content、または first and last bytes が quotes の complete quoted JSON string literal。function はこの argument を string type checking で読みます。 |
+<ParamField path={"text"} type={"string"} required>
+Escaped JSON string content、または first and last bytes が quotes の complete quoted JSON string literal。function はこの argument を string type checking で読みます。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `text` | `string` | Decoded string。Supported escapes は \"、\\、\/、\b、\f、\n、\r、\t、surrogate-pair handling 付きの \uXXXX です。Invalid escapes、unescaped control characters、unterminated strings、quoted literal 後の trailing characters は near-position suffix 付きの Luau error を投げます。 |
+<ResponseField name={"text"} type={"string"}>
+Decoded string。Supported escapes は \"、\\、\/、\b、\f、\n、\r、\t、surrogate-pair handling 付きの \uXXXX です。Invalid escapes、unescaped control characters、unterminated strings、quoted literal 後の trailing characters は near-position suffix 付きの Luau error を投げます。
+</ResponseField>
 
 ## 例
 
@@ -36,3 +33,6 @@ local restored = json.unescape(escaped)
 
 print(restored)
 ```
+
+
+</div>

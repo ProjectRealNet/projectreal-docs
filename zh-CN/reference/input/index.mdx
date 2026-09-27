@@ -1,23 +1,55 @@
 ---
 title: "Input"
 description: "键盘和鼠标输入事件。"
-icon: "folder-code"
+icon: "/icons/mouse.svg"
 ---
+
+<div className="real-category-page">
 
 键盘和鼠标输入事件。
 
-| 函数导航 | 说明 |
-| --- | --- |
-| [`isrbxactive`](./isrbxactive) | 返回 current foreground window 是否为 Real 找到的 Roblox window。Real 会 enumerating 当前进程的 windows，并选择 class name 为 Roblox window 的 window。该 function 不接受 arguments，当没有 foreground window 或 matching Roblox window 可用时返回 false。 |
-| [`keyclick`](./keyclick) | 当 Roblox window active 时，发送 key down event，然后发送 key up event。keyCode 参数会作为 Lua number 检查，通过 integer conversion 转换，再使用 Windows key mapping 从 Windows virtual-key code 映射到 scan code，并通过带 KEYEVENTF_SCANCODE 的 keyboard input 发送。如果 isrbxactive 会为 false，该 function 会直接返回，不发送 input。 |
-| [`keypress`](./keypress) | 当 Roblox window active 时，发送 key down event。keyCode 参数会作为 Lua number 检查，通过 integer conversion 转换，再使用 Windows key mapping 从 Windows virtual-key code 映射到 scan code，并通过带 KEYEVENTF_SCANCODE 的 keyboard input 发送。该 function 不发送 key up event。如果 isrbxactive 会为 false，该 function 会直接返回，不发送 input。 |
-| [`keyrelease`](./keyrelease) | 当 Roblox window active 时，发送 key up event。keyCode 参数会作为 Lua number 检查，通过 integer conversion 转换，再使用 Windows key mapping 从 Windows virtual-key code 映射到 scan code，并通过带 KEYEVENTF_SCANCODE \| KEYEVENTF_KEYUP 的 keyboard input 发送。该 function 不发送 key down event。如果 isrbxactive 会为 false，该 function 会直接返回，不发送 input。 |
-| [`mouse1click`](./mouse1click) | 当 Roblox window active 时，发送 left mouse down event 和 left mouse up event。Real 调用 mouse input，使用 the requested mouse action，并且没有 movement 或 wheel data。该 function 不接受 arguments，不返回任何值，并且当 isrbxactive 会为 false 时直接返回，不发送 input。 |
-| [`mouse1press`](./mouse1press) | 当 Roblox window active 时，发送 left mouse down event。Real 调用 mouse input，使用 the requested mouse action，并且没有 movement 或 wheel data。该 function 不接受 arguments，不返回任何值，不发送对应的 left mouse up event，并且当 isrbxactive 会为 false 时直接返回，不发送 input。 |
-| [`mouse1release`](./mouse1release) | 当 Roblox window active 时，发送 left mouse up event。Real 调用 mouse input，使用 the requested mouse action，并且没有 movement 或 wheel data。该 function 不接受 arguments，不返回任何值，不发送对应的 left mouse down event，并且当 isrbxactive 会为 false 时直接返回，不发送 input。 |
-| [`mouse2click`](./mouse2click) | 当 Roblox window active 时，发送 right mouse down event 和 right mouse up event。Real 调用 mouse input，使用 the requested mouse action，并且没有 movement 或 wheel data。该 function 不接受 arguments，不返回任何值，并且当 isrbxactive 会为 false 时直接返回，不发送 input。 |
-| [`mouse2press`](./mouse2press) | 当 Roblox window active 时，发送 right mouse down event。Real 调用 mouse input，使用 the requested mouse action，并且没有 movement 或 wheel data。该 function 不接受 arguments，不返回任何值，不发送对应的 right mouse up event，并且当 isrbxactive 会为 false 时直接返回，不发送 input。 |
-| [`mouse2release`](./mouse2release) | 当 Roblox window active 时，发送 right mouse up event。Real 调用 mouse input，使用 the requested mouse action，并且没有 movement 或 wheel data。该 function 不接受 arguments，不返回任何值，不发送对应的 right mouse down event，并且当 isrbxactive 会为 false 时直接返回，不发送 input。 |
-| [`mousemoveabs`](./mousemoveabs) | 当 Roblox window active 时，使用 Windows absolute mouse input 移动 mouse。x 和 y 参数会作为 Lua numbers 检查，并通过 integer conversion 转换。Real 将它们视为 relative to active foreground window client area 的坐标，使用 ClientToScreen 加上该 client area 的 screen position，再使用 GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 和 integer math 缩放，然后调用带 the requested mouse action 的 mouse input。如果 isrbxactive 会为 false，该 function 会直接返回，不发送 input。 |
-| [`mousemoverel`](./mousemoverel) | 当 Roblox window active 时，按 relative delta 移动 mouse。x 和 y 参数会作为 Lua numbers 检查，并通过 integer conversion 转换，然后作为 dx 和 dy 直接传给带 the requested mouse action 的 mouse input。该 function 不使用 the requested mouse action，不执行 client-area conversion，不返回任何值，并且当 isrbxactive 会为 false 时直接返回，不发送 input。 |
-| [`mousescroll`](./mousescroll) | 当 Roblox window active 时，发送 mouse wheel event。amount 参数会作为 Lua number 检查，通过 integer conversion 转换，并作为 dwData 值直接传给带 the requested mouse action 的 mouse input。Real 不会 normalize amount，也不会添加 movement data。该 function 不返回任何值，并且当 isrbxactive 会为 false 时直接返回，不发送 input。 |
+## 可用函数
+
+<CardGroup cols={2}>
+<Card title="isrbxactive" href="./isrbxactive">
+返回 current foreground window 是否为 Real 找到的 Roblox window。Real 会 enumerating 当前进程的 windows，并选择 class name 为 Roblox window 的 window。该 function 不接受 arguments，当没有 foreground window 或 matching Roblox window 可用时返回 false。
+</Card>
+<Card title="keyclick" href="./keyclick">
+当 Roblox window active 时，发送 key down event，然后发送 key up event。keyCode 参数会作为 Lua number 检查，通过 integer conversion 转换，再使用 Windows key mapping 从 Windows virtual-key code 映射到 scan code，并通过带 KEYEVENTF_SCANCODE 的 keyboard input 发送。如果 isrbxactive 会为 false，该 function 会直接返回，不发送 input。
+</Card>
+<Card title="keypress" href="./keypress">
+当 Roblox window active 时，发送 key down event。keyCode 参数会作为 Lua number 检查，通过 integer conversion 转换，再使用 Windows key mapping 从 Windows virtual-key code 映射到 scan code，并通过带 KEYEVENTF_SCANCODE 的 keyboard input 发送。该 function 不发送 key up event。如果 isrbxactive 会为 false，该 function 会直接返回，不发送 input。
+</Card>
+<Card title="keyrelease" href="./keyrelease">
+当 Roblox window active 时，发送 key up event。keyCode 参数会作为 Lua number 检查，通过 integer conversion 转换，再使用 Windows key mapping 从 Windows virtual-key code 映射到 scan code，并通过带 KEYEVENTF_SCANCODE | KEYEVENTF_KEYUP 的 keyboard input 发送。该 function 不发送 key down event。如果 isrbxactive 会为 false，该 function 会直接返回，不发送 input。
+</Card>
+<Card title="mouse1click" href="./mouse1click">
+当 Roblox window active 时，发送 left mouse down event 和 left mouse up event。Real 调用 mouse input，使用 the requested mouse action，并且没有 movement 或 wheel data。该 function 不接受 arguments，不返回任何值，并且当 isrbxactive 会为 false 时直接返回，不发送 input。
+</Card>
+<Card title="mouse1press" href="./mouse1press">
+当 Roblox window active 时，发送 left mouse down event。Real 调用 mouse input，使用 the requested mouse action，并且没有 movement 或 wheel data。该 function 不接受 arguments，不返回任何值，不发送对应的 left mouse up event，并且当 isrbxactive 会为 false 时直接返回，不发送 input。
+</Card>
+<Card title="mouse1release" href="./mouse1release">
+当 Roblox window active 时，发送 left mouse up event。Real 调用 mouse input，使用 the requested mouse action，并且没有 movement 或 wheel data。该 function 不接受 arguments，不返回任何值，不发送对应的 left mouse down event，并且当 isrbxactive 会为 false 时直接返回，不发送 input。
+</Card>
+<Card title="mouse2click" href="./mouse2click">
+当 Roblox window active 时，发送 right mouse down event 和 right mouse up event。Real 调用 mouse input，使用 the requested mouse action，并且没有 movement 或 wheel data。该 function 不接受 arguments，不返回任何值，并且当 isrbxactive 会为 false 时直接返回，不发送 input。
+</Card>
+<Card title="mouse2press" href="./mouse2press">
+当 Roblox window active 时，发送 right mouse down event。Real 调用 mouse input，使用 the requested mouse action，并且没有 movement 或 wheel data。该 function 不接受 arguments，不返回任何值，不发送对应的 right mouse up event，并且当 isrbxactive 会为 false 时直接返回，不发送 input。
+</Card>
+<Card title="mouse2release" href="./mouse2release">
+当 Roblox window active 时，发送 right mouse up event。Real 调用 mouse input，使用 the requested mouse action，并且没有 movement 或 wheel data。该 function 不接受 arguments，不返回任何值，不发送对应的 right mouse down event，并且当 isrbxactive 会为 false 时直接返回，不发送 input。
+</Card>
+<Card title="mousemoveabs" href="./mousemoveabs">
+当 Roblox window active 时，使用 Windows absolute mouse input 移动 mouse。x 和 y 参数会作为 Lua numbers 检查，并通过 integer conversion 转换。Real 将它们视为 relative to active foreground window client area 的坐标，使用 ClientToScreen 加上该 client area 的 screen position，再使用 GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN) - 1 和 integer math 缩放，然后调用带 the requested mouse action 的 mouse input。如果 isrbxactive 会为 false，该 function 会直接返回，不发送 input。
+</Card>
+<Card title="mousemoverel" href="./mousemoverel">
+当 Roblox window active 时，按 relative delta 移动 mouse。x 和 y 参数会作为 Lua numbers 检查，并通过 integer conversion 转换，然后作为 dx 和 dy 直接传给带 the requested mouse action 的 mouse input。该 function 不使用 the requested mouse action，不执行 client-area conversion，不返回任何值，并且当 isrbxactive 会为 false 时直接返回，不发送 input。
+</Card>
+<Card title="mousescroll" href="./mousescroll">
+当 Roblox window active 时，发送 mouse wheel event。amount 参数会作为 Lua number 检查，通过 integer conversion 转换，并作为 dwData 值直接传给带 the requested mouse action 的 mouse input。Real 不会 normalize amount，也不会添加 movement data。该 function 不返回任何值，并且当 isrbxactive 会为 false 时直接返回，不发送 input。
+</Card>
+</CardGroup>
+
+</div>

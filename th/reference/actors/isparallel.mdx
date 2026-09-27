@@ -2,13 +2,10 @@
 title: "isparallel"
 sidebarTitle: "isparallel"
 description: "คืน boolean จาก ScriptContext DataModel ของ Luau thread ปัจจุบัน function นี้ไม่รับ arguments อ่าน the current parallel execution status ซึ่งคืน parallel execution status หาก the current DataModel ไม่คืน DataModel function จะคืน false checkparallel เป็น alias ของ function เดียวกัน"
-icon: "function"
 keywords: ["isparallel","Actors","checkparallel"]
 ---
 
-คืน boolean จาก ScriptContext DataModel ของ Luau thread ปัจจุบัน function นี้ไม่รับ arguments อ่าน the current parallel execution status ซึ่งคืน parallel execution status หาก the current DataModel ไม่คืน DataModel function จะคืน false checkparallel เป็น alias ของ function เดียวกัน
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 isparallel(): boolean
@@ -20,9 +17,9 @@ isparallel(): boolean
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `parallel` | `boolean` | true เมื่อ current DataModel parallel execution status ถูกตั้งค่า; false เมื่อ flag ไม่ถูกตั้งค่าหรือไม่มี DataModel |
+<ResponseField name={"parallel"} type={"boolean"}>
+true เมื่อ current DataModel parallel execution status ถูกตั้งค่า; false เมื่อ flag ไม่ถูกตั้งค่าหรือไม่มี DataModel
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -34,3 +31,6 @@ print(parallel)
 
 print(checkparallel())
 ```
+
+
+</div>

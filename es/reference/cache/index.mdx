@@ -1,15 +1,31 @@
 ---
 title: "Cache"
 description: "Almacenamiento en caché de referencias y comparación de instancias."
-icon: "folder-code"
+icon: "/icons/database.svg"
 ---
+
+<div className="real-category-page">
 
 Almacenamiento en caché de referencias y comparación de instancias.
 
-| Navegación de funciones | Descripción |
-| --- | --- |
-| [`cache.invalidate`](./cache-invalidate) | Elimina la entrada de registro Instance cache en cache para la Instance indicada. |
-| [`cache.iscached`](./cache-iscached) | Devuelve si la Instance indicada tiene una entrada no nil en el Instance cache. |
-| [`cache.replace`](./cache-replace) | Sets the cached Instance entry for one Instance to another Instance. |
-| [`cloneref`](./cloneref) | Pushea una nueva referencia Instance para el mismo puntero Instance subyacente y la devuelve. |
-| [`compareinstances`](./compareinstances) | Compara los valores internos de puntero Instance almacenados en dos valores Instance object. |
+## Funciones disponibles
+
+<CardGroup cols={2}>
+<Card title="cache.invalidate" href="./cache-invalidate">
+Elimina la entrada de registro Instance cache en cache para la Instance indicada.
+</Card>
+<Card title="cache.iscached" href="./cache-iscached">
+Devuelve si la Instance indicada tiene una entrada no nil en el Instance cache.
+</Card>
+<Card title="cache.replace" href="./cache-replace">
+Sets the cached Instance entry for one Instance to another Instance.
+</Card>
+<Card title="cloneref" href="./cloneref">
+Pushea una nueva referencia Instance para el mismo puntero Instance subyacente y la devuelve.
+</Card>
+<Card title="compareinstances" href="./compareinstances">
+Compara los valores internos de puntero Instance almacenados en dos valores Instance object.
+</Card>
+</CardGroup>
+
+</div>

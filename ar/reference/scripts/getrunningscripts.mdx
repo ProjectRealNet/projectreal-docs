@@ -2,13 +2,10 @@
 title: "getrunningscripts"
 sidebarTitle: "getrunningscripts"
 description: "يرجع array table جديدة من unique script Instances مأخوذة من live Lua threads. لا تأخذ function أي arguments. تمشي عبر the live Luau thread list، وتقرأ كل thread node، وتتخطى entries التي لا تحتوي على thread node أو weak thread ref أو LiveLuaRef أو Lua state أو object أو التي تحتوي على expired Script stored reference. لكل thread متبق، تقفل scriptThread->object->Script()، وتزيل التكرار حسب script reference، وتدفع Instance باستخدام Instance cache، وتدرجه في array indexes متتالية تبدأ من 1. لا تفحص function الـ DataModel، ولا تتحقق من ClassName، ولا ترتب result."
-icon: "function"
 keywords: ["getrunningscripts","Scripts"]
 ---
 
-يرجع array table جديدة من unique script Instances مأخوذة من live Lua threads. لا تأخذ function أي arguments. تمشي عبر the live Luau thread list، وتقرأ كل thread node، وتتخطى entries التي لا تحتوي على thread node أو weak thread ref أو LiveLuaRef أو Lua state أو object أو التي تحتوي على expired Script stored reference. لكل thread متبق، تقفل scriptThread->object->Script()، وتزيل التكرار حسب script reference، وتدفع Instance باستخدام Instance cache، وتدرجه في array indexes متتالية تبدأ من 1. لا تفحص function الـ DataModel، ولا تتحقق من ClassName، ولا ترتب result.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 getrunningscripts(): table
@@ -16,6 +13,9 @@ getrunningscripts(): table
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `scripts` | `table` | Array table جديدة من unique script Instance object values المرتبطة بـ live Lua threads. |
+<ResponseField name={"scripts"} type={"table"}>
+Array table جديدة من unique script Instance object values المرتبطة بـ live Lua threads.
+</ResponseField>
+
+
+</div>

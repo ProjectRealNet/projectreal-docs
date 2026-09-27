@@ -2,13 +2,10 @@
 title: "getexecutorversion"
 sidebarTitle: "getexecutorversion"
 description: "Returns Real's executor version as one string."
-icon: "function"
 keywords: ["getexecutorversion","Miscellaneous"]
 ---
 
-Returns Real's executor version as one string.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 getexecutorversion(): string
@@ -16,9 +13,9 @@ getexecutorversion(): string
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `executorVersion` | `string` | Executor version string. |
+<ResponseField name={"executorVersion"} type={"string"}>
+Executor version string.
+</ResponseField>
 
 ## Пример
 
@@ -28,3 +25,6 @@ Read the executor version string exposed by Real.
 local version = getexecutorversion()
 print(version)
 ```
+
+
+</div>

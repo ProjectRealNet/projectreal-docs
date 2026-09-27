@@ -2,13 +2,10 @@
 title: "openfiledialog"
 sidebarTitle: "openfiledialog"
 description: "通过 Windows file picker 打开 Windows file-open dialog，并将所选文件作为 file item 返回。"
-icon: "function"
 keywords: ["openfiledialog","Filesystem"]
 ---
 
-通过 Windows file picker 打开 Windows file-open dialog，并将所选文件作为 file item 返回。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 openfiledialog(options?: DialogOptions): FileSystemItem | nil
@@ -16,15 +13,15 @@ openfiledialog(options?: DialogOptions): FileSystemItem | nil
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `options` | `DialogOptions` | No | Optional table。openfiledialog 会使用 title、defaultPath 和 extensionFilter。extensionFilter 是 extension strings 的 table；每个 filter 变为 *.&lt;extension> 前会去掉开头的 . 或 *.。 |
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table。openfiledialog 会使用 title、defaultPath 和 extensionFilter。extensionFilter 是 extension strings 的 table；每个 filter 变为 *.&lt;extension> 前会去掉开头的 . 或 *.。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `file` | `FileSystemItem \| nil` | Selected file item；如果 dialog 被 cancel，或没有返回 selected filesystem path，则为 nil。Dialog failures 会 throw Failed to open file dialog。 |
+<ResponseField name={"file"} type={"FileSystemItem | nil"}>
+Selected file item；如果 dialog 被 cancel，或没有返回 selected filesystem path，则为 nil。Dialog failures 会 throw Failed to open file dialog。
+</ResponseField>
 
 ## 类型
 
@@ -58,3 +55,6 @@ else
     print("No file selected")
 end
 ```
+
+
+</div>

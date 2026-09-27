@@ -2,13 +2,10 @@
 title: "openfolderdialog"
 sidebarTitle: "openfolderdialog"
 description: "通过 Windows file picker 和 folder selection mode 打开 Windows folder picker，并将选中的文件夹作为 file item 返回。"
-icon: "function"
 keywords: ["openfolderdialog","Filesystem"]
 ---
 
-通过 Windows file picker 和 folder selection mode 打开 Windows folder picker，并将选中的文件夹作为 file item 返回。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 openfolderdialog(options?: DialogOptions): FileSystemItem | nil
@@ -16,15 +13,15 @@ openfolderdialog(options?: DialogOptions): FileSystemItem | nil
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `options` | `DialogOptions` | No | Optional table。openfolderdialog 会使用 title 和 defaultPath。defaultPath 只有在解析为 existing directory 时才会应用。extensionFilter 会被 shared dialog options parser 接受，但 folder selection 通过 folder selection mode 启用。 |
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table。openfolderdialog 会使用 title 和 defaultPath。defaultPath 只有在解析为 existing directory 时才会应用。extensionFilter 会被 shared dialog options parser 接受，但 folder selection 通过 folder selection mode 启用。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `folder` | `FileSystemItem \| nil` | Selected folder item；如果 dialog 被取消，则为 nil。Dialog failures 会抛出 Failed to open folder dialog。 |
+<ResponseField name={"folder"} type={"FileSystemItem | nil"}>
+Selected folder item；如果 dialog 被取消，则为 nil。Dialog failures 会抛出 Failed to open folder dialog。
+</ResponseField>
 
 ## 类型
 
@@ -57,3 +54,6 @@ else
     print("No folder selected")
 end
 ```
+
+
+</div>

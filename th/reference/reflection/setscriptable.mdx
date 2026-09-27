@@ -2,13 +2,10 @@
 title: "setscriptable"
 sidebarTitle: "setscriptable"
 description: "เก็บ scriptable override สำหรับ Roblox property ไว้ใน scriptable override cache และคืน previous scriptable state อาร์กิวเมนต์แรกต้องเป็น Instance object อาร์กิวเมนต์ที่สองต้องเป็น string property name และอาร์กิวเมนต์ที่สามต้องเป็น boolean หากมี cache entry อยู่แล้วสำหรับ instance reference และ property name เดียวกัน cached scriptable value จะถูกแทนที่และคืนค่า cached value เก่า เมื่อเกิด cache miss จะ resolve property name ผ่าน Roblox property metadata และ Instance class descriptor หากไม่มี descriptor หรือ field ที่ resolve ได้ไม่มีอยู่หรือไม่ใช่ property entry function จะคืนค่า nil เมื่อพบ property entry function จะอ่าน scriptable state เก็บ boolean ที่ขอพร้อม property reference ใน scriptable override cache แล้วคืน previous scriptable state value GameIndexHook และ GameNewIndexHook จะใช้ cache นี้ภายหลังโดยตั้ง property field scriptable flag ชั่วคราวสำหรับ indexed read หรือ write หนึ่งครั้ง แล้วคืน previous field flag"
-icon: "function"
 keywords: ["setscriptable","Reflection"]
 ---
 
-เก็บ scriptable override สำหรับ Roblox property ไว้ใน scriptable override cache และคืน previous scriptable state อาร์กิวเมนต์แรกต้องเป็น Instance object อาร์กิวเมนต์ที่สองต้องเป็น string property name และอาร์กิวเมนต์ที่สามต้องเป็น boolean หากมี cache entry อยู่แล้วสำหรับ instance reference และ property name เดียวกัน cached scriptable value จะถูกแทนที่และคืนค่า cached value เก่า เมื่อเกิด cache miss จะ resolve property name ผ่าน Roblox property metadata และ Instance class descriptor หากไม่มี descriptor หรือ field ที่ resolve ได้ไม่มีอยู่หรือไม่ใช่ property entry function จะคืนค่า nil เมื่อพบ property entry function จะอ่าน scriptable state เก็บ boolean ที่ขอพร้อม property reference ใน scriptable override cache แล้วคืน previous scriptable state value GameIndexHook และ GameNewIndexHook จะใช้ cache นี้ภายหลังโดยตั้ง property field scriptable flag ชั่วคราวสำหรับ indexed read หรือ write หนึ่งครั้ง แล้วคืน previous field flag
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 setscriptable(instance: Instance, property: string, value: boolean): boolean | nil
@@ -16,17 +13,23 @@ setscriptable(instance: Instance, property: string, value: boolean): boolean | n
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object ที่ใช้เป็นส่วนหนึ่งของ scriptable override cache key. |
-| `property` | `string` | Yes | Property name ที่ resolve ผ่าน Roblox property metadata และ Instance class descriptor เมื่อเกิด cache miss. |
-| `value` | `boolean` | Yes | Scriptable override value ที่จะเก็บใน scriptable override cache. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object ที่ใช้เป็นส่วนหนึ่งของ scriptable override cache key.
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+Property name ที่ resolve ผ่าน Roblox property metadata และ Instance class descriptor เมื่อเกิด cache miss.
+</ParamField>
+
+<ParamField path={"value"} type={"boolean"} required>
+Scriptable override value ที่จะเก็บใน scriptable override cache.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `previousState` | `boolean \| nil` | Previous cached scriptable value, previous scriptable state value, หรือ nil เมื่อ property ไม่สามารถ resolve เป็น property entry. |
+<ResponseField name={"previousState"} type={"boolean | nil"}>
+Previous cached scriptable value, previous scriptable state value, หรือ nil เมื่อ property ไม่สามารถ resolve เป็น property entry.
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -40,3 +43,6 @@ if previous ~= nil then
     setscriptable(workspace, "Name", previous)
 end
 ```
+
+
+</div>

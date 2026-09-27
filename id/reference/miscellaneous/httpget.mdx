@@ -2,13 +2,10 @@
 title: "HttpGet"
 sidebarTitle: "HttpGet"
 description: "Performs a GET request for game:HttpGet(url, cache) or game:HttpGetAsync(url, cache) and returns the response body string. The URL must pass Real's URL restrictions."
-icon: "function"
 keywords: ["HttpGet","Miscellaneous"]
 ---
 
-Performs a GET request for game:HttpGet(url, cache) or game:HttpGetAsync(url, cache) and returns the response body string. The URL must pass Real's URL restrictions.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 HttpGet(context: DataModel, url: string, cache?: boolean | number): string
@@ -16,17 +13,23 @@ HttpGet(context: DataModel, url: string, cache?: boolean | number): string
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `context` | `DataModel` | Yes | Method-call self value. Use game:HttpGet(url, cache) or game:HttpGetAsync(url, cache). |
-| `url` | `string` | Yes | URL string to request. |
-| `cache` | `boolean \| number` | No | Optional cache control. true or numeric 1 enables the URL cache. |
+<ParamField path={"context"} type={"DataModel"} required>
+Method-call self value. Use game:HttpGet(url, cache) or game:HttpGetAsync(url, cache).
+</ParamField>
+
+<ParamField path={"url"} type={"string"} required>
+URL string to request.
+</ParamField>
+
+<ParamField path={"cache"} type={"boolean | number"}>
+Optional cache control. true or numeric 1 enables the URL cache.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `body` | `string` | Downloaded response body string, cached body string, or an empty string when the request cannot be opened. |
+<ResponseField name={"body"} type={"string"}>
+Downloaded response body string, cached body string, or an empty string when the request cannot be opened.
+</ResponseField>
 
 ## Contoh
 
@@ -36,3 +39,6 @@ Run a DataModel-style GET request and return the response body string.
 local body = game:HttpGet("https://example.com", true)
 print(body)
 ```
+
+
+</div>

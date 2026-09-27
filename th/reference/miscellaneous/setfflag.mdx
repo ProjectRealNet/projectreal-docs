@@ -2,13 +2,10 @@
 title: "setfflag"
 sidebarTitle: "setfflag"
 description: "Sets a Roblox fast flag by exact name. Accepted value types depend on the detected flag type. The function returns true after a supported write and false when the flag is missing, unsupported, or the value is not accepted."
-icon: "function"
 keywords: ["setfflag","Miscellaneous"]
 ---
 
-Sets a Roblox fast flag by exact name. Accepted value types depend on the detected flag type. The function returns true after a supported write and false when the flag is missing, unsupported, or the value is not accepted.
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 setfflag(name: string, value: any): boolean
@@ -16,16 +13,19 @@ setfflag(name: string, value: any): boolean
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `name` | `string` | Yes | Exact fast flag name to set. |
-| `value` | `any` | Yes | Value to write. Accepted types depend on the detected flag type. |
+<ParamField path={"name"} type={"string"} required>
+Exact fast flag name to set.
+</ParamField>
+
+<ParamField path={"value"} type={"any"} required>
+Value to write. Accepted types depend on the detected flag type.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `updated` | `boolean` | true when a supported flag value was written, otherwise false. |
+<ResponseField name={"updated"} type={"boolean"}>
+true when a supported flag value was written, otherwise false.
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -45,3 +45,6 @@ else
     print(false)
 end
 ```
+
+
+</div>

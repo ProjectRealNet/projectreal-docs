@@ -2,13 +2,10 @@
 title: "WebSocket.Close"
 sidebarTitle: "WebSocket.Close"
 description: "Menutup WebSocket object yang dikembalikan oleh WebSocket.connect. Argument pertama harus berupa table. Fungsi membaca field connection state milik object; saat live state ada dan belum destroyed atau closed, fungsi mengatur isClosed ke true dan mengirim frame close frame kosong melalui WebSocket connection yang tersimpan. Fungsi tidak menerima close code atau reason dan tidak mengembalikan values."
-icon: "function"
 keywords: ["WebSocket.Close","WebSocket"]
 ---
 
-Menutup WebSocket object yang dikembalikan oleh WebSocket.connect. Argument pertama harus berupa table. Fungsi membaca field connection state milik object; saat live state ada dan belum destroyed atau closed, fungsi mengatur isClosed ke true dan mengirim frame close frame kosong melalui WebSocket connection yang tersimpan. Fungsi tidak menerima close code atau reason dan tidak mengembalikan values.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 WebSocket.Close(socket: WebSocket)
@@ -16,9 +13,9 @@ WebSocket.Close(socket: WebSocket)
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `socket` | `WebSocket` | Yes | WebSocket table yang dikembalikan oleh WebSocket.connect. Function mengharapkan table ini berisi connection state. |
+<ParamField path={"socket"} type={"WebSocket"} required>
+WebSocket table yang dikembalikan oleh WebSocket.connect. Function mengharapkan table ini berisi connection state.
+</ParamField>
 
 ## Contoh
 
@@ -29,3 +26,6 @@ local socket = WebSocket.connect("wss://example.com/socket")
 
 socket:Close()
 ```
+
+
+</div>

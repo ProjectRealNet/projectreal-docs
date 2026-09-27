@@ -2,13 +2,10 @@
 title: "compareinstances"
 sidebarTitle: "compareinstances"
 description: "比较两个 Instance object 值中存储的内部 Instance 指针值。"
-icon: "function"
 keywords: ["compareinstances","Cache"]
 ---
 
-比较两个 Instance object 值中存储的内部 Instance 指针值。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 compareinstances(first: Instance, second: Instance): boolean
@@ -16,16 +13,19 @@ compareinstances(first: Instance, second: Instance): boolean
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `first` | `Instance` | Yes | 要比较的第一个 Instance object。 |
-| `second` | `Instance` | Yes | 要比较的第二个 Instance object。 |
+<ParamField path={"first"} type={"Instance"} required>
+要比较的第一个 Instance object。
+</ParamField>
+
+<ParamField path={"second"} type={"Instance"} required>
+要比较的第二个 Instance object。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `equal` | `boolean` | 当两个 Instance object 值包含相同的内部指针值时返回 True。 |
+<ResponseField name={"equal"} type={"boolean"}>
+当两个 Instance object 值包含相同的内部指针值时返回 True。
+</ResponseField>
 
 ## 示例
 
@@ -38,3 +38,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 print(compareinstances(Players, Players))
 print(compareinstances(Players, ReplicatedStorage))
 ```
+
+
+</div>

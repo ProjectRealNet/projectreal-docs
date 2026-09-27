@@ -2,13 +2,10 @@
 title: "json.encode"
 sidebarTitle: "json.encode"
 description: "Serialise un Lua value en JSON string avec Real JSON encoder. json.stringify est enregistre sur la meme function."
-icon: "function"
 keywords: ["json.encode","JSON"]
 ---
 
-Serialise un Lua value en JSON string avec Real JSON encoder. json.stringify est enregistre sur la meme function.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 json.encode(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.encode(value: any, options?: EncodeOptions): string
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value a encode. nil, booleans, numbers, strings, tables et json.null sont traites directement. Unsupported Lua types sont encodes en null sauf si errorOnUnsupported est true. |
-| `options` | `EncodeOptions` | No | Optional encode options. Un boolean active/desactive pretty output. Une number active pretty output avec ce nombre de spaces clamp a 0.16. Un string active pretty output avec cet indent. Une table peut definir pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth et indent. |
+<ParamField path={"value"} type={"any"} required>
+Value a encode. nil, booleans, numbers, strings, tables et json.null sont traites directement. Unsupported Lua types sont encodes en null sauf si errorOnUnsupported est true.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options. Un boolean active/desactive pretty output. Une number active pretty output avec ce nombre de spaces clamp a 0.16. Un string active pretty output avec cet indent. Une table peut definir pretty, sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth et indent.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `json` | `string` | Encoded JSON string. Encoding errors sont lancees comme Luau errors. |
+<ResponseField name={"json"} type={"string"}>
+Encoded JSON string. Encoding errors sont lancees comme Luau errors.
+</ResponseField>
 
 ## Types
 
@@ -61,3 +61,6 @@ local text = json.encode(payload, {
 
 print(text)
 ```
+
+
+</div>

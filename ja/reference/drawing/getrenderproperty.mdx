@@ -2,13 +2,10 @@
 title: "getrenderproperty"
 sidebarTitle: "getrenderproperty"
 description: "最初の引数を指定された property key でインデックスした結果を返します。Drawing object では object[property] と同じ Drawing property lookup を使用するため、unknown properties と destroyed Drawing objects は nil を返します。 the Drawing API は the required rendering environment is active が true の場合だけこの API を登録します。このチェックが false の場合、initializer はこれらの globals を作成する前に戻ります。"
-icon: "function"
 keywords: ["getrenderproperty","Drawing"]
 ---
 
-最初の引数を指定された property key でインデックスした結果を返します。Drawing object では object[property] と同じ Drawing property lookup を使用するため、unknown properties と destroyed Drawing objects は nil を返します。 the Drawing API は the required rendering environment is active が true の場合だけこの API を登録します。このチェックが false の場合、initializer はこれらの globals を作成する前に戻ります。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 getrenderproperty(object: any, property: any): any
@@ -16,16 +13,19 @@ getrenderproperty(object: any, property: any): any
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | インデックスする値。Drawing object では RealDrawingObject __index handler が使用されます。 |
-| `property` | `any` | Yes | インデックスに使用される property key。Drawing object properties は strings ベースです。 |
+<ParamField path={"object"} type={"any"} required>
+インデックスする値。Drawing object では RealDrawingObject __index handler が使用されます。
+</ParamField>
+
+<ParamField path={"property"} type={"any"} required>
+インデックスに使用される property key。Drawing object properties は strings ベースです。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `propertyValue` | `any` | object を property でインデックスして返される値。Drawing __index handler がその property の値を持たない場合は nil。 |
+<ResponseField name={"propertyValue"} type={"any"}>
+object を property でインデックスして返される値。Drawing __index handler がその property の値を持たない場合は nil。
+</ResponseField>
 
 ## 例
 
@@ -38,3 +38,6 @@ line.Thickness = 3
 print(getrenderproperty(line, "Thickness"))
 print(getrenderproperty(line, "MissingProperty"))
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "hasmetatable"
 sidebarTitle: "hasmetatable"
 description: "Returns whether the target value has a metatable. The function returns one boolean and does not return or change the metatable itself."
-icon: "function"
 keywords: ["hasmetatable","Metatables"]
 ---
 
-Returns whether the target value has a metatable. The function returns one boolean and does not return or change the metatable itself.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 hasmetatable(target: any): boolean
@@ -16,15 +13,15 @@ hasmetatable(target: any): boolean
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `target` | `any` | Yes | Value to check for a metatable. |
+<ParamField path={"target"} type={"any"} required>
+Value to check for a metatable.
+</ParamField>
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `hasMetatable` | `boolean` | true when the target has a metatable; otherwise false. |
+<ResponseField name={"hasMetatable"} type={"boolean"}>
+true when the target has a metatable; otherwise false.
+</ResponseField>
 
 ## Exemple
 
@@ -39,3 +36,6 @@ setrawmetatable(target, {})
 
 print(hasmetatable(target))
 ```
+
+
+</div>

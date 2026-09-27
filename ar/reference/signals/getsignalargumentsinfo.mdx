@@ -2,13 +2,10 @@
 title: "getsignalargumentsinfo"
 sidebarTitle: "getsignalargumentsinfo"
 description: "تُرجع array table من معلومات الوسيط من توقيع RBXScriptSignal. لا تُرجع قيم وسيطات وقت التشغيل الملتقطة."
-icon: "function"
 keywords: ["getsignalargumentsinfo","Signals"]
 ---
 
-تُرجع array table من معلومات الوسيط من توقيع RBXScriptSignal. لا تُرجع قيم وسيطات وقت التشغيل الملتقطة.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 getsignalargumentsinfo(signal: RBXScriptSignal): {{Name: string, Type: string}}
@@ -16,15 +13,15 @@ getsignalargumentsinfo(signal: RBXScriptSignal): {{Name: string, Type: string}}
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | RBXScriptSignal الذي يجب فحص توقيع event descriptor الخاص به. |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+RBXScriptSignal الذي يجب فحص توقيع event descriptor الخاص به.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `argumentInfo` | `&#123;&#123;Name: string, Type: string&#125;&#125;` | array table يكون لكل عنصر فيها strings باسم Name و Type. إذا تعذرت قراءة التوقيع أو لم يحتوي على عناصر، تُرجع الدالة عنصر fallback واحدا مع Name مضبوطا على arg1 و Type مضبوطا على Variant. |
+<ResponseField name={"argumentInfo"} type={"{{Name: string, Type: string}}"}>
+array table يكون لكل عنصر فيها strings باسم Name و Type. إذا تعذرت قراءة التوقيع أو لم يحتوي على عناصر، تُرجع الدالة عنصر fallback واحدا مع Name مضبوطا على arg1 و Type مضبوطا على Variant.
+</ResponseField>
 
 ## مثال
 
@@ -40,3 +37,6 @@ if remote then
     end
 end
 ```
+
+
+</div>

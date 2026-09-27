@@ -2,13 +2,10 @@
 title: "json.clone"
 sidebarTitle: "json.clone"
 description: "Клонирует value через encoding с json.encode semantics и decoding generated JSON обратно в Lua values."
-icon: "function"
 keywords: ["json.clone","JSON"]
 ---
 
-Клонирует value через encoding с json.encode semantics и decoding generated JSON обратно в Lua values.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 json.clone(value: any, options?: EncodeOptions): any
@@ -16,16 +13,19 @@ json.clone(value: any, options?: EncodeOptions): any
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value для encode и decode. Supported JSON values проходят round-trip через JSON; unsupported types кодируются как null, если encode options не требуют ошибку. |
-| `options` | `EncodeOptions` | No | Optional encode options, передаваемые в encode step, такие как sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty и indent. |
+<ParamField path={"value"} type={"any"} required>
+Value для encode и decode. Supported JSON values проходят round-trip через JSON; unsupported types кодируются как null, если encode options не требуют ошибку.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options, передаваемые в encode step, такие как sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty и indent.
+</ParamField>
 
 ## Возвраты
 
-| Name | Type | Описание |
-| --- | --- | --- |
-| `clone` | `any` | Decoded value, созданный из encoded JSON. Objects и arrays это new tables с JSON kind markers из decoder; JSON null values становятся json.null. |
+<ResponseField name={"clone"} type={"any"}>
+Decoded value, созданный из encoded JSON. Objects и arrays это new tables с JSON kind markers из decoder; JSON null values становятся json.null.
+</ResponseField>
 
 ## Типы
 
@@ -59,3 +59,6 @@ print(original.profile.name)
 print(copy.profile.name)
 print(json.type(copy))
 ```
+
+
+</div>

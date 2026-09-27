@@ -2,13 +2,10 @@
 title: "isrenderobj"
 sidebarTitle: "isrenderobj"
 description: "返回该值是否为带有 Drawing object type 的 object。这只是 methods check；不会检查底层 Drawing object 是否仍然 active、tracked 或 destroyed。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。"
-icon: "function"
 keywords: ["isrenderobj","Drawing"]
 ---
 
-返回该值是否为带有 Drawing object type 的 object。这只是 methods check；不会检查底层 Drawing object 是否仍然 active、tracked 或 destroyed。 the Drawing API 只在 the required rendering environment is active 为 true 时注册此 API；如果该检查为 false，initializer 会在创建这些 globals 之前返回。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 isrenderobj(object: any): boolean
@@ -16,15 +13,15 @@ isrenderobj(object: any): boolean
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | 要测试的值。non-object values 以及没有 Drawing object type 的 object 会返回 false。 |
+<ParamField path={"object"} type={"any"} required>
+要测试的值。non-object values 以及没有 Drawing object type 的 object 会返回 false。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `isDrawingObject` | `boolean` | 当值是 methods 匹配 RealDrawingObject 的 object 时为 True；否则为 false。 |
+<ResponseField name={"isDrawingObject"} type={"boolean"}>
+当值是 methods 匹配 RealDrawingObject 的 object 时为 True；否则为 false。
+</ResponseField>
 
 ## 示例
 
@@ -38,3 +35,6 @@ square:Destroy()
 print(isrenderobj(square))
 print(isrenderobj({}))
 ```
+
+
+</div>

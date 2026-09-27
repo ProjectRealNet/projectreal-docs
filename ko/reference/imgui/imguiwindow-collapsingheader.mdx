@@ -2,13 +2,10 @@
 title: "ImGuiWindow.CollapsingHeader"
 sidebarTitle: "ImGuiWindow.CollapsingHeader"
 description: "collapsing header start marker를 추가하고, nested elements를 추가할 수 있도록 같은 ImGuiWindow object로 content callback을 즉시 호출한 다음 header end marker를 추가합니다. rendering 중 header가 collapsed 상태이면 nested elements를 건너뜁니다. callback errors는 잡히며 이 method에서 반환되지 않습니다."
-icon: "function"
 keywords: ["ImGuiWindow.CollapsingHeader","ImGui"]
 ---
 
-collapsing header start marker를 추가하고, nested elements를 추가할 수 있도록 같은 ImGuiWindow object로 content callback을 즉시 호출한 다음 header end marker를 추가합니다. rendering 중 header가 collapsed 상태이면 nested elements를 건너뜁니다. callback errors는 잡히며 이 method에서 반환되지 않습니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.CollapsingHeader(window: ImGuiWindow, label: string, content: function): ImGuiWindow
@@ -16,17 +13,23 @@ ImGuiWindow.CollapsingHeader(window: ImGuiWindow, label: string, content: functi
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | imgui.create가 반환한 ImGuiWindow object입니다. 파괴되었거나 유효하지 않은 window는 Lua error를 발생시킵니다. |
-| `label` | `string` | Yes | 렌더링된 ImGui collapsing header에 전달되는 header label string입니다. |
-| `content` | `function` | Yes | 같은 ImGuiWindow object로 즉시 호출되는 Function입니다. Return values는 무시됩니다. 오류는 method에서 잡힙니다. |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+imgui.create가 반환한 ImGuiWindow object입니다. 파괴되었거나 유효하지 않은 window는 Lua error를 발생시킵니다.
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+렌더링된 ImGui collapsing header에 전달되는 header label string입니다.
+</ParamField>
+
+<ParamField path={"content"} type={"function"} required>
+같은 ImGuiWindow object로 즉시 호출되는 Function입니다. Return values는 무시됩니다. 오류는 method에서 잡힙니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | 같은 ImGuiWindow object이며 method calls를 체인할 수 있습니다. |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+같은 ImGuiWindow object이며 method calls를 체인할 수 있습니다.
+</ResponseField>
 
 ## 타입
 
@@ -47,3 +50,6 @@ imgui.create에서 반환된 핸들입니다. 컨트롤 구축 메서드는 동�
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | 정수 슬라이더를 추가합니다. |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | 비대화형 텍스트를 추가합니다. |
 | `destroy` | `() -> ()` | Yes | 창을 제거하고 등록된 콜백을 해제합니다. |
+
+
+</div>

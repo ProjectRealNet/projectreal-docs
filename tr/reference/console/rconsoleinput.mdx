@@ -2,13 +2,10 @@
 title: "rconsoleinput"
 sidebarTitle: "rconsoleinput"
 description: "console input state temizlendikten ve sonraki newline noktasına kadar input yok sayıldıktan sonra console input ile stdin üzerinden bir line okurken yield eder. Dönen string string return ile push edilir ve sondaki newline değerini içermez. console window yoksa çağrı values olmadan döner."
-icon: "function"
 keywords: ["rconsoleinput","Console","consoleinput"]
 ---
 
-console input state temizlendikten ve sonraki newline noktasına kadar input yok sayıldıktan sonra console input ile stdin üzerinden bir line okurken yield eder. Dönen string string return ile push edilir ve sondaki newline değerini içermez. console window yoksa çağrı values olmadan döner.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 rconsoleinput(): string
@@ -20,9 +17,9 @@ rconsoleinput(): string
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `input` | `string` | Konsoldan okunan metin satırı. |
+<ResponseField name={"input"} type={"string"}>
+Konsoldan okunan metin satırı.
+</ResponseField>
 
 ## Örnek
 
@@ -35,3 +32,6 @@ local name = rconsoleinput()
 rconsoleprint("Hello, ", name, "
 ")
 ```
+
+
+</div>

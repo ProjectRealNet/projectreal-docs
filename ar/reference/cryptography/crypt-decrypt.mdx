@@ -2,13 +2,10 @@
 title: "crypt.decrypt"
 sidebarTitle: "crypt.decrypt"
 description: "يفك تشفير Base64 ciphertext باستخدام مفتاح مفكوك من Base64 و Base64 IV مطلوب عبر AES CBC او ECB."
-icon: "function"
 keywords: ["crypt.decrypt","Cryptography"]
 ---
 
-يفك تشفير Base64 ciphertext باستخدام مفتاح مفكوك من Base64 و Base64 IV مطلوب عبر AES CBC او ECB.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES-CBC" | "AES-ECB"): string
@@ -16,18 +13,27 @@ crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Base64 ciphertext الذي يتم فكه قبل التشفير العكسي. |
-| `key` | `string` | Yes | مفتاح Base64 يتم فكه قبل تمريره إلى AES. |
-| `iv` | `string` | Yes | Base64 IV يتم فكه قبل معالجة mode. هذا الوسيط مطلوب، حتى مع ECB. |
-| `mode` | `"CBC" \| "ECB" \| "AES-CBC" \| "AES-ECB"` | No | AES mode. تتم إزالة بادئة AES- عند وجودها. القيمة الافتراضية هي AES-CBC. |
+<ParamField path={"data"} type={"string"} required>
+Base64 ciphertext الذي يتم فكه قبل التشفير العكسي.
+</ParamField>
+
+<ParamField path={"key"} type={"string"} required>
+مفتاح Base64 يتم فكه قبل تمريره إلى AES.
+</ParamField>
+
+<ParamField path={"iv"} type={"string"} required>
+Base64 IV يتم فكه قبل معالجة mode. هذا الوسيط مطلوب، حتى مع ECB.
+</ParamField>
+
+<ParamField path={"mode"} type={"\"CBC\" | \"ECB\" | \"AES-CBC\" | \"AES-ECB\""}>
+AES mode. تتم إزالة بادئة AES- عند وجودها. القيمة الافتراضية هي AES-CBC.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `plaintext` | `string` | بايتات plaintext المعادة كسلسلة Lua. |
+<ResponseField name={"plaintext"} type={"string"}>
+بايتات plaintext المعادة كسلسلة Lua.
+</ResponseField>
 
 ## مثال
 
@@ -41,3 +47,6 @@ local plaintext = crypt.decrypt(ciphertext, key, iv)
 
 print(plaintext)
 ```
+
+
+</div>

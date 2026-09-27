@@ -2,13 +2,10 @@
 title: "json.values"
 sidebarTitle: "json.values"
 description: "يرجع direct values من table في table جديدة marked as JSON array. يتم تخطي JSON type marker entries."
-icon: "function"
 keywords: ["json.values","JSON"]
 ---
 
-يرجع direct values من table في table جديدة marked as JSON array. يتم تخطي JSON type marker entries.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 json.values(object: table): table
@@ -16,15 +13,15 @@ json.values(object: table): table
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `object` | `table` | Yes | Table يتم enumerate لها. Function تتحقق من هذا argument باستخدام type checking. |
+<ParamField path={"object"} type={"table"} required>
+Table يتم enumerate لها. Function تتحقق من هذا argument باستخدام type checking.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `values` | `table` | New array-style table تحتوي direct values من input table. Output يكون marked as JSON array. Enumeration تستخدم table iteration، لذلك لا يوجد ordering guarantee ظاهر في function. |
+<ResponseField name={"values"} type={"table"}>
+New array-style table تحتوي direct values من input table. Output يكون marked as JSON array. Enumeration تستخدم table iteration، لذلك لا يوجد ordering guarantee ظاهر في function.
+</ResponseField>
 
 ## مثال
 
@@ -37,3 +34,6 @@ for _, value in ipairs(json.values(list)) do
     print(value)
 end
 ```
+
+
+</div>

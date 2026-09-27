@@ -1,18 +1,40 @@
 ---
 title: "Instances"
 description: "Ayudantes de interacción y descubrimiento de instancias."
-icon: "folder-code"
+icon: "/icons/stack.svg"
 ---
+
+<div className="real-category-page">
 
 Ayudantes de interacción y descubrimiento de instancias.
 
-| Navegación de funciones | Descripción |
-| --- | --- |
-| [`fireclickdetector`](./fireclickdetector) | Dispara una interaccion ClickDetector para el jugador local. El primer argumento debe ser una Instance cuyo ClassName sea ClickDetector. distance es opcional y su valor predeterminado es 0. clickOption es opcional, se compara sin distinguir mayusculas y minusculas, y su valor predeterminado es "mouseclick". Las opciones admitidas son "mouseclick", "rightmouseclick", "mousehoverenter" y "mousehoverleave". Las opciones de clic pasan distance como float al Roblox click helper, mientras que las opciones hover ignoran distance. Si Players o Players.LocalPlayer no esta disponible, la function vuelve sin disparar nada. Un clickOption desconocido tampoco produce ninguna interaccion. La function no devuelve nada. |
-| [`fireproximityprompt`](./fireproximityprompt) | Activa un ProximityPrompt mediante el ProximityPrompt trigger de Real. El argumento prompt debe ser object con un campo ClassName igual a "ProximityPrompt". Si el valor no es object, la llamada lanza un type error. Si ClassName falta o no es string, lanza "Invalid Instance". Si ClassName no es "ProximityPrompt", lanza "ProximityPrompt expected". La function no toma optional arguments y no devuelve nada. |
-| [`firetouchinterest`](./firetouchinterest) | Dispara el Real touch interest event para dos BasePart instances. Los dos primeros argumentos deben ser Instance object y ambos valores deben pasar IsA("BasePart"). El argumento state es requerido y debe ser number o boolean. Cuando state es number, solo 1 se convierte en true y cualquier otro number se convierte en false. Cuando state es boolean, su valor boolean se pasa directamente. Si alguna parte no tiene touch data, o la primera parte no tiene overlap reference, la function vuelve sin disparar nada. La function no devuelve nada. El significado exacto begin/end del boolean pasado al helper es: Nicht aus der Codebasis verifizierbar. |
-| [`getcallbackvalue`](./getcallbackvalue) | Lee una Lua callback function almacenada en una callback property de una Instance. El primer argumento debe ser Instance object y el segundo argumento debe ser un string property name. El instance reference debe ser valido. El property name se resuelve mediante Roblox property metadata y debe referirse a una property cuyo tipo sea LUA_CALLBACK. Si falta el property descriptor, la property no es LUA_CALLBACK, falta el callback field offset, no hay callback almacenado, falta LiveLuaRef, el callback pertenece a otro Lua global state, o el valor referenciado no es una function, la function devuelve nil. Tambien comprueba el async callback field fallback cuando el primer callback slot no tiene callback. La function no actualiza la property. |
-| [`gethui`](./gethui) | Devuelve game:CoreGui lookup.RobloxGui. La function no toma arguments. Si CoreGui lookup devuelve nil, o si RobloxGui en ese valor es nil, la function devuelve nil. La function no crea ningun container y no usa el valor cacheado CoreGui. |
-| [`getinstances`](./getinstances) | Devuelve una nueva array table con cada object value actualmente almacenado en la Instance cache. La function no toma arguments. No filtra por Parent, ClassName, DataModel fieldship, nil-parent state ni Instance validity, excepto que cada registry value sea object. Los entries se copian en la tabla devuelta en sequential numeric indexes empezando en 1. El iteration order viene de table iteration sobre la cache y la function no lo ordena. |
-| [`getnilinstances`](./getnilinstances) | Returns a new array table containing cached Instance values whose Parent field is nil. The function takes no arguments. It does not sort the returned entries. |
-| [`isnetworkowner`](./isnetworkowner) | Devuelve el resultado de leer la hidden property "NetworkOwnerV3" de una Instance y comprobar si el primer valor devuelto, convertido con integer conversion, es mayor que 2. El argumento debe ser Instance object. La function llama internamente a the hidden property reader y no captura errores de esa llamada, por lo que Invalid Instance values, missing properties o non-property metadata pueden lanzar los mismos errores que gethiddenproperty. Devuelve un boolean. Si peer_id > 2 significa exactamente local network ownership es: Nicht aus der Codebasis verifizierbar. |
+## Funciones disponibles
+
+<CardGroup cols={2}>
+<Card title="fireclickdetector" href="./fireclickdetector">
+Dispara una interaccion ClickDetector para el jugador local. El primer argumento debe ser una Instance cuyo ClassName sea ClickDetector. distance es opcional y su valor predeterminado es 0. clickOption es opcional, se compara sin distinguir mayusculas y minusculas, y su valor predeterminado es "mouseclick". Las opciones admitidas son "mouseclick", "rightmouseclick", "mousehoverenter" y "mousehoverleave". Las opciones de clic pasan distance como float al Roblox click helper, mientras que las opciones hover ignoran distance. Si Players o Players.LocalPlayer no esta disponible, la function vuelve sin disparar nada. Un clickOption desconocido tampoco produce ninguna interaccion. La function no devuelve nada.
+</Card>
+<Card title="fireproximityprompt" href="./fireproximityprompt">
+Activa un ProximityPrompt mediante el ProximityPrompt trigger de Real. El argumento prompt debe ser object con un campo ClassName igual a "ProximityPrompt". Si el valor no es object, la llamada lanza un type error. Si ClassName falta o no es string, lanza "Invalid Instance". Si ClassName no es "ProximityPrompt", lanza "ProximityPrompt expected". La function no toma optional arguments y no devuelve nada.
+</Card>
+<Card title="firetouchinterest" href="./firetouchinterest">
+Dispara el Real touch interest event para dos BasePart instances. Los dos primeros argumentos deben ser Instance object y ambos valores deben pasar IsA("BasePart"). El argumento state es requerido y debe ser number o boolean. Cuando state es number, solo 1 se convierte en true y cualquier otro number se convierte en false. Cuando state es boolean, su valor boolean se pasa directamente. Si alguna parte no tiene touch data, o la primera parte no tiene overlap reference, la function vuelve sin disparar nada. La function no devuelve nada. El significado exacto begin/end del boolean pasado al helper es: Nicht aus der Codebasis verifizierbar.
+</Card>
+<Card title="getcallbackvalue" href="./getcallbackvalue">
+Lee una Lua callback function almacenada en una callback property de una Instance. El primer argumento debe ser Instance object y el segundo argumento debe ser un string property name. El instance reference debe ser valido. El property name se resuelve mediante Roblox property metadata y debe referirse a una property cuyo tipo sea LUA_CALLBACK. Si falta el property descriptor, la property no es LUA_CALLBACK, falta el callback field offset, no hay callback almacenado, falta LiveLuaRef, el callback pertenece a otro Lua global state, o el valor referenciado no es una function, la function devuelve nil. Tambien comprueba el async callback field fallback cuando el primer callback slot no tiene callback. La function no actualiza la property.
+</Card>
+<Card title="gethui" href="./gethui">
+Devuelve game:CoreGui lookup.RobloxGui. La function no toma arguments. Si CoreGui lookup devuelve nil, o si RobloxGui en ese valor es nil, la function devuelve nil. La function no crea ningun container y no usa el valor cacheado CoreGui.
+</Card>
+<Card title="getinstances" href="./getinstances">
+Devuelve una nueva array table con cada object value actualmente almacenado en la Instance cache. La function no toma arguments. No filtra por Parent, ClassName, DataModel fieldship, nil-parent state ni Instance validity, excepto que cada registry value sea object. Los entries se copian en la tabla devuelta en sequential numeric indexes empezando en 1. El iteration order viene de table iteration sobre la cache y la function no lo ordena.
+</Card>
+<Card title="getnilinstances" href="./getnilinstances">
+Returns a new array table containing cached Instance values whose Parent field is nil. The function takes no arguments. It does not sort the returned entries.
+</Card>
+<Card title="isnetworkowner" href="./isnetworkowner">
+Devuelve el resultado de leer la hidden property "NetworkOwnerV3" de una Instance y comprobar si el primer valor devuelto, convertido con integer conversion, es mayor que 2. El argumento debe ser Instance object. La function llama internamente a the hidden property reader y no captura errores de esa llamada, por lo que Invalid Instance values, missing properties o non-property metadata pueden lanzar los mismos errores que gethiddenproperty. Devuelve un boolean. Si peer_id > 2 significa exactamente local network ownership es: Nicht aus der Codebasis verifizierbar.
+</Card>
+</CardGroup>
+
+</div>

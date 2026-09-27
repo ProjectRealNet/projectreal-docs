@@ -2,13 +2,10 @@
 title: "crypt.hash"
 sidebarTitle: "crypt.hash"
 description: "Hashuje bajty Lua string obslugiwanym algorytmem crypto library hash i zwraca lowercase hexadecimal digest."
-icon: "function"
 keywords: ["crypt.hash","Cryptography"]
 ---
 
-Hashuje bajty Lua string obslugiwanym algorytmem crypto library hash i zwraca lowercase hexadecimal digest.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 crypt.hash(data: string, algorithm?: "sha256" | "sha1" | "sha224" | "sha384" | "sha512" | "md5" | "sha3-224" | "sha3-256" | "sha3-384" | "sha3-512"): string
@@ -16,16 +13,19 @@ crypt.hash(data: string, algorithm?: "sha256" | "sha1" | "sha224" | "sha384" | "
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Bajty Lua string przekazywane do crypto library HashFilter. |
-| `algorithm` | `"sha256" \| "sha1" \| "sha224" \| "sha384" \| "sha512" \| "md5" \| "sha3-224" \| "sha3-256" \| "sha3-384" \| "sha3-512"` | No | Nazwa algorytmu hash case-sensitive. Wartosc domyslna to sha256. |
+<ParamField path={"data"} type={"string"} required>
+Bajty Lua string przekazywane do crypto library HashFilter.
+</ParamField>
+
+<ParamField path={"algorithm"} type={"\"sha256\" | \"sha1\" | \"sha224\" | \"sha384\" | \"sha512\" | \"md5\" | \"sha3-224\" | \"sha3-256\" | \"sha3-384\" | \"sha3-512\""}>
+Nazwa algorytmu hash case-sensitive. Wartosc domyslna to sha256.
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `digest` | `string` | Lowercase hexadecimal digest bez prefix ani separators. |
+<ResponseField name={"digest"} type={"string"}>
+Lowercase hexadecimal digest bez prefix ani separators.
+</ResponseField>
 
 ## Przykład
 
@@ -38,3 +38,6 @@ local sha3Digest = crypt.hash("hello world", "sha3-256")
 print(defaultDigest)
 print(sha3Digest)
 ```
+
+
+</div>

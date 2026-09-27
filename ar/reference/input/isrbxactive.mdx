@@ -2,13 +2,10 @@
 title: "isrbxactive"
 sidebarTitle: "isrbxactive"
 description: "يعيد ما إذا كانت current foreground window هي Roblox window التي عثرت عليها Real. تعثر Real على تلك النافذة عبر enumerating windows للعملية الحالية واختيار window يكون class name لها Roblox window. لا تأخذ function أي arguments وتعيد false عندما لا توجد foreground window او matching Roblox window."
-icon: "function"
 keywords: ["isrbxactive","Input","isgameactive","iswindowactive"]
 ---
 
-يعيد ما إذا كانت current foreground window هي Roblox window التي عثرت عليها Real. تعثر Real على تلك النافذة عبر enumerating windows للعملية الحالية واختيار window يكون class name لها Roblox window. لا تأخذ function أي arguments وتعيد false عندما لا توجد foreground window او matching Roblox window.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 isrbxactive(): boolean
@@ -21,6 +18,9 @@ isrbxactive(): boolean
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `active` | `boolean` | True عندما يعيد GetForegroundWindow() نفس HWND مثل cached او newly found Roblox window window للعملية الحالية. |
+<ResponseField name={"active"} type={"boolean"}>
+True عندما يعيد GetForegroundWindow() نفس HWND مثل cached او newly found Roblox window window للعملية الحالية.
+</ResponseField>
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "getgc"
 sidebarTitle: "getgc"
 description: "Returns an array table of live Luau garbage-collected objects visible to the API. Functions and userdata-like objects are included by default. Tables are included only when includeTables is true. get_gc_objects is an alias."
-icon: "function"
 keywords: ["getgc","Environment","get_gc_objects"]
 ---
 
-Returns an array table of live Luau garbage-collected objects visible to the API. Functions and userdata-like objects are included by default. Tables are included only when includeTables is true. get_gc_objects is an alias.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getgc(includeTables?: boolean): table
@@ -20,15 +17,15 @@ getgc(includeTables?: boolean): table
 
 ## Argumente
 
-| Name | Type | Required | Beschreibung |
-| --- | --- | --- | --- |
-| `includeTables` | `boolean` | No | Optional boolean. When true, live tables are included in addition to functions and userdata-like objects. |
+<ParamField path={"includeTables"} type={"boolean"}>
+Optional boolean. When true, live tables are included in addition to functions and userdata-like objects.
+</ParamField>
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `objects` | `table` | Array table containing matching live objects, plus live tables when includeTables is true. |
+<ResponseField name={"objects"} type={"table"}>
+Array table containing matching live objects, plus live tables when includeTables is true.
+</ResponseField>
 
 ## Beispiel
 
@@ -44,3 +41,6 @@ print(type(withTables))
 local aliasResult = get_gc_objects()
 print(type(aliasResult))
 ```
+
+
+</div>

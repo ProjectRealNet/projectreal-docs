@@ -2,13 +2,10 @@
 title: "makewriteable"
 sidebarTitle: "makewriteable"
 description: "Marks a table as writable and returns no values."
-icon: "function"
 keywords: ["makewriteable","Metatables"]
 ---
 
-Marks a table as writable and returns no values.
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 makewriteable(target: table)
@@ -16,9 +13,9 @@ makewriteable(target: table)
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `target` | `table` | Yes | Table to mark as writable. |
+<ParamField path={"target"} type={"table"} required>
+Table to mark as writable.
+</ParamField>
 
 ## 例
 
@@ -33,3 +30,6 @@ print(isreadonly(target))
 makewriteable(target)
 print(isreadonly(target))
 ```
+
+
+</div>

@@ -1,26 +1,64 @@
 ---
 title: "Closures"
 description: "Inspectez, créez, clonez et remplacez les fermetures."
-icon: "folder-code"
+icon: "/icons/code-circle-2.svg"
 ---
+
+<div className="real-category-page">
 
 Inspectez, créez, clonez et remplacez les fermetures.
 
-| Navigation des fonctions | Description |
-| --- | --- |
-| [`checkcaller`](./checkcaller) | Renvoie si le current Luau thread est présent dans Real caller context. La function ne prend aucun argument et pousse le boolean result de the current caller context. L'function n'inspecte pas le Lua call stack ni un function object. |
-| [`clonefunction`](./clonefunction) | Creates and returns a separate function value for the function passed as the first argument. The argument must be a function. |
-| [`comparefunctions`](./comparefunctions) | Compare deux function values par leur function identity. Les deux arguments doivent être des functions. La function renvoie le boolean result de function identity(L, 1) == function identity(L, 2). Elle ne compare pas function bytecode, source, behavior, hashes, upvalues ni newcclosure mappings. comparefunction est un alias de la même function. |
-| [`getfunctionhash`](./getfunctionhash) | Returns an uppercase SHA384 hex digest derived from a Luau function. The argument must be a function, and C closures raise "Lua function expected". If no hashable function content is available, the function returns nil. |
-| [`hookfunction`](./hookfunction) | Hook une target function avec une replacement function et renvoie une cloned copy de l'original target closure. Les deux arguments doivent être des functions. L'function flush d'abord les pending C function swaps, clone le target with function cloning, ajoute la replacement closure ou son mapped newcclosure target à hidden stack tracking, appelle FixCallstack pour target et cloned original, puis patch la target closure with le C closure, Luau closure ou newcclosure-specific path. Si target n'est pas déjà dans hook records, le cloned original y est stocké pour restorefunction. La returned function est la cloned original closure. |
-| [`hookmetamethod`](./hookmetamethod) | Recherche une metamethod function sur une value et hook cette function with hookfunction. Le first argument peut être toute value acceptée par raw metafield lookup. Le second argument doit être un string metamethod name, et le third argument doit être une function replacement. Si raw metafield lookup ne trouve pas le named metafield, la function lève "Metamethod doesn't exist" pour argument 2. Si le metafield existe mais n'est pas une function, elle lève "Metamethod isn't a function" pour argument 2. Lorsque le metafield est une function, hookmetamethod appelle hookfunction avec la found metamethod function comme target et renvoie la cloned original closure de hookfunction. |
-| [`iscclosure`](./iscclosure) | Returns whether the provided function is a C closure. The argument must be a function; passing any other type raises a type error. The function does not inspect executor ownership, source, bytecode, or upvalues. |
-| [`isexecutorclosure`](./isexecutorclosure) | Returns whether the provided function is classified as executor-owned. The argument must be a function. The function does not inspect source text, debug names, bytecode hashes, or call stack ownership. |
-| [`isfunctionhooked`](./isfunctionhooked) | Returns whether the provided function currently has a hook record. The argument must be a function. |
-| [`ishiddenstack`](./ishiddenstack) | Returns whether a function, or the function at a stack level, is marked as hidden. target must be a function or stack level number. Invalid stack levels raise "Level out of range". isstackhidden is an alias. |
-| [`islclosure`](./islclosure) | Returns whether the provided function is a Lua closure. The argument must be a function; passing a non-function raises a type error. isluaclosure is an alias. |
-| [`isnewcclosure`](./isnewcclosure) | Returns whether the provided function is a newcclosure-created C closure. The first argument must be a function; passing a non-function raises a type error. Documented usage is a single function argument; extra arguments are not part of the supported signature. |
-| [`newcclosure`](./newcclosure) | Returns a C closure for the provided function. If the function is already a C closure, the same function is returned. Passing a non-function raises a type error. |
-| [`newlclosure`](./newlclosure) | Returns a Luau closure that calls the provided function. The first argument must be a function. |
-| [`restorefunction`](./restorefunction) | Restaure ou remplace une function en appelant function hook operation en interne et ne renvoie aucune values. Le first argument doit être une function. Avec un seul function argument, l function cherche the saved original function; si aucun entry n existe, elle lève "Function is not hooked". Elle appelle ensuite function hook operation avec la hooked closure et la stored original closure, vide le Lua stack et retire la restored closure de hook records lorsque la stored original a été utilisée. Si le second argument est aussi une function, l function traite plutôt firstFunction comme l original function à installer et secondFunction comme la closure à patcher. Dans cette forme, aucun missing-original check n est effectue avec la valeur stockee dans hook records; la valeur stockee est seulement comparee pendant le final remove check. Les non-function second arguments sont ignorés par la branch condition. restorefunc et restoreclosure sont des aliases de la même function. |
-| [`sethiddenstack`](./sethiddenstack) | Marks or unmarks a function, or the function at a stack level, as hidden. target must be a function or stack level number. hidden defaults to true. Invalid stack levels raise "Level out of range". setstackhidden is an alias. |
+## Fonctions disponibles
+
+<CardGroup cols={2}>
+<Card title="checkcaller" href="./checkcaller">
+Renvoie si le current Luau thread est présent dans Real caller context. La function ne prend aucun argument et pousse le boolean result de the current caller context. L'function n'inspecte pas le Lua call stack ni un function object.
+</Card>
+<Card title="clonefunction" href="./clonefunction">
+Creates and returns a separate function value for the function passed as the first argument. The argument must be a function.
+</Card>
+<Card title="comparefunctions" href="./comparefunctions">
+Compare deux function values par leur function identity. Les deux arguments doivent être des functions. La function renvoie le boolean result de function identity(L, 1) == function identity(L, 2). Elle ne compare pas function bytecode, source, behavior, hashes, upvalues ni newcclosure mappings. comparefunction est un alias de la même function.
+</Card>
+<Card title="getfunctionhash" href="./getfunctionhash">
+Returns an uppercase SHA384 hex digest derived from a Luau function. The argument must be a function, and C closures raise "Lua function expected". If no hashable function content is available, the function returns nil.
+</Card>
+<Card title="hookfunction" href="./hookfunction">
+Hook une target function avec une replacement function et renvoie une cloned copy de l'original target closure. Les deux arguments doivent être des functions. L'function flush d'abord les pending C function swaps, clone le target with function cloning, ajoute la replacement closure ou son mapped newcclosure target à hidden stack tracking, appelle FixCallstack pour target et cloned original, puis patch la target closure with le C closure, Luau closure ou newcclosure-specific path. Si target n'est pas déjà dans hook records, le cloned original y est stocké pour restorefunction. La returned function est la cloned original closure.
+</Card>
+<Card title="hookmetamethod" href="./hookmetamethod">
+Recherche une metamethod function sur une value et hook cette function with hookfunction. Le first argument peut être toute value acceptée par raw metafield lookup. Le second argument doit être un string metamethod name, et le third argument doit être une function replacement. Si raw metafield lookup ne trouve pas le named metafield, la function lève "Metamethod doesn't exist" pour argument 2. Si le metafield existe mais n'est pas une function, elle lève "Metamethod isn't a function" pour argument 2. Lorsque le metafield est une function, hookmetamethod appelle hookfunction avec la found metamethod function comme target et renvoie la cloned original closure de hookfunction.
+</Card>
+<Card title="iscclosure" href="./iscclosure">
+Returns whether the provided function is a C closure. The argument must be a function; passing any other type raises a type error. The function does not inspect executor ownership, source, bytecode, or upvalues.
+</Card>
+<Card title="isexecutorclosure" href="./isexecutorclosure">
+Returns whether the provided function is classified as executor-owned. The argument must be a function. The function does not inspect source text, debug names, bytecode hashes, or call stack ownership.
+</Card>
+<Card title="isfunctionhooked" href="./isfunctionhooked">
+Returns whether the provided function currently has a hook record. The argument must be a function.
+</Card>
+<Card title="ishiddenstack" href="./ishiddenstack">
+Returns whether a function, or the function at a stack level, is marked as hidden. target must be a function or stack level number. Invalid stack levels raise "Level out of range". isstackhidden is an alias.
+</Card>
+<Card title="islclosure" href="./islclosure">
+Returns whether the provided function is a Lua closure. The argument must be a function; passing a non-function raises a type error. isluaclosure is an alias.
+</Card>
+<Card title="isnewcclosure" href="./isnewcclosure">
+Returns whether the provided function is a newcclosure-created C closure. The first argument must be a function; passing a non-function raises a type error. Documented usage is a single function argument; extra arguments are not part of the supported signature.
+</Card>
+<Card title="newcclosure" href="./newcclosure">
+Returns a C closure for the provided function. If the function is already a C closure, the same function is returned. Passing a non-function raises a type error.
+</Card>
+<Card title="newlclosure" href="./newlclosure">
+Returns a Luau closure that calls the provided function. The first argument must be a function.
+</Card>
+<Card title="restorefunction" href="./restorefunction">
+Restaure ou remplace une function en appelant function hook operation en interne et ne renvoie aucune values. Le first argument doit être une function. Avec un seul function argument, l function cherche the saved original function; si aucun entry n existe, elle lève "Function is not hooked". Elle appelle ensuite function hook operation avec la hooked closure et la stored original closure, vide le Lua stack et retire la restored closure de hook records lorsque la stored original a été utilisée. Si le second argument est aussi une function, l function traite plutôt firstFunction comme l original function à installer et secondFunction comme la closure à patcher. Dans cette forme, aucun missing-original check n est effectue avec la valeur stockee dans hook records; la valeur stockee est seulement comparee pendant le final remove check. Les non-function second arguments sont ignorés par la branch condition. restorefunc et restoreclosure sont des aliases de la même function.
+</Card>
+<Card title="sethiddenstack" href="./sethiddenstack">
+Marks or unmarks a function, or the function at a stack level, as hidden. target must be a function or stack level number. hidden defaults to true. Invalid stack levels raise "Level out of range". setstackhidden is an alias.
+</Card>
+</CardGroup>
+
+</div>

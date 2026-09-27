@@ -2,13 +2,10 @@
 title: "isnetworkowner"
 sidebarTitle: "isnetworkowner"
 description: "Instance에서 hidden property \"NetworkOwnerV3\"를 읽고 첫 번째 반환값을 integer conversion로 변환한 값이 2보다 큰지 확인한 결과를 반환합니다. 인수는 Instance object여야 합니다. 이 function은 내부에서 the hidden property reader를 호출하고 그 호출의 error를 잡지 않으므로 Invalid Instance values, missing properties, non-property metadata는 gethiddenproperty와 같은 error를 발생시킬 수 있습니다. boolean 하나를 반환합니다. peer_id > 2가 정확히 local network ownership을 의미하는지는: Nicht aus der Codebasis verifizierbar."
-icon: "function"
 keywords: ["isnetworkowner","Instances"]
 ---
 
-Instance에서 hidden property "NetworkOwnerV3"를 읽고 첫 번째 반환값을 integer conversion로 변환한 값이 2보다 큰지 확인한 결과를 반환합니다. 인수는 Instance object여야 합니다. 이 function은 내부에서 the hidden property reader를 호출하고 그 호출의 error를 잡지 않으므로 Invalid Instance values, missing properties, non-property metadata는 gethiddenproperty와 같은 error를 발생시킬 수 있습니다. boolean 하나를 반환합니다. peer_id > 2가 정확히 local network ownership을 의미하는지는: Nicht aus der Codebasis verifizierbar.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 isnetworkowner(instance: Instance): boolean
@@ -16,15 +13,15 @@ isnetworkowner(instance: Instance): boolean
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | property name "NetworkOwnerV3"와 함께 the hidden property reader에 전달되는 Instance object입니다. |
+<ParamField path={"instance"} type={"Instance"} required>
+property name "NetworkOwnerV3"와 함께 the hidden property reader에 전달되는 Instance object입니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `isOwner` | `boolean` | "NetworkOwnerV3"의 첫 번째 반환값에 대한 integer conversion가 2보다 크면 true, 아니면 false입니다. |
+<ResponseField name={"isOwner"} type={"boolean"}>
+"NetworkOwnerV3"의 첫 번째 반환값에 대한 integer conversion가 2보다 크면 true, 아니면 false입니다.
+</ResponseField>
 
 ## 예제
 
@@ -38,3 +35,6 @@ if part then
     print(ownsNetwork)
 end
 ```
+
+
+</div>

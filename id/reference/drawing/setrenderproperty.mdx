@@ -2,13 +2,10 @@
 title: "setrenderproperty"
 sidebarTitle: "setrenderproperty"
 description: "Menetapkan value ke object[property]. Untuk Drawing object, ini menggunakan Drawing property assignment yang sama seperti direct property assignment. Unknown Drawing properties diabaikan, dan destroyed Drawing objects tidak diubah. Argumen ketiga harus ada. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini."
-icon: "function"
 keywords: ["setrenderproperty","Drawing"]
 ---
 
-Menetapkan value ke object[property]. Untuk Drawing object, ini menggunakan Drawing property assignment yang sama seperti direct property assignment. Unknown Drawing properties diabaikan, dan destroyed Drawing objects tidak diubah. Argumen ketiga harus ada. the Drawing API mendaftarkan API ini hanya saat the required rendering environment is active bernilai true; saat pemeriksaan itu false, initializer kembali sebelum membuat globals ini.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 setrenderproperty(object: any, property: any, value: any)
@@ -16,11 +13,17 @@ setrenderproperty(object: any, property: any, value: any)
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | Nilai yang di-index dan diberi assignment. Dengan Drawing object, RealDrawingObject __newindex handler digunakan. |
-| `property` | `any` | Yes | property key yang digunakan untuk assignment. Drawing object properties berbasis strings. |
-| `value` | `any` | Yes | Nilai yang ditetapkan ke object[property]. Argumen ini harus diberikan; nil tetap merupakan nilai yang diberikan. |
+<ParamField path={"object"} type={"any"} required>
+Nilai yang di-index dan diberi assignment. Dengan Drawing object, RealDrawingObject __newindex handler digunakan.
+</ParamField>
+
+<ParamField path={"property"} type={"any"} required>
+property key yang digunakan untuk assignment. Drawing object properties berbasis strings.
+</ParamField>
+
+<ParamField path={"value"} type={"any"} required>
+Nilai yang ditetapkan ke object[property]. Argumen ini harus diberikan; nil tetap merupakan nilai yang diberikan.
+</ParamField>
 
 ## Contoh
 
@@ -34,3 +37,6 @@ setrenderproperty(line, "Visible", true)
 print(line.Thickness)
 print(line.Visible)
 ```
+
+
+</div>

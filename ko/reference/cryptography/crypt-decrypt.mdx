@@ -2,13 +2,10 @@
 title: "crypt.decrypt"
 sidebarTitle: "crypt.decrypt"
 description: "Base64 ciphertext를 Base64로 디코드된 key와 필수 Base64 IV로 AES CBC 또는 ECB를 사용해 복호화합니다."
-icon: "function"
 keywords: ["crypt.decrypt","Cryptography"]
 ---
 
-Base64 ciphertext를 Base64로 디코드된 key와 필수 Base64 IV로 AES CBC 또는 ECB를 사용해 복호화합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES-CBC" | "AES-ECB"): string
@@ -16,18 +13,27 @@ crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | 복호화 전에 디코드되는 Base64 ciphertext입니다. |
-| `key` | `string` | Yes | AES에 전달되기 전에 디코드되는 Base64 key입니다. |
-| `iv` | `string` | Yes | mode 처리 전에 디코드되는 Base64 IV입니다. 이 인수는 ECB에서도 필수입니다. |
-| `mode` | `"CBC" \| "ECB" \| "AES-CBC" \| "AES-ECB"` | No | AES mode입니다. AES- prefix가 있으면 제거됩니다. 기본값은 AES-CBC입니다. |
+<ParamField path={"data"} type={"string"} required>
+복호화 전에 디코드되는 Base64 ciphertext입니다.
+</ParamField>
+
+<ParamField path={"key"} type={"string"} required>
+AES에 전달되기 전에 디코드되는 Base64 key입니다.
+</ParamField>
+
+<ParamField path={"iv"} type={"string"} required>
+mode 처리 전에 디코드되는 Base64 IV입니다. 이 인수는 ECB에서도 필수입니다.
+</ParamField>
+
+<ParamField path={"mode"} type={"\"CBC\" | \"ECB\" | \"AES-CBC\" | \"AES-ECB\""}>
+AES mode입니다. AES- prefix가 있으면 제거됩니다. 기본값은 AES-CBC입니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `plaintext` | `string` | Lua string으로 반환되는 plaintext 바이트입니다. |
+<ResponseField name={"plaintext"} type={"string"}>
+Lua string으로 반환되는 plaintext 바이트입니다.
+</ResponseField>
 
 ## 예제
 
@@ -41,3 +47,6 @@ local plaintext = crypt.decrypt(ciphertext, key, iv)
 
 print(plaintext)
 ```
+
+
+</div>

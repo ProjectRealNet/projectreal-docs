@@ -2,13 +2,10 @@
 title: "json.pretty"
 sidebarTitle: "json.pretty"
 description: "使用与 json.encodePretty 相同的 function 将 Lua value serializes 为 readable formatted JSON string。"
-icon: "function"
 keywords: ["json.pretty","JSON"]
 ---
 
-使用与 json.encodePretty 相同的 function 将 Lua value serializes 为 readable formatted JSON string。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 json.pretty(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.pretty(value: any, options?: EncodeOptions): string
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | 要 encoded 的 value。nil、booleans、numbers、strings、tables 和 json.null 会直接处理。Unsupported Lua types 会 encoded 为 null，除非 errorOnUnsupported 为 true。 |
-| `options` | `EncodeOptions` | No | Optional encode options。json.pretty 读取与 json.encodePretty 相同的 options，然后强制 pretty 为 true。没有 options 时使用 two-space indent。number 设置 indent width 并 clamp 到 0.16，string 设置 indent text，table 可以设置 sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth 和 indent。 |
+<ParamField path={"value"} type={"any"} required>
+要 encoded 的 value。nil、booleans、numbers、strings、tables 和 json.null 会直接处理。Unsupported Lua types 会 encoded 为 null，除非 errorOnUnsupported 为 true。
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options。json.pretty 读取与 json.encodePretty 相同的 options，然后强制 pretty 为 true。没有 options 时使用 two-space indent。number 设置 indent width 并 clamp 到 0.16，string 设置 indent text，table 可以设置 sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth 和 indent。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `json` | `string` | Readable formatted JSON string。Encoding errors 会作为 Luau errors 抛出。 |
+<ResponseField name={"json"} type={"string"}>
+Readable formatted JSON string。Encoding errors 会作为 Luau errors 抛出。
+</ResponseField>
 
 ## 类型
 
@@ -58,3 +58,6 @@ local text = json.pretty({
 
 print(text)
 ```
+
+
+</div>

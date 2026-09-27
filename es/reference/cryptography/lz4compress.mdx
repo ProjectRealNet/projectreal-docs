@@ -2,13 +2,10 @@
 title: "lz4compress"
 sidebarTitle: "lz4compress"
 description: "Comprime bytes de una cadena Lua con LZ4 block compression y devuelve los raw compressed bytes como una cadena Lua."
-icon: "function"
 keywords: ["lz4compress","Cryptography","crypt.lz4compress","crypt.lz4.compress","lz4.compress"]
 ---
 
-Comprime bytes de una cadena Lua con LZ4 block compression y devuelve los raw compressed bytes como una cadena Lua.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 lz4compress(data: string): string
@@ -22,15 +19,15 @@ lz4compress(data: string): string
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Bytes de cadena Lua que se pasan a LZ4 block compression. |
+<ParamField path={"data"} type={"string"} required>
+Bytes de cadena Lua que se pasan a LZ4 block compression.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `compressed` | `string` | Raw compressed bytes devueltos como una cadena Lua. El original size no se almacena en la salida. |
+<ResponseField name={"compressed"} type={"string"}>
+Raw compressed bytes devueltos como una cadena Lua. El original size no se almacena en la salida.
+</ResponseField>
 
 ## Ejemplo
 
@@ -43,3 +40,6 @@ local restored = lz4decompress(compressed, #source)
 
 print(#source, #compressed, restored == source)
 ```
+
+
+</div>

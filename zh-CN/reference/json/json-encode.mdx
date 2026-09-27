@@ -2,13 +2,10 @@
 title: "json.encode"
 sidebarTitle: "json.encode"
 description: "使用 Real JSON encoder 将 Lua value serialize 为 JSON string。json.stringify 注册到同一个 function。"
-icon: "function"
 keywords: ["json.encode","JSON"]
 ---
 
-使用 Real JSON encoder 将 Lua value serialize 为 JSON string。json.stringify 注册到同一个 function。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 json.encode(value: any, options?: EncodeOptions): string
@@ -16,16 +13,19 @@ json.encode(value: any, options?: EncodeOptions): string
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | 要 encode 的 Value。nil、booleans、numbers、strings、tables 和 json.null 会直接处理。Unsupported Lua types 默认 encode 为 null，除非 errorOnUnsupported 为 true。 |
-| `options` | `EncodeOptions` | No | Optional encode options。boolean 切换 pretty output。number 会用 clamp 到 0.16 的 spaces 数量启用 pretty output。string 会用该 indent 启用 pretty output。table 可以设置 pretty、sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth 和 indent。 |
+<ParamField path={"value"} type={"any"} required>
+要 encode 的 Value。nil、booleans、numbers、strings、tables 和 json.null 会直接处理。Unsupported Lua types 默认 encode 为 null，除非 errorOnUnsupported 为 true。
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options。boolean 切换 pretty output。number 会用 clamp 到 0.16 的 spaces 数量启用 pretty output。string 会用该 indent 启用 pretty output。table 可以设置 pretty、sortKeys、emptyTableAsArray、errorOnUnsupported、encodeInvalidNumbersAsNull、maxDepth 和 indent。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `json` | `string` | Encoded JSON string。Encoding errors 会作为 Luau errors 抛出。 |
+<ResponseField name={"json"} type={"string"}>
+Encoded JSON string。Encoding errors 会作为 Luau errors 抛出。
+</ResponseField>
 
 ## 类型
 
@@ -61,3 +61,6 @@ local text = json.encode(payload, {
 
 print(text)
 ```
+
+
+</div>

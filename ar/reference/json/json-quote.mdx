@@ -2,13 +2,10 @@
 title: "json.quote"
 sidebarTitle: "json.quote"
 description: "يعمل escape لـ string باستخدام Real JSON string escaping rules ويرجع complete quoted JSON string literal."
-icon: "function"
 keywords: ["json.quote","JSON"]
 ---
 
-يعمل escape لـ string باستخدام Real JSON string escaping rules ويرجع complete quoted JSON string literal.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 json.quote(text: string): string
@@ -16,15 +13,15 @@ json.quote(text: string): string
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `text` | `string` | Yes | String الذي سيتم quote له. Function تقرأ هذا argument باستخدام string type checking. |
+<ParamField path={"text"} type={"string"} required>
+String الذي سيتم quote له. Function تقرأ هذا argument باستخدام string type checking.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `quoted` | `string` | Complete JSON string literal يتضمن opening و closing quote. Quotes و backslashes و common control characters و bytes below 0x20 يتم escape لها. |
+<ResponseField name={"quoted"} type={"string"}>
+Complete JSON string literal يتضمن opening و closing quote. Quotes و backslashes و common control characters و bytes below 0x20 يتم escape لها.
+</ResponseField>
 
 ## مثال
 
@@ -36,3 +33,6 @@ local quoted = json.quote(source)
 
 print(quoted)
 ```
+
+
+</div>

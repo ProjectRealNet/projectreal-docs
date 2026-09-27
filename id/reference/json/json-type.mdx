@@ -2,13 +2,10 @@
 title: "json.type"
 sidebarTitle: "json.type"
 description: "Mengembalikan string type name untuk sebuah nilai. json.null mengembalikan \"null\". Table mengembalikan \"array\" atau \"object\" memakai table classification yang sama seperti json.isArray dan json.isObject. Nilai lain mengembalikan runtime Lua type name result."
-icon: "function"
 keywords: ["json.type","JSON"]
 ---
 
-Mengembalikan string type name untuk sebuah nilai. json.null mengembalikan "null". Table mengembalikan "array" atau "object" memakai table classification yang sama seperti json.isArray dan json.isObject. Nilai lain mengembalikan runtime Lua type name result.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 json.type(value: any): string
@@ -16,15 +13,15 @@ json.type(value: any): string
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Nilai yang akan di-classify. Mengirim no value mengembalikan runtime type name untuk stack value yang hilang. |
+<ParamField path={"value"} type={"any"} required>
+Nilai yang akan di-classify. Mengirim no value mengembalikan runtime type name untuk stack value yang hilang.
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `jsonType` | `string` | Type name string. Return JSON-specific yang terverifikasi adalah "null", "array", dan "object". Nilai non-table dan non-json.null memakai Lua type name, seperti "nil", "boolean", "number", "integer", "string", "function", "object", "thread", "buffer", "class", "object", "vector", atau "no value", tergantung runtime value. |
+<ResponseField name={"jsonType"} type={"string"}>
+Type name string. Return JSON-specific yang terverifikasi adalah "null", "array", dan "object". Nilai non-table dan non-json.null memakai Lua type name, seperti "nil", "boolean", "number", "integer", "string", "function", "object", "thread", "buffer", "class", "object", "vector", atau "no value", tergantung runtime value.
+</ResponseField>
 
 ## Contoh
 
@@ -37,3 +34,6 @@ print(json.type(json.null))
 print(json.type(nil))
 print(json.type())
 ```
+
+
+</div>

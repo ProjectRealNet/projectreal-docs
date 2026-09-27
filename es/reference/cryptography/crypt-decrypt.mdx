@@ -2,13 +2,10 @@
 title: "crypt.decrypt"
 sidebarTitle: "crypt.decrypt"
 description: "Descifra Base64 ciphertext con una key decodificada desde Base64 y un Base64 IV requerido usando AES CBC o ECB."
-icon: "function"
 keywords: ["crypt.decrypt","Cryptography"]
 ---
 
-Descifra Base64 ciphertext con una key decodificada desde Base64 y un Base64 IV requerido usando AES CBC o ECB.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES-CBC" | "AES-ECB"): string
@@ -16,18 +13,27 @@ crypt.decrypt(data: string, key: string, iv: string, mode?: "CBC" | "ECB" | "AES
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `data` | `string` | Yes | Base64 ciphertext que se decodifica antes del descifrado. |
-| `key` | `string` | Yes | Key Base64 que se decodifica antes de pasarse a AES. |
-| `iv` | `string` | Yes | Base64 IV que se decodifica antes de procesar mode. Este argumento es obligatorio, incluso con ECB. |
-| `mode` | `"CBC" \| "ECB" \| "AES-CBC" \| "AES-ECB"` | No | AES mode. El prefijo AES- se elimina cuando esta presente. El valor predeterminado es AES-CBC. |
+<ParamField path={"data"} type={"string"} required>
+Base64 ciphertext que se decodifica antes del descifrado.
+</ParamField>
+
+<ParamField path={"key"} type={"string"} required>
+Key Base64 que se decodifica antes de pasarse a AES.
+</ParamField>
+
+<ParamField path={"iv"} type={"string"} required>
+Base64 IV que se decodifica antes de procesar mode. Este argumento es obligatorio, incluso con ECB.
+</ParamField>
+
+<ParamField path={"mode"} type={"\"CBC\" | \"ECB\" | \"AES-CBC\" | \"AES-ECB\""}>
+AES mode. El prefijo AES- se elimina cuando esta presente. El valor predeterminado es AES-CBC.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `plaintext` | `string` | Bytes plaintext devueltos como una cadena Lua. |
+<ResponseField name={"plaintext"} type={"string"}>
+Bytes plaintext devueltos como una cadena Lua.
+</ResponseField>
 
 ## Ejemplo
 
@@ -41,3 +47,6 @@ local plaintext = crypt.decrypt(ciphertext, key, iv)
 
 print(plaintext)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "ImGuiWindow.SliderFloat"
 sidebarTitle: "ImGuiWindow.SliderFloat"
 description: "向 window 追加 SliderFloat element。label、value、minimum 和 maximum 从第 2 到第 5 个参数读取，数字参数由 number type checking 检查。rendering 期间，Real 使用存储的值和范围调用 a floating-point slider。当 ImGui 报告值已更改时，onChange 会进入 queue，稍后以一个 Lua number 调用。Real 在此 closure 中不会额外验证 minimum <= maximum。"
-icon: "function"
 keywords: ["ImGuiWindow.SliderFloat","ImGui"]
 ---
 
-向 window 追加 SliderFloat element。label、value、minimum 和 maximum 从第 2 到第 5 个参数读取，数字参数由 number type checking 检查。rendering 期间，Real 使用存储的值和范围调用 a floating-point slider。当 ImGui 报告值已更改时，onChange 会进入 queue，稍后以一个 Lua number 调用。Real 在此 closure 中不会额外验证 minimum &lt;= maximum。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 ImGuiWindow.SliderFloat(window: ImGuiWindow, label: string, value: number, minimum: number, maximum: number, onChange: (number) -> ()): ImGuiWindow
@@ -16,20 +13,35 @@ ImGuiWindow.SliderFloat(window: ImGuiWindow, label: string, value: number, minim
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `window` | `ImGuiWindow` | Yes | 由 imgui.create 返回的 ImGuiWindow。如果 object 无效或已经 destroy，该 method 会抛出 Lua error。 |
-| `label` | `string` | Yes | 使用 string type checking 读取的 slider label。 |
-| `value` | `number` | Yes | 使用 number type checking 读取并作为当前 float 值存储的 slider 初始值。 |
-| `minimum` | `number` | Yes | 使用 number type checking 读取并传给 a floating-point slider 的 minimum value。 |
-| `maximum` | `number` | Yes | 使用 number type checking 读取并传给 a floating-point slider 的 maximum value。 |
-| `onChange` | `(number) -> ()` | Yes | 存储在 Lua registry 中的 callback function。当 slider 在 rendering 中变化时，稍后会以更新后的数字值调用。 |
+<ParamField path={"window"} type={"ImGuiWindow"} required>
+由 imgui.create 返回的 ImGuiWindow。如果 object 无效或已经 destroy，该 method 会抛出 Lua error。
+</ParamField>
+
+<ParamField path={"label"} type={"string"} required>
+使用 string type checking 读取的 slider label。
+</ParamField>
+
+<ParamField path={"value"} type={"number"} required>
+使用 number type checking 读取并作为当前 float 值存储的 slider 初始值。
+</ParamField>
+
+<ParamField path={"minimum"} type={"number"} required>
+使用 number type checking 读取并传给 a floating-point slider 的 minimum value。
+</ParamField>
+
+<ParamField path={"maximum"} type={"number"} required>
+使用 number type checking 读取并传给 a floating-point slider 的 maximum value。
+</ParamField>
+
+<ParamField path={"onChange"} type={"(number) -> ()"} required>
+存储在 Lua registry 中的 callback function。当 slider 在 rendering 中变化时，稍后会以更新后的数字值调用。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `window` | `ImGuiWindow` | 同一个 ImGuiWindow object，可用于链式 method 调用。 |
+<ResponseField name={"window"} type={"ImGuiWindow"}>
+同一个 ImGuiWindow object，可用于链式 method 调用。
+</ResponseField>
 
 ## 类型
 
@@ -50,3 +62,6 @@ imgui.create 返回的句柄。控制构建方法返回相同的句柄，因此�
 | `SliderInt` | `(label: string, value: integer, minimum: integer, maximum: integer, onChange: (number) -> ()) -> ImGuiWindow` | Yes | 附加一个整数滑块。 |
 | `Text` | `(text: string) -> ImGuiWindow` | Yes | 附加非交互式文本。 |
 | `destroy` | `() -> ()` | Yes | 删除窗口并释放其注册的回调。 |
+
+
+</div>

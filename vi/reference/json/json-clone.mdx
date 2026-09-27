@@ -2,13 +2,10 @@
 title: "json.clone"
 sidebarTitle: "json.clone"
 description: "Clone value bang cach encoding voi json.encode semantics roi decoding generated JSON tro lai thanh Lua values."
-icon: "function"
 keywords: ["json.clone","JSON"]
 ---
 
-Clone value bang cach encoding voi json.encode semantics roi decoding generated JSON tro lai thanh Lua values.
-
-## Cú pháp
+<div className="real-function-page">
 
 ```lua
 json.clone(value: any, options?: EncodeOptions): any
@@ -16,16 +13,19 @@ json.clone(value: any, options?: EncodeOptions): any
 
 ## Đối số
 
-| Name | Type | Required | Mô tả |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value de encode va decode. Supported JSON values round-trip qua JSON; unsupported types duoc encode thanh null tru khi encode options yeu cau error. |
-| `options` | `EncodeOptions` | No | Optional encode options duoc truyen vao encode step, nhu sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty va indent. |
+<ParamField path={"value"} type={"any"} required>
+Value de encode va decode. Supported JSON values round-trip qua JSON; unsupported types duoc encode thanh null tru khi encode options yeu cau error.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options duoc truyen vao encode step, nhu sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty va indent.
+</ParamField>
 
 ## Giá trị trả về
 
-| Name | Type | Mô tả |
-| --- | --- | --- |
-| `clone` | `any` | Decoded value duoc tao tu encoded JSON. Objects va arrays la new tables voi JSON kind markers tu decoder; JSON null values tro thanh json.null. |
+<ResponseField name={"clone"} type={"any"}>
+Decoded value duoc tao tu encoded JSON. Objects va arrays la new tables voi JSON kind markers tu decoder; JSON null values tro thanh json.null.
+</ResponseField>
 
 ## Kiểu
 
@@ -59,3 +59,6 @@ print(original.profile.name)
 print(copy.profile.name)
 print(json.type(copy))
 ```
+
+
+</div>

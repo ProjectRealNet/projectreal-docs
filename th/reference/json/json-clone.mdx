@@ -2,13 +2,10 @@
 title: "json.clone"
 sidebarTitle: "json.clone"
 description: "clone value โดย encoding ด้วย json.encode semantics แล้ว decoding generated JSON กลับเป็น Lua values"
-icon: "function"
 keywords: ["json.clone","JSON"]
 ---
 
-clone value โดย encoding ด้วย json.encode semantics แล้ว decoding generated JSON กลับเป็น Lua values
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 json.clone(value: any, options?: EncodeOptions): any
@@ -16,16 +13,19 @@ json.clone(value: any, options?: EncodeOptions): any
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value ที่จะ encode และ decode. Supported JSON values จะ round-trip ผ่าน JSON; unsupported types จะ encode เป็น null เว้นแต่ encode options ขอให้เกิด error. |
-| `options` | `EncodeOptions` | No | Optional encode options ที่ส่งไปยัง encode step เช่น sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty และ indent. |
+<ParamField path={"value"} type={"any"} required>
+Value ที่จะ encode และ decode. Supported JSON values จะ round-trip ผ่าน JSON; unsupported types จะ encode เป็น null เว้นแต่ encode options ขอให้เกิด error.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options ที่ส่งไปยัง encode step เช่น sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty และ indent.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `clone` | `any` | Decoded value ที่สร้างจาก encoded JSON. Objects และ arrays เป็น new tables พร้อม JSON kind markers จาก decoder; JSON null values จะกลายเป็น json.null. |
+<ResponseField name={"clone"} type={"any"}>
+Decoded value ที่สร้างจาก encoded JSON. Objects และ arrays เป็น new tables พร้อม JSON kind markers จาก decoder; JSON null values จะกลายเป็น json.null.
+</ResponseField>
 
 ## Types
 
@@ -59,3 +59,6 @@ print(original.profile.name)
 print(copy.profile.name)
 print(json.type(copy))
 ```
+
+
+</div>

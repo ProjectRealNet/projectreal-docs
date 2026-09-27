@@ -2,13 +2,10 @@
 title: "getactorthreads"
 sidebarTitle: "getactorthreads"
 description: "actor thread list에서 Luau threads의 array table을 반환합니다. 이 function은 arguments를 받지 않습니다. ScriptContext에서 actor list bounds를 읽고 각 actor state entry를 순회하며 stored global state를 Luau thread로 복호화하고 valid threads인 entries만 포함합니다."
-icon: "function"
 keywords: ["getactorthreads","Actors","getactorstates"]
 ---
 
-actor thread list에서 Luau threads의 array table을 반환합니다. 이 function은 arguments를 받지 않습니다. ScriptContext에서 actor list bounds를 읽고 각 actor state entry를 순회하며 stored global state를 Luau thread로 복호화하고 valid threads인 entries만 포함합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 getactorthreads(): {thread}
@@ -20,9 +17,9 @@ getactorthreads(): {thread}
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `threads` | `&#123;thread&#125;` | Luau threads로 push되는 actor Luau thread values의 array table입니다. |
+<ResponseField name={"threads"} type={"{thread}"}>
+Luau threads로 push되는 actor Luau thread values의 array table입니다.
+</ResponseField>
 
 ## 예제
 
@@ -33,3 +30,6 @@ for _, thread in ipairs(getactorthreads()) do
     print(thread)
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "firetouchinterest"
 sidebarTitle: "firetouchinterest"
 description: "Запускает Real touch interest event для двух BasePart instances. Первые два аргумента должны быть Instance object, и оба значения должны проходить IsA(\"BasePart\"). Аргумент state обязателен и должен быть number или boolean. Когда state является number, только 1 становится true, а любое другое number становится false. Когда state является boolean, его boolean значение передается напрямую. Если у любой part нет touch data, или у первой part нет overlap reference, function возвращается, ничего не запуская. Function ничего не возвращает. Точное значение begin/end для boolean, передаваемого в helper: Nicht aus der Codebasis verifizierbar."
-icon: "function"
 keywords: ["firetouchinterest","Instances","firetouchtransmitter"]
 ---
 
-Запускает Real touch interest event для двух BasePart instances. Первые два аргумента должны быть Instance object, и оба значения должны проходить IsA("BasePart"). Аргумент state обязателен и должен быть number или boolean. Когда state является number, только 1 становится true, а любое другое number становится false. Когда state является boolean, его boolean значение передается напрямую. Если у любой part нет touch data, или у первой part нет overlap reference, function возвращается, ничего не запуская. Function ничего не возвращает. Точное значение begin/end для boolean, передаваемого в helper: Nicht aus der Codebasis verifizierbar.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
@@ -20,11 +17,17 @@ firetouchinterest(partA: Instance, partB: Instance, state: number | boolean)
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `partA` | `Instance` | Yes | Первое Instance object. Должно проходить IsA("BasePart"). Его touch data и overlap reference используются для call. |
-| `partB` | `Instance` | Yes | Второе Instance object. Должно проходить IsA("BasePart"). Его touch data используется для call. |
-| `state` | `number \| boolean` | Yes | Обязательное значение state. Numbers преобразуются через state == 1; booleans передаются напрямую. |
+<ParamField path={"partA"} type={"Instance"} required>
+Первое Instance object. Должно проходить IsA("BasePart"). Его touch data и overlap reference используются для call.
+</ParamField>
+
+<ParamField path={"partB"} type={"Instance"} required>
+Второе Instance object. Должно проходить IsA("BasePart"). Его touch data используется для call.
+</ParamField>
+
+<ParamField path={"state"} type={"number | boolean"} required>
+Обязательное значение state. Numbers преобразуются через state == 1; booleans передаются напрямую.
+</ParamField>
 
 ## Пример
 
@@ -38,3 +41,6 @@ local targetPart = workspace.TouchTarget
 
 firetouchinterest(rootPart, targetPart, true)
 ```
+
+
+</div>

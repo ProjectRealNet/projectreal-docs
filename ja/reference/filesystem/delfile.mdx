@@ -2,13 +2,10 @@
 title: "delfile"
 sidebarTitle: "delfile"
 description: "workspace 内に存在する regular file を削除します。"
-icon: "function"
 keywords: ["delfile","Filesystem"]
 ---
 
-workspace 内に存在する regular file を削除します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 delfile(path: string)
@@ -16,9 +13,9 @@ delfile(path: string)
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `path` | `string` | Yes | separator normalization と workspace-boundary checks の後、workspace 内で解決される path。対象は存在する regular file である必要があります。folders は受け付けません。 |
+<ParamField path={"path"} type={"string"} required>
+separator normalization と workspace-boundary checks の後、workspace 内で解決される path。対象は存在する regular file である必要があります。folders は受け付けません。
+</ParamField>
 
 ## 例
 
@@ -31,3 +28,6 @@ writefile(path, "temporary")
 delfile(path)
 print(isfile(path))
 ```
+
+
+</div>

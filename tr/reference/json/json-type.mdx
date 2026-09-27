@@ -2,13 +2,10 @@
 title: "json.type"
 sidebarTitle: "json.type"
 description: "Bir deger icin string type name dondurur. json.null \"null\" dondurur. Tablolar json.isArray ve json.isObject ile ayni table classification kullanarak \"array\" veya \"object\" dondurur. Diger degerler runtime Lua type name result dondurur."
-icon: "function"
 keywords: ["json.type","JSON"]
 ---
 
-Bir deger icin string type name dondurur. json.null "null" dondurur. Tablolar json.isArray ve json.isObject ile ayni table classification kullanarak "array" veya "object" dondurur. Diger degerler runtime Lua type name result dondurur.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 json.type(value: any): string
@@ -16,15 +13,15 @@ json.type(value: any): string
 
 ## Argümanlar
 
-| Name | Type | Required | Açıklama |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Classify edilecek deger. no value gecmek, eksik stack value icin runtime type name dondurur. |
+<ParamField path={"value"} type={"any"} required>
+Classify edilecek deger. no value gecmek, eksik stack value icin runtime type name dondurur.
+</ParamField>
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `jsonType` | `string` | Type name string. Dogrulanmis JSON-specific returns "null", "array" ve "object" degerleridir. Non-table, non-json.null degerler Lua type name kullanir, runtime value durumuna gore "nil", "boolean", "number", "integer", "string", "function", "object", "thread", "buffer", "class", "object", "vector" veya "no value" olabilir. |
+<ResponseField name={"jsonType"} type={"string"}>
+Type name string. Dogrulanmis JSON-specific returns "null", "array" ve "object" degerleridir. Non-table, non-json.null degerler Lua type name kullanir, runtime value durumuna gore "nil", "boolean", "number", "integer", "string", "function", "object", "thread", "buffer", "class", "object", "vector" veya "no value" olabilir.
+</ResponseField>
 
 ## Örnek
 
@@ -37,3 +34,6 @@ print(json.type(json.null))
 print(json.type(nil))
 print(json.type())
 ```
+
+
+</div>

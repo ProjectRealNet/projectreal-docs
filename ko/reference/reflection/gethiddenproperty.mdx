@@ -2,13 +2,10 @@
 title: "gethiddenproperty"
 sidebarTitle: "gethiddenproperty"
 description: "non-scriptable properties를 포함하여 reflection metadata를 통해 Roblox property를 읽습니다. 첫 번째 인수는 Instance object여야 하고 두 번째 인수는 string property name이어야 합니다. instance reference는 유효해야 합니다. property descriptor가 Roblox property metadata에 없으면 function은 nil만 반환합니다. descriptor가 있지만 property entry로 resolve되지 않으면 \"Not a property\"를 발생시킵니다. reflection types Bool, Int, Float, Double, String, SystemAddress, SharedString, Vector3의 경우 function은 getter를 호출하고 value와 !IsScriptable()와 같은 boolean을 반환합니다. SystemAddress는 RemoteId.PeerId를 integer로 반환합니다. SharedString은 Content를 string으로 반환합니다. Vector3는 instance primitive Size offset에서 읽고 touch data가 없으면 \"can't get value\"를 발생시킵니다. 다른 property types는 property scriptable flag를 임시로 true로 설정한 뒤 normal Lua field access로 읽습니다. BinaryString은 해당 읽기 동안 임시로 String처럼 처리됩니다. original scriptable flag와 BinaryString type은 반환 전에 복원됩니다."
-icon: "function"
 keywords: ["gethiddenproperty","Reflection"]
 ---
 
-non-scriptable properties를 포함하여 reflection metadata를 통해 Roblox property를 읽습니다. 첫 번째 인수는 Instance object여야 하고 두 번째 인수는 string property name이어야 합니다. instance reference는 유효해야 합니다. property descriptor가 Roblox property metadata에 없으면 function은 nil만 반환합니다. descriptor가 있지만 property entry로 resolve되지 않으면 "Not a property"를 발생시킵니다. reflection types Bool, Int, Float, Double, String, SystemAddress, SharedString, Vector3의 경우 function은 getter를 호출하고 value와 !IsScriptable()와 같은 boolean을 반환합니다. SystemAddress는 RemoteId.PeerId를 integer로 반환합니다. SharedString은 Content를 string으로 반환합니다. Vector3는 instance primitive Size offset에서 읽고 touch data가 없으면 "can't get value"를 발생시킵니다. 다른 property types는 property scriptable flag를 임시로 true로 설정한 뒤 normal Lua field access로 읽습니다. BinaryString은 해당 읽기 동안 임시로 String처럼 처리됩니다. original scriptable flag와 BinaryString type은 반환 전에 복원됩니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 gethiddenproperty(instance: Instance, property: string): any | boolean
@@ -16,17 +13,23 @@ gethiddenproperty(instance: Instance, property: string): any | boolean
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | Instance object whose property should be read. Invalid Instance values raise an argument error. |
-| `property` | `string` | Yes | string property name resolved with Roblox property metadata. |
+<ParamField path={"instance"} type={"Instance"} required>
+Instance object whose property should be read. Invalid Instance values raise an argument error.
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+string property name resolved with Roblox property metadata.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `propertyValue` | `any` | Property value, or nil as the only return value when no property descriptor exists. |
-| `wasHidden` | `boolean` | Second return value equal to !IsScriptable() when a property value is read. |
+<ResponseField name={"propertyValue"} type={"any"}>
+Property value, or nil as the only return value when no property descriptor exists.
+</ResponseField>
+
+<ResponseField name={"wasHidden"} type={"boolean"}>
+Second return value equal to !IsScriptable() when a property value is read.
+</ResponseField>
 
 ## 예제
 
@@ -36,3 +39,6 @@ Read a property value even when normal script access is limited.
 local value, wasHidden = gethiddenproperty(workspace, "ClassName")
 print(value, wasHidden)
 ```
+
+
+</div>

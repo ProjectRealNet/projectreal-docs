@@ -2,13 +2,10 @@
 title: "crypt.generatekey"
 sidebarTitle: "crypt.generatekey"
 description: "Genere 32 raw bytes aleatoires avec random byte generator et les renvoie Base64-encoded sous forme de chaine Lua."
-icon: "function"
 keywords: ["crypt.generatekey","Cryptography"]
 ---
 
-Genere 32 raw bytes aleatoires avec random byte generator et les renvoie Base64-encoded sous forme de chaine Lua.
-
-## Syntaxe
+<div className="real-function-page">
 
 ```lua
 crypt.generatekey(): string
@@ -16,9 +13,9 @@ crypt.generatekey(): string
 
 ## Retours
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `key` | `string` | Base64 encoding des 32 raw bytes generes. La chaine renvoyee ne fait pas 32 caracteres. |
+<ResponseField name={"key"} type={"string"}>
+Base64 encoding des 32 raw bytes generes. La chaine renvoyee ne fait pas 32 caracteres.
+</ResponseField>
 
 ## Exemple
 
@@ -34,3 +31,6 @@ print(key)
 print(#raw)
 print(ciphertext, iv)
 ```
+
+
+</div>

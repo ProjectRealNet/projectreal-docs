@@ -2,13 +2,10 @@
 title: "setrenderproperty"
 sidebarTitle: "setrenderproperty"
 description: "Присваивает value в object[property]. Для Drawing object используется то же Drawing property assignment, что и direct property assignment. Unknown Drawing properties игнорируются, а destroyed Drawing objects не изменяются. Третий аргумент должен присутствовать. the Drawing API регистрирует эту API только когда the required rendering environment is active имеет значение true; если эта проверка false, initializer возвращается до создания этих globals."
-icon: "function"
 keywords: ["setrenderproperty","Drawing"]
 ---
 
-Присваивает value в object[property]. Для Drawing object используется то же Drawing property assignment, что и direct property assignment. Unknown Drawing properties игнорируются, а destroyed Drawing objects не изменяются. Третий аргумент должен присутствовать. the Drawing API регистрирует эту API только когда the required rendering environment is active имеет значение true; если эта проверка false, initializer возвращается до создания этих globals.
-
-## Синтаксис
+<div className="real-function-page">
 
 ```lua
 setrenderproperty(object: any, property: any, value: any)
@@ -16,11 +13,17 @@ setrenderproperty(object: any, property: any, value: any)
 
 ## Аргументы
 
-| Name | Type | Required | Описание |
-| --- | --- | --- | --- |
-| `object` | `any` | Yes | Значение для индексирования и присваивания. С Drawing object используется RealDrawingObject __newindex handler. |
-| `property` | `any` | Yes | property key, используемый для присваивания. Drawing object properties основаны на strings. |
-| `value` | `any` | Yes | Значение, присваиваемое object[property]. Этот аргумент должен быть передан; nil все равно является переданным значением. |
+<ParamField path={"object"} type={"any"} required>
+Значение для индексирования и присваивания. С Drawing object используется RealDrawingObject __newindex handler.
+</ParamField>
+
+<ParamField path={"property"} type={"any"} required>
+property key, используемый для присваивания. Drawing object properties основаны на strings.
+</ParamField>
+
+<ParamField path={"value"} type={"any"} required>
+Значение, присваиваемое object[property]. Этот аргумент должен быть передан; nil все равно является переданным значением.
+</ParamField>
 
 ## Пример
 
@@ -34,3 +37,6 @@ setrenderproperty(line, "Visible", true)
 print(line.Thickness)
 print(line.Visible)
 ```
+
+
+</div>

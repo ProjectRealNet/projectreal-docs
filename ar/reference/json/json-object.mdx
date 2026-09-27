@@ -2,13 +2,10 @@
 title: "json.object"
 sidebarTitle: "json.object"
 description: "ينشئ new table marked as a JSON object حتى يعاملها Real JSON encoder كـ object."
-icon: "function"
 keywords: ["json.object","JSON"]
 ---
 
-ينشئ new table marked as a JSON object حتى يعاملها Real JSON encoder كـ object.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 json.object(source?: table): table
@@ -16,15 +13,15 @@ json.object(source?: table): table
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `source` | `table` | No | Optional source table يتم copy لها داخل new object table. اذا كانت omitted او nil، يتم ارجاع empty object table. |
+<ParamField path={"source"} type={"table"}>
+Optional source table يتم copy لها داخل new object table. اذا كانت omitted او nil، يتم ارجاع empty object table.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `object` | `table` | New table marked مع Real JSON object marker. Source entries يتم copy لها، باستثناء Real JSON type marker. |
+<ResponseField name={"object"} type={"table"}>
+New table marked مع Real JSON object marker. Source entries يتم copy لها، باستثناء Real JSON type marker.
+</ResponseField>
 
 ## مثال
 
@@ -40,3 +37,6 @@ local empty = json.object()
 print(json.encode(profile))
 print(json.encode(empty))
 ```
+
+
+</div>

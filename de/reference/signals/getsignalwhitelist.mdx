@@ -2,13 +2,10 @@
 title: "getsignalwhitelist"
 sidebarTitle: "getsignalwhitelist"
 description: "Gibt eine neue array table mit den sechs statischen whitelist-Einträgen zurück, die in der function definiert sind: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Jeder entry ist eine table mit den string-Feldern Event und Parent. Die function nimmt keine arguments an und prüft nicht den aktuellen Spielzustand."
-icon: "function"
 keywords: ["getsignalwhitelist","Signals"]
 ---
 
-Gibt eine neue array table mit den sechs statischen whitelist-Einträgen zurück, die in der function definiert sind: OnClientEvent/RemoteEvent, OnServerEvent/RemoteEvent, OnClientInvoke/RemoteFunction, OnServerInvoke/RemoteFunction, OnClientEventUnreliable/UnreliableRemoteEvent, and OnServerEventUnreliable/UnreliableRemoteEvent. Jeder entry ist eine table mit den string-Feldern Event und Parent. Die function nimmt keine arguments an und prüft nicht den aktuellen Spielzustand.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getsignalwhitelist(): table
@@ -16,6 +13,9 @@ getsignalwhitelist(): table
 
 ## Rückgaben
 
-| Name | Type | Beschreibung |
-| --- | --- | --- |
-| `signals` | `table` | Array table statischer whitelist-Einträge. Jeder entry hat die string-Felder Event und Parent. |
+<ResponseField name={"signals"} type={"table"}>
+Array table statischer whitelist-Einträge. Jeder entry hat die string-Felder Event und Parent.
+</ResponseField>
+
+
+</div>

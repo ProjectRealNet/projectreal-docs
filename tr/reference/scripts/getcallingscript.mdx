@@ -2,13 +2,10 @@
 title: "getcallingscript"
 sidebarTitle: "getcallingscript"
 description: "current Luau thread object uzerinde saklanan script degerini dondurur. Function arguments kabul etmez. stored reference olan the current thread script degerini okur. Bu stored reference expired degilse function script Instance degerini Instance cache ile push eder ve dondurur. stored reference expired ise function nil dondurur. Function Lua call stack incelemez, ancestor scripts aramaz ve script ClassName kontrol etmez."
-icon: "function"
 keywords: ["getcallingscript","Scripts"]
 ---
 
-current Luau thread object uzerinde saklanan script degerini dondurur. Function arguments kabul etmez. stored reference olan the current thread script degerini okur. Bu stored reference expired degilse function script Instance degerini Instance cache ile push eder ve dondurur. stored reference expired ise function nil dondurur. Function Lua call stack incelemez, ancestor scripts aramaz ve script ClassName kontrol etmez.
-
-## Söz dizimi
+<div className="real-function-page">
 
 ```lua
 getcallingscript(): Instance | nil
@@ -16,6 +13,9 @@ getcallingscript(): Instance | nil
 
 ## Dönüşler
 
-| Name | Type | Açıklama |
-| --- | --- | --- |
-| `script` | `Instance \| nil` | current Luau thread object stored reference icinden Script Instance, veya bu stored reference expired ise nil. |
+<ResponseField name={"script"} type={"Instance | nil"}>
+current Luau thread object stored reference icinden Script Instance, veya bu stored reference expired ise nil.
+</ResponseField>
+
+
+</div>

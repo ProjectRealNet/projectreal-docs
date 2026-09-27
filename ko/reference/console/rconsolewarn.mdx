@@ -2,13 +2,10 @@
 title: "rconsolewarn"
 sidebarTitle: "rconsolewarn"
 description: "warning console text attribute로 현재 Windows console에 stdout을 통해 0개 이상의 값을 씁니다. console window가 없으면 호출은 아무것도 변환하거나 쓰지 않고 반환됩니다. console이 있으면 각 argument는 Lua string conversion으로 변환되고 tab 문자로 결합된 뒤 runtime value을 통해 쓰입니다. Lua string conversion이 error를 발생시키면 rconsolewarn은 이를 잡지 않습니다. 이 function은 쓰기 전에 console text attribute를 FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY로 설정하고, 이후 default console text color로 설정합니다. newline이나 warning prefix를 추가하지 않고, console을 만들거나 표시하지 않으며, Luau warn 또는 Roblox Output을 호출하지 않습니다. consolewarn은 같은 function의 alias입니다."
-icon: "function"
 keywords: ["rconsolewarn","Console","consolewarn"]
 ---
 
-warning console text attribute로 현재 Windows console에 stdout을 통해 0개 이상의 값을 씁니다. console window가 없으면 호출은 아무것도 변환하거나 쓰지 않고 반환됩니다. console이 있으면 각 argument는 Lua string conversion으로 변환되고 tab 문자로 결합된 뒤 runtime value을 통해 쓰입니다. Lua string conversion이 error를 발생시키면 rconsolewarn은 이를 잡지 않습니다. 이 function은 쓰기 전에 console text attribute를 FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY로 설정하고, 이후 default console text color로 설정합니다. newline이나 warning prefix를 추가하지 않고, console을 만들거나 표시하지 않으며, Luau warn 또는 Roblox Output을 호출하지 않습니다. consolewarn은 같은 function의 alias입니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 rconsolewarn(...values?: ...any)
@@ -20,9 +17,9 @@ rconsolewarn(...values?: ...any)
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `...values` | `...any` | No | 선택적 값입니다. console이 있으면 각 value는 Lua string conversion으로 변환되고 쓰기 전에 tab 문자로 결합됩니다. |
+<ParamField path={"...values"} type={"...any"}>
+선택적 값입니다. console이 있으면 각 value는 Lua string conversion으로 변환되고 쓰기 전에 tab 문자로 결합됩니다.
+</ParamField>
 
 ## 예제
 
@@ -33,3 +30,6 @@ rconsolecreate()
 rconsolewarn("Retrying request", 3)
 rconsolewarn("\n")
 ```
+
+
+</div>

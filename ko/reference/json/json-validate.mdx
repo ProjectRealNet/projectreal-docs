@@ -2,13 +2,10 @@
 title: "json.validate"
 sidebarTitle: "json.validate"
 description: "JSON string을 하나의 complete JSON value로 parse해서 검증합니다. success일 때는 true만 반환합니다. parse failure일 때는 false와 parser error details를 반환합니다."
-icon: "function"
 keywords: ["json.validate","JSON"]
 ---
 
-JSON string을 하나의 complete JSON value로 parse해서 검증합니다. success일 때는 true만 반환합니다. parse failure일 때는 false와 parser error details를 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 json.validate(json: string, options?: DecodeOptions): boolean | string | nil | number | nil
@@ -16,18 +13,27 @@ json.validate(json: string, options?: DecodeOptions): boolean | string | nil | n
 
 ## 인수
 
-| Name | Type | Required | 설명 |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | validate할 JSON string입니다. function은 이 argument를 string type checking으로 읽습니다. |
-| `options` | `DecodeOptions` | No | Optional decode options입니다. boolean은 useNull을 설정합니다. table은 useNull과 maxDepth를 설정할 수 있습니다. maxDepth는 1에서 4096으로 clamp됩니다. |
+<ParamField path={"json"} type={"string"} required>
+validate할 JSON string입니다. function은 이 argument를 string type checking으로 읽습니다.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options입니다. boolean은 useNull을 설정합니다. table은 useNull과 maxDepth를 설정할 수 있습니다. maxDepth는 1에서 4096으로 clamp됩니다.
+</ParamField>
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `valid` | `boolean` | 하나의 complete JSON value parsing이 성공하면 true입니다. protected parse block 안에서 parsing이 실패하면 false입니다. |
-| `errorMessage` | `string \| nil` | parse failure일 때의 Error message입니다. message는 json.validate로 prefixed되고 near-position suffix를 포함합니다. 이 return은 failure일 때만 존재합니다. |
-| `errorPosition` | `number \| nil` | parse failure일 때 parser의 Parser byte position입니다. 이 return은 failure일 때만 존재합니다. |
+<ResponseField name={"valid"} type={"boolean"}>
+하나의 complete JSON value parsing이 성공하면 true입니다. protected parse block 안에서 parsing이 실패하면 false입니다.
+</ResponseField>
+
+<ResponseField name={"errorMessage"} type={"string | nil"}>
+parse failure일 때의 Error message입니다. message는 json.validate로 prefixed되고 near-position suffix를 포함합니다. 이 return은 failure일 때만 존재합니다.
+</ResponseField>
+
+<ResponseField name={"errorPosition"} type={"number | nil"}>
+parse failure일 때 parser의 Parser byte position입니다. 이 return은 failure일 때만 존재합니다.
+</ResponseField>
 
 ## 타입
 
@@ -53,3 +59,6 @@ if not valid then
     warn(message, position)
 end
 ```
+
+
+</div>

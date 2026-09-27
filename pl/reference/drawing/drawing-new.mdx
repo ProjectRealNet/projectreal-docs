@@ -2,13 +2,10 @@
 title: "Drawing.new"
 sidebarTitle: "Drawing.new"
 description: "Tworzy nowe Drawing object zadanego typu i dodaje je do Real tracked Drawing object list. type string musi byc jedna z dokladnie obslugiwanych nazw: \"Line\", \"Text\", \"Circle\", \"Square\", \"Quad\", \"Triangle\", \"Image\". Brakujace wartosci, non-string lub nieobslugiwane type values powoduja Lua error. the Drawing API rejestruje te API tylko wtedy, gdy the required rendering environment is active ma wartosc true; gdy ten check ma wartosc false, initializer wraca przed utworzeniem tych globals."
-icon: "function"
 keywords: ["Drawing.new","Drawing"]
 ---
 
-Tworzy nowe Drawing object zadanego typu i dodaje je do Real tracked Drawing object list. type string musi byc jedna z dokladnie obslugiwanych nazw: "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". Brakujace wartosci, non-string lub nieobslugiwane type values powoduja Lua error. the Drawing API rejestruje te API tylko wtedy, gdy the required rendering environment is active ma wartosc true; gdy ten check ma wartosc false, initializer wraca przed utworzeniem tych globals.
-
-## Składnia
+<div className="real-function-page">
 
 ```lua
 Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad" | "Triangle"): DrawingObject
@@ -16,15 +13,15 @@ Drawing.new(objectType: "Image" | "Line" | "Text" | "Circle" | "Square" | "Quad"
 
 ## Argumenty
 
-| Name | Type | Required | Opis |
-| --- | --- | --- | --- |
-| `objectType` | `"Image" \| "Line" \| "Text" \| "Circle" \| "Square" \| "Quad" \| "Triangle"` | Yes | Dokladna nazwa Drawing type do utworzenia. Obslugiwane wartosci to "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image". |
+<ParamField path={"objectType"} type={"\"Image\" | \"Line\" | \"Text\" | \"Circle\" | \"Square\" | \"Quad\" | \"Triangle\""} required>
+Dokladna nazwa Drawing type do utworzenia. Obslugiwane wartosci to "Line", "Text", "Circle", "Square", "Quad", "Triangle", "Image".
+</ParamField>
 
 ## Zwroty
 
-| Name | Type | Opis |
-| --- | --- | --- |
-| `object` | `DrawingObject` | Utworzone Drawing object z Drawing object type. |
+<ResponseField name={"object"} type={"DrawingObject"}>
+Utworzone Drawing object z Drawing object type.
+</ResponseField>
 
 ## Przykład
 
@@ -38,3 +35,6 @@ square.Color = Color3.fromRGB(120, 170, 255)
 square.Filled = true
 square.Visible = true
 ```
+
+
+</div>

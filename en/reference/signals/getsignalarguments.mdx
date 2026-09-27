@@ -2,13 +2,10 @@
 title: "getsignalarguments"
 sidebarTitle: "getsignalarguments"
 description: "Returns an array table of type names read from an RBXScriptSignal event descriptor signature. The first argument must be object whose Luau type name is RBXScriptSignal. The function reads the signal's event descriptor, walks the signature slots with the Real's argument stride, reads each argument type reference, and pushes the resolved type name string for each slot. It does not return captured runtime argument values. If the signature cannot be read or no entries are pushed, the returned table contains one fallback entry: \"Variant\"."
-icon: "function"
 keywords: ["getsignalarguments","Signals"]
 ---
 
-Returns an array table of type names read from an RBXScriptSignal event descriptor signature. The first argument must be object whose Luau type name is RBXScriptSignal. The function reads the signal's event descriptor, walks the signature slots with the Real's argument stride, reads each argument type reference, and pushes the resolved type name string for each slot. It does not return captured runtime argument values. If the signature cannot be read or no entries are pushed, the returned table contains one fallback entry: "Variant".
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getsignalarguments(signal: RBXScriptSignal): {string}
@@ -16,15 +13,15 @@ getsignalarguments(signal: RBXScriptSignal): {string}
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | Signal whose event descriptor signature should be inspected. Non-RBXScriptSignal object raises a type error. |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+Signal whose event descriptor signature should be inspected. Non-RBXScriptSignal object raises a type error.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `arguments` | `&#123;string&#125;` | Array table of argument type name strings. A fallback table containing "Variant" is returned when the signature data cannot be read or no argument entries are produced. |
+<ResponseField name={"arguments"} type={"{string}"}>
+Array table of argument type name strings. A fallback table containing "Variant" is returned when the signature data cannot be read or no argument entries are produced.
+</ResponseField>
 
 ## Example
 
@@ -40,3 +37,6 @@ if remote then
     end
 end
 ```
+
+
+</div>

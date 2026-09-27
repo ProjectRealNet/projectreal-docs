@@ -2,13 +2,10 @@
 title: "getactorfromthread"
 sidebarTitle: "getactorfromthread"
 description: "คืน Actor Instance ที่เชื่อมกับ Luau thread argument แรกต้องเป็น thread function อ่าน thread data ของ thread ต้องมี Actor reference และ positive container count จากนั้นอ่าน the associated Actor หาก actor weak reference valid จะ push เป็น Instance มิฉะนั้น function คืน nil"
-icon: "function"
 keywords: ["getactorfromthread","Actors","getactorfromstate"]
 ---
 
-คืน Actor Instance ที่เชื่อมกับ Luau thread argument แรกต้องเป็น thread function อ่าน thread data ของ thread ต้องมี Actor reference และ positive container count จากนั้นอ่าน the associated Actor หาก actor weak reference valid จะ push เป็น Instance มิฉะนั้น function คืน nil
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 getactorfromthread(thread: thread): Instance | nil
@@ -20,15 +17,15 @@ getactorfromthread(thread: thread): Instance | nil
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `thread` | `thread` | Yes | Luau thread ที่ต้องตรวจ thread data เพื่อหา associated Actor weak reference |
+<ParamField path={"thread"} type={"thread"} required>
+Luau thread ที่ต้องตรวจ thread data เพื่อหา associated Actor weak reference
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `actor` | `Instance \| nil` | Actor Instance ที่ resolve จาก the associated Actor weak reference ของ thread หรือ nil เมื่อไม่มี valid actor reference |
+<ResponseField name={"actor"} type={"Instance | nil"}>
+Actor Instance ที่ resolve จาก the associated Actor weak reference ของ thread หรือ nil เมื่อไม่มี valid actor reference
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -40,3 +37,6 @@ for _, thread in ipairs(getactorthreads()) do
     print(actor)
 end
 ```
+
+
+</div>

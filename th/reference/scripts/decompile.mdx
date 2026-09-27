@@ -2,13 +2,10 @@
 title: "decompile"
 sidebarTitle: "decompile"
 description: "decompile Roblox script และคืน source text ที่สร้างขึ้นเมื่อมี bytecode ให้ใช้ argument ต้องเป็น script Instance ที่รองรับ ถ้าไม่มี bytecode ที่ใช้ได้ function จะคืน nil"
-icon: "function"
 keywords: ["decompile","Scripts"]
 ---
 
-decompile Roblox script และคืน source text ที่สร้างขึ้นเมื่อมี bytecode ให้ใช้ argument ต้องเป็น script Instance ที่รองรับ ถ้าไม่มี bytecode ที่ใช้ได้ function จะคืน nil
-
-## ไวยากรณ์
+<div className="real-function-page">
 
 ```lua
 decompile(script: userdata): string | nil
@@ -16,15 +13,15 @@ decompile(script: userdata): string | nil
 
 ## Arguments
 
-| Name | Type | Required | คำอธิบาย |
-| --- | --- | --- | --- |
-| `script` | `userdata` | Yes | Script object ที่ต้อง decompile ค่า ClassName ที่รองรับคือ ModuleScript, LocalScript, CoreScript และ Script ที่มี RunContext Client. |
+<ParamField path={"script"} type={"userdata"} required>
+Script object ที่ต้อง decompile ค่า ClassName ที่รองรับคือ ModuleScript, LocalScript, CoreScript และ Script ที่มี RunContext Client.
+</ParamField>
 
 ## Returns
 
-| Name | Type | คำอธิบาย |
-| --- | --- | --- |
-| `source` | `string \| nil` | Decompiler output string, caught decompiler exception text, หรือ nil เมื่อไม่มี usable embedded bytecode. |
+<ResponseField name={"source"} type={"string | nil"}>
+Decompiler output string, caught decompiler exception text, หรือ nil เมื่อไม่มี usable embedded bytecode.
+</ResponseField>
 
 ## ตัวอย่าง
 
@@ -48,3 +45,6 @@ if targetScript then
     end
 end
 ```
+
+
+</div>

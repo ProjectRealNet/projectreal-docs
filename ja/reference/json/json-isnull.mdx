@@ -2,13 +2,10 @@
 title: "json.isNull"
 sidebarTitle: "json.isNull"
 description: "Value が Real JSON null sentinel である json.null かを返します。"
-icon: "function"
 keywords: ["json.isNull","JSON"]
 ---
 
-Value が Real JSON null sentinel である json.null かを返します。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 json.isNull(value: any): boolean
@@ -16,15 +13,15 @@ json.isNull(value: any): boolean
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Inspect する value。 json.null sentinel だけが true を返します。Lua nil と other values は false を返します。 |
+<ParamField path={"value"} type={"any"} required>
+Inspect する value。 json.null sentinel だけが true を返します。Lua nil と other values は false を返します。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `isNull` | `boolean` | Value が exact json.null sentinel の場合 true、それ以外は false。 |
+<ResponseField name={"isNull"} type={"boolean"}>
+Value が exact json.null sentinel の場合 true、それ以外は false。
+</ResponseField>
 
 ## 例
 
@@ -39,3 +36,6 @@ end
 
 print(json.isNull(nil))
 ```
+
+
+</div>

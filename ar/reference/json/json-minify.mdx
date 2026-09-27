@@ -2,13 +2,10 @@
 title: "json.minify"
 sidebarTitle: "json.minify"
 description: "يعمل parse لـ JSON string ثم يعيد encode له باستخدام Real default non-pretty JSON encoder output."
-icon: "function"
 keywords: ["json.minify","JSON"]
 ---
 
-يعمل parse لـ JSON string ثم يعيد encode له باستخدام Real default non-pretty JSON encoder output.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 json.minify(json: string, options?: DecodeOptions): string
@@ -16,16 +13,19 @@ json.minify(json: string, options?: DecodeOptions): string
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string يتم parse له قبل minifying. Function تقرأ هذا argument باستخدام string type checking. |
-| `options` | `DecodeOptions` | No | Optional decode options تستخدم اثناء parsing للـ input JSON. boolean يضبط useNull. table يمكنها ضبط useNull و maxDepth. |
+<ParamField path={"json"} type={"string"} required>
+JSON string يتم parse له قبل minifying. Function تقرأ هذا argument باستخدام string type checking.
+</ParamField>
+
+<ParamField path={"options"} type={"DecodeOptions"}>
+Optional decode options تستخدم اثناء parsing للـ input JSON. boolean يضبط useNull. table يمكنها ضبط useNull و maxDepth.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `minified` | `string` | JSON string يتم انتاجه بعد parsing و re-encoding للـ input باستخدام default encode options. |
+<ResponseField name={"minified"} type={"string"}>
+JSON string يتم انتاجه بعد parsing و re-encoding للـ input باستخدام default encode options.
+</ResponseField>
 
 ## الأنواع
 
@@ -53,3 +53,6 @@ print(json.minify(formatted, {
     useNull = true,
 }))
 ```
+
+
+</div>

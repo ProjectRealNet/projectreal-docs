@@ -2,13 +2,10 @@
 title: "crypt.generatekey"
 sidebarTitle: "crypt.generatekey"
 description: "random byte generator로 32개의 임의 raw bytes를 생성하고 Base64-encoded Lua string으로 반환합니다."
-icon: "function"
 keywords: ["crypt.generatekey","Cryptography"]
 ---
 
-random byte generator로 32개의 임의 raw bytes를 생성하고 Base64-encoded Lua string으로 반환합니다.
-
-## 문법
+<div className="real-function-page">
 
 ```lua
 crypt.generatekey(): string
@@ -16,9 +13,9 @@ crypt.generatekey(): string
 
 ## 반환값
 
-| Name | Type | 설명 |
-| --- | --- | --- |
-| `key` | `string` | 생성된 32 raw bytes의 Base64 encoding입니다. 반환된 string은 32자가 아닙니다. |
+<ResponseField name={"key"} type={"string"}>
+생성된 32 raw bytes의 Base64 encoding입니다. 반환된 string은 32자가 아닙니다.
+</ResponseField>
 
 ## 예제
 
@@ -34,3 +31,6 @@ print(key)
 print(#raw)
 print(ciphertext, iv)
 ```
+
+
+</div>

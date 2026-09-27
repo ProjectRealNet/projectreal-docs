@@ -2,13 +2,10 @@
 title: "isnetworkowner"
 sidebarTitle: "isnetworkowner"
 description: "返回从 Instance 读取 hidden property \"NetworkOwnerV3\" 并检查第一个返回值经 integer conversion 转换后是否大于 2 的结果。参数必须是 Instance object。function 内部调用 the hidden property reader，并且不会捕获该调用的 errors，因此 Invalid Instance values、missing properties 或 non-property metadata 可能抛出与 gethiddenproperty 相同的错误。它返回一个 boolean。peer_id > 2 是否准确表示 local network ownership 是: Nicht aus der Codebasis verifizierbar."
-icon: "function"
 keywords: ["isnetworkowner","Instances"]
 ---
 
-返回从 Instance 读取 hidden property "NetworkOwnerV3" 并检查第一个返回值经 integer conversion 转换后是否大于 2 的结果。参数必须是 Instance object。function 内部调用 the hidden property reader，并且不会捕获该调用的 errors，因此 Invalid Instance values、missing properties 或 non-property metadata 可能抛出与 gethiddenproperty 相同的错误。它返回一个 boolean。peer_id > 2 是否准确表示 local network ownership 是: Nicht aus der Codebasis verifizierbar.
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 isnetworkowner(instance: Instance): boolean
@@ -16,15 +13,15 @@ isnetworkowner(instance: Instance): boolean
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | 传给 the hidden property reader 的 Instance object，property name 为 "NetworkOwnerV3"。 |
+<ParamField path={"instance"} type={"Instance"} required>
+传给 the hidden property reader 的 Instance object，property name 为 "NetworkOwnerV3"。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `isOwner` | `boolean` | 当对 "NetworkOwnerV3" 第一个返回值执行 integer conversion 后大于 2 时为 true，否则为 false。 |
+<ResponseField name={"isOwner"} type={"boolean"}>
+当对 "NetworkOwnerV3" 第一个返回值执行 integer conversion 后大于 2 时为 true，否则为 false。
+</ResponseField>
 
 ## 示例
 
@@ -38,3 +35,6 @@ if part then
     print(ownsNetwork)
 end
 ```
+
+
+</div>

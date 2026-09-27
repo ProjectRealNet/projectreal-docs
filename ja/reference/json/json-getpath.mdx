@@ -2,13 +2,10 @@
 title: "json.getPath"
 sidebarTitle: "json.getPath"
 description: "Dotted string path または array table of keys を使って table から nested value を読みます。"
-icon: "function"
 keywords: ["json.getPath","JSON","json.getpath"]
 ---
 
-Dotted string path または array table of keys を使って table から nested value を読みます。
-
-## 構文
+<div className="real-function-page">
 
 ```lua
 json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
@@ -20,17 +17,23 @@ json.getPath(object: table, path: string | table, defaultValue?: any): any | nil
 
 ## 引数
 
-| Name | Type | Required | 説明 |
-| --- | --- | --- | --- |
-| `object` | `table` | Yes | 読み取り元の root table。function はこの argument が table であることを要求します。 |
-| `path` | `string \| table` | Yes | たどる path。string は dots で split されます。integer string tokens は raw array indexing で読まれます。table path は 1 から #path までの array entries を keys として使います。 |
-| `defaultValue` | `any` | No | Traversal が path 完了前に nil または non-table に到達した場合に返す fallback value。 |
+<ParamField path={"object"} type={"table"} required>
+読み取り元の root table。function はこの argument が table であることを要求します。
+</ParamField>
+
+<ParamField path={"path"} type={"string | table"} required>
+たどる path。string は dots で split されます。integer string tokens は raw array indexing で読まれます。table path は 1 から #path までの array entries を keys として使います。
+</ParamField>
+
+<ParamField path={"defaultValue"} type={"any"}>
+Traversal が path 完了前に nil または non-table に到達した場合に返す fallback value。
+</ParamField>
 
 ## 戻り値
 
-| Name | Type | 説明 |
-| --- | --- | --- |
-| `pathValue` | `any \| nil` | Requested path の value。path が missing の場合、defaultValue が提供されていればそれを返し、それ以外は nil を返します。 |
+<ResponseField name={"pathValue"} type={"any | nil"}>
+Requested path の value。path が missing の場合、defaultValue が提供されていればそれを返し、それ以外は nil を返します。
+</ResponseField>
 
 ## 例
 
@@ -50,3 +53,6 @@ local second = json.getPath(document, "user.items.2")
 print(name)
 print(second)
 ```
+
+
+</div>

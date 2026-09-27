@@ -2,13 +2,10 @@
 title: "json.format"
 sidebarTitle: "json.format"
 description: "يعمل parse لـ JSON string ثم يعيد encode له كـ readable formatted JSON باستخدام Real JSON parser و encoder."
-icon: "function"
 keywords: ["json.format","JSON"]
 ---
 
-يعمل parse لـ JSON string ثم يعيد encode له كـ readable formatted JSON باستخدام Real JSON parser و encoder.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeOptions): string
@@ -16,17 +13,23 @@ json.format(json: string, encodeOptions?: EncodeOptions, decodeOptions?: DecodeO
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `json` | `string` | Yes | JSON string يتم parse له قبل formatting. Function تقرأ هذا argument باستخدام string type checking. |
-| `encodeOptions` | `EncodeOptions` | No | Optional encode options يتم تمريرها الى re-encode step. json.format يقرأ نفس encode options مثل json.encode، ثم يفرض pretty على true. |
-| `decodeOptions` | `DecodeOptions` | No | Optional decode options تستخدم اثناء parsing للـ input JSON. boolean يضبط useNull. table يمكنها ضبط useNull و maxDepth. |
+<ParamField path={"json"} type={"string"} required>
+JSON string يتم parse له قبل formatting. Function تقرأ هذا argument باستخدام string type checking.
+</ParamField>
+
+<ParamField path={"encodeOptions"} type={"EncodeOptions"}>
+Optional encode options يتم تمريرها الى re-encode step. json.format يقرأ نفس encode options مثل json.encode، ثم يفرض pretty على true.
+</ParamField>
+
+<ParamField path={"decodeOptions"} type={"DecodeOptions"}>
+Optional decode options تستخدم اثناء parsing للـ input JSON. boolean يضبط useNull. table يمكنها ضبط useNull و maxDepth.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `formatted` | `string` | Readable formatted JSON string يتم انتاجه بعد parsing و re-encoding للـ input. |
+<ResponseField name={"formatted"} type={"string"}>
+Readable formatted JSON string يتم انتاجه بعد parsing و re-encoding للـ input.
+</ResponseField>
 
 ## الأنواع
 
@@ -68,3 +71,6 @@ local formatted = json.format(compact, {
 
 print(formatted)
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "json.clone"
 sidebarTitle: "json.clone"
 description: "Clones a value by encoding it with json.encode semantics and decoding the generated JSON back into Lua values."
-icon: "function"
 keywords: ["json.clone","JSON"]
 ---
 
-Clones a value by encoding it with json.encode semantics and decoding the generated JSON back into Lua values.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 json.clone(value: any, options?: EncodeOptions): any
@@ -16,16 +13,19 @@ json.clone(value: any, options?: EncodeOptions): any
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `value` | `any` | Yes | Value to encode and decode. Supported JSON values round-trip with JSON; unsupported types encode as null unless encode options request an error. |
-| `options` | `EncodeOptions` | No | Optional encode options passed to the encode step, such as sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty, and indent. |
+<ParamField path={"value"} type={"any"} required>
+Value to encode and decode. Supported JSON values round-trip with JSON; unsupported types encode as null unless encode options request an error.
+</ParamField>
+
+<ParamField path={"options"} type={"EncodeOptions"}>
+Optional encode options passed to the encode step, such as sortKeys, emptyTableAsArray, errorOnUnsupported, encodeInvalidNumbersAsNull, maxDepth, pretty, and indent.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `clone` | `any` | Decoded value produced from the encoded JSON. Objects and arrays are new tables with JSON kind markers from the decoder; JSON null values decode to json.null. |
+<ResponseField name={"clone"} type={"any"}>
+Decoded value produced from the encoded JSON. Objects and arrays are new tables with JSON kind markers from the decoder; JSON null values decode to json.null.
+</ResponseField>
 
 ## Types
 
@@ -59,3 +59,6 @@ print(original.profile.name)
 print(copy.profile.name)
 print(json.type(copy))
 ```
+
+
+</div>

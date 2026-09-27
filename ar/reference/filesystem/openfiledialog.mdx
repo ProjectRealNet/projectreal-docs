@@ -2,13 +2,10 @@
 title: "openfiledialog"
 sidebarTitle: "openfiledialog"
 description: "يفتح Windows file-open dialog عبر Windows file picker ويعيد الملف المحدد كـ file item."
-icon: "function"
 keywords: ["openfiledialog","Filesystem"]
 ---
 
-يفتح Windows file-open dialog عبر Windows file picker ويعيد الملف المحدد كـ file item.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 openfiledialog(options?: DialogOptions): FileSystemItem | nil
@@ -16,15 +13,15 @@ openfiledialog(options?: DialogOptions): FileSystemItem | nil
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `options` | `DialogOptions` | No | Optional table. في openfiledialog يتم استخدام title و defaultPath و extensionFilter. extensionFilter هي table من extension strings؛ يتم حذف . او *. من البداية قبل ان يصبح كل filter بالشكل *.&lt;extension>. |
+<ParamField path={"options"} type={"DialogOptions"}>
+Optional table. في openfiledialog يتم استخدام title و defaultPath و extensionFilter. extensionFilter هي table من extension strings؛ يتم حذف . او *. من البداية قبل ان يصبح كل filter بالشكل *.&lt;extension>.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `file` | `FileSystemItem \| nil` | Selected file item، او nil عندما يتم cancel للـ dialog او لا يتم ارجاع selected filesystem path. Dialog failures ترمي Failed to open file dialog. |
+<ResponseField name={"file"} type={"FileSystemItem | nil"}>
+Selected file item، او nil عندما يتم cancel للـ dialog او لا يتم ارجاع selected filesystem path. Dialog failures ترمي Failed to open file dialog.
+</ResponseField>
 
 ## الأنواع
 
@@ -58,3 +55,6 @@ else
     print("No file selected")
 end
 ```
+
+
+</div>

@@ -2,13 +2,10 @@
 title: "getactorfromthread"
 sidebarTitle: "getactorfromthread"
 description: "تعيد Actor Instance المرتبطة بـ Luau thread. يجب أن يكون الوسيط الأول thread. تقرأ function الـ thread data للthread، وتتطلب Actor reference و positive container count، ثم تقرأ the associated Actor. إذا كان actor weak reference صالحا، يتم push له كـ Instance؛ وإلا تعيد function nil."
-icon: "function"
 keywords: ["getactorfromthread","Actors","getactorfromstate"]
 ---
 
-تعيد Actor Instance المرتبطة بـ Luau thread. يجب أن يكون الوسيط الأول thread. تقرأ function الـ thread data للthread، وتتطلب Actor reference و positive container count، ثم تقرأ the associated Actor. إذا كان actor weak reference صالحا، يتم push له كـ Instance؛ وإلا تعيد function nil.
-
-## الصيغة
+<div className="real-function-page">
 
 ```lua
 getactorfromthread(thread: thread): Instance | nil
@@ -20,15 +17,15 @@ getactorfromthread(thread: thread): Instance | nil
 
 ## الوسائط
 
-| Name | Type | Required | الوصف |
-| --- | --- | --- | --- |
-| `thread` | `thread` | Yes | Luau thread الذي يجب فحص thread data الخاص به بحثا عن associated Actor weak reference. |
+<ParamField path={"thread"} type={"thread"} required>
+Luau thread الذي يجب فحص thread data الخاص به بحثا عن associated Actor weak reference.
+</ParamField>
 
 ## القيم الراجعة
 
-| Name | Type | الوصف |
-| --- | --- | --- |
-| `actor` | `Instance \| nil` | Actor Instance المحلولة من the associated Actor weak reference الخاصة بالthread، أو nil عندما لا توجد valid actor reference. |
+<ResponseField name={"actor"} type={"Instance | nil"}>
+Actor Instance المحلولة من the associated Actor weak reference الخاصة بالthread، أو nil عندما لا توجد valid actor reference.
+</ResponseField>
 
 ## مثال
 
@@ -40,3 +37,6 @@ for _, thread in ipairs(getactorthreads()) do
     print(actor)
 end
 ```
+
+
+</div>

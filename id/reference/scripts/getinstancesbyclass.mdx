@@ -2,13 +2,10 @@
 title: "getinstancesbyclass"
 sidebarTitle: "getinstancesbyclass"
 description: "Mengembalikan instances dari Instance cache table yang ClassName field-nya persis cocok dengan string yang diminta. Argumen pertama dibaca dengan string type checking. Empty string menghasilkan \"ClassName required\". Function membuat array table baru, mengiterasi cache yang disimpan di bawah Instance cache, hanya menyimpan values dengan Lua type object, membaca ClassName field dari tiap object value, dan membandingkannya dengan strcmp terhadap className yang diminta. Matches dimasukkan secara sequential mulai index 1. Pencocokan bersifat exact dan case-sensitive. Function tidak memakai IsA, tidak menyertakan subclasses, tidak melakukan walk descendants, tidak memfilter Parent, dan tidak mengurutkan result. getinstancesofclass adalah alias untuk function yang sama."
-icon: "function"
 keywords: ["getinstancesbyclass","Scripts","getinstancesofclass"]
 ---
 
-Mengembalikan instances dari Instance cache table yang ClassName field-nya persis cocok dengan string yang diminta. Argumen pertama dibaca dengan string type checking. Empty string menghasilkan "ClassName required". Function membuat array table baru, mengiterasi cache yang disimpan di bawah Instance cache, hanya menyimpan values dengan Lua type object, membaca ClassName field dari tiap object value, dan membandingkannya dengan strcmp terhadap className yang diminta. Matches dimasukkan secara sequential mulai index 1. Pencocokan bersifat exact dan case-sensitive. Function tidak memakai IsA, tidak menyertakan subclasses, tidak melakukan walk descendants, tidak memfilter Parent, dan tidak mengurutkan result. getinstancesofclass adalah alias untuk function yang sama.
-
-## Sintaks
+<div className="real-function-page">
 
 ```lua
 getinstancesbyclass(className: string): table
@@ -20,12 +17,15 @@ getinstancesbyclass(className: string): table
 
 ## Argumen
 
-| Name | Type | Required | Deskripsi |
-| --- | --- | --- | --- |
-| `className` | `string` | Yes | Exact ClassName string untuk dicocokkan. Empty strings menghasilkan "ClassName required". |
+<ParamField path={"className"} type={"string"} required>
+Exact ClassName string untuk dicocokkan. Empty strings menghasilkan "ClassName required".
+</ParamField>
 
 ## Return
 
-| Name | Type | Deskripsi |
-| --- | --- | --- |
-| `instances` | `table` | New array table berisi matching object values dari Instance cache table. |
+<ResponseField name={"instances"} type={"table"}>
+New array table berisi matching object values dari Instance cache table.
+</ResponseField>
+
+
+</div>

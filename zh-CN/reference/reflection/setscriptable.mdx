@@ -2,13 +2,10 @@
 title: "setscriptable"
 sidebarTitle: "setscriptable"
 description: "将 Roblox property 的 scriptable override 存入 scriptable override cache，并返回 previous scriptable state。第一个参数必须是 Instance object，第二个参数必须是 string property name，第三个参数必须是 boolean。如果同一 instance reference 和 property name 已有 cache entry，则替换 cached scriptable value，并返回旧的 cached value。cache miss 时，通过 Roblox property metadata 和 Instance class descriptor 解析 property name。如果 descriptor 不存在，或解析到的 field 缺失，或不是 property entry，function 返回 nil。找到 property entry 时，function 读取 scriptable state，把请求的 boolean 和 property reference 存入 scriptable override cache，然后返回 previous scriptable state value。GameIndexHook 和 GameNewIndexHook 稍后会使用这个 cache，在一次 indexed read 或 write 期间临时设置 property field scriptable flag，然后恢复 previous field flag。"
-icon: "function"
 keywords: ["setscriptable","Reflection"]
 ---
 
-将 Roblox property 的 scriptable override 存入 scriptable override cache，并返回 previous scriptable state。第一个参数必须是 Instance object，第二个参数必须是 string property name，第三个参数必须是 boolean。如果同一 instance reference 和 property name 已有 cache entry，则替换 cached scriptable value，并返回旧的 cached value。cache miss 时，通过 Roblox property metadata 和 Instance class descriptor 解析 property name。如果 descriptor 不存在，或解析到的 field 缺失，或不是 property entry，function 返回 nil。找到 property entry 时，function 读取 scriptable state，把请求的 boolean 和 property reference 存入 scriptable override cache，然后返回 previous scriptable state value。GameIndexHook 和 GameNewIndexHook 稍后会使用这个 cache，在一次 indexed read 或 write 期间临时设置 property field scriptable flag，然后恢复 previous field flag。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 setscriptable(instance: Instance, property: string, value: boolean): boolean | nil
@@ -16,17 +13,23 @@ setscriptable(instance: Instance, property: string, value: boolean): boolean | n
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `instance` | `Instance` | Yes | 作为 scriptable override cache key 一部分使用的 Instance object。 |
-| `property` | `string` | Yes | cache miss 时通过 Roblox property metadata 和 Instance class descriptor 解析的 property name。 |
-| `value` | `boolean` | Yes | 要存入 scriptable override cache 的 scriptable override value。 |
+<ParamField path={"instance"} type={"Instance"} required>
+作为 scriptable override cache key 一部分使用的 Instance object。
+</ParamField>
+
+<ParamField path={"property"} type={"string"} required>
+cache miss 时通过 Roblox property metadata 和 Instance class descriptor 解析的 property name。
+</ParamField>
+
+<ParamField path={"value"} type={"boolean"} required>
+要存入 scriptable override cache 的 scriptable override value。
+</ParamField>
 
 ## 返回值
 
-| Name | Type | 说明 |
-| --- | --- | --- |
-| `previousState` | `boolean \| nil` | Previous cached scriptable value、previous scriptable state value，或 property 无法解析为 property entry 时的 nil。 |
+<ResponseField name={"previousState"} type={"boolean | nil"}>
+Previous cached scriptable value、previous scriptable state value，或 property 无法解析为 property entry 时的 nil。
+</ResponseField>
 
 ## 示例
 
@@ -40,3 +43,6 @@ if previous ~= nil then
     setscriptable(workspace, "Name", previous)
 end
 ```
+
+
+</div>

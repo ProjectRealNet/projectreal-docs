@@ -2,13 +2,10 @@
 title: "cansignalreplicate"
 sidebarTitle: "cansignalreplicate"
 description: "Comprueba si un RBXScriptSignal es legal para enviarse mediante el NetworkClient replication layer actual. La function valida el primer argument como RBXScriptSignal, lee la source instance y el event descriptor del signal, y devuelve el resultado boolean de replication layer signal replication validation. Si el valor de puntero replication layer resuelto es 0, devuelve false. No lee arguments adicionales. Esta function solo comprueba el signal y no lo dispara ni lo replica. La tabla whitelist devuelta por getsignalwhitelist no se usa en esta ruta de codigo."
-icon: "function"
 keywords: ["cansignalreplicate","Signals"]
 ---
 
-Comprueba si un RBXScriptSignal es legal para enviarse mediante el NetworkClient replication layer actual. La function valida el primer argument como RBXScriptSignal, lee la source instance y el event descriptor del signal, y devuelve el resultado boolean de replication layer signal replication validation. Si el valor de puntero replication layer resuelto es 0, devuelve false. No lee arguments adicionales. Esta function solo comprueba el signal y no lo dispara ni lo replica. La tabla whitelist devuelta por getsignalwhitelist no se usa en esta ruta de codigo.
-
-## Sintaxis
+<div className="real-function-page">
 
 ```lua
 cansignalreplicate(signal: RBXScriptSignal): boolean
@@ -16,15 +13,15 @@ cansignalreplicate(signal: RBXScriptSignal): boolean
 
 ## Argumentos
 
-| Name | Type | Required | Descripción |
-| --- | --- | --- | --- |
-| `signal` | `RBXScriptSignal` | Yes | Signal que se va a comprobar. El primer argument debe ser object cuyo Luau type name sea RBXScriptSignal. |
+<ParamField path={"signal"} type={"RBXScriptSignal"} required>
+Signal que se va a comprobar. El primer argument debe ser object cuyo Luau type name sea RBXScriptSignal.
+</ParamField>
 
 ## Retornos
 
-| Name | Type | Descripción |
-| --- | --- | --- |
-| `canReplicate` | `boolean` | El boolean devuelto por la comprobacion replication layer signal replication validation, o false cuando el valor de puntero replication layer resuelto es 0. |
+<ResponseField name={"canReplicate"} type={"boolean"}>
+El boolean devuelto por la comprobacion replication layer signal replication validation, o false cuando el valor de puntero replication layer resuelto es 0.
+</ResponseField>
 
 ## Ejemplo
 
@@ -38,3 +35,6 @@ if remote then
     print(cansignalreplicate(remote.OnClientEvent))
 end
 ```
+
+
+</div>

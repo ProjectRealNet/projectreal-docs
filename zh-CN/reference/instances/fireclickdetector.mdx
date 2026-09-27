@@ -2,13 +2,10 @@
 title: "fireclickdetector"
 sidebarTitle: "fireclickdetector"
 description: "为本地玩家触发 ClickDetector interaction。第一个参数必须是 ClassName 为 ClickDetector 的 Instance。distance 是可选参数，默认值为 0。clickOption 是可选参数，比较时不区分大小写，默认值为 \"mouseclick\"。支持的 option 是 \"mouseclick\"、\"rightmouseclick\"、\"mousehoverenter\" 和 \"mousehoverleave\"。click option 会把 distance 作为 float 传给 Roblox click helper，hover option 会忽略 distance。如果 Players 或 Players.LocalPlayer 不可用，function 会直接返回，不触发任何内容。未知的 clickOption 也不会产生 interaction。function 不返回任何内容。"
-icon: "function"
 keywords: ["fireclickdetector","Instances"]
 ---
 
-为本地玩家触发 ClickDetector interaction。第一个参数必须是 ClassName 为 ClickDetector 的 Instance。distance 是可选参数，默认值为 0。clickOption 是可选参数，比较时不区分大小写，默认值为 "mouseclick"。支持的 option 是 "mouseclick"、"rightmouseclick"、"mousehoverenter" 和 "mousehoverleave"。click option 会把 distance 作为 float 传给 Roblox click helper，hover option 会忽略 distance。如果 Players 或 Players.LocalPlayer 不可用，function 会直接返回，不触发任何内容。未知的 clickOption 也不会产生 interaction。function 不返回任何内容。
-
-## 语法
+<div className="real-function-page">
 
 ```lua
 fireclickdetector(detector: Instance, distance?: number, clickOption?: "mouseclick" | "rightmouseclick" | "mousehoverenter" | "mousehoverleave")
@@ -16,11 +13,17 @@ fireclickdetector(detector: Instance, distance?: number, clickOption?: "mousecli
 
 ## 参数
 
-| Name | Type | Required | 说明 |
-| --- | --- | --- | --- |
-| `detector` | `Instance` | Yes | ClassName 必须为 ClickDetector 的 Instance。 |
-| `distance` | `number` | No | 可选的 distance 值。默认值为 0，并在 "mouseclick" 和 "rightmouseclick" 中作为 float 传入。 |
-| `clickOption` | `"mouseclick" \| "rightmouseclick" \| "mousehoverenter" \| "mousehoverleave"` | No | 可选的 interaction selector。读取为 string，比较时不区分大小写，默认值为 "mouseclick"。 |
+<ParamField path={"detector"} type={"Instance"} required>
+ClassName 必须为 ClickDetector 的 Instance。
+</ParamField>
+
+<ParamField path={"distance"} type={"number"}>
+可选的 distance 值。默认值为 0，并在 "mouseclick" 和 "rightmouseclick" 中作为 float 传入。
+</ParamField>
+
+<ParamField path={"clickOption"} type={"\"mouseclick\" | \"rightmouseclick\" | \"mousehoverenter\" | \"mousehoverleave\""}>
+可选的 interaction selector。读取为 string，比较时不区分大小写，默认值为 "mouseclick"。
+</ParamField>
 
 ## 示例
 
@@ -31,3 +34,6 @@ local detector = workspace.InteractivePart.ClickDetector
 
 fireclickdetector(detector)
 ```
+
+
+</div>

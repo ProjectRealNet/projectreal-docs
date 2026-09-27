@@ -1,13 +1,25 @@
 ---
 title: "WebSocket"
 description: "اتصالات WebSocket ثنائية الاتجاه."
-icon: "folder-code"
+icon: "/icons/bolt.svg"
 ---
+
+<div className="real-category-page">
 
 اتصالات WebSocket ثنائية الاتجاه.
 
-| تنقل الدوال | الوصف |
-| --- | --- |
-| [`WebSocket.Close`](./websocket-close) | يغلق WebSocket object المعاد من WebSocket.connect. يجب أن يكون الوسيط الأول table. تقرأ الدالة field باسم connection state من object؛ عندما توجد live state ولم تكن destroyed أو closed بالفعل، تضبط isClosed على true وترسل frame فارغا من نوع close frame عبر WebSocket connection المخزن. لا تقبل close code أو reason ولا تعيد أي values. |
-| [`WebSocket.connect`](./websocket-connect) | تنشئ BindableEvents عددها اثنان، وتفتح WebSocket client WebSocket connection إلى URL المقدم، وتعمل yield حتى تنتهي محاولة الاتصال. عند النجاح، تعيد WebSocket table تحتوي OnMessage و OnClose events، و Send و Close methods من methods، و connection state. يتم إطلاق incoming message data عبر OnMessage كسلسلة string. عندما تنتهي receive loop، يتم إطلاق OnClose بدون arguments. عند فشل الاتصال، ترفع الدالة error string يبدأ بـ "WebSocket connection failed". |
-| [`WebSocket.Send`](./websocket-send) | ترسل Lua string عبر WebSocket object المعاد من WebSocket.connect. تتوقع method أن يكون WebSocket table هو الوسيط الأول و message string هو الوسيط الثاني. تقرأ connection state من object، وترفع "WebSocket state is missing" إذا لم تكن هذه object موجودة، وتعود بدون إرسال عندما تكون state destroyed أو closed، وتستدعي curl_ws_send مع CURLWS_TEXT افتراضيا أو CURLWS_BINARY عندما يكون الوسيط الثالث الاختياري boolean true. لا تعيد values ولا تبلغ بعدد bytes المرسلة. |
+## الدوال المتاحة
+
+<CardGroup cols={2}>
+<Card title="WebSocket.Close" href="./websocket-close">
+يغلق WebSocket object المعاد من WebSocket.connect. يجب أن يكون الوسيط الأول table. تقرأ الدالة field باسم connection state من object؛ عندما توجد live state ولم تكن destroyed أو closed بالفعل، تضبط isClosed على true وترسل frame فارغا من نوع close frame عبر WebSocket connection المخزن. لا تقبل close code أو reason ولا تعيد أي values.
+</Card>
+<Card title="WebSocket.connect" href="./websocket-connect">
+تنشئ BindableEvents عددها اثنان، وتفتح WebSocket client WebSocket connection إلى URL المقدم، وتعمل yield حتى تنتهي محاولة الاتصال. عند النجاح، تعيد WebSocket table تحتوي OnMessage و OnClose events، و Send و Close methods من methods، و connection state. يتم إطلاق incoming message data عبر OnMessage كسلسلة string. عندما تنتهي receive loop، يتم إطلاق OnClose بدون arguments. عند فشل الاتصال، ترفع الدالة error string يبدأ بـ "WebSocket connection failed".
+</Card>
+<Card title="WebSocket.Send" href="./websocket-send">
+ترسل Lua string عبر WebSocket object المعاد من WebSocket.connect. تتوقع method أن يكون WebSocket table هو الوسيط الأول و message string هو الوسيط الثاني. تقرأ connection state من object، وترفع "WebSocket state is missing" إذا لم تكن هذه object موجودة، وتعود بدون إرسال عندما تكون state destroyed أو closed، وتستدعي curl_ws_send مع CURLWS_TEXT افتراضيا أو CURLWS_BINARY عندما يكون الوسيط الثالث الاختياري boolean true. لا تعيد values ولا تبلغ بعدد bytes المرسلة.
+</Card>
+</CardGroup>
+
+</div>

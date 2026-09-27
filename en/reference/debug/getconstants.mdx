@@ -2,13 +2,10 @@
 title: "getconstants"
 sidebarTitle: "getconstants"
 description: "Returns constants from a Lua function or stack level as a table keyed by one-based constant index. target must be a function or stack level number. Invalid stack levels raise \"Level out of range\". Non-function and non-number targets raise a type error expecting \"function or number\". C closures raise \"Lua function expected\". Nil, function, and table constants are absent from the returned table. debug.getconstants is an alias."
-icon: "function"
 keywords: ["getconstants","Debug","debug.getconstants"]
 ---
 
-Returns constants from a Lua function or stack level as a table keyed by one-based constant index. target must be a function or stack level number. Invalid stack levels raise "Level out of range". Non-function and non-number targets raise a type error expecting "function or number". C closures raise "Lua function expected". Nil, function, and table constants are absent from the returned table. debug.getconstants is an alias.
-
-## Syntax
+<div className="real-function-page">
 
 ```lua
 getconstants(target: function | number): table
@@ -20,15 +17,15 @@ getconstants(target: function | number): table
 
 ## Arguments
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `target` | `function \| number` | Yes | Lua function or stack level whose constants are returned. |
+<ParamField path={"target"} type={"function | number"} required>
+Lua function or stack level whose constants are returned.
+</ParamField>
 
 ## Returns
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `constants` | `table` | Table keyed by one-based constant indices. Indices for nil, function, and table constants are absent. |
+<ResponseField name={"constants"} type={"table"}>
+Table keyed by one-based constant indices. Indices for nil, function, and table constants are absent.
+</ResponseField>
 
 ## Example
 
@@ -45,3 +42,6 @@ for index, value in pairs(constants) do
     print(index, value)
 end
 ```
+
+
+</div>
